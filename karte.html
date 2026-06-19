@@ -1,0 +1,814 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reisekarte | The Freescape Project</title>
+  <link rel="icon" type="image/png" href="assets/img/LOGO.png">
+  <link rel="stylesheet" href="style.css">
+<!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <style>
+    #map {
+      width: 100%;
+      height: 600px;
+      border-radius: var(--r-xl);
+      z-index: 1;
+    }
+    .map-wrap {
+      position: relative;
+    }
+    /* Leaflet popup styling */
+    .leaflet-popup-content-wrapper {
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      font-family: 'Inter', sans-serif;
+      padding: 0;
+      overflow: hidden;
+    }
+    .leaflet-popup-content {
+      margin: 0;
+      min-width: 200px;
+    }
+    .popup-inner {
+      padding: 1rem 1.1rem 1rem;
+    }
+    .popup-status {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+    .popup-status--visited  { color: #3d7a52; }
+    .popup-status--current  { color: #c4622d; }
+    .popup-status--planned  { color: #909090; }
+    .popup-title {
+      font-family:var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 0.35rem;
+      line-height: 1.2;
+    }
+    .popup-desc {
+      font-size: 0.82rem;
+      color: #555;
+      line-height: 1.55;
+      margin-bottom: 0.75rem;
+    }
+    .popup-link {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #c4622d;
+      text-decoration: none;
+    }
+    .popup-link:hover { text-decoration: underline; }
+
+    /* Legend */
+    .map-legend {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--gray-600);
+    }
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+    .legend-dot--visited { background: #3d7a52; }
+    .legend-dot--current { background: #c4622d; }
+    .legend-dot--planned { background: #c0c0c0; }
+
+    /* Status sidebar */
+    .karte-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 2rem;
+      align-items: start;
+    }
+    .status-card {
+      background: var(--white);
+      border: 1.5px solid var(--gray-100);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .status-card__header {
+      background: var(--green-900);
+      padding: 1.25rem 1.5rem;
+    }
+    .status-card__header h3 {
+      color: white;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .status-card__header p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.8rem;
+    }
+    .status-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .status-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1.5rem;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 0.875rem;
+      color: var(--gray-700);
+    }
+    .status-list li:last-child { border-bottom: none; }
+    .status-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .status-dot--visited { background: #3d7a52; }
+    .status-dot--current {
+      background: #c4622d;
+      box-shadow: 0 0 0 3px rgba(196,98,45,0.25);
+      animation: pulse-dot 2s ease infinite;
+    }
+    .status-dot--planned { background: #c0c0c0; }
+
+    @media(max-width:900px) {
+      .karte-layout { grid-template-columns: 1fr; }
+      #map { height: 420px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ───────────────────────────────────────── -->
+<nav class="nav nav--transparent" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/img/LOGO.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">The Freescape Project</span>
+        <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
+      </span>
+    </a>
+    <div class="nav__menu">
+      <a href="index.html" class="nav__link" data-page="index.html">Start</a>
+      <a href="ueber-uns.html" class="nav__link" data-page="ueber-uns.html">Über uns</a>
+      <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
+      <a href="blog.html" class="nav__link" data-page="blog.html">Blog</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Länder
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="laender.html#kolumbien" class="nav__dropdown-link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="nav__dropdown-link">Ecuador</a>
+          <a href="laender.html#peru" class="nav__dropdown-link">Peru</a>
+          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Bolivien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Chile</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Argentinien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
+        </div>
+      </div>
+      <a href="karte.html" class="nav__link active" data-page="karte.html">Reisekarte</a>
+      <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
+      <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
+    </div>
+
+    <!-- Sprachauswahl -->
+    <div class="lang-switcher">
+      <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="lang-switcher__flag">🇩🇪</span>
+        <span class="lang-switcher__label">DE</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lang-switcher__dropdown" role="listbox">
+        <button class="lang-switcher__option lang-switcher__option--active" data-flag="🇩🇪" data-label="DE">🇩🇪 Deutsch</button>
+        <button class="lang-switcher__option" data-flag="🇬🇧" data-label="EN">🇬🇧 English</button>
+        <button class="lang-switcher__option" data-flag="🇪🇸" data-label="ES">🇪🇸 Español</button>
+        <button class="lang-switcher__option" data-flag="🇹🇷" data-label="TR">🇹🇷 Türkçe</button>
+        <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
+      </div>
+    </div>
+
+    <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      YouTube
+    </a>
+    <button class="nav__burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="index.html" class="nav__mobile-link">Start</a>
+  <a href="ueber-uns.html" class="nav__mobile-link">Über uns</a>
+  <a href="vlogs.html" class="nav__mobile-link">Vlogs</a>
+  <a href="blog.html" class="nav__mobile-link">Blog</a>
+  <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
+  <a href="galerie.html" class="nav__mobile-link">Galerie</a>
+  <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);margin:0.5rem 0;padding:0.75rem 1rem 0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-family:var(--font-nav);">Länder</div>
+  <a href="laender.html#kolumbien" class="nav__mobile-link">Kolumbien</a>
+  <a href="laender.html#ecuador" class="nav__mobile-link">Ecuador</a>
+  <a href="laender.html#peru" class="nav__mobile-link">Peru</a>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
+</div>
+
+<!-- ── Page Hero ─────────────────────────────────────────── -->
+<section class="page-hero">
+  <!-- ✏️ HERO BILD: Ersetze die Zeile unten mit deinem Foto
+       Bild speichern unter: assets/img/hero-karte.jpg
+       Empfehlung: Querformat, min. 1600px breit -->
+  <div class="page-hero__bg" style="background:linear-gradient(135deg, #0a1520 0%, #1a3c2a 60%, #3d7a52 100%);">
+    <!-- <img src="assets/img/hero-karte.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45;"> -->
+  </div>
+  <div class="container page-hero__content">
+    <p class="overline">Live-Reisestatus</p>
+    <h1>Unsere Reisekarte</h1>
+    <p class="lead">Alle Orte die wir besucht haben — und die noch auf uns warten.</p>
+  </div>
+</section>
+
+<!-- ── Karte + Sidebar ───────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="karte-layout">
+
+      <!-- Karte -->
+      <div>
+        <div class="map-wrap">
+          <div id="map"></div>
+        </div>
+        <div class="map-legend">
+          <div class="legend-item"><div class="legend-dot legend-dot--visited"></div> Bereist</div>
+          <div class="legend-item"><div class="legend-dot legend-dot--current"></div> Aktuell hier</div>
+          <div class="legend-item"><div class="legend-dot legend-dot--planned"></div> Geplant</div>
+          <div class="legend-item"><div style="width:22px;height:3px;background:#e8431a;border-radius:2px;flex-shrink:0;"></div> Landroute</div>
+          <div class="legend-item"><div style="width:22px;height:0;border-top:3px dashed #3b61a8;flex-shrink:0;"></div> Flug</div>
+          <div class="legend-item"><div style="width:22px;height:0;border-top:3px dashed #2e8c2e;flex-shrink:0;"></div> Nächste Station</div>
+        </div>
+      </div>
+
+      <!-- Status-Sidebar -->
+      <div>
+        <div class="status-card">
+          <div class="status-card__header">
+            <!-- ✏️ SIDEBAR TITEL & UNTERTITEL -->
+            <h3>Reisestatus</h3>
+            <p>Zuletzt aktualisiert: Juni 2026</p>
+          </div>
+          <ul class="status-list">
+            <!-- ✏️ LÄNDER-LISTE: Status ändern via CSS-Klasse:
+                 status-dot--visited  = bereist (grün)
+                 status-dot--current  = aktuell hier (orange, pulsiert)
+                 status-dot--planned  = geplant (grau)
+                 Emoji + Ländername beliebig anpassen -->
+            <li><div class="status-dot status-dot--visited"></div> Kolumbien</li>
+            <li><div class="status-dot status-dot--visited"></div> Ecuador</li>
+            <li><div class="status-dot status-dot--visited"></div> 🐢 Galapagos</li>
+            <li><div class="status-dot status-dot--current"></div> Peru &nbsp;<strong style="color:var(--terra-600);font-size:0.75rem;">← wir sind hier</strong></li>
+            <li><div class="status-dot status-dot--planned"></div> Bolivien</li>
+            <li><div class="status-dot status-dot--planned"></div> Chile</li>
+            <li><div class="status-dot status-dot--planned"></div> Argentinien</li>
+            <!-- ✏️ Weitere Länder hier einfach als <li> hinzufügen -->
+          </ul>
+        </div>
+
+        <!-- Nächste Station -->
+        <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
+          <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
+          <!-- ✏️ NÄCHSTE STATION: Text hier anpassen -->
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;">Lima → Cusco → Machu Picchu. Freundin Luisa stößt dazu — wir sind gespannt! 🙌</p>
+        </div>
+
+        <!-- Statistiken -->
+        <div style="margin-top:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+          <!-- ✏️ STATISTIK-KACHELN: Zahlen & Labels anpassen -->
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:1rem;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--terra-600);line-height:1;">4</div>
+            <div style="font-size:0.75rem;color:var(--gray-500);margin-top:0.25rem;">Länder bereist</div>
+          </div>
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:1rem;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--terra-600);line-height:1;">130</div>
+            <div style="font-size:0.75rem;color:var(--gray-500);margin-top:0.25rem;">Tage unterwegs</div>
+          </div>
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:1rem;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--terra-600);line-height:1;">9.400</div>
+            <div style="font-size:0.75rem;color:var(--gray-500);margin-top:0.25rem;">km zurückgelegt</div>
+          </div>
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:1rem;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--terra-600);line-height:1;">5</div>
+            <div style="font-size:0.75rem;color:var(--gray-500);margin-top:0.25rem;">Vlogs veröffentlicht</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">Freescape Project</div>
+        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
+        <div class="footer__social">
+          <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/thefreescapeproject/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Navigation</p>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Startseite</a>
+          <a href="ueber-uns.html" class="footer__link">Über uns</a>
+          <a href="vlogs.html" class="footer__link">Vlogs</a>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="karte.html" class="footer__link">Reisekarte</a>
+          <a href="galerie.html" class="footer__link">Galerie</a>
+          <a href="kontakt.html" class="footer__link">Kontakt</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Länder</p>
+        <div class="footer__links">
+          <a href="laender.html#kolumbien" class="footer__link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="footer__link">Ecuador</a>
+          <a href="laender.html#peru" class="footer__link">Peru</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Bolivien</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Chile</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Argentinien</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Rechtliches</p>
+        <div class="footer__links">
+          <a href="impressum.html" class="footer__link">Impressum</a>
+          <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+          <a href="kontakt.html" class="footer__link">Kooperationen</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+      <div class="footer__legal">
+        <a href="impressum.html" class="footer__legal-link">Impressum</a>
+        <a href="datenschutz.html" class="footer__legal-link">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="cookie-banner">
+  <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
+  <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
+  <div class="cookie-banner__actions">
+    <button class="cookie-btn-accept">Alle akzeptieren</button>
+    <button class="cookie-btn-decline">Nur notwendige</button>
+  </div>
+</div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="main.js"></script>
+
+<script>
+/* ============================================================
+   REISEKARTE — PINS BEARBEITEN
+   ============================================================
+
+   Jeder Pin hat folgende Felder:
+   - lat, lng   : Koordinaten (Google Maps → Rechtsklick → Koordinaten kopieren)
+   - status     : "visited" (grün) | "current" (orange) | "planned" (grau)
+   - name       : Name des Ortes (fett im Popup)
+   - desc       : Kurze Beschreibung (1–2 Sätze)
+   - link       : Link zum Blog-Artikel oder Vlog (oder "" für keinen Link)
+   - linkText   : Text des Links z.B. "Zum Blogartikel" oder "Zum Vlog"
+
+   ✏️ Pins hinzufügen: einfach ein neues { ... } Objekt in die Liste unten kopieren
+   ✏️ Pins entfernen: die geschweifte Klammer { ... } samt Komma löschen
+   ============================================================ */
+
+const pins = [
+
+  // ── KOLUMBIEN ─────────────────────────────────────────
+  {
+    lat: 4.7110,
+    lng: -74.0721,
+    status: "visited",
+    name: "Bogotá",
+    desc: "Erste Station unserer Reise. La Candelaria, Streetfood und Streetart.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: 4.6382,
+    lng: -75.6691,
+    status: "visited",
+    name: "Salento",
+    desc: "Bunte Häuser, Wachspalmen im Cocora-Tal und der beste Kaffee der Welt.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: 6.2442,
+    lng: -75.5812,
+    status: "visited",
+    name: "Medellín",
+    desc: "Die ewige Frühlingsstadt — Seilbahn, Streetart und unglaubliches Essen.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: 6.2324,
+    lng: -75.1575,
+    status: "visited",
+    name: "Guatapé",
+    desc: "El Peñol und das bunteste Dorf Kolumbiens — ein unvergesslicher Tagesausflug.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: 11.1386,
+    lng: -74.1182,
+    status: "visited",
+    name: "Minca",
+    desc: "Kleines Bergdorf mit Wasserfällen und unglaublicher Ruhe.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: 11.2408,
+    lng: -74.1990,
+    status: "visited",
+    name: "Santa Marta",
+    desc: "Tor zur Karibikküste und Ausgangspunkt für den Tayrona-Nationalpark.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: 11.3097,
+    lng: -74.0318,
+    status: "visited",
+    name: "Palomino",
+    desc: "Entspanntes Strandleben zwischen Dschungel und Karibik.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: 11.3700,
+    lng: -73.9200,
+    status: "visited",
+    name: "Tayrona Nationalpark",
+    desc: "Dschungel trifft auf Karibikstrand — einer der schönsten Nationalparks Südamerikas.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: 12.5847,
+    lng: -81.7006,
+    status: "visited",
+    name: "San Andrés",
+    desc: "Das Meer der 7 Farben. Korallenriffe, Karibik-Feeling und traumhafte Strände.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+
+  // ── ECUADOR ───────────────────────────────────────────
+  {
+    lat: -0.1807,
+    lng: -78.4678,
+    status: "visited",
+    name: "Quito",
+    desc: "UNESCO-Altstadt, koloniale Pracht und der Ausblick vom TelefériQo.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: -0.6830,
+    lng: -78.4361,
+    status: "visited",
+    name: "Cotopaxi",
+    desc: "Schneebedeckter Vulkan auf fast 6.000m — gigantisches Panorama.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: -0.8592,
+    lng: -78.9007,
+    status: "visited",
+    name: "Quilotoa",
+    desc: "Smaragdgrüner Kratersee auf 3.900m — einer der schönsten Orte der Reise.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: -1.4594,
+    lng: -78.4243,
+    status: "visited",
+    name: "Baños",
+    desc: "Wasserfälle, Adrenalin-Aktivitäten und heiße Quellen am Fuß des Tungurahua.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+  {
+    lat: -2.1333,
+    lng: -75.9833,
+    status: "visited",
+    name: "Amazonas",
+    desc: "4 Tage mitten im Regenwald — Wildlife, Stille und ein Erlebnis für's Leben.",
+    link: "blog.html",
+    linkText: "Zum Blogartikel"
+  },
+
+  // ── 🐢 GALAPAGOS ──────────────────────────────────────────
+  {
+    lat: -0.9538,
+    lng: -90.9656,
+    status: "visited",
+    name: "Galapagos 🐢",
+    desc: "3 Wochen Insel-Hopping mit Seelöwen, Riesenschildkröten und Blaufußtölpeln.",
+    link: "blog.html",
+    linkText: "Zum Kosten-Check"
+  },
+
+  // ── PERU ──────────────────────────────────────────────
+  {
+    lat: -12.0464,
+    lng: -77.0428,
+    status: "current",
+    name: "Lima ← wir sind hier",
+    desc: "Ankunft in Peru! Miraflores, Barranco und das beste Ceviche unseres Lebens.",
+    link: "",
+    linkText: ""
+  },
+  {
+    lat: -14.0650,
+    lng: -75.7302,
+    status: "planned",
+    name: "Huacachina",
+    desc: "Oase mitten in der Wüste — Sandboarding und Sonnenuntergang über den Dünen.",
+    link: "",
+    linkText: ""
+  },
+  {
+    lat: -13.5170,
+    lng: -71.9785,
+    status: "planned",
+    name: "Cusco",
+    desc: "Das Tor zu Machu Picchu und ehemaliger Mittelpunkt des Inka-Reichs.",
+    link: "",
+    linkText: ""
+  },
+  {
+    lat: -13.1631,
+    lng: -72.5450,
+    status: "planned",
+    name: "Machu Picchu",
+    desc: "Das Ziel. Tickets bereits gebucht — wir können es kaum erwarten!",
+    link: "",
+    linkText: ""
+  },
+
+  // ── GEPLANTE LÄNDER ───────────────────────────────────────
+  {
+    lat: -20.2640,
+    lng: -67.6328,
+    status: "planned",
+    name: "Salar de Uyuni",
+    desc: "Der größte Salzflat der Welt — ein Traum auf unserer Liste.",
+    link: "",
+    linkText: ""
+  },
+  {
+    lat: -23.1500,
+    lng: -68.2000,
+    status: "planned",
+    name: "Atacama",
+    desc: "Die trockenste Wüste der Welt mit Geysiren und Sternen wie nirgendwo sonst.",
+    link: "",
+    linkText: ""
+  },
+  {
+    lat: -34.6037,
+    lng: -58.3816,
+    status: "planned",
+    name: "Buenos Aires",
+    desc: "Das Paris Südamerikas — Tango, Steak und das vorläufige Ende unserer Reise.",
+    link: "",
+    linkText: ""
+  }
+
+  // ✏️ NEUEN PIN HINZUFÜGEN — dieses Muster kopieren:
+  // ,{
+  //   lat: 0.0000,
+  //   lng: 0.0000,
+  //   status: "visited",       // "visited" | "current" | "planned"
+  //   name: "Ortsname 🏳️",
+  //   desc: "Kurze Beschreibung des Ortes.",
+  //   link: "blog.html",       // "" = kein Link
+  //   linkText: "Mehr lesen"
+  // }
+
+];
+
+/* ============================================================
+   KARTENEINSTELLUNGEN — bei Bedarf anpassen
+   ============================================================ */
+
+// Startposition & Zoom der Karte beim Laden
+const MAP_CENTER = [-10, -68];   // [Breitengrad, Längengrad] — Mitte Südamerika
+const MAP_ZOOM   = 4;            // 3 = sehr weit raus, 6 = nah ran
+
+// Farben der Pins
+const COLORS = {
+  visited : '#3d7a52',   // Grün — bereist
+  current : '#e8431a',   // Orange-Rot — aktuell
+  next    : '#2e8c2e',   // Grün — nächste Station
+  planned : '#c0c0c0'    // Grau
+};
+
+/* ── Route Definition ─────────────────────────────────────────
+   ✏️ ROUTE BEARBEITEN:
+   Jeder Eintrag ist ein Streckenabschnitt.
+   type: "land"  = durchgezogene rote Linie (bereist)
+         "flight"= gestrichelte blaue Linie (Flug)
+         "next"  = grüne Linie (nächste geplante Strecke)
+   coords: [[lat, lng], [lat, lng], ...]
+   Koordinaten in Reihenfolge der Reise!
+─────────────────────────────────────────────────────────────── */
+const ROUTE = [
+  // Kolumbien — Landroute
+  { type: "land", coords: [
+    [4.7110, -74.0721],   // Bogotá
+    [4.5709, -75.9821],   // Salento
+    [6.2442, -75.5812],   // Medellín
+    [6.2324, -75.1575],   // Guatapé
+    [6.2442, -75.5812],   // zurück Medellín (Flughafen)
+  ]},
+  // ✈️ Flug Medellín → San Andrés
+  { type: "flight", coords: [
+    [6.2442, -75.5812],   // Medellín
+    [12.5847, -81.7006],  // San Andrés
+  ]},
+  // ✈️ Flug San Andrés → Cartagena
+  { type: "flight", coords: [
+    [12.5847, -81.7006],  // San Andrés
+    [10.3910, -75.4794],  // Cartagena
+  ]},
+  // Kolumbien — Landroute Karibikküste
+  { type: "land", coords: [
+    [10.3910, -75.4794],  // Cartagena
+    [11.2408, -74.1990],  // Santa Marta
+    [11.3700, -73.9200],  // Tayrona
+    [11.1386, -74.1182],  // Minca
+    [11.3097, -74.0318],  // Palomino
+    [11.2408, -74.1990],  // zurück Santa Marta (Flughafen)
+  ]},
+  // ✈️ Flug Santa Marta → Quito
+  { type: "flight", coords: [
+    [11.2408, -74.1990],  // Santa Marta
+    [-0.1807, -78.4678],  // Quito
+  ]},
+  // Ecuador — Landroute
+  { type: "land", coords: [
+    [-0.1807, -78.4678],  // Quito
+    [-0.6830, -78.4361],  // Cotopaxi
+    [-0.8592, -78.9007],  // Quilotoa
+    [-1.4594, -78.4243],  // Baños
+    [-0.0450, -78.9680],  // Mindo
+    [-0.1807, -78.4678],  // zurück Quito (Zwischenstopp)
+    [-2.1333, -75.9833],  // Amazonas
+  ]},
+  // ✈️ Flug Amazonas (via Quito) → Galapagos
+  { type: "flight", coords: [
+    [-2.1333, -75.9833],  // Amazonas
+    [-0.1807, -78.4678],  // Quito (Umstieg)
+    [-0.9538, -90.9656],  // Galapagos
+  ]},
+  // ✈️ Flug Galapagos → Cuenca (via Guayaquil/Quito)
+  { type: "flight", coords: [
+    [-0.9538, -90.9656],  // Galapagos
+    [-2.1709, -79.9224],  // Guayaquil
+    [-2.9001, -79.0059],  // Cuenca
+  ]},
+  // Peru — Landroute (bisher)
+  { type: "land", coords: [
+    [-2.9001, -79.0059],  // Cuenca (Ecuador/Peru Grenze)
+    [-3.5050, -80.7500],  // Máncora
+  ]},
+  // Aktueller Standort — Huaraz
+  { type: "land", coords: [
+    [-3.5050, -80.7500],  // Máncora
+    [-9.5300, -77.5283],  // Huaraz (aktuell)
+  ]},
+  // 🟢 Nächste Stationen (geplant)
+  { type: "next", coords: [
+    [-9.5300, -77.5283],  // Huaraz
+    [-12.0464, -77.0428], // Lima
+    [-14.0650, -75.7302], // Huacachina
+    [-13.5170, -71.9785], // Cusco
+    [-13.1631, -72.5450], // Machu Picchu
+  ]},
+];
+
+/* ── Karte initialisieren ────────────────────────────────── */
+const map = L.map('map', {
+  center: MAP_CENTER,
+  zoom: MAP_ZOOM,
+  scrollWheelZoom: false
+});
+
+// Schönerer Kartenstil (CartoDB Voyager)
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+  maxZoom: 18
+}).addTo(map);
+
+/* ── Routenlinien zeichnen ────────────────────────────────── */
+const ROUTE_STYLES = {
+  land:   { color: '#e8431a', weight: 3, opacity: 0.85, dashArray: null },
+  flight: { color: '#3b61a8', weight: 2, opacity: 0.6,  dashArray: '8, 8' },
+  next:   { color: '#2e8c2e', weight: 2.5, opacity: 0.65, dashArray: '6, 5' },
+};
+
+ROUTE.forEach(segment => {
+  const style = ROUTE_STYLES[segment.type];
+  L.polyline(segment.coords, {
+    color: style.color,
+    weight: style.weight,
+    opacity: style.opacity,
+    dashArray: style.dashArray,
+    lineJoin: 'round',
+    lineCap: 'round',
+  }).addTo(map);
+});
+
+/* ── Legende aktualisieren ────────────────────────────────── */
+// (wird unten in HTML ergänzt)
+
+/* ── Pins auf Karte setzen ───────────────────────────────── */
+pins.forEach(pin => {
+  const color = pin.status === 'current' ? COLORS.current
+              : pin.status === 'visited'  ? COLORS.visited
+              : COLORS.planned;
+
+  const radius = pin.status === 'current' ? 11 : pin.status === 'visited' ? 7 : 6;
+
+  const marker = L.circleMarker([pin.lat, pin.lng], {
+    radius,
+    fillColor   : color,
+    color       : '#fff',
+    weight      : 2,
+    opacity     : 1,
+    fillOpacity : pin.status === 'planned' ? 0.45 : 0.95
+  }).addTo(map);
+
+  const linkHtml = pin.link
+    ? `<a href="${pin.link}" class="popup-link">${pin.linkText} →</a>`
+    : '';
+
+  const statusLabel = {
+    visited : '✓ Bereist',
+    current : '📍 Aktuell hier',
+    planned : 'Geplant'
+  }[pin.status];
+
+  marker.bindPopup(`
+    <div class="popup-inner">
+      <div class="popup-status popup-status--${pin.status}">${statusLabel}</div>
+      <div class="popup-title">${pin.name}</div>
+      <div class="popup-desc">${pin.desc}</div>
+      ${linkHtml}
+    </div>
+  `, { maxWidth: 240 });
+
+  if (pin.status === 'current') {
+    L.circleMarker([pin.lat, pin.lng], {
+      radius: 20, fillColor: color, color: color,
+      weight: 1.5, opacity: 0.25, fillOpacity: 0.1
+    }).addTo(map);
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artikel · The Freescape Project</title>
+  <link rel="icon" type="image/png" href="assets/img/LOGO.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .artikel-hero {
+      min-height: 380px;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 3rem;
+    }
+    .artikel-hero__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .artikel-hero__fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6rem;
+    }
+    .artikel-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,21,32,0.85) 0%, rgba(10,21,32,0.3) 60%, transparent 100%);
+    }
+    .artikel-hero__meta {
+      position: relative;
+      z-index: 1;
+      color: white;
+    }
+    .artikel-body {
+      max-width: 740px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .artikel-body h2 { margin: 2.5rem 0 1rem; font-size: 1.5rem; }
+    .artikel-body h3 { margin: 2rem 0 0.75rem; font-size: 1.2rem; }
+    .artikel-body p  { margin-bottom: 1.25rem; line-height: 1.85; color: var(--gray-700); }
+    .artikel-body ul, .artikel-body ol {
+      margin: 0 0 1.25rem 1.5rem;
+      color: var(--gray-700);
+      line-height: 1.8;
+    }
+    .artikel-body li { margin-bottom: 0.35rem; }
+    .artikel-body strong { color: var(--gray-900); }
+    .artikel-body a { color: var(--terra-600); text-decoration: underline; }
+    .artikel-body blockquote {
+      border-left: 3px solid var(--terra-400);
+      margin: 1.5rem 0;
+      padding: 0.75rem 1.25rem;
+      background: var(--sand-50);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+      color: var(--gray-600);
+      font-style: italic;
+    }
+    .artikel-body hr { border: none; border-top: 1px solid var(--gray-200); margin: 2rem 0; }
+    .artikel-body img { width: 100%; border-radius: var(--r-lg); margin: 1.5rem 0; }
+    .artikel-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .artikel-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 12px;
+      border-radius: var(--r-full);
+      background: var(--terra-100);
+      color: var(--terra-700);
+    }
+    .artikel-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--terra-600);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      text-decoration: none;
+    }
+    .artikel-back:hover { text-decoration: underline; }
+    #artikel-loading {
+      text-align: center;
+      padding: 6rem 2rem;
+      color: var(--gray-400);
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav nav--transparent" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/img/LOGO.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">The Freescape Project</span>
+        <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
+      </span>
+    </a>
+    <div class="nav__menu">
+      <a href="index.html" class="nav__link" data-page="index.html">Start</a>
+      <a href="ueber-uns.html" class="nav__link" data-page="ueber-uns.html">Über uns</a>
+      <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
+      <a href="blog.html" class="nav__link active" data-page="blog.html">Blog</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Länder
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="laender.html#kolumbien" class="nav__dropdown-link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="nav__dropdown-link">Ecuador</a>
+          <a href="laender.html#peru" class="nav__dropdown-link">Peru</a>
+          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Bolivien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Chile</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Argentinien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
+        </div>
+      </div>
+      <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
+      <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
+      <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
+    </div>
+
+    <!-- Sprachauswahl -->
+    <div class="lang-switcher">
+      <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="lang-switcher__flag">🇩🇪</span>
+        <span class="lang-switcher__label">DE</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lang-switcher__dropdown" role="listbox">
+        <button class="lang-switcher__option lang-switcher__option--active" data-flag="🇩🇪" data-label="DE">🇩🇪 Deutsch</button>
+        <button class="lang-switcher__option" data-flag="🇬🇧" data-label="EN">🇬🇧 English</button>
+        <button class="lang-switcher__option" data-flag="🇪🇸" data-label="ES">🇪🇸 Español</button>
+        <button class="lang-switcher__option" data-flag="🇹🇷" data-label="TR">🇹🇷 Türkçe</button>
+        <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
+      </div>
+    </div>
+
+    <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      YouTube
+    </a>
+    <button class="nav__burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="index.html" class="nav__mobile-link">Start</a>
+  <a href="ueber-uns.html" class="nav__mobile-link">Über uns</a>
+  <a href="vlogs.html" class="nav__mobile-link">Vlogs</a>
+  <a href="blog.html" class="nav__mobile-link">Blog</a>
+  <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
+  <a href="galerie.html" class="nav__mobile-link">Galerie</a>
+  <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
+</div>
+
+<!-- Artikel-Inhalt wird hier dynamisch eingefügt -->
+<div id="artikel-loading">Artikel wird geladen …</div>
+<div id="artikel-root" style="display:none;"></div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">Freescape Project</div>
+        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika.</p>
+      </div>
+      <div>
+        <p class="footer__heading">Navigation</p>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Startseite</a>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="vlogs.html" class="footer__link">Vlogs</a>
+          <a href="karte.html" class="footer__link">Reisekarte</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Rechtliches</p>
+        <div class="footer__links">
+          <a href="impressum.html" class="footer__link">Impressum</a>
+          <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie-banner">
+  <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
+  <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
+  <div class="cookie-banner__actions">
+    <button class="cookie-btn-accept">Alle akzeptieren</button>
+    <button class="cookie-btn-decline">Nur notwendige</button>
+  </div>
+</div>
+
+<!-- marked.js für Markdown-Rendering -->
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script src="main.js"></script>
+<script>
+(async function () {
+  const params   = new URLSearchParams(window.location.search);
+  const postSlug = params.get('post');
+  const loading  = document.getElementById('artikel-loading');
+  const root     = document.getElementById('artikel-root');
+
+  if (!postSlug) {
+    loading.innerHTML = 'Kein Artikel angegeben. <a href="blog.html">Zurück zum Blog</a>';
+    return;
+  }
+
+  const filename = postSlug.endsWith('.md') ? postSlug : postSlug + '.md';
+
+  try {
+    const res = await fetch(`/posts/${filename}`);
+    if (!res.ok) throw new Error('Not found');
+    const text = await res.text();
+
+    // Frontmatter parsen
+    const fmMatch = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+    if (!fmMatch) throw new Error('Kein Frontmatter');
+
+    const data = {};
+    const listKeys = {};
+    let listKey = null;
+    fmMatch[1].split('\n').forEach(line => {
+      const listMatch = line.match(/^\s{2}-\s(.+)/);
+      if (listMatch && listKey) {
+        if (!listKeys[listKey]) listKeys[listKey] = [];
+        listKeys[listKey].push(listMatch[1].trim());
+        return;
+      }
+      listKey = null;
+      const sep = line.indexOf(':');
+      if (sep === -1) return;
+      const key = line.slice(0, sep).trim();
+      const val = line.slice(sep + 1).trim().replace(/^["']|["']$/g, '');
+      if (val === '') { listKey = key; }
+      else            { data[key] = val; }
+    });
+    Object.assign(data, listKeys);
+
+    const body     = fmMatch[2] || '';
+    const typLabel = { guide:'Routen-Guide', kosten:'Kosten-Check', safety:'Sicherheit', persoenlich:'Erfahrungsbericht' }[data.typ] || 'Artikel';
+    const tags     = Array.isArray(data.tags) ? data.tags : [];
+
+    // Seitentitel setzen
+    document.title = `${data.titel || 'Artikel'} · The Freescape Project`;
+
+    // HTML rendern
+    const heroHtml = data.bild
+      ? `<img class="artikel-hero__img" src="${data.bild}" alt="${data.titel || ''}">`
+      : `<div class="artikel-hero__fallback" style="background:linear-gradient(135deg,#1a2744,#e8431a);">${data.bildEmoji || '✈️'}</div>`;
+
+    const monate = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    const d = data.datum ? new Date(data.datum + 'T12:00:00') : new Date();
+    const datumLabel = `${d.getDate()}. ${monate[d.getMonth()]} ${d.getFullYear()}`;
+
+    root.innerHTML = `
+      <div class="artikel-hero">
+        ${heroHtml}
+        <div class="artikel-hero__overlay"></div>
+        <div class="container artikel-hero__meta">
+          <span class="artikel-badge">${typLabel}</span>
+          <h1 style="color:white;margin:0.5rem 0;font-size:clamp(1.6rem,4vw,2.6rem);max-width:800px;">${data.titel || ''}</h1>
+          <p style="color:rgba(255,255,255,0.7);margin:0;font-size:0.9rem;">
+            ${data.autor || 'Sergen & Julia'} · ${datumLabel} · ${data.lesezeit || '5 min'} Lesezeit
+            ${data.land ? `· ${data.land}` : ''}
+          </p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="artikel-body">
+          <a href="blog.html" class="artikel-back">← Zurück zum Blog</a>
+          ${data.teaser ? `<p style="font-size:1.1rem;color:var(--gray-600);line-height:1.7;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--gray-200);">${data.teaser}</p>` : ''}
+          <div class="artikel-meta-bar">
+            <span class="artikel-badge">${typLabel}</span>
+            ${data.land ? `<span style="font-size:0.85rem;color:var(--gray-500);">${data.land}</span>` : ''}
+            <span style="font-size:0.85rem;color:var(--gray-400);">${datumLabel}</span>
+            <span style="font-size:0.85rem;color:var(--gray-400);">${data.lesezeit || '5 min'} Lesezeit</span>
+          </div>
+          <div id="artikel-content">${marked.parse(body)}</div>
+          ${tags.length ? `
+            <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--gray-200);">
+              <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray-400);margin-bottom:0.75rem;">Tags</p>
+              ${tags.map(t => `<span class="tag">${t}</span>`).join('')}
+            </div>` : ''}
+          <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--gray-200);text-align:center;">
+            <a href="blog.html" class="btn btn-secondary">← Alle Artikel</a>
+          </div>
+        </div>
+      </div>`;
+
+    loading.style.display = 'none';
+    root.style.display    = '';
+
+  } catch (err) {
+    loading.innerHTML = `<p>Artikel nicht gefunden.</p><a href="blog.html" class="btn btn-secondary" style="margin-top:1rem;">← Zurück zum Blog</a>`;
+    console.error('[artikel.html]', err);
+  }
+})();
+</script>
+</body>
+</html>

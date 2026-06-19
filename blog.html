@@ -1,0 +1,444 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog & Reisemagazin | The Freescape Project</title>
+  <meta name="description" content="Ehrliche Reiseberichte, Routen-Guides und Kosten-Checks für Kolumbien, Ecuador und Peru.">
+  <link rel="icon" type="image/png" href="assets/img/LOGO.png">  
+  <link rel="stylesheet" href="style.css">
+  <script src="blog-posts.js"></script>
+  <style>
+    .blog-sidebar{display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:start}
+    .sidebar-widget{background:var(--white);border-radius:var(--r-lg);padding:1.5rem;border:1.5px solid var(--gray-100);margin-bottom:1.5rem}
+    .sidebar-widget h4{margin-bottom:1rem;font-size:0.95rem}
+    .sidebar-links{display:flex;flex-direction:column;gap:0.5rem}
+    .sidebar-link{font-size:0.875rem;color:var(--gray-700);padding:0.4rem 0;border-bottom:1px solid var(--gray-100);display:flex;justify-content:space-between;text-decoration:none}
+    .sidebar-link:hover{color:var(--terra-600)}
+    .tag{display:inline-block;font-size:0.75rem;font-weight:600;padding:3px 12px;border-radius:var(--r-full);border:1.5px solid var(--gray-200);color:var(--gray-600);margin:3px}
+    .article-type{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:2px 10px;border-radius:999px;margin-bottom:0.5rem}
+    .article-type--guide{background:var(--green-100);color:var(--green-800)}
+    .article-type--kosten{background:#fef3c7;color:#92400e}
+    .article-type--persoenlich{background:var(--terra-100);color:var(--terra-700)}
+    .article-type--safety{background:#fee2e2;color:#991b1b}
+    @media(max-width:900px){.blog-sidebar{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav class="nav nav--transparent" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/img/LOGO.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">The Freescape Project</span>
+        <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
+      </span>
+    </a>
+    <div class="nav__menu">
+      <a href="index.html" class="nav__link" data-page="index.html">Start</a>
+      <a href="ueber-uns.html" class="nav__link" data-page="ueber-uns.html">Über uns</a>
+      <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
+      <a href="blog.html" class="nav__link active" data-page="blog.html">Blog</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Länder
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="laender.html#kolumbien" class="nav__dropdown-link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="nav__dropdown-link">Ecuador</a>
+          <a href="laender.html#peru" class="nav__dropdown-link">Peru</a>
+          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Bolivien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Chile</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Argentinien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
+        </div>
+      </div>
+      <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
+      <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
+      <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
+    </div>
+
+    <!-- Sprachauswahl -->
+    <div class="lang-switcher">
+      <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="lang-switcher__flag">🇩🇪</span>
+        <span class="lang-switcher__label">DE</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lang-switcher__dropdown" role="listbox">
+        <button class="lang-switcher__option lang-switcher__option--active" data-flag="🇩🇪" data-label="DE">🇩🇪 Deutsch</button>
+        <button class="lang-switcher__option" data-flag="🇬🇧" data-label="EN">🇬🇧 English</button>
+        <button class="lang-switcher__option" data-flag="🇪🇸" data-label="ES">🇪🇸 Español</button>
+        <button class="lang-switcher__option" data-flag="🇹🇷" data-label="TR">🇹🇷 Türkçe</button>
+        <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
+      </div>
+    </div>
+
+    <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      YouTube
+    </a>
+    <button class="nav__burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="index.html" class="nav__mobile-link">Start</a>
+  <a href="ueber-uns.html" class="nav__mobile-link">Über uns</a>
+  <a href="vlogs.html" class="nav__mobile-link">Vlogs</a>
+  <a href="blog.html" class="nav__mobile-link">Blog</a>
+  <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
+  <a href="galerie.html" class="nav__mobile-link">Galerie</a>
+  <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);margin:0.5rem 0;padding:0.75rem 1rem 0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-family:var(--font-nav);">Länder</div>
+  <a href="laender.html#kolumbien" class="nav__mobile-link">Kolumbien</a>
+  <a href="laender.html#ecuador" class="nav__mobile-link">Ecuador</a>
+  <a href="laender.html#peru" class="nav__mobile-link">Peru</a>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
+</div>
+
+ <section class="page-hero">
+  <!-- ✏️ HERO BILD: Ersetze die Zeile unten mit deinem Foto
+       Bild speichern unter: assets/img/hero-ueber-uns.jpg
+       Empfehlung: Querformat, min. 1600px breit -->
+ <div class="hero__bg">
+    <!-- ✏️ HERO HINTERGRUNDBILD: Pfad zu deinem Foto ersetzen
+         Empfehlung: Querformat, mindestens 1600px breit
+         Eigenes Bild: src="assets/img/hero-hintergrund.jpg" -->
+    <img src="assets/img/cotopaxipano.JPEG" class="hero__bg-photo" alt="">
+    <div class="hero__pattern"></div>
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="container page-hero__content">
+    <p class="overline">Reisemagazin</p>
+    <h1>Blog &amp; Reiseberichte</h1>
+    <p class="lead">Was du im Vlog nicht siehst: Kosten-Checks, Sicherheitsfragen und Routen-Guides.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <!-- Suchleiste -->
+    <div class="blog-search-bar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="search" id="blog-search" placeholder="Artikel durchsuchen …" autocomplete="off">
+    </div>
+
+    <!-- Filter-Buttons -->
+    <div class="filter-bar" id="blog-filter-bar">
+      <button class="filter-btn active" data-filter="all">Alle</button>
+      <button class="filter-btn" data-filter="guide">Routen-Guides</button>
+      <button class="filter-btn" data-filter="kosten">Kosten-Checks</button>
+      <button class="filter-btn" data-filter="persoenlich">Erfahrungsberichte</button>
+      <button class="filter-btn" data-filter="safety">Sicherheit</button>
+      <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
+      <button class="filter-btn" data-filter="ecuador">Ecuador</button>
+      <button class="filter-btn" data-filter="peru">Peru</button>
+    </div>
+
+    <div class="blog-sidebar">
+      <div>
+        <!-- Keine Treffer Hinweis -->
+        <p id="blog-no-results" style="display:none;color:var(--gray-500);padding:2rem 0;">Keine Artikel gefunden.</p>
+
+        <!-- Featured Article (neuester Post) -->
+        <div id="blog-featured"></div>
+
+        <!-- Blog Grid -->
+        <div class="blog-grid" id="blog-main-grid">
+          <p style="color:var(--gray-400);padding:2rem 0;">Artikel werden geladen …</p>
+        </div>
+      </div>
+      <aside>
+        <div class="sidebar-widget">
+          <h4>Nach Land filtern</h4>
+          <div class="sidebar-links" id="sidebar-laender"></div>
+        </div>
+        <div class="sidebar-widget">
+          <h4>Artikel-Typen</h4>
+          <div class="sidebar-links" id="sidebar-typen"></div>
+        </div>
+        <div class="sidebar-widget">
+          <h4>Tags</h4>
+          <div id="sidebar-tags" style="margin-top:0.5rem;"></div>
+        </div>
+        <div class="sidebar-widget" style="background:var(--green-900);color:white;border-color:var(--green-800);">
+          <h4 style="color:white;">Newsletter</h4>
+          <p style="color:rgba(255,255,255,0.65);font-size:0.85rem;margin-bottom:1rem;line-height:1.6;">Neue Artikel direkt in dein Postfach — kein Spam.</p>
+          <form onsubmit="return false;">
+            <input type="email" placeholder="deine@email.de" style="width:100%;padding:0.6rem 0.8rem;border-radius:var(--r-md);border:none;margin-bottom:0.75rem;font-family:inherit;font-size:0.85rem;">
+            <button type="submit" class="btn btn-primary" style="width:100%;">Anmelden</button>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">Freescape Project</div>
+        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
+        <div class="footer__social">
+          <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/thefreescapeproject/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Navigation</p>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Startseite</a>
+          <a href="ueber-uns.html" class="footer__link">Über uns</a>
+          <a href="vlogs.html" class="footer__link">Vlogs</a>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="karte.html" class="footer__link">Reisekarte</a>
+          <a href="galerie.html" class="footer__link">Galerie</a>
+          <a href="kontakt.html" class="footer__link">Kontakt</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Länder</p>
+        <div class="footer__links">
+          <a href="laender.html#kolumbien" class="footer__link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="footer__link">Ecuador</a>
+          <a href="laender.html#peru" class="footer__link">Peru</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Bolivien</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Chile</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Argentinien</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Rechtliches</p>
+        <div class="footer__links">
+          <a href="impressum.html" class="footer__link">Impressum</a>
+          <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+          <a href="kontakt.html" class="footer__link">Kooperationen</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+      <div class="footer__legal">
+        <a href="impressum.html" class="footer__legal-link">Impressum</a>
+        <a href="datenschutz.html" class="footer__legal-link">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="cookie-banner">
+  <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
+  <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
+  <div class="cookie-banner__actions">
+    <button class="cookie-btn-accept">Alle akzeptieren</button>
+    <button class="cookie-btn-decline">Nur notwendige</button>
+  </div>
+</div>
+<script src="main.js"></script>
+<script>
+(function () {
+  const typClass = { guide:'guide', kosten:'kosten', persoenlich:'persoenlich', safety:'safety' };
+  let activeFilter = 'all';
+  let searchQuery  = '';
+
+  function buildThumb(post, h) {
+    return post.bild
+      ? `<img src="${post.bild}" alt="" style="width:100%;height:${h}px;object-fit:cover;display:block;">`
+      : `<div style="height:${h}px;background:${post.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:3rem;">${post.bildFallback.emoji}</div>`;
+  }
+
+  function cardMatches(card) {
+    const cats  = card.dataset.category || '';
+    const tags  = card.dataset.tags     || '';
+    const q     = searchQuery.toLowerCase();
+    const text  = (card.querySelector('h3')?.textContent || '') + ' ' +
+                  (card.querySelector('.blog-card__excerpt')?.textContent || '') + ' ' +
+                  tags;
+    const matchFilter = activeFilter === 'all' || cats.includes(activeFilter) || tags.includes(activeFilter);
+    const matchSearch = !q || text.toLowerCase().includes(q);
+    return matchFilter && matchSearch;
+  }
+
+  function applyFilters() {
+    const featured = document.getElementById('blog-featured');
+    const grid     = document.getElementById('blog-main-grid');
+    const noRes    = document.getElementById('blog-no-results');
+    let visible    = 0;
+
+    // Featured
+    if (featured) {
+      const a = featured.querySelector('[data-category]');
+      const show = a ? cardMatches(a) : false;
+      featured.style.display = show ? '' : 'none';
+      if (show) visible++;
+    }
+    // Grid
+    if (grid) {
+      grid.querySelectorAll('[data-category]').forEach(card => {
+        const show = cardMatches(card);
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+    }
+    if (noRes) noRes.style.display = visible === 0 ? '' : 'none';
+  }
+
+  function renderPosts(posts) {
+    const sorted   = [...posts].sort((a,b) => new Date(b.datum) - new Date(a.datum));
+    const featured = document.getElementById('blog-featured');
+    const grid     = document.getElementById('blog-main-grid');
+
+    // Featured (neuester Post)
+    if (featured && sorted.length > 0) {
+      const p = sorted[0];
+      const thumb = p.bild
+        ? `<img src="${p.bild}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">`
+        : `<div style="width:100%;height:100%;background:${p.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:4rem;">${p.bildFallback.emoji}</div>`;
+      featured.innerHTML = `
+        <article class="blog-card" data-category="${p.kategorie}" data-tags="${(p.tags||[]).join(' ').toLowerCase()}"
+          style="display:flex;flex-direction:row;gap:0;margin-bottom:2rem;border:1.5px solid var(--gray-100);border-radius:var(--r-lg);overflow:hidden;">
+          <div class="blog-card__thumb" style="width:45%;min-height:280px;overflow:hidden;flex-shrink:0;">
+            ${thumb}<span class="blog-card__category">${p.land}</span>
+          </div>
+          <div class="blog-card__body" style="padding:2rem;">
+            <span class="article-type article-type--${typClass[p.typ]||'guide'}">${p.typLabel}</span>
+            <div class="blog-card__meta">
+              <span class="blog-card__author">${p.autor}</span>
+              <span class="blog-card__date">${p.datumLabel} · ${p.lesezeit}</span>
+            </div>
+            <h3 class="blog-card__title" style="font-size:1.4rem;">${p.titel}</h3>
+            <p class="blog-card__excerpt">${p.teaser}</p>
+            ${(p.tags||[]).length ? `<div style="margin:0.75rem 0;">${p.tags.map(t=>`<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
+            <a href="${p.link}" class="blog-card__read">Artikel lesen →</a>
+          </div>
+        </article>`;
+    }
+
+    // Restliche Posts
+    if (grid) {
+      grid.innerHTML = sorted.slice(1).map((post, i) => `
+        <article class="blog-card animate-on-scroll${i%2===1?' animate-delay-1':''}" data-category="${post.kategorie}" data-tags="${(post.tags||[]).join(' ').toLowerCase()}">
+          <div class="blog-card__thumb" style="overflow:hidden;">${buildThumb(post,220)}<span class="blog-card__category">${post.land}</span></div>
+          <div class="blog-card__body">
+            <span class="article-type article-type--${typClass[post.typ]||'guide'}">${post.typLabel}</span>
+            <div class="blog-card__meta">
+              <span class="blog-card__author">${post.autor}</span>
+              <span class="blog-card__date">${post.datumLabel} · ${post.lesezeit}</span>
+            </div>
+            <h3 class="blog-card__title">${post.titel}</h3>
+            <p class="blog-card__excerpt">${post.teaser}</p>
+            ${(post.tags||[]).length ? `<div style="margin:0.5rem 0 0.25rem;">${post.tags.map(t=>`<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
+            <a href="${post.link}" class="blog-card__read">Artikel lesen →</a>
+          </div>
+        </article>`).join('');
+
+      // Scroll-Animationen
+      if (typeof IntersectionObserver !== 'undefined') {
+        const obs = new IntersectionObserver(entries => {
+          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
+        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+        grid.querySelectorAll('.animate-on-scroll').forEach(el => obs.observe(el));
+      }
+    }
+
+    // Sidebar dynamisch befüllen
+    buildSidebar(sorted);
+
+    // Filter-Buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    // Tag-Klicks (auf Cards und Sidebar)
+    document.addEventListener('click', e => {
+      const tagEl = e.target.closest('.tag--clickable');
+      if (!tagEl) return;
+      const tag = tagEl.dataset.tag;
+      activeFilter = tag;
+      searchQuery  = '';
+      const si = document.getElementById('blog-search');
+      if (si) si.value = '';
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      applyFilters();
+    });
+
+    // Suche
+    const searchInput = document.getElementById('blog-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        searchQuery = searchInput.value.trim();
+        applyFilters();
+      });
+    }
+  }
+
+  function buildSidebar(posts) {
+    // Länder
+    const laender = {};
+    const typen   = {};
+    const allTags = {};
+
+    posts.forEach(p => {
+      if (p.land) laender[p.land] = (laender[p.land] || 0) + 1;
+      typen[p.typLabel] = (typen[p.typLabel] || 0) + 1;
+      (p.tags || []).forEach(t => { allTags[t] = (allTags[t] || 0) + 1; });
+    });
+
+    const laenderEl = document.getElementById('sidebar-laender');
+    if (laenderEl) {
+      laenderEl.innerHTML = Object.entries(laender)
+        .sort((a,b) => b[1]-a[1])
+        .map(([l,n]) => {
+          const key = l.toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue');
+          return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${key}">${l} <span class="sidebar-count">${n} Artikel</span></a>`;
+        }).join('');
+    }
+
+    const typenEl = document.getElementById('sidebar-typen');
+    if (typenEl) {
+      typenEl.innerHTML = Object.entries(typen)
+        .sort((a,b) => b[1]-a[1])
+        .map(([t,n]) => {
+          const typMap = {'Routen-Guide':'guide','Kosten-Check':'kosten','Sicherheit':'safety','Erfahrungsbericht':'persoenlich'};
+          return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${typMap[t]||t}">${t} <span class="sidebar-count">${n}</span></a>`;
+        }).join('');
+    }
+
+    const tagsEl = document.getElementById('sidebar-tags');
+    if (tagsEl) {
+      tagsEl.innerHTML = Object.keys(allTags)
+        .sort()
+        .map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`)
+        .join('');
+    }
+
+    // Sidebar-Filter-Links
+    document.querySelectorAll('.sidebar-filter').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        activeFilter = link.dataset.filter;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        applyFilters();
+      });
+    });
+  }
+
+  // Start: sofort wenn Posts da sind, sonst auf Event warten
+  if (window.BLOG_POSTS) {
+    renderPosts(window.BLOG_POSTS);
+  } else {
+    document.addEventListener('blogPostsReady', () => renderPosts(window.BLOG_POSTS || []));
+  }
+})();
+</script>
+</body>
+</html>

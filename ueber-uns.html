@@ -1,0 +1,289 @@
+﻿  <!DOCTYPE html>
+  <html lang="de">
+  <head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Über uns – Sergen & Julia | The Freescape Project</title>
+    <meta name="description" content="Wer sind Sergen und Julia? Zwei Lehrer aus Köln, die ein Jahr durch Südamerika reisen.">
+    <link rel="icon" type="image/png" href="assets/img/LOGO.png">
+    <link rel="stylesheet" href="style.css">
+<style>
+      .timeline{position:relative;padding-left:2rem}
+      .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--sand-300)}
+      .timeline-item{position:relative;margin-bottom:2.5rem}
+      .timeline-item::before{content:'';position:absolute;left:-2.4rem;top:4px;width:12px;height:12px;background:var(--terra-600);border-radius:50%;border:3px solid var(--sand-100)}
+      .timeline-date{font-size:0.75rem;font-weight:700;color:var(--terra-600);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.25rem}
+      .timeline-title{font-weight:700;font-size:1.05rem;margin-bottom:0.5rem}
+      .timeline-text{color:var(--gray-600);font-size:0.9rem;line-height:1.7}
+      .stats-grid-about{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+      .stat-box{background:var(--green-800);color:white;border-radius:var(--r-lg);padding:1.5rem;text-align:center}
+      .stat-box-num{font-family:var(--font-display);font-size:2.5rem;font-weight:700;color:var(--terra-400);line-height:1}
+      .stat-box-label{font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:0.5rem}
+      .faq-item{border-bottom:1px solid var(--gray-200)}
+      .faq-question{width:100%;text-align:left;padding:1.25rem 0;font-weight:600;font-size:0.95rem;display:flex;justify-content:space-between;align-items:center;background:none;border:none;cursor:pointer;color:var(--gray-900)}
+      .faq-answer{padding:0 0 1.25rem;color:var(--gray-600);line-height:1.75;font-size:0.9rem;display:none}
+      .faq-item.open .faq-answer{display:block}
+      .faq-item.open .faq-question svg{transform:rotate(180deg)}
+      .faq-question svg{transition:transform 0.25s;flex-shrink:0;width:18px;height:18px}
+      @media(max-width:640px){.stats-grid-about{grid-template-columns:1fr 1fr}}
+    </style>
+  </head>
+  <body>
+  <nav class="nav nav--transparent" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/img/LOGO.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">The Freescape Project</span>
+        <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
+      </span>
+    </a>
+    <div class="nav__menu">
+      <a href="index.html" class="nav__link" data-page="index.html">Start</a>
+      <a href="ueber-uns.html" class="nav__link active" data-page="ueber-uns.html">Über uns</a>
+      <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
+      <a href="blog.html" class="nav__link" data-page="blog.html">Blog</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Länder
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="laender.html#kolumbien" class="nav__dropdown-link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="nav__dropdown-link">Ecuador</a>
+          <a href="laender.html#peru" class="nav__dropdown-link">Peru</a>
+          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Bolivien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Chile</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Argentinien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
+        </div>
+      </div>
+      <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
+      <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
+      <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
+    </div>
+
+    <!-- Sprachauswahl -->
+    <div class="lang-switcher">
+      <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="lang-switcher__flag">🇩🇪</span>
+        <span class="lang-switcher__label">DE</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lang-switcher__dropdown" role="listbox">
+        <button class="lang-switcher__option lang-switcher__option--active" data-flag="🇩🇪" data-label="DE">🇩🇪 Deutsch</button>
+        <button class="lang-switcher__option" data-flag="🇬🇧" data-label="EN">🇬🇧 English</button>
+        <button class="lang-switcher__option" data-flag="🇪🇸" data-label="ES">🇪🇸 Español</button>
+        <button class="lang-switcher__option" data-flag="🇹🇷" data-label="TR">🇹🇷 Türkçe</button>
+        <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
+      </div>
+    </div>
+
+    <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      YouTube
+    </a>
+    <button class="nav__burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="index.html" class="nav__mobile-link">Start</a>
+  <a href="ueber-uns.html" class="nav__mobile-link">Über uns</a>
+  <a href="vlogs.html" class="nav__mobile-link">Vlogs</a>
+  <a href="blog.html" class="nav__mobile-link">Blog</a>
+  <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
+  <a href="galerie.html" class="nav__mobile-link">Galerie</a>
+  <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);margin:0.5rem 0;padding:0.75rem 1rem 0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-family:var(--font-nav);">Länder</div>
+  <a href="laender.html#kolumbien" class="nav__mobile-link">Kolumbien</a>
+  <a href="laender.html#ecuador" class="nav__mobile-link">Ecuador</a>
+  <a href="laender.html#peru" class="nav__mobile-link">Peru</a>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
+</div>
+
+  <section class="page-hero">
+  <!-- ✏️ HERO BILD: Ersetze die Zeile unten mit deinem Foto
+       Bild speichern unter: assets/img/hero-ueber-uns.jpg
+       Empfehlung: Querformat, min. 1600px breit -->
+ <div class="hero__bg">
+    <!-- ✏️ HERO HINTERGRUNDBILD: Pfad zu deinem Foto ersetzen
+         Empfehlung: Querformat, mindestens 1600px breit
+         Eigenes Bild: src="assets/img/hero-hintergrund.jpg" -->
+    <img src="assets/img/breitbildfuji.png" class="hero__bg-photo" alt="">
+    <div class="hero__pattern"></div>
+  </div>
+  <div class="hero__overlay"></div>
+    <!-- <img src="assets/img/hero-ueber-uns.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45;"> -->
+  </div>
+  <div class="container page-hero__content">
+    <p class="overline">Wer wir sind</p>
+    <h1>Hallo, wir sind<br>Sergen &amp; Julia.</h1>
+    <p class="lead">Zwei Lehrer aus Köln, seit Februar 2026 unterwegs durch Südamerika.</p>
+  </div>
+</section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+        <div class="animate-on-scroll">
+          <div style="width:100%;aspect-ratio:4/5;background:linear-gradient(135deg,#000000,#e8431a);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:6rem;">👫</div>
+        </div>
+        <div class="animate-on-scroll animate-delay-1" style="display:flex;flex-direction:column;gap:1.5rem;padding-top:2rem;">
+          <p class="overline">Unsere Geschichte</p>
+          <h2>Wie alles begann</h2>
+          <p style="color:var(--gray-600);line-height:1.8;">Julia hatte ihr Referendariat abgeschlossen und ein Jahr als Lehrerin gearbeitet. Sergen steckte mitten im Lehramtsstudium für Sport und Chemie. Beide aus Köln, beide mit dem gleichen Gedanken: <em>Wann, wenn nicht jetzt?</em></p>
+          <blockquote style="border-left:3px solid var(--terra-500);padding-left:1.5rem;margin:0;font-family:var(--font-display);font-size:1.3rem;font-style:italic;color:var(--green-800);line-height:1.5;">"Wir machen das. Ein Jahr. Südamerika."</blockquote>
+          <p style="color:var(--gray-600);line-height:1.8;">Im Februar 2026 saßen wir im Flieger nach Bogotá. Für Sergen ist es die erste große Reise überhaupt und genau das macht es so besonders. Neue Kulturen, neue Menschen, neue Erfahrungen, die kein Lehrplan der Welt vermitteln kann.</p>
+          <p style="color:var(--gray-600);line-height:1.8;">Von Anfang an haben wir viel gefilmt, anfangs nur für uns. Bis unsere Eltern regelmäßig Updates forderten. Irgendwann sagten wir uns: Warum nicht einfach einen YouTube-Kanal machen?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--green-900);">
+    <div class="container">
+      <div class="stats-grid-about animate-on-scroll">
+        <div class="stat-box"><div class="stat-box-num">130+</div><div class="stat-box-label">Tage unterwegs</div></div>
+        <div class="stat-box"><div class="stat-box-num">4</div><div class="stat-box-label">Länder bereist</div></div>
+        <div class="stat-box"><div class="stat-box-num">9.400</div><div class="stat-box-label">km zurückgelegt</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--sand-50);">
+    <div class="container container-sm">
+      <div class="section-header animate-on-scroll">
+        <p class="overline">Unsere Reise</p>
+        <h2>Der Weg bisher</h2>
+      </div>
+      <div class="timeline animate-on-scroll">
+        <div class="timeline-item">
+          <div class="timeline-date">Februar 2026</div>
+          <div class="timeline-title">🛫 Abflug Köln → Bogotá</div>
+          <div class="timeline-text">Der erste Tag in Kolumbien. La Candelaria, Streetfood und das überwältigende Gefühl: Wir machen das wirklich.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">März 2026</div>
+          <div class="timeline-title">Kolumbien — 8 Wochen</div>
+          <div class="timeline-text">Bogotá, Salento, Medellín, Guatapé, Minca, Santa Marta, Palomino, Tayrona und San Andrés. Kolumbien hat uns komplett überrascht.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">April 2026</div>
+          <div class="timeline-title">Ecuador — 3 Wochen</div>
+          <div class="timeline-text">Quito, Cotopaxi, Quilotoa, Baños und der Amazonas. Ecuador in aller Kürze, aber mit maximaler Wirkung.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Mai 2026</div>
+          <div class="timeline-title">🐢 Galapagos — 3 Wochen</div>
+          <div class="timeline-text">Das teuerste, aber vielleicht schönste Erlebnis der Reise. Seelöwen, Leguane und Schildkröten hautnah.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Juni 2026 · Aktuell</div>
+          <div class="timeline-title">Peru — läuft noch</div>
+          <div class="timeline-text">Lima, Huacachina, Cusco und bald der Machu Picchu. Peru empfängt uns mit allem, was Südamerika ausmacht.</div>
+        </div>
+        <div class="timeline-item" style="opacity:0.5;">
+          <div class="timeline-date">Geplant</div>
+          <div class="timeline-title">Bolivien, Chile, Argentinien</div>
+          <div class="timeline-text">Der Salzflats, die Atacama und Buenos Aires warten noch. Noch etwa 6 Monate Abenteuer vor uns.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container-sm">
+      <div class="section-header animate-on-scroll">
+        <p class="overline">FAQ</p>
+        <h2>Häufige Fragen</h2>
+      </div>
+      <div class="animate-on-scroll">
+        <div class="faq-item">
+          <button class="faq-question">Wie finanziert ihr die Reise? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-answer">Wir haben über zwei Jahre gespart, gelebt nach dem Motto "weniger Konsum, mehr Erfahrungen". Zusätzlich hilft uns der YouTube-Kanal etwas — aber hauptsächlich Ersparnisse.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Ist Südamerika wirklich so gefährlich? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-answer">Nein — mit gesundem Menschenverstand, lokaler Vorsicht und aktuellen Infos ist Südamerika sehr angenehm zu bereisen. Natürlich gibt es Viertel, die man meidet, aber das gilt für jede Weltregion.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Sprecht ihr Spanisch? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-answer">Wir haben vor der Reise Anfänger-Spanisch gelernt und verbessern es unterwegs ständig. Es ist kein Hindernis — die Menschen sind unglaublich geduldig.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Habt ihr Interesse an Kooperationen? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="faq-answer">Ja, wenn es zu unserem Stil passt! Schreibt uns einfach über das Kontaktformular — wir antworten innerhalb weniger Tage.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">Freescape Project</div>
+        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
+        <div class="footer__social">
+          <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/thefreescapeproject/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Navigation</p>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Startseite</a>
+          <a href="ueber-uns.html" class="footer__link">Über uns</a>
+          <a href="vlogs.html" class="footer__link">Vlogs</a>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="karte.html" class="footer__link">Reisekarte</a>
+          <a href="galerie.html" class="footer__link">Galerie</a>
+          <a href="kontakt.html" class="footer__link">Kontakt</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Länder</p>
+        <div class="footer__links">
+          <a href="laender.html#kolumbien" class="footer__link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="footer__link">Ecuador</a>
+          <a href="laender.html#peru" class="footer__link">Peru</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Bolivien</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Chile</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Argentinien</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Rechtliches</p>
+        <div class="footer__links">
+          <a href="impressum.html" class="footer__link">Impressum</a>
+          <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+          <a href="kontakt.html" class="footer__link">Kooperationen</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+      <div class="footer__legal">
+        <a href="impressum.html" class="footer__legal-link">Impressum</a>
+        <a href="datenschutz.html" class="footer__legal-link">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="cookie-banner">
+  <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
+  <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
+  <div class="cookie-banner__actions">
+    <button class="cookie-btn-accept">Alle akzeptieren</button>
+    <button class="cookie-btn-decline">Nur notwendige</button>
+  </div>
+</div>
+  <script src="main.js"></script>
+  <script>
+  document.querySelectorAll('.faq-question').forEach(q=>{q.addEventListener('click',()=>{const item=q.closest('.faq-item');const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!wasOpen)item.classList.add('open');})});
+  </script>
+  </body>
+  </html>

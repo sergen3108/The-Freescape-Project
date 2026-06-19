@@ -1,0 +1,117 @@
+# ============================================================
+# Decap CMS Konfiguration — The Freescape Project
+# Datei: admin/config.yml
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main  # ✏️ Falls dein Branch anders heißt (z.B. "master"), hier anpassen
+
+# Medien (Bilder) werden hier gespeichert
+media_folder: "assets/img/blog"
+public_folder: "/assets/img/blog"
+
+# Sprache des Interfaces
+locale: "de"
+
+collections:
+  - name: "blog"
+    label: "📝 Blogbeiträge"
+    label_singular: "Blogbeitrag"
+    folder: "posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{fields.id}}"
+    editor:
+      preview: false
+    fields:
+
+      - label: "🔑 URL-ID (keine Leerzeichen, keine Umlaute)"
+        name: "id"
+        widget: "string"
+        hint: "Beispiel: machu-picchu oder galapagos-budget — wird zur URL des Artikels"
+        pattern: ['^[a-z0-9-]+$', "Nur Kleinbuchstaben, Zahlen und Bindestriche erlaubt"]
+
+      - label: "📰 Titel"
+        name: "titel"
+        widget: "string"
+        hint: "Der Haupttitel des Artikels"
+
+      - label: "✂️ Teaser (Vorschautext)"
+        name: "teaser"
+        widget: "text"
+        hint: "1–2 Sätze, die auf der Übersichtsseite erscheinen. Ca. 100–140 Zeichen."
+
+      - label: "📅 Datum"
+        name: "datum"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        date_format: "DD.MM.YYYY"
+        time_format: false
+        hint: "Erscheinungsdatum des Artikels"
+
+      - label: "⏱️ Lesezeit"
+        name: "lesezeit"
+        widget: "string"
+        default: "5 min"
+        hint: "Beispiel: 5 min oder 8 min"
+
+      - label: "✍️ Autor"
+        name: "autor"
+        widget: "string"
+        default: "Sergen & Julia"
+
+      - label: "🗂️ Artikel-Typ"
+        name: "typ"
+        widget: "select"
+        options:
+          - { label: "🗺️ Routen-Guide", value: "guide" }
+          - { label: "💰 Kosten-Check", value: "kosten" }
+          - { label: "🛡️ Sicherheit", value: "safety" }
+          - { label: "💬 Erfahrungsbericht", value: "persoenlich" }
+        hint: "Bestimmt das Farbige Label auf der Karte"
+
+      - label: "🌍 Land / Kategorie-Label"
+        name: "land"
+        widget: "string"
+        hint: "Erscheint auf der Karte. Beispiel: 🇵🇪 Peru · Routen-Guide"
+
+      - label: "🔖 Filter-Kategorien"
+        name: "kategorie"
+        widget: "string"
+        hint: "Leerzeichen-getrennte Tags. Erlaubt: peru, ecuador, kolumbien, guide, kosten, persoenlich, safety, galapagos"
+        default: "peru"
+
+      - label: "🖼️ Vorschaubild"
+        name: "bild"
+        widget: "image"
+        required: false
+        hint: "Wird auf der Karte angezeigt. Wenn leer, wird ein Emoji-Fallback genutzt."
+        media_library:
+          config:
+            multiple: false
+
+      - label: "😀 Fallback-Emoji (wenn kein Bild)"
+        name: "bildEmoji"
+        widget: "string"
+        required: false
+        default: "🌍"
+        hint: "Wird angezeigt wenn kein Bild hochgeladen wurde"
+
+      - label: "🎨 Fallback-Hintergrundfarbe"
+        name: "bildGradient"
+        widget: "string"
+        required: false
+        default: "linear-gradient(135deg,#1a2744,#e8431a)"
+        hint: "CSS gradient für den Fallback. Beispiel: linear-gradient(135deg,#1a2744,#e8431a)"
+
+      - label: "🔗 Artikel-Link"
+        name: "link"
+        widget: "string"
+        default: "#"
+        hint: "URL zum vollen Artikel. # = noch kein Artikel vorhanden"
+
+      - label: "📝 Artikel-Inhalt (optional)"
+        name: "body"
+        widget: "markdown"
+        required: false
+        hint: "Vollständiger Artikeltext — für zukünftige Einzel-Artikelseiten"

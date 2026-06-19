@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Länder | The Freescape Project</title>
+  <link rel="icon" type="image/png" href="assets/img/LOGO.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="nav nav--transparent" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/img/LOGO.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">The Freescape Project</span>
+        <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
+      </span>
+    </a>
+    <div class="nav__menu">
+      <a href="index.html" class="nav__link" data-page="index.html">Start</a>
+      <a href="ueber-uns.html" class="nav__link" data-page="ueber-uns.html">Über uns</a>
+      <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
+      <a href="blog.html" class="nav__link" data-page="blog.html">Blog</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Länder
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="laender.html#kolumbien" class="nav__dropdown-link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="nav__dropdown-link">Ecuador</a>
+          <a href="laender.html#peru" class="nav__dropdown-link">Peru</a>
+          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Bolivien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Chile</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Argentinien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
+        </div>
+      </div>
+      <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
+      <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
+      <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
+    </div>
+
+    <!-- Sprachauswahl -->
+    <div class="lang-switcher">
+      <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="lang-switcher__flag">🇩🇪</span>
+        <span class="lang-switcher__label">DE</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lang-switcher__dropdown" role="listbox">
+        <button class="lang-switcher__option lang-switcher__option--active" data-flag="🇩🇪" data-label="DE">🇩🇪 Deutsch</button>
+        <button class="lang-switcher__option" data-flag="🇬🇧" data-label="EN">🇬🇧 English</button>
+        <button class="lang-switcher__option" data-flag="🇪🇸" data-label="ES">🇪🇸 Español</button>
+        <button class="lang-switcher__option" data-flag="🇹🇷" data-label="TR">🇹🇷 Türkçe</button>
+        <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
+      </div>
+    </div>
+
+    <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      YouTube
+    </a>
+    <button class="nav__burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="index.html" class="nav__mobile-link">Start</a>
+  <a href="ueber-uns.html" class="nav__mobile-link">Über uns</a>
+  <a href="vlogs.html" class="nav__mobile-link">Vlogs</a>
+  <a href="blog.html" class="nav__mobile-link">Blog</a>
+  <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
+  <a href="galerie.html" class="nav__mobile-link">Galerie</a>
+  <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);margin:0.5rem 0;padding:0.75rem 1rem 0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-family:var(--font-nav);">Länder</div>
+  <a href="laender.html#kolumbien" class="nav__mobile-link">Kolumbien</a>
+  <a href="laender.html#ecuador" class="nav__mobile-link">Ecuador</a>
+  <a href="laender.html#peru" class="nav__mobile-link">Peru</a>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
+</div>
+
+<section class="page-hero">
+  <!-- ✏️ HERO BILD: Ersetze die Zeile unten mit deinem Foto
+       Bild speichern unter: assets/img/hero-laender.jpg
+       Empfehlung: Querformat, min. 1600px breit -->
+  <div class="page-hero__bg" style="background:linear-gradient(135deg, #1a3c2a 0%, #1a2744 50%, #c4622d 100%);">
+    <!-- <img src="assets/img/hero-laender.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45;"> -->
+  </div>
+  <div class="container page-hero__content">
+    <p class="overline">Unsere Reiseroute</p>
+    <h1>Alle Länder</h1>
+    <p class="lead">Von Kolumbien bis Argentinien — unsere Route durch Südamerika, Land für Land.</p>
+  </div>
+</section>
+
+<section class="section" id="kolumbien">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+      <div class="animate-on-scroll">
+        <p class="overline" style="color:var(--terra-600);">✓ Bereist · Feb – Apr 2026</p>
+        <h2>Kolumbien</h2>
+        <p style="color:var(--gray-600);line-height:1.8;margin:1rem 0;">8 Wochen, 10 Städte, unzählige Erlebnisse. Kolumbien hat uns komplett überrascht — mit seiner Wärme, Schönheit und Lebendigkeit.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:1.5rem 0;">
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Bogotá</strong> — Hauptstadt & Streetart</div>
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Salento</strong> — Kaffeeregion & Wachspalmen</div>
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Medellín</strong> — La ciudad de la eterna primavera</div>
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Guatapé</strong> — El Peñol & Buntes Dorf</div>
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Minca</strong> — Bergdorf & Wasserfälle</div>
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Santa Marta</strong> — Karibikküste</div>
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Tayrona</strong> — Nationalpark & Dschungel</div>
+          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>San Andrés</strong> — Meer der 7 Farben</div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="blog.html" class="btn btn-dark">Blog-Artikel lesen</a>
+          <a href="vlogs.html" class="btn btn-outline">Kolumbien-Vlogs</a>
+        </div>
+      </div>
+      <div class="animate-on-scroll animate-delay-1">
+        <div style="width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,#c4622d,#1a2744);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;">
+         
+          <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);border-radius:var(--r-lg);padding:1rem;color:white;">
+            <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:0.25rem;">Highlight</div>
+            <div style="font-weight:700;">El Peñol, Guatapé — der Ausblick, der uns sprachlos machte</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ecuador" style="background:var(--sand-50);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+      <div class="animate-on-scroll">
+        <div style="width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,#1a3c2a,#2d7a2d);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;">
+         
+          <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);border-radius:var(--r-lg);padding:1rem;color:white;">
+            <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:0.25rem;">Highlight</div>
+            <div style="font-weight:700;">Quilotoa-Lagune — smaragdgrüner Kratersee auf 3.900m</div>
+          </div>
+        </div>
+      </div>
+      <div class="animate-on-scroll animate-delay-1">
+        <p class="overline" style="color:var(--terra-600);">✓ Bereist · April 2026</p>
+        <h2>Ecuador</h2>
+        <p style="color:var(--gray-600);line-height:1.8;margin:1rem 0;">Drei Wochen, die wir nie vergessen werden. Von kolonialer Pracht in Quito bis zu schneebedeckten Vulkanen und dem Amazonas.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:1.5rem 0;">
+          <div style="background:white;border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;border:1px solid var(--sand-300);"><strong>Quito</strong> — UNESCO-Altstadt</div>
+          <div style="background:white;border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;border:1px solid var(--sand-300);"><strong>Cotopaxi</strong> — Schneebedeckter Vulkan</div>
+          <div style="background:white;border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;border:1px solid var(--sand-300);"><strong>Quilotoa</strong> — Smaragdgrüne Caldera</div>
+          <div style="background:white;border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;border:1px solid var(--sand-300);"><strong>Amazonas</strong> — 4 Tage Dschungel</div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="blog.html" class="btn btn-dark">Blog-Artikel lesen</a>
+          <a href="vlogs.html" class="btn btn-outline">Ecuador-Vlog</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="galapagos">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <p class="overline" style="color:var(--terra-600);">✓ Bereist · Mai 2026</p>
+      <h2>🐢 Galapagos</h2>
+      <p class="lead">Das teuerste Ziel Südamerikas — und trotzdem oder genau deswegen das unvergesslichste. Drei Wochen Insel-Hopping auf eigene Faust.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;" class="animate-on-scroll">
+      <div style="background:var(--sand-100);border-radius:var(--r-lg);padding:1.5rem;text-align:center;"><div style="font-size:2.5rem;margin-bottom:0.75rem;">🦁</div><h4 style="margin-bottom:0.5rem;">Seelöwen</h4><p style="font-size:0.85rem;color:var(--gray-600);">Schnorcheln Seite an Seite — kein Witz.</p></div>
+      <div style="background:var(--sand-100);border-radius:var(--r-lg);padding:1.5rem;text-align:center;"><div style="font-size:2.5rem;margin-bottom:0.75rem;">🐢</div><h4 style="margin-bottom:0.5rem;">Riesenschildkröten</h4><p style="font-size:0.85rem;color:var(--gray-600);">100+ Jahre alte Kolosse auf Santa Cruz.</p></div>
+      <div style="background:var(--sand-100);border-radius:var(--r-lg);padding:1.5rem;text-align:center;"><div style="font-size:2.5rem;margin-bottom:0.75rem;">🦅</div><h4 style="margin-bottom:0.5rem;">Blaufußtölpel</h4><p style="font-size:0.85rem;color:var(--gray-600);">Die Einzigen, die keine Angst vor Touristen haben.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="blog.html" class="btn btn-dark">Galapagos-Kosten-Check lesen</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="peru" style="background:var(--sand-50);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+      <div class="animate-on-scroll">
+        <p class="overline" style="color:var(--terra-600);">← Aktuell hier · Juni 2026</p>
+        <h2>Peru</h2>
+        <p style="color:var(--gray-600);line-height:1.8;margin:1rem 0;">Wir sind gerade mitten drin. Pazifikküste, Wüste, Anden — Peru hält, was es verspricht. Und der Machu Picchu wartet noch auf uns.</p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
+          <a href="vlogs.html" class="btn btn-dark">Aktuellen Vlog ansehen</a>
+        </div>
+      </div>
+      <div class="animate-on-scroll animate-delay-1">
+        <img src="https://img.youtube.com/vi/xoa1NgiW6pY/maxresdefault.jpg" alt="Peru" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-xl);display:block;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="geplant" style="background:var(--green-900);">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <p class="overline" style="color:var(--terra-400);">Noch vor uns</p>
+      <h2 style="color:white;">Nächste Stationen</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;" class="animate-on-scroll">
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-lg);padding:1.5rem;text-align:center;color:white;opacity:0.7;"><div style="font-size:2.5rem;margin-bottom:0.75rem;"></div><h4 style="color:white;margin-bottom:0.5rem;">Bolivien</h4><p style="font-size:0.85rem;color:rgba(255,255,255,0.6);">Salar de Uyuni — die weiße Unendlichkeit</p></div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-lg);padding:1.5rem;text-align:center;color:white;opacity:0.7;"><div style="font-size:2.5rem;margin-bottom:0.75rem;"></div><h4 style="color:white;margin-bottom:0.5rem;">Chile</h4><p style="font-size:0.85rem;color:rgba(255,255,255,0.6);">Atacama, Patagonia und Torres del Paine</p></div>
+      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-lg);padding:1.5rem;text-align:center;color:white;opacity:0.7;"><div style="font-size:2.5rem;margin-bottom:0.75rem;"></div><h4 style="color:white;margin-bottom:0.5rem;">Argentinien</h4><p style="font-size:0.85rem;color:rgba(255,255,255,0.6);">Buenos Aires & Patagonien</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">Freescape Project</div>
+        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
+        <div class="footer__social">
+          <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/thefreescapeproject/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Navigation</p>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Startseite</a>
+          <a href="ueber-uns.html" class="footer__link">Über uns</a>
+          <a href="vlogs.html" class="footer__link">Vlogs</a>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="karte.html" class="footer__link">Reisekarte</a>
+          <a href="galerie.html" class="footer__link">Galerie</a>
+          <a href="kontakt.html" class="footer__link">Kontakt</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Länder</p>
+        <div class="footer__links">
+          <a href="laender.html#kolumbien" class="footer__link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="footer__link">Ecuador</a>
+          <a href="laender.html#peru" class="footer__link">Peru</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Bolivien</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Chile</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Argentinien</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Rechtliches</p>
+        <div class="footer__links">
+          <a href="impressum.html" class="footer__link">Impressum</a>
+          <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+          <a href="kontakt.html" class="footer__link">Kooperationen</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+      <div class="footer__legal">
+        <a href="impressum.html" class="footer__legal-link">Impressum</a>
+        <a href="datenschutz.html" class="footer__legal-link">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="cookie-banner">
+  <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
+  <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
+  <div class="cookie-banner__actions">
+    <button class="cookie-btn-accept">Alle akzeptieren</button>
+    <button class="cookie-btn-decline">Nur notwendige</button>
+  </div>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

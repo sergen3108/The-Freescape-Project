@@ -1,0 +1,712 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ✏️ SEO: Seitentitel im Browser-Tab -->
+  <title>The Freescape Project | Reiseblog</title>
+  <!-- ✏️ SEO: Kurze Beschreibung für Google -->
+  <meta name="description" content="Sergen und Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.">
+  <link rel="icon" type="image/png" href="assets/img/LOGO.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVIGATION — Logo-Text & Links anpassen
+     ═══════════════════════════════════════════════════════════ -->
+<nav class="nav nav--transparent" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/img/LOGO.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">The Freescape Project</span>
+        <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
+      </span>
+    </a>
+    <div class="nav__menu">
+      <a href="index.html" class="nav__link active" data-page="index.html">Start</a>
+      <a href="ueber-uns.html" class="nav__link" data-page="ueber-uns.html">Über uns</a>
+      <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
+      <a href="blog.html" class="nav__link" data-page="blog.html">Blog</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Länder
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="laender.html#kolumbien" class="nav__dropdown-link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="nav__dropdown-link">Ecuador</a>
+          <a href="laender.html#peru" class="nav__dropdown-link">Peru</a>
+          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Bolivien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Chile</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Argentinien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
+        </div>
+      </div>
+      <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
+      <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
+      <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
+    </div>
+
+    <!-- Sprachauswahl -->
+    <div class="lang-switcher">
+      <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="lang-switcher__flag">🇩🇪</span>
+        <span class="lang-switcher__label">DE</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lang-switcher__dropdown" role="listbox">
+        <button class="lang-switcher__option lang-switcher__option--active" data-flag="🇩🇪" data-label="DE">🇩🇪 Deutsch</button>
+        <button class="lang-switcher__option" data-flag="🇬🇧" data-label="EN">🇬🇧 English</button>
+        <button class="lang-switcher__option" data-flag="🇪🇸" data-label="ES">🇪🇸 Español</button>
+        <button class="lang-switcher__option" data-flag="🇹🇷" data-label="TR">🇹🇷 Türkçe</button>
+        <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
+      </div>
+    </div>
+
+    <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      YouTube
+    </a>
+    <button class="nav__burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="index.html" class="nav__mobile-link">Start</a>
+  <a href="ueber-uns.html" class="nav__mobile-link">Über uns</a>
+  <a href="vlogs.html" class="nav__mobile-link">Vlogs</a>
+  <a href="blog.html" class="nav__mobile-link">Blog</a>
+  <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
+  <a href="galerie.html" class="nav__mobile-link">Galerie</a>
+  <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);margin:0.5rem 0;padding:0.75rem 1rem 0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-family:var(--font-nav);">Länder</div>
+  <a href="laender.html#kolumbien" class="nav__mobile-link">Kolumbien</a>
+  <a href="laender.html#ecuador" class="nav__mobile-link">Ecuador</a>
+  <a href="laender.html#peru" class="nav__mobile-link">Peru</a>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO — Großes Titelbild oben
+     ═══════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero__bg">
+    <!-- ✏️ HERO HINTERGRUNDBILD: Pfad zu deinem Foto ersetzen
+         Empfehlung: Querformat, mindestens 1600px breit
+         Eigenes Bild: src="assets/img/hero-hintergrund.jpg" -->
+    <img src="assets/img/IMG_2934.JPEG" class="hero__bg-photo" alt="" aria-hidden="true">
+    <div class="hero__pattern"></div>
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <!-- ✏️ HERO BADGE: Kleiner Text oben (z.B. aktueller Standort) -->
+    <div class="hero__tag">
+      <span class="hero__tag-dot"></span>
+      Live · Aktuell in Nordperu
+    </div>
+    <!-- ✏️ HERO TITEL: Große Überschrift (mehrzeilig möglich mit <br>) -->
+    <h1 class="hero__title">
+      Unterwegs durch Südamerika.
+    </h1>
+    <!-- ✏️ HERO TEXT: Beschreibungstext unter dem Titel -->
+    <p class="hero__sub">
+      Wir sind Julia & Sergen und reisen seit Februar 2026 durch Südamerika.
+      Hier teilen wir unsere Videos, Reiserouten, Budgettipps und echte Erfahrungen direkt von unterwegs.
+    </p>
+    <div class="hero__actions">
+      <!-- ✏️ HERO BUTTONS: Text & Links der zwei Buttons -->
+      <a href="vlogs.html" class="btn btn-primary btn-lg">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        Vlogs ansehen
+      </a>
+      <a href="ueber-uns.html" class="btn btn-secondary btn-lg">Unsere Geschichte</a>
+    </div>
+  </div>
+  <!-- ✏️ HERO SEITENBILD: kleines Foto rechts neben dem Text
+       Eigenes Bild: src="assets/img/hero-seitenbild.jpg" -->
+  <a href="ueber-uns.html" class="hero__photo-card" aria-label="Mehr über uns erfahren">
+    <img src="assets/img/Japantogether.jpg" alt="Julia & Sergen">
+  </a>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     STATISTIKEN — 4 Zahlen-Kacheln
+     ═══════════════════════════════════════════════════════════ -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-bar__grid">
+      <!-- ✏️ STATS: data-count = Zahl die hochzählt | Label darunter -->
+      <div class="stats-bar__item animate-on-scroll">
+        <div class="stats-bar__number" data-count="3">0</div>
+        <div class="stats-bar__label">Länder bereist</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-1">
+        <div class="stats-bar__number" data-count="13500">0</div>
+        <div class="stats-bar__label">km zurückgelegt</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-2">
+        <div class="stats-bar__number" data-count="5">0</div>
+        <div class="stats-bar__label">Vlogs veröffentlicht</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-3">
+        <div class="stats-bar__number" id="tage-counter">0</div>
+        <div class="stats-bar__label">Tage unterwegs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     VLOGS — 3 aktuelle Videos
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <!-- ✏️ VLOGS SECTION: Überzeile, Titel, Beschreibung -->
+      <p class="overline">YouTube · The Freescape Project</p>
+      <h2>Aktuelle Vlogs</h2>
+      <p class="lead">Unsere neuesten Videos direkt vom Reiseweg: <br> Ungefiltert, authentisch und immer mit einem echten Erlebnis.</p>
+    </div>
+    <div class="vlogs-grid">
+
+      <!-- ── VLOG KARTE 1 ───────────────────────────────────
+           ✏️ YouTube-Video-ID ersetzen (die Buchstaben/Zahlen nach "watch?v=")
+           ✏️ Vorschaubild: https://img.youtube.com/vi/DEINE-VIDEO-ID/maxresdefault.jpg
+           ✏️ Oder eigenes Bild: src="assets/img/vlog1-thumb.jpg"
+           ─────────────────────────────────────────────────── -->
+      <article class="vlog-card animate-on-scroll">
+        <div class="vlog-card__thumb">
+          <a href="https://www.youtube.com/watch?v=xoa1NgiW6pY" target="_blank" rel="noopener" style="display:block;position:relative;">
+            <img src="https://img.youtube.com/vi/xoa1NgiW6pY/maxresdefault.jpg" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+            <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </a>
+          <!-- ✏️ BADGE: "Neu" oder z.B. "Folge 5" — weglassen wenn nicht gewünscht -->
+          <span class="vlog-card__badge">Neu</span>
+        </div>
+        <div class="vlog-card__body">
+          <div class="vlog-card__meta">
+            <!-- ✏️ Land & Folgennummer -->
+            <span class="vlog-card__country">Peru</span>
+            <span class="vlog-card__date">Folge 2</span>
+          </div>
+          <!-- ✏️ Titel des Videos -->
+          <h3 class="vlog-card__title">Backpacking Peru #2 — Huanchaco, Chan Chan & Trujillo</h3>
+          <!-- ✏️ Kurze Beschreibung (2–3 Sätze) -->
+          <p class="vlog-card__desc">Huanchaco ist ein entspannter Backpacker-Ort am Meer und ein guter Ausgangspunkt, um die Chan Chan Ruinen und Trujillo zu besuchen. 
+            Wir erkunden die berühmte Lehmstadt Chan Chan, schauen uns Trujillo an und zeigen euch unsere Eindrücke von diesem Stopp auf unserer Peru-Reise.</p>
+          <div class="vlog-card__footer">
+            <!-- ✏️ Link zum Video -->
+            <a href="https://www.youtube.com/watch?v=xoa1NgiW6pY" target="_blank" rel="noopener" class="vlog-card__watch">Ansehen →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── VLOG KARTE 2 ─────────────────────── -->
+      <article class="vlog-card animate-on-scroll animate-delay-1">
+        <div class="vlog-card__thumb">
+          <a href="https://www.youtube.com/watch?v=LuasGvIhZm8" target="_blank" rel="noopener" style="display:block;position:relative;">
+            <img src="https://img.youtube.com/vi/LuasGvIhZm8/maxresdefault.jpg" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+            <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </a>
+        </div>
+        <div class="vlog-card__body">
+          <div class="vlog-card__meta">
+            <span class="vlog-card__country">Peru</span>
+            <span class="vlog-card__date">Folge 1</span>
+          </div>
+          <h3 class="vlog-card__title">Backpacking Peru #1 — Unser erster Stopp: Máncora</h3>
+          <p class="vlog-card__desc">Nach über anderthalb Monaten in Ecuador überqueren wir die Grenze nach Peru und landen direkt in einem der bekanntesten Backpacker-Orte des Landes.
+Máncora ist bekannt für seine Strände, das warme Klima, Surfen und entspannte Backpacker-Vibes. Doch lohnt sich der Ort wirklich?</p>
+          <div class="vlog-card__footer">
+            <a href="https://www.youtube.com/watch?v=LuasGvIhZm8" target="_blank" rel="noopener" class="vlog-card__watch">Ansehen →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ── VLOG KARTE 3 ─────────────────────── -->
+      <article class="vlog-card animate-on-scroll animate-delay-2">
+        <div class="vlog-card__thumb">
+          <a href="https://www.youtube.com/watch?v=4Z-J0QvCdRk" target="_blank" rel="noopener" style="display:block;position:relative;">
+            <img src="https://img.youtube.com/vi/4Z-J0QvCdRk/maxresdefault.jpg" alt="" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+            <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </a>
+        </div>
+        <div class="vlog-card__body">
+          <div class="vlog-card__meta">
+            <span class="vlog-card__country">Ecuador</span>
+            <span class="vlog-card__date">Challenge 1</span>
+          </div>
+          <h3 class="vlog-card__title">Ecuadors sicherste Stadt – Kommen wir mit nur 10$ durch den Tag in Cuenca?</h3>
+          <p class="vlog-card__desc">In diesem Video stellen wir uns einer einfachen, aber spannenden Challenge: Können wir in Cuenca, einer der sichersten und beliebtesten Städte Ecuadors, einen ganzen Tag lang mit nur 10 Dollar essen?
+          <div class="vlog-card__footer">
+            <a href="https://www.youtube.com/watch?v=4Z-J0QvCdRk" target="_blank" rel="noopener" class="vlog-card__watch">Ansehen →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <!-- ✏️ BUTTON: Link zur Vlogs-Seite -->
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="vlogs.html" class="btn btn-outline btn-lg">Alle Vlogs ansehen</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     ÜBER UNS — Kurzer Teaser mit Foto
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section" style="background:var(--sand-50);">
+  <div class="container">
+    <div class="about-teaser">
+
+      <!-- ✏️ ÜBER UNS FOTO: Euer Hauptfoto
+           Eigenes Bild: src="assets/img/sergen-julia.jpg"
+           Empfehlung: Hochformat, ca. 800x1000px -->
+      <div class="about-teaser__visual animate-on-scroll">
+        <div class="about-teaser__img-main" style="overflow:hidden;">
+          <img src="assets/img/FujiFun.jpeg"
+               onerror="this.parentElement.style.background='linear-gradient(135deg,#1a2744,#e8431a)';this.style.display='none'"
+               alt="Sergen & Julia" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
+        <!-- ✏️ BADGE: Zahl & Text auf dem Foto -->
+        <div class="about-teaser__badge">
+          <div class="about-teaser__badge-num">365</div>
+          <div class="about-teaser__badge-text">Tage Abenteuer</div>
+        </div>
+      </div>
+
+      <div class="about-teaser__content animate-on-scroll animate-delay-1">
+        <!-- ✏️ ÜBER UNS ÜBERZEILE -->
+        <p class="overline">Über uns</p>
+        <!-- ✏️ ÜBER UNS TITEL -->
+        <h2>Wir sind Julia & Sergen.<br>Und wir nehmen eine Auszeit.</h2>
+        <!-- ✏️ ÜBER UNS TEXT (Absatz 1) -->
+        <p class="about-teaser__text">
+          Wann, wenn nicht jetzt? Im Februar 2026 haben wir
+          unsere Rucksäcke gepackt und sind von Köln aus nach Südamerika aufgebrochen.<br>
+          Wir filmen alles: die atemberaubenden Momente, aber auch die Tage,
+          an denen der Rucksack zu schwer ist und die Busfahrt 18 Stunden dauert.
+          Weil ehrliches Reisen so aussieht.
+        </p>
+        <!-- ✏️ ÜBER UNS TEXT (Absatz 2) -->
+        <div class="about-teaser__names">
+
+          <div class="about-teaser__name-info">
+            <!-- ✏️ NAME & BESCHREIBUNG -->
+            <div class="about-teaser__name">Julia (28) & Sergen (30)</div>
+            <div class="about-teaser__role">Aus Köln</div>
+          </div>
+        </div>
+        <a href="ueber-uns.html" class="btn btn-dark btn-lg">Unsere Geschichte lesen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     REISEKARTE — Vorschau mit Link zur Karte
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section map-preview">
+  <div class="map-preview__bg"></div>
+  <div class="container">
+    <div class="map-preview__inner">
+      <div class="map-preview__info animate-on-scroll">
+        <p class="overline" style="color:var(--terra-400);">Live-Reisestatus</p>
+        <!-- ✏️ KARTE TITEL & TEXT -->
+        <h2 class="map-preview__title">Wo sind wir gerade?</h2>
+        <p class="map-preview__desc">Verfolge unsere Route in Echtzeit. Wir aktualisieren unseren Standort jede Woche.</p>
+        <div class="map-preview__location">
+          <div class="map-preview__location-dot"></div>
+          <div>
+            <div class="map-preview__location-label">Aktueller Standort</div>
+            <!-- ✏️ AKTUELLER STANDORT -->
+            <div class="map-preview__location-name">Huaraz - Peru</div>
+          </div>
+        </div>
+        <div class="map-preview__countries">
+          <!-- ✏️ LÄNDER-STATUS:
+               country-chip--visited = bereist (grün)
+               country-chip--current = aktuell (orange)
+               country-chip--planned = geplant (grau) -->
+          <span class="country-chip country-chip--visited">Kolumbien ✓</span>
+          <span class="country-chip country-chip--visited">Ecuador ✓</span>
+          <span class="country-chip country-chip--current">Peru ←</span>
+          <span class="country-chip country-chip--planned">Bolivien</span>
+          <span class="country-chip country-chip--planned">Chile</span>
+          <span class="country-chip country-chip--planned">Argentinien</span>
+          <span class="country-chip country-chip--planned">Uruguay</span>
+          <span class="country-chip country-chip--planned">Paraguay</span>
+          <span class="country-chip country-chip--planned">Brasilien</span>
+        </div>
+        <!-- ✏️ NÄCHSTE WOCHE BOX -->
+        <div style="background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.3);border-radius:0.75rem;padding:1rem 1.25rem;font-size:0.85rem;color:rgba(255,255,255,0.8);line-height:1.6;">
+          <span style="color:var(--gold);font-weight:700;">📍 Nächste Woche:</span>
+          Lima — dann weiter zum Machu Picchu! Wir sind gespannt 🙌
+        </div>
+        <a href="karte.html" class="btn btn-primary">Interaktive Reisekarte öffnen</a>
+      </div>
+
+      <!-- SVG Südamerika-Karte (klickbar, echte Ländergrenzen via D3) -->
+      <div class="map-svg-container animate-on-scroll animate-delay-1">
+        <svg id="sa-map" viewBox="0 0 300 420" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     BLOG — 3 Artikel-Vorschaukarten
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <!-- ✏️ BLOG SECTION: Überzeile, Titel, Text -->
+      <p class="overline">Reisemagazin</p>
+      <h2>Ratgeber & Erfahrungen</h2>
+      <p class="lead">Was du im Vlog nicht siehst: Kosten-Checks, Reisetipps und persönliche Einblicke.</p>
+    </div>
+    <div class="blog-grid" id="blog-preview-grid">
+      <!-- wird dynamisch aus blog-posts.js befüllt -->
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="blog.html" class="btn btn-outline btn-lg">Alle Artikel lesen</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     INSTAGRAM — Banner mit Foto-Grid
+     ═══════════════════════════════════════════════════════════ -->
+<section class="instagram-banner">
+  <div class="instagram-banner__bg"></div>
+  <div class="container">
+    <div class="instagram-banner__inner">
+      <div class="instagram-banner__left">
+        <div class="instagram-banner__icon">
+          <svg viewBox="0 0 24 24" fill="white" width="32" height="32"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </div>
+        <!-- ✏️ INSTAGRAM: Handle, Titel, Text, Link -->
+        <p class="instagram-banner__handle">@thefreescapeproject</p>
+        <h2 class="instagram-banner__title">Folge uns auf Instagram</h2>
+        <p class="instagram-banner__desc">Tägliche Stories, Reisefotos und Einblicke hinter die Kulissen — direkt aus Südamerika.</p>
+        <a href="https://www.instagram.com/thefreescapeproject/" target="_blank" rel="noopener" class="instagram-banner__btn">
+          Jetzt folgen
+        </a>
+      </div>
+
+      <!-- ✏️ INSTAGRAM FOTO-GRID: 6 Fotos
+           Für jedes Foto:
+           1. Bild in assets/img/instagram/ speichern
+           2. src="assets/img/instagram/DEIN-FOTO.jpg" setzen
+           3. href="https://www.instagram.com/p/POST-ID/" = Link zum Instagram-Post
+           4. Label = kurzer Text der beim Hover erscheint -->
+      <div class="instagram-banner__grid">
+
+        <a href="https://www.instagram.com/p/DEIN-POST-1/" target="_blank" rel="noopener" class="instagram-post" style="position:relative;">
+          <img src="assets/img/instagram/post1.jpg"
+               onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#2d5a27,#5a8c2e)'"
+               alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="instagram-post__overlay"></span>
+          <span class="instagram-post__label">Kolumbien</span>
+        </a>
+
+        <a href="https://www.instagram.com/p/DEIN-POST-2/" target="_blank" rel="noopener" class="instagram-post" style="position:relative;">
+          <img src="assets/img/instagram/post2.jpg"
+               onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a4a1a,#2d7a2d)'"
+               alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="instagram-post__overlay"></span>
+          <span class="instagram-post__label">Guatapé</span>
+        </a>
+
+        <a href="https://www.instagram.com/p/DEIN-POST-3/" target="_blank" rel="noopener" class="instagram-post" style="position:relative;">
+          <img src="assets/img/instagram/post3.jpg"
+               onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a5c8c,#2e90cc)'"
+               alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="instagram-post__overlay"></span>
+          <span class="instagram-post__label">Karibik</span>
+        </a>
+
+        <a href="https://www.instagram.com/p/DEIN-POST-4/" target="_blank" rel="noopener" class="instagram-post" style="position:relative;">
+          <img src="assets/img/instagram/post4.jpg"
+               onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#8c3a1a,#d4622e)'"
+               alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="instagram-post__overlay"></span>
+          <span class="instagram-post__label">Ecuador</span>
+        </a>
+
+        <a href="https://www.instagram.com/p/DEIN-POST-5/" target="_blank" rel="noopener" class="instagram-post" style="position:relative;">
+          <img src="assets/img/instagram/post5.jpg"
+               onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#5c3a1a,#a0622e)'"
+               alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="instagram-post__overlay"></span>
+          <span class="instagram-post__label">Galapagos</span>
+        </a>
+
+        <a href="https://www.instagram.com/p/DEIN-POST-6/" target="_blank" rel="noopener" class="instagram-post" style="position:relative;">
+          <img src="assets/img/instagram/post6.jpg"
+               onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a2a5c,#2e4acc)'"
+               alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">
+          <span class="instagram-post__overlay"></span>
+          <span class="instagram-post__label">Peru</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     NEWSLETTER
+     ═══════════════════════════════════════════════════════════ -->
+<section class="section newsletter">
+  <div class="container">
+    <div class="newsletter__inner">
+      <div class="newsletter__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <!-- ✏️ NEWSLETTER: Titel & Text -->
+      <h2>Updates direkt ins Postfach</h2>
+      <p class="lead">Neue Vlogs, Blog-Artikel und Reisetipps — kein Spam, nur echte Inhalte.</p>
+      <form class="newsletter__form" onsubmit="return false;">
+        <input type="email" placeholder="deine@email.de" class="newsletter__input" aria-label="E-Mail">
+        <button type="submit" class="btn btn-primary">Anmelden</button>
+      </form>
+      <p class="newsletter__hint">Kein Spam. Abmeldung jederzeit möglich.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo">Freescape Project</div>
+        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
+        <div class="footer__social">
+          <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/thefreescapeproject/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Navigation</p>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Startseite</a>
+          <a href="ueber-uns.html" class="footer__link">Über uns</a>
+          <a href="vlogs.html" class="footer__link">Vlogs</a>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="karte.html" class="footer__link">Reisekarte</a>
+          <a href="galerie.html" class="footer__link">Galerie</a>
+          <a href="kontakt.html" class="footer__link">Kontakt</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Länder</p>
+        <div class="footer__links">
+          <a href="laender.html#kolumbien" class="footer__link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="footer__link">Ecuador</a>
+          <a href="laender.html#peru" class="footer__link">Peru</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Bolivien</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Chile</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Argentinien</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Rechtliches</p>
+        <div class="footer__links">
+          <a href="impressum.html" class="footer__link">Impressum</a>
+          <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+          <a href="kontakt.html" class="footer__link">Kooperationen</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+      <div class="footer__legal">
+        <a href="impressum.html" class="footer__legal-link">Impressum</a>
+        <a href="datenschutz.html" class="footer__legal-link">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="cookie-banner">
+  <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
+  <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
+  <div class="cookie-banner__actions">
+    <button class="cookie-btn-accept">Alle akzeptieren</button>
+    <button class="cookie-btn-decline">Nur notwendige</button>
+  </div>
+</div>
+
+<div class="video-modal">
+  <div class="video-modal__content">
+    <button class="video-modal__close" aria-label="Schließen">✕</button>
+    <div class="video-modal__iframe-wrap">
+      <iframe class="video-modal__iframe" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<script src="blog-posts.js"></script>
+<script src="main.js"></script>
+
+<!-- D3 + TopoJSON für die Südamerika-Karte -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script>
+(async function() {
+  // ISO 3166-1 Nummern → Land-Info
+  const SA = {
+    170: { name: 'Kolumbien',       href: 'laender.html#kolumbien', status: 'visited'  },
+    218: { name: 'Ecuador',         href: 'laender.html#ecuador',   status: 'visited'  },
+    604: { name: 'Peru',            href: 'laender.html#peru',      status: 'current'  },
+     68: { name: 'Bolivien',        href: 'laender.html#geplant',   status: ''         },
+     76: { name: 'Brasilien',       href: 'laender.html#geplant',   status: ''         },
+    862: { name: 'Venezuela',       href: 'laender.html#geplant',   status: ''         },
+    152: { name: 'Chile',           href: 'laender.html#geplant',   status: ''         },
+     32: { name: 'Argentinien',     href: 'laender.html#geplant',   status: ''         },
+    858: { name: 'Uruguay',         href: 'laender.html#geplant',   status: ''         },
+    600: { name: 'Paraguay',        href: 'laender.html#geplant',   status: ''         },
+    328: { name: 'Guyana',          href: '#',                      status: ''         },
+    740: { name: 'Suriname',        href: '#',                      status: ''         },
+    254: { name: 'Franz. Guayana',  href: '#',                      status: ''         },
+  };
+
+  try {
+    const world = await d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
+    const allFeatures = topojson.feature(world, world.objects.countries).features;
+    const saFeatures  = allFeatures.filter(f => SA[+f.id]);
+
+    const svg     = d3.select('#sa-map');
+    const proj    = d3.geoMercator().fitSize([300, 420], { type: 'FeatureCollection', features: saFeatures });
+    const pathGen = d3.geoPath().projection(proj);
+
+    const LABEL_COUNTRIES = new Set(['Peru','Brasilien','Argentinien','Chile','Bolivien','Kolumbien','Venezuela','Ecuador','Paraguay','Uruguay']);
+
+    saFeatures.forEach(feat => {
+      const info = SA[+feat.id];
+      const cls  = 'map-country'
+        + (info.status === 'visited' ? ' map-country--visited' : '')
+        + (info.status === 'current' ? ' map-country--current' : '');
+
+      const link = svg.append('a')
+        .attr('href', info.href)
+        .attr('xlink:href', info.href);
+
+      link.append('path')
+        .attr('d', pathGen(feat))
+        .attr('class', cls);
+
+      if (LABEL_COUNTRIES.has(info.name)) {
+        const [cx, cy] = pathGen.centroid(feat);
+        if (!isNaN(cx) && !isNaN(cy)) {
+          link.append('text')
+            .attr('x', cx).attr('y', cy)
+            .attr('text-anchor', 'middle')
+            .attr('dominant-baseline', 'central')
+            .attr('font-size', info.name.length > 9 ? '5' : '7')
+            .attr('fill',
+              info.status === 'current' ? 'rgba(255,255,255,0.95)' :
+              info.status === 'visited' ? 'rgba(255,255,255,0.75)' :
+                                          'rgba(255,255,255,0.35)')
+            .attr('pointer-events', 'none')
+            .text(info.name);
+        }
+      }
+    });
+
+    // Pulsierender Marker auf Peru (aktueller Standort)
+    const peru = saFeatures.find(f => +f.id === 604);
+    if (peru) {
+      const [cx, cy] = pathGen.centroid(peru);
+      svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 14).attr('fill', 'rgba(232,67,26,0.2)');
+      svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 6).attr('class', 'map-marker');
+    }
+  } catch (e) {
+    console.warn('Südamerika-Karte konnte nicht geladen werden:', e);
+  }
+})();
+</script>
+
+<script>
+  /* ── Dynamische Blog-Vorschau (aus blog-posts.js) ──────── */
+  function renderBlogPreview() {
+    const grid = document.getElementById('blog-preview-grid');
+    if (!grid) return;
+
+    const posts = [...(window.BLOG_POSTS || [])]
+      .sort((a, b) => new Date(b.datum) - new Date(a.datum))
+      .slice(0, 3);
+
+    const delays = ['', 'animate-delay-1', 'animate-delay-2'];
+
+    grid.innerHTML = posts.map((post, i) => {
+      const thumb = post.bild
+        ? `<a href="${post.link}"><img src="${post.bild}" alt="" style="width:100%;height:220px;object-fit:cover;display:block;"></a>`
+        : `<a href="${post.link}"><div style="height:220px;background:${post.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:3rem;">${post.bildFallback.emoji}</div></a>`;
+
+      return `
+      <article class="blog-card animate-on-scroll ${delays[i]}">
+        <div class="blog-card__thumb" style="overflow:hidden;">
+          ${thumb}
+          <span class="blog-card__category">${post.land}</span>
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta">
+            <span class="blog-card__author">${post.autor}</span>
+            <span class="blog-card__date">${post.datumLabel} · ${post.lesezeit}</span>
+          </div>
+          <h3 class="blog-card__title">${post.titel}</h3>
+          <p class="blog-card__excerpt">${post.teaser}</p>
+          <a href="${post.link}" class="blog-card__read">Artikel lesen →</a>
+        </div>
+      </article>`;
+    }).join('');
+
+    // Scroll-Animationen für dynamisch erzeugte Karten aktivieren
+    if (typeof IntersectionObserver !== 'undefined') {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+      grid.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    }
+  }
+
+  if (window.BLOG_POSTS) {
+    renderBlogPreview();
+  } else {
+    document.addEventListener('blogPostsReady', renderBlogPreview);
+  }
+</script>
+
+<script>
+  const startdatum = new Date('2026-02-25'); // ✏️ euer Startdatum anpassen
+  const heute = new Date();
+  const tage = Math.floor((heute - startdatum) / (1000 * 60 * 60 * 24));
+  document.getElementById('tage-counter').setAttribute('data-count', tage);
+  document.getElementById('tage-counter').textContent = '0';
+</script>
+
+</body>
+</html>
