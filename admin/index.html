@@ -5,8 +5,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog verwalten · The Freescape Project</title>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <style>
+    #password-change-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99999;
+      background: #1a2744;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: sans-serif;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    #password-change-btn:hover { background: #e8431a; }
+
+    #pw-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999999;
+      align-items: center;
+      justify-content: center;
+    }
+    #pw-modal-overlay.open { display: flex; }
+    #pw-modal {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      width: 360px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      font-family: sans-serif;
+    }
+    #pw-modal h2 { margin: 0 0 1.2rem; color: #1a2744; font-size: 1.2rem; }
+    #pw-modal input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 0.75rem;
+      box-sizing: border-box;
+    }
+    #pw-modal input:focus { outline: none; border-color: #1a2744; }
+    #pw-modal .btn-row { display: flex; gap: 0.75rem; margin-top: 0.5rem; }
+    #pw-modal button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    #pw-save { background: #1a2744; color: white; }
+    #pw-save:hover { background: #e8431a; }
+    #pw-cancel { background: #f0f0f0; color: #333; }
+    #pw-msg { font-size: 13px; margin-top: 0.5rem; min-height: 20px; }
+    #pw-msg.ok { color: #065f46; }
+    #pw-msg.err { color: #991b1b; }
+  </style>
 </head>
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+  <!-- Passwort ändern Button -->
+  <button id="password-change-btn" onclick="document.getElementById('pw-modal-overlay').classList.add('open')">
+    🔒 Passwort ändern
+  </button>
+
+  <!-- Modal -->
+  <div id="pw-modal-overlay">
+    <div id="pw-modal">
+      <h2>🔒 Passwort ändern</h2>
+      <input type="password" id="pw-new" placeholder="Neues Passwort (min. 8 Zeichen)" />
+      <input type="password" id="pw-confirm" placeholder="Passwort bestätigen" />
+      <div id="pw-msg"></div>
+      <div class="btn-row">
+        <button id="pw-cancel" onclick="closeModal()">Abbrechen</button>
+        <button id="pw-save" onclick="changePassword()">Speichern</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function closeModal() {
+      document.getElementById('pw-modal-overlay').classList.remove('open');
+      document.getElementById('pw-new').value = '';
+      document.getElementById('pw-confirm').value = '';
+      document.getElementById('pw-msg').textContent = '';
+      document.getElementById('pw-msg').className = '';
+    }
+
+    function showMsg(text, type) {
+      const el = document.getElementById('pw-msg');
+      el.textContent = text;
+      el.className = type;
+    }
+
+    async function changePassword() {
+      const newPw = document.getElementById('pw-new').value;
+      const confirm = document.getElementById('pw-confirm').value;
+
+      if (newPw.length < 8) {
+        showMsg('Passwort muss mindestens 8 Zeichen haben.', 'err');
+        return;
+      }
+      if (newPw !== confirm) {
+        showMsg('Passwörter stimmen nicht überein.', 'err');
+        return;
+      }
+
+      const user = netlifyIdentity.currentUser();
+      if (!user) {
+        showMsg('Nicht eingeloggt.', 'err');
+        return;
+      }
+
+      try {
+        await user.update({ password: newPw });
+        showMsg('✅ Passwort erfolgreich geändert!', 'ok');
+        setTimeout(closeModal, 2000);
+      } catch (e) {
+        showMsg('Fehler: ' + (e.message || 'Unbekannter Fehler'), 'err');
+      }
+    }
+
+    // Modal schließen bei Klick außerhalb
+    document.getElementById('pw-modal-overlay').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+  </script>
 </body>
 </html>
