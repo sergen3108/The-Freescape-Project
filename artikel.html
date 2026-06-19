@@ -239,6 +239,115 @@
     if (!res.ok) throw new Error('Not found');
     const text = await res.text();
 
+    const fmMatch = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+    if (!fmMatch) throw new Error('Kein Frontmatter');
+
+    // ── Verbesserter Parser (mehrzeilige Werte) ──────────────
+    const data = {};
+    const lines = fmMatch[1].split('\n');
+    let listKey = null;
+    let multilineKey = null;
+    let multilineVal = '';
+
+    lines.forEach((line, i) => {
+      if (multilineKey && line.match(/^\s+/) && !line.match(/^\s{2}-\s/)) {
+        multilineVal += ' ' + line.trim();
+        const next = lines[i + 1];
+        if (!next || !next.match(/^\s+/) || next.match(/^\s{2}-\s/)) {
+          data[multilineKey] = multilineVal.trim().replace(/^["']|["']$/g, '');
+          multilineKey = null;
+          multilineVal = '';
+        }
+        return;
+      }
+      const listMatch = line.match(/^\s{2}-\s(.+)/);
+      if (listMatch && listKey) {
+        if (!Array.isArray(data[listKey])) data[listKey] = [];
+        data[listKey].push(listMatch[1].trim());
+        return;
+      }
+      listKey = null;
+      const sep = line.indexOf(':');
+      if (sep === -1) return;
+      const key = line.slice(0, sep).trim();
+      const val = line.slice(sep + 1).trim().replace(/^["']|["']$/g, '');
+      if (val === '') {
+        listKey = key;
+      } else {
+        const next = lines[i + 1];
+        if (next && next.match(/^\s+/) && !next.match(/^\s{2}-\s/)) {
+          multilineKey = key;
+          multilineVal = val;
+        } else {
+          data[key] = val;
+        }
+      }
+    });
+    // ─────────────────────────────────────────────────────────
+
+    const body     = fmMatch[2] || '';
+    const typLabel = { guide:'Routen-Guide', kosten:'Kosten-Check', safety:'Sicherheit', persoenlich:'Erfahrungsbericht' }[data.typ] || 'Artikel';
+    const tags     = Array.isArray(data.tags) ? data.tags : [];
+
+    document.title = `${data.titel || 'Artikel'} · The Freescape Project`;
+
+    const heroHtml = data.bild
+      ? `<img class="artikel-hero__img" src="${data.bild}" alt="${data.titel || ''}">`
+      : `<div class="artikel-hero__fallback" style="background:linear-gradient(135deg,#1a2744,#e8431a);">${data.bildEmoji || '✈️'}</div>`;
+
+    const monate = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    const d = data.datum ? new Date(data.datum + 'T12:00:00') : new Date();
+    const datumLabel = `${d.getDate()}. ${monate[d.getMonth()]} ${d.getFullYear()}`;
+
+    // marked.js konfigurieren
+    marked.setOptions({ breaks: true, gfm: true });
+
+    root.innerHTML = `
+      <div class="artikel-hero">
+        ${heroHtml}
+        <div class="artikel-hero__overlay"></div>
+        <div class="container artikel-hero__meta">
+          <span class="artikel-badge">${typLabel}</span>
+          <h1 style="color:white;margin:0.5rem 0;font-size:clamp(1.6rem,4vw,2.6rem);max-width:800px;">${data.titel || ''}</h1>
+          <p style="color:rgba(255,255,255,0.7);margin:0;font-size:0.9rem;">
+            ${data.autor || 'Sergen & Julia'} · ${datumLabel} · ${data.lesezeit || '5 min'} Lesezeit
+            ${data.land ? `· ${data.land}` : ''}
+          </p>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="artikel-body">
+          <a href="blog.html" class="artikel-back">← Zurück zum Blog</a>
+          ${data.teaser ? `<p style="font-size:1.1rem;color:var(--gray-600);line-height:1.7;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--gray-200);">${data.teaser}</p>` : ''}
+          <div class="artikel-meta-bar">
+            <span class="artikel-badge">${typLabel}</span>
+            ${data.land ? `<span style="font-size:0.85rem;color:var(--gray-500);">${data.land}</span>` : ''}
+            <span style="font-size:0.85rem;color:var(--gray-400);">${datumLabel}</span>
+            <span style="font-size:0.85rem;color:var(--gray-400);">${data.lesezeit || '5 min'} Lesezeit</span>
+          </div>
+          <div id="artikel-content">${marked.parse(body)}</div>
+          ${tags.length ? `
+            <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--gray-200);">
+              <p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray-400);margin-bottom:0.75rem;">Tags</p>
+              ${tags.map(t => `<span class="tag">${t}</span>`).join('')}
+            </div>` : ''}
+          <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--gray-200);text-align:center;">
+            <a href="blog.html" class="btn btn-outline">← Alle Artikel</a>
+          </div>
+        </div>
+      </div>`;
+
+    loading.style.display = 'none';
+    root.style.display    = '';
+
+  } catch (err) {
+    loading.innerHTML = `<p>Artikel nicht gefunden.</p><a href="blog.html" class="btn btn-secondary" style="margin-top:1rem;">← Zurück zum Blog</a>`;
+    console.error('[artikel.html]', err);
+  }
+})();
+</script>
+
     // Frontmatter parsen
     const fmMatch = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
     if (!fmMatch) throw new Error('Kein Frontmatter');
