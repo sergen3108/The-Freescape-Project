@@ -4,6 +4,10 @@
    blog.html (alle Posts) genutzt.
    ============================================================ */
 
+/* ============================================================
+   BLOG-POSTS.JS — Liest Posts aus /posts/*.md (Decap CMS)
+   ============================================================ */
+
 window.BLOG_POSTS = null;
 
 (async function () {
@@ -40,6 +44,59 @@ window.BLOG_POSTS = null;
   document.dispatchEvent(new CustomEvent('blogPostsReady'));
 
 })();
+
+/* ── Frontmatter Parser ────────────────────────────────────── */
+function parseFrontmatter(text, filename) {
+  const match = text.match(/^---\n([\s\S]*?)\n---/);
+  if (!match) return null;
+
+  const data = {};
+  const lines = match[1].split('\n');
+  let listKey = null;
+  let multilineKey = null;
+  let multilineVal = '';
+
+  lines.forEach((line, i) => {
+    if (multilineKey && line.match(/^\s+/) && !line.match(/^\s{2}-\s/)) {
+      multilineVal += ' ' + line.trim();
+      const next = lines[i + 1];
+      if (!next || !next.match(/^\s+/) || next.match(/^\s{2}-\s/)) {
+        data[multilineKey] = multilineVal.trim().replace(/^["']|["']$/g, '');
+        multilineKey = null;
+        multilineVal = '';
+      }
+      return;
+    }
+
+    const listMatch = line.match(/^\s{2}-\s(.+)/);
+    if (listMatch && listKey) {
+      if (!Array.isArray(data[listKey])) data[listKey] = [];
+      data[listKey].push(listMatch[1].trim());
+      return;
+    }
+
+    const sep = line.indexOf(':');
+    if (sep === -1) { listKey = null; return; }
+    const key = line.slice(0, sep).trim();
+    const val = line.slice(sep + 1).trim().replace(/^["']|["']$/g, '');
+
+    if (val === '') {
+      listKey = key;
+    } else {
+      listKey = null;
+      const next = lines[i + 1];
+      if (next && next.match(/^\s+/) && !next.match(/^\s{2}-\s/)) {
+        multilineKey = key;
+        multilineVal = val;
+      } else {
+        data[key] = val;
+      }
+    }
+  });
+
+  const id      = filename.replace(/\.md$/, '');
+  const datum   = data.datum || new Date().toISOString().slice(0, 10);
+  const land    = data.land || '';
 
 /* ── Frontmatter Parser ────────────────────────────────────── */
 function parseFrontmatter(text, filename) {
