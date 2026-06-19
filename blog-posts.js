@@ -49,8 +49,23 @@ function parseFrontmatter(text, filename) {
   const data = {};
   const lines = match[1].split('\n');
   let listKey = null;
+  let multilineKey = null;
+  let multilineVal = '';
 
-  lines.forEach(line => {
+  lines.forEach((line, i) => {
+    // Fortsetzung eines mehrzeiligen Wertes (Zeile beginnt mit Leerzeichen, kein Listenelement)
+    if (multilineKey && line.match(/^\s+/) && !line.match(/^\s{2}-\s/)) {
+      multilineVal += ' ' + line.trim();
+      // Wenn nächste Zeile kein Fortsetzungs-Einzug mehr → abschließen
+      const next = lines[i + 1];
+      if (!next || !next.match(/^\s+/) || next.match(/^\s{2}-\s/)) {
+        data[multilineKey] = multilineVal.trim().replace(/^["']|["']$/g, '');
+        multilineKey = null;
+        multilineVal = '';
+      }
+      return;
+    }
+
     // YAML-Listenelement: "  - Wert"
     const listMatch = line.match(/^\s{2}-\s(.+)/);
     if (listMatch && listKey) {
@@ -64,11 +79,19 @@ function parseFrontmatter(text, filename) {
     if (sep === -1) { listKey = null; return; }
     const key = line.slice(0, sep).trim();
     const val = line.slice(sep + 1).trim().replace(/^["']|["']$/g, '');
+
     if (val === '') {
-      listKey = key; // nächste Zeilen könnten Listenelemente sein
+      listKey = key;
     } else {
       listKey = null;
-      data[key] = val;
+      // Prüfen ob nächste Zeile eine Fortsetzung ist
+      const next = lines[i + 1];
+      if (next && next.match(/^\s+/) && !next.match(/^\s{2}-\s/)) {
+        multilineKey = key;
+        multilineVal = val;
+      } else {
+        data[key] = val;
+      }
     }
   });
 
@@ -78,7 +101,6 @@ function parseFrontmatter(text, filename) {
   const typ     = data.typ  || 'guide';
   const tags    = Array.isArray(data.tags) ? data.tags : [];
 
-  // Kategorie für Filter: "kolumbien guide" etc.
   const landId  = land.toLowerCase()
     .replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue');
   const kategorie = data.kategorie || [landId, typ].filter(Boolean).join(' ');
@@ -87,6 +109,28 @@ function parseFrontmatter(text, filename) {
     guide: 'Routen-Guide', kosten: 'Kosten-Check',
     safety: 'Sicherheit', persoenlich: 'Erfahrungsbericht'
   };
+
+  return {
+    id,
+    datum,
+    datumLabel:   formatDatum(datum),
+    lesezeit:     data.lesezeit  || '5 min',
+    autor:        data.autor     || 'Sergen & Julia',
+    kategorie,
+    typ,
+    typLabel:     typLabels[typ] || 'Artikel',
+    land,
+    titel:        data.titel     || '(Kein Titel)',
+    teaser:       data.teaser    || '',
+    tags,
+    bild:         data.bild      || null,
+    bildFallback: {
+      emoji:    data.bildEmoji    || '✈️',
+      gradient: data.bildGradient || 'linear-gradient(135deg,#1a2744,#e8431a)'
+    },
+    link: `artikel.html?post=${id}`
+  };
+}
 
   return {
     id,
