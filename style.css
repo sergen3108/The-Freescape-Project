@@ -795,6 +795,23 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .vlog-card:hover .vlog-card__watch { gap: 8px; }
 
 /* === BLOG / ARTICLE CARDS ================================== */
+.artikel-body img {
+  width: 100%;
+  border-radius: var(--r-lg);
+  margin: 2rem 0;
+  display: block;
+  box-shadow: var(--shadow-md);
+}
+
+.artikel-body img + em {
+  display: block;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--gray-400);
+  margin-top: -1.25rem;
+  margin-bottom: 1.5rem;
+}
+
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
