@@ -852,8 +852,7 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   color: var(--gray-900);
 }
 .blog-card__title:hover { color: var(--terra-600); }
-.blog-card__excerpt { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; flex: 1; }
-.blog-card__read {
+.blog-card__excerpt { font-size: 0.875rem; color: var(--gray-600); line-height: 1.65; flex: 1; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }.blog-card__read {
   font-size: 0.82rem;
   font-weight: 600;
   color: var(--terra-600);
