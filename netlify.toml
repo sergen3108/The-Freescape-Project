@@ -6,28 +6,7 @@
 [build]
   publish = "."
 
-[build.environment]
-  NODE_VERSION = "18"
-
-# Decap CMS: Git Gateway für CMS-Logins
-[[plugins]]
-  package = "@netlify/plugin-lighthouse"
-
-# Sicherheits-Header
 [[headers]]
-  for = "/admin/*"
+  for = "/*"
   [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-
-# Alle HTML-Seiten: Cache nur kurz (damit neue Posts schnell erscheinen)
-[[headers]]
-  for = "/*.html"
-  [headers.values]
-    Cache-Control = "public, max-age=60, s-maxage=60"
-
-# Bilder: lange cachen
-[[headers]]
-  for = "/assets/img/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
+    Cache-Control = "no-cache"
