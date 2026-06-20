@@ -11,7 +11,7 @@ tags:
 teaser: Bogotá ist chaotisch, bunt und voller Gegensätze und genau das macht sie
   so faszinierend. Wir zeigen dir die besten Tipps für deine Zeit in der
   kolumbianischen Hauptstadt.
-bild: /assets/img/blog/bogota.jpeg
+bild: assets/img/blog/bogota.jpeg
 bildEmoji: ""
 lesezeit: 12 Min.
 ---
