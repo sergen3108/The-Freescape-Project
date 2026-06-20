@@ -4,6 +4,8 @@ datum: 2026-03-03
 autor: Julia
 land: Kolumbien
 typ: persoenlich
+tags:
+  - Kolumbien
 teaser: Eingebettet im Herzen von Kolumbiens berühmter Kaffeeregion (Eje
   Cafetero) ist Salento eines der charmantesten und beliebtesten Reiseziele für
   Reisende, die das Land erkunden. Die kleine Bergstadt ist bekannt für ihre
