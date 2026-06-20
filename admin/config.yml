@@ -11,7 +11,7 @@ public_folder: "/assets/img/blog"
 locale: de
 
 collections:
-  - name: "blog"
+- name: "posts"
     label: "📝 Blogbeiträge"
     label_singular: "Blogbeitrag"
     folder: "posts"
