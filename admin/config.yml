@@ -54,7 +54,7 @@ collections:
       - label: "✍️ Autor"
         name: "autor"
         widget: "string"
-        default: "Sergen & Julia"
+        default: "Julia"
 
       - label: "🗂️ Artikel-Typ"
         name: "typ"
@@ -91,7 +91,7 @@ collections:
         name: "bild"
         widget: "image"
         required: false
-        hint: "Bild für die Vorschaukarte (optional)"
+        hint: "Bild für die Vorschaukarte und den Artikel-Header"
 
       - label: "😀 Fallback-Emoji (wenn kein Bild)"
         name: "bildEmoji"
@@ -103,4 +103,4 @@ collections:
       - label: "📝 Artikelinhalt"
         name: "body"
         widget: "markdown"
-        hint: "Der vollständige Artikel. Formatierung mit Überschriften, Fettdruck etc. möglich."
+        hint: "Der vollständige Artikel. Du kannst auch Bilder einfügen — wechsle dazu auf Rich Text und klicke auf das + Symbol."
