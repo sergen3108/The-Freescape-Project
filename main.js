@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ── Scroll Animations (Intersection Observer) ───────── */
-  const animEls = document.querySelectorAll('.animate-on-scroll');
+  const animEls = document.querySelectorAll('.animate-on-scroll, .img-reveal-wrap');
   if (animEls.length) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
