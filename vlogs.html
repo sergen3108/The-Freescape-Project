@@ -278,6 +278,8 @@ function renderVideos(videos) {
 
   // Filter-Logik neu aktivieren
   initFilter();
+    if (window.observeAnimations) window.observeAnimations(document.getElementById('vlogs-grid'));
+
 }
 
 function initFilter() {
