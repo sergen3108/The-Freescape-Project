@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vlogs | The Freescape Project</title>
-  <meta name="description" content="Alle Reisevideos von Sergen & Julia – ungefilterte Vlogs aus Kolumbien, Ecuador, Galapagos und Peru.">
+  <meta name="description" content="Alle Reisevideos von Julia & Sergen – ungefilterte Vlogs aus Kolumbien, Ecuador, Galapagos und Peru.">
   <link rel="icon" type="image/png" href="assets/img/LOGO.png">  
   <link rel="stylesheet" href="style.css">
 </head>
@@ -42,8 +42,6 @@
       <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
       <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
     </div>
-
-    <!-- Sprachauswahl -->
     <div class="lang-switcher">
       <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
         <span class="lang-switcher__flag">🇩🇪</span>
@@ -58,7 +56,6 @@
         <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
       </div>
     </div>
-
     <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
       YouTube
@@ -81,14 +78,8 @@
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
 
- <section class="page-hero">
-  <!-- ✏️ HERO BILD: Ersetze die Zeile unten mit deinem Foto
-       Bild speichern unter: assets/img/hero-ueber-uns.jpg
-       Empfehlung: Querformat, min. 1600px breit -->
- <div class="hero__bg">
-    <!-- ✏️ HERO HINTERGRUNDBILD: Pfad zu deinem Foto ersetzen
-         Empfehlung: Querformat, mindestens 1600px breit
-         Eigenes Bild: src="assets/img/hero-hintergrund.jpg" -->
+<section class="page-hero">
+  <div class="hero__bg">
     <img src="assets/img/kilotoas.JPEG" class="hero__bg-photo" alt="">
     <div class="hero__pattern"></div>
   </div>
@@ -100,6 +91,29 @@
   </div>
 </section>
 
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-bar__grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="stats-bar__item animate-on-scroll">
+        <div class="stats-bar__number" id="stat-videos">–</div>
+        <div class="stats-bar__label">Vlogs veröffentlicht</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-1">
+        <div class="stats-bar__number" id="stat-views">–</div>
+        <div class="stats-bar__label">Aufrufe gesamt</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-2">
+        <div class="stats-bar__number" id="stat-subscribers">–</div>
+        <div class="stats-bar__label">Abonnenten</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-3">
+        <div class="stats-bar__number" data-reise="tageUnterwegs">0</div>
+        <div class="stats-bar__label">Tage unterwegs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
     <div class="filter-bar">
@@ -108,79 +122,15 @@
       <button class="filter-btn" data-filter="ecuador">Ecuador</button>
       <button class="filter-btn" data-filter="peru">Peru</button>
     </div>
-    <div class="vlogs-grid">
-      <article class="vlog-card animate-on-scroll" data-category="peru">
-        <div class="vlog-card__thumb">
-          <a href="https://www.youtube.com/watch?v=xoa1NgiW6pY" target="_blank" rel="noopener" style="display:block;position:relative;">
-            <img src="https://img.youtube.com/vi/xoa1NgiW6pY/maxresdefault.jpg" alt="Peru Vlog" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
-            <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-          </a>
-          <span class="vlog-card__badge">Neu</span>
-        </div>
-        <div class="vlog-card__body">
-          <div class="vlog-card__meta"><span class="vlog-card__country">Peru</span><span class="vlog-card__date">Folge 5 · Juni 2026</span></div>
-          <h3 class="vlog-card__title">Abenteuer Peru: Auf den Spuren der Inkas zwischen Andengipfeln und Wüstenoasen!</h3>
-          <p class="vlog-card__desc">Pazifikküste, Wüste, Anden — Peru empfängt uns mit gigantischen Landschaften, Inka-Geschichte und dem besten Ceviche der Welt.</p>
-          <div class="vlog-card__footer"><a href="https://www.youtube.com/watch?v=xoa1NgiW6pY" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a></div>
-        </div>
-      </article>
-      <article class="vlog-card animate-on-scroll animate-delay-1" data-category="galapagos">
-        <div class="vlog-card__thumb">
-          <a href="https://www.youtube.com/watch?v=LuasGvIhZm8" target="_blank" rel="noopener" style="display:block;position:relative;">
-            <img src="https://img.youtube.com/vi/LuasGvIhZm8/maxresdefault.jpg" alt="Galapagos" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
-            <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-          </a>
-        </div>
-        <div class="vlog-card__body">
-          <div class="vlog-card__meta"><span class="vlog-card__country">Peru</span><span class="vlog-card__date">Folge 4 · Mai 2026</span></div>
-          <h3 class="vlog-card__title">Traumziel Galapagos: Drei Wochen im Naturparadies zwischen Riesenschildkröten und Seelöwen!</h3>
-          <p class="vlog-card__desc">Insel-Hopping auf eigene Faust, Schnorcheln mit Seelöwen und ehrliche Backpacker-Tipps für das teuerste Ziel Südamerikas.</p>
-          <div class="vlog-card__footer"><a href="https://www.youtube.com/watch?v=LuasGvIhZm8" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a></div>
-        </div>
-      </article>
-      <article class="vlog-card animate-on-scroll animate-delay-2" data-category="ecuador">
-        <div class="vlog-card__thumb">
-          <a href="https://www.youtube.com/watch?v=4Z-J0QvCdRk" target="_blank" rel="noopener" style="display:block;position:relative;">
-            <img src="https://img.youtube.com/vi/4Z-J0QvCdRk/maxresdefault.jpg" alt="Ecuador" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
-            <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-          </a>
-        </div>
-        <div class="vlog-card__body">
-          <div class="vlog-card__meta"><span class="vlog-card__country">Ecuador</span><span class="vlog-card__date">Folge 3 · April 2026</span></div>
-          <h3 class="vlog-card__title">Abenteuer Ecuador: Zwischen kolonialem Charme in Quito und purem Dschungelleben im Amazonas!</h3>
-          <p class="vlog-card__desc">Von Ecuadors historischer Hauptstadt tief in den Regenwald — 4 Tage Amazonas, Wildlife hautnah und das Gefühl, mitten im Nirgendwo zu sein.</p>
-          <div class="vlog-card__footer"><a href="https://www.youtube.com/watch?v=4Z-J0QvCdRk" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a></div>
-        </div>
-      </article>
-      <article class="vlog-card animate-on-scroll" data-category="kolumbien">
-        <div class="vlog-card__thumb">
-          <a href="https://www.youtube.com/watch?v=IQ2cHRPsqDg" target="_blank" rel="noopener" style="display:block;position:relative;">
-            <img src="https://img.youtube.com/vi/IQ2cHRPsqDg/maxresdefault.jpg" alt="Kolumbien Vlog 2" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
-            <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-          </a>
-        </div>
-        <div class="vlog-card__body">
-          <div class="vlog-card__meta"><span class="vlog-card__country">Kolumbien</span><span class="vlog-card__date">Folge 2 · März 2026</span></div>
-          <h3 class="vlog-card__title">Kolumbien: Karibikküste, Santa Marta & der Tayrona-Nationalpark!</h3>
-          <p class="vlog-card__desc">Von Medellín an die Karibikküste — Minca, Palomino, Santa Marta und der atemberaubende Tayrona-Park erwarten uns.</p>
-          <div class="vlog-card__footer"><a href="https://www.youtube.com/watch?v=IQ2cHRPsqDg" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a></div>
-        </div>
-      </article>
-      <article class="vlog-card animate-on-scroll animate-delay-1" data-category="kolumbien">
-        <div class="vlog-card__thumb">
-          <a href="https://www.youtube.com/watch?v=6evI3LN4Spk" target="_blank" rel="noopener" style="display:block;position:relative;">
-            <img src="https://www.youtube.com/watch?v=6evI3LN4Spk/maxresdefault.jpg" alt="Kolumbien Folge 1" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
-            <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-          </a>
-        </div>
-        <div class="vlog-card__body">
-          <div class="vlog-card__meta"><span class="vlog-card__country">Kolumbien</span><span class="vlog-card__date">Folge 1 · Februar 2026</span></div>
-          <h3 class="vlog-card__title">Angekommen in Bogotá! Der Start unseres großen Südamerika-Abenteuers</h3>
-          <p class="vlog-card__desc">Unser erster Tag in Kolumbien — Bogotá, La Candelaria, Streetfood und die ersten echten Eindrücke. Es beginnt!</p>
-          <div class="vlog-card__footer"><a href="https://www.youtube.com/watch?v=6evI3LN4Spk" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a></div>
-        </div>
-      </article>
+
+    <!-- Ladezustand -->
+    <div id="vlogs-loading" style="text-align:center;padding:4rem 0;color:var(--navy-300,#94a3b8);">
+      <svg style="width:2rem;height:2rem;animation:spin 1s linear infinite;margin-bottom:1rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      <p>Videos werden geladen…</p>
     </div>
+
+    <div class="vlogs-grid" id="vlogs-grid" style="display:none;"></div>
+
     <div style="text-align:center;margin-top:3rem;">
       <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
         <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
@@ -194,8 +144,8 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo">Freescape Project</div>
-        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGO.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
         <div class="footer__social">
           <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
@@ -238,7 +188,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+      <p class="footer__copy">© 2026 The Freescape Project – Julia &amp; Sergen</p>
       <div class="footer__legal">
         <a href="impressum.html" class="footer__legal-link">Impressum</a>
         <a href="datenschutz.html" class="footer__legal-link">Datenschutz</a>
@@ -246,6 +196,7 @@
     </div>
   </div>
 </footer>
+
 <div class="cookie-banner">
   <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -254,6 +205,160 @@
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
 </div>
+
+<style>
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+<script>
+// ─── Konfiguration ───────────────────────────────────────────────────────────
+const YT_API_KEY     = 'AIzaSyBW6ccDJvUm-nVjyUYdQ2PiG-byZiwPJE4';
+const YT_CHANNEL_ID  = 'UCmCpxt4eKOG_R1csbtp3Z9Q';
+
+// Land-Erkennung anhand von Keywords im Titel
+function detectCountry(title) {
+  const t = title.toLowerCase();
+  if (t.includes('kolumbien') || t.includes('bogotá') || t.includes('medellin') || t.includes('cartagena') || t.includes('salento') || t.includes('tayrona') || t.includes('santa marta') || t.includes('minca') || t.includes('palomino')) return 'kolumbien';
+  if (t.includes('ecuador') || t.includes('quito') || t.includes('amazonas') || t.includes('baños') || t.includes('mindo') || t.includes('quilotoa') || t.includes('cotopaxi') || t.includes('cuenca')) return 'ecuador';
+  if (t.includes('galápagos') || t.includes('galapagos')) return 'ecuador';
+  if (t.includes('peru') || t.includes('machu') || t.includes('lima') || t.includes('cusco') || t.includes('titicaca') || t.includes('máncora') || t.includes('mancora')) return 'peru';
+  return 'other';
+}
+
+function formatNumber(n) {
+  n = parseInt(n);
+  if (n >= 1000000) return (n / 1000000).toFixed(1).replace('.', ',') + ' Mio.';
+  if (n >= 1000) return (n / 1000).toFixed(1).replace('.', ',') + 'K';
+  return n.toLocaleString('de-DE');
+}
+
+function formatDate(iso) {
+  const d = new Date(iso);
+  return d.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
+}
+
+function renderVideos(videos) {
+  const grid = document.getElementById('vlogs-grid');
+  const loading = document.getElementById('vlogs-loading');
+
+  if (!videos.length) {
+    loading.innerHTML = '<p>Noch keine Videos veröffentlicht.</p>';
+    return;
+  }
+
+  grid.innerHTML = videos.map((v, i) => {
+    const country = detectCountry(v.title);
+    const countryLabel = { kolumbien: 'Kolumbien', ecuador: 'Ecuador', peru: 'Peru', other: '' }[country] || '';
+    const isNew = i === 0;
+    const delay = ['', 'animate-delay-1', 'animate-delay-2'][i % 3];
+
+    return `
+      <article class="vlog-card animate-on-scroll ${delay}" data-category="${country}">
+        <div class="vlog-card__thumb">
+          <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" style="display:block;position:relative;">
+            <img src="https://img.youtube.com/vi/${v.id}/maxresdefault.jpg"
+                 onerror="this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'"
+                 alt="${v.title}" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+            <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          </a>
+          ${isNew ? '<span class="vlog-card__badge">Neu</span>' : ''}
+        </div>
+        <div class="vlog-card__body">
+          <div class="vlog-card__meta">
+            ${countryLabel ? `<span class="vlog-card__country">${countryLabel}</span>` : ''}
+            <span class="vlog-card__date">${formatDate(v.publishedAt)}</span>
+          </div>
+          <h3 class="vlog-card__title">${v.title}</h3>
+          <p class="vlog-card__desc">${v.description.slice(0, 120).trim()}${v.description.length > 120 ? '…' : ''}</p>
+          <div class="vlog-card__footer">
+            <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a>
+          </div>
+        </div>
+      </article>`;
+  }).join('');
+
+  loading.style.display = 'none';
+  grid.style.display = 'grid';
+
+  // Filter-Logik neu aktivieren
+  initFilter();
+}
+
+function initFilter() {
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.vlog-card').forEach(card => {
+        card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+      });
+    });
+  });
+}
+
+async function loadYouTubeData() {
+  const showError = (msg) => {
+    document.getElementById('vlogs-loading').innerHTML =
+      `<p style="color:var(--terra-400);max-width:500px;margin:0 auto;">${msg}<br><br>
+       <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank"
+          style="color:var(--terra-400);text-decoration:underline;">Direkt auf YouTube ansehen →</a></p>`;
+  };
+
+  try {
+    // Kanal-Daten + Upload-Playlist in einem Call holen
+    const channelRes = await fetch(
+      `https://www.googleapis.com/youtube/v3/channels?part=statistics,contentDetails&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`
+    );
+    const channelData = await channelRes.json();
+
+    if (channelData.error) {
+      showError(`API-Fehler ${channelData.error.code}: ${channelData.error.message}`);
+      return;
+    }
+    if (!channelData.items || !channelData.items[0]) {
+      showError('Kanal nicht gefunden – bitte Channel-ID prüfen.');
+      return;
+    }
+
+    const s = channelData.items[0].statistics;
+    document.getElementById('stat-videos').textContent      = formatNumber(s.videoCount);
+    document.getElementById('stat-views').textContent       = formatNumber(s.viewCount);
+    document.getElementById('stat-subscribers').textContent = formatNumber(s.subscriberCount);
+
+    const uploadsId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
+
+    // Videos aus Upload-Playlist laden (max. 50)
+    const playlistRes = await fetch(
+      `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${uploadsId}&key=${YT_API_KEY}`
+    );
+    const playlistData = await playlistRes.json();
+
+    if (playlistData.error) {
+      showError(`Playlist-Fehler ${playlistData.error.code}: ${playlistData.error.message}`);
+      return;
+    }
+
+    const videos = (playlistData.items || []).map(item => ({
+      id:          item.snippet.resourceId.videoId,
+      title:       item.snippet.title,
+      description: item.snippet.description || '',
+      publishedAt: item.snippet.publishedAt,
+    }));
+
+    renderVideos(videos);
+
+  } catch (err) {
+    console.error('YouTube API Fehler:', err);
+    showError(`Netzwerkfehler: ${err.message}. Seite über einen Webserver öffnen (nicht als file://)?`);
+  }
+}
+
+// Start
+loadYouTubeData();
+</script>
+
+<script src="reise-config.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
