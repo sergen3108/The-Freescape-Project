@@ -7,6 +7,41 @@
   <meta name="description" content="Alle Reisevideos von Julia & Sergen – ungefilterte Vlogs aus Kolumbien, Ecuador, Galapagos und Peru.">
   <link rel="icon" type="image/png" href="assets/img/LOGO.png">  
   <link rel="stylesheet" href="style.css">
+  <style>
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .content-tabs {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--gray-200, #e5e7eb);
+    }
+    .content-tab {
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--gray-500, #6b7280);
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .content-tab.active {
+      color: var(--terra-600, #c0392b);
+      border-bottom-color: var(--terra-600, #c0392b);
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .load-more-wrap {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+  </style>
 </head>
 <body>
 <nav class="nav nav--transparent" role="navigation">
@@ -93,7 +128,7 @@
 
 <section class="stats-bar">
   <div class="container">
-    <div class="stats-bar__grid" style="grid-template-columns:repeat(4,1fr);">
+    <div class="stats-bar__grid" style="grid-template-columns:repeat(3,1fr);">
       <div class="stats-bar__item animate-on-scroll">
         <div class="stats-bar__number" id="stat-videos">–</div>
         <div class="stats-bar__label">Vlogs veröffentlicht</div>
@@ -112,12 +147,6 @@
 
 <section class="section">
   <div class="container">
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">Alle</button>
-      <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
-      <button class="filter-btn" data-filter="ecuador">Ecuador</button>
-      <button class="filter-btn" data-filter="peru">Peru</button>
-    </div>
 
     <!-- Ladezustand -->
     <div id="vlogs-loading" style="text-align:center;padding:4rem 0;color:var(--navy-300,#94a3b8);">
@@ -125,7 +154,40 @@
       <p>Videos werden geladen…</p>
     </div>
 
-    <div class="vlogs-grid" id="vlogs-grid" style="display:none;"></div>
+    <!-- Tabs + Content -->
+    <div id="vlogs-content" style="display:none;">
+
+      <!-- Tab-Buttons -->
+      <div class="content-tabs">
+        <button class="content-tab active" data-tab="videos">🎬 Videos</button>
+        <button class="content-tab" data-tab="shorts">⚡ Shorts</button>
+      </div>
+
+      <!-- Filter -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Alle</button>
+        <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
+        <button class="filter-btn" data-filter="ecuador">Ecuador</button>
+        <button class="filter-btn" data-filter="peru">Peru</button>
+      </div>
+
+      <!-- Videos Tab -->
+      <div class="tab-panel active" id="tab-videos">
+        <div class="vlogs-grid" id="grid-videos"></div>
+        <div class="load-more-wrap" id="more-videos" style="display:none;">
+          <button class="btn btn-secondary" id="btn-more-videos">Mehr Videos laden</button>
+        </div>
+      </div>
+
+      <!-- Shorts Tab -->
+      <div class="tab-panel" id="tab-shorts">
+        <div class="vlogs-grid" id="grid-shorts"></div>
+        <div class="load-more-wrap" id="more-shorts" style="display:none;">
+          <button class="btn btn-secondary" id="btn-more-shorts">Mehr Shorts laden</button>
+        </div>
+      </div>
+
+    </div>
 
     <div style="text-align:center;margin-top:3rem;">
       <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
@@ -202,100 +264,128 @@
   </div>
 </div>
 
-<style>
-@keyframes spin { to { transform: rotate(360deg); } }
-</style>
-
 <script>
-// ─── Konfiguration ───────────────────────────────────────────────────────────
-const YT_API_KEY     = 'AIzaSyBW6ccDJvUm-nVjyUYdQ2PiG-byZiwPJE4';
-const YT_CHANNEL_ID  = 'UCmCpxt4eKOG_R1csbtp3Z9Q';
+const YT_API_KEY    = 'AIzaSyBW6ccDJvUm-nVjyUYdQ2PiG-byZiwPJE4';
+const YT_CHANNEL_ID = 'UCmCpxt4eKOG_R1csbtp3Z9Q';
+const PAGE_SIZE     = 6;
 
-// Land-Erkennung anhand von Keywords im Titel
+// State
+let allVideos = [];
+let allShorts = [];
+let shownVideos = 0;
+let shownShorts = 0;
+let activeFilter = 'all';
+
 function detectCountry(title) {
   const t = title.toLowerCase();
-  if (t.includes('kolumbien') || t.includes('bogotá') || t.includes('medellin') || t.includes('cartagena') || t.includes('salento') || t.includes('tayrona') || t.includes('santa marta') || t.includes('minca') || t.includes('palomino')) return 'kolumbien';
-  if (t.includes('ecuador') || t.includes('quito') || t.includes('amazonas') || t.includes('baños') || t.includes('mindo') || t.includes('quilotoa') || t.includes('cotopaxi') || t.includes('cuenca')) return 'ecuador';
-  if (t.includes('galápagos') || t.includes('galapagos')) return 'ecuador';
-  if (t.includes('peru') || t.includes('machu') || t.includes('lima') || t.includes('cusco') || t.includes('titicaca') || t.includes('máncora') || t.includes('mancora')) return 'peru';
+  if (t.includes('kolumbien')||t.includes('bogotá')||t.includes('medellin')||t.includes('cartagena')||t.includes('salento')||t.includes('tayrona')||t.includes('santa marta')||t.includes('minca')||t.includes('palomino')) return 'kolumbien';
+  if (t.includes('ecuador')||t.includes('quito')||t.includes('amazonas')||t.includes('baños')||t.includes('mindo')||t.includes('quilotoa')||t.includes('cotopaxi')||t.includes('cuenca')||t.includes('galápagos')||t.includes('galapagos')) return 'ecuador';
+  if (t.includes('peru')||t.includes('machu')||t.includes('lima')||t.includes('cusco')||t.includes('titicaca')||t.includes('máncora')||t.includes('mancora')) return 'peru';
   return 'other';
 }
 
 function formatNumber(n) {
   n = parseInt(n);
-  if (n >= 1000000) return (n / 1000000).toFixed(1).replace('.', ',') + ' Mio.';
-  if (n >= 1000) return (n / 1000).toFixed(1).replace('.', ',') + 'K';
+  if (n >= 1000000) return (n/1000000).toFixed(1).replace('.',',')+' Mio.';
+  if (n >= 1000) return (n/1000).toFixed(1).replace('.',',')+' K';
   return n.toLocaleString('de-DE');
 }
 
 function formatDate(iso) {
-  const d = new Date(iso);
-  return d.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
+  return new Date(iso).toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
 }
 
-function renderVideos(videos) {
-  const grid = document.getElementById('vlogs-grid');
-  const loading = document.getElementById('vlogs-loading');
-
-  if (!videos.length) {
-    loading.innerHTML = '<p>Noch keine Videos veröffentlicht.</p>';
-    return;
-  }
-
-  grid.innerHTML = videos.map((v, i) => {
-    const country = detectCountry(v.title);
-    const countryLabel = { kolumbien: 'Kolumbien', ecuador: 'Ecuador', peru: 'Peru', other: '' }[country] || '';
-    const isNew = i === 0;
-    const delay = ['', 'animate-delay-1', 'animate-delay-2'][i % 3];
-
-    return `
-      <article class="vlog-card animate-on-scroll ${delay}" data-category="${country}">
-        <div class="vlog-card__thumb">
-          <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" style="display:block;position:relative;">
-            <img src="https://img.youtube.com/vi/${v.id}/maxresdefault.jpg"
-                 onerror="this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'"
-                 alt="${v.title}" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
-            <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-          </a>
-          ${isNew ? '<span class="vlog-card__badge">Neu</span>' : ''}
-        </div>
-        <div class="vlog-card__body">
-          <div class="vlog-card__meta">
-            ${countryLabel ? `<span class="vlog-card__country">${countryLabel}</span>` : ''}
-            <span class="vlog-card__date">${formatDate(v.publishedAt)}</span>
-          </div>
-          <h3 class="vlog-card__title">${v.title}</h3>
-          <p class="vlog-card__desc">${v.description.slice(0, 120).trim()}${v.description.length > 120 ? '…' : ''}</p>
-          <div class="vlog-card__footer">
-            <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a>
-          </div>
-        </div>
-      </article>`;
-  }).join('');
-
-  loading.style.display = 'none';
-  grid.style.display = 'grid';
-
-initFilter();
-  // Direkt alle Karten sichtbar machen ohne auf main.js zu warten
-  document.querySelectorAll('#vlogs-grid .animate-on-scroll').forEach(el => el.classList.add('visible'));
+// ISO 8601 Dauer in Sekunden umrechnen (z.B. PT1M30S = 90)
+function parseDuration(iso) {
+  const m = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+  if (!m) return 0;
+  return (parseInt(m[1]||0)*3600) + (parseInt(m[2]||0)*60) + parseInt(m[3]||0);
 }
 
-function initFilter() {
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      document.querySelectorAll('.vlog-card').forEach(card => {
-        card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
-      });
-    });
+function makeCard(v, index, isNew) {
+  const country = detectCountry(v.title);
+  const countryLabel = {kolumbien:'Kolumbien',ecuador:'Ecuador',peru:'Peru',other:''}[country]||'';
+  const delay = ['','animate-delay-1','animate-delay-2'][index%3];
+  return `
+    <article class="vlog-card ${delay}" data-category="${country}">
+      <div class="vlog-card__thumb">
+        <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" style="display:block;position:relative;">
+          <img src="https://img.youtube.com/vi/${v.id}/maxresdefault.jpg"
+               onerror="this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'"
+               alt="${v.title}" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+          <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        </a>
+        ${isNew ? '<span class="vlog-card__badge">Neu</span>' : ''}
+      </div>
+      <div class="vlog-card__body">
+        <div class="vlog-card__meta">
+          ${countryLabel ? `<span class="vlog-card__country">${countryLabel}</span>` : ''}
+          <span class="vlog-card__date">${formatDate(v.publishedAt)}</span>
+        </div>
+        <h3 class="vlog-card__title">${v.title}</h3>
+        <p class="vlog-card__desc">${(v.description||'').slice(0,120).trim()}${(v.description||'').length>120?'…':''}</p>
+        <div class="vlog-card__footer">
+          <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a>
+        </div>
+      </div>
+    </article>`;
+}
+
+function getFiltered(list) {
+  if (activeFilter === 'all') return list;
+  return list.filter(v => detectCountry(v.title) === activeFilter);
+}
+
+function renderGrid(gridId, list, shown, moreWrapId) {
+  const grid = document.getElementById(gridId);
+  const filtered = getFiltered(list);
+  const toShow = filtered.slice(0, shown);
+  grid.innerHTML = toShow.map((v, i) => makeCard(v, i, i === 0 && list === allVideos)).join('');
+  // Mehr-Button
+  document.getElementById(moreWrapId).style.display = filtered.length > shown ? 'block' : 'none';
+  // Sichtbar machen
+  grid.querySelectorAll('.vlog-card').forEach(el => el.classList.add('visible'));
+}
+
+function renderAll() {
+  renderGrid('grid-videos', allVideos, shownVideos, 'more-videos');
+  renderGrid('grid-shorts', allShorts, shownShorts, 'more-shorts');
+}
+
+// Tabs
+document.querySelectorAll('.content-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.content-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
   });
-}
+});
+
+// Mehr laden
+document.getElementById('btn-more-videos').addEventListener('click', () => {
+  shownVideos += PAGE_SIZE;
+  renderGrid('grid-videos', allVideos, shownVideos, 'more-videos');
+});
+document.getElementById('btn-more-shorts').addEventListener('click', () => {
+  shownShorts += PAGE_SIZE;
+  renderGrid('grid-shorts', allShorts, shownShorts, 'more-shorts');
+});
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    shownVideos = PAGE_SIZE;
+    shownShorts = PAGE_SIZE;
+    renderAll();
+  });
+});
 
 async function loadYouTubeData() {
-  const showError = (msg) => {
+  const showError = msg => {
     document.getElementById('vlogs-loading').innerHTML =
       `<p style="color:var(--terra-400);max-width:500px;margin:0 auto;">${msg}<br><br>
        <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank"
@@ -303,55 +393,66 @@ async function loadYouTubeData() {
   };
 
   try {
-    // Kanal-Daten + Upload-Playlist in einem Call holen
-    const channelRes = await fetch(
-      `https://www.googleapis.com/youtube/v3/channels?part=statistics,contentDetails&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`
-    );
-    const channelData = await channelRes.json();
+    // 1. Kanal-Stats + Upload-Playlist
+    const chRes  = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics,contentDetails&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`);
+    const chData = await chRes.json();
+    if (chData.error || !chData.items?.[0]) { showError('Kanal nicht gefunden.'); return; }
 
-    if (channelData.error) {
-      showError(`API-Fehler ${channelData.error.code}: ${channelData.error.message}`);
-      return;
-    }
-    if (!channelData.items || !channelData.items[0]) {
-      showError('Kanal nicht gefunden – bitte Channel-ID prüfen.');
-      return;
-    }
-
-    const s = channelData.items[0].statistics;
+    const s = chData.items[0].statistics;
     document.getElementById('stat-videos').textContent      = formatNumber(s.videoCount);
     document.getElementById('stat-views').textContent       = formatNumber(s.viewCount);
     document.getElementById('stat-subscribers').textContent = formatNumber(s.subscriberCount);
 
-    const uploadsId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
+    const uploadsId = chData.items[0].contentDetails.relatedPlaylists.uploads;
 
-    // Videos aus Upload-Playlist laden (max. 50)
-    const playlistRes = await fetch(
-      `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${uploadsId}&key=${YT_API_KEY}`
-    );
-    const playlistData = await playlistRes.json();
+    // 2. Videos aus Playlist
+    const plRes  = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${uploadsId}&key=${YT_API_KEY}`);
+    const plData = await plRes.json();
+    if (plData.error) { showError('Playlist-Fehler.'); return; }
 
-    if (playlistData.error) {
-      showError(`Playlist-Fehler ${playlistData.error.code}: ${playlistData.error.message}`);
-      return;
-    }
+    const items = plData.items || [];
+    const videoIds = items.map(i => i.snippet.resourceId.videoId).join(',');
 
-    const videos = (playlistData.items || []).map(item => ({
-      id:          item.snippet.resourceId.videoId,
-      title:       item.snippet.title,
-      description: item.snippet.description || '',
-      publishedAt: item.snippet.publishedAt,
-    }));
+    // 3. Videodauer laden (um Shorts zu erkennen: ≤ 60 Sekunden)
+    const detRes  = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${videoIds}&key=${YT_API_KEY}`);
+    const detData = await detRes.json();
 
-    renderVideos(videos);
+    const durationMap = {};
+    (detData.items || []).forEach(v => {
+      durationMap[v.id] = parseDuration(v.contentDetails.duration);
+    });
+
+    // 4. Trennen in Videos und Shorts
+    items.forEach(item => {
+      const id = item.snippet.resourceId.videoId;
+      const v = {
+        id,
+        title:       item.snippet.title,
+        description: item.snippet.description || '',
+        publishedAt: item.snippet.publishedAt,
+        duration:    durationMap[id] || 999,
+      };
+      if (v.duration <= 60) {
+        allShorts.push(v);
+      } else {
+        allVideos.push(v);
+      }
+    });
+
+    shownVideos = PAGE_SIZE;
+    shownShorts = PAGE_SIZE;
+
+    document.getElementById('vlogs-loading').style.display = 'none';
+    document.getElementById('vlogs-content').style.display = 'block';
+
+    renderAll();
 
   } catch (err) {
-    console.error('YouTube API Fehler:', err);
-    showError(`Netzwerkfehler: ${err.message}. Seite über einen Webserver öffnen (nicht als file://)?`);
+    console.error(err);
+    showError(`Fehler: ${err.message}`);
   }
 }
 
-// Start
 loadYouTubeData();
 </script>
 
