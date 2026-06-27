@@ -39,8 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ── Scroll Animations (Intersection Observer) ───────── */
-  const animEls = document.querySelectorAll('.animate-on-scroll, .img-reveal-wrap');
-  if (animEls.length) {
+function observeAnimations(root = document) {
+    const animEls = root.querySelectorAll('.animate-on-scroll, .img-reveal-wrap');
+    if (!animEls.length) return;
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -51,6 +52,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
     animEls.forEach(el => observer.observe(el));
   }
+  observeAnimations();
+  window.observeAnimations = observeAnimations;function observeAnimations(root = document) {
+    const animEls = root.querySelectorAll('.animate-on-scroll, .img-reveal-wrap');
+    if (!animEls.length) return;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    animEls.forEach(el => observer.observe(el));
+  }
+  observeAnimations();
+  window.observeAnimations = observeAnimations;
+  
 
   /* ── Counter Animation ──────────────────────────────── */
   const counters = document.querySelectorAll('[data-count]');
