@@ -1,9 +1,9 @@
-﻿  <!DOCTYPE html>
+  <!DOCTYPE html>
   <html lang="de">
   <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über uns – Sergen & Julia | The Freescape Project</title>
-    <meta name="description" content="Wer sind Sergen und Julia? Zwei Lehrer aus Köln, die ein Jahr durch Südamerika reisen.">
+    <title>Über uns – Julia & Sergen | The Freescape Project</title>
+    <meta name="description" content="Wer sind Julia und Sergen? Zwei Lehrer aus Köln, die ein Jahr durch Südamerika reisen.">
     <link rel="icon" type="image/png" href="assets/img/LOGO.png">
     <link rel="stylesheet" href="style.css">
 <style>
@@ -25,6 +25,25 @@
       .faq-item.open .faq-question svg{transform:rotate(180deg)}
       .faq-question svg{transition:transform 0.25s;flex-shrink:0;width:18px;height:18px}
       @media(max-width:640px){.stats-grid-about{grid-template-columns:1fr 1fr}}
+      .timeline-badge{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.2rem 0.65rem;border-radius:99px;margin-bottom:0.5rem}
+      .timeline-badge--current{background:var(--terra-100,#fde8df);color:var(--terra-700,#b83a12)}
+      .timeline-badge--planned{background:var(--gray-100,#f3f4f6);color:var(--gray-500,#6b7280)}
+      .timeline-item--current::before{background:var(--terra-500)!important;width:14px!important;height:14px!important;left:-2.45rem!important;top:6px!important}
+      .timeline-item--planned{opacity:0.45}
+      .person-tag{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.72rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;background:var(--terra-50,#fff5f2);color:var(--terra-700,#b83a12);border:1px solid var(--terra-200,#f9b9a4);border-radius:99px;padding:0.3rem 0.8rem;margin-bottom:1.25rem}
+      .person-photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r-xl);display:block}
+      .person-photo-placeholder{width:100%;aspect-ratio:4/5;background:linear-gradient(145deg,var(--green-900),var(--green-700));border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.25);font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase}
+      .img-reveal-wrap{overflow:hidden;border-radius:var(--r-xl);transform:translateX(-60px);opacity:0;transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94),opacity 0.8s ease}
+      .img-reveal-wrap.visible{transform:translateX(0);opacity:1}
+      .img-reveal-wrap--right{transform:translateX(60px)}
+      .img-reveal-wrap--right.visible{transform:translateX(0)}
+      .img-reveal-photo{transform:scale(1.08);transition:transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94)}
+      .img-reveal-wrap.visible .img-reveal-photo{transform:scale(1)}
+      .photo-badge{position:absolute;top:1.25rem;right:1.25rem;background:var(--terra-500);color:white;border-radius:var(--r-lg);padding:0.85rem 1.1rem;text-align:center;min-width:5rem;z-index:2;pointer-events:none}
+      .photo-badge__num{font-family:var(--font-display);font-size:2.5rem;font-weight:700;line-height:1}
+      .photo-badge__label{font-size:0.7rem;opacity:0.85;margin-top:0.25rem;letter-spacing:0.02em}
+      .person-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+      @media(max-width:768px){.person-grid{grid-template-columns:1fr;gap:2.5rem;}}
     </style>
   </head>
   <body>
@@ -116,39 +135,148 @@
   </div>
   <div class="container page-hero__content">
     <p class="overline">Wer wir sind</p>
-    <h1>Hallo, wir sind<br>Sergen &amp; Julia.</h1>
-    <p class="lead">Zwei Lehrer aus Köln, seit Februar 2026 unterwegs durch Südamerika.</p>
+    <h1>Hallo, wir sind<br>Julia &amp; Sergen.</h1>
+    <p class="lead">Seit Februar 2026 unterwegs durch Südamerika.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;">
+      <a href="vlogs.html" class="btn btn-primary btn-lg">Vlogs ansehen</a>
+      <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="btn btn-secondary btn-lg">YouTube</a>
+    </div>
   </div>
 </section>
 
+  <!-- ── STATS ──────────────────────────────────────────────────
+    Zahlen kommen automatisch aus reise-config.js
+  ────────────────────────────────────────────────────────────── -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-bar__grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="stats-bar__item animate-on-scroll animate-delay-2">
+          <div class="stats-bar__number" data-reise="juliaLaender">0</div>
+          <div class="stats-bar__label">bereiste Länder · Julia</div>
+        </div>
+        <div class="stats-bar__item animate-on-scroll animate-delay-1">
+          <div class="stats-bar__number" data-reise="sergenLaender">0</div>
+          <div class="stats-bar__label">bereiste Länder · Sergen</div>
+        </div>
+        <div class="stats-bar__item animate-on-scroll">
+          <div class="stats-bar__number" data-reise="tageDrausweg">0</div>
+          <div class="stats-bar__label">Tage unterwegs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── JULIA ──────────────────────────────────────────────────
+    ✏️ Text, Fakten und Foto anpassen
+    Foto rechts: img-reveal-wrap--right = gleitet von rechts rein
+  ────────────────────────────────────────────────────────────── -->
   <section class="section">
     <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
-        <div class="animate-on-scroll">
-          <div style="width:100%;aspect-ratio:4/5;background:linear-gradient(135deg,#000000,#e8431a);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:6rem;">👫</div>
+      <div class="person-grid">
+        <div class="animate-on-scroll" style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div>
+            <p class="overline">Wer ist</p>
+            <h2>Julia</h2>
+          </div>
+          <!-- ✏️ Kurzbeschreibung Julia -->
+          <p style="color:var(--gray-600);line-height:1.8;">Lehrerin aus Köln, frisch durch das Referendariat. Julia ist die erfahrene Reisende im Team, mit 47 Ländern im Gepäck kennt sie weder Panik noch Planlosigkeit. Sie bringt Organisationstalent, Sprachen und die ruhige Hand.</p>
+          <!-- ✏️ Stichpunkte anpassen -->
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;color:var(--gray-700);font-size:0.95rem;">
+            <li style="display:flex;gap:0.75rem;align-items:baseline;"><span style="color:var(--terra-500);font-weight:700;">—</span> Lehrerin</li>
+            <li style="display:flex;gap:0.75rem;align-items:baseline;"><span style="color:var(--terra-500);font-weight:700;">—</span> Aus Köln</li>
+          </ul>
         </div>
-        <div class="animate-on-scroll animate-delay-1" style="display:flex;flex-direction:column;gap:1.5rem;padding-top:2rem;">
+        <!-- ✏️ FOTO JULIA: Placeholder ersetzen mit:
+             <img src="assets/img/DEINBILD.jpg" alt="Julia" class="person-photo img-reveal-photo"> -->
+        <div class="img-reveal-wrap img-reveal-wrap--right" style="position:relative;">
+          <img src="assets/img/JuliaWerIst.JPEG" alt="Julia" class="person-photo img-reveal-photo">
+          <div class="photo-badge">
+            <div class="photo-badge__num">47</div>
+            <div class="photo-badge__label">Länder bereist</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERGEN ─────────────────────────────────────────────────
+    ✏️ Text, Fakten und Foto anpassen
+    Foto links: img-reveal-wrap = gleitet von links rein
+  ────────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="person-grid">
+        <!-- ✏️ FOTO SERGEN: Placeholder ersetzen mit:
+             <img src="assets/img/DEINBILD.jpg" alt="Sergen" class="person-photo img-reveal-photo"> -->
+        <div class="img-reveal-wrap" style="position:relative;">
+          <img src="assets/img/SergenWerIst.JPEG" alt="Sergen" class="person-photo img-reveal-photo">
+          <div class="photo-badge">
+            <div class="photo-badge__num">14</div>
+            <div class="photo-badge__label">Länder bereist</div>
+          </div>
+        </div>
+        <div class="animate-on-scroll animate-delay-1" style="display:flex;flex-direction:column;gap:1.5rem;">
+          <div>
+            <p class="overline">Wer ist</p>
+            <h2>Sergen</h2>
+          </div>
+          <!-- ✏️ Kurzbeschreibung Sergen -->
+          <p style="color:var(--gray-600);line-height:1.8;">Lehramtsstudent für Sport und Chemie aus Köln. Für Sergen ist diese Reise ein kompletter Neustart, weg vom Studium, rein ins Abenteuer. Er bringt die Kamera, den Antrieb und die Bereitschaft, alles zu hinterfragen.</p>
+          <!-- ✏️ Stichpunkte anpassen -->
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;color:var(--gray-700);font-size:0.95rem;">
+            <li style="display:flex;gap:0.75rem;align-items:baseline;"><span style="color:var(--terra-500);font-weight:700;">—</span> Sport &amp; Chemie (Lehramt)</li>
+            <li style="display:flex;gap:0.75rem;align-items:baseline;"><span style="color:var(--terra-500);font-weight:700;">—</span> Aus Köln</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ZUSAMMEN — Abschluss ───────────────────────────────────
+    ✏️ Abschlusstext, Zitat und gemeinsames Foto anpassen
+    Foto rechts: img-reveal-wrap--right = gleitet von rechts rein
+  ────────────────────────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="person-grid">
+        <div class="animate-on-scroll" style="display:flex;flex-direction:column;gap:1.5rem;">
           <p class="overline">Unsere Geschichte</p>
           <h2>Wie alles begann</h2>
-          <p style="color:var(--gray-600);line-height:1.8;">Julia hatte ihr Referendariat abgeschlossen und ein Jahr als Lehrerin gearbeitet. Sergen steckte mitten im Lehramtsstudium für Sport und Chemie. Beide aus Köln, beide mit dem gleichen Gedanken: <em>Wann, wenn nicht jetzt?</em></p>
-          <blockquote style="border-left:3px solid var(--terra-500);padding-left:1.5rem;margin:0;font-family:var(--font-display);font-size:1.3rem;font-style:italic;color:var(--green-800);line-height:1.5;">"Wir machen das. Ein Jahr. Südamerika."</blockquote>
-          <p style="color:var(--gray-600);line-height:1.8;">Im Februar 2026 saßen wir im Flieger nach Bogotá. Für Sergen ist es die erste große Reise überhaupt und genau das macht es so besonders. Neue Kulturen, neue Menschen, neue Erfahrungen, die kein Lehrplan der Welt vermitteln kann.</p>
-          <p style="color:var(--gray-600);line-height:1.8;">Von Anfang an haben wir viel gefilmt, anfangs nur für uns. Bis unsere Eltern regelmäßig Updates forderten. Irgendwann sagten wir uns: Warum nicht einfach einen YouTube-Kanal machen?</p>
+          <p style="color:var(--gray-600);line-height:1.8;">Sechs Jahre beste Freunde, bevor aus uns ein Paar wurde. Kennen uns also schon eine Weile.</p>
+          <p style="color:var(--gray-600);line-height:1.8;">Dass wir beide unabhängig voneinander den Wunsch hatten, Südamerika zu bereisen, das hat dann den Rest erledigt. Sergen wollte nach Peru für ein paar Monate. Julia sagte: den ganzen Kontinent, ein ganzes Jahr. Sergen brauchte keine zwei Sekunden zum Überlegen.</p>
+          <p style="color:var(--gray-600);line-height:1.8;">Im Februar 2026 ging es los. Unsere Eltern wollten dabei sein, also haben wir angefangen zu filmen.</p>
+          <div style="border-left:3px solid var(--terra-500);padding-left:1.5rem;display:flex;flex-direction:column;gap:1rem;">
+            <div>
+              <p style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--green-800);line-height:1.5;margin:0;">„Ich wollte eigentlich nur ein paar Monate nach Peru."</p>
+              <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--terra-600);">— Sergen</span>
+            </div>
+            <div>
+              <p style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--green-800);line-height:1.5;margin:0;">„Ein Jahr. Alles."</p>
+              <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--terra-600);">— Julia</span>
+            </div>
+            <div>
+              <p style="font-family:var(--font-display);font-size:1.15rem;font-style:italic;color:var(--green-800);line-height:1.5;margin:0;">„...okay."</p>
+              <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--terra-600);">— Sergen</span>
+            </div>
+          </div>
+          <p style="color:var(--gray-600);line-height:1.8;font-weight:600;">Willkommen bei The Freescape Project.</p>
+        </div>
+        <!-- ✏️ GEMEINSAMES FOTO: src anpassen -->
+        <div class="img-reveal-wrap img-reveal-wrap--right">
+          <img src="assets/img/FujiFun.jpeg" alt="Julia und Sergen" class="img-reveal-photo person-photo">
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" style="background:var(--green-900);">
-    <div class="container">
-      <div class="stats-grid-about animate-on-scroll">
-        <div class="stat-box"><div class="stat-box-num">130+</div><div class="stat-box-label">Tage unterwegs</div></div>
-        <div class="stat-box"><div class="stat-box-num">4</div><div class="stat-box-label">Länder bereist</div></div>
-        <div class="stat-box"><div class="stat-box-num">9.400</div><div class="stat-box-label">km zurückgelegt</div></div>
-      </div>
-    </div>
-  </section>
 
+  <!-- ═══════════════════════════════════════════════════════════
+    TIMELINE — Reiseverlauf
+    ▸ Neuen Stopp hinzufügen: <div class="timeline-item"> Block kopieren
+    ▸ Aktueller Standort:     class="timeline-item timeline-item--current" + Badge "Aktuell"
+    ▸ Geplante Stops:         class="timeline-item timeline-item--planned" + Badge "Geplant"
+    ▸ Vergangene Stops:       class="timeline-item" (kein Badge nötig)
+  ════════════════════════════════════════════════════════════ -->
   <section class="section" style="background:var(--sand-50);">
     <div class="container container-sm">
       <div class="section-header animate-on-scroll">
@@ -156,40 +284,49 @@
         <h2>Der Weg bisher</h2>
       </div>
       <div class="timeline animate-on-scroll">
+
+        <!-- ✏️ Stopp 1: Datum + Titel + Beschreibung anpassen -->
         <div class="timeline-item">
-          <div class="timeline-date">Februar 2026</div>
-          <div class="timeline-title">🛫 Abflug Köln → Bogotá</div>
-          <div class="timeline-text">Der erste Tag in Kolumbien. La Candelaria, Streetfood und das überwältigende Gefühl: Wir machen das wirklich.</div>
+          <div class="timeline-date">25.02.2026</div>
+          <div class="timeline-title">Kolumbien — 7 Wochen</div>
+          <div class="timeline-text">Bogotá, Salento, Medellín, Guatapé, San Andrés, Santa Marta, Minca, Tayrona und Palomino.</div>
         </div>
+
+        <!-- ✏️ Stopp 2 -->
         <div class="timeline-item">
-          <div class="timeline-date">März 2026</div>
-          <div class="timeline-title">Kolumbien — 8 Wochen</div>
-          <div class="timeline-text">Bogotá, Salento, Medellín, Guatapé, Minca, Santa Marta, Palomino, Tayrona und San Andrés. Kolumbien hat uns komplett überrascht.</div>
+          <div class="timeline-date">17.04.2026</div>
+          <div class="timeline-title">Ecuador — 6 Wochen</div>
+          <div class="timeline-text">Quito, Cotopaxi, Quilotoa, baños, Mindo, Amazonas, Galapagos, Cuenca.</div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-date">April 2026</div>
-          <div class="timeline-title">Ecuador — 3 Wochen</div>
-          <div class="timeline-text">Quito, Cotopaxi, Quilotoa, Baños und der Amazonas. Ecuador in aller Kürze, aber mit maximaler Wirkung.</div>
+
+        <!-- ✏️ AKTUELLER STANDORT — wenn ihr weiterzieht:
+             1. Diese Klassen auf "timeline-item" reduzieren (--current entfernen, Badge löschen)
+             2. Beim neuen Land --current + Badge ergänzen -->
+        <div class="timeline-item timeline-item--current">
+          <span class="timeline-badge timeline-badge--current">Aktuell</span>
+          <div class="timeline-date">01.06.2026</div>
+          <div class="timeline-title">Peru</div>
+          <div class="timeline-text">Máncora, Trujillo, Huanchaco, Lima,...</div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Mai 2026</div>
-          <div class="timeline-title">🐢 Galapagos — 3 Wochen</div>
-          <div class="timeline-text">Das teuerste, aber vielleicht schönste Erlebnis der Reise. Seelöwen, Leguane und Schildkröten hautnah.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Juni 2026 · Aktuell</div>
-          <div class="timeline-title">Peru — läuft noch</div>
-          <div class="timeline-text">Lima, Huacachina, Cusco und bald der Machu Picchu. Peru empfängt uns mit allem, was Südamerika ausmacht.</div>
-        </div>
-        <div class="timeline-item" style="opacity:0.5;">
-          <div class="timeline-date">Geplant</div>
+
+        <!-- ✏️ GEPLANTE STOPS — Länder und Zeitraum anpassen -->
+        <div class="timeline-item timeline-item--planned">
+          <span class="timeline-badge timeline-badge--planned">Geplant</span>
+          <div class="timeline-date">Herbst 2026</div>
           <div class="timeline-title">Bolivien, Chile, Argentinien</div>
-          <div class="timeline-text">Der Salzflats, die Atacama und Buenos Aires warten noch. Noch etwa 6 Monate Abenteuer vor uns.</div>
+          <div class="timeline-text">Salzflats, Atacama und Buenos Aires warten noch. Noch etwa 6 Monate Abenteuer vor uns.</div>
         </div>
+
       </div>
     </div>
   </section>
 
+  <!-- ═══════════════════════════════════════════════════════════
+    FAQ — Häufige Fragen
+    ▸ Frage ändern:   Text im <button class="faq-question"> anpassen
+    ▸ Antwort ändern: Text im <div class="faq-answer"> anpassen
+    ▸ Neue Frage:     <div class="faq-item"> Block kopieren
+  ════════════════════════════════════════════════════════════ -->
   <section class="section">
     <div class="container container-sm">
       <div class="section-header animate-on-scroll">
@@ -197,22 +334,55 @@
         <h2>Häufige Fragen</h2>
       </div>
       <div class="animate-on-scroll">
+
+        <!-- ✏️ Frage 1 -->
         <div class="faq-item">
           <button class="faq-question">Wie finanziert ihr die Reise? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="faq-answer">Wir haben über zwei Jahre gespart, gelebt nach dem Motto "weniger Konsum, mehr Erfahrungen". Zusätzlich hilft uns der YouTube-Kanal etwas — aber hauptsächlich Ersparnisse.</div>
         </div>
+
+        <!-- ✏️ Frage 2 -->
         <div class="faq-item">
           <button class="faq-question">Ist Südamerika wirklich so gefährlich? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="faq-answer">Nein — mit gesundem Menschenverstand, lokaler Vorsicht und aktuellen Infos ist Südamerika sehr angenehm zu bereisen. Natürlich gibt es Viertel, die man meidet, aber das gilt für jede Weltregion.</div>
         </div>
+
+        <!-- ✏️ Frage 3 -->
         <div class="faq-item">
           <button class="faq-question">Sprecht ihr Spanisch? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="faq-answer">Wir haben vor der Reise Anfänger-Spanisch gelernt und verbessern es unterwegs ständig. Es ist kein Hindernis — die Menschen sind unglaublich geduldig.</div>
         </div>
+
+        <!-- ✏️ Frage 4 -->
         <div class="faq-item">
           <button class="faq-question">Habt ihr Interesse an Kooperationen? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></button>
           <div class="faq-answer">Ja, wenn es zu unserem Stil passt! Schreibt uns einfach über das Kontaktformular — wir antworten innerhalb weniger Tage.</div>
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA — Folgt uns ───────────────────────────────────────
+    ✏️ Überschrift, Text und Links anpassen
+  ────────────────────────────────────────────────────────────── -->
+  <section style="background:var(--green-800);padding:5rem 0;text-align:center;">
+    <div class="container container-sm animate-on-scroll">
+      <p class="overline" style="color:var(--terra-400);">Immer dabei sein</p>
+      <h2 style="color:white;margin-bottom:1rem;">Folgt unserer Reise</h2>
+      <!-- ✏️ Unterzeile anpassen -->
+      <p style="color:rgba(255,255,255,0.6);max-width:40ch;margin:0 auto 2.5rem;line-height:1.75;">Neue Vlogs, ehrliche Einblicke und echte Reisemomente — direkt auf YouTube und Instagram.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <!-- ✏️ YouTube-Link anpassen -->
+        <a href="https://www.youtube.com/@TheFreescapeProject" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;flex-shrink:0;"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+          YouTube
+        </a>
+        <!-- ✏️ Instagram-Link anpassen -->
+        <a href="https://www.instagram.com/thefreescapeproject/" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px;flex-shrink:0;"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          Instagram
+        </a>
       </div>
     </div>
   </section>
@@ -221,8 +391,8 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo">Freescape Project</div>
-        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGO.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
         <div class="footer__social">
           <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
@@ -265,7 +435,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+      <p class="footer__copy">© 2026 The Freescape Project – Julia &amp; Sergen</p>
       <div class="footer__legal">
         <a href="impressum.html" class="footer__legal-link">Impressum</a>
         <a href="datenschutz.html" class="footer__legal-link">Datenschutz</a>
@@ -274,13 +444,14 @@
   </div>
 </footer>
 <div class="cookie-banner">
-  <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
+  <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
   <div class="cookie-banner__actions">
     <button class="cookie-btn-accept">Alle akzeptieren</button>
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
 </div>
+  <script src="reise-config.js"></script>
   <script src="main.js"></script>
   <script>
   document.querySelectorAll('.faq-question').forEach(q=>{q.addEventListener('click',()=>{const item=q.closest('.faq-item');const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!wasOpen)item.classList.add('open');})});
