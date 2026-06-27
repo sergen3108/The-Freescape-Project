@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Freescape Project – Coming Soon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: #1a2540;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+    }
+    .mountains-bg {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+    }
+    .logo-img {
+      width: 140px;
+      height: auto;
+      margin: 0 auto 1.75rem;
+      display: block;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      color: #f5f0e8;
+      letter-spacing: -0.5px;
+      margin-bottom: 0.3rem;
+    }
+    .tagline {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 14px;
+      color: #d94f2b;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+    }
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: #d94f2b;
+      margin: 0 auto 1.75rem;
+    }
+    .description {
+      font-size: 15px;
+      font-weight: 300;
+      color: #b0bcd4;
+      line-height: 1.9;
+      margin-bottom: 2.25rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #f5f0e8;
+      background: rgba(217, 79, 43, 0.18);
+      border: 1px solid rgba(217, 79, 43, 0.4);
+      border-radius: 100px;
+      padding: 7px 18px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+    .dot {
+      width: 7px; height: 7px;
+      background: #d94f2b;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .links {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+    }
+    .links a {
+      color: #6b7fa3;
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .links a:hover { color: #f5f0e8; }
+    .links svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+
+  <svg class="mountains-bg" viewBox="0 0 1440 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax slice">
+    <polygon points="0,300 200,80 400,180 600,20 800,140 1050,50 1300,160 1440,90 1440,300" fill="#f5f0e8"/>
+  </svg>
+
+  <div class="container">
+
+    <!-- LOGO: Ersetze "logo.png" mit dem echten Dateinamen deines Logos -->
+    <img src="logo.png" alt="The Freescape Project Logo" class="logo-img" />
+
+    <h1>The Freescape Project</h1>
+    <p class="tagline">Südamerika &middot; 2025 &ndash; 2026</p>
+    <div class="divider"></div>
+
+    <p class="description">
+      Zwei Lehrer aus Köln. Ein Jahr. Ein ganzer Kontinent.<br>
+      Unsere Reise beginnt bald – diese Seite ist gerade im Aufbau.
+    </p>
+
+    <div class="badge">
+      <div class="dot"></div>
+      Coming soon
+    </div>
+
+    <div class="links">
+      <a href="https://instagram.com/thefreescapeproject" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Instagram
+      </a>
+      <a href="https://youtube.com/@thefreescapeproject" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="4"/><polygon points="10,9 16,12 10,15" fill="currentColor" stroke="none"/></svg>
+        YouTube
+      </a>
+      <a href="mailto:hallo@thefreescapeproject.com">
+        <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,14 22,4"/></svg>
+        Kontakt
+      </a>
+    </div>
+
+  </div>
+</body>
+</html>
