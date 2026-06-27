@@ -39,21 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ── Scroll Animations (Intersection Observer) ───────── */
-function observeAnimations(root = document) {
-    const animEls = root.querySelectorAll('.animate-on-scroll, .img-reveal-wrap');
-    if (!animEls.length) return;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-    animEls.forEach(el => observer.observe(el));
-  }
-  observeAnimations();
-  window.observeAnimations = observeAnimations;function observeAnimations(root = document) {
+  function observeAnimations(root = document) {
     const animEls = root.querySelectorAll('.animate-on-scroll, .img-reveal-wrap');
     if (!animEls.length) return;
     const observer = new IntersectionObserver((entries) => {
@@ -68,7 +54,6 @@ function observeAnimations(root = document) {
   }
   observeAnimations();
   window.observeAnimations = observeAnimations;
-  
 
   /* ── Counter Animation ──────────────────────────────── */
   const counters = document.querySelectorAll('[data-count]');
@@ -139,7 +124,6 @@ function observeAnimations(root = document) {
     el.addEventListener('click', () => {
       if (!lightbox || !lightboxImg) return;
       const src = el.dataset.lightbox;
-      const placeholder = el.querySelector('.gallery-placeholder');
       if (src) {
         lightboxImg.src = src;
         lightboxImg.style.display = 'block';
@@ -234,7 +218,6 @@ function observeAnimations(root = document) {
 
   /* ── Interactive Map (karte.html) ─────────────────────── */
   const mapCountries = document.querySelectorAll('.map-country');
-  const mapInfo = document.querySelector('.map-info-panel');
 
   mapCountries.forEach(country => {
     country.addEventListener('mouseenter', () => {
@@ -247,7 +230,6 @@ function observeAnimations(root = document) {
       }
     });
     country.addEventListener('click', () => {
-      const name = country.dataset.country;
       const url = country.dataset.url;
       if (url) window.location.href = url;
     });
