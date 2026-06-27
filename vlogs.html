@@ -276,10 +276,9 @@ function renderVideos(videos) {
   loading.style.display = 'none';
   grid.style.display = 'grid';
 
-  // Filter-Logik neu aktivieren
-  initFilter();
-    if (window.observeAnimations) window.observeAnimations(document.getElementById('vlogs-grid'));
-
+initFilter();
+  // Direkt alle Karten sichtbar machen ohne auf main.js zu warten
+  document.querySelectorAll('#vlogs-grid .animate-on-scroll').forEach(el => el.classList.add('visible'));
 }
 
 function initFilter() {
