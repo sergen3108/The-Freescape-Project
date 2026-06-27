@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,7 @@
   <!-- ✏️ SEO: Seitentitel im Browser-Tab -->
   <title>The Freescape Project | Reiseblog</title>
   <!-- ✏️ SEO: Kurze Beschreibung für Google -->
-  <meta name="description" content="Sergen und Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.">
+  <meta name="description" content="Julia und Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.">
   <link rel="icon" type="image/png" href="assets/img/LOGO.png">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -140,19 +140,19 @@
     <div class="stats-bar__grid">
       <!-- ✏️ STATS: data-count = Zahl die hochzählt | Label darunter -->
       <div class="stats-bar__item animate-on-scroll">
-        <div class="stats-bar__number" data-count="3">0</div>
+        <div class="stats-bar__number" data-reise="laenderBereist">0</div>
         <div class="stats-bar__label">Länder bereist</div>
       </div>
       <div class="stats-bar__item animate-on-scroll animate-delay-1">
-        <div class="stats-bar__number" data-count="13500">0</div>
+        <div class="stats-bar__number" data-reise="kmZurueckgelegt">0</div>
         <div class="stats-bar__label">km zurückgelegt</div>
       </div>
       <div class="stats-bar__item animate-on-scroll animate-delay-2">
-        <div class="stats-bar__number" data-count="5">0</div>
+        <div class="stats-bar__number" data-reise="vlogsVeroeffentlicht">0</div>
         <div class="stats-bar__label">Vlogs veröffentlicht</div>
       </div>
       <div class="stats-bar__item animate-on-scroll animate-delay-3">
-        <div class="stats-bar__number" id="tage-counter">0</div>
+        <div class="stats-bar__number" data-reise="tageDrausweg">0</div>
         <div class="stats-bar__label">Tage unterwegs</div>
       </div>
     </div>
@@ -271,7 +271,7 @@ Máncora ist bekannt für seine Strände, das warme Klima, Surfen und entspannte
         <div class="about-teaser__img-main" style="overflow:hidden;">
           <img src="assets/img/FujiFun.jpeg"
                onerror="this.parentElement.style.background='linear-gradient(135deg,#1a2744,#e8431a)';this.style.display='none'"
-               alt="Sergen & Julia" style="width:100%;height:100%;object-fit:cover;display:block;">
+               alt="Julia & Sergen" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
         <!-- ✏️ BADGE: Zahl & Text auf dem Foto -->
         <div class="about-teaser__badge">
@@ -493,8 +493,8 @@ Máncora ist bekannt für seine Strände, das warme Klima, Surfen und entspannte
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo">Freescape Project</div>
-        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGO.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
         <div class="footer__social">
           <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
@@ -537,7 +537,7 @@ Máncora ist bekannt für seine Strände, das warme Klima, Surfen und entspannte
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+      <p class="footer__copy">© 2026 The Freescape Project – Julia &amp; Sergen</p>
       <div class="footer__legal">
         <a href="impressum.html" class="footer__legal-link">Impressum</a>
         <a href="datenschutz.html" class="footer__legal-link">Datenschutz</a>
@@ -564,6 +564,7 @@ Máncora ist bekannt für seine Strände, das warme Klima, Surfen und entspannte
 </div>
 
 <script src="blog-posts.js"></script>
+<script src="reise-config.js"></script>
 <script src="main.js"></script>
 
 <!-- D3 + TopoJSON für die Südamerika-Karte -->
@@ -571,22 +572,8 @@ Máncora ist bekannt für seine Strände, das warme Klima, Surfen und entspannte
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script>
 (async function() {
-  // ISO 3166-1 Nummern → Land-Info
-  const SA = {
-    170: { name: 'Kolumbien',       href: 'laender.html#kolumbien', status: 'visited'  },
-    218: { name: 'Ecuador',         href: 'laender.html#ecuador',   status: 'visited'  },
-    604: { name: 'Peru',            href: 'laender.html#peru',      status: 'current'  },
-     68: { name: 'Bolivien',        href: 'laender.html#geplant',   status: ''         },
-     76: { name: 'Brasilien',       href: 'laender.html#geplant',   status: ''         },
-    862: { name: 'Venezuela',       href: 'laender.html#geplant',   status: ''         },
-    152: { name: 'Chile',           href: 'laender.html#geplant',   status: ''         },
-     32: { name: 'Argentinien',     href: 'laender.html#geplant',   status: ''         },
-    858: { name: 'Uruguay',         href: 'laender.html#geplant',   status: ''         },
-    600: { name: 'Paraguay',        href: 'laender.html#geplant',   status: ''         },
-    328: { name: 'Guyana',          href: '#',                      status: ''         },
-    740: { name: 'Suriname',        href: '#',                      status: ''         },
-    254: { name: 'Franz. Guayana',  href: '#',                      status: ''         },
-  };
+  // ISO 3166-1 Nummern → Land-Info (aus reise-config.js)
+  const SA = REISE.saMap;
 
   try {
     const world = await d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
@@ -700,13 +687,6 @@ Máncora ist bekannt für seine Strände, das warme Klima, Surfen und entspannte
   }
 </script>
 
-<script>
-  const startdatum = new Date('2026-02-25'); // ✏️ euer Startdatum anpassen
-  const heute = new Date();
-  const tage = Math.floor((heute - startdatum) / (1000 * 60 * 60 * 24));
-  document.getElementById('tage-counter').setAttribute('data-count', tage);
-  document.getElementById('tage-counter').textContent = '0';
-</script>
 
 </body>
 </html>
