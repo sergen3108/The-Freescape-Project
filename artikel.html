@@ -7,12 +7,13 @@
   <link rel="icon" type="image/png" href="assets/img/LOGO.png">
   <link rel="stylesheet" href="style.css">
   <style>
+    /* ── Hero ─────────────────────────────────────────────── */
     .artikel-hero {
-      min-height: 380px;
+      min-height: 520px;
       position: relative;
       display: flex;
       align-items: flex-end;
-      padding-bottom: 3rem;
+      padding-bottom: 3.5rem;
     }
     .artikel-hero__img {
       position: absolute;
@@ -32,27 +33,39 @@
     .artikel-hero__overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(10,21,32,0.85) 0%, rgba(10,21,32,0.3) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(10,21,32,0.92) 0%, rgba(10,21,32,0.4) 50%, transparent 100%);
     }
     .artikel-hero__meta {
       position: relative;
       z-index: 1;
       color: white;
     }
-    .artikel-body {
-      max-width: 740px;
+
+    /* ── Layout ───────────────────────────────────────────── */
+    .artikel-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 3rem;
+      align-items: start;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 3rem 1.5rem 5rem;
     }
-    .artikel-body h2 { margin: 2.5rem 0 1rem; font-size: 1.5rem; }
-    .artikel-body h3 { margin: 2rem 0 0.75rem; font-size: 1.2rem; }
-    .artikel-body p  { margin-bottom: 1.25rem; line-height: 1.85; color: var(--gray-700); }
+    @media(max-width: 900px) {
+      .artikel-layout { grid-template-columns: 1fr; }
+      .artikel-sidebar { display: none; }
+    }
+
+    /* ── Artikel Body ─────────────────────────────────────── */
+    .artikel-body h2 { margin: 2.5rem 0 1rem; font-size: 1.5rem; scroll-margin-top: 80px; }
+    .artikel-body h3 { margin: 2rem 0 0.75rem; font-size: 1.2rem; scroll-margin-top: 80px; }
+    .artikel-body p  { margin-bottom: 1.25rem; line-height: 1.9; color: var(--gray-700); }
     .artikel-body ul, .artikel-body ol {
       margin: 0 0 1.25rem 1.5rem;
       color: var(--gray-700);
       line-height: 1.8;
     }
-    .artikel-body li { margin-bottom: 0.35rem; }
+    .artikel-body li { margin-bottom: 0.4rem; }
     .artikel-body strong { color: var(--gray-900); }
     .artikel-body a { color: var(--terra-600); text-decoration: underline; }
     .artikel-body blockquote {
@@ -64,8 +77,36 @@
       color: var(--gray-600);
       font-style: italic;
     }
-    .artikel-body hr { border: none; border-top: 1px solid var(--gray-200); margin: 2rem 0; }
-    .artikel-body img { width: 100%; border-radius: var(--r-lg); margin: 1.5rem 0; }
+    .artikel-body hr { border: none; border-top: 1px solid var(--gray-200); margin: 2.5rem 0; }
+
+    /* Alle Bilder gleich groß */
+    .artikel-body img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: var(--r-lg);
+      margin: 2rem 0;
+      display: block;
+    }
+
+    /* ── Nach-oben Button nach jedem h2 ──────────────────── */
+    .back-to-top-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--terra-500);
+      text-decoration: none;
+      margin-bottom: 2rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .back-to-top-inline:hover { opacity: 1; text-decoration: none; }
+
+    /* ── Meta Bar ─────────────────────────────────────────── */
     .artikel-meta-bar {
       display: flex;
       align-items: center;
@@ -96,11 +137,98 @@
       text-decoration: none;
     }
     .artikel-back:hover { text-decoration: underline; }
+
+    /* ── Teaser ───────────────────────────────────────────── */
+    .artikel-teaser {
+      font-size: 1.1rem;
+      color: var(--gray-600);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--gray-200);
+      font-style: italic;
+    }
+
+    /* ── Inhaltsverzeichnis Sidebar ───────────────────────── */
+    .artikel-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .toc-widget {
+      background: var(--sand-50, #faf9f7);
+      border: 1.5px solid var(--gray-100);
+      border-radius: var(--r-lg);
+      padding: 1.25rem;
+    }
+    .toc-widget h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 0.75rem;
+    }
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    .toc-list a {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      text-decoration: none;
+      padding: 0.3rem 0.5rem;
+      border-radius: var(--r-sm);
+      display: block;
+      line-height: 1.4;
+      transition: background 0.15s, color 0.15s;
+    }
+    .toc-list a:hover { background: var(--gray-100); color: var(--gray-900); }
+    .toc-list a.active { background: var(--terra-50, #fff5f2); color: var(--terra-700); font-weight: 600; }
+
+    /* ── Teilen ───────────────────────────────────────────── */
+    .share-bar {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: var(--r-full);
+      border: 1.5px solid var(--gray-200);
+      background: white;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--gray-700);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .share-btn:hover { border-color: var(--terra-400); color: var(--terra-600); }
+
+    /* ── Loading ──────────────────────────────────────────── */
     #artikel-loading {
       text-align: center;
       padding: 6rem 2rem;
       color: var(--gray-400);
       font-size: 1.1rem;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 12px;
+      border-radius: var(--r-full);
+      border: 1.5px solid var(--gray-200);
+      color: var(--gray-600);
+      margin: 3px;
     }
   </style>
 </head>
@@ -139,7 +267,6 @@
       <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
       <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
     </div>
-
     <div class="lang-switcher">
       <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
         <span class="lang-switcher__flag">🇩🇪</span>
@@ -154,7 +281,6 @@
         <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
       </div>
     </div>
-
     <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
       YouTube
@@ -180,15 +306,19 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo">Freescape Project</div>
-        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika.</p>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;">
+          <img src="assets/img/LOGO.png" alt="" style="height:2.5rem;">
+          <span>The Freescape Project</span>
+        </div>
+        <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
       </div>
       <div>
         <p class="footer__heading">Navigation</p>
         <div class="footer__links">
           <a href="index.html" class="footer__link">Startseite</a>
-          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="ueber-uns.html" class="footer__link">Über uns</a>
           <a href="vlogs.html" class="footer__link">Vlogs</a>
+          <a href="blog.html" class="footer__link">Blog</a>
           <a href="karte.html" class="footer__link">Reisekarte</a>
         </div>
       </div>
@@ -201,7 +331,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+      <p class="footer__copy">© 2026 The Freescape Project – Julia &amp; Sergen</p>
     </div>
   </div>
 </footer>
@@ -234,108 +364,144 @@
   try {
     const res = await fetch('/posts/' + filename);
     if (!res.ok) throw new Error('Not found');
-    const text = await res.text();
+    const raw = await res.text();
+
+    // Zeilenumbrüche normalisieren
+    const text = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
 
     const fmMatch = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
     if (!fmMatch) throw new Error('Kein Frontmatter');
 
-    // Frontmatter parsen
     const data = {};
     const lines = fmMatch[1].split('\n');
     let listKey = null;
-    let multilineKey = null;
-    let multilineVal = '';
 
-    lines.forEach(function(line, i) {
-      if (multilineKey && line.match(/^\s+/) && !line.match(/^\s{2}-\s/)) {
-        multilineVal += ' ' + line.trim();
-        var next = lines[i + 1];
-        if (!next || !next.match(/^\s+/) || next.match(/^\s{2}-\s/)) {
-          data[multilineKey] = multilineVal.trim().replace(/^["']|["']$/g, '');
-          multilineKey = null;
-          multilineVal = '';
-        }
-        return;
-      }
-      var listMatch = line.match(/^\s{2}-\s(.+)/);
+    lines.forEach(function(line) {
+      const listMatch = line.match(/^\s{2}-\s(.+)/);
       if (listMatch && listKey) {
         if (!Array.isArray(data[listKey])) data[listKey] = [];
         data[listKey].push(listMatch[1].trim());
         return;
       }
       listKey = null;
-      var sep = line.indexOf(':');
+      const sep = line.indexOf(':');
       if (sep === -1) return;
-      var key = line.slice(0, sep).trim();
-      var val = line.slice(sep + 1).trim().replace(/^["']|["']$/g, '');
-      if (val === '') {
-        listKey = key;
-      } else {
-        var next = lines[i + 1];
-        if (next && next.match(/^\s+/) && !next.match(/^\s{2}-\s/)) {
-          multilineKey = key;
-          multilineVal = val;
-        } else {
-          data[key] = val;
-        }
-      }
+      const key = line.slice(0, sep).trim();
+      const val = line.slice(sep + 1).trim().replace(/^["']|["']$/g, '');
+      if (val === '') { listKey = key; } else { data[key] = val; }
     });
 
-    var body     = fmMatch[2] || '';
-    var typLabel = { guide:'Routen-Guide', kosten:'Kosten-Check', safety:'Sicherheit', persoenlich:'Erfahrungsbericht' }[data.typ] || 'Artikel';
-    var tags     = Array.isArray(data.tags) ? data.tags : [];
+    const body     = fmMatch[2] || '';
+    const typLabel = { guide:'Routen-Guide', kosten:'Kosten-Check', safety:'Sicherheit', persoenlich:'Erfahrungsbericht' }[data.typ] || 'Artikel';
+    const tags     = Array.isArray(data.tags) ? data.tags : [];
 
     document.title = (data.titel || 'Artikel') + ' · The Freescape Project';
 
-    // Bildpfad korrigieren (führenden / sicherstellen)
-    var bildSrc = data.bild || '';
-    if (bildSrc && !bildSrc.startsWith('/') && !bildSrc.startsWith('http')) {
-      bildSrc = '/' + bildSrc;
-    }
+    let bildSrc = data.bild || '';
+    if (bildSrc && !bildSrc.startsWith('/') && !bildSrc.startsWith('http')) bildSrc = '/' + bildSrc;
 
-    var heroHtml = bildSrc
+    const heroHtml = bildSrc
       ? '<img class="artikel-hero__img" src="' + bildSrc + '" alt="' + (data.titel || '') + '">'
       : '<div class="artikel-hero__fallback" style="background:' + (data.bildGradient || 'linear-gradient(135deg,#1a2744,#e8431a)') + ';">' + (data.bildEmoji || '✈️') + '</div>';
 
-    var monate = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
-    var d = data.datum ? new Date(data.datum + 'T12:00:00') : new Date();
-    var datumLabel = d.getDate() + '. ' + monate[d.getMonth()] + ' ' + d.getFullYear();
+    const monate = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    const d = data.datum ? new Date(data.datum + 'T12:00:00') : new Date();
+    const datumLabel = d.getDate() + '. ' + monate[d.getMonth()] + ' ' + d.getFullYear();
 
     marked.setOptions({ breaks: true, gfm: true });
 
+    // Marked rendern
+    let parsedBody = marked.parse(body);
+
+    // Nach jedem </h2> einen "Nach oben" Button einfügen
+    parsedBody = parsedBody.replace(/<\/h2>/g, '</h2><a href="#artikel-top" class="back-to-top-inline">↑ Nach oben</a>');
+
+    // IDs zu h2 Elementen hinzufügen für Inhaltsverzeichnis
+    let tocIndex = 0;
+    parsedBody = parsedBody.replace(/<h2>(.*?)<\/h2>/g, function(match, title) {
+      const id = 'abschnitt-' + (tocIndex++);
+      return '<h2 id="' + id + '">' + title + '</h2><a href="#artikel-top" class="back-to-top-inline">↑ Nach oben</a>';
+    });
+
+    // Inhaltsverzeichnis aus h2 Elementen bauen
+    const h2Matches = [...body.matchAll(/^## (.+)$/gm)];
+    const tocHtml = h2Matches.length > 1 ? `
+      <div class="toc-widget">
+        <h4>Inhaltsverzeichnis</h4>
+        <ul class="toc-list">
+          ${h2Matches.map((m, i) => `<li><a href="#abschnitt-${i}">${m[1]}</a></li>`).join('')}
+        </ul>
+      </div>` : '';
+
+    // Teilen
+    const shareUrl = encodeURIComponent(window.location.href);
+    const shareTitle = encodeURIComponent(data.titel || '');
+    const shareHtml = `
+      <div class="share-bar">
+        <a href="https://wa.me/?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener" class="share-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L0 24l6.388-1.676A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.017-1.378l-.36-.214-3.732.979 1.001-3.645-.235-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>
+          WhatsApp
+        </a>
+        <button onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.textContent='✓ Kopiert!';setTimeout(()=>{this.innerHTML='<svg width=\\'16\\' height=\\'16\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'2\\'><rect x=\\'9\\' y=\\'9\\' width=\\'13\\' height=\\'13\\' rx=\\'2\\'/><path d=\\'M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1\\'/></svg> Link kopieren'},2000)})" class="share-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Link kopieren
+        </button>
+      </div>`;
+
     root.innerHTML =
+      '<div id="artikel-top"></div>' +
       '<div class="artikel-hero">' +
         heroHtml +
         '<div class="artikel-hero__overlay"></div>' +
         '<div class="container artikel-hero__meta">' +
           '<span class="artikel-badge">' + typLabel + '</span>' +
-          '<h1 style="color:white;margin:0.5rem 0;font-size:clamp(1.6rem,4vw,2.6rem);max-width:800px;">' + (data.titel || '') + '</h1>' +
-          '<p style="color:rgba(255,255,255,0.7);margin:0;font-size:0.9rem;">' +
-            (data.autor || 'Sergen & Julia') + ' · ' + datumLabel + ' · ' + (data.lesezeit || '5 min') + ' Lesezeit' +
+          '<h1 style="color:white;margin:0.5rem 0;font-size:clamp(1.6rem,4vw,2.8rem);max-width:800px;line-height:1.2;">' + (data.titel || '') + '</h1>' +
+          '<p style="color:rgba(255,255,255,0.7);margin:0.5rem 0 0;font-size:0.9rem;">' +
+            (data.autor || 'Julia & Sergen') + ' · ' + datumLabel + ' · ' + (data.lesezeit || '5 min') + ' Lesezeit' +
             (data.land ? ' · ' + data.land : '') +
           '</p>' +
         '</div>' +
       '</div>' +
       '<div class="container">' +
-        '<div class="artikel-body">' +
-          '<a href="blog.html" class="artikel-back">← Zurück zum Blog</a>' +
-          (data.teaser ? '<p style="font-size:1.1rem;color:var(--gray-600);line-height:1.7;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--gray-200);">' + data.teaser + '</p>' : '') +
-          '<div class="artikel-meta-bar">' +
-            '<span class="artikel-badge">' + typLabel + '</span>' +
-            (data.land ? '<span style="font-size:0.85rem;color:var(--gray-500);">' + data.land + '</span>' : '') +
-            '<span style="font-size:0.85rem;color:var(--gray-400);">' + datumLabel + '</span>' +
-            '<span style="font-size:0.85rem;color:var(--gray-400);">' + (data.lesezeit || '5 min') + ' Lesezeit</span>' +
+        '<div class="artikel-layout">' +
+          '<div class="artikel-body">' +
+            '<a href="blog.html" class="artikel-back">← Zurück zum Blog</a>' +
+            (data.teaser ? '<p class="artikel-teaser">' + data.teaser + '</p>' : '') +
+            '<div class="artikel-meta-bar">' +
+              '<span class="artikel-badge">' + typLabel + '</span>' +
+              (data.land ? '<span style="font-size:0.85rem;color:var(--gray-500);">' + data.land + '</span>' : '') +
+              '<span style="font-size:0.85rem;color:var(--gray-400);">' + datumLabel + '</span>' +
+              '<span style="font-size:0.85rem;color:var(--gray-400);">' + (data.lesezeit || '5 min') + ' Lesezeit</span>' +
+            '</div>' +
+            '<div id="artikel-content">' + parsedBody + '</div>' +
+            shareHtml +
+            (tags.length ? '<div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--gray-200);"><p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray-400);margin-bottom:0.75rem;">Tags</p>' + tags.map(t => '<span class="tag">' + t + '</span>').join('') + '</div>' : '') +
+            '<div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--gray-200);text-align:center;">' +
+              '<a href="blog.html" class="btn btn-outline">← Alle Artikel</a>' +
+            '</div>' +
           '</div>' +
-          '<div id="artikel-content">' + marked.parse(body) + '</div>' +
-          (tags.length ? '<div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--gray-200);"><p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray-400);margin-bottom:0.75rem;">Tags</p>' + tags.map(function(t){ return '<span class="tag">' + t + '</span>'; }).join('') + '</div>' : '') +
-          '<div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--gray-200);text-align:center;">' +
-            '<a href="blog.html" class="btn btn-outline">← Alle Artikel</a>' +
-          '</div>' +
+          '<aside class="artikel-sidebar">' + tocHtml + '</aside>' +
         '</div>' +
       '</div>';
 
     loading.style.display = 'none';
     root.style.display    = '';
+
+    // Aktiven TOC-Eintrag beim Scrollen markieren
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    if (tocLinks.length) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            tocLinks.forEach(l => l.classList.remove('active'));
+            const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
+            if (active) active.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-80px 0px -60% 0px' });
+
+      document.querySelectorAll('.artikel-body h2[id]').forEach(h => observer.observe(h));
+    }
 
   } catch (err) {
     loading.innerHTML = '<p>Artikel nicht gefunden.</p><a href="blog.html" class="btn btn-secondary" style="margin-top:1rem;">← Zurück zum Blog</a>';
