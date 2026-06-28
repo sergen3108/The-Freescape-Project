@@ -328,8 +328,7 @@
     if (grid) {
       grid.innerHTML = sorted.slice(1).map((post, i) => `
         <article class="blog-card animate-on-scroll${i%2===1?' animate-delay-1':''}" data-category="${post.kategorie}" data-tags="${(post.tags||[]).join(' ').toLowerCase()}">
-          <div class="blog-card__thumb" style="overflow:hidden;">${buildThumb(post,220)}<span class="blog-card__category">${post.land}</span></div>
-          <div class="blog-card__body">
+            <a href="${post.link}" class="blog-card__thumb" style="overflow:hidden;display:block;">${buildThumb(post,220)}<span class="blog-card__category">${post.land}</span></a>          <div class="blog-card__body">
             <span class="article-type article-type--${typClass[post.typ]||'guide'}">${post.typLabel}</span>
             <div class="blog-card__meta">
               <span class="blog-card__author">${post.autor}</span>
