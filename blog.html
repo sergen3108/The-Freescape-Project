@@ -248,12 +248,11 @@
   }
 
   function cardMatches(card) {
-    const cats  = card.dataset.category || '';
-    const tags  = card.dataset.tags     || '';
-    const q     = searchQuery.toLowerCase();
-    const text  = (card.querySelector('h3')?.textContent || '') + ' ' +
-                  (card.querySelector('.blog-card__excerpt')?.textContent || '') + ' ' +
-                  tags;
+    const cats = card.dataset.category || '';
+    const tags = card.dataset.tags || '';
+    const q    = searchQuery.toLowerCase();
+    const text = (card.querySelector('h3')?.textContent || '') + ' ' +
+                 (card.querySelector('.blog-card__excerpt')?.textContent || '') + ' ' + tags;
     const matchFilter = activeFilter === 'all' || cats.includes(activeFilter) || tags.includes(activeFilter);
     const matchSearch = !q || text.toLowerCase().includes(q);
     return matchFilter && matchSearch;
@@ -265,14 +264,12 @@
     const noRes    = document.getElementById('blog-no-results');
     let visible    = 0;
 
-    // Featured
     if (featured) {
       const a = featured.querySelector('[data-category]');
       const show = a ? cardMatches(a) : false;
       featured.style.display = show ? '' : 'none';
       if (show) visible++;
     }
-    // Grid
     if (grid) {
       grid.querySelectorAll('[data-category]').forEach(card => {
         const show = cardMatches(card);
@@ -283,12 +280,44 @@
     if (noRes) noRes.style.display = visible === 0 ? '' : 'none';
   }
 
+  // Filter-Buttons — einmalig setup, nicht innerhalb renderPosts
+  function setupFilters() {
+    document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    // Suche
+    const searchInput = document.getElementById('blog-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        searchQuery = searchInput.value.trim();
+        applyFilters();
+      });
+    }
+
+    // Tag-Klicks
+    document.addEventListener('click', e => {
+      const tagEl = e.target.closest('.tag--clickable');
+      if (!tagEl) return;
+      activeFilter = tagEl.dataset.tag;
+      searchQuery  = '';
+      const si = document.getElementById('blog-search');
+      if (si) si.value = '';
+      document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+      applyFilters();
+    });
+  }
+
   function renderPosts(posts) {
     const sorted   = [...posts].sort((a,b) => new Date(b.datum) - new Date(a.datum));
     const featured = document.getElementById('blog-featured');
     const grid     = document.getElementById('blog-main-grid');
 
-    // Featured (neuester Post)
     if (featured && sorted.length > 0) {
       const p = sorted[0];
       const thumb = p.bild
@@ -314,7 +343,6 @@
         </article>`;
     }
 
-    // Restliche Posts
     if (grid) {
       grid.innerHTML = sorted.slice(1).map((post, i) => `
         <article class="blog-card animate-on-scroll${i%2===1?' animate-delay-1':''}" data-category="${post.kategorie}" data-tags="${(post.tags||[]).join(' ').toLowerCase()}">
@@ -332,7 +360,6 @@
           </div>
         </article>`).join('');
 
-      // Scroll-Animationen
       if (typeof IntersectionObserver !== 'undefined') {
         const obs = new IntersectionObserver(entries => {
           entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
@@ -341,44 +368,10 @@
       }
     }
 
-    // Sidebar dynamisch befüllen
     buildSidebar(sorted);
-
-    // Filter-Buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeFilter = btn.dataset.filter;
-        applyFilters();
-      });
-    });
-
-    // Tag-Klicks (auf Cards und Sidebar)
-    document.addEventListener('click', e => {
-      const tagEl = e.target.closest('.tag--clickable');
-      if (!tagEl) return;
-      const tag = tagEl.dataset.tag;
-      activeFilter = tag;
-      searchQuery  = '';
-      const si = document.getElementById('blog-search');
-      if (si) si.value = '';
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      applyFilters();
-    });
-
-    // Suche
-    const searchInput = document.getElementById('blog-search');
-    if (searchInput) {
-      searchInput.addEventListener('input', () => {
-        searchQuery = searchInput.value.trim();
-        applyFilters();
-      });
-    }
   }
 
   function buildSidebar(posts) {
-    // Länder
     const laender = {};
     const typen   = {};
     const allTags = {};
@@ -391,44 +384,39 @@
 
     const laenderEl = document.getElementById('sidebar-laender');
     if (laenderEl) {
-      laenderEl.innerHTML = Object.entries(laender)
-        .sort((a,b) => b[1]-a[1])
-        .map(([l,n]) => {
-          const key = l.toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue');
-          return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${key}">${l} <span class="sidebar-count">${n} Artikel</span></a>`;
-        }).join('');
+      laenderEl.innerHTML = Object.entries(laender).sort((a,b) => b[1]-a[1]).map(([l,n]) => {
+        const key = l.toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue');
+        return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${key}">${l} <span class="sidebar-count">${n} Artikel</span></a>`;
+      }).join('');
     }
 
     const typenEl = document.getElementById('sidebar-typen');
     if (typenEl) {
-      typenEl.innerHTML = Object.entries(typen)
-        .sort((a,b) => b[1]-a[1])
-        .map(([t,n]) => {
-          const typMap = {'Routen-Guide':'guide','Kosten-Check':'kosten','Sicherheit':'safety','Erfahrungsbericht':'persoenlich'};
-          return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${typMap[t]||t}">${t} <span class="sidebar-count">${n}</span></a>`;
-        }).join('');
+      typenEl.innerHTML = Object.entries(typen).sort((a,b) => b[1]-a[1]).map(([t,n]) => {
+        const typMap = {'Routen-Guide':'guide','Kosten-Check':'kosten','Sicherheit':'safety','Erfahrungsbericht':'persoenlich'};
+        return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${typMap[t]||t}">${t} <span class="sidebar-count">${n}</span></a>`;
+      }).join('');
     }
 
     const tagsEl = document.getElementById('sidebar-tags');
     if (tagsEl) {
-      tagsEl.innerHTML = Object.keys(allTags)
-        .sort()
-        .map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`)
-        .join('');
+      tagsEl.innerHTML = Object.keys(allTags).sort().map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('');
     }
 
-    // Sidebar-Filter-Links
     document.querySelectorAll('.sidebar-filter').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
         activeFilter = link.dataset.filter;
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
         applyFilters();
       });
     });
   }
 
-  // Start: sofort wenn Posts da sind, sonst auf Event warten
+  // Setup einmalig
+  setupFilters();
+
+  // Posts rendern sobald verfügbar
   if (window.BLOG_POSTS) {
     renderPosts(window.BLOG_POSTS);
   } else {
