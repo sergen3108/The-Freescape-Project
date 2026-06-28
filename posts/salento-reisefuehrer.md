@@ -4,7 +4,7 @@ datum: 2026-03-18
 land: Kolumbien
 typ: guide
 lesezeit: 10 min
-autor: Julia & Sergen
+autor: Julia
 teaser: Salento ist eines der charmantesten Städtchen Kolumbiens, bunt, entspannt und umgeben von Kaffeeplantagen und Wachspalmen. Hier sind unsere Eindrücke aus der Kaffeezone.
 bild: assets/img/blog/salento.jpg
 bildEmoji: ☕
