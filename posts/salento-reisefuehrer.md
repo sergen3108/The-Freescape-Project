@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 10 min
 autor: Julia & Sergen
 teaser: Salento ist eines der charmantesten Städtchen Kolumbiens, bunt, entspannt und umgeben von Kaffeeplantagen und Wachspalmen. Hier sind unsere Eindrücke aus der Kaffeezone.
-bild: assets/img/blog/salento.jpeg
+bild: assets/img/blog/salento.jpg
 bildEmoji: ☕
 bildGradient: linear-gradient(135deg,#2d5a1b,#7ab648)
 tags:
@@ -17,7 +17,7 @@ tags:
   - Backpacking
 ---
 
-![Salento Kolumbien](assets/img/blog/salento.jpeg)
+![Salento Kolumbien](assets/img/blog/salento2.jpeg)
 
 Mitten im Herzen von Kolumbiens berühmter **Kaffeezone (Eje Cafetero)** liegt Salento, eines der charmantesten und beliebtesten Reiseziele des Landes. Bunte Straßen, eine entspannte Atmosphäre, Kaffeefincas und das nahegelegene Cocora-Tal machen das kleine Bergstädtchen zu einem unvergesslichen Stop auf jeder Kolumbien-Reise.
 
@@ -47,6 +47,9 @@ Die **beste Reisezeit** sind die trockeneren Monate **Dezember bis März sowie J
 
 Tipp: In den Bergen ändert sich das Wetter schnell. Eine leichte Regenjacke gehört immer ins Gepäck.
 
+![Salento Kolumbien](assets/img/blog/salento4.jpeg)
+
+
 ---
 
 ## Wo übernachten?
@@ -69,6 +72,9 @@ Der beliebteste Weg führt als Rundwanderung durch Nebelwälder, über Hängebr�
 
 Zum Tal kommt man mit einem der traditionellen **Willys-Jeeps** vom Hauptplatz in Salento. Die Fahrt dauert etwa 30 Minuten und ist schon Teil des Erlebnisses. Die Jeeps fahren los, sobald sie voll sind, und "voll" heißt hier manchmal auch, dass Leute auf der Ladefläche stehen. Sergen hat genau das auf unserer Fahrt gemacht und einfach hinten festgehalten. Klingt abenteuerlich, ist aber völlig normal und gehört einfach dazu.
 
+![Salento Kolumbien](assets/img/blog/salento.jpeg)
+
+
 ### Durch die bunten Gassen schlendern
 
 Die **Calle Real** und die umliegenden Straßen sind voller bunter Häuser, kleiner Kunsthandwerksläden, Cafés und lokaler Restaurants. Einfach laufen, schauen, entdecken.
@@ -80,6 +86,9 @@ Wer Salento von oben sehen möchte, geht zum **Mirador** oberhalb der Stadt. Etw
 ### Kaffeefinca-Tour
 
 Salento liegt mitten in der Kaffeezone, eine **Finca-Tour** gehört also dazu. Viele Farmen bieten Führungen an, bei denen man den gesamten Prozess vom Anbau über die Ernte bis zum Rösten und Verkosten erleben kann.
+
+![Salento Kolumbien](assets/img/blog/salento6.jpeg)
+
 
 ### Tejo spielen
 
