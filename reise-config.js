@@ -9,11 +9,6 @@ const REISE = {
   juliaLaender:  47,
   // ── Reise-Zahlen ───────────────────────────────────────────────
   kmZurueckgelegt:      13500,
-  vlogsVeroeffentlicht: 6,
-  // ── YouTube-Stats (manuell aktualisieren) ──────────────────────
-  stundenVideomaterial: 1,
-  aufrufeGesamt:        12595,
-  abonnenten:           87,
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
   naechsteWoche: 'Lima — dann weiter zum Machu Picchu! Wir sind gespannt 🙌',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
