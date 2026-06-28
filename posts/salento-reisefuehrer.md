@@ -1,5 +1,5 @@
 ---
-titel: Salento Reiseführer: Das Herz der kolumbianischen Kaffeezone
+titel: "Salento Reiseführer: Das Herz der kolumbianischen Kaffeezone"
 datum: 2026-03-18
 land: Kolumbien
 typ: guide
