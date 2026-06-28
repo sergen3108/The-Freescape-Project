@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ── Filter Buttons ──────────────────────────────────── */
-  document.querySelectorAll('.filter-bar').forEach(bar => {
+document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
     const btns = bar.querySelectorAll('.filter-btn');
     btns.forEach(btn => {
       btn.addEventListener('click', () => {
