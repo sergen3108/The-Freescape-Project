@@ -100,7 +100,7 @@ Das **Goldmuseum** ist eines der bekanntesten Museen Kolumbiens und ein Muss. Ü
 
 **Tipp:** Sonntags ist der Eintritt kostenlos, auch ins Goldmuseum!
 
-![Museo del Oro Bogotá](assets/img/blog/goldmuseum.jpg)
+<img src="assets/img/blog/goldmuseum.jpg" alt="Bogotá" style="object-position: bottom;">
 
 ### Street Art entdecken
 
@@ -114,7 +114,7 @@ Für ein lokales Erlebnis: der **Paloquemao Markt** mit frischen Früchten, Blum
 
 ## Essen & Trinken in Bogotá
 
-![Kolumbianisches Essen](assets/img/blog/essenbogota.png
+![Kolumbianisches Essen](assets/img/blog/essenbogota.png)
 
 Essen ist eines der Highlights in Bogotá. Das berühmteste traditionelle Gericht ist **Ajiaco**, eine herzhafte Hühner-Kartoffel-Suppe, serviert mit Mais, Reis, Kapern, Sahne und Avocado. Perfekt für Bogotás kühles Klima.
 
