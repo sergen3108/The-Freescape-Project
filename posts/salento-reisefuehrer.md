@@ -17,7 +17,7 @@ tags:
   - Backpacking
 ---
 
-![Salento Kolumbien](assets/img/blog/salento2.jpeg)
+![Salento Kolumbien](assets/img/blog/salento2.jpg)
 
 Mitten im Herzen von Kolumbiens berühmter **Kaffeezone (Eje Cafetero)** liegt Salento, eines der charmantesten und beliebtesten Reiseziele des Landes. Bunte Straßen, eine entspannte Atmosphäre, Kaffeefincas und das nahegelegene Cocora-Tal machen das kleine Bergstädtchen zu einem unvergesslichen Stop auf jeder Kolumbien-Reise.
 
@@ -47,7 +47,7 @@ Die **beste Reisezeit** sind die trockeneren Monate **Dezember bis März sowie J
 
 Tipp: In den Bergen ändert sich das Wetter schnell. Eine leichte Regenjacke gehört immer ins Gepäck.
 
-![Salento Kolumbien](assets/img/blog/salento4.jpeg)
+![Salento Kolumbien](assets/img/blog/salento4.jpg)
 
 
 ---
@@ -72,7 +72,7 @@ Der beliebteste Weg führt als Rundwanderung durch Nebelwälder, über Hängebr�
 
 Zum Tal kommt man mit einem der traditionellen **Willys-Jeeps** vom Hauptplatz in Salento. Die Fahrt dauert etwa 30 Minuten und ist schon Teil des Erlebnisses. Die Jeeps fahren los, sobald sie voll sind, und "voll" heißt hier manchmal auch, dass Leute auf der Ladefläche stehen. Sergen hat genau das auf unserer Fahrt gemacht und einfach hinten festgehalten. Klingt abenteuerlich, ist aber völlig normal und gehört einfach dazu.
 
-![Salento Kolumbien](assets/img/blog/salento.jpeg)
+![Salento Kolumbien](assets/img/blog/salento.jpg)
 
 
 ### Durch die bunten Gassen schlendern
@@ -87,7 +87,7 @@ Wer Salento von oben sehen möchte, geht zum **Mirador** oberhalb der Stadt. Etw
 
 Salento liegt mitten in der Kaffeezone, eine **Finca-Tour** gehört also dazu. Viele Farmen bieten Führungen an, bei denen man den gesamten Prozess vom Anbau über die Ernte bis zum Rösten und Verkosten erleben kann.
 
-![Salento Kolumbien](assets/img/blog/salento6.jpeg)
+![Salento Kolumbien](assets/img/blog/salento6.jpg)
 
 
 ### Tejo spielen
