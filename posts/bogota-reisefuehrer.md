@@ -8,7 +8,7 @@ autor: Sergen & Julia
 teaser: Bogotá ist für viele Reisende der Einstieg in Kolumbien — und überrascht fast jeden. Hier teilen wir unsere ehrlichen Eindrücke aus drei Tagen in der Andenmetropole.
 bild: assets/img/blog/bogota-titelbild.jpg
 bildEmoji: 🏙️
-bildGradient: "linear-gradient(135deg,#1a2744,#e8431a)"
+bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
 tags:
   - Bogotá
   - Kolumbien
