@@ -16,7 +16,7 @@ tags:
   - Reiseführer
 ---
 
-![Bogotá Skyline](assets/img/blog/bogota-titelbild.jpg)
+![Bogotá Skyline](assets/img/blog/bogota2.png)
 
 Für viele Reisende ist Bogotá das Tor nach Kolumbien. Die weitläufige Hauptstadt bekommt von Backpackern oft gemischte Bewertungen, weil viele nicht genau wissen, was sie erwartet. Auf 2.640 Metern über dem Meeresspiegel gelegen, ist Bogotá eine Stadt voller Kontraste: chaotische Straßen, bunte Kolonialbauten, beeindruckende Straßenkunst, unglaubliches Essen und einige der herzlichsten Menschen, denen wir in Südamerika begegnet sind.
 
@@ -36,7 +36,7 @@ Die **beste Reisezeit für Bogotá** sind die trockeneren Monate **Dezember bis 
 
 Ein weiterer wichtiger Punkt ist die **Höhe**. Viele Reisende unterschätzen, wie spürbar sie ist. Am ersten Tag etwas langsamer angehen, viel Wasser trinken und Alkohol meiden hilft dem Körper, sich anzupassen.
 
-![Blick über Bogotá](assets/img/blog/bogota-aussicht.jpg)
+![Blick über Bogotá](assets/img/blog/Skylinebogota.jpg)
 
 ---
 
@@ -54,7 +54,7 @@ Ein hilfreicher kolumbianischer Ausdruck: **"No dar papaya"**, was so viel bedeu
 
 ## Wo übernachten in Bogotá?
 
-![La Candelaria Bogotá](assets/img/blog/bogota-candelaria.jpg)
+![La Candelaria Bogotá](assets/img/blog/bogotastreet.jpeg)
 
 ### La Candelaria
 
@@ -78,7 +78,7 @@ Für Reisende, die Nightlife, Shopping und gehobene Restaurants schätzen, ist d
 
 ### Monserrate besuchen
 
-![Monserrate Bogotá](assets/img/blog/bogota-monserrate.jpg)
+![Monserrate Bogotá](assets/img/blog/bogota.jpeg)
 
 Eines der absoluten Highlights in Bogotá ist der **Monserrate**, ein Berg auf über 3.100 Metern, von dem aus man einen atemberaubenden Panoramablick über die gesamte Stadt hat. Oben findet man eine historische Kirche, kleine Märkte und Restaurants.
 
@@ -100,7 +100,7 @@ Das **Goldmuseum** ist eines der bekanntesten Museen Kolumbiens und ein Muss. Ü
 
 **Tipp:** Sonntags ist der Eintritt kostenlos, auch ins Goldmuseum!
 
-![Museo del Oro Bogotá](assets/img/blog/bogota-goldmuseum.jpg)
+![Museo del Oro Bogotá](assets/img/blog/goldmuseum.jpg)
 
 ### Street Art entdecken
 
@@ -114,7 +114,7 @@ Für ein lokales Erlebnis: der **Paloquemao Markt** mit frischen Früchten, Blum
 
 ## Essen & Trinken in Bogotá
 
-![Kolumbianisches Essen](assets/img/blog/bogota-essen.jpg)
+![Kolumbianisches Essen](assets/img/blog/essenbogota.png
 
 Essen ist eines der Highlights in Bogotá. Das berühmteste traditionelle Gericht ist **Ajiaco**, eine herzhafte Hühner-Kartoffel-Suppe, serviert mit Mais, Reis, Kapern, Sahne und Avocado. Perfekt für Bogotás kühles Klima.
 
@@ -152,7 +152,6 @@ Als Backpacker kommt man gut mit **30-60 USD pro Tag** aus, je nach Unterkunft u
 
 ## 2-3 Tage Bogotá: Unser Vorschlag
 
-![Bogotá Itinerary](assets/img/blog/bogota-strasse.jpg)
 
 ### Tag 1: La Candelaria & Free Walking Tour
 Morgens durch die bunten Gassen schlendern, dann eine Free Walking Tour mitmachen. Danach: Plaza Bolívar, Museo del Oro, Botero Museum. Abends traditionelles Essen in La Candelaria.
