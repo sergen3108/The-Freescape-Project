@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,8 +57,6 @@
       <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
       <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
     </div>
-
-    <!-- Sprachauswahl -->
     <div class="lang-switcher">
       <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
         <span class="lang-switcher__flag">🇩🇪</span>
@@ -73,7 +71,6 @@
         <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
       </div>
     </div>
-
     <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
       YouTube
@@ -96,14 +93,8 @@
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
 
- <section class="page-hero">
-  <!-- ✏️ HERO BILD: Ersetze die Zeile unten mit deinem Foto
-       Bild speichern unter: assets/img/hero-ueber-uns.jpg
-       Empfehlung: Querformat, min. 1600px breit -->
- <div class="hero__bg">
-    <!-- ✏️ HERO HINTERGRUNDBILD: Pfad zu deinem Foto ersetzen
-         Empfehlung: Querformat, mindestens 1600px breit
-         Eigenes Bild: src="assets/img/hero-hintergrund.jpg" -->
+<section class="page-hero">
+  <div class="hero__bg">
     <img src="assets/img/cotopaxipano.JPEG" class="hero__bg-photo" alt="">
     <div class="hero__pattern"></div>
   </div>
@@ -117,29 +108,23 @@
 
 <section class="section">
   <div class="container">
-    <!-- Suchleiste -->
     <div class="blog-search-bar">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       <input type="search" id="blog-search" placeholder="Artikel durchsuchen …" autocomplete="off">
     </div>
 
-    <!-- Filter-Buttons -->
-<div class="filter-bar" id="blog-filter-bar">
-  <button class="filter-btn active" data-filter="all">Alle</button>
-  <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
-  <button class="filter-btn" data-filter="ecuador">Ecuador</button>
-  <button class="filter-btn" data-filter="peru">Peru</button>
-</div>
+    <!-- Vereinfachte Filter: nur Länder -->
+    <div class="filter-bar" id="blog-filter-bar">
+      <button class="filter-btn active" data-filter="all">Alle</button>
+      <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
+      <button class="filter-btn" data-filter="ecuador">Ecuador</button>
+      <button class="filter-btn" data-filter="peru">Peru</button>
+    </div>
 
     <div class="blog-sidebar">
       <div>
-        <!-- Keine Treffer Hinweis -->
         <p id="blog-no-results" style="display:none;color:var(--gray-500);padding:2rem 0;">Keine Artikel gefunden.</p>
-
-        <!-- Featured Article (neuester Post) -->
         <div id="blog-featured"></div>
-
-        <!-- Blog Grid -->
         <div class="blog-grid" id="blog-main-grid">
           <p style="color:var(--gray-400);padding:2rem 0;">Artikel werden geladen …</p>
         </div>
@@ -174,7 +159,7 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo">Freescape Project</div>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGO.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
         <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
         <div class="footer__social">
           <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
@@ -226,6 +211,7 @@
     </div>
   </div>
 </footer>
+
 <div class="cookie-banner">
   <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -234,6 +220,7 @@
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
 </div>
+
 <script src="main.js"></script>
 <script>
 (function () {
@@ -280,7 +267,6 @@
     if (noRes) noRes.style.display = visible === 0 ? '' : 'none';
   }
 
-  // Filter-Buttons — einmalig setup, nicht innerhalb renderPosts
   function setupFilters() {
     document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -291,7 +277,6 @@
       });
     });
 
-    // Suche
     const searchInput = document.getElementById('blog-search');
     if (searchInput) {
       searchInput.addEventListener('input', () => {
@@ -300,7 +285,6 @@
       });
     }
 
-    // Tag-Klicks
     document.addEventListener('click', e => {
       const tagEl = e.target.closest('.tag--clickable');
       if (!tagEl) return;
@@ -326,16 +310,18 @@
       featured.innerHTML = `
         <article class="blog-card" data-category="${p.kategorie}" data-tags="${(p.tags||[]).join(' ').toLowerCase()}"
           style="display:flex;flex-direction:row;gap:0;margin-bottom:2rem;border:1.5px solid var(--gray-100);border-radius:var(--r-lg);overflow:hidden;">
-          <div class="blog-card__thumb" style="width:45%;min-height:280px;overflow:hidden;flex-shrink:0;">
+          <a href="${p.link}" class="blog-card__thumb" style="width:45%;min-height:280px;overflow:hidden;flex-shrink:0;display:block;">
             ${thumb}<span class="blog-card__category">${p.land}</span>
-          </div>
+          </a>
           <div class="blog-card__body" style="padding:2rem;">
             <span class="article-type article-type--${typClass[p.typ]||'guide'}">${p.typLabel}</span>
             <div class="blog-card__meta">
               <span class="blog-card__author">${p.autor}</span>
               <span class="blog-card__date">${p.datumLabel} · ${p.lesezeit}</span>
             </div>
-            <h3 class="blog-card__title" style="font-size:1.4rem;">${p.titel}</h3>
+            <h3 class="blog-card__title" style="font-size:1.4rem;">
+              <a href="${p.link}" style="color:inherit;text-decoration:none;">${p.titel}</a>
+            </h3>
             <p class="blog-card__excerpt">${p.teaser}</p>
             ${(p.tags||[]).length ? `<div style="margin:0.75rem 0;">${p.tags.map(t=>`<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
             <a href="${p.link}" class="blog-card__read">Artikel lesen →</a>
@@ -353,7 +339,9 @@
               <span class="blog-card__author">${post.autor}</span>
               <span class="blog-card__date">${post.datumLabel} · ${post.lesezeit}</span>
             </div>
-            <h3 class="blog-card__title">${post.titel}</h3>
+            <h3 class="blog-card__title">
+              <a href="${post.link}" style="color:inherit;text-decoration:none;">${post.titel}</a>
+            </h3>
             <p class="blog-card__excerpt">${post.teaser}</p>
             ${(post.tags||[]).length ? `<div style="margin:0.5rem 0 0.25rem;">${post.tags.map(t=>`<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
             <a href="${post.link}" class="blog-card__read">Artikel lesen →</a>
@@ -413,10 +401,8 @@
     });
   }
 
-  // Setup einmalig
   setupFilters();
 
-  // Posts rendern sobald verfügbar
   if (window.BLOG_POSTS) {
     renderPosts(window.BLOG_POSTS);
   } else {
