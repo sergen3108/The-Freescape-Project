@@ -100,7 +100,7 @@ Das **Goldmuseum** ist eines der bekanntesten Museen Kolumbiens und ein Muss. Ü
 
 **Tipp:** Sonntags ist der Eintritt kostenlos, auch ins Goldmuseum!
 
-<img src="assets/img/blog/goldmuseum.jpg" alt="Bogotá" style="object-position: center 75%;">
+<img src="assets/img/blog/goldmuseum.jpg" alt="Bogotá" style="object-position: center 70%;">
 
 ### Street Art entdecken
 
