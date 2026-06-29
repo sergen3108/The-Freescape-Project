@@ -1,28 +1,110 @@
-﻿<!DOCTYPE html><html lang="de"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Datenschutz | The Freescape Project</title><link rel="stylesheet" href="style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈️</text></svg>"></head><body>
-<nav class="nav nav--solid"><div class="nav__inner"><a href="index.html" class="nav__logo"><span class="nav__logo-main">Freescape Project</span><span class="nav__logo-sub">Sergen & Julia • Südamerika</span></a><div class="nav__menu"><a href="index.html" class="nav__link">Start</a><a href="ueber-uns.html" class="nav__link">Über uns</a><a href="vlogs.html" class="nav__link">Vlogs</a><a href="blog.html" class="nav__link">Blog</a><a href="karte.html" class="nav__link">Reisekarte</a><a href="kontakt.html" class="nav__link">Kontakt</a></div><div class="lang-switcher"><button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox"><span class="lang-switcher__flag">🇩🇪</span><span class="lang-switcher__label">DE</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button><div class="lang-switcher__dropdown" role="listbox"><button class="lang-switcher__option lang-switcher__option--active" data-flag="🇩🇪" data-label="DE">🇩🇪 Deutsch</button><button class="lang-switcher__option" data-flag="🇬🇧" data-label="EN">🇬🇧 English</button><button class="lang-switcher__option" data-flag="🇪🇸" data-label="ES">🇪🇸 Español</button><button class="lang-switcher__option" data-flag="🇹🇷" data-label="TR">🇹🇷 Türkçe</button><button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button></div></div><button class="nav__burger"><span></span><span></span><span></span></button></div></nav>
-<div class="legal-content">
-<a href="index.html" style="color:var(--terra-600);font-size:0.85rem;">← Zurück zur Startseite</a>
-<h1 style="margin-top:2rem;">Datenschutzerklärung</h1>
-<p>Verantwortlich im Sinne der DSGVO: Sergen & Julia [Nachname], Köln, Deutschland. Kontakt: hallo@thefreescapeproject.com</p>
-<h2>1. Datenerhebung auf dieser Website</h2>
-<p>Diese Website wird statisch gehostet. Beim Aufruf werden technisch notwendige Daten (IP-Adresse, Zeitstempel, Browsertyp) durch den Hosting-Anbieter erfasst, auf die wir keinen direkten Zugriff haben.</p>
-<h2>2. Cookies</h2>
-<p>Wir verwenden ein Cookie-Banner, das deine Einwilligung in localStorage speichert. Es werden keine Tracking-Cookies ohne deine Zustimmung gesetzt.</p>
-<h2>3. YouTube-Videos</h2>
-<p>Auf dieser Website sind YouTube-Videos eingebunden. Beim Abspielen eines Videos wird eine Verbindung zu den Servern von Google/YouTube hergestellt. Dabei können Daten an YouTube übertragen werden. Wir haben auf diese Datenverarbeitung keinen Einfluss. Mehr Infos: <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutzerklärung</a></p>
-<h2>4. Google Fonts</h2>
-<p>Wir nutzen Google Fonts. Beim Laden werden Anfragen an Google-Server gestellt. Für eine DSGVO-konforme Umsetzung empfehlen wir, die Schriften lokal einzubinden.</p>
-<h2>5. Deine Rechte</h2>
-<p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung deiner gespeicherten Daten sowie das Recht auf Datenübertragbarkeit. Kontakt: hallo@thefreescapeproject.com</p>
-<p style="color:var(--gray-500);font-size:0.8rem;margin-top:3rem;"><em>Stand: Juni 2026. Diese Datenschutzerklärung ist ein Muster und sollte von einem Rechtsanwalt geprüft werden.</em></p>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutz | The Freescape Project</title>
+  <meta name="description" content="Datenschutzerklärung – The Freescape Project von Julia & Sergen.">
+  <link rel="icon" type="image/png" href="assets/img/LOGO.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav nav--transparent" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">The Freescape Project</span>
+        <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
+      </span>
+    </a>
+    <div class="nav__menu">
+      <a href="index.html" class="nav__link" data-page="index.html">Start</a>
+      <a href="ueber-uns.html" class="nav__link" data-page="ueber-uns.html">Über uns</a>
+      <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
+      <a href="blog.html" class="nav__link" data-page="blog.html">Blog</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Länder
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="laender.html#kolumbien" class="nav__dropdown-link">Kolumbien</a>
+          <a href="laender.html#ecuador" class="nav__dropdown-link">Ecuador</a>
+          <a href="laender.html#peru" class="nav__dropdown-link">Peru</a>
+          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Bolivien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Chile</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Argentinien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
+        </div>
+      </div>
+      <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
+      <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
+      <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="lang-switcher__flag">🇩🇪</span>
+        <span class="lang-switcher__label">DE</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lang-switcher__dropdown" role="listbox">
+        <button class="lang-switcher__option lang-switcher__option--active" data-flag="🇩🇪" data-label="DE">🇩🇪 Deutsch</button>
+        <button class="lang-switcher__option" data-flag="🇬🇧" data-label="EN">🇬🇧 English</button>
+        <button class="lang-switcher__option" data-flag="🇪🇸" data-label="ES">🇪🇸 Español</button>
+        <button class="lang-switcher__option" data-flag="🇹🇷" data-label="TR">🇹🇷 Türkçe</button>
+        <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
+      </div>
+    </div>
+    <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      YouTube
+    </a>
+    <button class="nav__burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="index.html" class="nav__mobile-link">Start</a>
+  <a href="ueber-uns.html" class="nav__mobile-link">Über uns</a>
+  <a href="vlogs.html" class="nav__mobile-link">Vlogs</a>
+  <a href="blog.html" class="nav__mobile-link">Blog</a>
+  <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
+  <a href="galerie.html" class="nav__mobile-link">Galerie</a>
+  <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);margin:0.5rem 0;padding:0.75rem 1rem 0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-family:var(--font-nav);">Länder</div>
+  <a href="laender.html#kolumbien" class="nav__mobile-link">Kolumbien</a>
+  <a href="laender.html#ecuador" class="nav__mobile-link">Ecuador</a>
+  <a href="laender.html#peru" class="nav__mobile-link">Peru</a>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
+
+<div class="legal-content">
+  <a href="index.html" style="color:var(--terra-600);font-size:0.85rem;">← Zurück zur Startseite</a>
+  <h1 style="margin-top:2rem;">Datenschutzerklärung</h1>
+  <p>Verantwortlich im Sinne der DSGVO: Sergen & Julia [Nachname], Köln, Deutschland. Kontakt: hallo@thefreescapeproject.com</p>
+  <h2>1. Datenerhebung auf dieser Website</h2>
+  <p>Diese Website wird statisch gehostet. Beim Aufruf werden technisch notwendige Daten (IP-Adresse, Zeitstempel, Browsertyp) durch den Hosting-Anbieter erfasst, auf die wir keinen direkten Zugriff haben.</p>
+  <h2>2. Cookies</h2>
+  <p>Wir verwenden ein Cookie-Banner, das deine Einwilligung in localStorage speichert. Es werden keine Tracking-Cookies ohne deine Zustimmung gesetzt.</p>
+  <h2>3. YouTube-Videos</h2>
+  <p>Auf dieser Website sind YouTube-Videos eingebunden. Beim Abspielen eines Videos wird eine Verbindung zu den Servern von Google/YouTube hergestellt. Dabei können Daten an YouTube übertragen werden. Wir haben auf diese Datenverarbeitung keinen Einfluss. Mehr Infos: <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutzerklärung</a></p>
+  <h2>4. Google Fonts</h2>
+  <p>Wir nutzen Google Fonts. Beim Laden werden Anfragen an Google-Server gestellt. Für eine DSGVO-konforme Umsetzung empfehlen wir, die Schriften lokal einzubinden.</p>
+  <h2>5. Deine Rechte</h2>
+  <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung deiner gespeicherten Daten sowie das Recht auf Datenübertragbarkeit. Kontakt: hallo@thefreescapeproject.com</p>
+  <p style="color:var(--gray-500);font-size:0.8rem;margin-top:3rem;"><em>Stand: Juni 2026. Diese Datenschutzerklärung ist ein Muster und sollte von einem Rechtsanwalt geprüft werden.</em></p>
+</div>
+
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo">Freescape Project</div>
-        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;">
+          <img src="assets/img/LOGO.png" alt="" style="height:2.5rem;">
+          <span>The Freescape Project</span>
+        </div>
+        <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
         <div class="footer__social">
           <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
@@ -65,7 +147,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+      <p class="footer__copy">© 2026 The Freescape Project – Julia &amp; Sergen</p>
       <div class="footer__legal">
         <a href="impressum.html" class="footer__legal-link">Impressum</a>
         <a href="datenschutz.html" class="footer__legal-link">Datenschutz</a>
@@ -73,6 +155,7 @@
     </div>
   </div>
 </footer>
+
 <div class="cookie-banner">
   <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -80,4 +163,8 @@
     <button class="cookie-btn-accept">Alle akzeptieren</button>
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
-</div><script src="main.js"></script></body></html>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
