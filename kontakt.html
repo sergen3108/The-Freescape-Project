@@ -1,16 +1,118 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt | The Freescape Project</title>
   <link rel="icon" type="image/png" href="assets/img/LOGO.png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Kontakt-spezifisch ── */
+    .kontakt-hero-illustration {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+    .contact-intro {
+      font-size: 1rem;
+      color: var(--gray-500);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--sand-200, #e8e0d4);
+    }
+    .social-links-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .social-link-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--sand-100);
+      border-radius: var(--r-lg);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .social-link-card:hover {
+      background: var(--terra-100);
+      transform: translateX(3px);
+    }
+    .social-link-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--r-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .social-link-label { font-weight: 600; font-size: 0.9rem; }
+    .social-link-sub   { color: var(--gray-500); font-size: 0.8rem; }
+
+    .koop-box {
+      background: var(--green-900);
+      color: white;
+      border-radius: var(--r-xl);
+      padding: 2rem;
+    }
+    .koop-box h3 { color: white; margin-bottom: 0.75rem; }
+    .koop-box p  { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.75; margin-bottom: 0.75rem; }
+    .koop-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .koop-list-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+    }
+    .koop-list-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--terra-400);
+      flex-shrink: 0;
+    }
+    .koop-reply {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .koop-reply strong { color: var(--terra-400); }
+  </style>
 </head>
 <body>
+
+<!-- ═══════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════ -->
 <nav class="nav nav--transparent" role="navigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
-      <img src="assets/img/LOGO.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
       <span class="nav__logo-text">
         <span class="nav__logo-main">The Freescape Project</span>
         <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
@@ -79,12 +181,63 @@
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
 
+<!-- ═══════════════════════════════════════════
+     HERO
+     ✏️  Sobald du ein Foto hast:
+         1. Bild als assets/img/hero-kontakt.jpg speichern
+         2. Den <div class="kontakt-hero-illustration"> Block entfernen
+         3. Die auskommentierte <img>-Zeile einkommentieren
+═══════════════════════════════════════════ -->
 <section class="page-hero">
-  <!-- ✏️ HERO BILD: Ersetze die Zeile unten mit deinem Foto
-       Bild speichern unter: assets/img/hero-kontakt.jpg
-       Empfehlung: Querformat, min. 1600px breit -->
-  <div class="page-hero__bg" style="background:linear-gradient(135deg, #1a2744 0%, #2d2d2d 100%);">
-    <!-- <img src="assets/img/hero-kontakt.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45;"> -->
+  <div class="page-hero__bg" style="background:linear-gradient(135deg, #1a2744 0%, #2a1f3d 50%, #1a2a1a 100%);">
+
+    <!-- ✏️ PLATZHALTER – ersetzen sobald Foto vorhanden -->
+    <div class="kontakt-hero-illustration" aria-hidden="true">
+      <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
+        <!-- Bergsilhouetten im Hintergrund -->
+        <polygon points="0,400 120,180 240,320 360,140 480,280 600,100 720,240 840,130 900,200 900,400" fill="rgba(255,255,255,0.03)"/>
+        <polygon points="0,400 80,220 200,350 320,180 440,310 560,140 680,270 800,160 900,220 900,400" fill="rgba(255,255,255,0.04)"/>
+        <!-- Sterne / Punkte -->
+        <circle cx="80"  cy="60"  r="1.5" fill="rgba(255,255,255,0.4)"/>
+        <circle cx="200" cy="30"  r="1"   fill="rgba(255,255,255,0.3)"/>
+        <circle cx="350" cy="80"  r="2"   fill="rgba(255,255,255,0.25)"/>
+        <circle cx="500" cy="20"  r="1.5" fill="rgba(255,255,255,0.35)"/>
+        <circle cx="650" cy="55"  r="1"   fill="rgba(255,255,255,0.4)"/>
+        <circle cx="780" cy="35"  r="2"   fill="rgba(255,255,255,0.2)"/>
+        <circle cx="860" cy="70"  r="1.5" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="130" cy="110" r="1"   fill="rgba(255,255,255,0.2)"/>
+        <circle cx="420" cy="50"  r="1"   fill="rgba(255,255,255,0.25)"/>
+        <circle cx="720" cy="90"  r="1.5" fill="rgba(255,255,255,0.3)"/>
+        <!-- Umschlag-Icon zentriert -->
+        <g transform="translate(415, 140)">
+          <!-- Umschlag -->
+          <rect x="0" y="0" width="70" height="50" rx="5" fill="none" stroke="rgba(232,67,26,0.6)" stroke-width="2"/>
+          <polyline points="0,0 35,30 70,0" fill="none" stroke="rgba(232,67,26,0.6)" stroke-width="2"/>
+          <!-- Flugzeug rechts oben -->
+          <g transform="translate(55,-30) rotate(-30)">
+            <path d="M0,0 L20,8 L0,16 L4,8 Z" fill="rgba(255,255,255,0.35)"/>
+            <path d="M4,5 L-5,0 L-5,2 L2,6 Z"  fill="rgba(255,255,255,0.2)"/>
+            <path d="M4,11 L-5,16 L-5,14 L2,10 Z" fill="rgba(255,255,255,0.2)"/>
+          </g>
+          <!-- Standortpin links -->
+          <g transform="translate(-50, 5)">
+            <circle cx="12" cy="10" r="10" fill="rgba(232,67,26,0.25)" stroke="rgba(232,67,26,0.5)" stroke-width="1.5"/>
+            <circle cx="12" cy="10" r="4"  fill="rgba(232,67,26,0.7)"/>
+            <line x1="12" y1="20" x2="12" y2="30" stroke="rgba(232,67,26,0.5)" stroke-width="1.5"/>
+          </g>
+        </g>
+        <!-- Gestrichelte Linie (Route) -->
+        <path d="M 100,300 Q 300,80 500,200 Q 650,280 820,120" stroke="rgba(232,67,26,0.15)" stroke-width="1.5" fill="none" stroke-dasharray="6,5"/>
+        <!-- Kleine Punkte auf der Route -->
+        <circle cx="100" cy="300" r="4" fill="rgba(232,67,26,0.3)"/>
+        <circle cx="500" cy="200" r="4" fill="rgba(232,67,26,0.3)"/>
+        <circle cx="820" cy="120" r="4" fill="rgba(232,67,26,0.3)"/>
+      </svg>
+
+      <!-- ✏️ Echter Hero wenn Foto vorhanden – diese Zeile einkommentieren und SVG oben entfernen: -->
+      <!-- <img src="assets/img/hero-kontakt.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45;"> -->
+    </div>
+
   </div>
   <div class="container page-hero__content">
     <p class="overline">Schreib uns</p>
@@ -93,20 +246,39 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════
+     HAUPTINHALT
+═══════════════════════════════════════════ -->
 <section class="section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+    <div class="contact-grid">
+
+      <!-- ── LINKE SPALTE: Formular ── -->
       <div class="animate-on-scroll">
+        <p class="contact-intro">
+          Wir lesen jede Nachricht persönlich, auch wenn wir gerade irgendwo zwischen zwei Bussen sitzen.
+          Ob Reisefrage, Feedback oder Kooperationsidee, wir freuen uns wirklich über jede Nachricht.
+        </p>
+
         <h2 style="margin-bottom:1.5rem;">Schreib uns</h2>
-        <form class="contact-form" onsubmit="return false;">
+        <form class="contact-form" id="contact-form" action="https://formspree.io/f/DEINE_FORMSPREE_ID" method="POST">
           <div class="form-grid">
-            <div class="form-group"><label class="form-label">Vorname</label><input type="text" class="form-input" placeholder="Max"></div>
-            <div class="form-group"><label class="form-label">Nachname</label><input type="text" class="form-input" placeholder="Mustermann"></div>
+            <div class="form-group">
+              <label class="form-label">Vorname</label>
+              <input type="text" name="vorname" class="form-input" placeholder="Max">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nachname</label>
+              <input type="text" name="nachname" class="form-input" placeholder="Mustermann">
+            </div>
           </div>
-          <div class="form-group"><label class="form-label">E-Mail</label><input type="email" class="form-input" placeholder="max@example.de"></div>
+          <div class="form-group">
+            <label class="form-label">E-Mail</label>
+            <input type="email" name="email" class="form-input" placeholder="max@example.de">
+          </div>
           <div class="form-group">
             <label class="form-label">Betreff</label>
-            <select class="form-input">
+            <select name="betreff" class="form-input">
               <option>Allgemeine Frage</option>
               <option>Kooperationsanfrage</option>
               <option>Presseanfrage</option>
@@ -114,43 +286,100 @@
               <option>Sonstiges</option>
             </select>
           </div>
-          <div class="form-group"><label class="form-label">Nachricht</label><textarea class="form-textarea" placeholder="Deine Nachricht..."></textarea></div>
-          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Nachricht senden</button>
+          <div class="form-group">
+            <label class="form-label">Nachricht</label>
+            <textarea name="nachricht" class="form-textarea" placeholder="Deine Nachricht..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" id="submit-btn">
+            Nachricht senden
+          </button>
+          <div id="form-success" style="display:none;margin-top:1rem;padding:1rem 1.25rem;background:#d1fae5;border-radius:var(--r-lg);color:#065f46;font-weight:500;">
+            ✅ Nachricht gesendet! Wir melden uns bald.
+          </div>
+          <div id="form-error" style="display:none;margin-top:1rem;padding:1rem 1.25rem;background:#fee2e2;border-radius:var(--r-lg);color:#991b1b;font-weight:500;">
+            ❌ Etwas ist schiefgelaufen. Bitte versuch es nochmal oder schreib uns direkt.
+          </div>
         </form>
       </div>
+
+      <!-- ── RECHTE SPALTE: Kontaktwege + Koop ── -->
       <div class="animate-on-scroll animate-delay-1" style="display:flex;flex-direction:column;gap:1.5rem;padding-top:1rem;">
+
         <div>
           <h3 style="margin-bottom:1rem;">Direkt erreichen</h3>
-          <div style="display:flex;flex-direction:column;gap:1rem;">
-            <a href="https://www.instagram.com/thefreescapeproject/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--sand-100);border-radius:var(--r-lg);text-decoration:none;color:inherit;transition:background 0.2s;" onmouseover="this.style.background='var(--terra-100)'" onmouseout="this.style.background='var(--sand-100)'">
-              <div style="width:44px;height:44px;border-radius:var(--r-md);background:linear-gradient(135deg,#833ab4,#e1306c,#f77737);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          <div class="social-links-stack">
+
+            <!-- E-Mail -->
+            <a href="mailto:hallo@thefreescapeproject.com" class="social-link-card">
+              <div class="social-link-icon" style="background:linear-gradient(135deg,#1a2744,#2d4a8a);">
+                <svg viewBox="0 0 24 24" fill="white" width="22" height="22">
+                  <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
               </div>
-              <div><div style="font-weight:600;font-size:0.9rem;">Instagram</div><div style="color:var(--gray-500);font-size:0.8rem;">@thefreescapeproject</div></div>
-            </a>
-            <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--sand-100);border-radius:var(--r-lg);text-decoration:none;color:inherit;transition:background 0.2s;" onmouseover="this.style.background='var(--terra-100)'" onmouseout="this.style.background='var(--sand-100)'">
-              <div style="width:44px;height:44px;border-radius:var(--r-md);background:#FF0000;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+              <div>
+                <div class="social-link-label">E-Mail</div>
+                <div class="social-link-sub">hallo@thefreescapeproject.com</div>
               </div>
-              <div><div style="font-weight:600;font-size:0.9rem;">YouTube</div><div style="color:var(--gray-500);font-size:0.8rem;">The Freescape Project</div></div>
             </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/thefreescapeproject/" target="_blank" rel="noopener" class="social-link-card">
+              <div class="social-link-icon" style="background:linear-gradient(135deg,#833ab4,#e1306c,#f77737);">
+                <svg viewBox="0 0 24 24" fill="white" width="22" height="22">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="social-link-label">Instagram</div>
+                <div class="social-link-sub">@thefreescapeproject</div>
+              </div>
+            </a>
+
+            <!-- YouTube -->
+            <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="social-link-card">
+              <div class="social-link-icon" style="background:#FF0000;">
+                <svg viewBox="0 0 24 24" fill="white" width="22" height="22">
+                  <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="social-link-label">YouTube</div>
+                <div class="social-link-sub">The Freescape Project</div>
+              </div>
+            </a>
+
           </div>
         </div>
-        <div style="background:var(--green-900);color:white;border-radius:var(--r-xl);padding:2rem;">
-          <h3 style="color:white;margin-bottom:1rem;">Kooperationen</h3>
-          <p style="color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.75;margin-bottom:1rem;">Wir sind offen für Kooperationen, die zu unserem authentischen Reisestil passen. Keine Werbung, die sich nach Werbung anfühlt — nur Empfehlungen, hinter denen wir wirklich stehen.</p>
-          <p style="color:rgba(255,255,255,0.65);font-size:0.9rem;line-height:1.75;"><strong style="color:var(--terra-400);">Antwortzeit:</strong> Wir antworten innerhalb von 3–5 Werktagen (Zeitzonenpuffer inklusive 😅).</p>
+
+        <!-- Kooperations-Box -->
+        <div class="koop-box">
+          <h3>Kooperationen</h3>
+          <p>Wir sind offen für Kooperationen, die zu unserem authentischen Reisestil passen. Keine Werbung, die sich nach Werbung anfühlt, nur Empfehlungen, hinter denen wir wirklich stehen.</p>
+          <div class="koop-list">
+            <div class="koop-list-item"><span class="koop-list-dot"></span>Reiseausrüstung &amp; Gear</div>
+            <div class="koop-list-item"><span class="koop-list-dot"></span>Unterkünfte &amp; Hostels</div>
+            <div class="koop-list-item"><span class="koop-list-dot"></span>Reise-Apps &amp; Services</div>
+            <div class="koop-list-item"><span class="koop-list-dot"></span>Content-Partnerschaften</div>
+          </div>
+          <p class="koop-reply"><strong>Antwortzeit:</strong> Wir antworten innerhalb von 3–5 Werktagen (Zeitzonenpuffer inklusive 😅).</p>
         </div>
+
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGO.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;">
+          <img src="assets/img/LOGO.png" alt="" style="height:2.5rem;">
+          <span>The Freescape Project</span>
+        </div>
         <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
         <div class="footer__social">
           <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
@@ -202,7 +431,7 @@
     </div>
   </div>
 </footer>
-  
+
 <div class="cookie-banner">
   <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -211,6 +440,42 @@
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
 </div>
+
 <script src="main.js"></script>
+
+<!-- ══ Formular-Submit via Fetch (für spätere Formspree-Anbindung) ══ -->
+<script>
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn     = document.getElementById('submit-btn');
+      const success = document.getElementById('form-success');
+      const error   = document.getElementById('form-error');
+      btn.textContent = 'Wird gesendet…';
+      btn.disabled    = true;
+      success.style.display = 'none';
+      error.style.display   = 'none';
+      try {
+        const res = await fetch(form.action, {
+          method:  'POST',
+          body:    new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          success.style.display = 'block';
+          form.reset();
+        } else {
+          error.style.display = 'block';
+        }
+      } catch(err) {
+        error.style.display = 'block';
+      }
+      btn.textContent = 'Nachricht senden';
+      btn.disabled    = false;
+    });
+  }
+</script>
+
 </body>
 </html>
