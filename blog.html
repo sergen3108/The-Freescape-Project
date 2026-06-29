@@ -147,17 +147,20 @@
 <!-- ── Blog-Inhalt ───────────────────────────────────────────── -->
 <section class="section">
   <div class="container">
-    <div class="blog-search-bar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="search" id="blog-search" placeholder="Artikel durchsuchen …" autocomplete="off">
-    </div>
-
-    <!-- Filter -->
-    <div class="filter-bar" id="blog-filter-bar">
-      <button class="filter-btn active" data-filter="all">Alle</button>
-      <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
-      <button class="filter-btn" data-filter="ecuador">Ecuador</button>
-      <button class="filter-btn" data-filter="peru">Peru</button>
+    <!-- Suchfeld + Filter in einer Zeile -->
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+      <!-- Filter links -->
+      <div class="filter-bar" id="blog-filter-bar" style="margin-bottom:0;">
+        <button class="filter-btn active" data-filter="all">Alle</button>
+        <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
+        <button class="filter-btn" data-filter="ecuador">Ecuador</button>
+        <button class="filter-btn" data-filter="peru">Peru</button>
+      </div>
+      <!-- Suchfeld rechts, gleiche Höhe wie Filter-Buttons -->
+      <div class="blog-search-bar" style="margin:0;flex-shrink:0;width:280px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="search" id="blog-search" placeholder="Artikel durchsuchen …" autocomplete="off">
+      </div>
     </div>
 
     <div class="blog-sidebar">
