@@ -46,6 +46,8 @@ Wir haben uns während unserer zwei Wochen grundsätzlich sicher gefühlt, beson
 
 Wie in jeder Großstadt gilt: Aufmerksamkeit ist gefragt. Taschendiebstahl kann vorkommen, vor allem an belebten Orten oder im öffentlichen Nahverkehr. Ein hilfreicher kolumbianischer Ausdruck ist **"No dar papaya"**, also: mach dich nicht zum leichten Ziel. In der Praxis heißt das kein offenes Zeigen von Handy oder Kamera in Menschenmassen, wachsam bleiben, nachts in ruhigen Gegenden vorsichtig sein.
 
+![Medellin](assets/img/blog/medellin2.jpg)
+
 Viele der Vorfälle, von denen andere Reisende berichtet haben, passierten im Nightlife-Kontext, bei weniger Vorsicht und mit Alkohol. Getränk nie unbeaufsichtigt lassen, Sachen im Blick behalten.
 
 Wir hatten selbst eine etwas unangenehme Situation beim Fußballspiel: Wir sind versehentlich in den Ultra-Block geraten. Mit Medellín-Trikots war es okay, aber die Stimmung war angespannt, besonders nach der Niederlage. Unser Tipp: nach dem Spiel schnell raus und nah an der Polizei bleiben.
@@ -80,9 +82,13 @@ Unser absolutes Highlight. Die **Comuna 13** war einst einer der gefährlichsten
 
 Wir haben an einer **Walking Tour** teilgenommen und können sie wärmstens empfehlen. Der Guide hat uns die Geschichte des Viertels, seine Vergangenheit und den Wandel so lebendig erklärt, dass man die Kunst danach mit ganz anderen Augen sieht.
 
+![Medellin](assets/img/blog/medellin3.jpg)
+
 ### Metrocable fahren
 
 Eine der einzigartigsten Erfahrungen in Medellín. Das **Metrocable** verbindet das Stadtzentrum mit den Vierteln in den umliegenden Hügeln, und die Fahrt bietet atemberaubende Ausblicke über die ganze Stadt. Kein rein touristisches Angebot, sondern echter Teil des öffentlichen Nahverkehrs.
+
+![Medellin](assets/img/blog/medellin4.jpg)
 
 ### El Poblado erkunden
 
@@ -103,6 +109,8 @@ Einen Nachmittag in **Laureles** verbringen lohnt sich. Das Viertel ist ruhiger,
 ### Fußballspiel besuchen
 
 Wenn du zur richtigen Zeit in Medellín bist, ist ein Fußballspiel ein absolutes Erlebnis. Die Stimmung ist intensiv, die Leidenschaft der Fans mitreißend. Wie oben erwähnt: **Sitzplätze sorgfältig wählen** und nach dem Spiel schnell das Stadion verlassen.
+
+![Medellin](assets/img/blog/medellin5.jpg)
 
 ### Tagesausflug nach Guatapé
 
