@@ -5,7 +5,7 @@ land: Kolumbien
 typ: guide
 lesezeit: 14 min
 autor: Julia
-teaser: Zwei Wochen in der "Stadt des ewigen Frühlings", und wir hätten gerne noch länger bleiben. Hier kommt alles, was du für Medellín wissen musst.
+teaser: Zwei Wochen in der 'Stadt des ewigen Frühlings', und wir wären gerne noch länger geblieben. Hier kommt alles, was du für Medellín wissen musst.
 bild: assets/img/blog/medellin.jpg
 bildEmoji: 🌸
 bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
@@ -16,13 +16,13 @@ tags:
   - Reiseführer
 ---
 
-![Medellin](assets/img/blog/medellin.jpg)
+![Medellin](assets/img/blog/medellin6.jpg)
 
 Medellín wird oft als "Ciudad de la Eterna Primavera" bezeichnet, und wer einmal dort war, versteht warum. Das perfekte Klima, moderne Infrastruktur, lebhafte Viertel und eine Energie, die einen sofort packt. Kein Wunder, dass die Stadt bei Backpackern und Langzeitreisenden gleichermaßen beliebt ist.
 
 Wir haben am Ende zwei Wochen in Medellín verbracht, deutlich länger als die meisten Reisenden. Während unseres Aufenthalts haben wir eine Sprachschule in El Poblado besucht, was sich als perfekte Basis herausgestellt hat. Alles, was man braucht, ist in der Nähe: Restaurants, Cafés, Supermärkte, Coworking-Spaces. Und trotzdem ist man gut mit dem Rest der Stadt verbunden.
 
-Was uns am meisten überrascht hat: wie vielseitig und lebendig sich Medellín anfühlt. Von der Metrocable-Fahrt über die Hügel, über lokale Viertel wie Laureles und Sabaneta, bis hin zum unvergesslichen Erlebnis eines Fußballspiels. Unser absolutes Highlight war die Walking Tour durch die Comuna 13, ein Viertel voller Straßenkunst, Musik und Geschichte, das den Wandel Medellíns wie kein anderes verkörpert.
+Was uns am meisten überrascht hat: wie vielseitig und lebendig sich Medellín anfühlt. Ob Metrocable-Fahrt über die Hügel, lokale Viertel wie Laureles und Sabaneta oder das unvergessliche Erlebnis eines Fußballspiels, es gibt so viel zu entdecken. Unser absolutes Highlight war die Walking Tour durch die Comuna 13, ein Viertel voller Straßenkunst, Musik und Geschichte, das den Wandel Medellíns wie kein anderes verkörpert.
 
 ---
 
@@ -44,7 +44,7 @@ Medellín hat eine schwierige Vergangenheit, das ist kein Geheimnis. Aber die he
 
 Wir haben uns während unserer zwei Wochen grundsätzlich sicher gefühlt, besonders in Vierteln wie **El Poblado, Laureles und Sabaneta**, die bei Reisenden beliebt und gut entwickelt sind.
 
-Wie in jeder Großstadt gilt: Aufmerksamkeit ist gefragt. Taschendiebstahl kann vorkommen, vor allem an belebten Orten oder im öffentlichen Nahverkehr. Ein hilfreicher kolumbianischer Ausdruck ist **"No dar papaya"**, also: mach dich nicht zum leichten Ziel. In der Praxis heißt das kein offenes Zeigen von Handy oder Kamera in Menschenmassen, wachsam bleiben, nachts in ruhigen Gegenden vorsichtig sein.
+Wie in jeder Großstadt gilt: Aufmerksamkeit ist gefragt. Taschendiebstahl kann vorkommen, vor allem an belebten Orten oder im öffentlichen Nahverkehr. Ein hilfreicher kolumbianischer Ausdruck ist **"No dar papaya"**, also: mach dich nicht zum leichten Ziel. In der Praxis heißt das: kein offenes Zeigen von Handy oder Kamera in Menschenmassen, wachsam bleiben, nachts in ruhigen Gegenden vorsichtig sein.
 
 ![Medellin](assets/img/blog/medellin2.jpg)
 
@@ -60,7 +60,7 @@ Für die Fortbewegung haben wir hauptsächlich **Uber** genutzt, sicher, zuverl�
 
 ### El Poblado
 
-Das mit Abstand beliebteste Viertel für Reisende. El Poblado ist voller Restaurants, Cafés, Bars und Nachtleben, eine tolle Basis, von der aus man die ganze Stadt gut erreicht. Wir haben hier gewohnt und waren sehr zufrieden.
+Das mit Abstand beliebteste Viertel für Reisende. El Poblado hat viele Restaurants, Cafés, Bars und ein lebhaftes Nachtleben. Eine tolle Basis, von der aus man die ganze Stadt gut erreicht. Wir haben hier gewohnt und waren sehr zufrieden.
 
 El Poblado gilt als eines der sichersten Viertel Medellíns, ist dafür aber auch etwas teurer als der Rest der Stadt.
 
