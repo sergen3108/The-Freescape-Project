@@ -4,7 +4,7 @@ datum: 2026-06-29
 land: Kolumbien
 typ: guide
 lesezeit: 11 min
-autor: Sergen & Julia
+autor: Julia
 teaser: Guatapé wird oft als Tagesausflug abgehakt. Wir haben zwei Nächte dort verbracht und bereuen keine Minute davon. Hier ist alles, was du wissen musst.
 bild: assets/img/blog/guatape.jpg
 bildEmoji: 🪨
