@@ -377,7 +377,7 @@
 
     /* Close + Caption */
     .lb__close {
-      position: absolute;
+      position: fixed;
       top: 1.25rem;
       right: 1.25rem;
       width: 44px;
@@ -392,6 +392,7 @@
       cursor: pointer;
       font-size: 1.1rem;
       transition: background 0.2s;
+      z-index: 1010;
     }
     .lb__close:hover { background: rgba(255,255,255,0.2); }
 
@@ -597,13 +598,13 @@
 <nav class="kapitel-nav" aria-label="Kapitel">
   <div class="kapitel-nav__inner">
     <button class="kapitel-btn active" data-target="kolumbien">
-      Kolumbien <span class="k-count" id="cnt-kolumbien">9</span>
+      Kolumbien
     </button>
     <button class="kapitel-btn" data-target="ecuador">
-      Ecuador <span class="k-count" id="cnt-ecuador">7</span>
+      Ecuador &amp; Galápagos
     </button>
     <button class="kapitel-btn" data-target="peru">
-      Peru <span class="k-count" id="cnt-peru">3</span>
+      Peru
     </button>
   </div>
 </nav>
