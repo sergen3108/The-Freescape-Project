@@ -352,6 +352,8 @@
 <!-- YouTube Vlog-Anzahl für Stats -->
 <script>
 (async function() {
+  const YT_API_KEY    = 'AIzaSyBW6ccDJvUm-nVjyUYdQ2PiG-byZiwPJE4';
+  const YT_CHANNEL_ID = 'UCmCpxt4eKOG_R1csbtp3Z9Q';
   try {
     const res  = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`);
     const data = await res.json();
