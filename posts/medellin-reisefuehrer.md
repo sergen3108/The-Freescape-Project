@@ -4,7 +4,7 @@ datum: 2026-06-28
 land: Kolumbien
 typ: guide
 lesezeit: 14 min
-autor: Sergen & Julia
+autor: Julia
 teaser: Zwei Wochen in der "Stadt des ewigen Frühlings" — und wir hätten gerne noch länger bleiben. Hier kommt alles, was du für Medellín wissen musst.
 bild: assets/img/blog/medellin.jpeg
 bildEmoji: 🌸
