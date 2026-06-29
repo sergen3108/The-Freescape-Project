@@ -20,6 +20,21 @@
     .article-type--kosten{background:#fef3c7;color:#92400e}
     .article-type--persoenlich{background:var(--terra-100);color:var(--terra-700)}
     .article-type--safety{background:#fee2e2;color:#991b1b}
+
+    /* Load-More Button */
+    .load-more-wrap{text-align:center;margin:2.5rem 0 1rem;}
+    .load-more-btn{
+      display:inline-flex;align-items:center;gap:0.5rem;
+      background:transparent;border:2px solid var(--navy-800, #1a2744);
+      color:var(--navy-800, #1a2744);font-family:var(--font-nav);
+      font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+      padding:0.75rem 2rem;border-radius:999px;cursor:pointer;
+      transition:background 0.2s,color 0.2s;
+    }
+    .load-more-btn:hover{background:var(--navy-800,#1a2744);color:#fff;}
+    .load-more-btn svg{transition:transform 0.2s;}
+    .load-more-btn:hover svg{transform:translateY(2px);}
+
     @media(max-width:900px){.blog-sidebar{grid-template-columns:1fr}}
   </style>
 </head>
@@ -148,9 +163,18 @@
     <div class="blog-sidebar">
       <div>
         <p id="blog-no-results" style="display:none;color:var(--gray-500);padding:2rem 0;">Keine Artikel gefunden.</p>
+        <!-- Neuester Artikel (Featured) -->
         <div id="blog-featured"></div>
+        <!-- Kleine Karten: erste 3 sichtbar, Rest versteckt -->
         <div class="blog-grid" id="blog-main-grid">
           <p style="color:var(--gray-400);padding:2rem 0;">Artikel werden geladen …</p>
+        </div>
+        <!-- Mehr laden Button -->
+        <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
+          <button class="load-more-btn" id="load-more-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+            Weitere Artikel laden
+          </button>
         </div>
       </div>
       <aside>
@@ -247,11 +271,42 @@
   let activeFilter = 'all';
   let searchQuery  = '';
 
+  // Alle kleinen Posts (sorted[1..]) gespeichert für Load-More
+  let allSmallPosts = [];
+  // Wie viele kleine Karten aktuell angezeigt werden
+  const CARDS_PER_PAGE = 3;
+  let visibleCount = CARDS_PER_PAGE;
+
   // ── Thumbnail bauen ──────────────────────────────────────────
   function buildThumb(post, h) {
     return post.bild
       ? `<img src="${post.bild}" alt="" style="width:100%;height:${h}px;object-fit:cover;display:block;">`
       : `<div style="height:${h}px;background:${post.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:3rem;">${post.bildFallback.emoji}</div>`;
+  }
+
+  // ── Kleine Karte bauen (OHNE Tags) ──────────────────────────
+  function buildSmallCard(post, i) {
+    return `
+      <article class="blog-card animate-on-scroll${i % 2 === 1 ? ' animate-delay-1' : ''}"
+        data-category="${post.kategorie}"
+        data-tags="${(post.tags || []).join(' ').toLowerCase()}">
+        <a href="${post.link}" class="blog-card__thumb" style="overflow:hidden;display:block;">
+          ${buildThumb(post, 220)}
+          <span class="blog-card__category">${post.land}</span>
+        </a>
+        <div class="blog-card__body">
+          <span class="article-type article-type--${typClass[post.typ] || 'guide'}">${post.typLabel}</span>
+          <div class="blog-card__meta">
+            <span class="blog-card__author">${post.autor}</span>
+            <span class="blog-card__date">${post.datumLabel} · ${post.lesezeit}</span>
+          </div>
+          <h3 class="blog-card__title">
+            <a href="${post.link}" style="color:inherit;text-decoration:none;">${post.titel}</a>
+          </h3>
+          <p class="blog-card__excerpt">${post.teaser}</p>
+          <a href="${post.link}" class="blog-card__read">Artikel lesen →</a>
+        </div>
+      </article>`;
   }
 
   // ── Filter-Logik ─────────────────────────────────────────────
@@ -286,6 +341,54 @@
       });
     }
     if (noRes) noRes.style.display = visible === 0 ? '' : 'none';
+
+    // Load-More-Button bei aktiver Suche/Filter nicht anzeigen
+    updateLoadMoreBtn();
+  }
+
+  // ── Load-More aktualisieren ───────────────────────────────────
+  function updateLoadMoreBtn() {
+    const wrap = document.getElementById('load-more-wrap');
+    if (!wrap) return;
+    // Bei Suche oder Filter: alle zeigen, keinen Button
+    const isFiltered = activeFilter !== 'all' || searchQuery !== '';
+    if (isFiltered) {
+      wrap.style.display = 'none';
+      return;
+    }
+    // Sonst: Button zeigen wenn noch versteckte Posts vorhanden
+    const hasMore = visibleCount < allSmallPosts.length;
+    wrap.style.display = hasMore ? '' : 'none';
+  }
+
+  // ── Karten in Grid rendern (mit Load-More-Logik) ─────────────
+  function renderGrid() {
+    const grid = document.getElementById('blog-main-grid');
+    if (!grid) return;
+
+    const isFiltered = activeFilter !== 'all' || searchQuery !== '';
+
+    // Bei Filter/Suche: alle Posts rendern
+    const postsToRender = isFiltered ? allSmallPosts : allSmallPosts.slice(0, visibleCount);
+
+    grid.innerHTML = postsToRender.map((post, i) => buildSmallCard(post, i)).join('');
+
+    // Animations-Observer für neue Karten
+    if (typeof IntersectionObserver !== 'undefined') {
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+      grid.querySelectorAll('.animate-on-scroll').forEach(el => obs.observe(el));
+    }
+
+    // Filter anwenden (für Suche/Filter-Zustand)
+    if (isFiltered) {
+      applyFilters();
+    }
+
+    updateLoadMoreBtn();
   }
 
   // ── Filter-Events ────────────────────────────────────────────
@@ -295,6 +398,8 @@
         document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         activeFilter = btn.dataset.filter;
+        visibleCount = CARDS_PER_PAGE; // Reset beim Filtern
+        renderGrid();
         applyFilters();
       });
     });
@@ -303,6 +408,8 @@
     if (searchInput) {
       searchInput.addEventListener('input', () => {
         searchQuery = searchInput.value.trim();
+        visibleCount = CARDS_PER_PAGE; // Reset bei Suche
+        renderGrid();
         applyFilters();
       });
     }
@@ -315,8 +422,19 @@
       const si = document.getElementById('blog-search');
       if (si) si.value = '';
       document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+      visibleCount = CARDS_PER_PAGE;
+      renderGrid();
       applyFilters();
     });
+
+    // Load-More Button
+    const loadMoreBtn = document.getElementById('load-more-btn');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', () => {
+        visibleCount += CARDS_PER_PAGE;
+        renderGrid();
+      });
+    }
   }
 
   // ── Blog-Statistiken befüllen ────────────────────────────────
@@ -337,24 +455,24 @@
 
   // ── Posts rendern ────────────────────────────────────────────
   function renderPosts(posts) {
-    const sorted   = [...posts].sort((a,b) => new Date(b.datum) - new Date(a.datum));
+    const sorted = [...posts].sort((a, b) => new Date(b.datum) - new Date(a.datum));
     updateBlogStats(sorted);
-    const featured = document.getElementById('blog-featured');
-    const grid     = document.getElementById('blog-main-grid');
 
+    // Featured (neuester Post)
+    const featured = document.getElementById('blog-featured');
     if (featured && sorted.length > 0) {
       const p = sorted[0];
       const thumb = p.bild
         ? `<img src="${p.bild}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">`
         : `<div style="width:100%;height:100%;background:${p.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:4rem;">${p.bildFallback.emoji}</div>`;
       featured.innerHTML = `
-        <article class="blog-card" data-category="${p.kategorie}" data-tags="${(p.tags||[]).join(' ').toLowerCase()}"
+        <article class="blog-card" data-category="${p.kategorie}" data-tags="${(p.tags || []).join(' ').toLowerCase()}"
           style="display:flex;flex-direction:row;gap:0;margin-bottom:2rem;border:1.5px solid var(--gray-100);border-radius:var(--r-lg);overflow:hidden;">
           <a href="${p.link}" class="blog-card__thumb" style="width:45%;min-height:280px;overflow:hidden;flex-shrink:0;display:block;">
             ${thumb}<span class="blog-card__category">${p.land}</span>
           </a>
           <div class="blog-card__body" style="padding:2rem;">
-            <span class="article-type article-type--${typClass[p.typ]||'guide'}">${p.typLabel}</span>
+            <span class="article-type article-type--${typClass[p.typ] || 'guide'}">${p.typLabel}</span>
             <div class="blog-card__meta">
               <span class="blog-card__author">${p.autor}</span>
               <span class="blog-card__date">${p.datumLabel} · ${p.lesezeit}</span>
@@ -363,38 +481,16 @@
               <a href="${p.link}" style="color:inherit;text-decoration:none;">${p.titel}</a>
             </h3>
             <p class="blog-card__excerpt">${p.teaser}</p>
-            ${(p.tags||[]).length ? `<div style="margin:0.75rem 0;">${p.tags.map(t=>`<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
+            ${(p.tags || []).length ? `<div style="margin:0.75rem 0;">${p.tags.map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
             <a href="${p.link}" class="blog-card__read">Artikel lesen →</a>
           </div>
         </article>`;
     }
 
-    if (grid) {
-      grid.innerHTML = sorted.slice(1).map((post, i) => `
-        <article class="blog-card animate-on-scroll${i%2===1?' animate-delay-1':''}" data-category="${post.kategorie}" data-tags="${(post.tags||[]).join(' ').toLowerCase()}">
-          <a href="${post.link}" class="blog-card__thumb" style="overflow:hidden;display:block;">${buildThumb(post,220)}<span class="blog-card__category">${post.land}</span></a>
-          <div class="blog-card__body">
-            <span class="article-type article-type--${typClass[post.typ]||'guide'}">${post.typLabel}</span>
-            <div class="blog-card__meta">
-              <span class="blog-card__author">${post.autor}</span>
-              <span class="blog-card__date">${post.datumLabel} · ${post.lesezeit}</span>
-            </div>
-            <h3 class="blog-card__title">
-              <a href="${post.link}" style="color:inherit;text-decoration:none;">${post.titel}</a>
-            </h3>
-            <p class="blog-card__excerpt">${post.teaser}</p>
-            ${(post.tags||[]).length ? `<div style="margin:0.5rem 0 0.25rem;">${post.tags.map(t=>`<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
-            <a href="${post.link}" class="blog-card__read">Artikel lesen →</a>
-          </div>
-        </article>`).join('');
-
-      if (typeof IntersectionObserver !== 'undefined') {
-        const obs = new IntersectionObserver(entries => {
-          entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }});
-        }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-        grid.querySelectorAll('.animate-on-scroll').forEach(el => obs.observe(el));
-      }
-    }
+    // Kleine Karten (sorted[1..])
+    allSmallPosts = sorted.slice(1);
+    visibleCount  = CARDS_PER_PAGE;
+    renderGrid();
 
     buildSidebar(sorted);
   }
@@ -413,17 +509,17 @@
 
     const laenderEl = document.getElementById('sidebar-laender');
     if (laenderEl) {
-      laenderEl.innerHTML = Object.entries(laender).sort((a,b) => b[1]-a[1]).map(([l,n]) => {
-        const key = l.toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue');
+      laenderEl.innerHTML = Object.entries(laender).sort((a, b) => b[1] - a[1]).map(([l, n]) => {
+        const key = l.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue');
         return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${key}">${l} <span class="sidebar-count">${n} Artikel</span></a>`;
       }).join('');
     }
 
     const typenEl = document.getElementById('sidebar-typen');
     if (typenEl) {
-      typenEl.innerHTML = Object.entries(typen).sort((a,b) => b[1]-a[1]).map(([t,n]) => {
-        const typMap = {'Routen-Guide':'guide','Kosten-Check':'kosten','Sicherheit':'safety','Erfahrungsbericht':'persoenlich'};
-        return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${typMap[t]||t}">${t} <span class="sidebar-count">${n}</span></a>`;
+      typenEl.innerHTML = Object.entries(typen).sort((a, b) => b[1] - a[1]).map(([t, n]) => {
+        const typMap = { 'Routen-Guide': 'guide', 'Kosten-Check': 'kosten', 'Sicherheit': 'safety', 'Erfahrungsbericht': 'persoenlich' };
+        return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${typMap[t] || t}">${t} <span class="sidebar-count">${n}</span></a>`;
       }).join('');
     }
 
@@ -436,7 +532,9 @@
       link.addEventListener('click', e => {
         e.preventDefault();
         activeFilter = link.dataset.filter;
+        visibleCount = CARDS_PER_PAGE;
         document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
+        renderGrid();
         applyFilters();
       });
     });
