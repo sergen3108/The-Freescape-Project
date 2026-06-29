@@ -4,7 +4,7 @@
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog & Reisemagazin | The Freescape Project</title>
   <meta name="description" content="Ehrliche Reiseberichte, Routen-Guides und Kosten-Checks für Kolumbien, Ecuador und Peru.">
-  <link rel="icon" type="image/png" href="assets/img/LOGONEW.png">  
+  <link rel="icon" type="image/png" href="assets/img/LOGONEW.png">
   <link rel="stylesheet" href="style.css">
   <script src="blog-posts.js" defer></script>
   <style>
@@ -24,6 +24,8 @@
   </style>
 </head>
 <body>
+
+<!-- ── Navigation ───────────────────────────────────────────── -->
 <nav class="nav nav--transparent" role="navigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -93,6 +95,7 @@
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
 
+<!-- ── Hero ─────────────────────────────────────────────────── -->
 <section class="page-hero">
   <div class="hero__bg">
     <img src="assets/img/cotopaxipano.JPEG" class="hero__bg-photo" alt="">
@@ -106,6 +109,27 @@
   </div>
 </section>
 
+<!-- ── Statistiken ──────────────────────────────────────────── -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-bar__grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="stats-bar__item animate-on-scroll">
+        <div class="stats-bar__number" id="blog-stat-artikel">–</div>
+        <div class="stats-bar__label">Artikel veröffentlicht</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-1">
+        <div class="stats-bar__number" id="blog-stat-laender">–</div>
+        <div class="stats-bar__label">Länder abgedeckt</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-2">
+        <div class="stats-bar__number" id="blog-stat-lesezeit">–</div>
+        <div class="stats-bar__label">Minuten Lesestoff</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Blog-Inhalt ───────────────────────────────────────────── -->
 <section class="section">
   <div class="container">
     <div class="blog-search-bar">
@@ -113,7 +137,7 @@
       <input type="search" id="blog-search" placeholder="Artikel durchsuchen …" autocomplete="off">
     </div>
 
-    <!-- Vereinfachte Filter: nur Länder -->
+    <!-- Filter -->
     <div class="filter-bar" id="blog-filter-bar">
       <button class="filter-btn active" data-filter="all">Alle</button>
       <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
@@ -143,11 +167,15 @@
   </div>
 </section>
 
+<!-- ── Footer ───────────────────────────────────────────────── -->
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;">
+          <img src="assets/img/LOGO.png" alt="" style="height:2.5rem;">
+          <span>The Freescape Project</span>
+        </div>
         <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
         <div class="footer__social">
           <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
@@ -200,6 +228,7 @@
   </div>
 </footer>
 
+<!-- ── Cookie Banner ────────────────────────────────────────── -->
 <div class="cookie-banner">
   <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -210,18 +239,22 @@
 </div>
 
 <script src="main.js"></script>
+
+<!-- ── Blog-Logik ────────────────────────────────────────────── -->
 <script>
 (function () {
   const typClass = { guide:'guide', kosten:'kosten', persoenlich:'persoenlich', safety:'safety' };
   let activeFilter = 'all';
   let searchQuery  = '';
 
+  // ── Thumbnail bauen ──────────────────────────────────────────
   function buildThumb(post, h) {
     return post.bild
       ? `<img src="${post.bild}" alt="" style="width:100%;height:${h}px;object-fit:cover;display:block;">`
       : `<div style="height:${h}px;background:${post.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:3rem;">${post.bildFallback.emoji}</div>`;
   }
 
+  // ── Filter-Logik ─────────────────────────────────────────────
   function cardMatches(card) {
     const cats = card.dataset.category || '';
     const tags = card.dataset.tags || '';
@@ -255,6 +288,7 @@
     if (noRes) noRes.style.display = visible === 0 ? '' : 'none';
   }
 
+  // ── Filter-Events ────────────────────────────────────────────
   function setupFilters() {
     document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -285,8 +319,26 @@
     });
   }
 
+  // ── Blog-Statistiken befüllen ────────────────────────────────
+  function updateBlogStats(posts) {
+    const artikel  = posts.length;
+    const laender  = new Set(posts.map(p => p.land).filter(Boolean)).size;
+    const lesezeit = posts.reduce((sum, p) => {
+      const min = parseInt((p.lesezeit || '').replace(/\D/g, '')) || 0;
+      return sum + min;
+    }, 0);
+    const el1 = document.getElementById('blog-stat-artikel');
+    const el2 = document.getElementById('blog-stat-laender');
+    const el3 = document.getElementById('blog-stat-lesezeit');
+    if (el1) el1.textContent = artikel;
+    if (el2) el2.textContent = laender;
+    if (el3) el3.textContent = lesezeit;
+  }
+
+  // ── Posts rendern ────────────────────────────────────────────
   function renderPosts(posts) {
     const sorted   = [...posts].sort((a,b) => new Date(b.datum) - new Date(a.datum));
+    updateBlogStats(sorted);
     const featured = document.getElementById('blog-featured');
     const grid     = document.getElementById('blog-main-grid');
 
@@ -320,7 +372,8 @@
     if (grid) {
       grid.innerHTML = sorted.slice(1).map((post, i) => `
         <article class="blog-card animate-on-scroll${i%2===1?' animate-delay-1':''}" data-category="${post.kategorie}" data-tags="${(post.tags||[]).join(' ').toLowerCase()}">
-            <a href="${post.link}" class="blog-card__thumb" style="overflow:hidden;display:block;">${buildThumb(post,220)}<span class="blog-card__category">${post.land}</span></a>          <div class="blog-card__body">
+          <a href="${post.link}" class="blog-card__thumb" style="overflow:hidden;display:block;">${buildThumb(post,220)}<span class="blog-card__category">${post.land}</span></a>
+          <div class="blog-card__body">
             <span class="article-type article-type--${typClass[post.typ]||'guide'}">${post.typLabel}</span>
             <div class="blog-card__meta">
               <span class="blog-card__author">${post.autor}</span>
@@ -346,6 +399,7 @@
     buildSidebar(sorted);
   }
 
+  // ── Sidebar bauen ────────────────────────────────────────────
   function buildSidebar(posts) {
     const laender = {};
     const typen   = {};
@@ -388,6 +442,7 @@
     });
   }
 
+  // ── Init ─────────────────────────────────────────────────────
   setupFilters();
 
   if (window.BLOG_POSTS) {
@@ -397,5 +452,6 @@
   }
 })();
 </script>
+
 </body>
 </html>
