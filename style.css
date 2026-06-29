@@ -1783,3 +1783,8 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   .instagram-banner__grid { grid-template-columns: repeat(3, 1fr); max-width: 100%; }
   .instagram-banner { padding: var(--sp-12) 0; }
 }
+
+.lang-switcher {
+  display: none;
+}
+
