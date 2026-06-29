@@ -4,7 +4,7 @@ datum: 2026-06-29
 land: Kolumbien
 typ: guide
 lesezeit: 10 min
-autor: Sergen & Julia
+autor: Julia
 teaser: Eine Insel, die sich anfühlt wie eine andere Welt. San Andrés hat uns mit seinem türkisblauen Wasser und dem entspannten Karibikflair sofort in den Bann gezogen.
 bild: assets/img/blog/sanandres.jpg
 bildEmoji: 🏝️
@@ -16,7 +16,7 @@ tags:
   - Reiseführer
 ---
 
-![San Andrés](assets/img/blog/sanandres.jpg)
+![San Andrés](assets/img/blog/sanandres1.jpg)
 
 San Andrés liegt mitten in der Karibik und fühlt sich trotzdem nach Kolumbien an, aber nach einer völlig anderen Version davon. Nach Wochen in Städten wie Medellín, Guatapé und der Kaffeeregion war die Ankunft auf der Insel fast ein kleiner Schock, im besten Sinne. Plötzlich nur noch türkisblaues Wasser, weiße Sandstrände und eine Ruhe, die man in keiner Großstadt findet.
 
@@ -46,6 +46,8 @@ Von Mai bis November gibt es mehr Regen und stärkeren Wind. Das Wetter kann sic
 
 Unsere Erfahrung: Morgens ist die beste Zeit für Aktivitäten. Das Wasser ist ruhiger, der Himmel klarer, und man kommt vor dem Nachmittagsregen durch.
 
+![San Andrés](assets/img/blog/sanandres2.jpg)
+  
 ---
 
 ## Wo übernachten in San Andrés?
@@ -68,6 +70,9 @@ Eines unserer persönlichen Highlights war die **Bootstour zu Johnny Cay und Acu
 
 Wir haben einen Scooter für **90.000 COP pro Tag** gemietet und die ganze Insel in einem Schlag umrundet, mit mehreren Stopps an ruhigen Stränden und Aussichtspunkten. Da San Andrés recht klein ist, schafft man die Runde locker an einem Tag. Mehr Freiheit geht kaum.
 
+![San Andrés](assets/img/blog/sanandres4.jpg)
+
+
 ### Beach Clubs
 
 Wer einen entspannten Tag am Wasser verbringen möchte, ist bei einem der **Beach Clubs** gut aufgehoben. Empfehlenswert sind der **Dreamer Beach Club** in Zentrumsnähe, **Playa Marrakech** und der **Namaste Beach Club**, alle direkt am Wasser mit schöner Atmosphäre.
@@ -75,6 +80,8 @@ Wer einen entspannten Tag am Wasser verbringen möchte, ist bei einem der **Beac
 ### Sunset Paradise Floating Bar
 
 Ein Erlebnis der besonderen Art. Die **Sunset Paradise Floating Bar** ist eine schwimmende Bar mitten im Meer, umgeben von verschiedenen Blautönen. Einer der coolsten Tage unserer ganzen Reise.
+
+![San Andrés](assets/img/blog/sanandres3.jpg)
 
 ---
 
@@ -100,6 +107,8 @@ Die **Beach Clubs** bieten außerdem Cocktails, Snacks und Mahlzeiten direkt am 
 
 **Lokale Busse nutzen:** Günstig, regelmäßig, ausreichend für die meisten Strecken auf der Insel.
 
+![San Andrés](assets/img/blog/sanandres5.jpg)
+
 ---
 
 ## Lohnt sich San Andrés?
@@ -111,6 +120,8 @@ Wer kristallklares Wasser, Karibikflair und Entschleunigung sucht, ist hier gena
 Wer hingegen Kultur, Wanderungen und ständig neue Eindrücke sucht, wird sich vielleicht nach kurzer Zeit etwas langweilen. San Andrés hat keinen langen Sightseeing-Katalog. Aber das ist auch gar nicht der Punkt.
 
 Besonders empfehlen würden wir die Insel, wenn man eine Pause vom Reisen braucht, Strand und Wasseraktivitäten mag oder einfach mal kurz den kolumbianischen Alltag hinter sich lassen möchte.
+
+![San Andrés](assets/img/blog/sanandres6.jpg)
 
 ---
 
