@@ -16,7 +16,7 @@ tags:
   - Reiseführer
 ---
 
-[Medellin](assets/img/blog/medellin.jpg)
+![Medellin](assets/img/blog/medellin.jpg)
 
 Medellín wird oft als "Ciudad de la Eterna Primavera" bezeichnet, und wer einmal dort war, versteht warum. Das perfekte Klima, moderne Infrastruktur, lebhafte Viertel und eine Energie, die einen sofort packt. Kein Wunder, dass die Stadt bei Backpackern und Langzeitreisenden gleichermaßen beliebt ist.
 
