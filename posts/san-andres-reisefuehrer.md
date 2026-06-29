@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 10 min
 autor: Julia
 teaser: Eine Insel, die sich anfühlt wie eine andere Welt. San Andrés hat uns mit seinem türkisblauen Wasser und dem entspannten Karibikflair sofort in den Bann gezogen.
-bild: assets/img/blog/sanandres.jpg
+bild: assets/img/blog/sanandres8.jpg
 bildEmoji: 🏝️
 bildGradient: linear-gradient(135deg,#0a3d62,#38ada9)
 tags:
@@ -46,8 +46,8 @@ Von Mai bis November gibt es mehr Regen und stärkeren Wind. Das Wetter kann sic
 
 Unsere Erfahrung: Morgens ist die beste Zeit für Aktivitäten. Das Wasser ist ruhiger, der Himmel klarer, und man kommt vor dem Nachmittagsregen durch.
 
-![San Andrés](assets/img/blog/sanandres2.jpg)
-  
+![San Andrés](assets/img/blog/sanandres7.jpg)
+
 ---
 
 ## Wo übernachten in San Andrés?
@@ -56,7 +56,7 @@ Die meisten Reisenden schlafen im **Centro**, dem Hauptort der Insel. Von dort s
 
 Wir haben uns für ein Viertel entschieden, das ca. 30 Minuten zu Fuß vom Zentrum entfernt liegt, deutlich lokaler und spürbar günstiger. Eine gute Wahl für alle, die nicht mittendrin sein müssen oder etwas sparen wollen.
 
-Die Erreichbarkeit war trotzdem kein Problem: Lokale Busse fahren regelmäßig und sind sehr günstig. Wer mehr Flexibilität möchte, mietet sich ein **Scooter oder ein Golfcart**, beides ist auf der Insel sehr verbreitet und macht das Erkunden deutlich bequemer.
+Die Erreichbarkeit war trotzdem kein Problem: Lokale Busse fahren regelmäßig und sind sehr günstig. Wer mehr Flexibilität möchte, mietet sich einen **Scooter oder ein Golfcart**, beides ist auf der Insel sehr verbreitet und macht das Erkunden deutlich bequemer.
 
 ---
 
@@ -71,7 +71,6 @@ Eines unserer persönlichen Highlights war die **Bootstour zu Johnny Cay und Acu
 Wir haben einen Scooter für **90.000 COP pro Tag** gemietet und die ganze Insel in einem Schlag umrundet, mit mehreren Stopps an ruhigen Stränden und Aussichtspunkten. Da San Andrés recht klein ist, schafft man die Runde locker an einem Tag. Mehr Freiheit geht kaum.
 
 ![San Andrés](assets/img/blog/sanandres4.jpg)
-
 
 ### Beach Clubs
 
@@ -97,15 +96,17 @@ Die **Beach Clubs** bieten außerdem Cocktails, Snacks und Mahlzeiten direkt am 
 
 ## Praktische Reisetipps für San Andrés
 
+**Aktivitäten morgens planen:** Das Wetter auf der Insel kann sich schnell ändern. Morgens ist das Wasser ruhiger und der Himmel klarer. Wer Bootstouren oder Ausflüge plant, sollte lieber früh starten, bevor der Wind nachmittags zunimmt.
+
 **Touristenkarte nicht vergessen:** Die Tarjeta de Turismo (ca. 120.000 COP) wird am Flughafen vor dem Abflug bezahlt. Ohne geht es nicht.
 
-**Morgens raus:** Das Wasser ist morgens am ruhigsten und die Farben am schönsten. Aktivitäten besser früh einplanen.
+**Scooter oder Golfcart mieten:** Für eine Inselrundfahrt absolut empfehlenswert. Wer die Insel über das Zentrum hinaus erkunden möchte, kommt damit deutlich weiter als mit dem Bus. Günstig und flexibel.
 
-**Scooter oder Golfcart mieten:** Für einen Tag Inselrundfahrt absolut empfehlenswert. Günstig und flexibel.
+**Preise einplanen:** San Andrés ist etwas teurer als das kolumbianische Festland. Essen, Touren und Unterkunft kosten mehr, weil alles auf die Insel transportiert werden muss. Wer außerhalb des Zentrums schläft, spart merklich.
 
-**Budget:** San Andrés ist etwas teurer als das kolumbianische Festland, besonders bei Essen und Unterkunft. Wer im Zentrum schläft, zahlt mehr. Außerhalb des Zentrums spart man merklich.
+**Touren vergleichen:** Bei Bootstouren lohnt es sich, mehrere Anbieter zu vergleichen. Das Angebot ist sehr ähnlich, die Preise aber nicht immer.
 
-**Lokale Busse nutzen:** Günstig, regelmäßig, ausreichend für die meisten Strecken auf der Insel.
+**Entschleunigen:** San Andrés ist kein Ort zum Abhaken. Die schönsten Momente passieren oft einfach so, am Wasser sitzen, das Meer beobachten, den Karibikmoment genießen.
 
 ![San Andrés](assets/img/blog/sanandres5.jpg)
 
