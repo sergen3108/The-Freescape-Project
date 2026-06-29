@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Artikel · The Freescape Project</title>
+  <meta name="description" content="">
+
+  <!-- OG-Tags: Platzhalter — werden per JS befüllt sobald der Post geladen ist -->
+  <meta property="og:type"         content="article">
+  <meta property="og:site_name"    content="The Freescape Project">
+  <meta property="og:locale"       content="de_DE">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta property="og:url"          content="" id="og-url">
+  <meta property="og:title"        content="" id="og-title">
+  <meta property="og:description"  content="" id="og-description">
+  <meta property="og:image"        content="" id="og-image">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:title"       content="" id="tw-title">
+  <meta name="twitter:description" content="" id="tw-description">
+  <meta name="twitter:image"       content="" id="tw-image">
+
   <link rel="icon" type="image/png" href="assets/img/LOGO.png">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -237,7 +254,7 @@
 <nav class="nav nav--transparent" role="navigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
-      <img src="assets/img/LOGO.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
       <span class="nav__logo-text">
         <span class="nav__logo-main">The Freescape Project</span>
         <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
@@ -349,6 +366,35 @@
 <script src="main.js"></script>
 <script>
 (async function () {
+  const BASE_URL = 'https://thefreescapeproject.com';
+  const FALLBACK_IMG = BASE_URL + '/assets/img/FujiFun.jpeg';
+
+  /* ── OG-Tags dynamisch setzen ───────────────────────────── */
+  function setOGTags(data, slug) {
+    const img = data.bild
+      ? (data.bild.startsWith('http') ? data.bild : BASE_URL + (data.bild.startsWith('/') ? '' : '/') + data.bild)
+      : FALLBACK_IMG;
+
+    const title = (data.titel || 'Artikel') + ' | The Freescape Project';
+    const desc  = data.teaser || '';
+    const url   = BASE_URL + '/artikel.html?post=' + encodeURIComponent(slug);
+
+    const set = (id, val) => { const el = document.getElementById(id); if (el) el.setAttribute('content', val); };
+    set('og-url',         url);
+    set('og-title',       title);
+    set('og-description', desc);
+    set('og-image',       img);
+    set('tw-title',       title);
+    set('tw-description', desc);
+    set('tw-image',       img);
+
+    // Auch <title> und <meta name="description"> aktualisieren
+    document.title = title;
+    const descEl = document.querySelector('meta[name="description"]');
+    if (descEl) descEl.setAttribute('content', desc);
+  }
+
+  /* ── Artikel laden ──────────────────────────────────────── */
   const params   = new URLSearchParams(window.location.search);
   const postSlug = params.get('post');
   const loading  = document.getElementById('artikel-loading');
@@ -395,7 +441,8 @@
     const typLabel = { guide:'Routen-Guide', kosten:'Kosten-Check', safety:'Sicherheit', persoenlich:'Erfahrungsbericht' }[data.typ] || 'Artikel';
     const tags     = Array.isArray(data.tags) ? data.tags : [];
 
-    document.title = (data.titel || 'Artikel') + ' · The Freescape Project';
+    // ── OG-Tags setzen (sofort nach Frontmatter-Parsing) ───
+    setOGTags(data, postSlug);
 
     let bildSrc = data.bild || '';
     if (bildSrc && !bildSrc.startsWith('/') && !bildSrc.startsWith('http')) bildSrc = '/' + bildSrc;
@@ -415,11 +462,11 @@
 
     // IDs zu h2 Elementen hinzufügen für Inhaltsverzeichnis
     let tocIndex = 0;
-parsedBody = parsedBody.replace(/<h2>(.*?)<\/h2>/g, function(match, title) {
-  const id = 'abschnitt-' + (tocIndex++);
-  const backBtn = tocIndex > 1 ? '<a href="#artikel-top" class="back-to-top-inline">↑ Nach oben</a>' : '';
-  return backBtn + '<h2 id="' + id + '">' + title + '</h2>';
-});
+    parsedBody = parsedBody.replace(/<h2>(.*?)<\/h2>/g, function(match, title) {
+      const id = 'abschnitt-' + (tocIndex++);
+      const backBtn = tocIndex > 1 ? '<a href="#artikel-top" class="back-to-top-inline">↑ Nach oben</a>' : '';
+      return backBtn + '<h2 id="' + id + '">' + title + '</h2>';
+    });
 
     // Inhaltsverzeichnis aus h2 Elementen bauen
     const h2Matches = [...body.matchAll(/^## (.+)$/gm)];
@@ -432,9 +479,9 @@ parsedBody = parsedBody.replace(/<h2>(.*?)<\/h2>/g, function(match, title) {
       </div>` : '';
 
     // Teilen
-    const shareUrl = encodeURIComponent(window.location.href);
+    const shareUrl   = encodeURIComponent(window.location.href);
     const shareTitle = encodeURIComponent(data.titel || '');
-    const shareHtml = `
+    const shareHtml  = `
       <div class="share-bar">
         <a href="https://wa.me/?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener" class="share-btn">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L0 24l6.388-1.676A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.017-1.378l-.36-.214-3.732.979 1.001-3.645-.235-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>
