@@ -3,6 +3,20 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt | The Freescape Project</title>
+  <meta name="description" content="Fragen zur Reise, Kooperationsanfragen oder einfach Hallo sagen — wir freuen uns über jede Nachricht.">
+  <meta property="og:type"         content="website">
+  <meta property="og:site_name"    content="The Freescape Project">
+  <meta property="og:url"          content="https://thefreescapeproject.com/kontakt.html">
+  <meta property="og:title"        content="Kontakt & Kooperationen | The Freescape Project">
+  <meta property="og:description"  content="Fragen zur Reise, Kooperationsanfragen oder einfach Hallo sagen — wir freuen uns über jede Nachricht.">
+  <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/FujiFun.jpeg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale"       content="de_DE">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Kontakt & Kooperationen | The Freescape Project">
+  <meta name="twitter:description" content="Fragen zur Reise, Kooperationsanfragen oder einfach Hallo sagen — wir freuen uns über jede Nachricht.">
+  <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/FujiFun.jpeg">
   <link rel="icon" type="image/png" href="assets/img/LOGONEW.png">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -183,21 +197,18 @@
 
 <!-- ═══════════════════════════════════════════
      HERO
-     ✏️  Sobald du ein Foto hast:
-         1. Bild als assets/img/hero-kontakt.jpg speichern
-         2. Den <div class="kontakt-hero-illustration"> Block entfernen
-         3. Die auskommentierte <img>-Zeile einkommentieren
 ═══════════════════════════════════════════ -->
 <section class="page-hero">
   <div class="page-hero__bg" style="background:linear-gradient(135deg, #1a2744 0%, #2a1f3d 50%, #1a2a1a 100%);">
 
-    <!-- ✏️ PLATZHALTER – ersetzen sobald Foto vorhanden -->
+    <!-- ✏️ PLATZHALTER – ersetzen sobald Foto vorhanden:
+         1. Bild als assets/img/hero-kontakt.jpg speichern
+         2. Den SVG-Block unten entfernen
+         3. Die auskommentierte <img>-Zeile einkommentieren -->
     <div class="kontakt-hero-illustration" aria-hidden="true">
       <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;position:absolute;inset:0;">
-        <!-- Bergsilhouetten im Hintergrund -->
         <polygon points="0,400 120,180 240,320 360,140 480,280 600,100 720,240 840,130 900,200 900,400" fill="rgba(255,255,255,0.03)"/>
         <polygon points="0,400 80,220 200,350 320,180 440,310 560,140 680,270 800,160 900,220 900,400" fill="rgba(255,255,255,0.04)"/>
-        <!-- Sterne / Punkte -->
         <circle cx="80"  cy="60"  r="1.5" fill="rgba(255,255,255,0.4)"/>
         <circle cx="200" cy="30"  r="1"   fill="rgba(255,255,255,0.3)"/>
         <circle cx="350" cy="80"  r="2"   fill="rgba(255,255,255,0.25)"/>
@@ -208,33 +219,25 @@
         <circle cx="130" cy="110" r="1"   fill="rgba(255,255,255,0.2)"/>
         <circle cx="420" cy="50"  r="1"   fill="rgba(255,255,255,0.25)"/>
         <circle cx="720" cy="90"  r="1.5" fill="rgba(255,255,255,0.3)"/>
-        <!-- Umschlag-Icon zentriert -->
         <g transform="translate(415, 140)">
-          <!-- Umschlag -->
           <rect x="0" y="0" width="70" height="50" rx="5" fill="none" stroke="rgba(232,67,26,0.6)" stroke-width="2"/>
           <polyline points="0,0 35,30 70,0" fill="none" stroke="rgba(232,67,26,0.6)" stroke-width="2"/>
-          <!-- Flugzeug rechts oben -->
           <g transform="translate(55,-30) rotate(-30)">
             <path d="M0,0 L20,8 L0,16 L4,8 Z" fill="rgba(255,255,255,0.35)"/>
             <path d="M4,5 L-5,0 L-5,2 L2,6 Z"  fill="rgba(255,255,255,0.2)"/>
             <path d="M4,11 L-5,16 L-5,14 L2,10 Z" fill="rgba(255,255,255,0.2)"/>
           </g>
-          <!-- Standortpin links -->
           <g transform="translate(-50, 5)">
             <circle cx="12" cy="10" r="10" fill="rgba(232,67,26,0.25)" stroke="rgba(232,67,26,0.5)" stroke-width="1.5"/>
             <circle cx="12" cy="10" r="4"  fill="rgba(232,67,26,0.7)"/>
             <line x1="12" y1="20" x2="12" y2="30" stroke="rgba(232,67,26,0.5)" stroke-width="1.5"/>
           </g>
         </g>
-        <!-- Gestrichelte Linie (Route) -->
         <path d="M 100,300 Q 300,80 500,200 Q 650,280 820,120" stroke="rgba(232,67,26,0.15)" stroke-width="1.5" fill="none" stroke-dasharray="6,5"/>
-        <!-- Kleine Punkte auf der Route -->
         <circle cx="100" cy="300" r="4" fill="rgba(232,67,26,0.3)"/>
         <circle cx="500" cy="200" r="4" fill="rgba(232,67,26,0.3)"/>
         <circle cx="820" cy="120" r="4" fill="rgba(232,67,26,0.3)"/>
       </svg>
-
-      <!-- ✏️ Echter Hero wenn Foto vorhanden – diese Zeile einkommentieren und SVG oben entfernen: -->
       <!-- <img src="assets/img/hero-kontakt.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45;"> -->
     </div>
 
@@ -443,7 +446,7 @@
 
 <script src="main.js"></script>
 
-<!-- ══ Formular-Submit via Fetch (für spätere Formspree-Anbindung) ══ -->
+<!-- ══ Formular-Submit via Fetch ══ -->
 <script>
   const form = document.getElementById('contact-form');
   if (form) {
