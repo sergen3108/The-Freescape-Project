@@ -10,7 +10,7 @@ const REISE = {
   // ── Reise-Zahlen ───────────────────────────────────────────────
   kmZurueckgelegt:      13500,
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Lima — dann weiter zum Machu Picchu! Wir sind gespannt 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Paracas — dann weiter zum Machu Picchu! Wir sind gespannt 🙌',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'laender.html#kolumbien' },
