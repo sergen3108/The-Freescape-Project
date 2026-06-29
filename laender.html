@@ -1,12 +1,130 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Länder | The Freescape Project</title>
+  <meta name="description" content="Alle Länder unserer Südamerika-Reise — Kolumbien, Ecuador, Peru und mehr.">
   <link rel="icon" type="image/png" href="assets/img/LOGO.png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .land-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
+    @media(max-width:768px){ .land-grid { grid-template-columns:1fr; gap:2.5rem; } }
+
+    .land-img {
+      width:100%;
+      aspect-ratio:4/5;
+      object-fit:cover;
+      border-radius:var(--r-xl);
+      display:block;
+    }
+    .land-img-placeholder {
+      width:100%;
+      aspect-ratio:4/5;
+      border-radius:var(--r-xl);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:5rem;
+      position:relative;
+    }
+    .land-img-caption {
+      position:absolute;
+      bottom:1.5rem;
+      left:1.5rem;
+      right:1.5rem;
+      background:rgba(0,0,0,0.55);
+      backdrop-filter:blur(8px);
+      border-radius:var(--r-lg);
+      padding:1rem;
+      color:white;
+    }
+    .land-img-caption__label {
+      font-size:0.7rem;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      color:rgba(255,255,255,0.6);
+      margin-bottom:0.25rem;
+    }
+    .land-img-caption__text { font-weight:700; font-size:0.9rem; }
+
+    .orte-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:0.75rem;
+      margin:1.5rem 0;
+    }
+    .ort-chip {
+      background:var(--sand-100);
+      border-radius:var(--r-md);
+      padding:0.75rem 1rem;
+      font-size:0.85rem;
+      border:1px solid var(--sand-200);
+    }
+    .ort-chip strong { display:block; margin-bottom:0.1rem; }
+    .ort-chip span { color:var(--gray-500); font-size:0.78rem; }
+
+    .ort-chip--white { background:white; border-color:var(--sand-300); }
+
+    .status-badge {
+      display:inline-flex;
+      align-items:center;
+      gap:0.4rem;
+      font-size:0.75rem;
+      font-weight:700;
+      letter-spacing:0.07em;
+      text-transform:uppercase;
+      padding:0.3rem 0.9rem;
+      border-radius:99px;
+      margin-bottom:0.75rem;
+    }
+    .status-badge--visited { background:var(--green-100); color:var(--green-800); }
+    .status-badge--current { background:var(--terra-100); color:var(--terra-700); }
+    .status-badge--planned { background:var(--gray-100); color:var(--gray-500); }
+
+    .blog-teaser-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+      gap:1.25rem;
+      margin-top:1.5rem;
+    }
+    .blog-teaser-card {
+      background:white;
+      border:1.5px solid var(--gray-100);
+      border-radius:var(--r-lg);
+      overflow:hidden;
+      text-decoration:none;
+      transition:box-shadow 0.2s,transform 0.2s;
+      display:block;
+    }
+    .blog-teaser-card:hover { box-shadow:0 8px 24px rgba(0,0,0,0.08); transform:translateY(-2px); }
+    .blog-teaser-card img { width:100%; height:160px; object-fit:cover; display:block; }
+    .blog-teaser-card__body { padding:1rem; }
+    .blog-teaser-card__title { font-size:0.9rem; font-weight:700; color:var(--gray-900); line-height:1.4; margin-bottom:0.25rem; }
+    .blog-teaser-card__meta { font-size:0.75rem; color:var(--gray-400); }
+
+    .planned-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1.5rem;
+    }
+    @media(max-width:640px){ .planned-grid { grid-template-columns:1fr; } }
+
+    .planned-card {
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.1);
+      border-radius:var(--r-lg);
+      padding:1.75rem;
+      text-align:center;
+      color:white;
+    }
+    .planned-card__emoji { font-size:2.5rem; margin-bottom:0.75rem; }
+    .planned-card__name { font-weight:700; font-size:1.1rem; color:white; margin-bottom:0.5rem; }
+    .planned-card__desc { font-size:0.85rem; color:rgba(255,255,255,0.55); line-height:1.6; }
+  </style>
 </head>
 <body>
+
 <nav class="nav nav--transparent" role="navigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -40,8 +158,6 @@
       <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
       <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
     </div>
-
-    <!-- Sprachauswahl -->
     <div class="lang-switcher">
       <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
         <span class="lang-switcher__flag">🇩🇪</span>
@@ -56,7 +172,6 @@
         <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
       </div>
     </div>
-
     <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
       YouTube
@@ -79,13 +194,13 @@
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
 
+<!-- HERO -->
 <section class="page-hero">
-  <!-- ✏️ HERO BILD: Ersetze die Zeile unten mit deinem Foto
-       Bild speichern unter: assets/img/hero-laender.jpg
-       Empfehlung: Querformat, min. 1600px breit -->
-  <div class="page-hero__bg" style="background:linear-gradient(135deg, #1a3c2a 0%, #1a2744 50%, #c4622d 100%);">
-    <!-- <img src="assets/img/hero-laender.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.45;"> -->
+  <div class="hero__bg">
+    <img src="assets/img/kilotoas.JPEG" class="hero__bg-photo" alt="">
+    <div class="hero__pattern"></div>
   </div>
+  <div class="hero__overlay"></div>
   <div class="container page-hero__content">
     <p class="overline">Unsere Reiseroute</p>
     <h1>Alle Länder</h1>
@@ -93,128 +208,184 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════════════
+     KOLUMBIEN
+════════════════════════════════════ -->
 <section class="section" id="kolumbien">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+    <div class="land-grid">
       <div class="animate-on-scroll">
-        <p class="overline" style="color:var(--terra-600);">✓ Bereist · Feb – Apr 2026</p>
+        <span class="status-badge status-badge--visited">✓ Bereist · Feb – Apr 2026</span>
         <h2>Kolumbien</h2>
-        <p style="color:var(--gray-600);line-height:1.8;margin:1rem 0;">8 Wochen, 10 Städte, unzählige Erlebnisse. Kolumbien hat uns komplett überrascht — mit seiner Wärme, Schönheit und Lebendigkeit.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:1.5rem 0;">
-          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Bogotá</strong> — Hauptstadt & Streetart</div>
-          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Salento</strong> — Kaffeeregion & Wachspalmen</div>
-          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Medellín</strong> — La ciudad de la eterna primavera</div>
-          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Guatapé</strong> — El Peñol & Buntes Dorf</div>
-          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Minca</strong> — Bergdorf & Wasserfälle</div>
-          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Santa Marta</strong> — Karibikküste</div>
-          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>Tayrona</strong> — Nationalpark & Dschungel</div>
-          <div style="background:var(--sand-100);border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;"><strong>San Andrés</strong> — Meer der 7 Farben</div>
+        <p style="color:var(--gray-600);line-height:1.8;margin:1rem 0;">8 Wochen, 10 Städte, unzählige Erlebnisse. Kolumbien hat uns komplett überrascht — mit seiner Wärme, Schönheit und Lebendigkeit. Ein Land, das weit mehr zu bieten hat als sein Ruf vermuten lässt.</p>
+        <div class="orte-grid">
+          <div class="ort-chip"><strong>Bogotá</strong><span>Hauptstadt, Streetart & Goldmuseum</span></div>
+          <div class="ort-chip"><strong>Salento</strong><span>Kaffeeregion & Wachspalmen</span></div>
+          <div class="ort-chip"><strong>Medellín</strong><span>Ciudad de la eterna primavera</span></div>
+          <div class="ort-chip"><strong>Guatapé</strong><span>El Peñol & buntes Dorf</span></div>
+          <div class="ort-chip"><strong>Santa Marta</strong><span>Karibikküste & Ausgangspunkt</span></div>
+          <div class="ort-chip"><strong>Minca</strong><span>Bergdorf & Wasserfälle</span></div>
+          <div class="ort-chip"><strong>Tayrona</strong><span>Nationalpark & Dschungel</span></div>
+          <div class="ort-chip"><strong>San Andrés</strong><span>Meer der 7 Farben</span></div>
         </div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;">
           <a href="blog.html" class="btn btn-dark">Blog-Artikel lesen</a>
           <a href="vlogs.html" class="btn btn-outline">Kolumbien-Vlogs</a>
         </div>
+
+        <!-- Passende Blog-Artikel -->
+        <div id="blog-kolumbien" class="blog-teaser-grid"></div>
       </div>
-      <div class="animate-on-scroll animate-delay-1">
-        <div style="width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,#c4622d,#1a2744);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;">
-         
-          <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);border-radius:var(--r-lg);padding:1rem;color:white;">
-            <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:0.25rem;">Highlight</div>
-            <div style="font-weight:700;">El Peñol, Guatapé — der Ausblick, der uns sprachlos machte</div>
+
+      <div class="animate-on-scroll animate-delay-1" style="position:relative;">
+        <!-- ✏️ Foto ersetzen: src="assets/img/kolumbien-highlight.jpg" -->
+        <img src="assets/img/Bogota.JPEG"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Kolumbien" class="land-img">
+        <div class="land-img-placeholder" style="display:none;background:linear-gradient(135deg,#c4622d,#1a2744);">
+          🇨🇴
+          <div class="land-img-caption">
+            <div class="land-img-caption__label">Highlight</div>
+            <div class="land-img-caption__text">El Peñol, Guatapé — der Ausblick, der uns sprachlos machte</div>
           </div>
+        </div>
+        <div class="land-img-caption" style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;">
+          <div class="land-img-caption__label">Highlight</div>
+          <div class="land-img-caption__text">El Peñol, Guatapé — der Ausblick, der uns sprachlos machte</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════
+     ECUADOR
+════════════════════════════════════ -->
 <section class="section" id="ecuador" style="background:var(--sand-50);">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
-      <div class="animate-on-scroll">
-        <div style="width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,#1a3c2a,#2d7a2d);border-radius:var(--r-xl);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;">
-         
-          <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;background:rgba(0,0,0,0.5);backdrop-filter:blur(8px);border-radius:var(--r-lg);padding:1rem;color:white;">
-            <div style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);margin-bottom:0.25rem;">Highlight</div>
-            <div style="font-weight:700;">Quilotoa-Lagune — smaragdgrüner Kratersee auf 3.900m</div>
+    <div class="land-grid">
+      <div class="animate-on-scroll" style="position:relative;">
+        <img src="assets/img/kilotoas.JPEG"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+             alt="Ecuador" class="land-img">
+        <div class="land-img-placeholder" style="display:none;background:linear-gradient(135deg,#1a3c2a,#2d7a2d);">
+          🇪🇨
+          <div class="land-img-caption">
+            <div class="land-img-caption__label">Highlight</div>
+            <div class="land-img-caption__text">Quilotoa-Lagune — smaragdgrüner Kratersee auf 3.900m</div>
           </div>
         </div>
+        <div class="land-img-caption" style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;">
+          <div class="land-img-caption__label">Highlight</div>
+          <div class="land-img-caption__text">Quilotoa-Lagune — smaragdgrüner Kratersee auf 3.900m</div>
+        </div>
       </div>
+
       <div class="animate-on-scroll animate-delay-1">
-        <p class="overline" style="color:var(--terra-600);">✓ Bereist · April 2026</p>
+        <span class="status-badge status-badge--visited">✓ Bereist · Apr – Jun 2026</span>
         <h2>Ecuador</h2>
-        <p style="color:var(--gray-600);line-height:1.8;margin:1rem 0;">Drei Wochen, die wir nie vergessen werden. Von kolonialer Pracht in Quito bis zu schneebedeckten Vulkanen und dem Amazonas.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin:1.5rem 0;">
-          <div style="background:white;border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;border:1px solid var(--sand-300);"><strong>Quito</strong> — UNESCO-Altstadt</div>
-          <div style="background:white;border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;border:1px solid var(--sand-300);"><strong>Cotopaxi</strong> — Schneebedeckter Vulkan</div>
-          <div style="background:white;border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;border:1px solid var(--sand-300);"><strong>Quilotoa</strong> — Smaragdgrüne Caldera</div>
-          <div style="background:white;border-radius:var(--r-md);padding:0.75rem 1rem;font-size:0.85rem;border:1px solid var(--sand-300);"><strong>Amazonas</strong> — 4 Tage Dschungel</div>
+        <p style="color:var(--gray-600);line-height:1.8;margin:1rem 0;">Sechs Wochen, die wir nie vergessen werden. Von kolonialer Pracht in Quito bis zu schneebedeckten Vulkanen, dem Amazonas und den legendären Galapagos-Inseln.</p>
+        <div class="orte-grid">
+          <div class="ort-chip--white ort-chip"><strong>Quito</strong><span>UNESCO-Altstadt & Mittelerde</span></div>
+          <div class="ort-chip--white ort-chip"><strong>Cotopaxi</strong><span>Schneebedeckter Vulkan</span></div>
+          <div class="ort-chip--white ort-chip"><strong>Quilotoa</strong><span>Smaragdgrüne Caldera</span></div>
+          <div class="ort-chip--white ort-chip"><strong>Baños</strong><span>Adrenalinsport & Wasserfälle</span></div>
+          <div class="ort-chip--white ort-chip"><strong>Mindo</strong><span>Cloud Forest & Vögel</span></div>
+          <div class="ort-chip--white ort-chip"><strong>Amazonas</strong><span>4 Tage Dschungel</span></div>
+          <div class="ort-chip--white ort-chip"><strong>Galapagos</strong><span>Seelöwen, Schildkröten, Tölpel</span></div>
+          <div class="ort-chip--white ort-chip"><strong>Cuenca</strong><span>Koloniales Juwel im Süden</span></div>
         </div>
         <div style="display:flex;gap:1rem;flex-wrap:wrap;">
           <a href="blog.html" class="btn btn-dark">Blog-Artikel lesen</a>
-          <a href="vlogs.html" class="btn btn-outline">Ecuador-Vlog</a>
+          <a href="vlogs.html" class="btn btn-outline">Ecuador-Vlogs</a>
         </div>
+
+        <div id="blog-ecuador" class="blog-teaser-grid"></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="galapagos">
+<!-- ═══════════════════════════════════
+     PERU
+════════════════════════════════════ -->
+<section class="section" id="peru">
   <div class="container">
-    <div class="section-header animate-on-scroll">
-      <p class="overline" style="color:var(--terra-600);">✓ Bereist · Mai 2026</p>
-      <h2>🐢 Galapagos</h2>
-      <p class="lead">Das teuerste Ziel Südamerikas — und trotzdem oder genau deswegen das unvergesslichste. Drei Wochen Insel-Hopping auf eigene Faust.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;" class="animate-on-scroll">
-      <div style="background:var(--sand-100);border-radius:var(--r-lg);padding:1.5rem;text-align:center;"><div style="font-size:2.5rem;margin-bottom:0.75rem;">🦁</div><h4 style="margin-bottom:0.5rem;">Seelöwen</h4><p style="font-size:0.85rem;color:var(--gray-600);">Schnorcheln Seite an Seite — kein Witz.</p></div>
-      <div style="background:var(--sand-100);border-radius:var(--r-lg);padding:1.5rem;text-align:center;"><div style="font-size:2.5rem;margin-bottom:0.75rem;">🐢</div><h4 style="margin-bottom:0.5rem;">Riesenschildkröten</h4><p style="font-size:0.85rem;color:var(--gray-600);">100+ Jahre alte Kolosse auf Santa Cruz.</p></div>
-      <div style="background:var(--sand-100);border-radius:var(--r-lg);padding:1.5rem;text-align:center;"><div style="font-size:2.5rem;margin-bottom:0.75rem;">🦅</div><h4 style="margin-bottom:0.5rem;">Blaufußtölpel</h4><p style="font-size:0.85rem;color:var(--gray-600);">Die Einzigen, die keine Angst vor Touristen haben.</p></div>
-    </div>
-    <div style="text-align:center;margin-top:2rem;">
-      <a href="blog.html" class="btn btn-dark">Galapagos-Kosten-Check lesen</a>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="peru" style="background:var(--sand-50);">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+    <div class="land-grid">
       <div class="animate-on-scroll">
-        <p class="overline" style="color:var(--terra-600);">← Aktuell hier · Juni 2026</p>
+        <span class="status-badge status-badge--current">← Aktuell hier · ab Jun 2026</span>
         <h2>Peru</h2>
-        <p style="color:var(--gray-600);line-height:1.8;margin:1rem 0;">Wir sind gerade mitten drin. Pazifikküste, Wüste, Anden — Peru hält, was es verspricht. Und der Machu Picchu wartet noch auf uns.</p>
-        <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;">
-          <a href="vlogs.html" class="btn btn-dark">Aktuellen Vlog ansehen</a>
+        <p style="color:var(--gray-600);line-height:1.8;margin:1rem 0;">Wir sind gerade mitten drin. Pazifikküste, Wüste, Anden — Peru hält, was es verspricht. Von Máncora an der Küste bis in die Höhen der Anden. Und der Machu Picchu wartet noch auf uns.</p>
+        <div class="orte-grid">
+          <div class="ort-chip"><strong>Máncora</strong><span>Strand & Surfer-Vibes</span></div>
+          <div class="ort-chip"><strong>Huanchaco</strong><span>Totora-Boote & Chan Chan</span></div>
+          <div class="ort-chip"><strong>Trujillo</strong><span>Kolonialstadt & Lehmstädte</span></div>
+          <div class="ort-chip"><strong>Huaraz</strong><span>Wanderparadies in den Anden</span></div>
+          <div class="ort-chip" style="opacity:0.5;"><strong>Lima</strong><span>Bald</span></div>
+          <div class="ort-chip" style="opacity:0.5;"><strong>Cusco</strong><span>Bald</span></div>
+          <div class="ort-chip" style="opacity:0.5;"><strong>Machu Picchu</strong><span>Bald</span></div>
+          <div class="ort-chip" style="opacity:0.5;"><strong>Titicacasee</strong><span>Bald</span></div>
         </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="vlogs.html" class="btn btn-dark">Aktuellen Vlog ansehen</a>
+          <a href="blog.html" class="btn btn-outline">Blog-Artikel lesen</a>
+        </div>
+
+        <div id="blog-peru" class="blog-teaser-grid"></div>
       </div>
-      <div class="animate-on-scroll animate-delay-1">
-        <img src="https://img.youtube.com/vi/xoa1NgiW6pY/maxresdefault.jpg" alt="Peru" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-xl);display:block;">
+
+      <div class="animate-on-scroll animate-delay-1" style="position:relative;">
+        <img src="https://img.youtube.com/vi/xoa1NgiW6pY/maxresdefault.jpg"
+             alt="Peru" class="land-img">
+        <div class="land-img-caption" style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;">
+          <div class="land-img-caption__label">Aktuell</div>
+          <div class="land-img-caption__text">Wanderparadies Huaraz — Perus Anden auf über 4.000m</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════
+     GEPLANT
+════════════════════════════════════ -->
 <section class="section" id="geplant" style="background:var(--green-900);">
   <div class="container">
     <div class="section-header animate-on-scroll">
       <p class="overline" style="color:var(--terra-400);">Noch vor uns</p>
       <h2 style="color:white;">Nächste Stationen</h2>
+      <p class="lead" style="color:rgba(255,255,255,0.6);">Noch etwa 6 Monate Südamerika vor uns. Das sind die Länder die noch warten.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;" class="animate-on-scroll">
-      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-lg);padding:1.5rem;text-align:center;color:white;opacity:0.7;"><div style="font-size:2.5rem;margin-bottom:0.75rem;"></div><h4 style="color:white;margin-bottom:0.5rem;">Bolivien</h4><p style="font-size:0.85rem;color:rgba(255,255,255,0.6);">Salar de Uyuni — die weiße Unendlichkeit</p></div>
-      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-lg);padding:1.5rem;text-align:center;color:white;opacity:0.7;"><div style="font-size:2.5rem;margin-bottom:0.75rem;"></div><h4 style="color:white;margin-bottom:0.5rem;">Chile</h4><p style="font-size:0.85rem;color:rgba(255,255,255,0.6);">Atacama, Patagonia und Torres del Paine</p></div>
-      <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r-lg);padding:1.5rem;text-align:center;color:white;opacity:0.7;"><div style="font-size:2.5rem;margin-bottom:0.75rem;"></div><h4 style="color:white;margin-bottom:0.5rem;">Argentinien</h4><p style="font-size:0.85rem;color:rgba(255,255,255,0.6);">Buenos Aires & Patagonien</p></div>
+    <div class="planned-grid animate-on-scroll">
+      <div class="planned-card">
+        <div class="planned-card__emoji">🧂</div>
+        <div class="planned-card__name">Bolivien</div>
+        <div class="planned-card__desc">Salar de Uyuni, die größten Salzflats der Welt — und eine der surrealen Landschaften des Kontinents.</div>
+      </div>
+      <div class="planned-card">
+        <div class="planned-card__emoji">🏔️</div>
+        <div class="planned-card__name">Chile</div>
+        <div class="planned-card__desc">Atacama-Wüste, Torres del Paine und Patagonien — Chile ist riesig und unglaublich vielfältig.</div>
+      </div>
+      <div class="planned-card">
+        <div class="planned-card__emoji">🥩</div>
+        <div class="planned-card__name">Argentinien</div>
+        <div class="planned-card__desc">Buenos Aires, Patagonien und das beste Steak der Welt. Der krönende Abschluss unserer Reise.</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo">Freescape Project</div>
-        <p class="footer__brand-desc">Sergen &amp; Julia reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;">
+          <img src="assets/img/LOGO.png" alt="" style="height:2.5rem;">
+          <span>The Freescape Project</span>
+        </div>
+        <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
         <div class="footer__social">
           <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
@@ -257,7 +428,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">© 2026 The Freescape Project – Sergen &amp; Julia</p>
+      <p class="footer__copy">© 2026 The Freescape Project – Julia &amp; Sergen</p>
       <div class="footer__legal">
         <a href="impressum.html" class="footer__legal-link">Impressum</a>
         <a href="datenschutz.html" class="footer__legal-link">Datenschutz</a>
@@ -265,6 +436,7 @@
     </div>
   </div>
 </footer>
+
 <div class="cookie-banner">
   <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -273,6 +445,44 @@
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
 </div>
+
+<script src="blog-posts.js" defer></script>
 <script src="main.js"></script>
+<script>
+// Blog-Artikel pro Land automatisch anzeigen
+function renderLandBlog(posts) {
+  const byLand = { kolumbien: [], ecuador: [], peru: [] };
+
+  posts.forEach(p => {
+    const l = (p.land || '').toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue');
+    if (byLand[l]) byLand[l].push(p);
+  });
+
+  Object.entries(byLand).forEach(([land, landPosts]) => {
+    const el = document.getElementById('blog-' + land);
+    if (!el || !landPosts.length) return;
+
+    el.innerHTML = landPosts.slice(0, 3).map(p => {
+      const thumb = p.bild
+        ? `<img src="${p.bild}" alt="${p.titel}">`
+        : `<div style="height:160px;background:${p.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:2.5rem;">${p.bildFallback.emoji}</div>`;
+      return `
+        <a href="${p.link}" class="blog-teaser-card">
+          ${thumb}
+          <div class="blog-teaser-card__body">
+            <div class="blog-teaser-card__title">${p.titel}</div>
+            <div class="blog-teaser-card__meta">${p.datumLabel} · ${p.lesezeit}</div>
+          </div>
+        </a>`;
+    }).join('');
+  });
+}
+
+if (window.BLOG_POSTS) {
+  renderLandBlog(window.BLOG_POSTS);
+} else {
+  document.addEventListener('blogPostsReady', () => renderLandBlog(window.BLOG_POSTS || []));
+}
+</script>
 </body>
 </html>
