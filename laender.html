@@ -63,7 +63,6 @@
     }
     .ort-chip strong { display:block; margin-bottom:0.1rem; }
     .ort-chip span { color:var(--gray-500); font-size:0.78rem; }
-
     .ort-chip--white { background:white; border-color:var(--sand-300); }
 
     .status-badge {
@@ -125,6 +124,7 @@
 </head>
 <body>
 
+<!-- ── Navigation ───────────────────────────────────────────── -->
 <nav class="nav nav--transparent" role="navigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -194,7 +194,7 @@
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
 
-<!-- HERO -->
+<!-- ── Hero ─────────────────────────────────────────────────── -->
 <section class="page-hero">
   <div class="hero__bg">
     <img src="assets/img/Amazonkanu.JPEG" class="hero__bg-photo" alt="">
@@ -204,7 +204,27 @@
   <div class="container page-hero__content">
     <p class="overline">Unsere Reiseroute</p>
     <h1>Alle Länder</h1>
-    <p class="lead">Von Kolumbien bis Argentinien, unsere Route durch Südamerika, Land für Land.</p>
+    <p class="lead">Von Kolumbien bis Argentinien — unsere Route durch Südamerika, Land für Land.</p>
+  </div>
+</section>
+
+<!-- ── Statistiken ──────────────────────────────────────────── -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-bar__grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="stats-bar__item animate-on-scroll">
+        <div class="stats-bar__number" data-reise="laenderBereist">0</div>
+        <div class="stats-bar__label">Länder bereist</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-1">
+        <div class="stats-bar__number" data-reise="kmZurueckgelegt">0</div>
+        <div class="stats-bar__label">km zurückgelegt</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-2">
+        <div class="stats-bar__number" data-reise="tageDrausweg">0</div>
+        <div class="stats-bar__label">Tage unterwegs</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -232,22 +252,14 @@
           <a href="blog.html" class="btn btn-dark">Blog-Artikel lesen</a>
           <a href="vlogs.html" class="btn btn-outline">Kolumbien-Vlogs</a>
         </div>
-
-        <!-- Passende Blog-Artikel -->
         <div id="blog-kolumbien" class="blog-teaser-grid"></div>
       </div>
-
       <div class="animate-on-scroll animate-delay-1" style="position:relative;">
-        <!-- ✏️ Foto ersetzen: src="assets/img/kolumbien-highlight.jpg" -->
         <img src="assets/img/Bogota.JPEG"
              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
              alt="Kolumbien" class="land-img">
         <div class="land-img-placeholder" style="display:none;background:linear-gradient(135deg,#c4622d,#1a2744);">
           🇨🇴
-          <div class="land-img-caption">
-            <div class="land-img-caption__label">Highlight</div>
-            <div class="land-img-caption__text">El Peñol, Guatapé — der Ausblick, der uns sprachlos machte</div>
-          </div>
         </div>
         <div class="land-img-caption" style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;">
           <div class="land-img-caption__label">Highlight</div>
@@ -270,17 +282,12 @@
              alt="Ecuador" class="land-img">
         <div class="land-img-placeholder" style="display:none;background:linear-gradient(135deg,#1a3c2a,#2d7a2d);">
           🇪🇨
-          <div class="land-img-caption">
-            <div class="land-img-caption__label">Highlight</div>
-            <div class="land-img-caption__text">Quilotoa-Lagune — smaragdgrüner Kratersee auf 3.900m</div>
-          </div>
         </div>
         <div class="land-img-caption" style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem;">
           <div class="land-img-caption__label">Highlight</div>
           <div class="land-img-caption__text">Quilotoa-Lagune — smaragdgrüner Kratersee auf 3.900m</div>
         </div>
       </div>
-
       <div class="animate-on-scroll animate-delay-1">
         <span class="status-badge status-badge--visited">✓ Bereist · Apr – Jun 2026</span>
         <h2>Ecuador</h2>
@@ -299,7 +306,6 @@
           <a href="blog.html" class="btn btn-dark">Blog-Artikel lesen</a>
           <a href="vlogs.html" class="btn btn-outline">Ecuador-Vlogs</a>
         </div>
-
         <div id="blog-ecuador" class="blog-teaser-grid"></div>
       </div>
     </div>
@@ -330,10 +336,8 @@
           <a href="vlogs.html" class="btn btn-dark">Aktuellen Vlog ansehen</a>
           <a href="blog.html" class="btn btn-outline">Blog-Artikel lesen</a>
         </div>
-
         <div id="blog-peru" class="blog-teaser-grid"></div>
       </div>
-
       <div class="animate-on-scroll animate-delay-1" style="position:relative;">
         <img src="https://img.youtube.com/vi/xoa1NgiW6pY/maxresdefault.jpg"
              alt="Peru" class="land-img">
@@ -376,12 +380,15 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ── Footer ───────────────────────────────────────────────── -->
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGO.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;">
+          <img src="assets/img/LOGO.png" alt="" style="height:2.5rem;">
+          <span>The Freescape Project</span>
+        </div>
         <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
         <div class="footer__social">
           <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
@@ -434,6 +441,7 @@
   </div>
 </footer>
 
+<!-- ── Cookie Banner ────────────────────────────────────────── -->
 <div class="cookie-banner">
   <div class="cookie-banner__title">🍪 Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -444,9 +452,11 @@
 </div>
 
 <script src="blog-posts.js" defer></script>
+<script src="reise-config.js"></script>
 <script src="main.js"></script>
+
+<!-- ── Blog-Artikel pro Land ────────────────────────────────── -->
 <script>
-// Blog-Artikel pro Land automatisch anzeigen
 function renderLandBlog(posts) {
   const byLand = { kolumbien: [], ecuador: [], peru: [] };
 
@@ -458,7 +468,6 @@ function renderLandBlog(posts) {
   Object.entries(byLand).forEach(([land, landPosts]) => {
     const el = document.getElementById('blog-' + land);
     if (!el || !landPosts.length) return;
-
     el.innerHTML = landPosts.slice(0, 3).map(p => {
       const thumb = p.bild
         ? `<img src="${p.bild}" alt="${p.titel}">`
@@ -481,5 +490,6 @@ if (window.BLOG_POSTS) {
   document.addEventListener('blogPostsReady', () => renderLandBlog(window.BLOG_POSTS || []));
 }
 </script>
+
 </body>
 </html>
