@@ -559,40 +559,51 @@
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
 
-<!-- ── Galerie Hero ────────────────────────────────────────── -->
-<header class="galerie-hero">
-  <div class="galerie-hero__bg">
-    <!-- ✏️ HERO BILD: src anpassen -->
-    <img src="assets/img/blog/sanandres8.jpg" alt="" id="hero-img">
+<!-- ── Page Hero ──────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="hero__bg">
+    <img src="assets/img/blog/sanandres8.jpg" class="hero__bg-photo" alt="">
+    <div class="hero__pattern"></div>
   </div>
-  <div class="galerie-hero__overlay"></div>
-  <div class="container galerie-hero__content">
-    <div class="galerie-hero__eyebrow">Bilder &amp; Eindrücke</div>
-    <h1 class="galerie-hero__title">
-      Momente<br><em>festgehalten</em>
-    </h1>
-    <div class="galerie-hero__meta">
-      <span>🌎 <strong>4</strong> Länder</span>
-      <span>📸 <strong id="foto-count">–</strong> Fotos</span>
-      <span>🗓 <strong>seit Februar 2026</strong></span>
+  <div class="hero__overlay"></div>
+  <div class="container page-hero__content">
+    <p class="overline">Bilder &amp; Eindrücke</p>
+    <h1>Galerie</h1>
+    <p class="lead">Momente aus vier Ländern — ausgewählt aus tausenden Fotos.</p>
+  </div>
+</section>
+
+<!-- ── Statistiken ────────────────────────────────────────── -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-bar__grid" style="grid-template-columns:repeat(3,1fr);">
+      <div class="stats-bar__item animate-on-scroll">
+        <div class="stats-bar__number">3</div>
+        <div class="stats-bar__label">Länder</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-1">
+        <div class="stats-bar__number" id="foto-count">–</div>
+        <div class="stats-bar__label">Fotos</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-2">
+        <div class="stats-bar__number">130+</div>
+        <div class="stats-bar__label">Tage unterwegs</div>
+      </div>
     </div>
   </div>
-</header>
+</section>
 
 <!-- ── Sticky Kapitel-Navigation ──────────────────────────── -->
 <nav class="kapitel-nav" aria-label="Kapitel">
   <div class="kapitel-nav__inner">
     <button class="kapitel-btn active" data-target="kolumbien">
-      🇨🇴 Kolumbien <span class="k-count" id="cnt-kolumbien">9</span>
+      Kolumbien <span class="k-count" id="cnt-kolumbien">9</span>
     </button>
     <button class="kapitel-btn" data-target="ecuador">
-      🇪🇨 Ecuador <span class="k-count" id="cnt-ecuador">4</span>
-    </button>
-    <button class="kapitel-btn" data-target="galapagos">
-      🐢 Galápagos <span class="k-count" id="cnt-galapagos">3</span>
+      Ecuador &amp; Galápagos <span class="k-count" id="cnt-ecuador">7</span>
     </button>
     <button class="kapitel-btn" data-target="peru">
-      🇵🇪 Peru <span class="k-count" id="cnt-peru">3</span>
+      Peru <span class="k-count" id="cnt-peru">3</span>
     </button>
   </div>
 </nav>
@@ -604,7 +615,7 @@
   <div class="container">
 
     <div class="kapitel-header animate-on-scroll">
-      <span class="kapitel-header__flag">🇨🇴</span>
+      
       <h2 class="kapitel-header__name">Kolumbien</h2>
       <span class="kapitel-header__count">Feb – Apr 2026</span>
     </div>
@@ -616,7 +627,6 @@
       <div class="gi" data-label="Cocora-Tal" data-sub="Salento, Kolumbien"
            data-src="assets/img/galerie/salento-cocora.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(160deg,#1a3c2a,#3d7a52,#5c8c3a);">
-          <span class="gi__placeholder-emoji">🌿</span>
           <span class="gi__placeholder-label">Salento · Cocora-Tal</span>
         </div>
         <div class="gi__overlay">
@@ -629,7 +639,6 @@
       <div class="gi" data-label="La Candelaria" data-sub="Bogotá, Kolumbien"
            data-src="assets/img/galerie/bogota-candelaria.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#1a2744,#3b61a8);">
-          <span class="gi__placeholder-emoji">🏙️</span>
           <span class="gi__placeholder-label">Bogotá · La Candelaria</span>
         </div>
         <div class="gi__overlay">
@@ -641,9 +650,8 @@
       <!-- ✏️ Bild unten rechts — Kaffee/Finca z.B. -->
       <div class="gi" data-label="Kaffeeplantage" data-sub="Eje Cafetero, Kolumbien"
            data-src="assets/img/galerie/kaffee-finca.jpg">
-        <div class="gi__badge">☕ Kaffeeregion</div>
+        <div class="gi__badge"> Kaffeeregion</div>
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#3d2a1a,#8c5a2a);">
-          <span class="gi__placeholder-emoji">☕</span>
           <span class="gi__placeholder-label">Kaffeeplantage</span>
         </div>
         <div class="gi__overlay">
@@ -662,9 +670,8 @@
       <!-- ✏️ Großes Bild — El Peñol Panorama z.B. -->
       <div class="gi" data-label="El Peñol" data-sub="Guatapé, Kolumbien"
            data-src="assets/img/galerie/guatape-penol.jpg">
-        <div class="gi__badge">★ Highlight</div>
+        <div class="gi__badge">Highlight</div>
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#1a3a5c,#2e7096);">
-          <span class="gi__placeholder-emoji">🗿</span>
           <span class="gi__placeholder-label">El Peñol · Guatapé</span>
         </div>
         <div class="gi__overlay">
@@ -676,7 +683,6 @@
       <div class="gi" data-label="Medellín" data-sub="Seilbahn, Kolumbien"
            data-src="assets/img/galerie/medellin-seilbahn.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#8c3a1a,#c4622d);">
-          <span class="gi__placeholder-emoji">🌺</span>
           <span class="gi__placeholder-label">Medellín</span>
         </div>
         <div class="gi__overlay">
@@ -688,7 +694,6 @@
       <div class="gi" data-label="San Andrés" data-sub="Meer der 7 Farben"
            data-src="assets/img/galerie/sanandres-meer.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#006994,#00c8e8);">
-          <span class="gi__placeholder-emoji">🏖️</span>
           <span class="gi__placeholder-label">San Andrés</span>
         </div>
         <div class="gi__overlay">
@@ -700,7 +705,6 @@
       <div class="gi" data-label="Tayrona" data-sub="Nationalpark, Kolumbien"
            data-src="assets/img/galerie/tayrona.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#1a3c2a,#5c8c3a);">
-          <span class="gi__placeholder-emoji">🌴</span>
           <span class="gi__placeholder-label">Tayrona</span>
         </div>
         <div class="gi__overlay">
@@ -712,7 +716,6 @@
       <div class="gi" data-label="Palomino" data-sub="Karibikküste, Kolumbien"
            data-src="assets/img/galerie/palomino.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#1a4c6e,#2e7096);">
-          <span class="gi__placeholder-emoji">🌊</span>
           <span class="gi__placeholder-label">Palomino · Karibik</span>
         </div>
         <div class="gi__overlay">
@@ -724,7 +727,6 @@
       <div class="gi" data-label="Minca" data-sub="Bergdorf, Kolumbien"
            data-src="assets/img/galerie/minca.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#1a3c2a,#2e5c3a);">
-          <span class="gi__placeholder-emoji">🦜</span>
           <span class="gi__placeholder-label">Minca · Bergdorf</span>
         </div>
         <div class="gi__overlay">
@@ -744,7 +746,7 @@
   <div class="container">
 
     <div class="kapitel-header animate-on-scroll">
-      <span class="kapitel-header__flag">🇪🇨</span>
+      
       <h2 class="kapitel-header__name">Ecuador</h2>
       <span class="kapitel-header__count">Apr – Mai 2026</span>
     </div>
@@ -754,9 +756,8 @@
 
       <div class="gi" data-label="Cotopaxi" data-sub="5.897m, Ecuador"
            data-src="assets/img/galerie/cotopaxi.jpg">
-        <div class="gi__badge">★ Highlight</div>
+        <div class="gi__badge">Highlight</div>
         <div class="gi__placeholder" style="background:linear-gradient(160deg,#0a1520,#1a2744,#3d7a52);">
-          <span class="gi__placeholder-emoji">🏔️</span>
           <span class="gi__placeholder-label">Cotopaxi · 5.897m</span>
         </div>
         <div class="gi__overlay">
@@ -768,7 +769,6 @@
       <div class="gi" data-label="Quilotoa-Lagune" data-sub="3.900m, Ecuador"
            data-src="assets/img/galerie/quilotoa.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#1a5c3c,#2e8c6e);">
-          <span class="gi__placeholder-emoji">🌊</span>
           <span class="gi__placeholder-label">Quilotoa · Kratersee</span>
         </div>
         <div class="gi__overlay">
@@ -780,7 +780,6 @@
       <div class="gi" data-label="Amazonas" data-sub="4 Tage Regenwald, Ecuador"
            data-src="assets/img/galerie/amazonas.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(160deg,#1a3c2a,#0a1520);">
-          <span class="gi__placeholder-emoji">🌴</span>
           <span class="gi__placeholder-label">Amazonas · Ecuador</span>
         </div>
         <div class="gi__overlay">
@@ -792,7 +791,6 @@
       <div class="gi" data-label="Baños" data-sub="Wasserfälle, Ecuador"
            data-src="assets/img/galerie/banos.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#1a4c6e,#3d7a52);">
-          <span class="gi__placeholder-emoji">💧</span>
           <span class="gi__placeholder-label">Baños · Wasserfall</span>
         </div>
         <div class="gi__overlay">
@@ -805,26 +803,20 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     KAPITEL 3 — GALÁPAGOS
-══════════════════════════════════════════════════════════ -->
-<section class="galerie-section" id="galapagos">
-  <div class="container">
+    <div class="galerie-divider"></div>
 
-    <div class="kapitel-header animate-on-scroll">
-      <span class="kapitel-header__flag">🐢</span>
-      <h2 class="kapitel-header__name">Galápagos</h2>
+    <!-- Galápagos — Teil von Ecuador -->
+    <div class="kapitel-header animate-on-scroll" style="margin-top:0;">
+      <h2 class="kapitel-header__name" style="font-size:1.4rem;">Galápagos</h2>
       <span class="kapitel-header__count">Mai – Jun 2026 · 3 Wochen</span>
     </div>
 
-    <!-- Bento A: Galápagos Wildlife -->
     <div class="bento bento--a animate-on-scroll">
 
       <div class="gi" data-label="Riesenschildkröten" data-sub="Santa Cruz, Galápagos"
            data-src="assets/img/galerie/galapagos-schildkroeten.jpg">
-        <div class="gi__badge">🐢 Wildlife</div>
+        <div class="gi__badge">Wildlife</div>
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#1a4c2a,#2e6e3a);">
-          <span class="gi__placeholder-emoji">🐢</span>
           <span class="gi__placeholder-label">Riesenschildkröten · Santa Cruz</span>
         </div>
         <div class="gi__overlay">
@@ -833,10 +825,9 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <div class="gi" data-label="Blaufußtölpel" data-sub="Isla de la Plata, Galápagos"
+      <div class="gi" data-label="Blaufußtölpel" data-sub="Galápagos"
            data-src="assets/img/galerie/galapagos-toelpel.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#006994,#0a3c6e);">
-          <span class="gi__placeholder-emoji">🐦</span>
           <span class="gi__placeholder-label">Blaufußtölpel</span>
         </div>
         <div class="gi__overlay">
@@ -847,9 +838,8 @@
 
       <div class="gi" data-label="Seelöwen" data-sub="Am Strand, Galápagos"
            data-src="assets/img/galerie/galapagos-seeloewen.jpg">
-        <div class="gi__badge">★ Highlight</div>
+        <div class="gi__badge">Highlight</div>
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#3a6e8c,#1a4c6e);">
-          <span class="gi__placeholder-emoji">🦭</span>
           <span class="gi__placeholder-label">Seelöwen am Strand</span>
         </div>
         <div class="gi__overlay">
@@ -863,13 +853,13 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     KAPITEL 4 — PERU
+     KAPITEL 3 — PERU
 ══════════════════════════════════════════════════════════ -->
 <section class="galerie-section" id="peru" style="background:var(--sand-50,#faf8f5);">
   <div class="container">
 
     <div class="kapitel-header animate-on-scroll">
-      <span class="kapitel-header__flag">🇵🇪</span>
+      
       <h2 class="kapitel-header__name">Peru</h2>
       <span class="kapitel-header__count">Jun 2026 · aktuell</span>
     </div>
@@ -880,7 +870,6 @@
       <div class="gi" data-label="Lima" data-sub="Miraflores, Peru"
            data-src="assets/img/galerie/lima.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#1a2744,#3b61a8);">
-          <span class="gi__placeholder-emoji">🏙️</span>
           <span class="gi__placeholder-label">Lima · Miraflores</span>
         </div>
         <div class="gi__overlay">
@@ -892,7 +881,6 @@
       <div class="gi" data-label="Huaraz" data-sub="Cordillera Blanca, Peru"
            data-src="assets/img/galerie/huaraz.jpg">
         <div class="gi__placeholder" style="background:linear-gradient(160deg,#0a1520,#1a3a5c,#3d7a52);">
-          <span class="gi__placeholder-emoji">🏔️</span>
           <span class="gi__placeholder-label">Huaraz · Cordillera Blanca</span>
         </div>
         <div class="gi__overlay">
@@ -904,14 +892,14 @@
       <!-- Coming Soon -->
       <div class="gi" style="cursor:default;" data-label="" data-sub="" data-src="">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#1a2744,#2e3c5a);">
-          <span class="gi__placeholder-emoji" style="font-size:2rem;opacity:0.3;">🏛️</span>
+          <span class="gi__placeholder-emoji" style="font-size:2rem;opacity:0.3;"></span>
           <span class="gi__placeholder-label" style="color:rgba(255,255,255,0.25);">Machu Picchu<br>— kommt bald —</span>
         </div>
       </div>
 
       <div class="gi" style="cursor:default;" data-label="" data-sub="" data-src="">
         <div class="gi__placeholder" style="background:linear-gradient(135deg,#2a1a1a,#5a2e1a);">
-          <span class="gi__placeholder-emoji" style="font-size:2rem;opacity:0.3;">🌅</span>
+          <span class="gi__placeholder-emoji" style="font-size:2rem;opacity:0.3;"></span>
           <span class="gi__placeholder-label" style="color:rgba(255,255,255,0.25);">Cusco<br>— kommt bald —</span>
         </div>
       </div>
@@ -1041,7 +1029,7 @@
 
   // ── Kapitel-Navigation: Scroll-Spy ──────────────────────
   const kapitelBtns = document.querySelectorAll('.kapitel-btn');
-  const sections = ['kolumbien','ecuador','galapagos','peru'].map(id => document.getElementById(id));
+  const sections = ['kolumbien','ecuador','peru'].map(id => document.getElementById(id));
 
   kapitelBtns.forEach(btn => {
     btn.addEventListener('click', () => {
