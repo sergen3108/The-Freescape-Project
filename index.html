@@ -350,8 +350,24 @@
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 <script>
+<script>
 (async function() {
-  const SA = REISE.saMap;
+  const YT_API_KEY    = 'AIzaSyBW6ccDJvUm-nVjyUYdQ2PiG-byZiwPJE4';
+  const YT_CHANNEL_ID = 'UCmCpxt4eKOG_R1csbtp3Z9Q';
+  try {
+    const res  = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`);
+    const data = await res.json();
+    const count = data.items?.[0]?.statistics?.videoCount;
+    if (count !== undefined) {
+      const el = document.querySelector('[data-reise="vlogsVeroeffentlicht"]');
+      if (el) {
+        el.setAttribute('data-count', count);
+        el.textContent = count;
+      }
+    }
+  } catch(e) { console.warn('YouTube Stats Fehler:', e); }
+})();
+</script>
   try {
     const world = await d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
     const allFeatures = topojson.feature(world, world.objects.countries).features;
