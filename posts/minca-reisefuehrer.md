@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 9 min
 autor: Julia
 teaser: Fünf Nächte in den Bergen über Santa Marta, ohne Hitze, ohne Trubel. Minca war für uns eine der besten Entscheidungen der ganzen Reise.
-bild: assets/img/blog/minca2.jpg
+bild: assets/img/minca2.jpg
 bildEmoji: 🌿
 bildGradient: linear-gradient(135deg,#1a3a2a,#138a36)
 tags:
@@ -16,7 +16,7 @@ tags:
   - Reiseführer
 ---
 
-![Minca](assets/img/blog/minca1.jpg)
+![Minca](assets/img/minca1.jpg)
 
 Minca liegt in den Bergen direkt über Santa Marta und fühlt sich trotzdem an wie eine völlig andere Welt. Statt Hitze, Lärm und vollen Straßen erwarten einen hier kühlere Temperaturen, dichter Dschungel, Wasserfälle und beeindruckende Ausblicke auf die Küste.
 
