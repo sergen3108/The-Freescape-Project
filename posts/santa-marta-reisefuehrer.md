@@ -16,7 +16,7 @@ tags:
   - Reiseführer
 ---
 
-![Santa Marta](assets/img/blog/santamarta1.jpg)
+![Santa Marta](assets/img/blog/santamarta.jpg)
 
 Santa Marta ist einer der Haupteinstiegspunkte zur kolumbianischen Karibikküste und steht deshalb in vielen Reiserouten. Für uns war die Stadt selbst aber nicht das Highlight, sondern eher das Tor zu Orten wie dem Tayrona Nationalpark, Minca und der umliegenden Küste.
 
