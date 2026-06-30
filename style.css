@@ -1860,3 +1860,48 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
     -webkit-line-clamp: 3;
   }
 }
+
+
+/* === FEATURED BLOG CARD (ersetzt Inline-Styles aus blog.html) ===
+   Der Featured-Artikel wird in blog.html dynamisch per JS gebaut.
+   Vorher waren die Styles inline gesetzt (flex-direction:row,
+   width:45% fürs Bild), das ließ sich auf Mobile nicht sauber
+   überschreiben. Jetzt über Klassen gesteuert, mit echtem
+   Mobile-Breakpoint. */
+.blog-card--featured {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  margin-bottom: var(--sp-8);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.blog-card--featured__thumb {
+  width: 45%;
+  min-height: 280px;
+  overflow: hidden;
+  flex-shrink: 0;
+  display: block;
+  position: relative;
+}
+.blog-card--featured__body {
+  padding: var(--sp-8);
+}
+
+@media (max-width: 640px) {
+  .blog-card--featured {
+    flex-direction: column;
+  }
+  .blog-card--featured__thumb {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 16/9;
+  }
+  .blog-card--featured__body {
+    padding: var(--sp-4);
+  }
+  .blog-card--featured .blog-card__title {
+    font-size: 1.2rem !important;
+  }
+}
