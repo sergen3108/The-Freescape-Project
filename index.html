@@ -29,6 +29,7 @@
 </head>
 <body>
 
+<!-- ── Navigation ───────────────────────────────────────── -->
 <nav class="nav nav--transparent" role="navigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -39,10 +40,30 @@
       </span>
     </a>
     <div class="nav__menu">
-      <a href="index.html" class="nav__link active" data-page="index.html">Start</a>
+      <a href="index.html" class="nav__link" data-page="index.html">Start</a>
       <a href="ueber-uns.html" class="nav__link" data-page="ueber-uns.html">Über uns</a>
-      <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
-      <a href="blog.html" class="nav__link" data-page="blog.html">Blog</a>
+
+      <!-- Magazin Dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle active" data-href="magazin.html" data-page="magazin.html">Magazin
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="vlogs.html" class="nav__dropdown-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:14px;height:14px;flex-shrink:0;"><path d="M8 5v14l11-7z"/></svg>
+            Vlogs
+          </a>
+          <a href="blog.html" class="nav__dropdown-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Blog &amp; Artikel
+          </a>
+          <a href="kosten.html" class="nav__dropdown-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            Kosten-Überblick
+          </a>
+        </div>
+      </div>
+
       <div class="nav__dropdown">
         <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Länder
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
@@ -86,8 +107,10 @@
 <div class="nav__mobile">
   <a href="index.html" class="nav__mobile-link">Start</a>
   <a href="ueber-uns.html" class="nav__mobile-link">Über uns</a>
-  <a href="vlogs.html" class="nav__mobile-link">Vlogs</a>
-  <a href="blog.html" class="nav__mobile-link">Blog</a>
+  <a href="magazin.html" class="nav__mobile-link">Magazin</a>
+  <a href="vlogs.html" class="nav__mobile-link" style="padding-left:2rem;font-size:0.95rem;">▶ Vlogs</a>
+  <a href="blog.html" class="nav__mobile-link" style="padding-left:2rem;font-size:0.95rem;">📖 Blog & Artikel</a>
+  <a href="kosten.html" class="nav__mobile-link" style="padding-left:2rem;font-size:0.95rem;">💰 Kosten-Überblick</a>
   <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
   <a href="galerie.html" class="nav__mobile-link">Galerie</a>
   <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
