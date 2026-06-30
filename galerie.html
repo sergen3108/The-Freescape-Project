@@ -122,6 +122,14 @@
     .bento--d .gi:nth-child(5) { grid-column: span 4; }
     .bento--d .gi:nth-child(6) { grid-column: span 4; }
 
+    /* Layout D2: 2 klein links + 1 groß rechts oben, 3 klein darunter */
+    .bento--d2 .gi:nth-child(1) { grid-column: span 4; }
+    .bento--d2 .gi:nth-child(2) { grid-column: span 4; }
+    .bento--d2 .gi:nth-child(3) { grid-column: span 4; grid-row: span 2; }
+    .bento--d2 .gi:nth-child(4) { grid-column: span 4; }
+    .bento--d2 .gi:nth-child(5) { grid-column: span 4; }
+    .bento--d2 .gi:nth-child(6) { grid-column: span 4; }
+
     /* Galerie-Item */
     .gi {
       position: relative;
@@ -366,6 +374,10 @@
       .bento--b .gi { grid-column: span 6; }
       .bento--d .gi:nth-child(1) { grid-column: span 12; grid-row: span 1; min-height: 250px; }
       .bento--d .gi:nth-child(n+2) { grid-column: span 6; }
+      .bento--d2 .gi:nth-child(3) { grid-column: span 12; grid-row: span 1; min-height: 250px; }
+      .bento--d2 .gi:nth-child(1),
+      .bento--d2 .gi:nth-child(2),
+      .bento--d2 .gi:nth-child(n+4) { grid-column: span 6; }
       .lb__arrow--prev { left: 0.5rem; }
       .lb__arrow--next { right: 0.5rem; }
     }
@@ -374,7 +386,8 @@
       .bento--a .gi:nth-child(2),
       .bento--a .gi:nth-child(3),
       .bento--b .gi,
-      .bento--d .gi:nth-child(n+2) { grid-column: span 12; }
+      .bento--d .gi:nth-child(n+2),
+      .bento--d2 .gi { grid-column: span 12; }
     }
   </style>
 </head>
@@ -559,10 +572,10 @@
 
     <div class="galerie-divider"></div>
 
-    <!-- Bento D: El Peñol + Medellín + San Andrés + Tayrona + Palomino + Minca -->
-    <div class="bento bento--d animate-on-scroll animate-delay-1">
+    <!-- Bento D2: Medellín + San Andrés (klein, links) / El Peñol (groß, rechts) + Tayrona + Palomino + Minca -->
+    <div class="bento bento--d2 animate-on-scroll animate-delay-1">
 
-           <!-- ✏️ src anpassen -->
+      <!-- ✏️ src anpassen -->
       <div class="gi"
            data-label="Medellín"
            data-sub="Seilbahn, Kolumbien"
@@ -653,7 +666,7 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-    </div><!-- /bento-d -->
+    </div><!-- /bento-d2 -->
   </div>
 </section>
 
