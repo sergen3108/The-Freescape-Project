@@ -1933,3 +1933,18 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
     letter-spacing: 0.02em;
   }
 }
+
+/* Verhindert horizontalen Overflow durch die Einblend-Animationen
+   auf ueber-uns.html — translateX(-60px/+60px) der img-reveal-wrap
+   Elemente bricht auf Mobile aus dem Viewport heraus */
+.img-reveal-wrap {
+  transform: translateY(30px) !important;
+  opacity: 0;
+}
+.img-reveal-wrap--right {
+  transform: translateY(30px) !important;
+}
+.img-reveal-wrap.visible {
+  transform: translateY(0) !important;
+  opacity: 1;
+}
