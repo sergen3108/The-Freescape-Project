@@ -486,13 +486,12 @@
       const thumb = p.bild
         ? `<img src="${p.bild}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">`
         : `<div style="width:100%;height:100%;background:${p.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:4rem;">${p.bildFallback.emoji}</div>`;
-      featured.innerHTML = `
-        <article class="blog-card" data-category="${p.kategorie}" data-tags="${(p.tags || []).join(' ').toLowerCase()}"
-          style="display:flex;flex-direction:row;gap:0;margin-bottom:2rem;border:1.5px solid var(--gray-100);border-radius:var(--r-lg);overflow:hidden;">
-          <a href="${p.link}" class="blog-card__thumb" style="width:45%;min-height:280px;overflow:hidden;flex-shrink:0;display:block;">
-            ${thumb}<span class="blog-card__category">${p.land}</span>
-          </a>
-          <div class="blog-card__body" style="padding:2rem;">
+     featured.innerHTML = `
+  <article class="blog-card blog-card--featured" data-category="${p.kategorie}" data-tags="${(p.tags || []).join(' ').toLowerCase()}">
+    <a href="${p.link}" class="blog-card__thumb blog-card--featured__thumb">
+      ${thumb}<span class="blog-card__category">${p.land}</span>
+    </a>
+    <div class="blog-card__body blog-card--featured__body">
             <span class="article-type article-type--${typClass[p.typ] || 'guide'}">${p.typLabel}</span>
             <div class="blog-card__meta">
               <span class="blog-card__author">${p.autor}</span>
