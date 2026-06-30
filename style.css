@@ -1818,3 +1818,45 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   }
 }
 
+/* === BLOG GRID MOBILE FIX ===================================
+   Problem: .blog-grid--magazine .blog-card:first-child behält
+   bei sehr schmalen Screens noch Reste des row-Layouts
+   (Bild + Text nebeneinander gequetscht), obwohl bei 1024px
+   schon auf column umgestellt wird. Außerdem horizontaler
+   Overflow durch das Sonderformat der ersten Karte.
+   Lösung: Auf Mobile alle Karten im normalen, einheitlichen
+   .blog-card Format anzeigen, kein Sonderformat mehr für die
+   erste Karte. */
+@media (max-width: 640px) {
+  .blog-grid--magazine {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-5);
+  }
+  .blog-grid--magazine .blog-card:first-child {
+    grid-column: auto;
+    flex-direction: column;
+  }
+  .blog-grid--magazine .blog-card:first-child .blog-card__thumb {
+    flex: none;
+    aspect-ratio: 16/9;
+  }
+  .blog-grid--magazine .blog-card:first-child .blog-card__body {
+    flex: none;
+  }
+  .blog-grid--magazine .blog-card:first-child .blog-card__title {
+    font-size: 1.2rem; /* gleiche Größe wie normale Karten statt vergrößert */
+  }
+
+  /* Karten allgemein etwas kompakter auf Mobile */
+  .blog-card__body {
+    padding: var(--sp-4);
+  }
+  .blog-card__title {
+    font-size: 1.05rem;
+  }
+  .blog-card__excerpt {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 3;
+  }
+}
