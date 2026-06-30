@@ -4,7 +4,7 @@ datum: 2026-06-29
 land: Kolumbien
 typ: guide
 lesezeit: 9 min
-autor: Sergen & Julia
+autor: Julia
 teaser: Zwischen Strand-Hostel und Tubing auf dem Fluss, die Karibikküste zwischen Costeño Beach und Rio Hostel ist genau der entspannte Kontrast, den man nach den Städten braucht.
 bild: assets/img/blog/costeno1.jpg
 bildEmoji: 🏖️
