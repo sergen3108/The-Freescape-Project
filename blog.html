@@ -165,7 +165,7 @@
 <section class="section">
   <div class="container">
     <!-- Suchfeld + Filter in einer Zeile -->
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1.5rem;">
+    <div class="blog-controls">
       <!-- Filter links -->
       <div class="filter-bar" id="blog-filter-bar" style="margin-bottom:0;">
         <button class="filter-btn active" data-filter="all">Alle</button>
@@ -174,7 +174,7 @@
         <button class="filter-btn" data-filter="peru">Peru</button>
       </div>
       <!-- Suchfeld rechts (inline gestylt um CSS-Konflikte zu vermeiden) -->
-      <div style="display:flex;align-items:center;gap:0.5rem;flex-shrink:0;width:280px;background:#fff;border:1.5px solid var(--gray-200);border-radius:999px;padding:0.45rem 1rem;">
+      <div class="blog-search-wrap">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="flex-shrink:0;opacity:0.4;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <input type="search" id="blog-search" placeholder="Artikel durchsuchen …" autocomplete="off"
           style="border:none;outline:none;background:transparent;font-size:0.875rem;color:var(--gray-700);width:100%;font-family:inherit;">
