@@ -83,19 +83,72 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(tick);
   }
 
-  /* ── Video Modal ─────────────────────────────────────── */
+  /* ── Video Modal (mit Cookie-Consent-Gate) ───────────── */
   const videoModal = document.querySelector('.video-modal');
   const videoFrame = document.querySelector('.video-modal__iframe');
   const videoClose = document.querySelector('.video-modal__close');
+
+  // Prüft, ob die Person bereits "Alle akzeptieren" geklickt hat.
+  // Nur dann dürfen YouTube-Cookies/Datenübertragung stattfinden.
+  function hasVideoConsent() {
+    return localStorage.getItem('ans_cookie') === 'accepted';
+  }
+
+  function buildConsentPlaceholder(videoId) {
+    const wrap = videoModal.querySelector('.video-modal__iframe-wrap');
+    if (!wrap) return;
+    wrap.innerHTML = `
+      <div class="video-consent-gate" style="
+        position:absolute; inset:0; display:flex; flex-direction:column;
+        align-items:center; justify-content:center; gap:1rem;
+        background:#111; color:#fff; text-align:center; padding:2rem; border-radius:var(--r-md);">
+        <p style="max-width:380px; font-size:0.9rem; line-height:1.6; color:rgba(255,255,255,0.8);">
+          Dieses Video wird von YouTube (Google) eingebettet. Beim Abspielen werden Daten
+          (z. B. deine IP-Adresse) an YouTube-Server übertragen und Cookies gesetzt.
+          <a href="datenschutz.html" style="color:var(--terra-400); text-decoration:underline;">Mehr in der Datenschutzerklärung</a>.
+        </p>
+        <button type="button" class="btn btn-primary video-consent-accept">
+          Video laden &amp; YouTube-Cookies akzeptieren
+        </button>
+      </div>`;
+
+    const acceptBtn = wrap.querySelector('.video-consent-accept');
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('ans_cookie', 'accepted');
+        // Haupt-Cookie-Banner ebenfalls ausblenden, falls noch offen
+        const banner = document.querySelector('.cookie-banner');
+        if (banner) banner.classList.remove('show');
+        loadVideoIntoModal(videoId);
+      });
+    }
+  }
+
+  function loadVideoIntoModal(videoId) {
+    const wrap = videoModal.querySelector('.video-modal__iframe-wrap');
+    if (!wrap || !videoFrame) return;
+    // iframe wiederherstellen (falls vorher durch Consent-Platzhalter ersetzt)
+    if (!videoModal.querySelector('.video-modal__iframe')) {
+      wrap.innerHTML = '<iframe class="video-modal__iframe" src="" frameborder="0" allowfullscreen></iframe>';
+    }
+    const frame = videoModal.querySelector('.video-modal__iframe');
+    frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+  }
 
   document.querySelectorAll('[data-video]').forEach(el => {
     el.addEventListener('click', (e) => {
       e.preventDefault();
       const videoId = el.dataset.video;
-      if (!videoId || !videoModal || !videoFrame) return;
-      videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      if (!videoId || !videoModal) return;
+
       videoModal.classList.add('open');
       document.body.style.overflow = 'hidden';
+
+      if (hasVideoConsent()) {
+        loadVideoIntoModal(videoId);
+      } else {
+        buildConsentPlaceholder(videoId);
+      }
     });
   });
 
@@ -109,9 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function closeVideoModal() {
-    if (!videoModal || !videoFrame) return;
+    if (!videoModal) return;
     videoModal.classList.remove('open');
-    videoFrame.src = '';
+    const frame = videoModal.querySelector('.video-modal__iframe');
+    if (frame) frame.src = '';
     document.body.style.overflow = '';
   }
 
