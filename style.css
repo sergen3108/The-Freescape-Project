@@ -1905,3 +1905,48 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
     font-size: 1.2rem !important;
   }
 }
+
+/* === BLOG CONTROLS (Filter + Suche) =========================
+   Ersetzt Inline-Styles aus blog.html. Problem war eine feste
+   width:280px auf dem Suchfeld, die zusammen mit den
+   Filter-Buttons auf schmalen Screens horizontalen Overflow
+   verursacht hat. */
+.blog-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-6);
+  flex-wrap: wrap;
+}
+.blog-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+  width: 280px;
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--r-full);
+  padding: 0.45rem 1rem;
+}
+
+@media (max-width: 640px) {
+  .blog-controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--sp-3);
+  }
+  .blog-search-wrap {
+    width: 100%;
+  }
+  .filter-bar {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .filter-bar::-webkit-scrollbar {
+    height: 4px;
+  }
+}
