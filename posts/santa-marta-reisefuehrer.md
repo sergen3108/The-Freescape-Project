@@ -4,7 +4,7 @@ datum: 2026-06-29
 land: Kolumbien
 typ: guide
 lesezeit: 9 min
-autor: Sergen & Julia
+autor: Julia
 teaser: Santa Marta ist selten das eigentliche Ziel, sondern eher die Drehscheibe für Tayrona, Minca und die Küste. Hier teilen wir unsere ehrlichen Eindrücke und was du wissen solltest.
 bild: assets/img/blog/santamarta.jpg
 bildEmoji: 🌴
