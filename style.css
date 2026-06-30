@@ -1909,10 +1909,14 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
    bei 4 Elementen ergibt sich ein ordentliches 2x2-Raster. */
 @media (max-width: 480px) {
   .stats-bar__grid[style*="repeat("] {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: var(--sp-4) var(--sp-2);
-    justify-items: center;
-  }
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: var(--sp-4) var(--sp-2);
+}
+.stats-bar__grid[style*="repeat(3,"] .stats-bar__item:last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 50%;
+}
   .stats-bar__grid[style*="repeat("] .stats-bar__item {
     padding: var(--sp-2) var(--sp-1);
     min-width: 0;
