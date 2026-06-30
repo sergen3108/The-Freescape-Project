@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 9 min
 autor: Julia
 teaser: Santa Marta ist selten das eigentliche Ziel, sondern eher die Drehscheibe für Tayrona, Minca und die Küste. Hier teilen wir unsere ehrlichen Eindrücke und was du wissen solltest.
-bild: assets/img/blog/santamarta.jpg
+bild: assets/img/blog/tayrona3.jpg
 bildEmoji: 🌴
 bildGradient: linear-gradient(135deg,#1a2744,#138a36)
 tags:
@@ -74,7 +74,7 @@ Wer nur eine oder zwei Nächte bleibt, sollte vor allem auf **gute Bewertungen**
 
 ## Die besten Aktivitäten in Santa Marta
 
-![Santa Marta](assets/img/blog/santamarta2.jpg)
+![Santa Marta](assets/img/blog/tayrona.jpg)
 
 Santa Marta selbst bietet keine lange Liste an Pflichtprogramm, dient aber als Ausgangspunkt für einige der besten Erlebnisse an der kolumbianischen Karibikküste.
 
@@ -85,6 +85,9 @@ In Tayrona haben wir eine Nacht in einer **Hängematte direkt am Strand am Cabo 
 Nach Tayrona sind wir für eine weitere Nacht nach Santa Marta zurückgekehrt, bevor es weiter nach **Minca** ging.
 
 Abgesehen von Tayrona dient Santa Marta vor allem dazu, die nächsten Schritte vorzubereiten und zu organisieren. Man kann durchs Zentrum laufen, etwas essen und alles für die Weiterreise vorbereiten.
+
+![Santa Marta](assets/img/blog/minca.jpg)
+
 
 ---
 
