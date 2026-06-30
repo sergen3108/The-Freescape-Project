@@ -1959,3 +1959,12 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
     order: 1;
   }
 }
+
+/* About-Teaser auf index.html: Foto soll auf Mobile unter den Text,
+   im DOM steht .about-teaser__visual aber vor .about-teaser__content */
+.about-teaser__visual {
+  order: 2;
+}
+.about-teaser__content {
+  order: 1;
+}
