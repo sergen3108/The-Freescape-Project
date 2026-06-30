@@ -1948,3 +1948,14 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   transform: translateY(0) !important;
   opacity: 1;
 }
+
+@media (max-width: 768px) {
+  /* Sergens Foto steht im DOM vor seinem Text, soll auf Mobile
+     aber darunter erscheinen — order dreht die Reihenfolge um */
+  .person-grid .img-reveal-wrap:not(.img-reveal-wrap--right) {
+    order: 2;
+  }
+  .person-grid .img-reveal-wrap:not(.img-reveal-wrap--right) ~ div {
+    order: 1;
+  }
+}
