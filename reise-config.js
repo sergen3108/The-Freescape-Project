@@ -7,8 +7,10 @@ const REISE = {
   // ── Persönliche Länder-Bilanz (Lifetime, inkl. vor der Reise) ──
   sergenLaender: 14,
   juliaLaender:  47,
-  // ── Reise-Zahlen ───────────────────────────────────────────────
+// ── Reise-Zahlen ───────────────────────────────────────────────
   kmZurueckgelegt:      13500,
+  // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
+  orteBesucht:          16,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
   naechsteWoche: 'Paracas — dann weiter zum Machu Picchu! Wir sind gespannt 🙌',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
