@@ -24,6 +24,12 @@
   <style>
     /* ═══════════════════════════════════════════════════════
        GALERIE — DESIGN SYSTEM
+       Jedes Land zeigt genau 10 Bilder (unsere Top 10), in drei
+       wiederkehrenden "Bändern": A (groß-links) → QUAD (4 gleich
+       groß) → A-REV (groß-rechts, gespiegelt). So bleibt der Rhythmus
+       über alle Länder konsistent, unabhängig davon wie viele echte
+       Fotos schon ausgewählt sind. Noch fehlende Top-10-Plätze sind
+       als "Kommt bald"-Platzhalter markiert (gi--placeholder).
     ═══════════════════════════════════════════════════════ */
 
     .galerie-section {
@@ -96,48 +102,39 @@
       border-bottom-color: var(--terra-600, #c4622d);
     }
 
-    /* ── Bento Grid ───────────────────────────────────────── */
+    /* ── Bento Grid: drei wiederkehrende Bänder ────────────── */
     .bento {
       display: grid;
       gap: 0.75rem;
       grid-template-columns: repeat(12, 1fr);
+      margin-bottom: 0.75rem;
     }
+    .bento:last-child { margin-bottom: 0; }
 
-    /* Layout A: groß links, 2 rechts übereinander */
+    /* Band A — groß links + 2 klein gestapelt rechts */
     .bento--a .gi:nth-child(1) { grid-column: span 7; grid-row: span 2; }
     .bento--a .gi:nth-child(2) { grid-column: span 5; }
     .bento--a .gi:nth-child(3) { grid-column: span 5; }
 
-    /* Layout B: 2 oben, 2 unten */
-    .bento--b .gi:nth-child(1) { grid-column: span 6; }
-    .bento--b .gi:nth-child(2) { grid-column: span 6; }
-    .bento--b .gi:nth-child(3) { grid-column: span 4; }
-    .bento--b .gi:nth-child(4) { grid-column: span 8; }
+    /* Band A-REV — gespiegelt: 2 klein gestapelt links + groß rechts.
+       Bewusst mit festen Linien-Koordinaten (statt nth-child-Spans)
+       gesetzt, damit nichts in eine vierte Spalte "auto-rutschen" kann. */
+    .bento--a-rev .gi:nth-child(1) { grid-column: 1 / 6;  grid-row: 1 / 2; }
+    .bento--a-rev .gi:nth-child(2) { grid-column: 1 / 6;  grid-row: 2 / 3; }
+    .bento--a-rev .gi:nth-child(3) { grid-column: 6 / 13; grid-row: 1 / 3; }
 
-    /* Layout D: mosaic groß links + 5 rechts/unten */
-    .bento--d .gi:nth-child(1) { grid-column: span 8; grid-row: span 2; }
-    .bento--d .gi:nth-child(2) { grid-column: span 4; }
-    .bento--d .gi:nth-child(3) { grid-column: span 4; }
-    .bento--d .gi:nth-child(4) { grid-column: span 4; }
-    .bento--d .gi:nth-child(5) { grid-column: span 4; }
-    .bento--d .gi:nth-child(6) { grid-column: span 4; }
-
-    /* Layout D2: 2 klein links + 1 groß rechts oben, 3 klein darunter */
-    .bento--d2 .gi:nth-child(1) { grid-column: span 4; }
-    .bento--d2 .gi:nth-child(2) { grid-column: span 4; }
-    .bento--d2 .gi:nth-child(3) { grid-column: span 4; grid-row: span 2; }
-    .bento--d2 .gi:nth-child(4) { grid-column: span 4; }
-    .bento--d2 .gi:nth-child(5) { grid-column: span 4; }
-    .bento--d2 .gi:nth-child(6) { grid-column: span 4; }
+    /* Band QUAD — 4 gleich große Bilder in einer Reihe */
+    .bento--quad .gi { grid-column: span 3; }
 
     /* Galerie-Item */
     .gi {
       position: relative;
       overflow: hidden;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
       background: var(--sand-200, #e8e2d9);
-      min-height: 200px;
+      min-height: 220px;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s ease;
     }
     .gi img {
       display: block;
@@ -146,7 +143,15 @@
       object-fit: cover;
       transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
     }
-    .gi:hover img { transform: scale(1.06); }
+    .gi:not(.gi--placeholder):hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(10,21,32,0.18);
+    }
+    .gi:not(.gi--placeholder):hover img { transform: scale(1.06); }
+    .gi:focus-visible {
+      outline: 2px solid var(--terra-600, #c4622d);
+      outline-offset: 3px;
+    }
 
     /* Overlay beim Hover */
     .gi__overlay {
@@ -200,7 +205,9 @@
     .gi:hover .gi__lens { opacity: 1; transform: translateY(0); }
     .gi__lens svg { width: 14px; height: 14px; color: white; }
 
-    /* Badge */
+    /* Badge — bewusst sparsam eingesetzt: max. 1 "Highlight" pro Land
+       (das jeweils beste Foto) plus vereinzelt ein beschreibender Tag
+       wie "Kaffeeregion", wo er wirklich Mehrwert bringt. */
     .gi__badge {
       position: absolute;
       top: 0.75rem;
@@ -217,10 +224,13 @@
       z-index: 2;
     }
 
-    /* "Coming soon" Slot */
+    /* "Kommt bald" Slot — eigene Top-10-Plätze, die noch auf ihr Foto
+       warten. Bewusst mit Icon + Zielname gestaltet statt einer leeren
+       grauen Box, damit es wie eine Einladung wirkt statt wie ein Fehler. */
     .gi--placeholder {
       cursor: default;
-      background: var(--sand-100, #fdf8f0);
+      background: linear-gradient(135deg, var(--sand-100, #fdf8f0), var(--sand-200, #e8e2d9));
+      border: 1.5px dashed var(--sand-300, #d9cfc0);
     }
     .gi--placeholder .gi__placeholder-inner {
       position: absolute;
@@ -229,16 +239,34 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.65rem;
     }
+    .gi--placeholder .gi__placeholder-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(196,98,45,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--terra-600, #c4622d);
+    }
+    .gi--placeholder .gi__placeholder-icon svg { width: 16px; height: 16px; }
     .gi--placeholder .gi__placeholder-label {
-      font-family: var(--font-nav);
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gray-400);
+      font-family: var(--font-display);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--gray-600, #555);
       text-align: center;
       padding: 0 1rem;
+      line-height: 1.3;
+    }
+    .gi--placeholder .gi__placeholder-sub {
+      font-family: var(--font-nav);
+      font-size: 0.64rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray-400, #aaa);
     }
 
     /* ── Lightbox ─────────────────────────────────────────── */
@@ -339,8 +367,6 @@
       letter-spacing: 0.1em;
     }
 
-    .galerie-divider { height: 0.75rem; }
-
     /* Instagram CTA */
     .ig-cta {
       text-align: center;
@@ -368,16 +394,16 @@
 
     /* ── Responsive ───────────────────────────────────────── */
     @media (max-width: 900px) {
-      .bento--a .gi:nth-child(1) { grid-column: span 12; min-height: 260px; }
+      .bento--a .gi:nth-child(1) { grid-column: span 12; min-height: 280px; }
       .bento--a .gi:nth-child(2),
       .bento--a .gi:nth-child(3) { grid-column: span 6; }
-      .bento--b .gi { grid-column: span 6; }
-      .bento--d .gi:nth-child(1) { grid-column: span 12; grid-row: span 1; min-height: 250px; }
-      .bento--d .gi:nth-child(n+2) { grid-column: span 6; }
-      .bento--d2 .gi:nth-child(3) { grid-column: span 12; grid-row: span 1; min-height: 250px; }
-      .bento--d2 .gi:nth-child(1),
-      .bento--d2 .gi:nth-child(2),
-      .bento--d2 .gi:nth-child(n+4) { grid-column: span 6; }
+
+      .bento--a-rev .gi:nth-child(3) { grid-column: span 12; grid-row: span 1; min-height: 280px; order: -1; }
+      .bento--a-rev .gi:nth-child(1),
+      .bento--a-rev .gi:nth-child(2) { grid-column: span 6; }
+
+      .bento--quad .gi { grid-column: span 6; }
+
       .lb__arrow--prev { left: 0.5rem; }
       .lb__arrow--next { right: 0.5rem; }
     }
@@ -385,9 +411,13 @@
       .bento { gap: 0.5rem; }
       .bento--a .gi:nth-child(2),
       .bento--a .gi:nth-child(3),
-      .bento--b .gi,
-      .bento--d .gi:nth-child(n+2),
-      .bento--d2 .gi { grid-column: span 12; }
+      .bento--a-rev .gi:nth-child(1),
+      .bento--a-rev .gi:nth-child(2) { grid-column: span 12; }
+    }
+
+    /* ── Bewegung respektieren ──────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      .gi, .gi img, .gi__overlay, .gi__lens { transition: none !important; }
     }
   </style>
 </head>
@@ -508,8 +538,8 @@
 </nav>
 
 <!-- ══════════════════════════════════════════════════════════
-     KAPITEL 1 — KOLUMBIEN
-     ✏️ src="assets/img/galerie/DATEINAME.jpg" anpassen
+     KAPITEL 1 — KOLUMBIEN · 10/10 Top-Fotos, alle bestätigt
+     ✏️ src="assets/img/..." anpassen, falls sich ein Dateiname ändert
 ══════════════════════════════════════════════════════════ -->
 <section class="galerie-section" id="kolumbien">
   <div class="container">
@@ -519,11 +549,10 @@
       <span class="kapitel-header__count">Feb – Apr 2026</span>
     </div>
 
-    <!-- Bento A: Cocora + Bogotá + Kaffee -->
+    <!-- Band 1: groß links (Cocora-Tal) + 2 klein rechts -->
     <div class="bento bento--a animate-on-scroll">
 
-      <!-- ✏️ Großes Bild links — z.B. Cocora-Tal -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
            data-label="Cocora-Tal"
            data-sub="Salento, Kolumbien"
            data-src="assets/img/blog/salento.jpg">
@@ -537,12 +566,12 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ Bild oben rechts — z.B. Bogotá -->
-      <div class="gi"
+      <!-- ✏️ Pfad geprüft & korrigiert: bogotastreet.jpeg statt bogota-candelaria.jpg (existierte nicht) -->
+      <div class="gi" tabindex="0" role="button"
            data-label="La Candelaria"
            data-sub="Bogotá, Kolumbien"
-           data-src="assets/img/galerie/bogota-candelaria.jpg">
-        <img src="assets/img/galerie/bogota-candelaria.jpg"
+           data-src="assets/img/blog/bogotastreet.jpeg">
+        <img src="assets/img/blog/bogotastreet.jpeg"
              alt="La Candelaria, Bogotá"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -552,13 +581,12 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ Bild unten rechts — z.B. Kaffeeplantage -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
            data-label="Kaffeeplantage"
-           data-sub="Eje Cafetero, Kolumbien"
+           data-sub="Salento, Kolumbien"
            data-src="assets/img/blog/salento6.jpg">
         <img src="assets/img/blog/salento6.jpg"
-             alt="Kaffeeplantage, Ocaso"
+             alt="Kaffeeplantage, Salento"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
         <div class="gi__badge">Kaffeeregion</div>
@@ -568,15 +596,12 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-    </div><!-- /bento-a -->
+    </div><!-- /Band 1 -->
 
-    <div class="galerie-divider"></div>
+    <!-- Band 2: 4 gleich große Bilder -->
+    <div class="bento bento--quad animate-on-scroll animate-delay-1">
 
-    <!-- Bento D2: Medellín + San Andrés (klein, links) / El Peñol (groß, rechts) + Tayrona + Palomino + Minca -->
-    <div class="bento bento--d2 animate-on-scroll animate-delay-1">
-
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
            data-label="Medellín"
            data-sub="Seilbahn, Kolumbien"
            data-src="assets/img/blog/medellin4.jpg">
@@ -590,8 +615,7 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
            data-label="San Andrés"
            data-sub="Meer der 7 Farben"
            data-src="assets/img/blog/sanandres8.jpg">
@@ -605,24 +629,7 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ Großes Bild — z.B. El Peñol Panorama -->
-      <div class="gi"
-           data-label="El Peñol"
-           data-sub="Guatapé, Kolumbien"
-           data-src="assets/img/penol.jpg">
-        <img src="assets/img/penol.jpg"
-             alt="El Peñol, Guatapé"
-             style="width:100%;height:100%;object-fit:cover;display:block;"
-             loading="lazy">
-        <div class="gi__badge">Highlight</div>
-        <div class="gi__overlay">
-          <div><div class="gi__label">El Peñol</div><div class="gi__sub">Guatapé, Kolumbien</div></div>
-        </div>
-        <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
-      </div>
-
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
            data-label="Tayrona"
            data-sub="Nationalpark, Kolumbien"
            data-src="assets/img/blog/tayrona3.jpg">
@@ -636,12 +643,11 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
            data-label="Palomino"
            data-sub="Karibikküste, Kolumbien"
-           data-src="assets/img/blog/salento2.jpg">
-        <img src="assets/img/blog/salento2.jpg"
+           data-src="assets/img/galerie/palomino.jpg">
+        <img src="assets/img/galerie/palomino.jpg"
              alt="Palomino, Karibikküste"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -651,12 +657,16 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
+    </div><!-- /Band 2 -->
+
+    <!-- Band 3: gespiegelt — 2 klein links + groß rechts (El Peñol = unser Highlight für Kolumbien) -->
+    <div class="bento bento--a-rev animate-on-scroll animate-delay-2">
+
+      <div class="gi" tabindex="0" role="button"
            data-label="Minca"
            data-sub="Bergdorf, Kolumbien"
-           data-src="assets/img/blog/minca.jpg">
-        <img src="assets/img/blog/minca.jpg"
+           data-src="assets/img/galerie/minca.jpg">
+        <img src="assets/img/galerie/minca.jpg"
              alt="Minca Bergdorf"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -666,13 +676,44 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-    </div><!-- /bento-d2 -->
+      <div class="gi" tabindex="0" role="button"
+           data-label="Guatapé"
+           data-sub="Bunte Gassen, Kolumbien"
+           data-src="assets/img/blog/guatape1.jpg">
+        <img src="assets/img/blog/guatape1.jpg"
+             alt="Guatapé, bunte Gassen"
+             style="width:100%;height:100%;object-fit:cover;display:block;"
+             loading="lazy">
+        <div class="gi__overlay">
+          <div><div class="gi__label">Guatapé</div><div class="gi__sub">Bunte Gassen, Kolumbien</div></div>
+        </div>
+        <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
+      </div>
+
+      <div class="gi" tabindex="0" role="button"
+           data-label="El Peñol"
+           data-sub="Guatapé, Kolumbien"
+           data-src="assets/img/blog/penol.jpg">
+        <img src="assets/img/blog/penol.jpg"
+             alt="El Peñol, Guatapé"
+             style="width:100%;height:100%;object-fit:cover;display:block;"
+             loading="lazy">
+        <div class="gi__badge">Highlight</div>
+        <div class="gi__overlay">
+          <div><div class="gi__label">El Peñol</div><div class="gi__sub">Guatapé, Kolumbien</div></div>
+        </div>
+        <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
+      </div>
+
+    </div><!-- /Band 3 -->
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     KAPITEL 2 — ECUADOR
-     ✏️ src="assets/img/galerie/DATEINAME.jpg" anpassen
+     KAPITEL 2 — ECUADOR · 10/10 Top-Plätze, 6 bestätigt + 4 offen
+     ✏️ Gleiches Schema wie Kolumbien: Band A → QUAD → A-REV
+     ✏️ "Kommt bald": gi--placeholder entfernen, img-Tag + data-Attribute
+        nach Vorbild der echten Fotos oben ergänzen
 ══════════════════════════════════════════════════════════ -->
 <section class="galerie-section" id="ecuador" style="background:var(--sand-50,#faf8f5);">
   <div class="container">
@@ -682,11 +723,10 @@
       <span class="kapitel-header__count">Apr – Mai 2026</span>
     </div>
 
-    <!-- Bento D: Cotopaxi + Quilotoa + Baños + Amazonas + Galápagos Schildkröten + Galápagos Seelöwen -->
-    <div class="bento bento--d animate-on-scroll">
+    <!-- Band 1: groß links (Cotopaxi = unser Highlight für Ecuador) + 2 klein rechts -->
+    <div class="bento bento--a animate-on-scroll">
 
-      <!-- ✏️ Großes Bild — z.B. Cotopaxi -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
            data-label="Cotopaxi"
            data-sub="5.897m, Ecuador"
            data-src="assets/img/galerie/cotopaxi.jpg">
@@ -701,8 +741,7 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
            data-label="Quilotoa-Lagune"
            data-sub="3.900m, Ecuador"
            data-src="assets/img/galerie/quilotoa.jpg">
@@ -716,8 +755,7 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
            data-label="Baños"
            data-sub="Wasserfälle, Ecuador"
            data-src="assets/img/galerie/banos.jpg">
@@ -731,8 +769,12 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
+    </div><!-- /Band 1 -->
+
+    <!-- Band 2: 4 gleich große Bilder (3 echte + 1 offener Platz) -->
+    <div class="bento bento--quad animate-on-scroll animate-delay-1">
+
+      <div class="gi" tabindex="0" role="button"
            data-label="Amazonas"
            data-sub="4 Tage Regenwald, Ecuador"
            data-src="assets/img/galerie/amazonas.jpg">
@@ -746,8 +788,7 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
            data-label="Riesenschildkröten"
            data-sub="Santa Cruz, Galápagos"
            data-src="assets/img/galerie/galapagos-schildkroeten.jpg">
@@ -761,8 +802,7 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
            data-label="Seelöwen"
            data-sub="Am Strand, Galápagos"
            data-src="assets/img/galerie/galapagos-seeloewen.jpg">
@@ -776,15 +816,59 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-    </div><!-- /bento-d Ecuador -->
+      <!-- ✏️ Sobald Foto da: gi--placeholder entfernen, img-Tag ergänzen -->
+      <div class="gi gi--placeholder">
+        <div class="gi__placeholder-inner">
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Otavalo Markt</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /Band 2 -->
+
+    <!-- Band 3: gespiegelt — 2 offene Plätze links + 1 großer offener Platz rechts -->
+    <div class="bento bento--a-rev animate-on-scroll animate-delay-2">
+
+      <div class="gi gi--placeholder">
+        <div class="gi__placeholder-inner">
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Mindo</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gi gi--placeholder">
+        <div class="gi__placeholder-inner">
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Quito Altstadt</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gi gi--placeholder">
+        <div class="gi__placeholder-inner">
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Galápagos Strände</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /Band 3 -->
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     KAPITEL 3 — PERU
-     ✏️ src="assets/img/galerie/DATEINAME.jpg" anpassen
-     ✏️ "Coming soon" Slots: sobald Fotos da sind, gi--placeholder
-        durch normales gi ersetzen und img-Tag hinzufügen
+     KAPITEL 3 — PERU · 10/10 Top-Plätze, 2 bestätigt + 8 offen
+     ✏️ Gleiches Schema wie oben
 ══════════════════════════════════════════════════════════ -->
 <section class="galerie-section" id="peru">
   <div class="container">
@@ -794,11 +878,25 @@
       <span class="kapitel-header__count">Jun 2026 · aktuell</span>
     </div>
 
-    <!-- Bento B: 2 echte Bilder + 2 "Coming soon" Slots -->
-    <div class="bento bento--b animate-on-scroll">
+    <!-- Band 1: groß links (Huaraz = unser bisheriges Highlight für Peru) + 2 klein rechts -->
+    <div class="bento bento--a animate-on-scroll">
 
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
+      <div class="gi" tabindex="0" role="button"
+           data-label="Huaraz"
+           data-sub="Cordillera Blanca, Peru"
+           data-src="assets/img/galerie/huaraz.jpg">
+        <img src="assets/img/galerie/huaraz.jpg"
+             alt="Huaraz Cordillera Blanca"
+             style="width:100%;height:100%;object-fit:cover;display:block;"
+             loading="lazy">
+        <div class="gi__badge">Highlight</div>
+        <div class="gi__overlay">
+          <div><div class="gi__label">Huaraz</div><div class="gi__sub">Cordillera Blanca, Peru</div></div>
+        </div>
+        <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
+      </div>
+
+      <div class="gi" tabindex="0" role="button"
            data-label="Lima"
            data-sub="Miraflores, Peru"
            data-src="assets/img/galerie/lima.jpg">
@@ -812,39 +910,97 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <!-- ✏️ src anpassen -->
-      <div class="gi"
-           data-label="Huaraz"
-           data-sub="Cordillera Blanca, Peru"
-           data-src="assets/img/galerie/huaraz.jpg">
-        <img src="assets/img/galerie/huaraz.jpg"
-             alt="Huaraz Cordillera Blanca"
-             style="width:100%;height:100%;object-fit:cover;display:block;"
-             loading="lazy">
-        <div class="gi__overlay">
-          <div><div class="gi__label">Huaraz</div><div class="gi__sub">Cordillera Blanca, Peru</div></div>
-        </div>
-        <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
-      </div>
-
-      <!-- Coming soon: Machu Picchu
-           ✏️ Sobald Foto da: gi--placeholder entfernen, gi behalten,
-              img-Tag hinzufügen, data-label/sub/src befüllen -->
       <div class="gi gi--placeholder">
         <div class="gi__placeholder-inner">
-          <span class="gi__placeholder-label">Machu Picchu<br>— kommt bald —</span>
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Arequipa</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
         </div>
       </div>
 
-      <!-- Coming soon: Cusco
-           ✏️ Gleich wie oben -->
+    </div><!-- /Band 1 -->
+
+    <!-- Band 2: 4 gleich große, offene Plätze -->
+    <div class="bento bento--quad animate-on-scroll animate-delay-1">
+
       <div class="gi gi--placeholder">
         <div class="gi__placeholder-inner">
-          <span class="gi__placeholder-label">Cusco<br>— kommt bald —</span>
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Colca-Canyon</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
         </div>
       </div>
 
-    </div><!-- /bento-b Peru -->
+      <div class="gi gi--placeholder">
+        <div class="gi__placeholder-inner">
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Titicacasee</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gi gi--placeholder">
+        <div class="gi__placeholder-inner">
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Rainbow Mountain</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gi gi--placeholder">
+        <div class="gi__placeholder-inner">
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Paracas</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /Band 2 -->
+
+    <!-- Band 3: gespiegelt — Machu Picchu bewusst als großer Platz rechts: unser größtes Vorfreude-Ziel -->
+    <div class="bento bento--a-rev animate-on-scroll animate-delay-2">
+
+      <div class="gi gi--placeholder">
+        <div class="gi__placeholder-inner">
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Nazca-Linien</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gi gi--placeholder">
+        <div class="gi__placeholder-inner">
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Cusco</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gi gi--placeholder">
+        <div class="gi__placeholder-inner">
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Machu Picchu</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /Band 3 -->
   </div>
 </section>
 
@@ -1017,7 +1173,12 @@
     document.body.style.overflow = '';
   }
 
-  clickableItems.forEach((item, i) => item.addEventListener('click', () => openLb(i)));
+  clickableItems.forEach((item, i) => {
+    item.addEventListener('click', () => openLb(i));
+    item.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLb(i); }
+    });
+  });
 
   document.getElementById('lb-close').addEventListener('click', closeLb);
   document.getElementById('lb-prev').addEventListener('click', () => openLb((currentIdx - 1 + clickableItems.length) % clickableItems.length));
