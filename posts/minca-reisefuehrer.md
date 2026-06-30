@@ -4,9 +4,9 @@ datum: 2026-06-29
 land: Kolumbien
 typ: guide
 lesezeit: 9 min
-autor: Sergen & Julia
+autor: Julia
 teaser: Fünf Nächte in den Bergen über Santa Marta, ohne Hitze, ohne Trubel. Minca war für uns eine der besten Entscheidungen der ganzen Reise.
-bild: assets/img/blog/minca1.jpg
+bild: assets/img/blog/minca2.jpg
 bildEmoji: 🌿
 bildGradient: linear-gradient(135deg,#1a3a2a,#138a36)
 tags:
