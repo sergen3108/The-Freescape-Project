@@ -579,10 +579,11 @@
     let parsedBody = marked.parse(body);
 
     // IDs zu h2 Elementen hinzufügen für Inhaltsverzeichnis
-parsedBody = parsedBody.replace(/<h2>(.*?)<\/h2>/g, function(match, title) {
-  const id = 'abschnitt-' + (tocIndex++);
-  return '<h2 id="' + id + '">' + title + '</h2>';
-});
+    let tocIndex = 0;
+    parsedBody = parsedBody.replace(/<h2>(.*?)<\/h2>/g, function(match, title) {
+      const id = 'abschnitt-' + (tocIndex++);
+      return '<h2 id="' + id + '">' + title + '</h2>';
+    });
 
     // Inhaltsverzeichnis aus h2 Elementen bauen
     const h2Matches = [...body.matchAll(/^## (.+)$/gm)];
