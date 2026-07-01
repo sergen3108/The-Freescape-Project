@@ -21,6 +21,9 @@
   <meta name="twitter:description" content="" id="tw-description">
   <meta name="twitter:image"       content="" id="tw-image">
 
+  <!-- Kanonische URL: wird per JS mit dem echten ?post=SLUG befüllt -->
+  <link rel="canonical" href="" id="canonical-url">
+
   <link rel="icon" type="image/png" href="assets/img/LOGO.png">
   <link rel="stylesheet" href="style.css">
   <style>
@@ -392,6 +395,10 @@
     document.title = title;
     const descEl = document.querySelector('meta[name="description"]');
     if (descEl) descEl.setAttribute('content', desc);
+
+    // Kanonische URL setzen (eindeutige Adresse dieses Artikels)
+    const canonEl = document.getElementById('canonical-url');
+    if (canonEl) canonEl.setAttribute('href', url);
   }
 
   /* ── Schema.org JSON-LD (strukturierte Daten für Google) ── */
