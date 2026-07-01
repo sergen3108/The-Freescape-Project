@@ -1,0 +1,73 @@
+FERTIGE LOKALE FONTS — EINBAU (3 Schritte)
+===========================================
+Ich habe deine hochgeladenen TTF-Dateien für dich umgewandelt:
+- in WOFF2 (web-optimiert, viel kleiner)
+- auf Latein reduziert (Deutsch + Spanisch komplett abgedeckt, geprüft)
+- alle 8 benötigten Schnitte fertig
+
+Gesamt: nur 309 KB statt der ursprünglichen mehreren MB an TTF.
+
+
+SCHRITT 1 — Fonts hochladen
+---------------------------
+Lege im Repo den Ordner  assets/fonts/  an (falls nicht vorhanden)
+und lade diese 8 Dateien hinein:
+
+  playfair-display-latin-400.woff2
+  playfair-display-latin-700.woff2
+  playfair-display-latin-900.woff2
+  cormorant-garamond-latin-500.woff2
+  cormorant-garamond-latin-600.woff2
+  cormorant-garamond-latin-700.woff2
+  cormorant-garamond-latin-400italic.woff2
+  cormorant-garamond-latin-600italic.woff2
+
+
+SCHRITT 2 — style.css anpassen
+------------------------------
+a) GANZ OBEN in style.css steht aktuell diese eine Zeile:
+
+     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display...');
+
+   Diese Zeile KOMPLETT LÖSCHEN.
+
+b) An dieselbe Stelle (ganz oben, vor "/* === TOKENS ===" bzw. vor :root)
+   den kompletten Inhalt von  font-face-regeln.css  einfügen.
+
+   Die Dateinamen darin passen EXAKT zu den 8 Dateien oben.
+   Du musst nichts anpassen.
+
+
+SCHRITT 3 — Datenschutzerklärung aktualisieren
+----------------------------------------------
+In datenschutz.html den Abschnitt "5. Google Fonts" ersetzen durch:
+
+  <h2>5. Schriftarten</h2>
+  <p>Diese Website verwendet die Schriftarten "Playfair Display" und
+  "Cormorant Garamond". Diese sind lokal auf unserem Webspace eingebunden
+  und werden direkt von dort geladen. Es findet keine Verbindung zu
+  Servern von Google statt, es werden keine Daten an Google übertragen.</p>
+
+
+FERTIG — PRÜFEN
+---------------
+1) Seite hochladen, im Browser öffnen
+2) Rechtsklick -> Untersuchen -> Tab "Netzwerk" (Network)
+3) F5 druecken, im Filter "font" eingeben
+   -> die .woff2 werden von thefreescapeproject.com geladen
+4) Im Filter "fonts.g" eingeben
+   -> hier darf NICHTS erscheinen (keine Google-Verbindung mehr = DSGVO ok)
+5) Optik prüfen: Überschriften (Playfair) und Menü/Footer (Cormorant)
+   müssen normal aussehen. Deutsche Umlaute (ä ö ü ß) und spanische
+   Zeichen (ñ á é í ó ú ¿ ¡) sind alle enthalten, geprüft.
+
+
+WELCHE SCHNITTE ENTHALTEN SIND
+------------------------------
+Playfair Display:   400 (normal), 700 (bold), 900 (black, für Hero)
+Cormorant Garamond: 500, 600, 700 (normal) + 400 und 600 (italic)
+
+Das deckt alles ab was deine style.css nutzt. Die früher geladenen
+Gewichte 500/600/800 bei Playfair werden im Code nicht real gebraucht,
+Browser nehmen automatisch den nächstliegenden Schnitt. Falls doch mal
+etwas minimal anders aussieht, ist das nicht auffällig.
