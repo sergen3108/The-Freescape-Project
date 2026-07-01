@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ═══════════════════════════════════════════════
+       HAUPTSEITEN
+  ═══════════════════════════════════════════════ -->
+  <url>
+    <loc>https://thefreescapeproject.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/blog.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/vlogs.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/laender.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/karte.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/galerie.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/ueber-uns.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/kontakt.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════
+       RECHTLICHES (niedrige Priorität)
+  ═══════════════════════════════════════════════ -->
+  <url>
+    <loc>https://thefreescapeproject.com/impressum.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/datenschutz.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════
+       BLOG-ARTIKEL
+       artikel.html?post=SLUG ist die URL jedes Artikels.
+       SLUG = Dateiname in /posts/ ohne .md
+       ✏️ Bei jedem neuen Blog-Post hier eine weitere <url> ergänzen.
+  ═══════════════════════════════════════════════ -->
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=bogota-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=costeno-rio-hostel-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=guatape-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=medellin-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=minca-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=salento-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=san-andres-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=santa-marta-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
