@@ -421,6 +421,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+<script src="blog-posts.js"></script>
 <script src="main.js"></script>
 <script>
 (async function () {
@@ -508,6 +509,74 @@
     script.id = 'schema-org-jsonld';
     script.textContent = JSON.stringify(schema);
     document.head.appendChild(script);
+  }
+
+  /* ── Weitere Artikel (Related Posts) ───────────────────────── */
+  function renderRelatedPosts(currentLand, currentSlug) {
+    const posts = window.BLOG_POSTS;
+    if (!Array.isArray(posts) || posts.length === 0) return;
+
+    // Aktuellen Artikel ausschließen (Slug steckt im link: artikel.html?post=SLUG)
+    const others = posts.filter(function (p) {
+      const slug = (p.link || '').split('post=')[1] || p.id || '';
+      return slug !== currentSlug;
+    });
+    if (others.length === 0) return;
+
+    // 1. Gleiches Land zuerst (max 2)
+    const sameLand = others.filter(function (p) {
+      return currentLand && (p.land || '').toLowerCase() === currentLand.toLowerCase();
+    });
+
+    // 2. Rest nach Datum (neueste zuerst), ohne die schon gewählten
+    const chosen = sameLand.slice(0, 2);
+    const chosenIds = new Set(chosen.map(function (p) { return p.id || p.link; }));
+
+    const byDate = others
+      .filter(function (p) { return !chosenIds.has(p.id || p.link); })
+      .sort(function (a, b) { return new Date(b.datum) - new Date(a.datum); });
+
+    // 3. Auffüllen bis maximal 3
+    for (let i = 0; chosen.length < 3 && i < byDate.length; i++) {
+      chosen.push(byDate[i]);
+    }
+    if (chosen.length === 0) return;
+
+    // Karten bauen (bestehende .blog-card Klassen)
+    const cards = chosen.map(function (p) {
+      const thumb = p.bild
+        ? '<a href="' + p.link + '" class="blog-card__thumb" style="overflow:hidden;display:block;"><img src="' + p.bild + '" alt="" style="width:100%;height:200px;object-fit:cover;display:block;"><span class="blog-card__category">' + (p.land || '') + '</span></a>'
+        : '<a href="' + p.link + '" class="blog-card__thumb" style="overflow:hidden;display:block;"><div style="height:200px;background:' + (p.bildFallback ? p.bildFallback.gradient : 'linear-gradient(135deg,#1a2744,#e8431a)') + ';display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + (p.bildFallback ? p.bildFallback.emoji : '✈️') + '</div><span class="blog-card__category">' + (p.land || '') + '</span></a>';
+      return '' +
+        '<article class="blog-card">' +
+          thumb +
+          '<div class="blog-card__body">' +
+            '<div class="blog-card__meta">' +
+              '<span class="blog-card__author">' + (p.autor || 'Julia & Sergen') + '</span>' +
+              '<span class="blog-card__date">' + (p.datumLabel || '') + ' · ' + (p.lesezeit || '5 min') + '</span>' +
+            '</div>' +
+            '<h3 class="blog-card__title"><a href="' + p.link + '" style="color:inherit;text-decoration:none;">' + p.titel + '</a></h3>' +
+            '<p class="blog-card__excerpt">' + (p.teaser || '') + '</p>' +
+            '<a href="' + p.link + '" class="blog-card__read">Artikel lesen →</a>' +
+          '</div>' +
+        '</article>';
+    }).join('');
+
+    const section = document.createElement('section');
+    section.className = 'section';
+    section.style.background = 'var(--sand-50)';
+    section.innerHTML =
+      '<div class="container">' +
+        '<div class="section-header">' +
+          '<p class="overline">Weiterlesen</p>' +
+          '<h2>Das könnte dich auch interessieren</h2>' +
+        '</div>' +
+        '<div class="blog-grid">' + cards + '</div>' +
+      '</div>';
+
+    // Ans Ende von #artikel-root anhängen
+    const root = document.getElementById('artikel-root');
+    if (root) root.appendChild(section);
   }
 
   /* ── Artikel laden ──────────────────────────────────────── */
@@ -664,6 +733,9 @@
 
       document.querySelectorAll('.artikel-body h2[id]').forEach(h => observer.observe(h));
     }
+
+    // ── Weitere Artikel ("Das könnte dich auch interessieren") ──
+    renderRelatedPosts(data.land, postSlug);
 
   } catch (err) {
     loading.innerHTML = '<p>Artikel nicht gefunden.</p><a href="blog.html" class="btn btn-secondary" style="margin-top:1rem;">← Zurück zum Blog</a>';
