@@ -3,8 +3,49 @@
    Fonts: Fraunces (display) + Inter (text) via Google Fonts
    Für Produktion: Fonts lokal einbinden (DSGVO)
    ============================================================ */
+/* ── PLAYFAIR DISPLAY ── */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal; font-weight: 400; font-display: swap;
+  src: url('assets/fonts/playfair-display-latin-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal; font-weight: 700; font-display: swap;
+  src: url('assets/fonts/playfair-display-latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal; font-weight: 900; font-display: swap;
+  src: url('assets/fonts/playfair-display-latin-900.woff2') format('woff2');
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap');
+/* ── CORMORANT GARAMOND ── */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal; font-weight: 500; font-display: swap;
+  src: url('assets/fonts/cormorant-garamond-latin-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal; font-weight: 600; font-display: swap;
+  src: url('assets/fonts/cormorant-garamond-latin-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal; font-weight: 700; font-display: swap;
+  src: url('assets/fonts/cormorant-garamond-latin-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic; font-weight: 400; font-display: swap;
+  src: url('assets/fonts/cormorant-garamond-latin-400italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic; font-weight: 600; font-display: swap;
+  src: url('assets/fonts/cormorant-garamond-latin-600italic.woff2') format('woff2');
+}
 
 /* ✏️ NAV & FOOTER SCHRIFTART — hier ändern um alle Menüpunkte und Footer zu aktualisieren */
 
