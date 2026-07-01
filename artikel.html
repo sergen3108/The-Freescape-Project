@@ -250,9 +250,64 @@
       color: var(--gray-600);
       margin: 3px;
     }
+
+    /* ── Reading Progress Bar ─────────────────────────────── */
+    .reading-progress {
+      position: fixed;
+      top: var(--nav-h, 72px);
+      left: 0;
+      height: 3px;
+      width: 0;
+      background: var(--terra-500);
+      z-index: 99;
+      transition: width 0.1s linear;
+      pointer-events: none;
+    }
+
+    /* ── Scroll-to-Top Button ─────────────────────────────── */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--terra-600);
+      color: #fff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg, 0 8px 32px rgba(0,0,0,0.12));
+      z-index: 95;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .scroll-top-btn:hover { background: var(--terra-700); }
+    .scroll-top-btn svg { width: 20px; height: 20px; }
+
+    @media (max-width: 640px) {
+      .scroll-top-btn { bottom: 1.25rem; right: 1.25rem; }
+    }
   </style>
 </head>
 <body>
+
+<!-- Reading Progress Bar (nur artikel.html) -->
+<div class="reading-progress" id="reading-progress"></div>
+
+<!-- Scroll-to-Top Button -->
+<button class="scroll-top-btn" id="scroll-top-btn" aria-label="Nach oben scrollen">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
 <nav class="nav nav--transparent" role="navigation">
   <div class="nav__inner">
@@ -617,5 +672,40 @@
   }
 })();
 </script>
+<script>
+/* ── Reading Progress Bar + Scroll-to-Top ──────────────────── */
+(function () {
+  const progress = document.getElementById('reading-progress');
+  const topBtn   = document.getElementById('scroll-top-btn');
+
+  function onScroll() {
+    const scrolled = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+
+    // Fortschrittsbalken
+    if (progress) {
+      const pct = total > 0 ? (scrolled / total) * 100 : 0;
+      progress.style.width = pct + '%';
+    }
+
+    // Button erst nach 400px zeigen
+    if (topBtn) {
+      if (scrolled > 400) topBtn.classList.add('visible');
+      else topBtn.classList.remove('visible');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  onScroll(); // Initialzustand setzen
+
+  if (topBtn) {
+    topBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
