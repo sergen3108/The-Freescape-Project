@@ -579,12 +579,10 @@
     let parsedBody = marked.parse(body);
 
     // IDs zu h2 Elementen hinzufügen für Inhaltsverzeichnis
-    let tocIndex = 0;
-    parsedBody = parsedBody.replace(/<h2>(.*?)<\/h2>/g, function(match, title) {
-      const id = 'abschnitt-' + (tocIndex++);
-      const backBtn = tocIndex > 1 ? '<a href="#artikel-top" class="back-to-top-inline">↑ Nach oben</a>' : '';
-      return backBtn + '<h2 id="' + id + '">' + title + '</h2>';
-    });
+parsedBody = parsedBody.replace(/<h2>(.*?)<\/h2>/g, function(match, title) {
+  const id = 'abschnitt-' + (tocIndex++);
+  return '<h2 id="' + id + '">' + title + '</h2>';
+});
 
     // Inhaltsverzeichnis aus h2 Elementen bauen
     const h2Matches = [...body.matchAll(/^## (.+)$/gm)];
