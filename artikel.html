@@ -394,6 +394,60 @@
     if (descEl) descEl.setAttribute('content', desc);
   }
 
+  /* ── Schema.org JSON-LD (strukturierte Daten für Google) ── */
+  function setSchemaOrg(data, slug) {
+    const img = data.bild
+      ? (data.bild.startsWith('http') ? data.bild : BASE_URL + (data.bild.startsWith('/') ? '' : '/') + data.bild)
+      : FALLBACK_IMG;
+
+    const url = BASE_URL + '/artikel.html?post=' + encodeURIComponent(slug);
+
+    // Autor kann "Sergen & Julia" sein → in einzelne Personen aufteilen
+    const autorRoh = data.autor || 'Julia & Sergen';
+    const autoren = autorRoh.split(/\s*(?:&|und|,)\s*/).filter(Boolean).map(function (name) {
+      return { "@type": "Person", "name": name.trim() };
+    });
+
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": data.titel || 'Artikel',
+      "description": data.teaser || '',
+      "image": img,
+      "author": autoren.length === 1 ? autoren[0] : autoren,
+      "publisher": {
+        "@type": "Organization",
+        "name": "The Freescape Project",
+        "logo": {
+          "@type": "ImageObject",
+          "url": BASE_URL + "/assets/img/LOGONEW.png"
+        }
+      },
+      "datePublished": data.datum || '',
+      "dateModified": data.datum || '',
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": url
+      },
+      "inLanguage": "de-DE"
+    };
+
+    // Land als Thema ergänzen, falls vorhanden
+    if (data.land) {
+      schema.about = { "@type": "Place", "name": data.land };
+    }
+
+    // Altes Schema-Script (falls vorhanden) entfernen, dann neu setzen
+    const alt = document.getElementById('schema-org-jsonld');
+    if (alt) alt.remove();
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'schema-org-jsonld';
+    script.textContent = JSON.stringify(schema);
+    document.head.appendChild(script);
+  }
+
   /* ── Artikel laden ──────────────────────────────────────── */
   const params   = new URLSearchParams(window.location.search);
   const postSlug = params.get('post');
@@ -443,6 +497,8 @@
 
     // ── OG-Tags setzen (sofort nach Frontmatter-Parsing) ───
     setOGTags(data, postSlug);
+    // ── Schema.org JSON-LD setzen (strukturierte Daten) ────
+    setSchemaOrg(data, postSlug);
 
     let bildSrc = data.bild || '';
     if (bildSrc && !bildSrc.startsWith('/') && !bildSrc.startsWith('http')) bildSrc = '/' + bildSrc;
