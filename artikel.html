@@ -735,7 +735,15 @@
     }
 
     // ── Weitere Artikel ("Das könnte dich auch interessieren") ──
-    renderRelatedPosts(data.land, postSlug);
+    // BLOG_POSTS wird asynchron geladen. Wenn schon da: sofort rendern,
+    // sonst auf das blogPostsReady-Event warten.
+    if (window.BLOG_POSTS) {
+      renderRelatedPosts(data.land, postSlug);
+    } else {
+      document.addEventListener('blogPostsReady', function () {
+        renderRelatedPosts(data.land, postSlug);
+      });
+    }
 
   } catch (err) {
     loading.innerHTML = '<p>Artikel nicht gefunden.</p><a href="blog.html" class="btn btn-secondary" style="margin-top:1rem;">← Zurück zum Blog</a>';
