@@ -16,8 +16,6 @@ tags:
   - Reiseführer
 ---
 
-![Santa Marta](assets/img/blog/santamarta.jpg)
-
 Santa Marta ist einer der Haupteinstiegspunkte zur kolumbianischen Karibikküste und steht deshalb in vielen Reiserouten. Für uns war die Stadt selbst aber nicht das Highlight, sondern eher das Tor zu Orten wie dem Tayrona Nationalpark, Minca und der umliegenden Küste.
 
 Wir haben insgesamt zwei Nächte in Santa Marta verbracht, hauptsächlich als Zwischenstopp vor und nach Tayrona, und später auf dem Weg nach Minca.
@@ -25,6 +23,8 @@ Wir haben insgesamt zwei Nächte in Santa Marta verbracht, hauptsächlich als Zw
 Unser erster Eindruck von der Stadt war ehrlich gesagt etwas gemischt. Auch im Stadtzentrum wirkte die Gegend teilweise chaotisch und phasenweise unsicher, selbst tagsüber. Uns ist aufgefallen, dass auf den Straßen einige Menschen unter Drogeneinfluss zu stehen schienen, dazu sichtbare Armut und Obdachlosigkeit. Im Vergleich zu anderen Orten in Kolumbien fühlte sich Santa Marta insgesamt weniger angenehm an.
 
 Trotzdem spielt die Stadt eine wichtige Rolle für diese Region. Ihr Wert liegt vor allem in der Lage und der guten Erreichbarkeit, was sie zur perfekten Basis macht, um einige der schönsten Orte im Norden Kolumbiens zu erkunden.
+
+![Santa Marta](assets/img/blog/santamarta.jpg)
 
 ---
 
