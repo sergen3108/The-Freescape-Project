@@ -58,6 +58,8 @@ Generell geht es bei Costeño Beach weniger darum, einen Ort zu erkunden, sonder
 
 Ein toller Stopp, wenn man Leute kennenlernen, Strandleben genießen und eine Mischung aus Chillen und Party erleben möchte, aber definitiv mehr hostel-zentriert als zielfokussiert.
 
+![Costeño Beach](assets/img/blog/masaya.JPEG)
+
 ---
 
 ## Rio Hostel: Was einen erwartet
