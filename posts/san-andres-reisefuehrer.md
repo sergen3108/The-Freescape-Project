@@ -16,11 +16,11 @@ tags:
   - Reiseführer
 ---
 
-![San Andrés](assets/img/blog/sanandres1.jpg)
-
 San Andrés liegt mitten in der Karibik und fühlt sich trotzdem nach Kolumbien an, aber nach einer völlig anderen Version davon. Nach Wochen in Städten wie Medellín, Guatapé und der Kaffeeregion war die Ankunft auf der Insel fast ein kleiner Schock, im besten Sinne. Plötzlich nur noch türkisblaues Wasser, weiße Sandstrände und eine Ruhe, die man in keiner Großstadt findet.
 
 Das berühmteste Merkmal der Insel ist das sogenannte "Meer der 7 Farben". Je nach Wassertiefe und Lichteinfall wechselt das Wasser zwischen verschiedenen Blau- und Türkistönen, und ehrlich gesagt sieht es noch unwirklicher aus als auf Fotos. Schwimmen, Schnorcheln oder einfach am Strand sitzen und schauen: das Wasser ist das Herzstück von San Andrés.
+
+![San Andrés](assets/img/blog/sanandres1.jpg)
 
 ---
 
