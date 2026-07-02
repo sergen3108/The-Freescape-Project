@@ -682,13 +682,13 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 
 /* === STATS BAR =============================================
-   HINWEIS: Mehrere Seiten (vlogs.html, ueber-uns.html,
-   karte.html, blog.html) setzen grid-template-columns INLINE
-   im HTML (z.B. style="grid-template-columns:repeat(3,1fr)"
-   oder repeat(4,1fr)). Das Basis-CSS hier gilt nur, wo kein
-   Inline-Style vorhanden ist. Der Mobile-Fix für die
-   inline-gesetzten Varianten steht unten im
-   @media (max-width: 480px) Block. */
+   Spaltenzahl wird über Modifier-Klassen gesteuert, NICHT mehr
+   über inline-styles im HTML:
+     .stats-bar__grid--3col  → 3 Spalten (vlogs.html, ueber-uns.html)
+     .stats-bar__grid--4col  → 4 Spalten (index.html, karte.html, blog.html)
+   Ohne Modifier-Klasse gilt der 4-Spalten-Fallback unten.
+   Responsive-Verhalten steht gebündelt im RESPONSIVE-Abschnitt
+   ("STATS BAR RESPONSIVE"). Kein !important mehr nötig. */
 .stats-bar {
   background: var(--green-800);
   color: var(--white);
@@ -696,10 +696,12 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 .stats-bar__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* Fallback, falls keine Modifier-Klasse gesetzt ist */
   gap: var(--sp-4);
   text-align: center;
 }
+.stats-bar__grid--3col { grid-template-columns: repeat(3, 1fr); }
+.stats-bar__grid--4col { grid-template-columns: repeat(4, 1fr); }
 .stats-bar__item { padding: var(--sp-4); }
 .stats-bar__number {
   font-family: var(--font-display);
@@ -1860,7 +1862,6 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   .nav__menu { display: none; }
   .nav__cta { display: none; }
   .nav__burger { display: flex; }
-  .stats-bar__grid { grid-template-columns: repeat(2, 1fr); }
   .blog-sidebar { grid-template-columns: 1fr; }
 }
 
@@ -1883,7 +1884,6 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   .form-grid { grid-template-columns: 1fr; }
   .newsletter__form { flex-direction: column; }
   .hero__actions { flex-direction: column; align-items: flex-start; }
-  .stats-bar__grid { grid-template-columns: repeat(2, 1fr); }
   .cookie-banner { left: var(--sp-3); right: var(--sp-3); bottom: var(--sp-3); }
   .instagram-banner__grid { grid-template-columns: repeat(3, 1fr); max-width: 100%; }
   .instagram-banner { padding: var(--sp-12) 0; }
@@ -1938,40 +1938,59 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   .filter-bar::-webkit-scrollbar { height: 4px; }
 }
 
-/* === STATS BAR MOBILE FIX (für inline gesetzte Spaltenzahlen) ===
-   Mehrere Seiten setzen grid-template-columns inline im HTML
-   (repeat(3,1fr) auf vlogs.html/ueber-uns.html, repeat(4,1fr)
-   auf karte.html/blog.html). Inline-Styles haben Vorrang vor
-   externem CSS, daher reicht eine normale Media-Query-Regel
-   ohne erhöhte Spezifität nicht aus. Diese Regel erzwingt auf
-   sehr schmalen Screens immer ein sauberes 2-Spalten-Raster,
-   unabhängig von der ursprünglich inline gesetzten Zahl:
-   bei 3 Elementen steht das letzte zentriert in eigener Zeile,
-   bei 4 Elementen ergibt sich ein ordentliches 2x2-Raster. */
+/* === STATS BAR RESPONSIVE (klassenbasiert) ==================
+   Steuerung über .stats-bar__grid--3col / --4col statt inline-
+   styles. Kein !important nötig.
+   ≤768px: alles auf 2 Spalten. Bei 3 Spalten rutscht das letzte
+   Element zentriert in eine eigene Zeile (2 + 1).
+   ≤480px: kompaktere Abstände und kleinere Zahlen. */
+@media (max-width: 768px) {
+  .stats-bar__grid,
+  .stats-bar__grid--3col,
+  .stats-bar__grid--4col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-4) var(--sp-2);
+  }
+  .stats-bar__grid--3col .stats-bar__item:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 50%;
+  }
+}
 @media (max-width: 480px) {
-  .stats-bar__grid[style*="repeat("] {
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: var(--sp-4) var(--sp-2);
-}
-.stats-bar__grid[style*="repeat(3,"] .stats-bar__item:last-child {
-  grid-column: 1 / -1;
-  justify-self: center;
-  max-width: 50%;
-}
-  .stats-bar__grid[style*="repeat("] .stats-bar__item {
+  .stats-bar__item {
     padding: var(--sp-2) var(--sp-1);
     min-width: 0;
     width: 100%;
   }
-  .stats-bar__grid[style*="repeat("] .stats-bar__number {
+  .stats-bar__number {
     font-size: clamp(1.3rem, 6vw, 1.85rem);
     white-space: nowrap;
     margin-bottom: 4px;
   }
-  .stats-bar__grid[style*="repeat("] .stats-bar__label {
+  .stats-bar__label {
     font-size: 0.65rem;
     line-height: 1.3;
     letter-spacing: 0.02em;
+  }
+}
+
+/* ── ÜBERGANGS-FALLBACK (temporär) ───────────────────────────
+   Fängt Seiten ab, die noch das alte inline
+   style="grid-template-columns:repeat(N,1fr)" nutzen
+   (vlogs.html, ueber-uns.html, karte.html, blog.html).
+   Sobald diese Seiten auf die Modifier-Klassen
+   (.stats-bar__grid--3col / --4col) umgestellt sind, kann dieser
+   komplette Block ersatzlos gelöscht werden. Danach gibt es kein
+   !important mehr in der Stats-Bar. */
+@media (max-width: 768px) {
+  .stats-bar__grid[style*="repeat("] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .stats-bar__grid[style*="repeat(3,"] .stats-bar__item:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 50%;
   }
 }
 
