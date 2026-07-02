@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 12 min
 autor: Julia
 teaser: Bogotá ist für viele Reisende der Einstieg in Kolumbien und überrascht fast jeden. Hier teilen wir unsere ehrlichen Eindrücke aus drei Tagen in der Andenmetropole.
-bild: assets/img/blog/bogota.jpeg
+bild: assets/img/blog/Skylinebogota.jpg
 bildEmoji: 🏙️
 bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
 tags:
@@ -36,7 +36,7 @@ Die **beste Reisezeit für Bogotá** sind die trockeneren Monate **Dezember bis 
 
 Ein weiterer wichtiger Punkt ist die **Höhe**. Viele Reisende unterschätzen, wie spürbar sie ist. Am ersten Tag etwas langsamer angehen, viel Wasser trinken und Alkohol meiden hilft dem Körper, sich anzupassen.
 
-![Blick über Bogotá](assets/img/blog/Skylinebogota.jpg)
+![Blick über Bogotá](assets/img/blog/bogota.jpeg)
 
 ---
 
