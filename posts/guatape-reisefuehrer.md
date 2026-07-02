@@ -20,7 +20,7 @@ Guatapé liegt nur wenige Stunden von Medellín entfernt und ist trotzdem eine v
 
 Eines unserer persönlichen Highlights war die Bootstour auf dem See, bei der man das Gebiet aus einer völlig anderen Perspektive sieht, vorbei an beeindruckenden Villen und Häusern. Aber dazu später mehr.
 
-![Guatapé](assets/img/blog/guatape2.JPEG)
+![Guatapé](assets/img/blog/guatape5.JPEG)
 
 ---
 
@@ -48,6 +48,8 @@ Die Regenzeiten fallen auf **April bis Mai** und **Oktober bis November**, mit h
 
 Unsere Erfahrung: Morgens war es in Guatapé fast immer sonnig und klar, der Regen kam meist erst am Nachmittag. Outdoor-Aktivitäten also lieber in der ersten Tageshälfte einplanen.
 
+![Guatapé](assets/img/blog/guatape2.JPEG)
+
 ---
 
 ## Wo übernachten in Guatapé?
@@ -72,13 +74,11 @@ Das bekannteste Wahrzeichen in der Region ist **El Peñol**, ein riesiger Felsbl
 
 Am besten früh morgens losfahren, um Menschenmassen und Mittagshitze zu vermeiden.
 
-![Guatapé](assets/img/blog/guatape4JPEG)
+![Guatapé](assets/img/blog/guatape4.JPEG)
 
 ### Bootstour auf dem See
 
 Eines unserer persönlichen Highlights. Von der Wasseroberfläche aus bekommt man ein völlig anderes Bild der Region, vorbei an Luxusvillen und beeindruckenden Häusern. Entspannt, schön und eine ganz andere Perspektive auf Guatapé.
-
-![Guatapé](assets/img/blog/guatape5JPEG)
 
 ### Durch die bunten Gassen schlendern
 
