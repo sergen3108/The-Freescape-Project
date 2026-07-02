@@ -20,7 +20,7 @@ Guatapé liegt nur wenige Stunden von Medellín entfernt und ist trotzdem eine v
 
 Eines unserer persönlichen Highlights war die Bootstour auf dem See, bei der man das Gebiet aus einer völlig anderen Perspektive sieht, vorbei an beeindruckenden Villen und Häusern. Aber dazu später mehr.
 
-![Guatapé](assets/img/blog/guatape2.jpg)
+![Guatapé](assets/img/blog/guatape2.JPEG)
 
 ---
 
@@ -60,7 +60,7 @@ Eine deutlich bessere Option, von der wir von anderen Reisenden gehört haben un
 
 Grundsätzlich gilt: **Zentrum** für alle, die nah an Restaurants und Sehenswürdigkeiten sein wollen. **Nähe zum See** für alle, die Ruhe und Natur bevorzugen. Da Guatapé sehr klein ist, ist der Unterschied in der Erreichbarkeit kaum spürbar.
 
-![Guatapé](assets/img/blog/guatape1.jpg)
+![Guatapé](assets/img/blog/guatape1.JPEG)
 
 ---
 
@@ -72,13 +72,13 @@ Das bekannteste Wahrzeichen in der Region ist **El Peñol**, ein riesiger Felsbl
 
 Am besten früh morgens losfahren, um Menschenmassen und Mittagshitze zu vermeiden.
 
-![Guatapé](assets/img/blog/guatape4jpg)
+![Guatapé](assets/img/blog/guatape4JPEG)
 
 ### Bootstour auf dem See
 
 Eines unserer persönlichen Highlights. Von der Wasseroberfläche aus bekommt man ein völlig anderes Bild der Region, vorbei an Luxusvillen und beeindruckenden Häusern. Entspannt, schön und eine ganz andere Perspektive auf Guatapé.
 
-![Guatapé](assets/img/blog/guatape5jpg)
+![Guatapé](assets/img/blog/guatape5JPEG)
 
 ### Durch die bunten Gassen schlendern
 
@@ -126,7 +126,7 @@ Wer zwei Nächte bleibt wie wir, erlebt etwas anderes. El Peñol früh morgens f
 
 Kurz: Guatapé ist definitiv eines der Highlights Kolumbiens. Als Tagesausflug lohnt es sich, als Übernachtungsort lohnt es sich noch mehr.
 
-![Guatapé](assets/img/blog/guatape3.jpg)
+![Guatapé](assets/img/blog/guatape3.JPEG)
 
 ---
 
