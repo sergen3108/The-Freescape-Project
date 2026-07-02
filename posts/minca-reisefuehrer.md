@@ -16,8 +16,6 @@ tags:
   - Reiseführer
 ---
 
-![Minca](assets/img/minca1.jpg)
-
 Minca liegt in den Bergen direkt über Santa Marta und fühlt sich trotzdem an wie eine völlig andere Welt. Statt Hitze, Lärm und vollen Straßen erwarten einen hier kühlere Temperaturen, dichter Dschungel, Wasserfälle und beeindruckende Ausblicke auf die Küste.
 
 Nach Santa Marta und Tayrona war die Ankunft in Minca wie ein Aufatmen. Das Klima ist deutlich angenehmer, die Atmosphäre entspannt, und alles läuft hier merklich langsamer ab.
@@ -29,6 +27,8 @@ Statt ständig weiterzuziehen, haben wir die Zeit in Minca genutzt, um runterzuf
 Eines unserer Highlights war die Wanderung zum El Jaguar Wasserfall, während Kaffeetouren oder Wanderungen zum Cerro Kennedy ebenfalls leicht von hier aus erreichbar sind.
 
 Schon die Anreise war ein eigenes Erlebnis. Von Santa Marta aus sind wir zuerst mit dem Bus nach Minca gefahren, von dort mit dem Mototaxi weiter in die Berge. Das letzte Stück ist kaum noch eine richtige Straße, eher ein steiniger Feldweg, was die Fahrt abenteuerlich macht, aber auch unvergesslich.
+
+![Minca](assets/img/minca5.jpg)
 
 ---
 
@@ -63,6 +63,8 @@ Aus unserer Erfahrung war das Wetter sehr ausgeglichen. Es war nie zu heiß, und
 Deshalb lohnt es sich, Aktivitäten morgens früh einzuplanen, besonders Wanderungen oder Ausflüge zu Wasserfällen. So bekommt man das beste Wetter ab und vermeidet stärkeren Regen am späteren Tag.
 
 Insgesamt gibt es keine perfekte oder schlechte Reisezeit für Minca. Das Klima bleibt immer ein Mix aus Sonne und Regen, aber genau die kühlere, frische Bergluft macht das Ziel so erfrischend im Vergleich zur Küste.
+
+![Minca](assets/img/minca.jpg)
 
 ---
 
@@ -105,6 +107,8 @@ Für alle, die etwas mehr Abenteuer suchen, gibt es längere Wanderungen wie zum
 Über die einzelnen Aktivitäten hinaus geht es in Minca vor allem darum, es langsam angehen zu lassen. Ob beim Entspannen an der Unterkunft, beim Genießen der Aussicht oder einfach beim Zeitverbringen in der Natur, das Erlebnis unterscheidet sich deutlich von trubeligeren Orten wie Santa Marta.
 
 Für uns war Minca der perfekte Ort, um eine Pause einzulegen, zu arbeiten und neue Energie zu tanken, mit genug Möglichkeiten, um trotzdem aktiv zu bleiben.
+
+![Minca](assets/img/minca4.jpg)
 
 ---
 
@@ -153,6 +157,8 @@ Wir würden Minca besonders empfehlen, wenn man:
 Für Nightlife oder viel Action ist Minca vielleicht nicht das richtige Ziel, aber genau das macht es so besonders.
 
 Fünf Nächte in Minca waren für uns eine der besten Entscheidungen unserer Reise, und der Ort gehört mittlerweile zu unseren Favoriten in Kolumbien.
+
+![Minca](assets/img/minca3.jpg)
 
 ---
 
