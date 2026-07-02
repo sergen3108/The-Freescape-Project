@@ -1,0 +1,19 @@
+{
+  "name": "The Freescape Project",
+  "short_name": "Freescape",
+  "icons": [
+    {
+      "src": "assets/img/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#e8431a",
+  "background_color": "#0f1b2d",
+  "display": "standalone"
+}
