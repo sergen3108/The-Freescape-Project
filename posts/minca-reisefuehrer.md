@@ -28,7 +28,7 @@ Eines unserer Highlights war die Wanderung zum El Jaguar Wasserfall, während Ka
 
 Schon die Anreise war ein eigenes Erlebnis. Von Santa Marta aus sind wir zuerst mit dem Bus nach Minca gefahren, von dort mit dem Mototaxi weiter in die Berge. Das letzte Stück ist kaum noch eine richtige Straße, eher ein steiniger Feldweg, was die Fahrt abenteuerlich macht, aber auch unvergesslich.
 
-![Minca](assets/img/minca5.jpg)
+![Minca](assets/img/blog/minca5.jpg)
 
 ---
 
@@ -64,7 +64,7 @@ Deshalb lohnt es sich, Aktivitäten morgens früh einzuplanen, besonders Wanderu
 
 Insgesamt gibt es keine perfekte oder schlechte Reisezeit für Minca. Das Klima bleibt immer ein Mix aus Sonne und Regen, aber genau die kühlere, frische Bergluft macht das Ziel so erfrischend im Vergleich zur Küste.
 
-![Minca](assets/img/minca.jpg)
+![Minca](assets/img/blog/minca.jpg)
 
 ---
 
@@ -108,7 +108,7 @@ Für alle, die etwas mehr Abenteuer suchen, gibt es längere Wanderungen wie zum
 
 Für uns war Minca der perfekte Ort, um eine Pause einzulegen, zu arbeiten und neue Energie zu tanken, mit genug Möglichkeiten, um trotzdem aktiv zu bleiben.
 
-![Minca](assets/img/minca4.jpg)
+![Minca](assets/img/blog/minca4.jpg)
 
 ---
 
@@ -158,7 +158,7 @@ Für Nightlife oder viel Action ist Minca vielleicht nicht das richtige Ziel, ab
 
 Fünf Nächte in Minca waren für uns eine der besten Entscheidungen unserer Reise, und der Ort gehört mittlerweile zu unseren Favoriten in Kolumbien.
 
-![Minca](assets/img/minca3.jpg)
+![Minca](assets/img/blog/minca3.jpg)
 
 ---
 
