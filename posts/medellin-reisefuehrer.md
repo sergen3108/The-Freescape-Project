@@ -16,13 +16,13 @@ tags:
   - Reiseführer
 ---
 
-![Medellin](assets/img/blog/medellin6.jpg)
-
 Medellín wird oft als "Ciudad de la Eterna Primavera" bezeichnet, und wer einmal dort war, versteht warum. Das perfekte Klima, moderne Infrastruktur, lebhafte Viertel und eine Energie, die einen sofort packt. Kein Wunder, dass die Stadt bei Backpackern und Langzeitreisenden gleichermaßen beliebt ist.
 
 Wir haben am Ende zwei Wochen in Medellín verbracht, deutlich länger als die meisten Reisenden. Während unseres Aufenthalts haben wir eine Sprachschule in El Poblado besucht, was sich als perfekte Basis herausgestellt hat. Alles, was man braucht, ist in der Nähe: Restaurants, Cafés, Supermärkte, Coworking-Spaces. Und trotzdem ist man gut mit dem Rest der Stadt verbunden.
 
 Was uns am meisten überrascht hat: wie vielseitig und lebendig sich Medellín anfühlt. Ob Metrocable-Fahrt über die Hügel, lokale Viertel wie Laureles und Sabaneta oder das unvergessliche Erlebnis eines Fußballspiels, es gibt so viel zu entdecken. Unser absolutes Highlight war die Walking Tour durch die Comuna 13, ein Viertel voller Straßenkunst, Musik und Geschichte, das den Wandel Medellíns wie kein anderes verkörpert.
+
+![Medellin](assets/img/blog/medellin6.jpg)
 
 ---
 
