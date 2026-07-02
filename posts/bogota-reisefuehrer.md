@@ -16,13 +16,13 @@ tags:
   - Reiseführer
 ---
 
-![Bogotá Skyline](assets/img/blog/bogota2.png)
-
 Für viele Reisende ist Bogotá das Tor nach Kolumbien. Die weitläufige Hauptstadt bekommt von Backpackern oft gemischte Bewertungen, weil viele nicht genau wissen, was sie erwartet. Auf 2.640 Metern über dem Meeresspiegel gelegen, ist Bogotá eine Stadt voller Kontraste: chaotische Straßen, bunte Kolonialbauten, beeindruckende Straßenkunst, unglaubliches Essen und einige der herzlichsten Menschen, denen wir in Südamerika begegnet sind.
 
 Als wir ankamen, fühlte sich Bogotá zunächst etwas überwältigend an. Die Stadt ist riesig, der Verkehr dicht, und die Höhe merkt man tatsächlich schon am ersten Tag. Aber nach drei Tagen, in denen wir die historischen Viertel und lokalen Essensplätze erkundet haben, hat die Stadt uns schnell für sich gewonnen.
 
 Eines unserer absoluten Highlights war die Seilbahnfahrt auf den Monserrate, von wo aus man einen der beeindruckendsten Ausblicke über die gesamte Stadt hat. Kombiniert mit köstlichem kolumbianischen Essen, lebhaften Straßen und faszinierender Geschichte wird Bogotá plötzlich zu einem Ziel, das weit interessanter ist als viele Reisende erwarten.
+
+![Bogotá Skyline](assets/img/blog/bogota2.png)
 
 ---
 
