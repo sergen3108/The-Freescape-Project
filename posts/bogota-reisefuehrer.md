@@ -36,8 +36,6 @@ Die **beste Reisezeit für Bogotá** sind die trockeneren Monate **Dezember bis 
 
 Ein weiterer wichtiger Punkt ist die **Höhe**. Viele Reisende unterschätzen, wie spürbar sie ist. Am ersten Tag etwas langsamer angehen, viel Wasser trinken und Alkohol meiden hilft dem Körper, sich anzupassen.
 
-![Blick über Bogotá](assets/img/blog/bogota.jpeg)
-
 ---
 
 ## Ist Bogotá sicher?
