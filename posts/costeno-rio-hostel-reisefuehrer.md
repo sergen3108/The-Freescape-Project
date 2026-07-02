@@ -16,8 +16,6 @@ tags:
   - Reiseführer
 ---
 
-![Costeño Beach](assets/img/blog/costeno.JPEG)
-
 Die kolumbianische Karibikküste gehört zu den beliebtesten Regionen bei Backpackern, und das aus gutem Grund. Zwischen Stränden, Dschungel, Flüssen und einer durch und durch entspannten Atmosphäre fühlt sich dieser Teil des Landes komplett anders an als Medellín oder Bogotá.
 
 Entlang der Küste gibt es mehrere Stopps, die Reisende oft kombinieren, mit Costeño Beach, Rio Hostel und Palomino als klassischer Route. Jeder dieser Orte hat seinen eigenen Charakter, von sozialen Strand-Hostels bis hin zu naturnäheren Erlebnissen.
@@ -27,6 +25,8 @@ Gestartet sind wir am Costeño Beach, wo wir ein paar Nächte verbracht und sowo
 Die Strecke zwischen diesen Orten ist relativ einfach zurückzulegen, und die Fahrt selbst fühlt sich oft schon wie ein Teil des Erlebnisses an, sei es per lokalem Bus oder Mototaxi entlang der Küste.
 
 Im Vergleich zu anderen Teilen Kolumbiens wirkt die Karibikküste deutlich entspannter, sozialer und naturverbundener, ein toller Ort, um runterzufahren, andere Reisende kennenzulernen und das Strandleben zu genießen.
+
+![Costeño Beach](assets/img/blog/costeno.JPEG)
 
 ---
 
