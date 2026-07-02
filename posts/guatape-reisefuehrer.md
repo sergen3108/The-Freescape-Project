@@ -16,11 +16,11 @@ tags:
   - Reiseführer
 ---
 
-![Guatapé](assets/img/blog/guatape1.jpg)
-
 Guatapé liegt nur wenige Stunden von Medellín entfernt und ist trotzdem eine völlig andere Welt. Während Medellín laut, lebendig und urban ist, empfängt einen Guatapé mit bunten Häusern, ruhigen Gassen und einem See, der sich um das ganze Städtchen legt. Die meisten Reisenden kommen als Tagesausflug, bleiben ein paar Stunden und fahren wieder zurück. Wir haben zwei Nächte dort verbracht und können sagen: Das lohnt sich.
 
 Eines unserer persönlichen Highlights war die Bootstour auf dem See, bei der man das Gebiet aus einer völlig anderen Perspektive sieht, vorbei an beeindruckenden Villen und Häusern. Aber dazu später mehr.
+
+![Guatapé](assets/img/blog/guatape2.jpg)
 
 ---
 
@@ -60,23 +60,25 @@ Eine deutlich bessere Option, von der wir von anderen Reisenden gehört haben un
 
 Grundsätzlich gilt: **Zentrum** für alle, die nah an Restaurants und Sehenswürdigkeiten sein wollen. **Nähe zum See** für alle, die Ruhe und Natur bevorzugen. Da Guatapé sehr klein ist, ist der Unterschied in der Erreichbarkeit kaum spürbar.
 
+![Guatapé](assets/img/blog/guatape1.jpg)
+
 ---
 
 ## Die besten Aktivitäten in Guatapé
 
 ### El Peñol besteigen
 
-![Guatapé](assets/img/blog/guatape2.jpg)
-
 Das bekannteste Wahrzeichen in der Region ist **El Peñol**, ein riesiger Felsblock, der aus der Landschaft herausragt. Um nach oben zu kommen, steigt man ca. **700 Stufen**, aber die Aussicht ist jeden Schritt wert. Oben wartet ein 360°-Panoramablick über Seen und Inseln, eines der ikonischsten Bilder ganz Kolumbiens.
 
 Am besten früh morgens losfahren, um Menschenmassen und Mittagshitze zu vermeiden.
+
+![Guatapé](assets/img/blog/guatape4jpg)
 
 ### Bootstour auf dem See
 
 Eines unserer persönlichen Highlights. Von der Wasseroberfläche aus bekommt man ein völlig anderes Bild der Region, vorbei an Luxusvillen und beeindruckenden Häusern. Entspannt, schön und eine ganz andere Perspektive auf Guatapé.
 
-![Guatapé](assets/img/blog/guatape3.jpg)
+![Guatapé](assets/img/blog/guatape5jpg)
 
 ### Durch die bunten Gassen schlendern
 
@@ -123,6 +125,8 @@ Als Tagesausflug sieht man die wichtigsten Highlights, aber es fühlt sich oft g
 Wer zwei Nächte bleibt wie wir, erlebt etwas anderes. El Peñol früh morgens fast allein, die Bootstour in aller Ruhe, die Gassen abends ohne Menschenmassen. Für uns war das einer der entspanntesten Teile unserer Kolumbienreise.
 
 Kurz: Guatapé ist definitiv eines der Highlights Kolumbiens. Als Tagesausflug lohnt es sich, als Übernachtungsort lohnt es sich noch mehr.
+
+![Guatapé](assets/img/blog/guatape3.jpg)
 
 ---
 
