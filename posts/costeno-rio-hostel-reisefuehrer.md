@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 9 min
 autor: Julia
 teaser: Zwischen Strand-Hostel und Tubing auf dem Fluss, die Karibikküste zwischen Costeño Beach und Rio Hostel ist genau der entspannte Kontrast, den man nach den Städten braucht.
-bild: assets/img/blog/costeno1.jpg
+bild: assets/img/blog/riotubing.JPEG
 bildEmoji: 🏖️
 bildGradient: linear-gradient(135deg,#0a3d62,#f6b93b)
 tags:
@@ -16,7 +16,7 @@ tags:
   - Reiseführer
 ---
 
-![Costeño Beach](assets/img/blog/costeno1.jpg)
+![Costeño Beach](assets/img/blog/costeno.JPEG)
 
 Die kolumbianische Karibikküste gehört zu den beliebtesten Regionen bei Backpackern, und das aus gutem Grund. Zwischen Stränden, Dschungel, Flüssen und einer durch und durch entspannten Atmosphäre fühlt sich dieser Teil des Landes komplett anders an als Medellín oder Bogotá.
 
@@ -72,6 +72,8 @@ Auch das Rio Hostel hat eine starke soziale und partyfreudige Stimmung. Von ande
 
 Insgesamt fühlt sich das Rio Hostel mehr wie ein erlebnisbasierter Stopp an, statt ein Ort mit vielen verschiedenen Sehenswürdigkeiten. Man kommt wegen des Tubings, der Leute und der einzigartigen Lage in der Natur, was es zu einer tollen Ergänzung der Karibikküsten-Route macht.
 
+![Costeño Beach](assets/img/blog/riotubing.JPEG)
+
 ---
 
 ## Essen & Trinken an der Karibikküste
@@ -119,6 +121,8 @@ Wer soziale Hostels, Strandleben und eine flexible, entspannte Reiseweise mag, f
 Wer eher Kultur, Struktur oder viel Sightseeing sucht, ist mit anderen Zielen in Kolumbien besser bedient.
 
 Für uns war es ein wirklich lustiger und einprägsamer Teil der Reise, und ein toller Kontrast zum Rest des Landes.
+
+![Costeño Beach](assets/img/blog/riotubing2.JPEG)
 
 ---
 
