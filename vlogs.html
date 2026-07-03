@@ -7,22 +7,22 @@
   <meta name="description" content="Alle Reisevideos von Julia & Sergen – ungefilterte Vlogs aus Kolumbien, Ecuador, Galapagos und Peru.">
 
   <link rel="canonical" href="https://thefreescapeproject.com/vlogs.html">
-  
+
   <!-- Open Graph / Social Media -->
 <meta property="og:type"         content="website">
 <meta property="og:site_name"    content="The Freescape Project">
 <meta property="og:url"          content="https://thefreescapeproject.com/vlogs.html">
 <meta property="og:title"        content="Vlogs – Alle Reisevideos | The Freescape Project">
-<meta property="og:description"  content="Unsere Reise in Videos — ungefiltert, ehrlich, hautnah. Kolumbien, Ecuador, Galápagos und Peru.">
+<meta property="og:description"  content="Unsere Reise in Videos, ungefiltert, ehrlich, hautnah. Kolumbien, Ecuador, Galápagos und Peru.">
 <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/kilotoas.JPEG">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale"       content="de_DE">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Vlogs – Alle Reisevideos | The Freescape Project">
-<meta name="twitter:description" content="Unsere Reise in Videos — ungefiltert, ehrlich, hautnah. Kolumbien, Ecuador, Galápagos und Peru.">
+<meta name="twitter:description" content="Unsere Reise in Videos, ungefiltert, ehrlich, hautnah. Kolumbien, Ecuador, Galápagos und Peru.">
 <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/kilotoas.JPEG">
-  
+
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
@@ -62,6 +62,87 @@
     .load-more-wrap {
       text-align: center;
       margin-top: 2.5rem;
+    }
+
+    /* ── YouTube-Vorschau-Consent ─────────────────────────────
+       Bis zur Einwilligung werden KEINE Bilder von img.youtube.com
+       geladen. Stattdessen lokaler Navy-Platzhalter mit Play-Icon. */
+    .yt-consent-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      background: var(--green-900);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--r-lg);
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .yt-consent-bar__icon {
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+      background: rgba(232,67,26,0.18);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--terra-400);
+    }
+    .yt-consent-bar__icon svg { width: 22px; height: 22px; }
+    .yt-consent-bar__text {
+      flex: 1;
+      min-width: 220px;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.75);
+    }
+    .yt-consent-bar__text a { color: var(--terra-400); text-decoration: underline; }
+    .yt-consent-bar__btn {
+      flex-shrink: 0;
+      background: var(--terra-600);
+      color: #fff;
+      font-family: var(--font-nav);
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--r-full);
+      cursor: pointer;
+      transition: background var(--t-fast);
+    }
+    .yt-consent-bar__btn:hover { background: var(--terra-700); }
+
+    /* Lokaler Platzhalter statt img.youtube.com */
+    .yt-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
+      position: relative;
+      cursor: pointer;
+    }
+    .yt-placeholder__play {
+      width: 54px; height: 54px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-lg);
+      transition: transform var(--t-fast), background var(--t-fast);
+    }
+    .vlog-card:hover .yt-placeholder__play { transform: scale(1.1); }
+    .yt-placeholder__play svg { width: 24px; height: 24px; color: var(--terra-600); margin-left: 3px; }
+    .yt-placeholder__hint {
+      position: absolute;
+      bottom: 8px; left: 0; right: 0;
+      text-align: center;
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+      color: rgba(255,255,255,0.6);
     }
   </style>
 </head>
@@ -149,9 +230,9 @@
 </section>
 
 <section class="stats-bar">
-        <div class="container">
-        <div class="stats-bar__grid stats-bar__grid--3col">     
-        <div class="stats-bar__item animate-on-scroll">
+  <div class="container">
+    <div class="stats-bar__grid stats-bar__grid--3col">
+      <div class="stats-bar__item animate-on-scroll">
         <div class="stats-bar__number" id="stat-videos">–</div>
         <div class="stats-bar__label">Videos veröffentlicht</div>
       </div>
@@ -169,6 +250,20 @@
 
 <section class="section">
   <div class="container">
+
+    <!-- YouTube-Vorschau-Consent-Banner (nur sichtbar ohne Einwilligung) -->
+    <div class="yt-consent-bar" id="yt-consent-bar" style="display:none;">
+      <div class="yt-consent-bar__icon">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      </div>
+      <p class="yt-consent-bar__text">
+        Die Video-Vorschaubilder werden von YouTube (Google) geladen. Dabei wird deine
+        IP-Adresse an Google-Server übertragen. Solange du nicht zustimmst, zeigen wir
+        neutrale Platzhalter und es werden keine Google-Inhalte geladen.
+        <a href="datenschutz.html">Mehr in der Datenschutzerklärung</a>.
+      </p>
+      <button type="button" class="yt-consent-bar__btn" id="yt-consent-accept">Vorschaubilder laden</button>
+    </div>
 
     <!-- Ladezustand -->
     <div id="vlogs-loading" style="text-align:center;padding:4rem 0;color:var(--navy-300,#94a3b8);">
@@ -305,6 +400,15 @@ let shownVideos = 0;
 let shownShorts = 0;
 let activeFilter = 'all';
 
+/* ── YouTube-Vorschau-Consent ───────────────────────────────
+   Thumbnails kommen von img.youtube.com (Google). Bis zur
+   Einwilligung wird kein einziges dieser Bilder geladen; wir
+   zeigen lokale Platzhalter. Einwilligung wird im bestehenden
+   localStorage-Key 'ans_cookie' gespeichert. */
+function hasThumbConsent() {
+  return localStorage.getItem('ans_cookie') === 'accepted';
+}
+
 function detectCountry(title) {
   const t = title.toLowerCase();
   if (t.includes('kolumbien')||t.includes('bogotá')||t.includes('medellin')||t.includes('cartagena')||t.includes('salento')||t.includes('tayrona')||t.includes('santa marta')||t.includes('minca')||t.includes('palomino')) return 'kolumbien';
@@ -331,6 +435,23 @@ function parseDuration(iso) {
   return (parseInt(m[1]||0)*3600) + (parseInt(m[2]||0)*60) + parseInt(m[3]||0);
 }
 
+// Baut das Thumbnail-Markup: echtes Bild (bei Einwilligung) oder
+// lokaler Platzhalter (ohne Einwilligung, kein Google-Request).
+function buildThumbMarkup(v) {
+  if (hasThumbConsent()) {
+    return `
+      <img src="https://img.youtube.com/vi/${v.id}/maxresdefault.jpg"
+           onerror="this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'"
+           alt="${v.title}" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+      <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>`;
+  }
+  return `
+    <div class="yt-placeholder" data-yt-placeholder>
+      <span class="yt-placeholder__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="yt-placeholder__hint">Auf YouTube ansehen</span>
+    </div>`;
+}
+
 function makeCard(v, index, isNew) {
   const country = detectCountry(v.title);
   const countryLabel = {kolumbien:'Kolumbien',ecuador:'Ecuador',peru:'Peru',other:''}[country]||'';
@@ -339,10 +460,7 @@ function makeCard(v, index, isNew) {
     <article class="vlog-card ${delay}" data-category="${country}">
       <div class="vlog-card__thumb">
         <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" style="display:block;position:relative;">
-          <img src="https://img.youtube.com/vi/${v.id}/maxresdefault.jpg"
-               onerror="this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'"
-               alt="${v.title}" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
-          <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+          ${buildThumbMarkup(v)}
         </a>
         ${isNew ? '<span class="vlog-card__badge">Neu</span>' : ''}
       </div>
@@ -380,6 +498,34 @@ function renderAll() {
   renderGrid('grid-videos', allVideos, shownVideos, 'more-videos');
   renderGrid('grid-shorts', allShorts, shownShorts, 'more-shorts');
 }
+
+// Consent-Banner ein-/ausblenden je nach Zustand
+function updateConsentBar() {
+  const bar = document.getElementById('yt-consent-bar');
+  if (!bar) return;
+  bar.style.display = hasThumbConsent() ? 'none' : 'flex';
+}
+
+// Nach erteilter Einwilligung: Banner weg, echte Thumbnails laden
+function grantThumbConsent() {
+  localStorage.setItem('ans_cookie', 'accepted');
+  const mainBanner = document.querySelector('.cookie-banner');
+  if (mainBanner) mainBanner.classList.remove('show');
+  updateConsentBar();
+  renderAll();
+}
+
+// Zentraler Button im Consent-Banner
+document.getElementById('yt-consent-accept')?.addEventListener('click', grantThumbConsent);
+
+// Klick auf einen Platzhalter: der Link zu YouTube greift ohnehin.
+// Zusätzlich schalten wir dabei die Vorschaubilder frei, damit die
+// restlichen Karten Bilder zeigen. (Kein Google-Request vor Klick.)
+document.addEventListener('click', (e) => {
+  if (e.target.closest('[data-yt-placeholder]')) {
+    grantThumbConsent();
+  }
+});
 
 // Tabs
 document.querySelectorAll('.content-tab').forEach(tab => {
@@ -474,6 +620,7 @@ async function loadYouTubeData() {
     document.getElementById('vlogs-loading').style.display = 'none';
     document.getElementById('vlogs-content').style.display = 'block';
 
+    updateConsentBar();
     renderAll();
 
   } catch (err) {
