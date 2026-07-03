@@ -32,6 +32,17 @@
 <link rel="stylesheet" href="style.css">
   <style>
     @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Lokaler Platzhalter, falls fuer ein Video (noch) kein
+       heruntergeladenes Thumbnail existiert. Kein externer Request. */
+    .vlog-thumb-fallback {
+      width: 100%;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
+    }
   </style>
 </head>
 <body>
@@ -152,7 +163,7 @@
   </div>
 </section>
 
-<!-- VLOGS — automatisch via YouTube API -->
+<!-- VLOGS — aus lokaler vlogs-data.json (kein Google-Request) -->
 <section class="section">
   <div class="container">
     <div class="section-header animate-on-scroll">
@@ -362,29 +373,96 @@
 <script src="reise-config.js"></script>
 <script src="main.js"></script>
 
-<!-- D3 + Südamerika-Karte -->
+<!-- D3 + Südamerika-Karte (unveraendert, separates Thema) -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
-<!-- YouTube Vlog-Anzahl für Stats -->
+
+<!-- Vlogs + Vlog-Anzahl aus lokaler vlogs-data.json (kein Google-Request) -->
 <script>
-(async function() {
-  const YT_API_KEY    = 'AIzaSyBW6ccDJvUm-nVjyUYdQ2PiG-byZiwPJE4';
-  const YT_CHANNEL_ID = 'UCmCpxt4eKOG_R1csbtp3Z9Q';
-  try {
-    const res  = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`);
-    const data = await res.json();
-    const count = data.items?.[0]?.statistics?.videoCount;
-    if (count !== undefined) {
-      const el = document.querySelector('[data-reise="vlogsVeroeffentlicht"]');
-      if (el) {
-        el.setAttribute('data-count', count);
-        el.textContent = count;
-      }
+(function() {
+  function detectCountry(title) {
+    const t = title.toLowerCase();
+    if (t.includes('kolumbien')||t.includes('bogotá')||t.includes('medellin')||t.includes('cartagena')||t.includes('salento')||t.includes('tayrona')||t.includes('santa marta')||t.includes('minca')||t.includes('palomino')) return 'Kolumbien';
+    if (t.includes('ecuador')||t.includes('quito')||t.includes('amazonas')||t.includes('baños')||t.includes('mindo')||t.includes('quilotoa')||t.includes('cotopaxi')||t.includes('cuenca')||t.includes('galápagos')||t.includes('galapagos')) return 'Ecuador';
+    if (t.includes('peru')||t.includes('machu')||t.includes('lima')||t.includes('cusco')||t.includes('máncora')||t.includes('mancora')||t.includes('huanchaco')||t.includes('trujillo')||t.includes('huaraz')) return 'Peru';
+    return '';
+  }
+
+  function formatDate(iso) {
+    return new Date(iso).toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
+  }
+
+  // Thumbnail: lokaler Pfad aus der JSON, sonst lokaler Fallback.
+  function buildThumb(v) {
+    if (v.thumb) {
+      return `
+        <img src="${v.thumb}" alt="${v.title}" loading="lazy"
+             style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+        <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>`;
     }
-  } catch(e) { console.warn('YouTube Stats Fehler:', e); }
+    return `
+      <div class="vlog-thumb-fallback">
+        <span class="vlog-card__play" style="position:static;transform:none;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      </div>`;
+  }
+
+  async function loadHomeVlogs() {
+    const grid    = document.getElementById('home-vlogs-grid');
+    const loading = document.getElementById('home-vlogs-loading');
+    try {
+      const res = await fetch('vlogs-data.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('Daten nicht verfuegbar');
+      const data = await res.json();
+
+      // Vlog-Anzahl in die Stats-Bar (nur echte Videos, keine Shorts)
+      const el = document.querySelector('[data-reise="vlogsVeroeffentlicht"]');
+      if (el && data.stats?.videoCount !== undefined) {
+        el.setAttribute('data-count', data.stats.videoCount);
+        el.textContent = data.stats.videoCount;
+      }
+
+      // Neueste 3 Langvideos (Shorts ausgeschlossen)
+      const videos = (data.videos || []).filter(v => (v.duration || 999) > 60).slice(0, 3);
+      if (!videos.length) { if (loading) loading.remove(); return; }
+
+      const delays = ['','animate-delay-1','animate-delay-2'];
+      grid.innerHTML = videos.map((v, i) => {
+        const country = detectCountry(v.title);
+        const desc    = (v.description||'').slice(0,120).trim();
+        return `
+          <article class="vlog-card ${delays[i]}">
+            <div class="vlog-card__thumb">
+              <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" style="display:block;position:relative;">
+                ${buildThumb(v)}
+              </a>
+              ${i === 0 ? '<span class="vlog-card__badge">Neu</span>' : ''}
+            </div>
+            <div class="vlog-card__body">
+              <div class="vlog-card__meta">
+                ${country ? `<span class="vlog-card__country">${country}</span>` : ''}
+                <span class="vlog-card__date">${formatDate(v.publishedAt)}</span>
+              </div>
+              <h3 class="vlog-card__title">${v.title}</h3>
+              <p class="vlog-card__desc">${desc}${desc.length>=120?'…':''}</p>
+              <div class="vlog-card__footer">
+                <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" class="vlog-card__watch">Ansehen →</a>
+              </div>
+            </div>
+          </article>`;
+      }).join('');
+      grid.querySelectorAll('.vlog-card').forEach(el => el.classList.add('visible'));
+
+    } catch(err) {
+      console.error('Vlogs konnten nicht geladen werden:', err);
+      if (loading) loading.remove();
+    }
+  }
+
+  loadHomeVlogs();
 })();
 </script>
 
+<!-- Südamerika-Karte (D3, unveraendert) -->
 <script>
 (async function() {
   const SA = REISE.saMap;
@@ -422,97 +500,6 @@
       svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 6).attr('class', 'map-marker');
     }
   } catch (e) { console.warn('Karte konnte nicht geladen werden:', e); }
-})();
-</script>
-
-<!-- YouTube API: Neueste 3 Vlogs -->
-<script>
-(function() {
-  const YT_API_KEY    = 'AIzaSyBW6ccDJvUm-nVjyUYdQ2PiG-byZiwPJE4';
-  const YT_CHANNEL_ID = 'UCmCpxt4eKOG_R1csbtp3Z9Q';
-
-  function detectCountry(title) {
-    const t = title.toLowerCase();
-    if (t.includes('kolumbien')||t.includes('bogotá')||t.includes('medellin')||t.includes('cartagena')||t.includes('salento')||t.includes('tayrona')||t.includes('santa marta')||t.includes('minca')||t.includes('palomino')) return 'Kolumbien';
-    if (t.includes('ecuador')||t.includes('quito')||t.includes('amazonas')||t.includes('baños')||t.includes('mindo')||t.includes('quilotoa')||t.includes('cotopaxi')||t.includes('cuenca')||t.includes('galápagos')||t.includes('galapagos')) return 'Ecuador';
-    if (t.includes('peru')||t.includes('machu')||t.includes('lima')||t.includes('cusco')||t.includes('máncora')||t.includes('mancora')||t.includes('huanchaco')||t.includes('trujillo')||t.includes('huaraz')) return 'Peru';
-    return '';
-  }
-
-  function formatDate(iso) {
-    return new Date(iso).toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
-  }
-
-  function parseDuration(iso) {
-    const m = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
-    if (!m) return 0;
-    return (parseInt(m[1]||0)*3600)+(parseInt(m[2]||0)*60)+parseInt(m[3]||0);
-  }
-
-  async function loadHomeVlogs() {
-    const grid    = document.getElementById('home-vlogs-grid');
-    const loading = document.getElementById('home-vlogs-loading');
-    try {
-      const chRes  = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`);
-      const chData = await chRes.json();
-      if (!chData.items?.[0]) throw new Error('Kanal nicht gefunden');
-      const uploadsId = chData.items[0].contentDetails.relatedPlaylists.uploads;
-
-      const plRes  = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${uploadsId}&key=${YT_API_KEY}`);
-      const plData = await plRes.json();
-      const items  = plData.items || [];
-
-      const ids = items.map(i => i.snippet.resourceId.videoId).join(',');
-      const detRes  = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${ids}&key=${YT_API_KEY}`);
-      const detData = await detRes.json();
-      const durMap  = {};
-      (detData.items||[]).forEach(v => { durMap[v.id] = parseDuration(v.contentDetails.duration); });
-
-      const videos = items.filter(i => (durMap[i.snippet.resourceId.videoId]||999) > 60).slice(0, 3);
-
-      if (!videos.length) { if(loading) loading.remove(); return; }
-
-      const delays = ['','animate-delay-1','animate-delay-2'];
-      const cards = videos.map((item, i) => {
-        const id      = item.snippet.resourceId.videoId;
-        const title   = item.snippet.title;
-        const desc    = (item.snippet.description||'').slice(0,120).trim();
-        const country = detectCountry(title);
-        return `
-          <article class="vlog-card ${delays[i]}">
-            <div class="vlog-card__thumb">
-              <a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener" style="display:block;position:relative;">
-                <img src="https://img.youtube.com/vi/${id}/maxresdefault.jpg"
-                     onerror="this.src='https://img.youtube.com/vi/${id}/hqdefault.jpg'"
-                     alt="${title}" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
-                <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-              </a>
-              ${i === 0 ? '<span class="vlog-card__badge">Neu</span>' : ''}
-            </div>
-            <div class="vlog-card__body">
-              <div class="vlog-card__meta">
-                ${country ? `<span class="vlog-card__country">${country}</span>` : ''}
-                <span class="vlog-card__date">${formatDate(item.snippet.publishedAt)}</span>
-              </div>
-              <h3 class="vlog-card__title">${title}</h3>
-              <p class="vlog-card__desc">${desc}${desc.length>=120?'…':''}</p>
-              <div class="vlog-card__footer">
-                <a href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener" class="vlog-card__watch">Ansehen →</a>
-              </div>
-            </div>
-          </article>`;
-      }).join('');
-
-      grid.innerHTML = cards;
-      grid.querySelectorAll('.vlog-card').forEach(el => el.classList.add('visible'));
-
-    } catch(err) {
-      console.error('YouTube Fehler:', err);
-      if(loading) loading.remove();
-    }
-  }
-
-  loadHomeVlogs();
 })();
 </script>
 
