@@ -64,85 +64,15 @@
       margin-top: 2.5rem;
     }
 
-    /* ── YouTube-Vorschau-Consent ─────────────────────────────
-       Bis zur Einwilligung werden KEINE Bilder von img.youtube.com
-       geladen. Stattdessen lokaler Navy-Platzhalter mit Play-Icon. */
-    .yt-consent-bar {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-      background: var(--green-900);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--r-lg);
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .yt-consent-bar__icon {
-      width: 44px; height: 44px;
-      flex-shrink: 0;
-      background: rgba(232,67,26,0.18);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--terra-400);
-    }
-    .yt-consent-bar__icon svg { width: 22px; height: 22px; }
-    .yt-consent-bar__text {
-      flex: 1;
-      min-width: 220px;
-      font-size: 0.85rem;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.75);
-    }
-    .yt-consent-bar__text a { color: var(--terra-400); text-decoration: underline; }
-    .yt-consent-bar__btn {
-      flex-shrink: 0;
-      background: var(--terra-600);
-      color: #fff;
-      font-family: var(--font-nav);
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
-      padding: 0.7rem 1.4rem;
-      border-radius: var(--r-full);
-      cursor: pointer;
-      transition: background var(--t-fast);
-    }
-    .yt-consent-bar__btn:hover { background: var(--terra-700); }
-
-    /* Lokaler Platzhalter statt img.youtube.com */
-    .yt-placeholder {
+    /* Lokaler Platzhalter, falls für ein Video (noch) kein
+       heruntergeladenes Thumbnail existiert. Kein externer Request. */
+    .vlog-thumb-fallback {
       width: 100%;
       aspect-ratio: 16/9;
       display: flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
-      position: relative;
-      cursor: pointer;
-    }
-    .yt-placeholder__play {
-      width: 54px; height: 54px;
-      background: rgba(255,255,255,0.95);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-lg);
-      transition: transform var(--t-fast), background var(--t-fast);
-    }
-    .vlog-card:hover .yt-placeholder__play { transform: scale(1.1); }
-    .yt-placeholder__play svg { width: 24px; height: 24px; color: var(--terra-600); margin-left: 3px; }
-    .yt-placeholder__hint {
-      position: absolute;
-      bottom: 8px; left: 0; right: 0;
-      text-align: center;
-      font-size: 0.68rem;
-      letter-spacing: 0.04em;
-      color: rgba(255,255,255,0.6);
     }
   </style>
 </head>
@@ -250,20 +180,6 @@
 
 <section class="section">
   <div class="container">
-
-    <!-- YouTube-Vorschau-Consent-Banner (nur sichtbar ohne Einwilligung) -->
-    <div class="yt-consent-bar" id="yt-consent-bar" style="display:none;">
-      <div class="yt-consent-bar__icon">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
-      </div>
-      <p class="yt-consent-bar__text">
-        Die Video-Vorschaubilder werden von YouTube (Google) geladen. Dabei wird deine
-        IP-Adresse an Google-Server übertragen. Solange du nicht zustimmst, zeigen wir
-        neutrale Platzhalter und es werden keine Google-Inhalte geladen.
-        <a href="datenschutz.html">Mehr in der Datenschutzerklärung</a>.
-      </p>
-      <button type="button" class="yt-consent-bar__btn" id="yt-consent-accept">Vorschaubilder laden</button>
-    </div>
 
     <!-- Ladezustand -->
     <div id="vlogs-loading" style="text-align:center;padding:4rem 0;color:var(--navy-300,#94a3b8);">
@@ -389,9 +305,16 @@
 </div>
 
 <script>
-const YT_API_KEY    = 'AIzaSyBW6ccDJvUm-nVjyUYdQ2PiG-byZiwPJE4';
-const YT_CHANNEL_ID = 'UCmCpxt4eKOG_R1csbtp3Z9Q';
-const PAGE_SIZE     = 6;
+/* ============================================================
+   Vlogs werden aus der lokalen vlogs-data.json geladen, die
+   taeglich per GitHub Action vorab von YouTube geholt wird.
+   Es gibt hier KEINEN Live-Request an Google: weder API-Call
+   noch Thumbnail von img.youtube.com. Damit keine Uebertragung
+   der Besucher-IP an Google, kein Consent noetig fuer die
+   Vorschau. (Das Abspielen selbst passiert per Link auf
+   youtube.com und ist damit eine bewusste Nutzeraktion.)
+   ============================================================ */
+const PAGE_SIZE = 6;
 
 // State
 let allVideos = [];
@@ -399,15 +322,6 @@ let allShorts = [];
 let shownVideos = 0;
 let shownShorts = 0;
 let activeFilter = 'all';
-
-/* ── YouTube-Vorschau-Consent ───────────────────────────────
-   Thumbnails kommen von img.youtube.com (Google). Bis zur
-   Einwilligung wird kein einziges dieser Bilder geladen; wir
-   zeigen lokale Platzhalter. Einwilligung wird im bestehenden
-   localStorage-Key 'ans_cookie' gespeichert. */
-function hasThumbConsent() {
-  return localStorage.getItem('ans_cookie') === 'accepted';
-}
 
 function detectCountry(title) {
   const t = title.toLowerCase();
@@ -428,27 +342,18 @@ function formatDate(iso) {
   return new Date(iso).toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
 }
 
-// ISO 8601 Dauer in Sekunden umrechnen (z.B. PT1M30S = 90)
-function parseDuration(iso) {
-  const m = iso.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
-  if (!m) return 0;
-  return (parseInt(m[1]||0)*3600) + (parseInt(m[2]||0)*60) + parseInt(m[3]||0);
-}
-
-// Baut das Thumbnail-Markup: echtes Bild (bei Einwilligung) oder
-// lokaler Platzhalter (ohne Einwilligung, kein Google-Request).
+// Thumbnail-Markup. Bild kommt aus dem lokalen assets/vlog-thumbs/
+// (vorab heruntergeladen). Fehlt es, lokaler Fallback ohne Request.
 function buildThumbMarkup(v) {
-  if (hasThumbConsent()) {
+  if (v.thumb) {
     return `
-      <img src="https://img.youtube.com/vi/${v.id}/maxresdefault.jpg"
-           onerror="this.src='https://img.youtube.com/vi/${v.id}/hqdefault.jpg'"
-           alt="${v.title}" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+      <img src="${v.thumb}" alt="${v.title}" loading="lazy"
+           style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
       <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>`;
   }
   return `
-    <div class="yt-placeholder" data-yt-placeholder>
-      <span class="yt-placeholder__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-      <span class="yt-placeholder__hint">Auf YouTube ansehen</span>
+    <div class="vlog-thumb-fallback">
+      <span class="vlog-card__play" style="position:static;transform:none;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
     </div>`;
 }
 
@@ -488,9 +393,7 @@ function renderGrid(gridId, list, shown, moreWrapId) {
   const filtered = getFiltered(list);
   const toShow = filtered.slice(0, shown);
   grid.innerHTML = toShow.map((v, i) => makeCard(v, i, i === 0 && list === allVideos)).join('');
-  // Mehr-Button
   document.getElementById(moreWrapId).style.display = filtered.length > shown ? 'block' : 'none';
-  // Sichtbar machen
   grid.querySelectorAll('.vlog-card').forEach(el => el.classList.add('visible'));
 }
 
@@ -498,34 +401,6 @@ function renderAll() {
   renderGrid('grid-videos', allVideos, shownVideos, 'more-videos');
   renderGrid('grid-shorts', allShorts, shownShorts, 'more-shorts');
 }
-
-// Consent-Banner ein-/ausblenden je nach Zustand
-function updateConsentBar() {
-  const bar = document.getElementById('yt-consent-bar');
-  if (!bar) return;
-  bar.style.display = hasThumbConsent() ? 'none' : 'flex';
-}
-
-// Nach erteilter Einwilligung: Banner weg, echte Thumbnails laden
-function grantThumbConsent() {
-  localStorage.setItem('ans_cookie', 'accepted');
-  const mainBanner = document.querySelector('.cookie-banner');
-  if (mainBanner) mainBanner.classList.remove('show');
-  updateConsentBar();
-  renderAll();
-}
-
-// Zentraler Button im Consent-Banner
-document.getElementById('yt-consent-accept')?.addEventListener('click', grantThumbConsent);
-
-// Klick auf einen Platzhalter: der Link zu YouTube greift ohnehin.
-// Zusätzlich schalten wir dabei die Vorschaubilder frei, damit die
-// restlichen Karten Bilder zeigen. (Kein Google-Request vor Klick.)
-document.addEventListener('click', (e) => {
-  if (e.target.closest('[data-yt-placeholder]')) {
-    grantThumbConsent();
-  }
-});
 
 // Tabs
 document.querySelectorAll('.content-tab').forEach(tab => {
@@ -559,7 +434,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-async function loadYouTubeData() {
+async function loadVlogs() {
   const showError = msg => {
     document.getElementById('vlogs-loading').innerHTML =
       `<p style="color:var(--terra-400);max-width:500px;margin:0 auto;">${msg}<br><br>
@@ -568,50 +443,18 @@ async function loadYouTubeData() {
   };
 
   try {
-    // 1. Kanal-Stats + Upload-Playlist
-    const chRes  = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics,contentDetails&id=${YT_CHANNEL_ID}&key=${YT_API_KEY}`);
-    const chData = await chRes.json();
-    if (chData.error || !chData.items?.[0]) { showError('Kanal nicht gefunden.'); return; }
+    // Nur die eigene, lokale Datei laden. Kein Google-Request.
+    const res = await fetch('vlogs-data.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error('Daten konnten nicht geladen werden.');
+    const data = await res.json();
 
-    const s = chData.items[0].statistics;
-    document.getElementById('stat-videos').textContent      = formatNumber(s.videoCount);
-    document.getElementById('stat-views').textContent       = formatNumber(s.viewCount);
-    document.getElementById('stat-subscribers').textContent = formatNumber(s.subscriberCount);
+    document.getElementById('stat-videos').textContent      = formatNumber(data.stats.videoCount);
+    document.getElementById('stat-views').textContent       = formatNumber(data.stats.viewCount);
+    document.getElementById('stat-subscribers').textContent = formatNumber(data.stats.subscriberCount);
 
-    const uploadsId = chData.items[0].contentDetails.relatedPlaylists.uploads;
-
-    // 2. Videos aus Playlist
-    const plRes  = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${uploadsId}&key=${YT_API_KEY}`);
-    const plData = await plRes.json();
-    if (plData.error) { showError('Playlist-Fehler.'); return; }
-
-    const items = plData.items || [];
-    const videoIds = items.map(i => i.snippet.resourceId.videoId).join(',');
-
-    // 3. Videodauer laden (um Shorts zu erkennen: ≤ 60 Sekunden)
-    const detRes  = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id=${videoIds}&key=${YT_API_KEY}`);
-    const detData = await detRes.json();
-
-    const durationMap = {};
-    (detData.items || []).forEach(v => {
-      durationMap[v.id] = parseDuration(v.contentDetails.duration);
-    });
-
-    // 4. Trennen in Videos und Shorts
-    items.forEach(item => {
-      const id = item.snippet.resourceId.videoId;
-      const v = {
-        id,
-        title:       item.snippet.title,
-        description: item.snippet.description || '',
-        publishedAt: item.snippet.publishedAt,
-        duration:    durationMap[id] || 999,
-      };
-      if (v.duration <= 60) {
-        allShorts.push(v);
-      } else {
-        allVideos.push(v);
-      }
+    (data.videos || []).forEach(v => {
+      if ((v.duration || 999) <= 60) allShorts.push(v);
+      else allVideos.push(v);
     });
 
     shownVideos = PAGE_SIZE;
@@ -620,16 +463,15 @@ async function loadYouTubeData() {
     document.getElementById('vlogs-loading').style.display = 'none';
     document.getElementById('vlogs-content').style.display = 'block';
 
-    updateConsentBar();
     renderAll();
 
   } catch (err) {
     console.error(err);
-    showError(`Fehler: ${err.message}`);
+    showError('Die Videos konnten gerade nicht geladen werden.');
   }
 }
 
-loadYouTubeData();
+loadVlogs();
 </script>
 
 <script src="reise-config.js"></script>
