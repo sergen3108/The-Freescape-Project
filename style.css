@@ -1975,25 +1975,6 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   }
 }
 
-/* ── ÜBERGANGS-FALLBACK (temporär) ───────────────────────────
-   Fängt Seiten ab, die noch das alte inline
-   style="grid-template-columns:repeat(N,1fr)" nutzen
-   (vlogs.html, ueber-uns.html, karte.html, blog.html).
-   Sobald diese Seiten auf die Modifier-Klassen
-   (.stats-bar__grid--3col / --4col) umgestellt sind, kann dieser
-   komplette Block ersatzlos gelöscht werden. Danach gibt es kein
-   !important mehr in der Stats-Bar. */
-@media (max-width: 768px) {
-  .stats-bar__grid[style*="repeat("] {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-  .stats-bar__grid[style*="repeat(3,"] .stats-bar__item:last-child {
-    grid-column: 1 / -1;
-    justify-self: center;
-    max-width: 50%;
-  }
-}
-
 /* Verhindert horizontalen Overflow durch die Einblend-Animationen
    auf ueber-uns.html — translateX(-60px/+60px) der img-reveal-wrap
    Elemente bricht auf Mobile aus dem Viewport heraus */
