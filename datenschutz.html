@@ -106,25 +106,33 @@
     E-Mail: <a href="mailto:info@thefreescapeproject.com">info@thefreescapeproject.com</a>
   </p>
 
-  <h2>2. Hosting</h2>
+  <h2>2. Hosting und Bereitstellung der Inhalte</h2>
   <p>Diese Website wird über GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) gehostet. Beim Aufruf werden technisch notwendige Daten (IP-Adresse, Zeitstempel, Browsertyp, aufgerufene URL) durch den Hosting-Anbieter erfasst. Wir haben auf diese Verarbeitung keinen direkten Einfluss. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am Betrieb einer funktionsfähigen Website). Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>.</p>
+  <p>Die auf der Startseite und der Vlog-Seite angezeigten YouTube-Inhalte (Videotitel, Beschreibungen, Aufrufzahlen und Vorschaubilder) werden nicht beim Besuch der Seite von deinem Browser abgerufen, sondern in regelmäßigen Abständen automatisiert auf Servern von GitHub vorab geholt und als statische Dateien auf unserem Webspace gespeichert. Beim Aufruf unserer Seiten lädst du diese Inhalte ausschließlich von unserem eigenen Server, es findet dabei keine Verbindung zu Google statt. Näheres dazu unter Abschnitt 4.</p>
 
   <h2>3. Cookies</h2>
   <p>Wir verwenden ein Cookie-Banner, das deine Entscheidung in <code>localStorage</code> speichert. Diese Speicherung selbst ist technisch notwendig und überträgt keine Daten an Dritte. Es werden keine Tracking- oder Werbe-Cookies gesetzt.</p>
- 
+
   <h2>4. YouTube</h2>
-  <p>Auf dieser Website verlinken wir auf Videos unseres YouTube-Kanals (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland), unter anderem über Vorschaubilder (Thumbnails). Diese Vorschaubilder werden als einfache Bilddatei eingebunden, ein Klick darauf öffnet das jeweilige Video in einem neuen Tab direkt auf youtube.com. Es findet dabei keine Einbettung (kein "Embedding") von YouTube-Inhalten auf unserer eigenen Seite statt, daher werden beim Besuch unserer Website selbst keine Cookies von YouTube/Google gesetzt und keine Daten an Google übertragen.</p>
-  <p>Erst wenn du dem Link zu YouTube folgst und die Plattform youtube.com aufrufst, gilt dort die Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Datenschutzerklärung</a>.</p>
- 
+  <p>Wir betreiben einen YouTube-Kanal (YouTube: Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland). Auf der Startseite und der Vlog-Seite zeigen wir eine Übersicht unserer Videos mit Titel, Beschreibung, Vorschaubild und Kanalstatistik.</p>
+  <p>Diese Angaben und die Vorschaubilder werden vorab über die YouTube Data API abgerufen und lokal auf unserem Webspace gespeichert (siehe Abschnitt 2). Beim reinen Betrachten unserer Seiten werden dadurch keine Daten an Google übertragen und keine Cookies von Google gesetzt. Die Vorschaubilder werden von unserem eigenen Server geladen.</p>
+  <p>Eine Verbindung zu Google entsteht erst durch eine aktive Handlung deinerseits:</p>
+  <ul>
+    <li>Wenn du auf ein Video oder einen Vlog klickst, wirst du auf die Plattform youtube.com weitergeleitet. Dort gilt die Datenschutzerklärung von Google.</li>
+    <li>Auf der Startseite kann ein Video zusätzlich direkt in einem eingebetteten Player abgespielt werden. Dieser Player wird von YouTube geladen. Damit dabei Daten an Google übertragen werden, ist deine vorherige Einwilligung erforderlich: Der Player wird erst geladen, nachdem du dem ausdrücklich zugestimmt hast. Vor deiner Zustimmung wird kein YouTube-Inhalt in die Seite eingebettet und keine Verbindung zu Google hergestellt.</li>
+  </ul>
+  <p>Sobald ein Video auf youtube.com abgespielt oder der eingebettete Player geladen wird, verarbeitet Google personenbezogene Daten (unter anderem deine IP-Adresse) und kann Cookies setzen. Rechtsgrundlage für das Laden des eingebetteten Players ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die du jederzeit mit Wirkung für die Zukunft widerrufen kannst. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Datenschutzerklärung</a>.</p>
+
   <h2>5. Schriftarten</h2>
   <p>Diese Website verwendet die Schriftarten „Playfair Display" und „Cormorant Garamond". Diese sind lokal auf unserem Webspace eingebunden und werden direkt von dort geladen. Es findet keine Verbindung zu Servern von Google statt, es werden keine Daten an Google übertragen.</p>
-  
-  <h2>6. Leaflet / OpenStreetMap</h2>
-  <p>Auf der Reisekarte nutzen wir Leaflet.js mit Kartendaten von OpenStreetMap (OpenStreetMap Foundation, St John's Innovation Centre, Cowley Road, Cambridge, CB4 0WS, UK) sowie Kartenkacheln von CARTO (CARTO US Inc., 201 Moore Street, Brooklyn, NY 11206, USA). Beim Laden der Karte wird eine Verbindung zu den Servern dieser Anbieter hergestellt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+  <h2>6. Reisekarte und Kartenbibliotheken</h2>
+  <p>Auf der Reisekarte (Seite „Reisekarte") nutzen wir Leaflet.js mit Kartendaten von OpenStreetMap (OpenStreetMap Foundation, St John's Innovation Centre, Cowley Road, Cambridge, CB4 0WS, UK) sowie Kartenkacheln von CARTO (CARTO US Inc., 201 Moore Street, Brooklyn, NY 11206, USA). Beim Laden dieser Karte wird eine Verbindung zu den Servern dieser Anbieter hergestellt, wobei deine IP-Adresse übertragen wird.</p>
+  <p>Auf der Startseite wird zusätzlich eine vereinfachte Übersichtskarte angezeigt. Für deren Darstellung werden die Programmbibliotheken D3.js und topojson-client sowie Geodaten über den Dienst jsDelivr (jsDelivr, betrieben durch Prospect One, Krakau, Polen) geladen. Auch dabei wird eine Verbindung zu einem externen Server hergestellt und deine IP-Adresse übertragen.</p>
+  <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Darstellung unserer Reiseroute). Wir arbeiten daran, diese Einbindungen künftig ohne externe Serververbindungen bereitzustellen.</p>
 
   <h2>7. Kontaktformular</h2>
   <p>Wenn du uns über das Kontaktformular schreibst, werden die von dir eingegebenen Daten (Name, E-Mail, Nachricht) zur Bearbeitung deiner Anfrage verarbeitet und per E-Mail an uns weitergeleitet. Die Daten werden nicht für andere Zwecke verwendet und nicht an Dritte weitergegeben, außer zur technischen Abwicklung über Formspree (Formspree Inc., USA). Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO.</p>
-
 
   <h2>8. Social-Media-Präsenzen</h2>
   <p>Wir unterhalten öffentliche Profile auf folgenden Plattformen:</p>
@@ -136,7 +144,7 @@
   </ul>
   <p>Unsere Website enthält Links zu diesen Plattformen. Beim Klick auf einen solchen Link wirst du auf die jeweilige Plattform weitergeleitet. Erst dort gelten die Datenschutzbestimmungen des jeweiligen Anbieters. Auf unserer Website selbst werden durch diese Verlinkungen keine Daten an die Plattformen übertragen, es sind keine Social-Media-Plugins, Tracking-Pixel oder eingebettete Inhalte dieser Dienste eingebunden.</p>
   <p>Darüber hinaus ist auf unserer Startseite ein Meta-Tag zur Domain-Verifizierung bei Pinterest hinterlegt. Dieser Tag ist ein statischer HTML-Eintrag, der keine Nutzerdaten erfasst oder überträgt.</p>
-  
+
   <h2>9. Deine Rechte</h2>
   <p>Du hast nach der DSGVO folgende Rechte gegenüber uns bezüglich deiner personenbezogenen Daten:</p>
   <ul>
