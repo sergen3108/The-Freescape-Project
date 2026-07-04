@@ -83,24 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(tick);
   }
 
-  document.querySelectorAll('[data-video]').forEach(el => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      const videoId = el.dataset.video;
-      if (!videoId || !videoModal) return;
-
-      videoModal.classList.add('open');
-      document.body.style.overflow = 'hidden';
-
-      if (hasVideoConsent()) {
-        loadVideoIntoModal(videoId);
-      } else {
-        buildConsentPlaceholder(videoId);
-      }
-    });
-  });
-
-
   /* ── Gallery Lightbox ───────────────────────────────── */
   const lightbox = document.querySelector('.lightbox');
   const lightboxImg = document.querySelector('.lightbox__img');
