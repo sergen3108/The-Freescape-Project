@@ -319,13 +319,33 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
     cookieAccept.addEventListener('click', () => {
       localStorage.setItem('ans_cookie', 'accepted');
       cookieBanner.classList.remove('show');
+      loadGA4();
     });
+  }
   }
   if (cookieDecline) {
     cookieDecline.addEventListener('click', () => {
       localStorage.setItem('ans_cookie', 'declined');
       cookieBanner.classList.remove('show');
     });
+  }
+
+  /* ── GA4 (consent-abhängig) ──────────────────────────── */
+  function loadGA4() {
+    if (document.querySelector('script[src*="gtag"]')) return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FXRW5YYPTB';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-FXRW5YYPTB', { anonymize_ip: true });
+  }
+
+  if (localStorage.getItem('ans_cookie') === 'accepted') {
+    loadGA4();
   }
 
   /* ── Keyboard Escape ─────────────────────────────────── */
