@@ -83,11 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(tick);
   }
 
-  /* ── Video Modal (mit Cookie-Consent-Gate) ───────────── */
-  const videoModal = document.querySelector('.video-modal');
-  const videoFrame = document.querySelector('.video-modal__iframe');
-  const videoClose = document.querySelector('.video-modal__close');
-
   // Prüft, ob die Person bereits "Alle akzeptieren" geklickt hat.
   // Nur dann dürfen YouTube-Cookies/Datenübertragung stattfinden.
   function hasVideoConsent() {
@@ -330,6 +325,16 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
     });
   }
 
+  const cookieSettingsBtn = document.getElementById('cookieSettingsBtn');
+  if (cookieSettingsBtn) {
+    cookieSettingsBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('ans_cookie');
+      localStorage.removeItem('map_consent');
+      if (cookieBanner) cookieBanner.classList.add('show');
+    });
+  }
+
   /* ── GA4 (consent-abhängig) ──────────────────────────── */
   function loadGA4() {
     if (document.querySelector('script[src*="gtag"]')) return;
@@ -351,7 +356,6 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
   /* ── Keyboard Escape ─────────────────────────────────── */
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeVideoModal();
       closeLightbox();
       if (mobileMenu?.classList.contains('open')) {
         mobileMenu.classList.remove('open');
