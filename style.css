@@ -1325,41 +1325,6 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 .lightbox__close:hover { color: var(--white); }
 
-/* === VIDEO MODAL =========================================== */
-.video-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(0,0,0,0.95);
-  align-items: center;
-  justify-content: center;
-  padding: var(--sp-8);
-}
-.video-modal.open { display: flex; }
-.video-modal__content { position: relative; width: 100%; max-width: 900px; }
-.video-modal__close {
-  position: absolute;
-  top: -40px; right: 0;
-  color: rgba(255,255,255,0.7);
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color var(--t-fast);
-}
-.video-modal__close:hover { color: var(--white); }
-.video-modal__iframe-wrap { position: relative; padding-bottom: 56.25%; }
-.video-modal__iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%; height: 100%;
-  border-radius: var(--r-md);
-}
-
 /* === FORMS ================================================= */
 .form-group { margin-bottom: var(--sp-5); }
 .form-label {
