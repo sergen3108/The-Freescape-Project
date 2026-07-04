@@ -516,7 +516,7 @@ function initMap() {
 function hasMapConsent() {
   try {
     return localStorage.getItem(CONSENT_KEY) === 'granted'
-        || localStorage.getItem('ans_cookie') === 'true';
+        || localStorage.getItem('ans_cookie') === 'accepted';
   } catch(e) { return false; }
 }
 
