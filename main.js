@@ -322,7 +322,7 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
       loadGA4();
     });
   }
-  }
+  
   if (cookieDecline) {
     cookieDecline.addEventListener('click', () => {
       localStorage.setItem('ans_cookie', 'declined');
