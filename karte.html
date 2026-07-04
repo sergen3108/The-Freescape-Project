@@ -22,13 +22,14 @@
   <meta name="twitter:description" content="Verfolge unsere Route in Echtzeit — alle besuchten Orte, die aktuelle Position und was noch kommt.">
   <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/blog/sanandres8.jpg">
 
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+  <!-- Leaflet lokal geladen, keine externe Serververbindung -->
+  <link rel="stylesheet" href="assets/leaflet/leaflet.css"/>
 
   <style>
     #map {
@@ -38,6 +39,66 @@
       z-index: 1;
     }
     .map-wrap { position: relative; }
+
+    /* ── Consent-Platzhalter ─────────────────────────── */
+    .map-consent-placeholder {
+      width: 100%;
+      height: 600px;
+      border-radius: var(--r-xl);
+      background: var(--green-900, #0f1b2d);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      text-align: center;
+      padding: 2rem;
+    }
+    .map-consent-placeholder__icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .map-consent-placeholder__icon svg {
+      width: 28px;
+      height: 28px;
+      color: rgba(255,255,255,0.5);
+    }
+    .map-consent-placeholder__title {
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+    .map-consent-placeholder__text {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.85rem;
+      line-height: 1.6;
+      max-width: 400px;
+    }
+    .map-consent-placeholder__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.75rem;
+      background: var(--terra-500, #e8431a);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-md, 8px);
+      font-size: 0.88rem;
+      font-weight: 600;
+      font-family: var(--font-nav, 'Inter', sans-serif);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .map-consent-placeholder__btn:hover {
+      background: var(--terra-600, #c83815);
+    }
+
     .leaflet-popup-content-wrapper {
       border-radius: 12px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.15);
@@ -78,7 +139,7 @@
 
     @media(max-width:900px) {
       .karte-layout { grid-template-columns: 1fr; }
-      #map { height: 420px; }
+      #map, .map-consent-placeholder { height: 420px; }
     }
   </style>
 </head>
@@ -200,7 +261,23 @@
       <!-- Karte -->
       <div>
         <div class="map-wrap">
-          <div id="map"></div>
+          <!-- Platzhalter: wird angezeigt, solange keine Einwilligung vorliegt -->
+          <div class="map-consent-placeholder" id="mapConsentPlaceholder">
+            <div class="map-consent-placeholder__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div class="map-consent-placeholder__title">Interaktive Karte</div>
+            <div class="map-consent-placeholder__text">Beim Laden der Karte werden Kartendaten von OpenStreetMap und CARTO abgerufen. Dabei wird deine IP-Adresse an diese Dienste übermittelt.</div>
+            <button class="map-consent-placeholder__btn" id="mapConsentBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Karte laden
+            </button>
+          </div>
+          <!-- Karte: zunächst versteckt -->
+          <div id="map" style="display:none;"></div>
         </div>
         <div class="map-legend">
           <div class="legend-item"><div class="legend-dot legend-dot--visited"></div> Bereist</div>
@@ -232,7 +309,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;">Lima → Cusco → Machu Picchu. Freundin Luisa stößt dazu — wir sind gespannt! 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;">Lima → Cusco → Machu Picchu. Freundin Luisa stößt dazu, wir sind gespannt! 🙌</p>
         </div>
 
       </div>
@@ -313,39 +390,48 @@
   </div>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Leaflet lokal geladen, keine externe Serververbindung -->
+<script src="assets/leaflet/leaflet.js"></script>
 <script src="reise-config.js"></script>
 <script src="main.js"></script>
 
 <script>
+/* ═══════════════════════════════════════════════════════
+   Karte mit Consent-Gating
+   - Leaflet-Framework: lokal geladen (kein CDN)
+   - Kartenkacheln (CARTO/OSM): erst nach Einwilligung
+   ═══════════════════════════════════════════════════════ */
+
+const CONSENT_KEY = 'map_consent';
+
 const pins = [
   // ── KOLUMBIEN ─────────────────────────────────────────
   { lat: 4.7110,  lng: -74.0721, status: "visited", name: "Bogotá",               desc: "Erste Station unserer Reise. La Candelaria, Streetfood und Streetart.",                              link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: 4.6382,  lng: -75.6691, status: "visited", name: "Salento",              desc: "Bunte Häuser, Wachspalmen im Cocora-Tal und der beste Kaffee der Welt.",                             link: "blog.html", linkText: "Zum Blogartikel" },
-  { lat: 6.2442,  lng: -75.5812, status: "visited", name: "Medellín",             desc: "Die ewige Frühlingsstadt — Seilbahn, Streetart und unglaubliches Essen.",                           link: "blog.html", linkText: "Zum Blogartikel" },
-  { lat: 6.2324,  lng: -75.1575, status: "visited", name: "Guatapé",              desc: "El Peñol und das bunteste Dorf Kolumbiens — ein unvergesslicher Tagesausflug.",                     link: "blog.html", linkText: "Zum Blogartikel" },
+  { lat: 6.2442,  lng: -75.5812, status: "visited", name: "Medellín",             desc: "Die ewige Frühlingsstadt, Seilbahn, Streetart und unglaubliches Essen.",                            link: "blog.html", linkText: "Zum Blogartikel" },
+  { lat: 6.2324,  lng: -75.1575, status: "visited", name: "Guatapé",              desc: "El Peñol und das bunteste Dorf Kolumbiens, ein unvergesslicher Tagesausflug.",                      link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: 11.1386, lng: -74.1182, status: "visited", name: "Minca",                desc: "Kleines Bergdorf mit Wasserfällen und unglaublicher Ruhe.",                                          link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: 11.2408, lng: -74.1990, status: "visited", name: "Santa Marta",          desc: "Tor zur Karibikküste und Ausgangspunkt für den Tayrona-Nationalpark.",                              link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: 11.3097, lng: -74.0318, status: "visited", name: "Palomino",             desc: "Entspanntes Strandleben zwischen Dschungel und Karibik.",                                           link: "blog.html", linkText: "Zum Blogartikel" },
-  { lat: 11.3700, lng: -73.9200, status: "visited", name: "Tayrona Nationalpark", desc: "Dschungel trifft auf Karibikstrand — einer der schönsten Nationalparks Südamerikas.",              link: "blog.html", linkText: "Zum Blogartikel" },
+  { lat: 11.3700, lng: -73.9200, status: "visited", name: "Tayrona Nationalpark", desc: "Dschungel trifft auf Karibikstrand, einer der schönsten Nationalparks Südamerikas.",               link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: 12.5847, lng: -81.7006, status: "visited", name: "San Andrés",           desc: "Das Meer der 7 Farben. Korallenriffe, Karibik-Feeling und traumhafte Strände.",                    link: "blog.html", linkText: "Zum Blogartikel" },
   // ── ECUADOR ───────────────────────────────────────────
   { lat: -0.1807, lng: -78.4678, status: "visited", name: "Quito",                desc: "UNESCO-Altstadt, koloniale Pracht und der Ausblick vom TelefériQo.",                               link: "blog.html", linkText: "Zum Blogartikel" },
-  { lat: -0.6830, lng: -78.4361, status: "visited", name: "Cotopaxi",             desc: "Schneebedeckter Vulkan auf fast 6.000m — gigantisches Panorama.",                                  link: "blog.html", linkText: "Zum Blogartikel" },
-  { lat: -0.8592, lng: -78.9007, status: "visited", name: "Quilotoa",             desc: "Smaragdgrüner Kratersee auf 3.900m — einer der schönsten Orte der Reise.",                         link: "blog.html", linkText: "Zum Blogartikel" },
+  { lat: -0.6830, lng: -78.4361, status: "visited", name: "Cotopaxi",             desc: "Schneebedeckter Vulkan auf fast 6.000m, gigantisches Panorama.",                                   link: "blog.html", linkText: "Zum Blogartikel" },
+  { lat: -0.8592, lng: -78.9007, status: "visited", name: "Quilotoa",             desc: "Smaragdgrüner Kratersee auf 3.900m, einer der schönsten Orte der Reise.",                          link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: -1.4594, lng: -78.4243, status: "visited", name: "Baños",                desc: "Wasserfälle, Adrenalin-Aktivitäten und heiße Quellen am Fuß des Tungurahua.",                      link: "blog.html", linkText: "Zum Blogartikel" },
-  { lat: -2.1333, lng: -75.9833, status: "visited", name: "Amazonas",             desc: "4 Tage mitten im Regenwald — Wildlife, Stille und ein Erlebnis für's Leben.",                      link: "blog.html", linkText: "Zum Blogartikel" },
+  { lat: -2.1333, lng: -75.9833, status: "visited", name: "Amazonas",             desc: "4 Tage mitten im Regenwald, Wildlife, Stille und ein Erlebnis für's Leben.",                       link: "blog.html", linkText: "Zum Blogartikel" },
   // ── GALAPAGOS ─────────────────────────────────────────
   { lat: -0.9538, lng: -90.9656, status: "visited", name: "Galapagos",            desc: "3 Wochen Insel-Hopping mit Seelöwen, Riesenschildkröten und Blaufußtölpeln.",                      link: "blog.html", linkText: "Zum Kosten-Check" },
   // ── PERU ──────────────────────────────────────────────
   { lat: -12.0464, lng: -77.0428, status: "current", name: "Lima ← wir sind hier", desc: "Ankunft in Peru! Miraflores, Barranco und das beste Ceviche unseres Lebens.",                      link: "", linkText: "" },
-  { lat: -14.0650, lng: -75.7302, status: "planned", name: "Huacachina",           desc: "Oase mitten in der Wüste — Sandboarding und Sonnenuntergang über den Dünen.",                      link: "", linkText: "" },
+  { lat: -14.0650, lng: -75.7302, status: "planned", name: "Huacachina",           desc: "Oase mitten in der Wüste, Sandboarding und Sonnenuntergang über den Dünen.",                       link: "", linkText: "" },
   { lat: -13.5170, lng: -71.9785, status: "planned", name: "Cusco",                desc: "Das Tor zu Machu Picchu und ehemaliger Mittelpunkt des Inka-Reichs.",                              link: "", linkText: "" },
-  { lat: -13.1631, lng: -72.5450, status: "planned", name: "Machu Picchu",         desc: "Das Ziel. Tickets bereits gebucht — wir können es kaum erwarten!",                                link: "", linkText: "" },
+  { lat: -13.1631, lng: -72.5450, status: "planned", name: "Machu Picchu",         desc: "Das Ziel. Tickets bereits gebucht, wir können es kaum erwarten!",                                 link: "", linkText: "" },
   // ── GEPLANTE LÄNDER ───────────────────────────────────
-  { lat: -20.2640, lng: -67.6328, status: "planned", name: "Salar de Uyuni",       desc: "Der größte Salzflat der Welt — ein Traum auf unserer Liste.",                                     link: "", linkText: "" },
+  { lat: -20.2640, lng: -67.6328, status: "planned", name: "Salar de Uyuni",       desc: "Der größte Salzflat der Welt, ein Traum auf unserer Liste.",                                      link: "", linkText: "" },
   { lat: -23.1500, lng: -68.2000, status: "planned", name: "Atacama",              desc: "Die trockenste Wüste der Welt mit Geysiren und Sternen wie nirgendwo sonst.",                     link: "", linkText: "" },
-  { lat: -34.6037, lng: -58.3816, status: "planned", name: "Buenos Aires",         desc: "Das Paris Südamerikas — Tango, Steak und das vorläufige Ende unserer Reise.",                     link: "", linkText: "" },
+  { lat: -34.6037, lng: -58.3816, status: "planned", name: "Buenos Aires",         desc: "Das Paris Südamerikas, Tango, Steak und das vorläufige Ende unserer Reise.",                      link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -371,46 +457,83 @@ const ROUTE = [
   { type: "next",   coords: [[-9.5300,-77.5283],[-12.0464,-77.0428],[-14.0650,-75.7302],[-13.5170,-71.9785],[-13.1631,-72.5450]] },
 ];
 
-const map = L.map('map', { center: MAP_CENTER, zoom: MAP_ZOOM, scrollWheelZoom: false });
-L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-  attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
-  maxZoom: 18
-}).addTo(map);
-
 const ROUTE_STYLES = {
   land:   { color: '#e8431a', weight: 3,   opacity: 0.85, dashArray: null },
   flight: { color: '#3b61a8', weight: 2,   opacity: 0.6,  dashArray: '8, 8' },
   next:   { color: '#2e8c2e', weight: 2.5, opacity: 0.65, dashArray: '6, 5' },
 };
-ROUTE.forEach(segment => {
-  const s = ROUTE_STYLES[segment.type];
-  L.polyline(segment.coords, { color: s.color, weight: s.weight, opacity: s.opacity, dashArray: s.dashArray, lineJoin: 'round', lineCap: 'round' }).addTo(map);
-});
 
-pins.forEach(pin => {
-  const color  = pin.status === 'current' ? COLORS.current : pin.status === 'visited' ? COLORS.visited : COLORS.planned;
-  const radius = pin.status === 'current' ? 11 : pin.status === 'visited' ? 7 : 6;
-  const marker = L.circleMarker([pin.lat, pin.lng], {
-    radius, fillColor: color, color: '#fff', weight: 2, opacity: 1,
-    fillOpacity: pin.status === 'planned' ? 0.45 : 0.95
+/* ── Karte initialisieren (erst nach Consent) ──────── */
+function initMap() {
+  var placeholder = document.getElementById('mapConsentPlaceholder');
+  var mapEl       = document.getElementById('map');
+
+  placeholder.style.display = 'none';
+  mapEl.style.display = '';
+
+  var map = L.map('map', { center: MAP_CENTER, zoom: MAP_ZOOM, scrollWheelZoom: false });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+    maxZoom: 18
   }).addTo(map);
 
-  const linkHtml    = pin.link ? `<a href="${pin.link}" class="popup-link">${pin.linkText} →</a>` : '';
-  const statusLabel = { visited: '✓ Bereist', current: '📍 Aktuell hier', planned: 'Geplant' }[pin.status];
+  // Routen zeichnen
+  ROUTE.forEach(function(segment) {
+    var s = ROUTE_STYLES[segment.type];
+    L.polyline(segment.coords, { color: s.color, weight: s.weight, opacity: s.opacity, dashArray: s.dashArray, lineJoin: 'round', lineCap: 'round' }).addTo(map);
+  });
 
-  marker.bindPopup(`
-    <div class="popup-inner">
-      <div class="popup-status popup-status--${pin.status}">${statusLabel}</div>
-      <div class="popup-title">${pin.name}</div>
-      <div class="popup-desc">${pin.desc}</div>
-      ${linkHtml}
-    </div>`, { maxWidth: 240 });
-
-  if (pin.status === 'current') {
-    L.circleMarker([pin.lat, pin.lng], {
-      radius: 20, fillColor: color, color: color, weight: 1.5, opacity: 0.25, fillOpacity: 0.1
+  // Pins setzen
+  pins.forEach(function(pin) {
+    var color  = pin.status === 'current' ? COLORS.current : pin.status === 'visited' ? COLORS.visited : COLORS.planned;
+    var radius = pin.status === 'current' ? 11 : pin.status === 'visited' ? 7 : 6;
+    var marker = L.circleMarker([pin.lat, pin.lng], {
+      radius: radius, fillColor: color, color: '#fff', weight: 2, opacity: 1,
+      fillOpacity: pin.status === 'planned' ? 0.45 : 0.95
     }).addTo(map);
-  }
+
+    var linkHtml    = pin.link ? '<a href="' + pin.link + '" class="popup-link">' + pin.linkText + ' →</a>' : '';
+    var statusLabel = { visited: '✓ Bereist', current: '📍 Aktuell hier', planned: 'Geplant' }[pin.status];
+
+    marker.bindPopup(
+      '<div class="popup-inner">' +
+        '<div class="popup-status popup-status--' + pin.status + '">' + statusLabel + '</div>' +
+        '<div class="popup-title">' + pin.name + '</div>' +
+        '<div class="popup-desc">' + pin.desc + '</div>' +
+        linkHtml +
+      '</div>', { maxWidth: 240 });
+
+    if (pin.status === 'current') {
+      L.circleMarker([pin.lat, pin.lng], {
+        radius: 20, fillColor: color, color: color, weight: 1.5, opacity: 0.25, fillOpacity: 0.1
+      }).addTo(map);
+    }
+  });
+}
+
+/* ── Consent-Logik ─────────────────────────────────── */
+function hasMapConsent() {
+  try { return localStorage.getItem(CONSENT_KEY) === 'granted'; } catch(e) { return false; }
+}
+
+function grantMapConsent() {
+  try { localStorage.setItem(CONSENT_KEY, 'granted'); } catch(e) { /* ok */ }
+  initMap();
+}
+
+// Bei bereits erteiltem Consent sofort laden
+if (hasMapConsent()) {
+  initMap();
+}
+
+// Button im Platzhalter
+document.getElementById('mapConsentBtn').addEventListener('click', grantMapConsent);
+
+// Falls der zentrale Cookie-Banner "Alle akzeptieren" geklickt wird,
+// auch die Karte freigeben (falls noch nicht geschehen)
+document.querySelector('.cookie-btn-accept').addEventListener('click', function() {
+  if (!hasMapConsent()) { grantMapConsent(); }
 });
 </script>
 
