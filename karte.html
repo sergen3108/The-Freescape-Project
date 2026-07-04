@@ -514,7 +514,10 @@ function initMap() {
 
 /* ── Consent-Logik ─────────────────────────────────── */
 function hasMapConsent() {
-  try { return localStorage.getItem(CONSENT_KEY) === 'granted'; } catch(e) { return false; }
+  try {
+    return localStorage.getItem(CONSENT_KEY) === 'granted'
+        || localStorage.getItem('ans_cookie') === 'true';
+  } catch(e) { return false; }
 }
 
 function grantMapConsent() {
