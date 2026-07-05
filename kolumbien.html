@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kolumbien Backpacking: Route, Highlights und Kosten | The Freescape Project</title>
+  <meta name="description" content="Unsere Kolumbien-Route von Bogotá ueber Medellín und die Kaffeeregion bis an die Karibikkueste. Highlights, Orte, alle Vlogs und Blog-Artikel aus Kolumbien.">
+
+  <link rel="canonical" href="https://thefreescapeproject.com/kolumbien.html">
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:type"         content="website">
+  <meta property="og:site_name"    content="The Freescape Project">
+  <meta property="og:url"          content="https://thefreescapeproject.com/kolumbien.html">
+  <meta property="og:title"        content="Kolumbien Backpacking: Route, Highlights und Kosten | The Freescape Project">
+  <meta property="og:description"  content="Unsere Kolumbien-Route von Bogotá ueber Medellín und die Kaffeeregion bis an die Karibikkueste. Highlights, Orte, alle Vlogs und Blog-Artikel aus Kolumbien.">
+  <!-- TODO Sergen: eigenes 1200x630 OG-Bild anlegen (assets/img/og-kolumbien.jpg) und hier eintragen. Vorlaeufig ein vorhandenes lokales Bild. -->
+  <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/penol.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale"       content="de_DE">
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Kolumbien Backpacking: Route, Highlights und Kosten | The Freescape Project">
+  <meta name="twitter:description" content="Unsere Kolumbien-Route von Bogotá ueber Medellín und die Kaffeeregion bis an die Karibikkueste. Highlights, Orte, alle Vlogs und Blog-Artikel aus Kolumbien.">
+  <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/penol.jpg">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Strukturierte Daten (statisch, damit Google sie ohne JS sieht) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Kolumbien Backpacking: Route, Highlights und Kosten",
+    "description": "Unsere Kolumbien-Route von Bogotá ueber Medellín und die Kaffeeregion bis an die Karibikkueste. Highlights, Orte, alle Vlogs und Blog-Artikel aus Kolumbien.",
+    "url": "https://thefreescapeproject.com/kolumbien.html",
+    "inLanguage": "de-DE",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "The Freescape Project",
+      "url": "https://thefreescapeproject.com"
+    },
+    "about": { "@type": "Country", "name": "Kolumbien" },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://thefreescapeproject.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Länder", "item": "https://thefreescapeproject.com/laender.html" },
+        { "@type": "ListItem", "position": 3, "name": "Kolumbien", "item": "https://thefreescapeproject.com/kolumbien.html" }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .status-badge {
+      display:inline-flex; align-items:center; gap:0.4rem;
+      font-size:0.75rem; font-weight:700; letter-spacing:0.07em;
+      text-transform:uppercase; padding:0.3rem 0.9rem;
+      border-radius:99px; margin-bottom:0.75rem;
+    }
+    .status-badge--visited { background:var(--green-100); color:var(--green-800); }
+    .status-badge--current { background:var(--terra-100); color:var(--terra-700); }
+
+    .orte-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin:1.5rem 0; }
+    @media(max-width:600px){ .orte-grid { grid-template-columns:1fr; } }
+    .ort-chip {
+      background:var(--sand-100); border-radius:var(--r-md);
+      padding:0.75rem 1rem; font-size:0.85rem; border:1px solid var(--sand-200);
+    }
+    .ort-chip strong { display:block; margin-bottom:0.1rem; }
+    .ort-chip span { color:var(--gray-500); font-size:0.78rem; }
+
+    .blog-teaser-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+      gap:1.25rem; margin-top:1.5rem;
+    }
+    .blog-teaser-card {
+      background:white; border:1.5px solid var(--gray-100);
+      border-radius:var(--r-lg); overflow:hidden; text-decoration:none;
+      transition:box-shadow 0.2s,transform 0.2s; display:block;
+    }
+    .blog-teaser-card:hover { box-shadow:0 8px 24px rgba(0,0,0,0.08); transform:translateY(-2px); }
+    .blog-teaser-card img { width:100%; height:160px; object-fit:cover; display:block; }
+    .blog-teaser-card__body { padding:1rem; }
+    .blog-teaser-card__title { font-size:0.9rem; font-weight:700; color:var(--gray-900); line-height:1.4; margin-bottom:0.25rem; }
+    .blog-teaser-card__meta { font-size:0.75rem; color:var(--gray-400); }
+
+    .vlog-thumb-fallback {
+      width:100%; aspect-ratio:16/9; display:flex;
+      align-items:center; justify-content:center;
+      background:linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
+    }
+
+    .land-empty {
+      background:var(--sand-50); border:1.5px dashed var(--sand-300);
+      border-radius:var(--r-lg); padding:2rem; text-align:center;
+      color:var(--gray-500); font-size:0.95rem;
+    }
+
+    .land-nav-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem; }
+    @media(max-width:600px){ .land-nav-grid { grid-template-columns:1fr; } }
+    .land-nav-card {
+      display:flex; align-items:center; gap:0.75rem;
+      background:var(--white); border:1.5px solid var(--gray-100);
+      border-radius:var(--r-lg); padding:1rem 1.25rem; text-decoration:none;
+      transition:border-color 0.2s, box-shadow 0.2s;
+    }
+    .land-nav-card:hover { border-color:var(--terra-400); box-shadow:var(--shadow-sm); }
+    .land-nav-card__emoji { font-size:1.6rem; }
+    .land-nav-card__label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gray-400); }
+    .land-nav-card__name { font-weight:700; color:var(--gray-900); }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ───────────────────────────────────────────── -->
+<nav class="nav nav--transparent" role="navigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">The Freescape Project</span>
+        <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
+      </span>
+    </a>
+    <div class="nav__menu">
+      <a href="index.html" class="nav__link" data-page="index.html">Start</a>
+      <a href="ueber-uns.html" class="nav__link" data-page="ueber-uns.html">Über uns</a>
+      <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
+      <a href="blog.html" class="nav__link" data-page="blog.html">Blog</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle active" data-href="laender.html" data-page="laender.html">Länder
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="laender.html" class="nav__dropdown-link" style="font-weight:600;">Alle Länder</a>
+          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="kolumbien.html" class="nav__dropdown-link">Kolumbien</a>
+          <a href="ecuador.html" class="nav__dropdown-link">Ecuador</a>
+          <a href="peru.html" class="nav__dropdown-link">Peru</a>
+          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Bolivien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Chile</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Argentinien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
+        </div>
+      </div>
+      <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
+      <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
+      <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="lang-switcher__flag">🇩🇪</span>
+        <span class="lang-switcher__label">DE</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lang-switcher__dropdown" role="listbox">
+        <button class="lang-switcher__option lang-switcher__option--active" data-flag="🇩🇪" data-label="DE">🇩🇪 Deutsch</button>
+        <button class="lang-switcher__option" data-flag="🇬🇧" data-label="EN">🇬🇧 English</button>
+        <button class="lang-switcher__option" data-flag="🇪🇸" data-label="ES">🇪🇸 Español</button>
+        <button class="lang-switcher__option" data-flag="🇹🇷" data-label="TR">🇹🇷 Türkçe</button>
+        <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
+      </div>
+    </div>
+    <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      YouTube
+    </a>
+    <button class="nav__burger" aria-label="Menü"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile">
+  <a href="index.html" class="nav__mobile-link">Start</a>
+  <a href="ueber-uns.html" class="nav__mobile-link">Über uns</a>
+  <a href="vlogs.html" class="nav__mobile-link">Vlogs</a>
+  <a href="blog.html" class="nav__mobile-link">Blog</a>
+  <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
+  <a href="galerie.html" class="nav__mobile-link">Galerie</a>
+  <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <div style="border-top:1px solid rgba(255,255,255,0.1);margin:0.5rem 0;padding:0.75rem 1rem 0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-family:var(--font-nav);">Länder</div>
+  <a href="laender.html#kolumbien" class="nav__mobile-link">Kolumbien</a>
+  <a href="laender.html#ecuador" class="nav__mobile-link">Ecuador</a>
+  <a href="laender.html#peru" class="nav__mobile-link">Peru</a>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
+</div>
+
+<!-- ── Hero ─────────────────────────────────────────────────── -->
+<section class="page-hero">
+  <div class="hero__bg">
+    <img src="assets/img/penol.jpg" class="hero__bg-photo" alt="El Peñol bei Guatapé in Kolumbien"
+         onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#c4622d,#1a2744)'">
+    <div class="hero__pattern"></div>
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="container page-hero__content">
+    <p class="overline">Südamerika · Land für Land</p>
+    <h1>Kolumbien</h1>
+    <p class="lead">Karibikstrände, Kaffeeberge und lebendige Großstädte. Acht Wochen, zehn Orte und das Land, das uns komplett überrascht hat.</p>
+  </div>
+</section>
+
+<!-- ── Intro + Orte ─────────────────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div style="max-width:760px;">
+      <span class="status-badge status-badge--visited">✓ Bereist · Feb bis Apr 2026</span>
+      <h2>Unsere Zeit in Kolumbien</h2>
+      <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
+        Kolumbien war unser Einstieg in Südamerika und blieb bis zum Schluss eines unserer
+        Lieblingsländer. Acht Wochen, in denen wir von der Andenmetropole Bogotá über die
+        Kaffeeregion rund um Salento bis an die Karibikküste gereist sind. Ein Land mit einem
+        Ruf, der viel dramatischer klingt als die Wirklichkeit, und mit einigen der herzlichsten
+        Menschen, denen wir auf der ganzen Reise begegnet sind.
+      </p>
+      <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
+        Von der Streetart in Medellín über die Wachspalmen im Cocora-Tal bis zu den Stränden im
+        Tayrona-Nationalpark war die Bandbreite riesig. Hier sammeln wir alle Videos, Orte und
+        Blog-Artikel aus Kolumbien an einer Stelle, ehrlich und direkt von unterwegs.
+      </p>
+    </div>
+
+    <h3 style="margin-top:2.5rem;">Orte, die wir in Kolumbien besucht haben</h3>
+    <div class="orte-grid">
+      <div class="ort-chip"><strong>Bogotá</strong><span>Hauptstadt, Streetart und Goldmuseum</span></div>
+      <div class="ort-chip"><strong>Salento</strong><span>Kaffeeregion und Wachspalmen</span></div>
+      <div class="ort-chip"><strong>Medellín</strong><span>Ciudad de la eterna primavera</span></div>
+      <div class="ort-chip"><strong>Guatapé</strong><span>El Peñol und das bunte Dorf</span></div>
+      <div class="ort-chip"><strong>Santa Marta</strong><span>Karibikküste und Ausgangspunkt</span></div>
+      <div class="ort-chip"><strong>Minca</strong><span>Bergdorf und Wasserfälle</span></div>
+      <div class="ort-chip"><strong>Tayrona</strong><span>Nationalpark und Dschungel</span></div>
+      <div class="ort-chip"><strong>San Andrés</strong><span>Das Meer der sieben Farben</span></div>
+      <div class="ort-chip"><strong>Palomino</strong><span>Karibik und Backpacker-Vibes</span></div>
+      <div class="ort-chip"><strong>Costeño Beach</strong><span>Strand mitten im Dschungel</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Vlogs aus Kolumbien ──────────────────────────────────── -->
+<section class="section" style="background:var(--sand-50);">
+  <div class="container">
+    <div class="section-header section-header--left" style="margin-bottom:2rem;">
+      <p class="overline">Videos</p>
+      <h2>Kolumbien in Vlogs</h2>
+      <p class="lead" style="margin:0;">Alle unsere Videos aus Kolumbien, direkt vom Reiseweg.</p>
+    </div>
+
+    <div id="land-vlogs-loading" style="text-align:center;padding:3rem 0;color:var(--gray-400);">
+      <svg style="width:1.5rem;height:1.5rem;animation:spin 1s linear infinite;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      <p>Videos werden geladen …</p>
+    </div>
+
+    <div class="vlogs-grid" id="land-vlogs-grid"></div>
+
+    <div id="land-shorts-wrap" style="display:none;margin-top:2.5rem;">
+      <h3 style="margin-bottom:1rem;">Shorts aus Kolumbien</h3>
+      <div class="vlogs-grid" id="land-shorts-grid"></div>
+    </div>
+
+    <div id="land-vlogs-empty" class="land-empty" style="display:none;">
+      Aus Kolumbien sind noch keine Videos online. Schau auf dem
+      <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" style="color:var(--terra-600);">YouTube-Kanal</a> vorbei.
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="vlogs.html" class="btn btn-outline">Alle Vlogs ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Blog-Artikel aus Kolumbien ───────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header section-header--left" style="margin-bottom:1rem;">
+      <p class="overline">Reisemagazin</p>
+      <h2>Kolumbien im Blog</h2>
+      <p class="lead" style="margin:0;">Routen-Guides, Kosten-Checks und Erfahrungsberichte aus Kolumbien.</p>
+    </div>
+
+    <div id="land-blog-grid" class="blog-teaser-grid"></div>
+
+    <div id="land-blog-empty" class="land-empty" style="display:none;">
+      Für Kolumbien schreiben wir gerade an den ersten Artikeln. Bis dahin findest du unsere
+      bisherigen Reiseberichte im <a href="blog.html" style="color:var(--terra-600);">Blog</a>.
+    </div>
+  </div>
+</section>
+
+<!-- ── Weitere Länder ───────────────────────────────────────── -->
+<section class="section" style="background:var(--green-900);">
+  <div class="container">
+    <div class="section-header section-header--left" style="margin-bottom:1rem;">
+      <p class="overline" style="color:var(--terra-400);">Weiter durch Südamerika</p>
+      <h2 style="color:white;">Andere Länder unserer Reise</h2>
+    </div>
+    <div class="land-nav-grid">
+      <a href="ecuador.html" class="land-nav-card">
+        <span class="land-nav-card__emoji">🇪🇨</span>
+        <span><span class="land-nav-card__label">Bereist</span><span class="land-nav-card__name">Ecuador</span></span>
+      </a>
+      <a href="peru.html" class="land-nav-card">
+        <span class="land-nav-card__emoji">🇵🇪</span>
+        <span><span class="land-nav-card__label">Aktuell hier</span><span class="land-nav-card__name">Peru</span></span>
+      </a>
+    </div>
+    <div style="text-align:center;margin-top:1.5rem;">
+      <a href="laender.html" class="btn btn-secondary">Alle Länder im Überblick</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
+       <div class="footer__social">
+  <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+  </a>
+  <a href="https://www.instagram.com/thefreescapeproject/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+  </a>
+  <a href="https://www.tiktok.com/@freescapeproject" target="_blank" rel="noopener" class="footer__social-link" aria-label="TikTok">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78c.27 0 .54.04.8.1v-3.5a6.37 6.37 0 0 0-.8-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.71a8.21 8.21 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.14z"/></svg>
+  </a>
+  <a href="https://www.pinterest.com/thefreescapeproject/" target="_blank" rel="noopener" class="footer__social-link" aria-label="Pinterest">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345c-.091.379-.293 1.194-.333 1.361-.052.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+  </a>
+</div>
+      </div>
+      <div>
+        <p class="footer__heading">Navigation</p>
+        <div class="footer__links">
+          <a href="index.html" class="footer__link">Startseite</a>
+          <a href="ueber-uns.html" class="footer__link">Über uns</a>
+          <a href="vlogs.html" class="footer__link">Vlogs</a>
+          <a href="blog.html" class="footer__link">Blog</a>
+          <a href="karte.html" class="footer__link">Reisekarte</a>
+          <a href="galerie.html" class="footer__link">Galerie</a>
+          <a href="kontakt.html" class="footer__link">Kontakt</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Länder</p>
+        <div class="footer__links">
+          <a href="kolumbien.html" class="footer__link">Kolumbien</a>
+          <a href="ecuador.html" class="footer__link">Ecuador</a>
+          <a href="peru.html" class="footer__link">Peru</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Bolivien</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Chile</a>
+          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Argentinien</a>
+        </div>
+      </div>
+      <div>
+        <p class="footer__heading">Rechtliches</p>
+        <div class="footer__links">
+          <a href="impressum.html" class="footer__link">Impressum</a>
+          <a href="datenschutz.html" class="footer__link">Datenschutz</a>
+          <a href="#" class="footer__link" id="cookieSettingsBtn">Cookie-Einstellungen</a>
+          <a href="kontakt.html" class="footer__link">Kooperationen</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">© 2026 The Freescape Project – Julia &amp; Sergen</p>
+      <div class="footer__legal">
+        <a href="impressum.html" class="footer__legal-link">Impressum</a>
+        <a href="datenschutz.html" class="footer__legal-link">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Cookie Banner ────────────────────────────────────────── -->
+<div class="cookie-banner">
+  <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
+  <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
+  <div class="cookie-banner__actions">
+    <button class="cookie-btn-accept">Alle akzeptieren</button>
+    <button class="cookie-btn-decline">Nur notwendige</button>
+  </div>
+</div>
+
+<script src="blog-posts.js" defer></script>
+<script src="reise-config.js"></script>
+<script src="laender-config.js"></script>
+<script src="vlog-utils.js"></script>
+<script src="main.js"></script>
+
+<!-- ── Länderspezifische Inhalte (Blog + Vlogs fuer DIESES Land) ── -->
+<script>
+(function () {
+  var LAND_SLUG = 'kolumbien';   // einziger Wert, der sich pro Laenderseite aendert
+
+  function renderBlog(posts) {
+    var grid  = document.getElementById('land-blog-grid');
+    var empty = document.getElementById('land-blog-empty');
+    var mine  = (posts || []).filter(function (p) {
+      return window.slugifyLand(p.land) === LAND_SLUG;
+    });
+
+    if (!mine.length) {
+      grid.style.display = 'none';
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+    grid.innerHTML = mine.slice(0, 6).map(function (p) {
+      var thumb = p.bild
+        ? '<img src="' + p.bild + '" alt="' + p.titel + '">'
+        : '<div style="height:160px;background:' + p.bildFallback.gradient + ';display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + p.bildFallback.emoji + '</div>';
+      return '<a href="' + p.link + '" class="blog-teaser-card">' + thumb +
+        '<div class="blog-teaser-card__body">' +
+          '<div class="blog-teaser-card__title">' + p.titel + '</div>' +
+          '<div class="blog-teaser-card__meta">' + p.datumLabel + ' · ' + p.lesezeit + '</div>' +
+        '</div></a>';
+    }).join('');
+  }
+
+  if (window.BLOG_POSTS) {
+    renderBlog(window.BLOG_POSTS);
+  } else {
+    document.addEventListener('blogPostsReady', function () { renderBlog(window.BLOG_POSTS || []); });
+  }
+
+  function formatDate(iso) {
+    return new Date(iso).toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
+  }
+
+  function buildThumb(v) {
+    if (v.thumb) {
+      return '<img src="' + v.thumb + '" alt="' + v.title + '" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">' +
+        '<span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
+    }
+    return '<div class="vlog-thumb-fallback"><span class="vlog-card__play" style="position:static;transform:none;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>';
+  }
+
+  function makeCard(v, i) {
+    var delay = ['', 'animate-delay-1', 'animate-delay-2'][i % 3];
+    var ort = window.VlogUtils ? window.VlogUtils.detectOrt(v.description) : null;
+    var desc = (v.description || '').slice(0, 120).trim();
+    return '<article class="vlog-card ' + delay + '">' +
+      '<div class="vlog-card__thumb">' +
+        '<a href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener" style="display:block;position:relative;">' + buildThumb(v) + '</a>' +
+      '</div>' +
+      '<div class="vlog-card__body">' +
+        '<div class="vlog-card__meta">' +
+          (ort ? '<span class="vlog-card__country">📍 ' + ort + '</span>' : '') +
+          '<span class="vlog-card__date">' + formatDate(v.publishedAt) + '</span>' +
+        '</div>' +
+        '<h3 class="vlog-card__title">' + v.title + '</h3>' +
+        '<p class="vlog-card__desc">' + desc + (desc.length >= 120 ? '…' : '') + '</p>' +
+        '<div class="vlog-card__footer">' +
+          '<a href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a>' +
+        '</div>' +
+      '</div>' +
+    '</article>';
+  }
+
+  function loadVlogs() {
+    var loading    = document.getElementById('land-vlogs-loading');
+    var grid       = document.getElementById('land-vlogs-grid');
+    var empty      = document.getElementById('land-vlogs-empty');
+    var shortsWrap = document.getElementById('land-shorts-wrap');
+    var shortsGrid = document.getElementById('land-shorts-grid');
+
+    fetch('vlogs-data.json', { cache: 'no-cache' })
+      .then(function (res) { if (!res.ok) throw new Error('no data'); return res.json(); })
+      .then(function (data) {
+        var mine = (data.videos || []).filter(function (v) {
+          return window.detectCountry(v.title) === LAND_SLUG;
+        });
+        var videos = mine.filter(function (v) { return (v.duration || 999) > 60; });
+        var shorts = mine.filter(function (v) { return (v.duration || 999) <= 60; });
+
+        if (loading) loading.style.display = 'none';
+
+        if (!mine.length) {
+          empty.style.display = 'block';
+          return;
+        }
+
+        grid.innerHTML = videos.map(makeCard).join('');
+        grid.querySelectorAll('.vlog-card').forEach(function (el) { el.classList.add('visible'); });
+
+        if (shorts.length) {
+          shortsGrid.innerHTML = shorts.map(makeCard).join('');
+          shortsGrid.querySelectorAll('.vlog-card').forEach(function (el) { el.classList.add('visible'); });
+          shortsWrap.style.display = 'block';
+        }
+      })
+      .catch(function (err) {
+        console.error('[kolumbien] Vlogs konnten nicht geladen werden:', err);
+        if (loading) loading.style.display = 'none';
+        empty.style.display = 'block';
+      });
+  }
+
+  loadVlogs();
+})();
+</script>
+
+</body>
+</html>
