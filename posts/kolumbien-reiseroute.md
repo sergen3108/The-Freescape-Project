@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 12 min
 autor: Julia
 teaser: Kolumbien zu planen fühlt sich am Anfang riesig an. Berge, Dschungel, Karibikstrände und Kolonialstädte, alles weit auseinander. Hier zeigen wir dir Routen für eine Woche, zwei Wochen und einen ganzen Monat.
-bild: assets/img/blog/sanandres.JPEG
+bild: assets/img/blog/sanandres7.jpg
 bildEmoji: 🗺️
 bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
 tags:
@@ -35,7 +35,7 @@ Das Vorankommen ist meist unkompliziert. Zwischen den größeren Zielen fahren h
 
 Wir fanden es auch einfach, unterwegs zu organisieren. Ob Unterkunft, Transport oder Aktivitäten, das meiste lässt sich last minute ohne großen Stress buchen. Ein Vorteil ist außerdem, dass viele im Tourismus zumindest etwas Englisch sprechen, besonders in Zielen wie Medellín oder an der Karibikküste. Ein bisschen Spanisch macht die Reise aber deutlich einfacher und intensiver. Insgesamt ist Kolumbien ein tolles Ziel für Einsteiger und erfahrene Backpacker, solange du flexibel bleibst und deine Route realistisch planst.
 
-![Kolumbien Landschaft](assets/img/blog/bogota2.png)
+![Kolumbien Landschaft](assets/img/blog/medellin3.jpg)
 
 ---
 
