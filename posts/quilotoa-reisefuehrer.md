@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 10 min
 autor: Julia
 teaser: Der türkise Kratersee von Quilotoa sieht fast unwirklich aus. Wir haben ihn als Tagesausflug von Latacunga besucht, sind runter zum Wasser und wieder hoch, und ehrlich ziemlich erledigt gewesen.
-bild: assets/img/blog/quilotoa.jpg
+bild: assets/img/blog/kilotoas.JPEG
 bildEmoji: 💧
 bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
 tags:
@@ -23,11 +23,11 @@ Die meisten Reisenden kommen entweder im Rahmen des berühmten **Quilotoa Loop**
 
 Wir sind mit einem lokalen Bus für 2,50 USD gefahren, rund zwei Stunden, direkt bis kurz vor den Kraterrand. Von dort hat man sofort den ersten unglaublichen Blick auf den See.
 
-![Quilotoa Kratersee](assets/img/blog/quilotoa2.jpg)
-
 Das Hauptereignis ist die Wanderung **runter zum Wasser und wieder hoch**. Der Weg nach unten hat nur etwa 45 bis 60 Minuten gedauert, der Aufstieg zurück war wegen der steilen Steigung und der Höhe deutlich härter. Etwa 1,5 Stunden, danach waren wir richtig platt. Unten kann man außerdem ein **Kajak für rund 5 bis 10 USD** mieten und über den See paddeln, ein wirklich besonderes Erlebnis.
 
 Viele machen den mehrtägigen Quilotoa Loop, für uns hat ein Tagesausflug gereicht. Von Backpackern auf dem Rückweg haben wir über den Loop aber viel Gutes gehört.
+
+![Quilotoa Kratersee](assets/img/blog/kilotoa3.JPEG)
 
 ---
 
@@ -38,6 +38,8 @@ Von Latacunga oder Quito kommt man relativ leicht hin. Wir sind von Latacunga au
 Früh am Morgen sind wir mit dem lokalen Bus für 2,50 USD nach Quilotoa, rund zwei Stunden, direkt bis zum Kraterrand. Für den Rückweg haben wir einen der **geteilten Backpacker-Shuttles** genommen, etwa 5 USD, direkt zurück nach Latacunga. Verglichen mit dem öffentlichen Bus war das schneller, bequemer und mit weniger Stopps. Die meisten im Shuttle waren Backpacker, die den Quilotoa Loop über mehrere Tage laufen.
 
 Man kann auch direkt in Quilotoa übernachten, dort ist die Auswahl aber viel kleiner. Von anderen Reisenden haben wir gehört, dass es nachts wegen der Höhe sehr kalt wird, warme Kleidung ist dort also Pflicht. Für unseren Stil war Latacunga als Basis mit Tagesausflug die einfachste und bequemste Lösung.
+
+![Quilotoa Kratersee](assets/img/blog/kilotoa2.JPEG)
 
 ---
 
@@ -60,6 +62,8 @@ Der wichtigste Punkt ist der **Aufstieg zurück aus dem Krater**. Der Weg hinunt
 Nimm passende Schuhe, Kleidung zum Schichten, Sonnencreme und genug Wasser mit. Der Weg besteht meist aus Sand und Geröll, normale Sneaker werden schnell unbequem. Wer den Quilotoa Loop plant, sollte vorher die Saison prüfen: In der Regenzeit werden manche Wege matschig, und auf bestimmten Routen sind Erdrutsche möglich.
 
 Für einen entspannteren Besuch ist der **Tagesausflug ab Latacunga** ideal und einfach zu organisieren. Die öffentlichen Busse sind extrem günstig, für den Rückweg würden wir aber einen der geteilten Backpacker-Shuttles empfehlen, weil sie schneller und bequemer sind. Und unterschätze nicht, wie kalt es hier werden kann, vor allem morgens, abends und in den höheren Lagen. Ecuador wird oft mit warmem Wetter verbunden, Quilotoa fühlt sich wegen der Höhe aber überraschend kalt an.
+
+![Quilotoa Kratersee](assets/img/blog/kilotoa.JPEG)
 
 ---
 
