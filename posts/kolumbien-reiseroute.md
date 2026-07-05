@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 12 min
 autor: Julia
 teaser: Kolumbien zu planen fühlt sich am Anfang riesig an. Berge, Dschungel, Karibikstrände und Kolonialstädte, alles weit auseinander. Hier zeigen wir dir Routen für eine Woche, zwei Wochen und einen ganzen Monat.
-bild: assets/img/blog/kolumbienroute.jpg
+bild: assets/img/blog/sanandres6.jpg
 bildEmoji: 🗺️
 bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
 tags:
@@ -23,7 +23,7 @@ Als wir mit der Planung angefangen haben, wurde uns schnell klar: Alles sehen ge
 
 Wir sind selbst durch Kolumbien gereist und haben viele der beliebtesten Ziele erlebt, darunter Bogotá, Salento, Medellín, Guatapé, Tayrona, Minca, Palomino und San Andrés. Hier zeigen wir dir die besten Routen für eine Woche, zwei Wochen und einen Monat, damit du die passende für deine Zeit und deinen Reisestil findest.
 
-![Kolumbien Landschaft](assets/img/blog/kolumbienroute2.jpg)
+![Kolumbien Landschaft](assets/img/blog/sanandres4.jpg)
 
 ---
 
@@ -34,6 +34,8 @@ Ja, Kolumbien lässt sich relativ einfach bereisen, besonders im Vergleich zu de
 Das Vorankommen ist meist unkompliziert. Zwischen den größeren Zielen fahren häufig Busse, und für lange Strecken sind **Inlandsflüge günstig und sparen viel Zeit**. Der Transport funktioniert gut, aber denk daran, dass Fahrten länger dauern können als gedacht, gerade mit dem Bus.
 
 Wir fanden es auch einfach, unterwegs zu organisieren. Ob Unterkunft, Transport oder Aktivitäten, das meiste lässt sich last minute ohne großen Stress buchen. Ein Vorteil ist außerdem, dass viele im Tourismus zumindest etwas Englisch sprechen, besonders in Zielen wie Medellín oder an der Karibikküste. Ein bisschen Spanisch macht die Reise aber deutlich einfacher und intensiver. Insgesamt ist Kolumbien ein tolles Ziel für Einsteiger und erfahrene Backpacker, solange du flexibel bleibst und deine Route realistisch planst.
+
+![Kolumbien Landschaft](assets/img/blog/bogota2.png)
 
 ---
 
@@ -49,6 +51,8 @@ Mach einen **Tagesausflug nach Guatapé**, einem der buntesten Orte Kolumbiens. 
 
 ### Tag 5 bis 7: Karibikküste (Santa Marta / Tayrona)
 Flieg von Medellín nach **Santa Marta** und erkunde die Karibikküste. Von dort geht es in den **Tayrona Nationalpark**, wo du durch den Dschungel wanderst und an schönen Stränden entspannst. Ruhiger wird es in **Palomino** oder **Minca**.
+
+![Kolumbien Landschaft](assets/img/blog/tayrona.jpg)
 
 ---
 
@@ -70,6 +74,8 @@ Mach einen **Tagesausflug oder bleib über Nacht in Guatapé**. Erklimme den **E
 
 ### Tag 11 bis 14: Karibikküste (Tayrona, Minca, Palomino)
 Flieg nach **Santa Marta** und erkunde die Karibikküste. Besuch den **Tayrona Nationalpark** für Dschungelwanderungen und Strände, entspann in **Minca** für kühlere Temperaturen und Natur oder fahr nach **Palomino** für entspanntes Strandfeeling.
+
+![Kolumbien Landschaft](assets/img/blog/salento.jpg)
 
 ---
 
@@ -101,6 +107,8 @@ Weiter nach **Palomino** oder zu anderen Orten entlang der Küste. Entspann am S
 ### Tag 27 bis 30: San Andrés (optional, aber sehr empfehlenswert)
 Beende die Reise mit einem Flug nach **San Andrés**, einem der schönsten Orte Kolumbiens. Genieße das **Meer der 7 Farben**, mach Bootstouren und entspann, bevor es nach Hause geht.
 
+![Kolumbien Landschaft](assets/img/blog/sanandres2.jpg)
+
 ---
 
 ## Reisetipps für Kolumbien
@@ -110,6 +118,8 @@ Reisen in Kolumbien ist ein tolles Erlebnis, ein paar Dinge machen deine Reise a
 Für kürzere Strecken sind Busse eine gute Option und können sehr komfortabel sein. Denk aber daran, dass Fahrten oft länger dauern als gedacht, plan also etwas Puffer ein. Ein weiterer Tipp: **Pack für verschiedene Klimazonen.** Kolumbien reicht von kühlen Bergregionen wie Bogotá und Minca bis zu heißen, feuchten Gegenden an der Karibikküste. Eine Mischung aus leichter Kleidung und etwas Warmem ist wichtig.
 
 Beim Thema Sicherheit hat sich Kolumbien in den letzten Jahren stark verbessert, gesunder Menschenverstand bleibt aber wichtig. Trag Wertsachen nicht offen, sei aufmerksam und folge lokalen Hinweisen. Eine **lokale SIM-Karte** macht ebenfalls viel aus, günstig, schnell eingerichtet und hilfreich für Navigation und Kommunikation. Und zum Schluss: Hetz deine Reise nicht. Kolumbien erlebt man am besten langsam, mit Zeit für jedes Ziel, statt ständig weiterzuziehen.
+
+![Kolumbien Landschaft](assets/img/blog/medellin.jpg)
 
 ---
 
