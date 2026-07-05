@@ -59,7 +59,7 @@ Dazu gibt es Touren zum Dazubuchen. Beliebt ist die **Cotopaxi-Schutzhütte** f�
 
 Und dann darf man am Cotopaxi auch einfach mal langsamer machen. Draußen sitzen, im Jacuzzi entspannen oder nur die Aussicht genießen, das wird schnell zum eigenen Highlight.
 
-![Wanderung Cotopaxi](assets/img/blog/cotpaxi1.JPEG)
+![Wanderung Cotopaxi](assets/img/blog/cotpaxi1.jpg)
 
 ---
 
