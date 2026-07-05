@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 10 min
 autor: Julia
 teaser: Nach Cotopaxi und Quilotoa war Baños genau der Kontrast, den wir gebraucht haben. Fünf Tage voller Abenteuer, gutem Essen und entspannter Backpacker-Stimmung, das erzählen wir hier.
-bild: assets/img/blog/banos.jpg
+bild: assets/img/banos.JPEG
 bildEmoji: 🌿
 bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
 tags:
@@ -23,13 +23,13 @@ Wir haben fünf Tage in Baños verbracht, was für uns die perfekte Zeit war. Es
 
 Übernachtet haben wir im **Great Hostels Backpackers**, das wir empfehlen können. Nah am Zentrum, mit kostenlosem Frühstück jeden Morgen und von Montag bis Mittwoch sogar kostenlosem Abendessen. Fahrräder gab es für nur 5 USD, was das Erkunden einfach gemacht hat.
 
-![Baños Ecuador](assets/img/blog/banos2.jpg)
-
 Ein Highlight war die berühmte **Schaukel am Ende der Welt**. Vom Zentrum sind wir mit einem lokalen Bus rund eine Stunde nach oben gefahren, dort zahlt man etwa 1 USD Eintritt und kommt in einen schönen Gartenbereich mit tollem Blick über die Berge. Neben der berühmten Schaukel gibt es noch weitere Schaukeln und Attraktionen.
 
 Ein weiteres Highlight war das **Ziplining**, gebucht für rund 25 USD. Dabei waren 11 verschiedene Ziplines, und man konnte sogar unterschiedliche Positionen wählen, zum Beispiel im Superman-Stil, kopfüber oder nebeneinander mit einer zweiten Person. Kopfüber zu fliegen hatten wir noch nie gemacht und war eines der verrücktesten Erlebnisse überhaupt.
 
 Die berühmte **Wasserfall-Route** wollten wir auch machen, aber an unseren letzten Tagen hat es zu stark geregnet, also haben wir sie ausgelassen. Von anderen Reisenden haben wir viel Gutes darüber gehört.
+
+![Baños Ecuador](assets/img/blog/banos1.JPEG)
 
 ---
 
@@ -43,8 +43,6 @@ Ecuadors Bussystem ist gut vernetzt, und Baños ist eines der am einfachsten err
 
 ## Die besten Aktivitäten in Baños
 
-![Ziplining Baños](assets/img/blog/banoszipline.jpg)
-
 Baños ist einer der besten Orte in Ecuador für die Mischung aus Abenteuer, Natur und entspannter Atmosphäre. Der Ort selbst ist klein, aber es gibt genug zu tun für mehrere Tage.
 
 Eines der größten Highlights war die **Schaukel am Ende der Welt**. Die Anfahrt ist einfach: vom Zentrum mit dem lokalen Bus, rund eine Stunde. Oben zahlst du etwa 1 USD Eintritt und kommst in einen Gartenbereich mit tollem Blick über die Berge. Die berühmte Schaukel ist die Hauptattraktion, aber es gibt weitere Schaukeln und Aktivitäten, fast wie ein kleiner Abenteuerpark.
@@ -52,6 +50,8 @@ Eines der größten Highlights war die **Schaukel am Ende der Welt**. Die Anfahr
 Unvergesslich war auch das **Ziplining**. Für rund 25 USD gab es ein Paket mit 11 Ziplines quer durchs Tal. Besonders witzig: Man konnte verschiedene Positionen wählen, Superman, nebeneinander mit einer zweiten Person oder kopfüber. Kopfüber zu fliegen hatten wir vorher nie gemacht und war eines der verrücktesten Dinge auf unserer Reise.
 
 Sehr bekannt ist außerdem die **Wasserfall-Route**, bei der viele mit dem Fahrrad an Wasserfällen außerhalb des Ortes vorbeifahren. An unseren letzten Tagen hat es leider zu viel geregnet, also haben wir sie nicht selbst gemacht, aber wir haben viel Gutes darüber gehört. Neben Abenteuer ist Baños auch ein guter Ort zum Entspannen. Viele besuchen die **heißen Quellen**, sitzen in Cafés oder genießen einfach die Stimmung.
+
+![Ziplining Baños](assets/img/blog/banos2.JPEG)
 
 ---
 
@@ -82,6 +82,8 @@ Baños ist ein sehr einfaches und angenehmes Reiseziel, ein paar Dinge machen de
 Das Wetter kann schnell umschlagen. Weil der Ort von Bergen und Dschungel umgeben ist, ist Regen häufig, besonders nachmittags. Wir mussten die Wasserfall-Route auslassen, weil es an den letzten Tagen zu stark geregnet hat. Deshalb lohnt es sich, ein paar Tage zu bleiben statt nur einer Nacht, so hast du beim Wetter etwas Puffer. Für Outdoor-Aktivitäten empfehlen sich Regenjacke, bequeme Schuhe und ein paar wärmere Schichten für den Abend. Auch wenn Baños tiefer liegt als Quito oder Cotopaxi, kann es sich durch Regen und Berge kühl anfühlen.
 
 Uns hat außerdem gefallen, wie sicher und entspannt sich der Ort anfühlt. Baños ist zwar touristisch, wirkt aber locker und nie überfordernd. Und plan deine Tage nicht zu voll, hier verbringt man leicht Stunden in Cafés, im Hostel oder einfach mit der Atmosphäre zwischen den Aktivitäten.
+
+![Ziplining Baños](assets/img/blog/banos3.JPEG)  
 
 ---
 
