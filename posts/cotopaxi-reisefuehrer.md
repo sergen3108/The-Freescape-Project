@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 10 min
 autor: Julia
 teaser: Nur ein paar Stunden von Quito entfernt liegt einer unserer Lieblingsorte in ganz Ecuador. Drei Tage am Cotopaxi, geschlafen in einer Höhle mit Blick auf den Vulkan, das erzählen wir hier.
-bild: assets/img/blog/cotopaxi.jpg
+bild: assets/img/cotopaxipano.JPEG
 bildEmoji: 🌋
 bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
 tags:
@@ -23,7 +23,7 @@ Wir haben drei Tage und zwei Nächte im **Secret Garden Cotopaxi** verbracht, un
 
 Was diesen Ort besonders macht, ist nicht nur die Lage, sondern das Gesamtpaket. Alle Mahlzeiten inklusive, dazu unbegrenzt Kaffee, Tee, Bananenbrot und Bananen. Es gibt einen Jacuzzi, einen Yogaraum und sogar einen kleinen Fitnessbereich. Rundherum läuft Natur, und über das Gelände streifen Hunde, Katzen und Lamas.
 
-![Cotopaxi Vulkan](assets/img/blog/cotopaxi2.jpg)
+![Cotopaxi Vulkan](assets/img/blog/cotpaxi.jpg)
 
 ---
 
@@ -45,11 +45,11 @@ Es gibt außerdem einen kleinen Fitnessbereich, einen Yogaraum und einen heißen
 
 Secret Garden fühlt sich viel mehr wie ein Erlebnis an als wie eine Unterkunft. Ob wandern, entspannen, Leute treffen oder einfach die Landschaft genießen, es ist der perfekte Ort für ein paar Tage.
 
+![Wanderung Cotopaxi](assets/img/blog/cotopaxi2.JPEG)
+
 ---
 
 ## Die besten Aktivitäten am Cotopaxi
-
-![Wanderung Cotopaxi](assets/img/blog/cotopaxiwanderung.jpg)
 
 Ein großer Vorteil vom Secret Garden ist, dass einige Aktivitäten schon im Paket dabei sind.
 
@@ -58,6 +58,8 @@ Am ersten Tag haben wir die **Wasserfall-Wanderung** gemacht, etwa zwei Stunden.
 Dazu gibt es Touren zum Dazubuchen. Beliebt ist die **Cotopaxi-Schutzhütte** für rund 40 USD. Wer es extremer mag, kann sogar bis zum **Gipfel** aufsteigen, das kostet etwas über 300 USD, inklusive Ausrüstung und Guide. Wir haben uns für etwas Entspannteres entschieden und sind stattdessen **durch den Nationalpark geritten**. Mit Blick auf den Vulkan durch die Landschaft zu reiten, war eine schöne Abwechslung zu einer weiteren anstrengenden Wanderung.
 
 Und dann darf man am Cotopaxi auch einfach mal langsamer machen. Draußen sitzen, im Jacuzzi entspannen oder nur die Aussicht genießen, das wird schnell zum eigenen Highlight.
+
+![Wanderung Cotopaxi](assets/img/blog/cotpaxi1.JPEG)
 
 ---
 
@@ -69,6 +71,8 @@ Was wir mitnehmen würden: warme Kleidung, Schichten zum Anziehen, eine Regenjac
 
 Plane deine Tage nicht zu voll. Am Cotopaxi zählen Atmosphäre und Landschaft genauso viel wie die Aktivitäten selbst. Wer im Secret Garden bleibt, sollte Jacuzzi, Yogaraum und die Gemeinschaftsbereiche nutzen, gerade nach langen Wanderungen. Und plan wenn möglich 2 bis 3 Tage ein, so hast du Zeit zum Akklimatisieren und kannst wirklich ankommen, statt alles durchzuhetzen.
 
+![Wanderung Cotopaxi](assets/img/blog/cotpaxi2.JPEG)
+
 ---
 
 ## Ist der Cotopaxi eine Reise wert?
@@ -78,6 +82,8 @@ Für uns war der Cotopaxi absolut die Reise wert und wurde zu einem der Highligh
 Dazu gibt es Aktivitäten für ganz unterschiedliche Reisetypen. Du kannst es mit kurzen Wanderungen und Hostel-Aktivitäten entspannt halten oder dich mit der Schutzhütte oder dem Gipfel richtig fordern. Für uns hat das Secret Garden das Erlebnis nochmal besser gemacht, das Hostel wurde selbst zum Teil des Ziels.
 
 Wenn du Natur, Berge, Wandern, besondere Unterkünfte oder einfach eine Pause von vollen Städten magst, gehört der Cotopaxi auf deine Ecuador-Route. Selbst ohne Gipfelbesteigung sind Landschaft und Stimmung die Reise wert.
+
+![Wanderung Cotopaxi](assets/img/blog/cotpaxi4.JPEG)
 
 ---
 
