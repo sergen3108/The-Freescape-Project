@@ -97,7 +97,7 @@ Für einen besonderen Abend gibt es einige schöne Rooftop-Restaurants. Wir ware
 
 Und dann ist da natürlich das günstige lokale Essen. Kleine Stände und Straßenverkäufer überall, an denen es Empanadas und Snacks für ein paar Dollar gibt.
 
-![Streetfood Quito](assets/img/blog/quito2.JPEG)
+![Streetfood Quito](assets/img/blog/quito4.JPEG)
 
 ---
 
