@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 12 min
 autor: Julia
 teaser: Kolumbien zu planen fühlt sich am Anfang riesig an. Berge, Dschungel, Karibikstrände und Kolonialstädte, alles weit auseinander. Hier zeigen wir dir Routen für eine Woche, zwei Wochen und einen ganzen Monat.
-bild: assets/img/blog/sanandres6.jpg
+bild: assets/img/blog/sanandres.JPEG
 bildEmoji: 🗺️
 bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
 tags:
@@ -107,7 +107,7 @@ Weiter nach **Palomino** oder zu anderen Orten entlang der Küste. Entspann am S
 ### Tag 27 bis 30: San Andrés (optional, aber sehr empfehlenswert)
 Beende die Reise mit einem Flug nach **San Andrés**, einem der schönsten Orte Kolumbiens. Genieße das **Meer der 7 Farben**, mach Bootstouren und entspann, bevor es nach Hause geht.
 
-![Kolumbien Landschaft](assets/img/blog/sanandres2.jpg)
+![Kolumbien Landschaft](assets/img/blog/sanandres1.JPEG)
 
 ---
 
