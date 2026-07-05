@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 10 min
 autor: Julia
 teaser: Der türkise Kratersee von Quilotoa sieht fast unwirklich aus. Wir haben ihn als Tagesausflug von Latacunga besucht, sind runter zum Wasser und wieder hoch, und ehrlich ziemlich erledigt gewesen.
-bild: assets/img/blog/kilotoas.JPEG
+bild: assets/img/kilotoas.JPEG
 bildEmoji: 💧
 bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
 tags:
@@ -63,7 +63,7 @@ Nimm passende Schuhe, Kleidung zum Schichten, Sonnencreme und genug Wasser mit. 
 
 Für einen entspannteren Besuch ist der **Tagesausflug ab Latacunga** ideal und einfach zu organisieren. Die öffentlichen Busse sind extrem günstig, für den Rückweg würden wir aber einen der geteilten Backpacker-Shuttles empfehlen, weil sie schneller und bequemer sind. Und unterschätze nicht, wie kalt es hier werden kann, vor allem morgens, abends und in den höheren Lagen. Ecuador wird oft mit warmem Wetter verbunden, Quilotoa fühlt sich wegen der Höhe aber überraschend kalt an.
 
-![Quilotoa Kratersee](assets/img/blog/kilotoa.JPEG)
+![Quilotoa Kratersee](assets/img/kilotoa.JPEG)
 
 ---
 
