@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 11 min
 autor: Julia
 teaser: Quito ist für die meisten Reisenden der Startpunkt in Ecuador und braucht ein bisschen Zeit, bis es einen packt. Hier teilen wir unsere Eindrücke aus fünf Tagen in einer der höchstgelegenen Hauptstädte der Welt.
-bild: assets/img/blog/quitoaltstadt.jpg
+bild: assets/img/blog/quito.JPEG
 bildEmoji: ⛰️
 bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
 tags:
@@ -23,7 +23,7 @@ Wir haben fünf Tage in Quito verbracht, und was uns schnell klar wurde: die Sta
 
 Was Quito besonders macht, ist die Mischung aus Geschichte, lokalem Straßenleben und der Lage direkt am Äquator. Die Altstadt gehört zum UNESCO Weltkulturerbe und ist eine der besterhaltenen historischen Zentren Südamerikas. Und am Äquator zu stehen, das erlebt man nicht an vielen Orten.
 
-![Quito Altstadt](assets/img/blog/quito2.jpg)
+![Quito Altstadt](assets/img/blog/quito2.JPEG)
 
 ---
 
@@ -51,8 +51,6 @@ Alternativ funktioniert Uber in Quito sehr gut und ist meist günstiger als ein 
 
 ## Die besten Aktivitäten in Quito
 
-![Mitad del Mundo](assets/img/blog/mitaddelmundo.jpg)
-
 ### Free Walking Tour
 
 Der beste Einstieg in die Stadt. Wir haben die Tour über unser Hostel gemacht und viel über die Geschichte Quitos gelernt, dazu gab es einen entspannten ersten Rundgang durch die Altstadt. So bekommt man ein gutes Gefühl für die Stadt, bevor man auf eigene Faust loszieht.
@@ -60,6 +58,8 @@ Der beste Einstieg in die Stadt. Wir haben die Tour über unser Hostel gemacht u
 ### Mitad del Mundo
 
 Der berühmte Äquator. Wir haben einen Shuttle über unser Hostel gebucht, für 15 USD, was den ganzen Ausflug sehr einfach gemacht hat. Dabei war ein Besuch im Museum mit verschiedenen Experimenten auf der Äquatorlinie sowie das Hauptmonument. Der Eintritt lag bei etwa 5 USD pro Person für Museum und Monument.
+
+![Mitad del Mundo](assets/img/blog/quito3.JPEG)
 
 ### Virgen de El Panecillo
 
@@ -83,11 +83,11 @@ Wir haben im **Secret Garden Hostel** übernachtet und können es wärmstens emp
 
 Der größte Vorteil war, dass das Hostel eigene Aktivitäten anbietet, zum Beispiel Free Walking Tours und Shuttles nach Mitad del Mundo. Das hat die Planung enorm erleichtert. Von anderen Reisenden haben wir gehört, dass sich nicht alle Viertel gleich anfühlen. Viele bleiben am liebsten rund um die Altstadt, weil dort die meisten Sehenswürdigkeiten liegen.
 
+![Streetfood Quito](assets/img/blog/quito1.JPEG)
+
 ---
 
 ## Essen & Trinken in Quito
-
-![Streetfood Quito](assets/img/blog/essenquito.jpg)
 
 Das Essen in Quito hängt stark davon ab, wo du landest. Du findest eine Mischung aus lokalem Streetfood, traditionellen Restaurants und moderneren Spots.
 
@@ -96,6 +96,8 @@ Wir haben die meisten Mahlzeiten in unserem Hostel gegessen, wo wir als Gäste 5
 Für einen besonderen Abend gibt es einige schöne Rooftop-Restaurants. Wir waren im **El Escondite de Cantuña** und hatten dort ein wirklich gutes Steak mit tollem Ausblick, für etwa 20 USD. Für so ein Erlebnis ist das sehr fair.
 
 Und dann ist da natürlich das günstige lokale Essen. Kleine Stände und Straßenverkäufer überall, an denen es Empanadas und Snacks für ein paar Dollar gibt.
+
+![Streetfood Quito](assets/img/blog/quito2.JPEG)
 
 ---
 
