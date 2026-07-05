@@ -71,7 +71,7 @@ Was wir mitnehmen würden: warme Kleidung, Schichten zum Anziehen, eine Regenjac
 
 Plane deine Tage nicht zu voll. Am Cotopaxi zählen Atmosphäre und Landschaft genauso viel wie die Aktivitäten selbst. Wer im Secret Garden bleibt, sollte Jacuzzi, Yogaraum und die Gemeinschaftsbereiche nutzen, gerade nach langen Wanderungen. Und plan wenn möglich 2 bis 3 Tage ein, so hast du Zeit zum Akklimatisieren und kannst wirklich ankommen, statt alles durchzuhetzen.
 
-![Wanderung Cotopaxi](assets/img/blog/cotpaxi2.JPEG)
+![Wanderung Cotopaxi](assets/img/blog/cotpaxi2.jpg)
 
 ---
 
@@ -83,7 +83,7 @@ Dazu gibt es Aktivitäten für ganz unterschiedliche Reisetypen. Du kannst es mi
 
 Wenn du Natur, Berge, Wandern, besondere Unterkünfte oder einfach eine Pause von vollen Städten magst, gehört der Cotopaxi auf deine Ecuador-Route. Selbst ohne Gipfelbesteigung sind Landschaft und Stimmung die Reise wert.
 
-![Wanderung Cotopaxi](assets/img/blog/cotpaxi4.JPEG)
+![Wanderung Cotopaxi](assets/img/blog/cotpaxi4.jpg)
 
 ---
 
