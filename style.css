@@ -275,7 +275,8 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .nav__dropdown { position: relative; }
 .nav__dropdown-toggle { display: flex; align-items: center; gap: 4px; }
 .nav__dropdown-toggle svg { width: 14px; height: 14px; transition: transform var(--t-fast); }
-.nav__dropdown:hover .nav__dropdown-toggle svg { transform: rotate(180deg); }
+.nav__dropdown:hover .nav__dropdown-toggle svg,
+.nav__dropdown:focus-within .nav__dropdown-toggle svg { transform: rotate(180deg); }
 .nav__dropdown-menu {
   position: absolute;
   top: calc(100% + 8px);
@@ -291,7 +292,8 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   transition: all var(--t-base);
   box-shadow: var(--shadow-lg);
 }
-.nav__dropdown:hover .nav__dropdown-menu {
+.nav__dropdown:hover .nav__dropdown-menu,
+.nav__dropdown:focus-within .nav__dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -1294,36 +1296,6 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   transition: all var(--t-base);
 }
 .gallery-item:hover .gallery-item__label { opacity: 1; transform: translateY(0); }
-
-/* === LIGHTBOX ============================================== */
-.lightbox {
-  display: none;
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(0,0,0,0.95);
-  align-items: center;
-  justify-content: center;
-  padding: var(--sp-8);
-}
-.lightbox.open { display: flex; }
-.lightbox__content { position: relative; max-width: 900px; max-height: 80vh; }
-.lightbox__img { max-width: 100%; max-height: 80vh; border-radius: var(--r-md); object-fit: contain; }
-.lightbox__close {
-  position: absolute;
-  top: -40px; right: 0;
-  color: rgba(255,255,255,0.7);
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  width: 32px; height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color var(--t-fast);
-}
-.lightbox__close:hover { color: var(--white); }
 
 /* === FORMS ================================================= */
 .form-group { margin-bottom: var(--sp-5); }

@@ -86,39 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(tick);
   }
 
-  /* ── Gallery Lightbox ───────────────────────────────── */
-  const lightbox = document.querySelector('.lightbox');
-  const lightboxImg = document.querySelector('.lightbox__img');
-  const lightboxClose = document.querySelector('.lightbox__close');
-
-  document.querySelectorAll('[data-lightbox]').forEach(el => {
-    el.addEventListener('click', () => {
-      if (!lightbox || !lightboxImg) return;
-      const src = el.dataset.lightbox;
-      if (src) {
-        lightboxImg.src = src;
-        lightboxImg.style.display = 'block';
-      }
-      lightbox.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  if (lightboxClose) {
-    lightboxClose.addEventListener('click', closeLightbox);
-  }
-  if (lightbox) {
-    lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) closeLightbox();
-    });
-  }
-
-  function closeLightbox() {
-    if (!lightbox) return;
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
   /* ── Filter Buttons ──────────────────────────────────── */
 document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
     const btns = bar.querySelectorAll('.filter-btn');
@@ -147,13 +114,7 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
   /* ── Dropdown "Länder": Klick auf Button → laender.html ─── */
   document.querySelectorAll('.nav__dropdown-toggle[data-href]').forEach(btn => {
     btn.addEventListener('click', () => {
-      const href = btn.dataset.href;
-      if (!href) return;
-      const menu = btn.closest('.nav__dropdown')?.querySelector('.nav__dropdown-menu');
-      const isVisible = menu && getComputedStyle(menu).opacity > 0.5;
-      if (isVisible) {
-        window.location.href = href;
-      }
+      if (btn.dataset.href) window.location.href = btn.dataset.href;
     });
   });
 
@@ -174,18 +135,6 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
       input.value = '';
     });
   });
-
-  /* ── Contact Form ────────────────────────────────────── */
-  const contactForm = document.querySelector('.contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = contactForm.querySelector('.btn');
-      btn.textContent = 'Nachricht gesendet ✓';
-      btn.disabled = true;
-      btn.style.background = 'var(--green-600)';
-    });
-  }
 
   /* ── Interactive Map (karte.html) ─────────────────────── */
   const mapCountries = document.querySelectorAll('.map-country');
@@ -278,7 +227,6 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
   /* ── Keyboard Escape ─────────────────────────────────── */
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      closeLightbox();
       if (mobileMenu?.classList.contains('open')) {
         mobileMenu.classList.remove('open');
         burger?.classList.remove('open');
@@ -286,23 +234,6 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
       }
     }
   });
-
-  /* ── Load More (vlogs) ───────────────────────────────── */
-  const loadMoreBtn = document.querySelector('.load-more-btn');
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', () => {
-      const hiddenCards = document.querySelectorAll('.vlog-card.hidden');
-      hiddenCards.forEach((card, i) => {
-        setTimeout(() => {
-          card.classList.remove('hidden');
-          card.style.animation = 'fade-in-up 0.4s ease forwards';
-        }, i * 100);
-      });
-      if (document.querySelectorAll('.vlog-card.hidden').length === 0) {
-        loadMoreBtn.style.display = 'none';
-      }
-    });
-  }
 
   /* ── Language Switcher ───────────────────────────────── */
   const langBtn = document.querySelector('.lang-switcher__btn');

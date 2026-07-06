@@ -339,13 +339,6 @@ function detectCountry(title) {
   return 'other';
 }
 
-function formatNumber(n) {
-  n = parseInt(n);
-  if (n >= 1000000) return (n/1000000).toFixed(1).replace('.',',')+' Mio.';
-  if (n >= 1000) return (n/1000).toFixed(1).replace('.',',')+' K';
-  return n.toLocaleString('de-DE');
-}
-
 function formatDate(iso) {
   return new Date(iso).toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
 }
@@ -456,9 +449,13 @@ async function loadVlogs() {
     if (!res.ok) throw new Error('Daten konnten nicht geladen werden.');
     const data = await res.json();
 
-    document.getElementById('stat-videos').textContent      = formatNumber(data.stats.videoCount);
-    document.getElementById('stat-views').textContent       = formatNumber(data.stats.viewCount);
-    document.getElementById('stat-subscribers').textContent = formatNumber(data.stats.subscriberCount);
+    document.getElementById('stat-videos').setAttribute('data-count', data.stats.videoCount);
+    document.getElementById('stat-videos').textContent = '0';
+    document.getElementById('stat-views').setAttribute('data-count', data.stats.viewCount);
+    document.getElementById('stat-views').textContent = '0';
+    document.getElementById('stat-subscribers').setAttribute('data-count', data.stats.subscriberCount);
+    document.getElementById('stat-subscribers').textContent = '0';
+    if (window.observeCounters) window.observeCounters();
 
     (data.videos || []).forEach(v => {
       if ((v.duration || 999) <= 60) allShorts.push(v);

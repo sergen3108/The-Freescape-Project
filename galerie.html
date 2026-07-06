@@ -524,11 +524,11 @@
   <div class="container">
     <div class="stats-bar__grid" style="grid-template-columns:repeat(3,1fr);">
       <div class="stats-bar__item animate-on-scroll">
-        <div class="stats-bar__number">3</div>
+        <div class="stats-bar__number" data-reise="laenderBereist">0</div>
         <div class="stats-bar__label">Länder</div>
       </div>
       <div class="stats-bar__item animate-on-scroll animate-delay-1">
-        <div class="stats-bar__number" id="foto-count">–</div>
+        <div class="stats-bar__number" id="foto-count">0</div>
         <div class="stats-bar__label">Fotos</div>
       </div>
       <div class="stats-bar__item animate-on-scroll animate-delay-2">
@@ -1113,7 +1113,7 @@
   const realItems = [...document.querySelectorAll('.gi:not(.gi--placeholder)')]
     .filter(el => el.dataset.src && el.dataset.src !== '');
   const countEl = document.getElementById('foto-count');
-  if (countEl) countEl.textContent = realItems.length;
+  if (countEl) countEl.setAttribute('data-count', realItems.length);
 
   /* ── Kapitel-Navigation: Scroll-Spy ────────────────────── */
   const kapitelBtns = document.querySelectorAll('.kapitel-btn');

@@ -421,7 +421,8 @@
       const el = document.querySelector('[data-reise="vlogsVeroeffentlicht"]');
       if (el && data.stats?.videoCount !== undefined) {
         el.setAttribute('data-count', data.stats.videoCount);
-        el.textContent = data.stats.videoCount;
+        el.textContent = '0';
+        if (window.observeCounters) window.observeCounters();
       }
 
       // Neueste 3 Langvideos (Shorts ausgeschlossen)

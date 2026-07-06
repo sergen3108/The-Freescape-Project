@@ -433,7 +433,11 @@
       return window.slugifyLand(p.land) === LAND_SLUG;
     });
 
-    if (statEl) statEl.textContent = mine.length;
+    if (statEl) {
+      statEl.setAttribute('data-count', mine.length);
+      statEl.textContent = '0';
+      if (window.observeCounters) window.observeCounters();
+    }
     linkOrteToArticles(mine);
 
     if (!mine.length) {
@@ -510,7 +514,11 @@
         var videos = mine.filter(function (v) { return (v.duration || 999) > 60; });
         var shorts = mine.filter(function (v) { return (v.duration || 999) <= 60; });
         var statEl = document.getElementById('stat-vlogs-num');
-        if (statEl) statEl.textContent = mine.length;
+        if (statEl) {
+          statEl.setAttribute('data-count', mine.length);
+          statEl.textContent = '0';
+          if (window.observeCounters) window.observeCounters();
+        }
 
         if (loading) loading.style.display = 'none';
 
