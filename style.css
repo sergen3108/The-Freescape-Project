@@ -1708,13 +1708,15 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .ort-chip__hint {
   display: none;
   margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--gray-100);
   font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--terra-600) !important;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--gray-400) !important;
 }
 .ort-chip[href] .ort-chip__hint { display: block; }
+.ort-chip[href]:hover .ort-chip__hint { color: var(--terra-600) !important; }
 
 /* === LEGAL PAGES =========================================== */
 .legal-content {
