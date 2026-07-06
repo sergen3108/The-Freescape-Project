@@ -27,8 +27,8 @@ window.LAENDER = [
     hook: 'Karibikstraende, Kaffeeberge und lebendige Grossstaedte, das Land das uns komplett ueberrascht hat.',
     tags: ['Karibik', 'Staedte', 'Berge', 'Budget', 'Abenteuer'],
     gradient: 'linear-gradient(135deg,#c4622d,#1a2744)',
-    heroImage: 'assets/img/penol.jpg',
-    ogImage: 'https://thefreescapeproject.com/assets/img/penol.jpg',
+    heroImage: 'assets/img/blog/sanandres8.jpg',
+    ogImage: 'https://thefreescapeproject.com/assets/img/blog/sanandres8.jpg',
     // Stichwoerter fuer die Vlog-Zuordnung (nur aus dem Titel!).
     vlogKeywords: [
       'kolumbien', 'bogotá', 'bogota', 'medellín', 'medellin', 'cartagena',
@@ -65,8 +65,8 @@ window.LAENDER = [
     hook: 'Pazifikkueste, Wueste und die Anden, wir sind gerade mitten drin.',
     tags: ['Strand', 'Berge', 'Wueste', 'Staedte', 'Abenteuer'],
     gradient: 'linear-gradient(135deg,#8b3a15,#c4622d)',
-    heroImage: 'assets/vlog-thumbs/WwfPpYbr3jw.jpg',
-    ogImage: 'https://thefreescapeproject.com/assets/vlog-thumbs/WwfPpYbr3jw.jpg',
+    heroImage: 'assets/img/IMG_2934.JPEG',
+    ogImage: 'https://thefreescapeproject.com/assets/img/IMG_2934.JPEG',
     // Achtung: 'titicaca' bewusst NICHT in der Liste (liegt zwischen
     // Peru und Bolivien, wuerde sonst falsch zuordnen).
     vlogKeywords: [
@@ -137,6 +137,36 @@ window.LAENDER = [
     // 'rio' allein bewusst NICHT (matcht "Rio Hostel" in Kolumbien),
     // 'copacabana' gehoert laut Zuordnung zu Bolivien.
     vlogKeywords: ['brasilien', 'brazil', 'rio de janeiro', 'são paulo', 'sao paulo', 'iguaçu', 'iguacu', 'salvador']
+  },
+  {
+    slug: 'uruguay',
+    name: 'Uruguay',
+    emoji: '⚽',
+    status: 'geplant',
+    datei: null,
+    reihenfolge: 8,
+    zeitraum: 'geplant',
+    hook: 'Kleines Land, entspanntes Tempo, Montevideo und die Strände von Punta del Este.',
+    tags: ['Strand', 'Staedte', 'Entspannt'],
+    gradient: 'linear-gradient(135deg,#2d5a7d,#7db9d4)',
+    heroImage: null,
+    ogImage: null,
+    vlogKeywords: ['uruguay', 'montevideo', 'punta del este', 'colonia del sacramento']
+  },
+  {
+    slug: 'paraguay',
+    name: 'Paraguay',
+    emoji: '🌾',
+    status: 'geplant',
+    datei: null,
+    reihenfolge: 9,
+    zeitraum: 'geplant',
+    hook: 'Wenig bereist, viel Ueberraschung, Asuncion und das Guarani-Erbe.',
+    tags: ['Staedte', 'Kultur', 'Abenteuer'],
+    gradient: 'linear-gradient(135deg,#3d6b3d,#7db97d)',
+    heroImage: null,
+    ogImage: null,
+    vlogKeywords: ['paraguay', 'asuncion', 'asunción', 'ciudad del este', 'encarnacion', 'encarnación']
   }
 ];
 

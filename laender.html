@@ -60,20 +60,20 @@
       transition:box-shadow 0.25s ease, transform 0.25s ease;
     }
     .land-hub-card:hover { box-shadow:var(--shadow-md); transform:translateY(-3px); }
+    .land-hub-card > a { display:block; overflow:hidden; }
     .land-hub-card__img {
       width:100%;
       aspect-ratio:16/10;
       object-fit:cover;
       display:block;
+      transition:transform 0.3s ease;
     }
     .land-hub-card__img-placeholder {
       width:100%;
       aspect-ratio:16/10;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:3rem;
+      display:block;
     }
+    .land-hub-card > a:hover .land-hub-card__img { transform:scale(1.04); }
     .land-hub-card__body { padding:1.5rem; }
     .land-hub-card__name { margin-bottom:0.35rem; }
     .land-hub-card__zeitraum { font-size:0.8rem; color:var(--gray-400); margin-bottom:0.75rem; }
@@ -337,10 +337,13 @@
   }
 
   function image(land) {
-    if (land.heroImage) {
-      return '<img src="' + land.heroImage + '" alt="' + land.name + '" class="land-hub-card__img" loading="lazy">';
+    var inner = land.heroImage
+      ? '<img src="' + land.heroImage + '" alt="' + land.name + '" class="land-hub-card__img" loading="lazy">'
+      : '<div class="land-hub-card__img-placeholder" style="background:' + land.gradient + ';"></div>';
+    if (land.datei) {
+      return '<a href="' + land.datei + '" aria-label="' + land.name + ' entdecken">' + inner + '</a>';
     }
-    return '<div class="land-hub-card__img-placeholder" style="background:' + land.gradient + ';">' + land.emoji + '</div>';
+    return inner;
   }
 
   function tags(land) {
