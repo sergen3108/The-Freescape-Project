@@ -10,7 +10,7 @@ const REISE = {
 // ── Reise-Zahlen ───────────────────────────────────────────────
   kmZurueckgelegt:      13500,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          16,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          20,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
   naechsteWoche: 'Paracas, dann weiter zum Machu Picchu! Wir sind gespannt 🙌',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
