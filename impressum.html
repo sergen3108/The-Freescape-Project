@@ -26,12 +26,17 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Diese Seite hat keinen dunklen Hero-Hintergrund, daher braucht die
+     Nav sofort ihren soliden Look, statt erst beim Scrollen einzublenden. */
+  .nav, .nav--transparent { background: var(--green-900) !important; box-shadow: 0 2px 20px rgba(0,0,0,0.2); }
+</style>
 
 </head>
-  
+
 <body>
 
-<nav class="nav nav--transparent" role="navigation">
+<nav class="nav nav--solid" role="navigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
       <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
