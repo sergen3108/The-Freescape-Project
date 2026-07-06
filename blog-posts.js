@@ -61,11 +61,16 @@ const GITHUB_BRANCH = 'main';
 
 })();
 
-/* ── Frontmatter Parser ──────────────────────────────────── */
-function parseFrontmatter(text, filename) {
+/* ── Frontmatter Parser (roh) ────────────────────────────────
+   Liest nur die "key: value" / Listen-Syntax zwischen den beiden
+   "---" ein und liefert die rohen Daten + den Body-Text danach.
+   Geteilt mit artikel.html, damit die Parse-Logik nur einmal
+   existiert (siehe parseFrontmatter() weiter unten fuer die
+   Blog-Karten-spezifische Nachbearbeitung). ─────────────────── */
+function parseFrontmatterRaw(text) {
   // \r\n (Windows) und \n (Unix) beide unterstützen
   const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-  const match = normalized.match(/^---\n([\s\S]*?)\n---/);
+  const match = normalized.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) return null;
 
   const data = {};
@@ -91,6 +96,17 @@ function parseFrontmatter(text, filename) {
       data[key] = val;
     }
   });
+
+  return { data, body: match[2] || '' };
+}
+
+/* ── Frontmatter Parser (fuer Blog-Karten) ───────────────────
+   Baut auf parseFrontmatterRaw() auf und ergaenzt die Felder, die
+   nur die Blog-Uebersicht/Karten brauchen (kategorie, typLabel, link). */
+function parseFrontmatter(text, filename) {
+  const parsed = parseFrontmatterRaw(text);
+  if (!parsed) return null;
+  const data = parsed.data;
 
   const id       = filename.replace(/\.md$/, '');
   const datum    = data.datum || new Date().toISOString().slice(0, 10);

@@ -480,6 +480,18 @@
   const BASE_URL = 'https://thefreescapeproject.com';
   const FALLBACK_IMG = BASE_URL + '/assets/img/FujiFun.jpeg';
 
+  // Einfaches HTML-Escaping fuer Frontmatter-Textfelder, die per
+  // String-Konkatenation in innerHTML landen (Titel, Teaser, Autor, ...).
+  // Der Artikeltext selbst (marked.parse) bleibt bewusst unangetastet,
+  // da er als Markdown->HTML gerendert werden SOLL.
+  function escapeHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   /* ── OG-Tags dynamisch setzen ───────────────────────────── */
   function setOGTags(data, slug) {
     const img = data.bild
@@ -518,7 +530,7 @@
     const url = BASE_URL + '/artikel.html?post=' + encodeURIComponent(slug);
 
     // Autor kann "Sergen & Julia" sein → in einzelne Personen aufteilen
-    const autorRoh = data.autor || 'Julia & Sergen';
+    const autorRoh = data.autor || 'Sergen & Julia';
     const autoren = autorRoh.split(/\s*(?:&|und|,)\s*/).filter(Boolean).map(function (name) {
       return { "@type": "Person", "name": name.trim() };
     });
@@ -596,19 +608,20 @@
 
     // Karten bauen (bestehende .blog-card Klassen)
     const cards = chosen.map(function (p) {
+      const titel = escapeHtml(p.titel);
       const thumb = p.bild
-        ? '<a href="' + p.link + '" class="blog-card__thumb" style="overflow:hidden;display:block;"><img src="' + p.bild + '" alt="" style="width:100%;height:200px;object-fit:cover;display:block;"><span class="blog-card__category">' + (p.land || '') + '</span></a>'
-        : '<a href="' + p.link + '" class="blog-card__thumb" style="overflow:hidden;display:block;"><div style="height:200px;background:' + (p.bildFallback ? p.bildFallback.gradient : 'linear-gradient(135deg,#1a2744,#e8431a)') + ';display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + (p.bildFallback ? p.bildFallback.emoji : '✈️') + '</div><span class="blog-card__category">' + (p.land || '') + '</span></a>';
+        ? '<a href="' + p.link + '" class="blog-card__thumb" style="overflow:hidden;display:block;"><img src="' + p.bild + '" alt="' + titel + '" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"><span class="blog-card__category">' + escapeHtml(p.land) + '</span></a>'
+        : '<a href="' + p.link + '" class="blog-card__thumb" style="overflow:hidden;display:block;"><div style="height:200px;background:' + (p.bildFallback ? p.bildFallback.gradient : 'linear-gradient(135deg,#1a2744,#e8431a)') + ';display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + (p.bildFallback ? p.bildFallback.emoji : '✈️') + '</div><span class="blog-card__category">' + escapeHtml(p.land) + '</span></a>';
       return '' +
         '<article class="blog-card">' +
           thumb +
           '<div class="blog-card__body">' +
             '<div class="blog-card__meta">' +
-              '<span class="blog-card__author">' + (p.autor || 'Julia & Sergen') + '</span>' +
-              '<span class="blog-card__date">' + (p.datumLabel || '') + ' · ' + (p.lesezeit || '5 min') + '</span>' +
+              '<span class="blog-card__author">' + escapeHtml(p.autor || 'Sergen & Julia') + '</span>' +
+              '<span class="blog-card__date">' + escapeHtml(p.datumLabel) + ' · ' + escapeHtml(p.lesezeit || '5 min') + '</span>' +
             '</div>' +
-            '<h3 class="blog-card__title"><a href="' + p.link + '" style="color:inherit;text-decoration:none;">' + p.titel + '</a></h3>' +
-            '<p class="blog-card__excerpt">' + (p.teaser || '') + '</p>' +
+            '<h3 class="blog-card__title"><a href="' + p.link + '" style="color:inherit;text-decoration:none;">' + titel + '</a></h3>' +
+            '<p class="blog-card__excerpt">' + escapeHtml(p.teaser) + '</p>' +
             '<a href="' + p.link + '" class="blog-card__read">Artikel lesen →</a>' +
           '</div>' +
         '</article>';
@@ -631,6 +644,14 @@
     if (root) root.appendChild(section);
   }
 
+  /* ── Fehlerzustände sollen nicht indexiert werden ─────────── */
+  function setNoindex() {
+    const meta = document.createElement('meta');
+    meta.name = 'robots';
+    meta.content = 'noindex, follow';
+    document.head.appendChild(meta);
+  }
+
   /* ── Artikel laden ──────────────────────────────────────── */
   const params   = new URLSearchParams(window.location.search);
   const postSlug = params.get('post');
@@ -638,6 +659,7 @@
   const root     = document.getElementById('artikel-root');
 
   if (!postSlug) {
+    setNoindex();
     loading.innerHTML = 'Kein Artikel angegeben. <a href="blog.html">Zurück zum Blog</a>';
     return;
   }
@@ -649,32 +671,12 @@
     if (!res.ok) throw new Error('Not found');
     const raw = await res.text();
 
-    // Zeilenumbrüche normalisieren
-    const text = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+    // Frontmatter-Parsing wird mit blog-posts.js geteilt (parseFrontmatterRaw)
+    const parsed = typeof parseFrontmatterRaw === 'function' ? parseFrontmatterRaw(raw) : null;
+    if (!parsed) throw new Error('Kein Frontmatter');
+    const data = parsed.data;
+    const body = parsed.body;
 
-    const fmMatch = text.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
-    if (!fmMatch) throw new Error('Kein Frontmatter');
-
-    const data = {};
-    const lines = fmMatch[1].split('\n');
-    let listKey = null;
-
-    lines.forEach(function(line) {
-      const listMatch = line.match(/^\s{2}-\s(.+)/);
-      if (listMatch && listKey) {
-        if (!Array.isArray(data[listKey])) data[listKey] = [];
-        data[listKey].push(listMatch[1].trim());
-        return;
-      }
-      listKey = null;
-      const sep = line.indexOf(':');
-      if (sep === -1) return;
-      const key = line.slice(0, sep).trim();
-      const val = line.slice(sep + 1).trim().replace(/^["']|["']$/g, '');
-      if (val === '') { listKey = key; } else { data[key] = val; }
-    });
-
-    const body     = fmMatch[2] || '';
     const typLabel = { guide:'Routen-Guide', kosten:'Kosten-Check', safety:'Sicherheit', persoenlich:'Erfahrungsbericht' }[data.typ] || 'Artikel';
     const tags     = Array.isArray(data.tags) ? data.tags : [];
 
@@ -687,14 +689,22 @@
     if (bildSrc && !bildSrc.startsWith('/') && !bildSrc.startsWith('http')) bildSrc = '/' + bildSrc;
 
     const heroHtml = bildSrc
-      ? '<img class="artikel-hero__img" src="' + bildSrc + '" alt="' + (data.titel || '') + '">'
+      ? '<img class="artikel-hero__img" src="' + bildSrc + '" alt="' + escapeHtml(data.titel) + '">'
       : '<div class="artikel-hero__fallback" style="background:' + (data.bildGradient || 'linear-gradient(135deg,#1a2744,#e8431a)') + ';">' + (data.bildEmoji || '✈️') + '</div>';
 
     const monate = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
     const d = data.datum ? new Date(data.datum + 'T12:00:00') : new Date();
     const datumLabel = d.getDate() + '. ' + monate[d.getMonth()] + ' ' + d.getFullYear();
 
-    marked.setOptions({ breaks: true, gfm: true });
+    if (typeof marked === 'undefined') throw new Error('MARKED_MISSING');
+
+    // Bilder im Artikeltext bekommen loading="lazy" (liegen immer unterhalb des Heros)
+    const renderer = new marked.Renderer();
+    renderer.image = function (href, title, text) {
+      return '<img src="' + href + '" alt="' + (text || '') + '"' +
+        (title ? ' title="' + title + '"' : '') + ' loading="lazy">';
+    };
+    marked.setOptions({ breaks: true, gfm: true, renderer: renderer });
 
     // Marked rendern
     let parsedBody = marked.parse(body);
@@ -738,10 +748,10 @@
         '<div class="artikel-hero__overlay"></div>' +
         '<div class="container artikel-hero__meta">' +
           '<span class="artikel-badge">' + typLabel + '</span>' +
-          '<h1 style="color:white;margin:0.5rem 0;font-size:clamp(1.6rem,4vw,2.8rem);max-width:800px;line-height:1.2;">' + (data.titel || '') + '</h1>' +
+          '<h1 style="color:white;margin:0.5rem 0;font-size:clamp(1.6rem,4vw,2.8rem);max-width:800px;line-height:1.2;">' + escapeHtml(data.titel) + '</h1>' +
           '<p style="color:rgba(255,255,255,0.7);margin:0.5rem 0 0;font-size:0.9rem;">' +
-            (data.autor || 'Julia & Sergen') + ' · ' + datumLabel + ' · ' + (data.lesezeit || '5 min') + ' Lesezeit' +
-            (data.land ? ' · ' + data.land : '') +
+            escapeHtml(data.autor || 'Sergen & Julia') + ' · ' + datumLabel + ' · ' + escapeHtml(data.lesezeit || '5 min') + ' Lesezeit' +
+            (data.land ? ' · ' + escapeHtml(data.land) : '') +
           '</p>' +
         '</div>' +
       '</div>' +
@@ -749,16 +759,16 @@
         '<div class="artikel-layout">' +
           '<div class="artikel-body">' +
             '<a href="blog.html" class="artikel-back">← Zurück zum Blog</a>' +
-            (data.teaser ? '<p class="artikel-teaser">' + data.teaser + '</p>' : '') +
+            (data.teaser ? '<p class="artikel-teaser">' + escapeHtml(data.teaser) + '</p>' : '') +
             '<div class="artikel-meta-bar">' +
               '<span class="artikel-badge">' + typLabel + '</span>' +
-              (data.land ? '<span style="font-size:0.85rem;color:var(--gray-500);">' + data.land + '</span>' : '') +
+              (data.land ? '<span style="font-size:0.85rem;color:var(--gray-500);">' + escapeHtml(data.land) + '</span>' : '') +
               '<span style="font-size:0.85rem;color:var(--gray-400);">' + datumLabel + '</span>' +
-              '<span style="font-size:0.85rem;color:var(--gray-400);">' + (data.lesezeit || '5 min') + ' Lesezeit</span>' +
+              '<span style="font-size:0.85rem;color:var(--gray-400);">' + escapeHtml(data.lesezeit || '5 min') + ' Lesezeit</span>' +
             '</div>' +
             '<div id="artikel-content">' + parsedBody + '</div>' +
             shareHtml +
-            (tags.length ? '<div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--gray-200);"><p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray-400);margin-bottom:0.75rem;">Tags</p>' + tags.map(t => '<span class="tag">' + t + '</span>').join('') + '</div>' : '') +
+            (tags.length ? '<div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--gray-200);"><p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray-400);margin-bottom:0.75rem;">Tags</p>' + tags.map(t => '<span class="tag">' + escapeHtml(t) + '</span>').join('') + '</div>' : '') +
             '<div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--gray-200);text-align:center;">' +
               '<a href="blog.html" class="btn btn-outline">← Alle Artikel</a>' +
             '</div>' +
@@ -798,7 +808,12 @@
     }
 
   } catch (err) {
-    loading.innerHTML = '<p>Artikel nicht gefunden.</p><a href="blog.html" class="btn btn-secondary" style="margin-top:1rem;">← Zurück zum Blog</a>';
+    setNoindex();
+    if (err.message === 'MARKED_MISSING') {
+      loading.innerHTML = '<p>Der Artikel konnte nicht dargestellt werden (Ladefehler).</p><a href="javascript:location.reload()" class="btn btn-secondary" style="margin-top:1rem;">Seite neu laden</a>';
+    } else {
+      loading.innerHTML = '<p>Artikel nicht gefunden.</p><a href="blog.html" class="btn btn-secondary" style="margin-top:1rem;">← Zurück zum Blog</a>';
+    }
     console.error('[artikel.html]', err);
   }
 })();
