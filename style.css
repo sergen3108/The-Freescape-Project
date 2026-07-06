@@ -1,5 +1,5 @@
 /* ============================================================
-   Auf nach Süden — Design System
+   Auf nach Süden: Design System
    ============================================================ */
 /* ── PLAYFAIR DISPLAY ── */
 @font-face {
@@ -45,7 +45,7 @@
   src: url('assets/fonts/cormorant-garamond-latin-600italic.woff2') format('woff2');
 }
 
-/* ✏️ NAV & FOOTER SCHRIFTART — hier ändern um alle Menüpunkte und Footer zu aktualisieren */
+/* ✏️ NAV & FOOTER SCHRIFTART: hier ändern um alle Menüpunkte und Footer zu aktualisieren */
 
 /* === TOKENS ================================================= */
 :root {
@@ -2093,7 +2093,7 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 
 /* Verhindert horizontalen Overflow durch die Einblend-Animationen
-   auf ueber-uns.html — translateX(-60px/+60px) der img-reveal-wrap
+   auf ueber-uns.html: translateX(-60px/+60px) der img-reveal-wrap
    Elemente bricht auf Mobile aus dem Viewport heraus */
 .img-reveal-wrap {
   transform: translateY(30px) !important;
@@ -2109,7 +2109,7 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 
 @media (max-width: 768px) {
   /* Sergens Foto steht im DOM vor seinem Text, soll auf Mobile
-     aber darunter erscheinen — order dreht die Reihenfolge um */
+     aber darunter erscheinen, order dreht die Reihenfolge um */
   .person-grid .img-reveal-wrap:not(.img-reveal-wrap--right) {
     order: 2;
   }

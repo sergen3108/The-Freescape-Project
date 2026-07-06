@@ -1,5 +1,5 @@
 /* ============================================================
-   BLOG-POSTS.JS — Liest Posts automatisch aus /posts/
+   BLOG-POSTS.JS: Liest Posts automatisch aus /posts/
    ============================================================ */
 
 window.BLOG_POSTS = null;
@@ -30,7 +30,7 @@ const GITHUB_BRANCH = 'main';
           .map(f => f.name);
       }
     } catch (e) {
-      console.warn('[blog-posts] GitHub API nicht erreichbar — nutze Fallback.');
+      console.warn('[blog-posts] GitHub API nicht erreichbar, nutze Fallback.');
     }
   }
 

@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════════════
-//  REISE-KONFIGURATION — Nur hier ändern, alles andere passiert automatisch
+//  REISE-KONFIGURATION: Nur hier ändern, alles andere passiert automatisch
 // ═══════════════════════════════════════════════════════════════════
 const REISE = {
   // ── Reise-Start ────────────────────────────────────────────────
@@ -12,7 +12,7 @@ const REISE = {
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
   orteBesucht:          16,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Paracas — dann weiter zum Machu Picchu! Wir sind gespannt 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Paracas, dann weiter zum Machu Picchu! Wir sind gespannt 🙌',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },

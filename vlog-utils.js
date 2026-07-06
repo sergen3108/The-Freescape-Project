@@ -1,5 +1,5 @@
 /* ============================================================
-   VLOG-UTILS.JS — Geteilte Vlog-Helfer
+   VLOG-UTILS.JS: Geteilte Vlog-Helfer
    ------------------------------------------------------------
    Laender-Erkennung fuer Videos, zentral statt in jeder Seite
    dupliziert. Genutzt von vlogs.html, index.html und den

@@ -1,5 +1,5 @@
 /* ============================================================
-   LAENDER-CONFIG.JS — Einzige Wahrheit fuer alle Laender
+   LAENDER-CONFIG.JS: Einzige Wahrheit fuer alle Laender
    ------------------------------------------------------------
    Wird gelesen von:
      - dem Nav-Dropdown "Laender" (auf allen Seiten)

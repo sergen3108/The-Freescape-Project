@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galerie | The Freescape Project</title>
-  <meta name="description" content="Momente aus vier Ländern — ausgewählt aus tausenden Fotos unserer Südamerika-Reise.">
+  <meta name="description" content="Momente aus vier Ländern, ausgewählt aus tausenden Fotos unserer Südamerika-Reise.">
 
   <link rel="canonical" href="https://thefreescapeproject.com/galerie.html">
   
@@ -12,14 +12,14 @@
   <meta property="og:site_name"    content="The Freescape Project">
   <meta property="og:url"          content="https://thefreescapeproject.com/galerie.html">
   <meta property="og:title"        content="Galerie – Bilder aus Südamerika | The Freescape Project">
-  <meta property="og:description"  content="Momente aus vier Ländern — ausgewählt aus tausenden Fotos unserer Südamerika-Reise.">
+  <meta property="og:description"  content="Momente aus vier Ländern, ausgewählt aus tausenden Fotos unserer Südamerika-Reise.">
   <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/rockygalap.jpg">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale"       content="de_DE">
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Galerie – Bilder aus Südamerika | The Freescape Project">
-  <meta name="twitter:description" content="Momente aus vier Ländern — ausgewählt aus tausenden Fotos unserer Südamerika-Reise.">
+  <meta name="twitter:description" content="Momente aus vier Ländern, ausgewählt aus tausenden Fotos unserer Südamerika-Reise.">
   <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/rockygalap.jpg">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
@@ -30,7 +30,7 @@
 
   <style>
     /* ═══════════════════════════════════════════════════════
-       GALERIE — DESIGN SYSTEM
+       GALERIE: DESIGN SYSTEM
        Jedes Land zeigt genau 10 Bilder (unsere Top 10), in drei
        wiederkehrenden "Bändern": A (groß-links) → QUAD (4 gleich
        groß) → A-REV (groß-rechts, gespiegelt). So bleibt der Rhythmus
@@ -118,19 +118,19 @@
     }
     .bento:last-child { margin-bottom: 0; }
 
-    /* Band A — groß links + 2 klein gestapelt rechts */
+    /* Band A: groß links + 2 klein gestapelt rechts */
     .bento--a .gi:nth-child(1) { grid-column: span 7; grid-row: span 2; }
     .bento--a .gi:nth-child(2) { grid-column: span 5; }
     .bento--a .gi:nth-child(3) { grid-column: span 5; }
 
-    /* Band A-REV — gespiegelt: 2 klein gestapelt links + groß rechts.
+    /* Band A-REV: gespiegelt, 2 klein gestapelt links + groß rechts.
        Bewusst mit festen Linien-Koordinaten (statt nth-child-Spans)
        gesetzt, damit nichts in eine vierte Spalte "auto-rutschen" kann. */
     .bento--a-rev .gi:nth-child(1) { grid-column: 1 / 6;  grid-row: 1 / 2; }
     .bento--a-rev .gi:nth-child(2) { grid-column: 1 / 6;  grid-row: 2 / 3; }
     .bento--a-rev .gi:nth-child(3) { grid-column: 6 / 13; grid-row: 1 / 3; }
 
-    /* Band QUAD — 4 gleich große Bilder in einer Reihe */
+    /* Band QUAD: 4 gleich große Bilder in einer Reihe */
     .bento--quad .gi { grid-column: span 3; }
 
     /* Galerie-Item */
@@ -212,7 +212,7 @@
     .gi:hover .gi__lens { opacity: 1; transform: translateY(0); }
     .gi__lens svg { width: 14px; height: 14px; color: white; }
 
-    /* Badge — bewusst sparsam eingesetzt: max. 1 "Highlight" pro Land
+    /* Badge, bewusst sparsam eingesetzt: max. 1 "Highlight" pro Land
        (das jeweils beste Foto) plus vereinzelt ein beschreibender Tag
        wie "Kaffeeregion", wo er wirklich Mehrwert bringt. */
     .gi__badge {
@@ -231,7 +231,7 @@
       z-index: 2;
     }
 
-    /* "Kommt bald" Slot — eigene Top-10-Plätze, die noch auf ihr Foto
+    /* "Kommt bald" Slot, eigene Top-10-Plätze, die noch auf ihr Foto
        warten. Bewusst mit Icon + Zielname gestaltet statt einer leeren
        grauen Box, damit es wie eine Einladung wirkt statt wie ein Fehler. */
     .gi--placeholder {
@@ -547,7 +547,7 @@
 </nav>
 
 <!-- ══════════════════════════════════════════════════════════
-     KAPITEL 1 — KOLUMBIEN · 10/10 Top-Fotos, alle bestätigt
+     KAPITEL 1: KOLUMBIEN · 10/10 Top-Fotos, alle bestätigt
      ✏️ src="assets/img/..." anpassen, falls sich ein Dateiname ändert
 ══════════════════════════════════════════════════════════ -->
 <section class="galerie-section" id="kolumbien">
@@ -668,7 +668,7 @@
 
     </div><!-- /Band 2 -->
 
-    <!-- Band 3: gespiegelt — 2 klein links + groß rechts (El Peñol = unser Highlight für Kolumbien) -->
+    <!-- Band 3: gespiegelt: 2 klein links + groß rechts (El Peñol = unser Highlight für Kolumbien) -->
     <div class="bento bento--a-rev animate-on-scroll animate-delay-2">
 
       <div class="gi" tabindex="0" role="button"
@@ -718,7 +718,7 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     KAPITEL 2 — ECUADOR · 10/10 Top-Plätze, 6 bestätigt + 4 offen
+     KAPITEL 2: ECUADOR · 10/10 Top-Plätze, 6 bestätigt + 4 offen
      ✏️ Gleiches Schema wie Kolumbien: Band A → QUAD → A-REV
      ✏️ "Kommt bald": gi--placeholder entfernen, img-Tag + data-Attribute
         nach Vorbild der echten Fotos oben ergänzen
@@ -829,7 +829,7 @@
 
     </div><!-- /Band 2 -->
 
-    <!-- Band 3: gespiegelt — 2 offene Plätze links + 1 großer offener Platz rechts -->
+    <!-- Band 3: gespiegelt: 2 offene Plätze links + 1 großer offener Platz rechts -->
     <div class="bento bento--a-rev animate-on-scroll animate-delay-2">
 
       <div class="gi gi--placeholder">
@@ -867,7 +867,7 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     KAPITEL 3 — PERU · 10/10 Top-Plätze, 2 bestätigt + 8 offen
+     KAPITEL 3: PERU · 10/10 Top-Plätze, 2 bestätigt + 8 offen
      ✏️ Gleiches Schema wie oben
 ══════════════════════════════════════════════════════════ -->
 <section class="galerie-section" id="peru">
@@ -958,7 +958,7 @@
 
     </div><!-- /Band 2 -->
 
-    <!-- Band 3: gespiegelt — Machu Picchu bewusst als großer Platz rechts: unser größtes Vorfreude-Ziel -->
+    <!-- Band 3: gespiegelt: Machu Picchu bewusst als großer Platz rechts: unser größtes Vorfreude-Ziel -->
     <div class="bento bento--a-rev animate-on-scroll animate-delay-2">
 
       <div class="gi gi--placeholder">
