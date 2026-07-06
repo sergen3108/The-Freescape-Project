@@ -14,10 +14,10 @@
   <meta property="og:url"          content="https://thefreescapeproject.com/ecuador.html">
   <meta property="og:title"        content="Ecuador Backpacking: Route, Highlights und Galapagos | The Freescape Project">
   <meta property="og:description"  content="Unsere Ecuador-Route von Quito ueber Cotopaxi, Quilotoa und den Amazonas bis nach Galapagos. Highlights, Orte, alle Vlogs und Blog-Artikel aus Ecuador.">
-  <!-- TODO Sergen: eigenes 1200x630 OG-Bild anlegen (assets/img/og-ecuador.jpg) und hier eintragen. Vorlaeufig ein vorhandenes lokales Bild (bereits 1200x630). -->
+  <!-- TODO Sergen: eigenes 1200x630 OG-Bild anlegen (assets/img/og-ecuador.jpg) und hier eintragen. Vorlaeufig ein vorhandenes lokales Bild. -->
   <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/kilotoas.JPEG">
-  <meta property="og:image:width"  content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:width"  content="2364">
+  <meta property="og:image:height" content="1330">
   <meta property="og:locale"       content="de_DE">
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Ecuador Backpacking: Route, Highlights und Galapagos | The Freescape Project">
@@ -314,12 +314,12 @@
     </div>
     <div class="land-nav-grid">
       <a href="kolumbien.html" class="land-nav-card">
-        <img src="assets/img/blog/sanandres8.jpg" class="land-nav-card__thumb" alt="Kolumbien">
+        <img src="assets/img/blog/sanandres8.jpg" class="land-nav-card__thumb" alt="Kolumbien" loading="lazy">
         <span><span class="land-nav-card__label">Bereist</span><span class="land-nav-card__name">Kolumbien</span></span>
         <span class="land-nav-card__arrow">→</span>
       </a>
       <a href="peru.html" class="land-nav-card">
-        <img src="assets/img/IMG_2934.JPEG" class="land-nav-card__thumb" alt="Peru">
+        <img src="assets/img/IMG_2934.JPEG" class="land-nav-card__thumb" alt="Peru" loading="lazy">
         <span><span class="land-nav-card__label">Aktuell hier</span><span class="land-nav-card__name">Peru</span></span>
         <span class="land-nav-card__arrow">→</span>
       </a>
@@ -454,7 +454,7 @@
     empty.style.display = 'none';
     grid.innerHTML = mine.slice(0, 6).map(function (p) {
       var thumb = p.bild
-        ? '<img src="' + p.bild + '" alt="' + p.titel + '">'
+        ? '<img src="' + p.bild + '" alt="' + p.titel + '" loading="lazy">'
         : '<div style="height:160px;background:' + p.bildFallback.gradient + ';display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + p.bildFallback.emoji + '</div>';
       return '<a href="' + p.link + '" class="blog-teaser-card">' + thumb +
         '<div class="blog-teaser-card__body">' +

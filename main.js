@@ -94,10 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ── Active nav link ────────────────────────────────── */
+  // data-page zuerst pruefen (auch bei <button>-Elementen wie dem
+  // "Laender"-Dropdown-Toggle vorhanden, die kein href haben), sonst href.
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav__link, .nav__mobile-link').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && (href === currentPage || (currentPage === '' && href === 'index.html'))) {
+    const page = link.dataset.page || link.getAttribute('href');
+    if (page && (page === currentPage || (currentPage === '' && page === 'index.html'))) {
       link.classList.add('active');
     }
   });

@@ -321,12 +321,12 @@
     </div>
     <div class="land-nav-grid">
       <a href="kolumbien.html" class="land-nav-card">
-        <img src="assets/img/blog/sanandres8.jpg" class="land-nav-card__thumb" alt="Kolumbien">
+        <img src="assets/img/blog/sanandres8.jpg" class="land-nav-card__thumb" alt="Kolumbien" loading="lazy">
         <span><span class="land-nav-card__label">Bereist</span><span class="land-nav-card__name">Kolumbien</span></span>
         <span class="land-nav-card__arrow">→</span>
       </a>
       <a href="ecuador.html" class="land-nav-card">
-        <img src="assets/img/kilotoas.JPEG" class="land-nav-card__thumb" alt="Ecuador">
+        <img src="assets/img/kilotoas.JPEG" class="land-nav-card__thumb" alt="Ecuador" loading="lazy">
         <span><span class="land-nav-card__label">Bereist</span><span class="land-nav-card__name">Ecuador</span></span>
         <span class="land-nav-card__arrow">→</span>
       </a>
@@ -462,7 +462,7 @@
     empty.style.display = 'none';
     grid.innerHTML = mine.slice(0, 6).map(function (p) {
       var thumb = p.bild
-        ? '<img src="' + p.bild + '" alt="' + p.titel + '">'
+        ? '<img src="' + p.bild + '" alt="' + p.titel + '" loading="lazy">'
         : '<div style="height:160px;background:' + p.bildFallback.gradient + ';display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + p.bildFallback.emoji + '</div>';
       return '<a href="' + p.link + '" class="blog-teaser-card">' + thumb +
         '<div class="blog-teaser-card__body">' +

@@ -22,7 +22,7 @@ const REISE = {
     { name: 'Chile',          iso: 152, status: '',        href: 'laender.html#geplant'   },
     { name: 'Argentinien',    iso:  32, status: '',        href: 'laender.html#geplant'   },
     { name: 'Brasilien',      iso:  76, status: '',        href: 'laender.html#geplant'   },
-    { name: 'Venezuela',      iso: 862, status: '',        href: 'laender.html#geplant'   },
+    { name: 'Venezuela',      iso: 862, status: '',        href: '#'                      },
     { name: 'Uruguay',        iso: 858, status: '',        href: 'laender.html#geplant'   },
     { name: 'Paraguay',       iso: 600, status: '',        href: 'laender.html#geplant'   },
     { name: 'Guyana',         iso: 328, status: '',        href: '#'                      },
