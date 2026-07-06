@@ -184,14 +184,14 @@
       <!-- Suchfeld rechts (inline gestylt um CSS-Konflikte zu vermeiden) -->
       <div class="blog-search-wrap">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="flex-shrink:0;opacity:0.4;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <input type="search" id="blog-search" placeholder="Artikel durchsuchen …" autocomplete="off"
+        <input type="search" id="blog-search" placeholder="Artikel durchsuchen …" autocomplete="off" aria-label="Artikel durchsuchen"
           style="border:none;outline:none;background:transparent;font-size:0.875rem;color:var(--gray-700);width:100%;font-family:inherit;">
       </div>
     </div>
 
     <div class="blog-sidebar">
       <div>
-        <p id="blog-no-results" style="display:none;color:var(--gray-500);padding:2rem 0;">Keine Artikel gefunden.</p>
+        <p id="blog-no-results" aria-live="polite" style="display:none;color:var(--gray-500);padding:2rem 0;">Keine Artikel gefunden.</p>
         <!-- Neuester Artikel (Featured) -->
         <div id="blog-featured"></div>
         <!-- Kleine Karten: erste 3 sichtbar, Rest versteckt -->
@@ -313,7 +313,7 @@
   // ── Thumbnail bauen ──────────────────────────────────────────
   function buildThumb(post, h) {
     return post.bild
-      ? `<img src="${post.bild}" alt="${post.titel}" style="width:100%;height:${h}px;object-fit:cover;display:block;">`
+      ? `<img src="${post.bild}" alt="${post.titel}" loading="lazy" style="width:100%;height:${h}px;object-fit:cover;display:block;">`
       : `<div style="height:${h}px;background:${post.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:3rem;">${post.bildFallback.emoji}</div>`;
   }
 
@@ -352,6 +352,23 @@
     const matchFilter = activeFilter === 'all' || cats.includes(activeFilter) || tags.includes(activeFilter);
     const matchSearch = !q || text.toLowerCase().includes(q);
     return matchFilter && matchSearch;
+  }
+
+  function syncFilterBar() {
+    document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.filter === activeFilter);
+    });
+  }
+
+  // ── Zentrale Filter-Anwendung (Filterleiste, Sidebar, Tags) ──
+  function setFilter(filter) {
+    activeFilter = filter;
+    searchQuery  = '';
+    const si = document.getElementById('blog-search');
+    if (si) si.value = '';
+    visibleCount = CARDS_PER_PAGE;
+    syncFilterBar();
+    renderGrid();
   }
 
   function applyFilters() {
@@ -406,35 +423,17 @@
 
     grid.innerHTML = postsToRender.map((post, i) => buildSmallCard(post, i)).join('');
 
-    // Animations-Observer für neue Karten
-    if (typeof IntersectionObserver !== 'undefined') {
-      const obs = new IntersectionObserver(entries => {
-        entries.forEach(e => {
-          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-        });
-      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
-      grid.querySelectorAll('.animate-on-scroll').forEach(el => obs.observe(el));
-    }
+    // Scroll-Animation für neue Karten (geteilte Logik aus main.js)
+    if (window.observeAnimations) window.observeAnimations(grid);
 
-    // Filter anwenden (für Suche/Filter-Zustand)
-    if (isFiltered) {
-      applyFilters();
-    }
-
-    updateLoadMoreBtn();
+    // Sichtbarkeit/Zähler immer aktualisieren (auch ungefiltert, z.B. bei 0 Artikeln)
+    applyFilters();
   }
 
   // ── Filter-Events ────────────────────────────────────────────
   function setupFilters() {
     document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeFilter = btn.dataset.filter;
-        visibleCount = CARDS_PER_PAGE; // Reset beim Filtern
-        renderGrid();
-        applyFilters();
-      });
+      btn.addEventListener('click', () => setFilter(btn.dataset.filter));
     });
 
     const searchInput = document.getElementById('blog-search');
@@ -443,21 +442,13 @@
         searchQuery = searchInput.value.trim();
         visibleCount = CARDS_PER_PAGE; // Reset bei Suche
         renderGrid();
-        applyFilters();
       });
     }
 
     document.addEventListener('click', e => {
       const tagEl = e.target.closest('.tag--clickable');
       if (!tagEl) return;
-      activeFilter = tagEl.dataset.tag;
-      searchQuery  = '';
-      const si = document.getElementById('blog-search');
-      if (si) si.value = '';
-      document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
-      visibleCount = CARDS_PER_PAGE;
-      renderGrid();
-      applyFilters();
+      setFilter(tagEl.dataset.tag);
     });
 
     // Load-More Button
@@ -478,18 +469,43 @@
       const min = parseInt((p.lesezeit || '').replace(/\D/g, '')) || 0;
       return sum + min;
     }, 0);
-    const el1 = document.getElementById('blog-stat-artikel');
-    const el2 = document.getElementById('blog-stat-laender');
-    const el3 = document.getElementById('blog-stat-lesezeit');
-    if (el1) el1.textContent = artikel;
-    if (el2) el2.textContent = laender;
-    if (el3) el3.textContent = lesezeit;
+    const stats = { 'blog-stat-artikel': artikel, 'blog-stat-laender': laender, 'blog-stat-lesezeit': lesezeit };
+    Object.entries(stats).forEach(([id, val]) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.setAttribute('data-count', val);
+      el.textContent = '0';
+    });
+    if (window.observeCounters) window.observeCounters();
+  }
+
+  // ── JSON-LD für Suchmaschinen ─────────────────────────────────
+  function injectBlogJsonLd(posts) {
+    if (!posts.length) return;
+    const data = {
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: 'Blog & Reisemagazin | The Freescape Project',
+      url: 'https://thefreescapeproject.com/blog.html',
+      blogPost: posts.map(p => ({
+        '@type': 'BlogPosting',
+        headline: p.titel,
+        url: `https://thefreescapeproject.com/${p.link}`,
+        datePublished: p.datum,
+        author: { '@type': 'Person', name: p.autor }
+      }))
+    };
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.textContent = JSON.stringify(data);
+    document.head.appendChild(script);
   }
 
   // ── Posts rendern ────────────────────────────────────────────
   function renderPosts(posts) {
     const sorted = [...posts].sort((a, b) => new Date(b.datum) - new Date(a.datum));
     updateBlogStats(sorted);
+    injectBlogJsonLd(sorted);
 
     // Featured (neuester Post)
     const featured = document.getElementById('blog-featured');
@@ -531,12 +547,10 @@
   function buildSidebar(posts) {
     const laender = {};
     const typen   = {};
-    const allTags = {};
 
     posts.forEach(p => {
       if (p.land) laender[p.land] = (laender[p.land] || 0) + 1;
       typen[p.typLabel] = (typen[p.typLabel] || 0) + 1;
-      (p.tags || []).forEach(t => { allTags[t] = (allTags[t] || 0) + 1; });
     });
 
     const laenderEl = document.getElementById('sidebar-laender');
@@ -555,19 +569,10 @@
       }).join('');
     }
 
-    const tagsEl = document.getElementById('sidebar-tags');
-    if (tagsEl) {
-      tagsEl.innerHTML = Object.keys(allTags).sort().map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('');
-    }
-
     document.querySelectorAll('.sidebar-filter').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        activeFilter = link.dataset.filter;
-        visibleCount = CARDS_PER_PAGE;
-        document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(b => b.classList.remove('active'));
-        renderGrid();
-        applyFilters();
+        setFilter(link.dataset.filter);
       });
     });
   }

@@ -56,8 +56,9 @@ document.addEventListener('DOMContentLoaded', () => {
   window.observeAnimations = observeAnimations;
 
   /* ── Counter Animation ──────────────────────────────── */
-  const counters = document.querySelectorAll('[data-count]');
-  if (counters.length) {
+  function observeCounters(root = document) {
+    const counters = root.querySelectorAll('[data-count]');
+    if (!counters.length) return;
     const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -68,6 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.5 });
     counters.forEach(el => counterObserver.observe(el));
   }
+  observeCounters();
+  window.observeCounters = observeCounters;
 
   function animateCounter(el) {
     const target = parseInt(el.dataset.count, 10);
