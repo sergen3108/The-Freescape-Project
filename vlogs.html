@@ -318,6 +318,8 @@
   </div>
 </div>
 
+<script src="laender-config.js"></script>
+<script src="vlog-utils.js"></script>
 <script>
 /* ============================================================
    Vlogs werden aus der lokalen vlogs-data.json geladen, die
@@ -336,14 +338,6 @@ let allShorts = [];
 let shownVideos = 0;
 let shownShorts = 0;
 let activeFilter = 'all';
-
-function detectCountry(title) {
-  const t = title.toLowerCase();
-  if (t.includes('kolumbien')||t.includes('bogotá')||t.includes('medellin')||t.includes('cartagena')||t.includes('salento')||t.includes('tayrona')||t.includes('santa marta')||t.includes('minca')||t.includes('palomino')) return 'kolumbien';
-  if (t.includes('ecuador')||t.includes('quito')||t.includes('amazonas')||t.includes('baños')||t.includes('mindo')||t.includes('quilotoa')||t.includes('cotopaxi')||t.includes('cuenca')||t.includes('galápagos')||t.includes('galapagos')) return 'ecuador';
-  if (t.includes('peru')||t.includes('machu')||t.includes('lima')||t.includes('cusco')||t.includes('titicaca')||t.includes('máncora')||t.includes('mancora')) return 'peru';
-  return 'other';
-}
 
 function formatDate(iso) {
   return new Date(iso).toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
@@ -365,7 +359,7 @@ function buildThumbMarkup(v) {
 }
 
 function makeCard(v, index, isNew) {
-  const country = detectCountry(v.title);
+  const country = detectCountry(v.title) || 'other';
   const countryLabel = {kolumbien:'Kolumbien',ecuador:'Ecuador',peru:'Peru',other:''}[country]||'';
   const delay = ['','animate-delay-1','animate-delay-2'][index%3];
   return `

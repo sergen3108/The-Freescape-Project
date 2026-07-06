@@ -380,6 +380,8 @@
 
 <script src="blog-posts.js"></script>
 <script src="reise-config.js"></script>
+<script src="laender-config.js"></script>
+<script src="vlog-utils.js"></script>
 <script src="main.js"></script>
 
 <!-- D3 + Südamerika-Karte (unveraendert, separates Thema) -->
@@ -389,12 +391,14 @@
 <!-- Vlogs + Vlog-Anzahl aus lokaler vlogs-data.json (kein Google-Request) -->
 <script>
 (function() {
+  // Laendername (z.B. "Kolumbien") aus dem Video-Titel, ueber die
+  // geteilte Erkennung in vlog-utils.js (window.detectCountry liefert
+  // den Slug, laenderBySlug() den Anzeigenamen dazu).
   function detectCountry(title) {
-    const t = title.toLowerCase();
-    if (t.includes('kolumbien')||t.includes('bogotá')||t.includes('medellin')||t.includes('cartagena')||t.includes('salento')||t.includes('tayrona')||t.includes('santa marta')||t.includes('minca')||t.includes('palomino')) return 'Kolumbien';
-    if (t.includes('ecuador')||t.includes('quito')||t.includes('amazonas')||t.includes('baños')||t.includes('mindo')||t.includes('quilotoa')||t.includes('cotopaxi')||t.includes('cuenca')||t.includes('galápagos')||t.includes('galapagos')) return 'Ecuador';
-    if (t.includes('peru')||t.includes('machu')||t.includes('lima')||t.includes('cusco')||t.includes('máncora')||t.includes('mancora')||t.includes('huanchaco')||t.includes('trujillo')||t.includes('huaraz')) return 'Peru';
-    return '';
+    const slug = window.detectCountry ? window.detectCountry(title) : null;
+    if (!slug) return '';
+    const land = window.laenderBySlug ? window.laenderBySlug(slug) : null;
+    return land ? land.name : '';
   }
 
   function formatDate(iso) {
