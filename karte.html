@@ -228,7 +228,8 @@
 <!-- ── Page Hero ─────────────────────────────────────────── -->
 <section class="page-hero">
   <div class="hero__bg">
-    <img src="assets/img/blog/sanandres8.jpg" class="hero__bg-photo" alt="">
+    <img src="assets/img/blog/sanandres8.jpg" class="hero__bg-photo" alt=""
+         onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#c4622d,#1a2744)'">
     <div class="hero__pattern"></div>
   </div>
   <div class="hero__overlay"></div>
@@ -313,6 +314,9 @@
             <li><div class="status-dot status-dot--planned"></div> Bolivien</li>
             <li><div class="status-dot status-dot--planned"></div> Chile</li>
             <li><div class="status-dot status-dot--planned"></div> Argentinien</li>
+            <li><div class="status-dot status-dot--planned"></div> Brasilien</li>
+            <li><div class="status-dot status-dot--planned"></div> Uruguay</li>
+            <li><div class="status-dot status-dot--planned"></div> Paraguay</li>
           </ul>
         </div>
 
@@ -427,17 +431,21 @@ const pins = [
   { lat: 6.2324,  lng: -75.1575, status: "visited", name: "Guatapé",              desc: "El Peñol und das bunteste Dorf Kolumbiens, ein unvergesslicher Tagesausflug.",                      link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: 11.1386, lng: -74.1182, status: "visited", name: "Minca",                desc: "Kleines Bergdorf mit Wasserfällen und unglaublicher Ruhe.",                                          link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: 11.2408, lng: -74.1990, status: "visited", name: "Santa Marta",          desc: "Tor zur Karibikküste und Ausgangspunkt für den Tayrona-Nationalpark.",                              link: "blog.html", linkText: "Zum Blogartikel" },
+  { lat: 11.2500, lng: -73.9700, status: "visited", name: "Costeño Beach",        desc: "Strand mitten im Dschungel zwischen Santa Marta und Palomino.",                                     link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: 11.3097, lng: -74.0318, status: "visited", name: "Palomino",             desc: "Entspanntes Strandleben zwischen Dschungel und Karibik.",                                           link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: 11.3700, lng: -73.9200, status: "visited", name: "Tayrona Nationalpark", desc: "Dschungel trifft auf Karibikstrand, einer der schönsten Nationalparks Südamerikas.",               link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: 12.5847, lng: -81.7006, status: "visited", name: "San Andrés",           desc: "Das Meer der 7 Farben. Korallenriffe, Karibik-Feeling und traumhafte Strände.",                    link: "blog.html", linkText: "Zum Blogartikel" },
+  { lat: 10.3910, lng: -75.4794, status: "visited", name: "Cartagena",            desc: "Koloniale Altstadt und Karibik-Flair hinter historischen Stadtmauern.",                              link: "blog.html", linkText: "Zum Blogartikel" },
   // ── ECUADOR ───────────────────────────────────────────
   { lat: -0.1807, lng: -78.4678, status: "visited", name: "Quito",                desc: "UNESCO-Altstadt, koloniale Pracht und der Ausblick vom TelefériQo.",                               link: "blog.html", linkText: "Zum Blogartikel" },
+  { lat: 0.0500,  lng: -78.7667, status: "visited", name: "Mindo",                desc: "Nebelwald und Kolibris nur eine Stunde von Quito entfernt.",                                        link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: -0.6830, lng: -78.4361, status: "visited", name: "Cotopaxi",             desc: "Schneebedeckter Vulkan auf fast 6.000m, gigantisches Panorama.",                                   link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: -0.8592, lng: -78.9007, status: "visited", name: "Quilotoa",             desc: "Smaragdgrüner Kratersee auf 3.900m, einer der schönsten Orte der Reise.",                          link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: -1.4594, lng: -78.4243, status: "visited", name: "Baños",                desc: "Wasserfälle, Adrenalin-Aktivitäten und heiße Quellen am Fuß des Tungurahua.",                      link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: -2.1333, lng: -75.9833, status: "visited", name: "Amazonas",             desc: "4 Tage mitten im Regenwald, Wildlife, Stille und ein Erlebnis für's Leben.",                       link: "blog.html", linkText: "Zum Blogartikel" },
   // ── GALAPAGOS ─────────────────────────────────────────
   { lat: -0.9538, lng: -90.9656, status: "visited", name: "Galapagos",            desc: "3 Wochen Insel-Hopping mit Seelöwen, Riesenschildkröten und Blaufußtölpeln.",                      link: "blog.html", linkText: "Zum Kosten-Check" },
+  { lat: -2.9001, lng: -79.0059, status: "visited", name: "Cuenca",               desc: "Koloniales Juwel im Süden Ecuadors mit UNESCO-Altstadt.",                                          link: "blog.html", linkText: "Zum Blogartikel" },
   // ── PERU ──────────────────────────────────────────────
   { lat: -4.1076,  lng: -81.0472, status: "visited", name: "Máncora",              desc: "Strand, Surfen und Backpacker-Vibes an Perus Nordküste.",                                          link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: -8.0762,  lng: -79.1197, status: "visited", name: "Huanchaco",            desc: "Totora-Boote und Ausgangspunkt für die Lehmstadt Chan Chan.",                                      link: "blog.html", linkText: "Zum Blogartikel" },
@@ -457,8 +465,7 @@ const MAP_CENTER = [-10, -68];
 const MAP_ZOOM   = 4;
 const COLORS = {
   visited : '#3d7a52',
-  current : '#e8431a',
-  next    : '#2e8c2e',
+  current : '#c4622d',
   planned : '#c0c0c0'
 };
 
@@ -466,9 +473,9 @@ const ROUTE = [
   { type: "land",   coords: [[4.7110,-74.0721],[4.6382,-75.6691],[6.2442,-75.5812],[6.2324,-75.1575],[6.2442,-75.5812]] },
   { type: "flight", coords: [[6.2442,-75.5812],[12.5847,-81.7006]] },
   { type: "flight", coords: [[12.5847,-81.7006],[10.3910,-75.4794]] },
-  { type: "land",   coords: [[10.3910,-75.4794],[11.2408,-74.1990],[11.3700,-73.9200],[11.1386,-74.1182],[11.3097,-74.0318],[11.2408,-74.1990]] },
+  { type: "land",   coords: [[10.3910,-75.4794],[11.2408,-74.1990],[11.3700,-73.9200],[11.1386,-74.1182],[11.3097,-74.0318],[11.2500,-73.9700],[11.2408,-74.1990]] },
   { type: "flight", coords: [[11.2408,-74.1990],[-0.1807,-78.4678]] },
-  { type: "land",   coords: [[-0.1807,-78.4678],[-0.6830,-78.4361],[-0.8592,-78.9007],[-1.4594,-78.4243],[-0.1807,-78.4678],[-2.1333,-75.9833]] },
+  { type: "land",   coords: [[-0.1807,-78.4678],[0.0500,-78.7667],[-0.1807,-78.4678],[-0.6830,-78.4361],[-0.8592,-78.9007],[-1.4594,-78.4243],[-0.1807,-78.4678],[-2.1333,-75.9833]] },
   { type: "flight", coords: [[-2.1333,-75.9833],[-0.1807,-78.4678],[-0.9538,-90.9656]] },
   { type: "flight", coords: [[-0.9538,-90.9656],[-2.1709,-79.9224],[-2.9001,-79.0059]] },
   { type: "land",   coords: [[-2.9001,-79.0059],[-3.5050,-80.7500]] },
@@ -487,6 +494,12 @@ const ROUTE_STYLES = {
 function initMap() {
   var placeholder = document.getElementById('mapConsentPlaceholder');
   var mapEl       = document.getElementById('map');
+
+  if (typeof L === 'undefined') {
+    placeholder.innerHTML = '<div class="map-consent-placeholder__title">Karte konnte nicht geladen werden</div>' +
+      '<div class="map-consent-placeholder__text">Leaflet ist nicht verfügbar. Bitte lade die Seite neu.</div>';
+    return;
+  }
 
   placeholder.style.display = 'none';
   mapEl.style.display = '';

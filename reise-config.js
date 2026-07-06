@@ -10,9 +10,9 @@ const REISE = {
 // ── Reise-Zahlen ───────────────────────────────────────────────
   kmZurueckgelegt:      13500,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          20,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          24,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Paracas, dann weiter zum Machu Picchu! Wir sind gespannt 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Cusco, dann weiter zum Machu Picchu! Wir sind gespannt 🙌',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
