@@ -217,36 +217,12 @@ document.addEventListener('DOMContentLoaded', function () {
     menu.innerHTML = html;
   });
 
-  // Mobiles Menue: den Block zwischen der "Laender"-Ueberschrift
-  // und dem YouTube-Link ersetzen.
-  document.querySelectorAll('.nav__mobile').forEach(function (mob) {
-    var heading = Array.prototype.find.call(
-      mob.children,
-      function (el) { return el.textContent.trim() === 'Länder' || el.textContent.trim() === 'Laender'; }
-    );
-    if (!heading) return;
-    // Alte Laender-Links direkt nach der Ueberschrift entfernen
-    var next = heading.nextElementSibling;
-    while (next && next.classList.contains('nav__mobile-link') &&
-           next.getAttribute('href') && next.getAttribute('href').indexOf('laender.html') === 0) {
-      var toRemove = next;
-      next = next.nextElementSibling;
-      toRemove.remove();
-    }
-    // Neue Links (bereiste/aktuelle Laender) einfuegen
-    var frag = document.createDocumentFragment();
-    var alle = document.createElement('a');
-    alle.href = 'laender.html';
-    alle.className = 'nav__mobile-link';
-    alle.textContent = 'Alle Laender';
-    frag.appendChild(alle);
+  // Mobiles Menue: Laender-Untermenue (Button + Submenu) befuellen
+  document.querySelectorAll('#nav-mobile-laender-submenu').forEach(function (submenu) {
+    var html = '<a href="laender.html" class="nav__mobile-link nav__mobile-sublink">Alle Laender</a>';
     bereist.forEach(function (l) {
-      var a = document.createElement('a');
-      a.href = l.datei;
-      a.className = 'nav__mobile-link';
-      a.textContent = l.name;
-      frag.appendChild(a);
+      html += '<a href="' + l.datei + '" class="nav__mobile-link nav__mobile-sublink">' + l.name + '</a>';
     });
-    heading.parentNode.insertBefore(frag, heading.nextSibling);
+    submenu.innerHTML = html;
   });
 });

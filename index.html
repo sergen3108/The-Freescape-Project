@@ -114,10 +114,16 @@
   <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
   <a href="galerie.html" class="nav__mobile-link">Galerie</a>
   <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
-  <div style="border-top:1px solid rgba(255,255,255,0.1);margin:0.5rem 0;padding:0.75rem 1rem 0;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-family:var(--font-nav);">Länder</div>
-  <a href="kolumbien.html" class="nav__mobile-link">Kolumbien</a>
-  <a href="ecuador.html" class="nav__mobile-link">Ecuador</a>
-  <a href="peru.html" class="nav__mobile-link">Peru</a>
+  <button type="button" class="nav__mobile-link nav__mobile-toggle" id="nav-mobile-laender-toggle" aria-expanded="false" aria-controls="nav-mobile-laender-submenu">
+    Länder
+    <svg class="nav__mobile-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="nav__mobile-submenu" id="nav-mobile-laender-submenu" hidden>
+    <a href="laender.html" class="nav__mobile-link nav__mobile-sublink">Alle Länder</a>
+    <a href="kolumbien.html" class="nav__mobile-link nav__mobile-sublink">Kolumbien</a>
+    <a href="ecuador.html" class="nav__mobile-link nav__mobile-sublink">Ecuador</a>
+    <a href="peru.html" class="nav__mobile-link nav__mobile-sublink">Peru</a>
+  </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
 

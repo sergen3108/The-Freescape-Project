@@ -465,13 +465,32 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 .nav__mobile-link:hover { color: var(--white); background: rgba(255,255,255,0.08); }
-.nav__mobile-sub {
-  color: rgba(255,255,255,0.5);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: var(--sp-4) var(--sp-4) var(--sp-2);
-  margin-top: var(--sp-4);
+
+.nav__mobile-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.nav__mobile-toggle-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  transition: transform var(--t-fast);
+}
+.nav__mobile-toggle.open .nav__mobile-toggle-icon { transform: rotate(180deg); }
+.nav__mobile-submenu {
+  display: flex;
+  flex-direction: column;
+}
+.nav__mobile-submenu[hidden] { display: none; }
+.nav__mobile-sublink {
+  padding-left: var(--sp-8);
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.65);
 }
 
 /* === BUTTONS =============================================== */

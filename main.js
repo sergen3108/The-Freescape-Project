@@ -21,12 +21,20 @@ document.addEventListener('DOMContentLoaded', () => {
     updateNav();
   }
 
+  const laenderToggle = mobileMenu?.querySelector('.nav__mobile-toggle');
+  const laenderSubmenu = mobileMenu?.querySelector('.nav__mobile-submenu');
+
   const closeMobileMenu = () => {
     if (!burger || !mobileMenu) return;
     burger.classList.remove('open');
     mobileMenu.classList.remove('open');
     burger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
+    // Untermenü bei jedem Schließen zurücksetzen, damit es beim erneuten
+    // Öffnen wieder eingeklappt startet
+    laenderToggle?.classList.remove('open');
+    laenderToggle?.setAttribute('aria-expanded', 'false');
+    laenderSubmenu?.setAttribute('hidden', '');
   };
 
   if (burger && mobileMenu) {
@@ -43,9 +51,21 @@ document.addEventListener('DOMContentLoaded', () => {
       else openMobileMenu();
     });
 
-    // Menü schließen, sobald ein Link geklickt wird (auch bei target="_blank",
-    // z.B. der YouTube-Link, wo sonst nichts die Seite/den Zustand zurücksetzt)
-    mobileMenu.querySelectorAll('.nav__mobile-link').forEach(link => {
+    // "Länder"-Button klappt das Untermenü auf/zu, ohne das ganze Menü zu schließen
+    if (laenderToggle && laenderSubmenu) {
+      laenderToggle.addEventListener('click', () => {
+        const isOpen = laenderToggle.classList.toggle('open');
+        laenderToggle.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) laenderSubmenu.removeAttribute('hidden');
+        else laenderSubmenu.setAttribute('hidden', '');
+      });
+    }
+
+    // Menü schließen, sobald ein echter Link geklickt wird (auch bei
+    // target="_blank", z.B. der YouTube-Link, wo sonst nichts die Seite/den
+    // Zustand zurücksetzt). Der "Länder"-Umschalter (ein <button>, kein <a>)
+    // ist bewusst ausgeschlossen.
+    mobileMenu.querySelectorAll('a.nav__mobile-link').forEach(link => {
       link.addEventListener('click', closeMobileMenu);
     });
 
@@ -57,12 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.matches && mobileMenu.classList.contains('open')) closeMobileMenu();
     });
 
-    // Fokus-Falle: Tab am letzten Link springt zurück zum Burger-Button,
-    // statt in den (visuell verdeckten) Seiteninhalt dahinter zu wandern.
+    // Fokus-Falle: Tab am letzten sichtbaren Link springt zurück zum
+    // Burger-Button, statt in den (visuell verdeckten) Seiteninhalt dahinter
+    // zu wandern. offsetParent ist null für nicht sichtbare Elemente (z.B.
+    // Länder-Untermenü, solange eingeklappt), daher werden die passend
+    // ausgefiltert statt fest verdrahtet zu sein.
     mobileMenu.addEventListener('keydown', (e) => {
       if (e.key !== 'Tab' || e.shiftKey) return;
-      const links = mobileMenu.querySelectorAll('.nav__mobile-link');
-      if (document.activeElement === links[links.length - 1]) {
+      const focusable = [...mobileMenu.querySelectorAll('a.nav__mobile-link, .nav__mobile-toggle')]
+        .filter(el => el.offsetParent !== null);
+      if (document.activeElement === focusable[focusable.length - 1]) {
         e.preventDefault();
         burger.focus();
       }
