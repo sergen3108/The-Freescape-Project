@@ -25,6 +25,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://thefreescapeproject.com/kolumbien.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/ecuador.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/peru.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://thefreescapeproject.com/karte.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

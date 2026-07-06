@@ -313,7 +313,7 @@
   // ── Thumbnail bauen ──────────────────────────────────────────
   function buildThumb(post, h) {
     return post.bild
-      ? `<img src="${post.bild}" alt="" style="width:100%;height:${h}px;object-fit:cover;display:block;">`
+      ? `<img src="${post.bild}" alt="${post.titel}" style="width:100%;height:${h}px;object-fit:cover;display:block;">`
       : `<div style="height:${h}px;background:${post.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:3rem;">${post.bildFallback.emoji}</div>`;
   }
 
@@ -496,7 +496,7 @@
     if (featured && sorted.length > 0) {
       const p = sorted[0];
       const thumb = p.bild
-        ? `<img src="${p.bild}" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">`
+        ? `<img src="${p.bild}" alt="${p.titel}" style="width:100%;height:100%;object-fit:cover;display:block;">`
         : `<div style="width:100%;height:100%;background:${p.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:4rem;">${p.bildFallback.emoji}</div>`;
      featured.innerHTML = `
   <article class="blog-card blog-card--featured" data-category="${p.kategorie}" data-tags="${(p.tags || []).join(' ').toLowerCase()}">
