@@ -1564,6 +1564,86 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .page-hero h1 { color: var(--white); margin-bottom: var(--sp-4); }
 .page-hero .lead { color: rgba(255,255,255,0.75); max-width: 600px; }
 
+/* === LÄNDERSEITEN (Hero-Facts & Orte-Karten) =============== */
+.hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin: var(--sp-6) 0 var(--sp-8);
+}
+.hero-fact {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  color: rgba(255,255,255,0.92);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.55rem 1rem;
+  border-radius: var(--r-full);
+}
+.hero-fact__icon { font-size: 1rem; line-height: 1; }
+.hero-fact__label { color: rgba(255,255,255,0.55); font-weight: 500; margin-left: 0.15rem; }
+
+.orte-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.1rem;
+  margin: 1.75rem 0;
+  counter-reset: ort-index;
+}
+@media (max-width: 600px) { .orte-grid { grid-template-columns: 1fr; } }
+
+.ort-chip {
+  position: relative;
+  counter-increment: ort-index;
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--r-lg);
+  padding: 1.1rem 1.25rem 1.1rem 1.4rem;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.ort-chip::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--terra-500), var(--terra-300));
+}
+.ort-chip::after {
+  content: counter(ort-index, decimal-leading-zero);
+  position: absolute;
+  top: 0.6rem; right: 0.85rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gray-100);
+  z-index: 0;
+}
+.ort-chip:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--terra-300);
+}
+.ort-chip strong {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 1rem;
+  color: var(--gray-900);
+}
+.ort-chip span {
+  position: relative;
+  z-index: 1;
+  color: var(--gray-500);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
 /* === LEGAL PAGES =========================================== */
 .legal-content {
   max-width: var(--max-w-narrow);

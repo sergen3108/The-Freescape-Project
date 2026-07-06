@@ -70,16 +70,6 @@
     .status-badge--visited { background:var(--green-100); color:var(--green-800); }
     .status-badge--current { background:var(--terra-100); color:var(--terra-700); }
 
-    /* Orte-Raster */
-    .orte-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin:1.5rem 0; }
-    @media(max-width:600px){ .orte-grid { grid-template-columns:1fr; } }
-    .ort-chip {
-      background:var(--sand-100); border-radius:var(--r-md);
-      padding:0.75rem 1rem; font-size:0.85rem; border:1px solid var(--sand-200);
-    }
-    .ort-chip strong { display:block; margin-bottom:0.1rem; }
-    .ort-chip span { color:var(--gray-500); font-size:0.78rem; }
-
     /* Blog-Teaser-Karten (aus laender.html) */
     .blog-teaser-grid {
       display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
@@ -212,6 +202,11 @@
     <p class="overline">Südamerika · Land für Land</p>
     <h1>Peru</h1>
     <p class="lead">Pazifikküste, Wüste und die Anden. Wir sind gerade mitten drin, von Máncora im Norden bis in die Höhen rund um Huaraz und weiter nach Cusco.</p>
+    <div class="hero-facts">
+      <span class="hero-fact"><span class="hero-fact__icon">🗓️</span>Aktuell hier<span class="hero-fact__label">ab Jun 2026</span></span>
+      <span class="hero-fact"><span class="hero-fact__icon">📍</span>5 Orte bereist</span>
+      <span class="hero-fact"><span class="hero-fact__icon">⛰️</span>Nächstes Ziel: Machu Picchu</span>
+    </div>
   </div>
 </section>
 
