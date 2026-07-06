@@ -21,11 +21,51 @@ document.addEventListener('DOMContentLoaded', () => {
     updateNav();
   }
 
+  const closeMobileMenu = () => {
+    if (!burger || !mobileMenu) return;
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  };
+
   if (burger && mobileMenu) {
+    const openMobileMenu = () => {
+      burger.classList.add('open');
+      mobileMenu.classList.add('open');
+      burger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      mobileMenu.querySelector('.nav__mobile-link')?.focus();
+    };
+
     burger.addEventListener('click', () => {
-      burger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+      if (mobileMenu.classList.contains('open')) closeMobileMenu();
+      else openMobileMenu();
+    });
+
+    // Menü schließen, sobald ein Link geklickt wird (auch bei target="_blank",
+    // z.B. der YouTube-Link, wo sonst nichts die Seite/den Zustand zurücksetzt)
+    mobileMenu.querySelectorAll('.nav__mobile-link').forEach(link => {
+      link.addEventListener('click', closeMobileMenu);
+    });
+
+    // Menü automatisch schließen, wenn der Viewport über die Mobile-Breakpoint
+    // hinaus vergrößert wird (z.B. Tablet-Drehung), sonst bleibt es offen und
+    // body.overflow gesperrt, obwohl der Burger nicht mehr sichtbar ist.
+    const desktopQuery = window.matchMedia('(min-width: 1025px)');
+    desktopQuery.addEventListener('change', (e) => {
+      if (e.matches && mobileMenu.classList.contains('open')) closeMobileMenu();
+    });
+
+    // Fokus-Falle: Tab am letzten Link springt zurück zum Burger-Button,
+    // statt in den (visuell verdeckten) Seiteninhalt dahinter zu wandern.
+    mobileMenu.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab' || e.shiftKey) return;
+      const links = mobileMenu.querySelectorAll('.nav__mobile-link');
+      if (document.activeElement === links[links.length - 1]) {
+        e.preventDefault();
+        burger.focus();
+      }
     });
   }
 
@@ -164,11 +204,7 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
         const offset = 80;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
-        if (mobileMenu?.classList.contains('open')) {
-          mobileMenu.classList.remove('open');
-          burger?.classList.remove('open');
-          document.body.style.overflow = '';
-        }
+        if (mobileMenu?.classList.contains('open')) closeMobileMenu();
       }
     });
   });
@@ -228,9 +264,8 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (mobileMenu?.classList.contains('open')) {
-        mobileMenu.classList.remove('open');
-        burger?.classList.remove('open');
-        document.body.style.overflow = '';
+        closeMobileMenu();
+        burger?.focus();
       }
     }
   });
