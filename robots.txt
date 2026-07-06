@@ -1,4 +1,4 @@
-# robots.txt — The Freescape Project
+# robots.txt: The Freescape Project
 # https://thefreescapeproject.com
 
 User-agent: *
@@ -6,6 +6,5 @@ Allow: /
 
 # Interne / technische Pfade nicht crawlen
 Disallow: /posts/index.json
-Disallow: /data/
 
 Sitemap: https://thefreescapeproject.com/sitemap.xml
