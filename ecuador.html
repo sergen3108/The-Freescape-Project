@@ -96,18 +96,6 @@
       color:var(--gray-500); font-size:0.95rem;
     }
 
-    .land-nav-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem; }
-    @media(max-width:600px){ .land-nav-grid { grid-template-columns:1fr; } }
-    .land-nav-card {
-      display:flex; align-items:center; gap:0.75rem;
-      background:var(--white); border:1.5px solid var(--gray-100);
-      border-radius:var(--r-lg); padding:1rem 1.25rem; text-decoration:none;
-      transition:border-color 0.2s, box-shadow 0.2s;
-    }
-    .land-nav-card:hover { border-color:var(--terra-400); box-shadow:var(--shadow-sm); }
-    .land-nav-card__emoji { font-size:1.6rem; }
-    .land-nav-card__label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gray-400); }
-    .land-nav-card__name { font-weight:700; color:var(--gray-900); }
   </style>
 </head>
 <body>
@@ -197,9 +185,31 @@
     <h1>Ecuador</h1>
     <p class="lead">Vulkane, Amazonas und Galapagos auf kleinem Raum. Sechs Wochen in einem der abwechslungsreichsten Länder unserer Reise.</p>
     <div class="hero-facts">
-      <span class="hero-fact"><span class="hero-fact__icon">🗓️</span>6 Wochen<span class="hero-fact__label">Apr–Jun 2026</span></span>
-      <span class="hero-fact"><span class="hero-fact__icon">📍</span>8 Orte</span>
-      <span class="hero-fact"><span class="hero-fact__icon">🐢</span>Highlight: Galápagos</span>
+      <span class="hero-fact">Highlight: Galápagos</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Ecuador in Zahlen ────────────────────────────────────── -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-bar__grid stats-bar__grid--4col">
+      <div class="stats-bar__item animate-on-scroll">
+        <div class="stats-bar__number" data-count="8">0</div>
+        <div class="stats-bar__label">Orte besucht</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-1">
+        <div class="stats-bar__number" data-count="42">0</div>
+        <div class="stats-bar__label">Tage im Land</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-2">
+        <div class="stats-bar__number" id="stat-vlogs-num">0</div>
+        <div class="stats-bar__label">Vlogs veröffentlicht</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-3">
+        <div class="stats-bar__number" id="stat-blog-num">0</div>
+        <div class="stats-bar__label">Blog-Artikel</div>
+      </div>
     </div>
   </div>
 </section>
@@ -225,14 +235,14 @@
 
     <h3 style="margin-top:2.5rem;">Orte, die wir in Ecuador besucht haben</h3>
     <div class="orte-grid">
-      <div class="ort-chip"><strong>Quito</strong><span>UNESCO-Altstadt und Mitte der Welt</span></div>
-      <div class="ort-chip"><strong>Cotopaxi</strong><span>Schneebedeckter Vulkan</span></div>
-      <div class="ort-chip"><strong>Quilotoa</strong><span>Smaragdgrüne Kraterlagune</span></div>
-      <div class="ort-chip"><strong>Baños</strong><span>Adrenalinsport und Wasserfälle</span></div>
-      <div class="ort-chip"><strong>Mindo</strong><span>Nebelwald und Vögel</span></div>
-      <div class="ort-chip"><strong>Amazonas</strong><span>Vier Tage im Regenwald</span></div>
-      <div class="ort-chip"><strong>Galapagos</strong><span>Seelöwen, Schildkröten und Tölpel</span></div>
-      <div class="ort-chip"><strong>Cuenca</strong><span>Koloniales Juwel im Süden</span></div>
+      <a class="ort-chip" data-ort="Quito"><strong>Quito</strong><span>UNESCO-Altstadt und Mitte der Welt</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" data-ort="Cotopaxi"><strong>Cotopaxi</strong><span>Schneebedeckter Vulkan</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" data-ort="Quilotoa"><strong>Quilotoa</strong><span>Smaragdgrüne Kraterlagune</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" data-ort="Baños"><strong>Baños</strong><span>Adrenalinsport und Wasserfälle</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" data-ort="Mindo"><strong>Mindo</strong><span>Nebelwald und Vögel</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" data-ort="Amazonas"><strong>Amazonas</strong><span>Vier Tage im Regenwald</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" data-ort="Galapagos"><strong>Galapagos</strong><span>Seelöwen, Schildkröten und Tölpel</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" data-ort="Cuenca"><strong>Cuenca</strong><span>Koloniales Juwel im Süden</span><span class="ort-chip__hint">Artikel lesen →</span></a>
     </div>
   </div>
 </section>
@@ -290,21 +300,23 @@
 <!-- ── Weitere Länder ───────────────────────────────────────── -->
 <section class="section" style="background:var(--green-900);">
   <div class="container">
-    <div class="section-header section-header--left" style="margin-bottom:1rem;">
+    <div class="section-header" style="margin-bottom:2rem;">
       <p class="overline" style="color:var(--terra-400);">Weiter durch Südamerika</p>
       <h2 style="color:white;">Andere Länder unserer Reise</h2>
     </div>
     <div class="land-nav-grid">
       <a href="kolumbien.html" class="land-nav-card">
-        <span class="land-nav-card__emoji">🇨🇴</span>
+        <img src="assets/img/blog/sanandres8.jpg" class="land-nav-card__thumb" alt="Kolumbien">
         <span><span class="land-nav-card__label">Bereist</span><span class="land-nav-card__name">Kolumbien</span></span>
+        <span class="land-nav-card__arrow">→</span>
       </a>
       <a href="peru.html" class="land-nav-card">
-        <span class="land-nav-card__emoji">🇵🇪</span>
+        <img src="assets/img/IMG_2934.JPEG" class="land-nav-card__thumb" alt="Peru">
         <span><span class="land-nav-card__label">Aktuell hier</span><span class="land-nav-card__name">Peru</span></span>
+        <span class="land-nav-card__arrow">→</span>
       </a>
     </div>
-    <div style="text-align:center;margin-top:1.5rem;">
+    <div style="text-align:center;margin-top:1.75rem;">
       <a href="laender.html" class="btn btn-secondary">Alle Länder im Überblick</a>
     </div>
   </div>
@@ -396,12 +408,28 @@
 (function () {
   var LAND_SLUG = 'ecuador';   // einziger Wert, der sich pro Laenderseite aendert
 
+  function linkOrteToArticles(posts) {
+    var chips = document.querySelectorAll('.ort-chip[data-ort]');
+    chips.forEach(function (chip) {
+      var name = chip.getAttribute('data-ort').toLowerCase();
+      var match = posts.filter(function (p) {
+        var haystack = (p.titel + ' ' + (p.teaser || '') + ' ' + (p.tags || []).join(' ')).toLowerCase();
+        return haystack.indexOf(name) !== -1;
+      })[0];
+      if (match) chip.setAttribute('href', match.link);
+    });
+  }
+
   function renderBlog(posts) {
-    var grid  = document.getElementById('land-blog-grid');
-    var empty = document.getElementById('land-blog-empty');
-    var mine  = (posts || []).filter(function (p) {
+    var grid    = document.getElementById('land-blog-grid');
+    var empty   = document.getElementById('land-blog-empty');
+    var statEl  = document.getElementById('stat-blog-num');
+    var mine    = (posts || []).filter(function (p) {
       return window.slugifyLand(p.land) === LAND_SLUG;
     });
+
+    if (statEl) statEl.textContent = mine.length;
+    linkOrteToArticles(mine);
 
     if (!mine.length) {
       grid.style.display = 'none';
@@ -476,6 +504,8 @@
         });
         var videos = mine.filter(function (v) { return (v.duration || 999) > 60; });
         var shorts = mine.filter(function (v) { return (v.duration || 999) <= 60; });
+        var statEl = document.getElementById('stat-vlogs-num');
+        if (statEl) statEl.textContent = mine.length;
 
         if (loading) loading.style.display = 'none';
 

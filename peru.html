@@ -101,18 +101,6 @@
     }
 
     /* Nachbar-Laender unten */
-    .land-nav-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:1rem; }
-    @media(max-width:600px){ .land-nav-grid { grid-template-columns:1fr; } }
-    .land-nav-card {
-      display:flex; align-items:center; gap:0.75rem;
-      background:var(--white); border:1.5px solid var(--gray-100);
-      border-radius:var(--r-lg); padding:1rem 1.25rem; text-decoration:none;
-      transition:border-color 0.2s, box-shadow 0.2s;
-    }
-    .land-nav-card:hover { border-color:var(--terra-400); box-shadow:var(--shadow-sm); }
-    .land-nav-card__emoji { font-size:1.6rem; }
-    .land-nav-card__label { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--gray-400); }
-    .land-nav-card__name { font-weight:700; color:var(--gray-900); }
   </style>
 </head>
 <body>
@@ -193,7 +181,7 @@
 <!-- ── Hero ─────────────────────────────────────────────────── -->
 <section class="page-hero">
   <div class="hero__bg">
-    <img src="assets/vlog-thumbs/WwfPpYbr3jw.jpg" class="hero__bg-photo" alt="Anden bei Huaraz in Peru"
+    <img src="assets/img/IMG_2934.JPEG" class="hero__bg-photo" alt="Peru"
          onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#8b3a15,#c4622d)'">
     <div class="hero__pattern"></div>
   </div>
@@ -203,9 +191,31 @@
     <h1>Peru</h1>
     <p class="lead">Pazifikküste, Wüste und die Anden. Wir sind gerade mitten drin, von Máncora im Norden bis in die Höhen rund um Huaraz und weiter nach Cusco.</p>
     <div class="hero-facts">
-      <span class="hero-fact"><span class="hero-fact__icon">🗓️</span>Aktuell hier<span class="hero-fact__label">ab Jun 2026</span></span>
-      <span class="hero-fact"><span class="hero-fact__icon">📍</span>5 Orte bereist</span>
-      <span class="hero-fact"><span class="hero-fact__icon">⛰️</span>Nächstes Ziel: Machu Picchu</span>
+      <span class="hero-fact">Nächstes Ziel: Machu Picchu</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Peru in Zahlen ───────────────────────────────────────── -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-bar__grid stats-bar__grid--4col">
+      <div class="stats-bar__item animate-on-scroll">
+        <div class="stats-bar__number" data-count="5">0</div>
+        <div class="stats-bar__label">Orte besucht</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-1">
+        <div class="stats-bar__number" data-count="35">0</div>
+        <div class="stats-bar__label">Tage im Land</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-2">
+        <div class="stats-bar__number" id="stat-vlogs-num">0</div>
+        <div class="stats-bar__label">Vlogs veröffentlicht</div>
+      </div>
+      <div class="stats-bar__item animate-on-scroll animate-delay-3">
+        <div class="stats-bar__number" id="stat-blog-num">0</div>
+        <div class="stats-bar__label">Blog-Artikel</div>
+      </div>
     </div>
   </div>
 </section>
@@ -232,14 +242,14 @@
 
     <h3 style="margin-top:2.5rem;">Orte, die wir in Peru besucht haben</h3>
     <div class="orte-grid">
-      <div class="ort-chip"><strong>Máncora</strong><span>Strand, Surfen und Backpacker-Vibes</span></div>
-      <div class="ort-chip"><strong>Huanchaco</strong><span>Totora-Boote und Ausgangspunkt für Chan Chan</span></div>
-      <div class="ort-chip"><strong>Trujillo</strong><span>Kolonialstadt und Lehmstädte</span></div>
-      <div class="ort-chip"><strong>Huaraz</strong><span>Wanderparadies in den Anden, Laguna 69</span></div>
-      <div class="ort-chip"><strong>Lima</strong><span>Miraflores, Barranco und Ceviche</span></div>
-      <div class="ort-chip" style="opacity:0.55;"><strong>Cusco</strong><span>Bald</span></div>
-      <div class="ort-chip" style="opacity:0.55;"><strong>Machu Picchu</strong><span>Bald</span></div>
-      <div class="ort-chip" style="opacity:0.55;"><strong>Titicacasee</strong><span>Bald</span></div>
+      <a class="ort-chip" data-ort="Máncora"><strong>Máncora</strong><span>Strand, Surfen und Backpacker-Vibes</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" data-ort="Huanchaco"><strong>Huanchaco</strong><span>Totora-Boote und Ausgangspunkt für Chan Chan</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" data-ort="Trujillo"><strong>Trujillo</strong><span>Kolonialstadt und Lehmstädte</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" data-ort="Huaraz"><strong>Huaraz</strong><span>Wanderparadies in den Anden, Laguna 69</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" data-ort="Lima"><strong>Lima</strong><span>Miraflores, Barranco und Ceviche</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" style="opacity:0.55;" data-ort="Cusco"><strong>Cusco</strong><span>Bald</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" style="opacity:0.55;" data-ort="Machu Picchu"><strong>Machu Picchu</strong><span>Bald</span><span class="ort-chip__hint">Artikel lesen →</span></a>
+      <a class="ort-chip" style="opacity:0.55;" data-ort="Titicacasee"><strong>Titicacasee</strong><span>Bald</span><span class="ort-chip__hint">Artikel lesen →</span></a>
     </div>
   </div>
 </section>
@@ -297,21 +307,23 @@
 <!-- ── Weitere Länder ───────────────────────────────────────── -->
 <section class="section" style="background:var(--green-900);">
   <div class="container">
-    <div class="section-header section-header--left" style="margin-bottom:1rem;">
+    <div class="section-header" style="margin-bottom:2rem;">
       <p class="overline" style="color:var(--terra-400);">Weiter durch Südamerika</p>
       <h2 style="color:white;">Andere Länder unserer Reise</h2>
     </div>
     <div class="land-nav-grid">
       <a href="kolumbien.html" class="land-nav-card">
-        <span class="land-nav-card__emoji">🇨🇴</span>
+        <img src="assets/img/blog/sanandres8.jpg" class="land-nav-card__thumb" alt="Kolumbien">
         <span><span class="land-nav-card__label">Bereist</span><span class="land-nav-card__name">Kolumbien</span></span>
+        <span class="land-nav-card__arrow">→</span>
       </a>
       <a href="ecuador.html" class="land-nav-card">
-        <span class="land-nav-card__emoji">🇪🇨</span>
+        <img src="assets/img/kilotoas.JPEG" class="land-nav-card__thumb" alt="Ecuador">
         <span><span class="land-nav-card__label">Bereist</span><span class="land-nav-card__name">Ecuador</span></span>
+        <span class="land-nav-card__arrow">→</span>
       </a>
     </div>
-    <div style="text-align:center;margin-top:1.5rem;">
+    <div style="text-align:center;margin-top:1.75rem;">
       <a href="laender.html" class="btn btn-secondary">Alle Länder im Überblick</a>
     </div>
   </div>
@@ -404,12 +416,28 @@
   var LAND_SLUG = 'peru';   // einziger Wert, der sich pro Laenderseite aendert
 
   /* ── Blog-Artikel dieses Landes ─────────────────────────── */
+  function linkOrteToArticles(posts) {
+    var chips = document.querySelectorAll('.ort-chip[data-ort]');
+    chips.forEach(function (chip) {
+      var name = chip.getAttribute('data-ort').toLowerCase();
+      var match = posts.filter(function (p) {
+        var haystack = (p.titel + ' ' + (p.teaser || '') + ' ' + (p.tags || []).join(' ')).toLowerCase();
+        return haystack.indexOf(name) !== -1;
+      })[0];
+      if (match) chip.setAttribute('href', match.link);
+    });
+  }
+
   function renderBlog(posts) {
-    var grid  = document.getElementById('land-blog-grid');
-    var empty = document.getElementById('land-blog-empty');
-    var mine  = (posts || []).filter(function (p) {
+    var grid    = document.getElementById('land-blog-grid');
+    var empty   = document.getElementById('land-blog-empty');
+    var statEl  = document.getElementById('stat-blog-num');
+    var mine    = (posts || []).filter(function (p) {
       return window.slugifyLand(p.land) === LAND_SLUG;
     });
+
+    if (statEl) statEl.textContent = mine.length;
+    linkOrteToArticles(mine);
 
     if (!mine.length) {
       grid.style.display = 'none';
@@ -485,6 +513,8 @@
         });
         var videos = mine.filter(function (v) { return (v.duration || 999) > 60; });
         var shorts = mine.filter(function (v) { return (v.duration || 999) <= 60; });
+        var statEl = document.getElementById('stat-vlogs-num');
+        if (statEl) statEl.textContent = mine.length;
 
         if (loading) loading.style.display = 'none';
 

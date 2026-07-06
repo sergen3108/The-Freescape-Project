@@ -1564,6 +1564,59 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .page-hero h1 { color: var(--white); margin-bottom: var(--sp-4); }
 .page-hero .lead { color: rgba(255,255,255,0.75); max-width: 600px; }
 
+/* === LÄNDERSEITEN: Weitere Länder (Navigations-Karten) ====== */
+.land-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.land-nav-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: var(--r-lg);
+  padding: 0.75rem 1.25rem 0.75rem 0.75rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+.land-nav-card:hover {
+  border-color: var(--terra-400);
+  background: rgba(255,255,255,0.07);
+  transform: translateX(4px);
+}
+.land-nav-card__thumb {
+  width: 56px; height: 56px;
+  border-radius: var(--r-md);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.land-nav-card__label {
+  display: block;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.45);
+}
+.land-nav-card__name {
+  display: block;
+  font-weight: 700;
+  color: var(--white);
+  font-size: 1.05rem;
+}
+.land-nav-card__arrow {
+  margin-left: auto;
+  color: rgba(255,255,255,0.3);
+  font-size: 1.2rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.land-nav-card:hover .land-nav-card__arrow {
+  color: var(--terra-400);
+  transform: translateX(3px);
+}
+
 /* === LÄNDERSEITEN (Hero-Facts & Orte-Karten) =============== */
 .hero-facts {
   display: flex;
@@ -1599,11 +1652,14 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .ort-chip {
   position: relative;
   counter-increment: ort-index;
+  display: block;
   background: var(--white);
   border: 1.5px solid var(--gray-100);
   border-radius: var(--r-lg);
   padding: 1.1rem 1.25rem 1.1rem 1.4rem;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 .ort-chip::before {
@@ -1616,18 +1672,23 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .ort-chip::after {
   content: counter(ort-index, decimal-leading-zero);
   position: absolute;
-  top: 0.6rem; right: 0.85rem;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem;
+  top: 0.75rem; right: 0.75rem;
+  width: 1.7rem; height: 1.7rem;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--terra-500);
+  color: var(--white);
+  font-size: 0.68rem;
   font-weight: 700;
-  color: var(--gray-100);
-  z-index: 0;
+  letter-spacing: 0.02em;
+  z-index: 1;
 }
 .ort-chip:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   border-color: var(--terra-300);
 }
+.ort-chip[href]:hover { cursor: pointer; }
 .ort-chip strong {
   position: relative;
   z-index: 1;
@@ -1635,6 +1696,7 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   margin-bottom: 0.2rem;
   font-size: 1rem;
   color: var(--gray-900);
+  padding-right: 1.9rem;
 }
 .ort-chip span {
   position: relative;
@@ -1643,6 +1705,16 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   font-size: 0.8rem;
   line-height: 1.5;
 }
+.ort-chip__hint {
+  display: none;
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--terra-600) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.ort-chip[href] .ort-chip__hint { display: block; }
 
 /* === LEGAL PAGES =========================================== */
 .legal-content {
