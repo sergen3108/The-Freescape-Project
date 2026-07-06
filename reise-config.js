@@ -15,9 +15,9 @@ const REISE = {
   naechsteWoche: 'Paracas — dann weiter zum Machu Picchu! Wir sind gespannt 🙌',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
-    { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'laender.html#kolumbien' },
-    { name: 'Ecuador',        iso: 218, status: 'visited', href: 'laender.html#ecuador'   },
-    { name: 'Peru',           iso: 604, status: 'current', href: 'laender.html#peru'      },
+    { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
+    { name: 'Ecuador',        iso: 218, status: 'visited', href: 'ecuador.html'           },
+    { name: 'Peru',           iso: 604, status: 'current', href: 'peru.html'              },
     { name: 'Bolivien',       iso:  68, status: '',        href: 'laender.html#geplant'   },
     { name: 'Chile',          iso: 152, status: '',        href: 'laender.html#geplant'   },
     { name: 'Argentinien',    iso:  32, status: '',        href: 'laender.html#geplant'   },
