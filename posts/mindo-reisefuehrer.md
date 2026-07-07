@@ -99,6 +99,8 @@ Für Frühstück oder einen hochwertigen Kaffee haben wir zwei tolle Spots gefun
 
 **Mindestens zwei bis drei Nächte einplanen:** Der Charme von Mindo liegt in seinem langsamen, ruhigen Rhythmus. Ein paar Tage geben genug Raum, die Natur wirklich zu genießen, ohne das Gefühl zu haben, nur eine Liste abzuarbeiten.
 
+![Mindo](assets/img/blog/mindo7.JPEG)
+
 ---
 
 ## Lohnt sich Mindo?

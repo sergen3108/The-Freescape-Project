@@ -96,6 +96,8 @@ Zwischendurch bieten sich immer wieder Stopps an verschiedenen Stränden entlang
 
 Insgesamt lebt der Tayrona von der Mischung aus Wanderung, Tierbeobachtung und dem Erlebnis, direkt in der Natur zu übernachten, eine Kombination, die man so kaum woanders in Kolumbien findet.
 
+![Tayrona](assets/img/blog/tayrona5.jpg)
+
 ---
 
 ## Praktische Reisetipps für Tayrona
