@@ -269,10 +269,15 @@
       <p>Videos werden geladen …</p>
     </div>
 
-    <div class="vlogs-grid" id="land-vlogs-grid"></div>
+    <div class="content-tabs" id="land-content-tabs">
+      <button class="content-tab active" data-tab="videos">🎬 Videos</button>
+      <button class="content-tab" data-tab="shorts" id="land-shorts-tab" style="display:none;">⚡ Shorts</button>
+    </div>
 
-    <div id="land-shorts-wrap" style="display:none;margin-top:2.5rem;">
-      <h3 style="margin-bottom:1rem;">Shorts aus Ecuador</h3>
+    <div class="tab-panel active" id="tab-land-videos">
+      <div class="vlogs-grid" id="land-vlogs-grid"></div>
+    </div>
+    <div class="tab-panel" id="tab-land-shorts">
       <div class="vlogs-grid" id="land-shorts-grid"></div>
     </div>
 
@@ -508,7 +513,7 @@
     var loading    = document.getElementById('land-vlogs-loading');
     var grid       = document.getElementById('land-vlogs-grid');
     var empty      = document.getElementById('land-vlogs-empty');
-    var shortsWrap = document.getElementById('land-shorts-wrap');
+    var shortsTab  = document.getElementById('land-shorts-tab');
     var shortsGrid = document.getElementById('land-shorts-grid');
 
     fetch('vlogs-data.json', { cache: 'no-cache' })
@@ -517,8 +522,8 @@
         var mine = (data.videos || []).filter(function (v) {
           return window.detectCountry(v.title) === LAND_SLUG;
         });
-        var videos = mine.filter(function (v) { return (v.duration || 999) > 60; });
-        var shorts = mine.filter(function (v) { return (v.duration || 999) <= 60; });
+        var videos = mine.filter(function (v) { return !window.VlogUtils.isShort(v); });
+        var shorts = mine.filter(function (v) { return window.VlogUtils.isShort(v); });
         var statEl = document.getElementById('stat-vlogs-num');
         if (statEl) {
           statEl.setAttribute('data-count', mine.length);
@@ -539,7 +544,7 @@
         if (shorts.length) {
           shortsGrid.innerHTML = shorts.map(makeCard).join('');
           shortsGrid.querySelectorAll('.vlog-card').forEach(function (el) { el.classList.add('visible'); });
-          shortsWrap.style.display = 'block';
+          shortsTab.style.display = '';
         }
       })
       .catch(function (err) {
@@ -548,6 +553,15 @@
         empty.style.display = 'block';
       });
   }
+
+  document.querySelectorAll('#land-content-tabs .content-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      document.querySelectorAll('#land-content-tabs .content-tab').forEach(function (t) { t.classList.remove('active'); });
+      document.querySelectorAll('#tab-land-videos, #tab-land-shorts').forEach(function (p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById('tab-land-' + tab.dataset.tab).classList.add('active');
+    });
+  });
 
   loadVlogs();
 })();
