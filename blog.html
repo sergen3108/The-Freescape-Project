@@ -174,22 +174,8 @@
 <!-- ── Blog-Inhalt ───────────────────────────────────────────── -->
 <section class="section">
   <div class="container">
-    <!-- Suchfeld + Filter in einer Zeile -->
+    <!-- Suchfeld -->
     <div class="blog-controls">
-      <!-- Filter links: Länder + Artikel-Typen in derselben Leiste -->
-      <div class="filter-bar" id="blog-filter-bar" style="margin-bottom:0;">
-        <button class="filter-btn active" data-filter="all">Alle</button>
-        <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
-        <button class="filter-btn" data-filter="ecuador">Ecuador</button>
-        <button class="filter-btn" data-filter="peru">Peru</button>
-        <span aria-hidden="true" style="align-self:stretch;width:1px;background:var(--gray-200);margin:0 2px;"></span>
-        <button class="filter-btn" data-filter="guide">Routen-Guide</button>
-        <button class="filter-btn" data-filter="kosten">Kosten-Check</button>
-        <button class="filter-btn" data-filter="safety">Sicherheit</button>
-        <button class="filter-btn" data-filter="persoenlich">Erfahrungsbericht</button>
-        <button class="filter-btn" data-filter="reiseroute">Reiseroute</button>
-      </div>
-      <!-- Suchfeld rechts (inline gestylt um CSS-Konflikte zu vermeiden) -->
       <div class="blog-search-wrap">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="flex-shrink:0;opacity:0.4;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <input type="search" id="blog-search" placeholder="Artikel durchsuchen …" autocomplete="off" aria-label="Artikel durchsuchen"
@@ -213,7 +199,7 @@
     <p id="blog-no-results" aria-live="polite" style="display:none;color:var(--gray-500);padding:2rem 0;">Keine Artikel gefunden.</p>
     <!-- Neuester Artikel (Featured) -->
     <div id="blog-featured"></div>
-    <!-- Kleine Karten: erste 3 sichtbar, Rest versteckt -->
+    <!-- Kleine Karten: erste 9 sichtbar, Rest versteckt -->
     <div class="blog-grid" id="blog-main-grid">
       <p style="color:var(--gray-400);padding:2rem 0;">Artikel werden geladen …</p>
     </div>
@@ -317,7 +303,7 @@
   // Alle kleinen Posts (sorted[1..]) gespeichert für Load-More
   let allSmallPosts = [];
   // Wie viele kleine Karten aktuell angezeigt werden
-  const CARDS_PER_PAGE = 3;
+  const CARDS_PER_PAGE = 9;
   let visibleCount = CARDS_PER_PAGE;
 
   // ── Thumbnail bauen ──────────────────────────────────────────
@@ -390,20 +376,13 @@
     return matchFilter && matchSearch;
   }
 
-  function syncFilterBar() {
-    document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(b => {
-      b.classList.toggle('active', b.dataset.filter === activeFilter);
-    });
-  }
-
-  // ── Zentrale Filter-Anwendung (Filterleiste, Sidebar, Tags) ──
+  // ── Zentrale Filter-Anwendung (Tag-Klicks auf Karten) ────────
   function setFilter(filter) {
     activeFilter = filter;
     searchQuery  = '';
     const si = document.getElementById('blog-search');
     if (si) si.value = '';
     visibleCount = CARDS_PER_PAGE;
-    syncFilterBar();
     renderGrid();
   }
 
@@ -487,10 +466,6 @@
 
   // ── Filter-Events ────────────────────────────────────────────
   function setupFilters() {
-    document.querySelectorAll('#blog-filter-bar .filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => setFilter(btn.dataset.filter));
-    });
-
     const searchInput = document.getElementById('blog-search');
     if (searchInput) {
       searchInput.addEventListener('input', () => {
