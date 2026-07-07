@@ -6,6 +6,7 @@ typ: guide
 lesezeit: 9 min
 autor: Julia
 teaser: Kolibris aus der Hand füttern, eigene Schokolade herstellen und durch den Nebelwald wandern, Mindo war unser ruhiger Gegenpol zu Quito und Baños.
+bild: assets/img/blog/mindo3.JPEG
 bildEmoji: 🐦
 bildGradient: linear-gradient(135deg,#138a36,#1a3a2a)
 tags:
@@ -31,6 +32,8 @@ Ein weiteres unvergessliches Erlebnis war eine Schokoladentour bei **Mindo Choco
 Insgesamt fühlte sich Mindo extrem sicher, einladend und entspannt an. Auch wenn der Ort ein beliebtes Wochenendziel für Einheimische und ein bekannter Stopp für Reisende ist, wirkte es nie überfüllt oder stressig.
 
 In diesem Mindo Reiseführer zeigen wir dir die besten Aktivitäten, wo man gut isst, und was dich in Ecuadors ruhigem Nebelwald-Paradies erwartet.
+
+![Mindo](assets/img/blog/mindo1.JPEG)
 
 ---
 
@@ -60,6 +63,8 @@ Wer Tiere liebt, kommt am **Punto Ornitológico Mindo** nicht vorbei. Die winzig
 
 Für einen Tempowechsel empfehlen wir unbedingt eine Schokoladentour bei **Mindo Chocolate Makers**. Ein fantastisches, interaktives Erlebnis, bei dem man den Weg der Kakaobohne kennenlernt, leckere Schokolade probiert und am Ende sogar eine Schokoladen-Gesichtsmaske aufträgt.
 
+![Mindo](assets/img/blog/mindo.JPEG)
+
 ---
 
 ## Wo übernachten in Mindo?
@@ -82,6 +87,8 @@ Wer etwas ganz anderes sucht, dem sei das **Persian House** empfohlen. Dort gibt
 
 Für Frühstück oder einen hochwertigen Kaffee haben wir zwei tolle Spots gefunden: **Mindo Forest Coffee & Tea** und **Toucanet Coffee Mindo**. Beide haben guten Kaffee, eine schöne Atmosphäre und sind perfekt, um den Tag zu starten, bevor es in den Wald geht.
 
+![Mindo](assets/img/blog/mindo6.JPEG)
+
 ---
 
 ## Praktische Reisetipps für Mindo
@@ -103,6 +110,8 @@ Während Orte wie Baños fantastisch für actionreiche Aktivitäten sind, bietet
 Ein Ziel, das für alle etwas bietet, egal ob passionierter Vogelbeobachter auf der Suche nach seltenen Arten, aktiver Wanderer, oder einfach jemand, der gemütlich mit einem Buch in einem Café inmitten grüner Berge sitzen möchte.
 
 Wer durch Ecuador reist und einen Ort zum Runterfahren, frische Bergluft und die Magie des Nebelwaldes sucht, sollte Mindo definitiv auf die Route setzen.
+
+![Mindo](assets/img/blog/mindo5.JPEG)
 
 ---
 

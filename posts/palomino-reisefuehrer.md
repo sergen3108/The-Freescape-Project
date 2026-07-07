@@ -6,6 +6,7 @@ typ: guide
 lesezeit: 9 min
 autor: Julia
 teaser: Fünf Nächte zwischen Yoga, Tubing und Strandleben, Palomino war einer unserer liebsten Stopps an der kolumbianischen Karibikküste.
+bild: assets/img/blog/palomino.JPEG
 bildEmoji: 🏄
 bildGradient: linear-gradient(135deg,#e8431a,#f6b93b)
 tags:
@@ -75,6 +76,8 @@ Da der Ort relativ klein ist, liegen die meisten Unterkünfte in Gehweite zu Str
 
 Letztlich hängt die richtige Wahl davon ab, was man sucht, ob eher ein soziales Hostel-Erlebnis wie im Dreamer oder ein ruhigerer, entspannterer Aufenthalt, in Palomino kann man dabei eigentlich nicht viel falsch machen.
 
+![Palomino](assets/img/blog/palomino2.JPEG)
+
 ---
 
 ## Die besten Aktivitäten in Palomino
@@ -104,6 +107,8 @@ Ein weiterer Ort, den wir sehr genossen haben, war **El Fuego**, wo man eher tra
 Generell bietet Palomino eine tolle Mischung aus gesunden Cafés, lokalen Restaurants und moderneren Food-Spots, es ist also für jeden Geschmack etwas dabei.
 
 Insgesamt ist die Essensszene ein großer Teil des Palomino-Erlebnisses, und einer der Gründe, warum es so leicht fällt, ein paar zusätzliche Tage dort zu verbringen und einfach den Lifestyle zu genießen.
+
+![Palomino](assets/img/blog/palomino1.JPEG)
 
 ---
 
