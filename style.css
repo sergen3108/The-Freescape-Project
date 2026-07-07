@@ -989,6 +989,9 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   gap: 4px;
 }
 
+/* Reiserouten-Hub-Karte (dynamisch per JS gebaut in blog.html) */
+.blog-card--hub { border-top: 4px solid #5b21b6; }
+
 /* Featured Blog Card (dynamisch per JS gebaut in blog.html) */
 .blog-card--featured {
   display: flex;
@@ -1009,6 +1012,51 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 .blog-card--featured__body {
   padding: var(--sp-8);
+}
+
+/* Blog-Teaser-Karten (Länderseiten: "Blog aus <Land>") */
+.blog-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.blog-teaser-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: block;
+}
+.blog-teaser-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.blog-teaser-card img { width: 100%; height: 160px; object-fit: cover; display: block; }
+.blog-teaser-card__body { padding: 1rem; }
+.blog-teaser-card__title { font-size: 0.9rem; font-weight: 700; color: var(--gray-900); line-height: 1.4; margin-bottom: 0.25rem; }
+.blog-teaser-card__meta { font-size: 0.75rem; color: var(--gray-400); }
+.blog-teaser-card--hub { border: 2px solid #5b21b6; }
+.blog-teaser-card__badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #5b21b6;
+  background: #ede9fe;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-bottom: 0.25rem;
+}
+
+.land-empty {
+  background: var(--sand-50);
+  border: 1.5px dashed var(--sand-300);
+  border-radius: var(--r-lg);
+  padding: 2rem;
+  text-align: center;
+  color: var(--gray-500);
+  font-size: 0.95rem;
 }
 
 /* Blog-Filter + Suche (Layout-Wrapper für blog.html) */

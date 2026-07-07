@@ -118,7 +118,8 @@ function parseFrontmatter(text, filename) {
 
   const typLabels = {
     guide: 'Routen-Guide', kosten: 'Kosten-Check',
-    safety: 'Sicherheit', persoenlich: 'Erfahrungsbericht'
+    safety: 'Sicherheit', persoenlich: 'Erfahrungsbericht',
+    reiseroute: 'Reiseroute'
   };
 
   return {

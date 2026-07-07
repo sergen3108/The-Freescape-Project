@@ -677,7 +677,7 @@
     const data = parsed.data;
     const body = parsed.body;
 
-    const typLabel = { guide:'Routen-Guide', kosten:'Kosten-Check', safety:'Sicherheit', persoenlich:'Erfahrungsbericht' }[data.typ] || 'Artikel';
+    const typLabel = { guide:'Routen-Guide', kosten:'Kosten-Check', safety:'Sicherheit', persoenlich:'Erfahrungsbericht', reiseroute:'Reiseroute' }[data.typ] || 'Artikel';
     const tags     = Array.isArray(data.tags) ? data.tags : [];
 
     // ── OG-Tags setzen (sofort nach Frontmatter-Parsing) ───

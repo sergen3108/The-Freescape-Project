@@ -2,7 +2,7 @@
 titel: "Kolumbien Reiseroute: 1 Woche, 2 Wochen und 1 Monat im Überblick"
 datum: 2026-03-17
 land: Kolumbien
-typ: guide
+typ: reiseroute
 lesezeit: 12 min
 autor: Julia
 teaser: Kolumbien zu planen fühlt sich am Anfang riesig an. Berge, Dschungel, Karibikstrände und Kolonialstädte, alles weit auseinander. Hier zeigen wir dir Routen für eine Woche, zwei Wochen und einen ganzen Monat.
@@ -14,7 +14,6 @@ tags:
   - Reiseroute
   - Backpacking
   - Reiseplanung
-kategorie: "kolumbien guide"
 ---
 
 Eine Reise nach Kolumbien zu planen, kann sich am Anfang überwältigend anfühlen. Das Land ist unglaublich vielfältig, mit Bergen, Dschungel, Stränden, Kolonialstädten und lebendiger Kultur, alles über große Distanzen verteilt.

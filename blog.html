@@ -43,6 +43,7 @@
     .article-type--kosten{background:#fef3c7;color:#92400e}
     .article-type--persoenlich{background:var(--terra-100);color:var(--terra-700)}
     .article-type--safety{background:#fee2e2;color:#991b1b}
+    .article-type--reiseroute{background:#ede9fe;color:#5b21b6}
 
     /* Load-More Button */
     .load-more-wrap{text-align:center;margin:2.5rem 0 1rem;}
@@ -197,6 +198,14 @@
       </div>
     </div>
 
+    <div id="blog-hub-section" style="display:none;">
+      <div class="section-header section-header--left" style="margin:2rem 0 1.5rem;">
+        <p class="overline">🗺️ Reiserouten-Guides</p>
+        <h2 style="font-size:1.4rem;">Deine komplette Route pro Land</h2>
+      </div>
+      <div class="blog-grid" id="blog-hub-grid"></div>
+    </div>
+
     <div class="blog-sidebar">
       <div>
         <p id="blog-no-results" aria-live="polite" style="display:none;color:var(--gray-500);padding:2rem 0;">Keine Artikel gefunden.</p>
@@ -311,7 +320,7 @@
 <!-- ── Blog-Logik ────────────────────────────────────────────── -->
 <script>
 (function () {
-  const typClass = { guide:'guide', kosten:'kosten', persoenlich:'persoenlich', safety:'safety' };
+  const typClass = { guide:'guide', kosten:'kosten', persoenlich:'persoenlich', safety:'safety', reiseroute:'reiseroute' };
   let activeFilter = 'all';
   let searchQuery  = '';
 
@@ -329,9 +338,10 @@
   }
 
   // ── Kleine Karte bauen (OHNE Tags) ──────────────────────────
-  function buildSmallCard(post, i) {
+  function buildSmallCard(post, i, opts) {
+    const hubClass = opts && opts.hub ? ' blog-card--hub' : '';
     return `
-      <article class="blog-card animate-on-scroll${i % 2 === 1 ? ' animate-delay-1' : ''}"
+      <article class="blog-card${hubClass} animate-on-scroll${i % 2 === 1 ? ' animate-delay-1' : ''}"
         data-category="${post.kategorie}"
         data-tags="${(post.tags || []).join(' ').toLowerCase()}">
         <a href="${post.link}" class="blog-card__thumb" style="overflow:hidden;display:block;">
@@ -385,6 +395,7 @@
   function applyFilters() {
     const featured = document.getElementById('blog-featured');
     const grid     = document.getElementById('blog-main-grid');
+    const hubGrid  = document.getElementById('blog-hub-grid');
     const noRes    = document.getElementById('blog-no-results');
     let visible    = 0;
 
@@ -400,6 +411,16 @@
         card.style.display = show ? '' : 'none';
         if (show) visible++;
       });
+    }
+    if (hubGrid) {
+      let hubVisible = 0;
+      hubGrid.querySelectorAll('[data-category]').forEach(card => {
+        const show = cardMatches(card);
+        card.style.display = show ? '' : 'none';
+        if (show) { visible++; hubVisible++; }
+      });
+      const hubSection = document.getElementById('blog-hub-section');
+      if (hubSection) hubSection.style.display = hubVisible > 0 ? '' : 'none';
     }
     if (noRes) noRes.style.display = visible === 0 ? '' : 'none';
 
@@ -512,13 +533,32 @@
     document.head.appendChild(script);
   }
 
+  // ── Reiserouten-Hub-Sektion rendern ──────────────────────────
+  function renderHubSection(hubPosts) {
+    const section = document.getElementById('blog-hub-section');
+    const grid     = document.getElementById('blog-hub-grid');
+    if (!section || !grid) return;
+    if (!hubPosts.length) {
+      section.style.display = 'none';
+      grid.innerHTML = '';
+      return;
+    }
+    const byDateAsc = [...hubPosts].sort((a, b) => new Date(a.datum) - new Date(b.datum));
+    grid.innerHTML = byDateAsc.map((p, i) => buildSmallCard(p, i, { hub: true })).join('');
+    section.style.display = '';
+  }
+
   // ── Posts rendern ────────────────────────────────────────────
   function renderPosts(posts) {
-    const sorted = [...posts].sort((a, b) => new Date(b.datum) - new Date(a.datum));
-    updateBlogStats(sorted);
-    injectBlogJsonLd(sorted);
+    const allSorted = [...posts].sort((a, b) => new Date(b.datum) - new Date(a.datum));
+    updateBlogStats(allSorted);
+    injectBlogJsonLd(allSorted);
 
-    // Featured (neuester Post)
+    const hubPosts = allSorted.filter(p => p.typ === 'reiseroute');
+    const sorted   = allSorted.filter(p => p.typ !== 'reiseroute');
+    renderHubSection(hubPosts);
+
+    // Featured (neuester Post, Hub-Artikel ausgenommen)
     const featured = document.getElementById('blog-featured');
     if (featured && sorted.length > 0) {
       const p = sorted[0];
@@ -551,7 +591,7 @@
     visibleCount  = CARDS_PER_PAGE;
     renderGrid();
 
-    buildSidebar(sorted);
+    buildSidebar(allSorted);
   }
 
   // ── Sidebar bauen ────────────────────────────────────────────
@@ -575,7 +615,7 @@
     const typenEl = document.getElementById('sidebar-typen');
     if (typenEl) {
       typenEl.innerHTML = Object.entries(typen).sort((a, b) => b[1] - a[1]).map(([t, n]) => {
-        const typMap = { 'Routen-Guide': 'guide', 'Kosten-Check': 'kosten', 'Sicherheit': 'safety', 'Erfahrungsbericht': 'persoenlich' };
+        const typMap = { 'Routen-Guide': 'guide', 'Kosten-Check': 'kosten', 'Sicherheit': 'safety', 'Erfahrungsbericht': 'persoenlich', 'Reiseroute': 'reiseroute' };
         return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${typMap[t] || t}">${t} <span class="sidebar-count">${n}</span></a>`;
       }).join('');
     }

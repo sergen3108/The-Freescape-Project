@@ -69,31 +69,10 @@
     .status-badge--visited { background:var(--green-100); color:var(--green-800); }
     .status-badge--current { background:var(--terra-100); color:var(--terra-700); }
 
-    .blog-teaser-grid {
-      display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-      gap:1.25rem; margin-top:1.5rem;
-    }
-    .blog-teaser-card {
-      background:white; border:1.5px solid var(--gray-100);
-      border-radius:var(--r-lg); overflow:hidden; text-decoration:none;
-      transition:box-shadow 0.2s,transform 0.2s; display:block;
-    }
-    .blog-teaser-card:hover { box-shadow:0 8px 24px rgba(0,0,0,0.08); transform:translateY(-2px); }
-    .blog-teaser-card img { width:100%; height:160px; object-fit:cover; display:block; }
-    .blog-teaser-card__body { padding:1rem; }
-    .blog-teaser-card__title { font-size:0.9rem; font-weight:700; color:var(--gray-900); line-height:1.4; margin-bottom:0.25rem; }
-    .blog-teaser-card__meta { font-size:0.75rem; color:var(--gray-400); }
-
     .vlog-thumb-fallback {
       width:100%; aspect-ratio:16/9; display:flex;
       align-items:center; justify-content:center;
       background:linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
-    }
-
-    .land-empty {
-      background:var(--sand-50); border:1.5px dashed var(--sand-300);
-      border-radius:var(--r-lg); padding:2rem; text-align:center;
-      color:var(--gray-500); font-size:0.95rem;
     }
 
   </style>
@@ -457,12 +436,17 @@
       return;
     }
     empty.style.display = 'none';
-    grid.innerHTML = mine.slice(0, 6).map(function (p) {
+    var hub = mine.find(function (p) { return p.typ === 'reiseroute'; });
+    var others = mine.filter(function (p) { return p !== hub; }).slice(0, hub ? 5 : 6);
+    var toRender = hub ? [hub].concat(others) : others;
+    grid.innerHTML = toRender.map(function (p) {
       var thumb = p.bild
         ? '<img src="' + p.bild + '" alt="' + p.titel + '" loading="lazy">'
         : '<div style="height:160px;background:' + p.bildFallback.gradient + ';display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + p.bildFallback.emoji + '</div>';
-      return '<a href="' + p.link + '" class="blog-teaser-card">' + thumb +
+      var isHub = p === hub;
+      return '<a href="' + p.link + '" class="blog-teaser-card' + (isHub ? ' blog-teaser-card--hub' : '') + '">' + thumb +
         '<div class="blog-teaser-card__body">' +
+          (isHub ? '<span class="blog-teaser-card__badge">🗺️ Reiseroute</span><br>' : '') +
           '<div class="blog-teaser-card__title">' + p.titel + '</div>' +
           '<div class="blog-teaser-card__meta">' + p.datumLabel + ' · ' + p.lesezeit + '</div>' +
         '</div></a>';
