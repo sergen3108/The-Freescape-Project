@@ -21,6 +21,31 @@
   <meta name="twitter:title"       content="Galerie – Bilder aus Südamerika | The Freescape Project">
   <meta name="twitter:description" content="Momente aus vier Ländern, ausgewählt aus tausenden Fotos unserer Südamerika-Reise.">
   <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/rockygalap.jpg">
+
+<!-- Strukturierte Daten (statisch, damit Google sie ohne JS sieht) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Galerie – Bilder aus Südamerika",
+  "description": "Momente aus vier Ländern, ausgewählt aus tausenden Fotos unserer Südamerika-Reise.",
+  "url": "https://thefreescapeproject.com/galerie.html",
+  "inLanguage": "de-DE",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "The Freescape Project",
+    "url": "https://thefreescapeproject.com"
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://thefreescapeproject.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Galerie", "item": "https://thefreescapeproject.com/galerie.html" }
+    ]
+  }
+}
+</script>
+
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
@@ -1156,10 +1181,12 @@
     .filter(el => el.dataset.src && el.dataset.label);
 
   let currentIdx = 0;
+  let lbLastFocused = null;
 
   function openLb(idx) {
     currentIdx = idx;
     const item = clickableItems[idx];
+    lbLastFocused = document.activeElement;
     lbImg.classList.add('fading');
     setTimeout(() => {
       lbImg.src   = item.dataset.src;
@@ -1170,13 +1197,30 @@
     }, 150);
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
+    document.getElementById('lb-close').focus();
   }
 
   function closeLb() {
     lb.classList.remove('open');
     lbImg.src = '';
     document.body.style.overflow = '';
+    if (lbLastFocused) lbLastFocused.focus();
   }
+
+  // Fokus-Falle: Tab bleibt innerhalb der Lightbox (Schließen/Vorheriges/Nächstes)
+  lb.addEventListener('keydown', e => {
+    if (e.key !== 'Tab') return;
+    const focusable = [...lb.querySelectorAll('button')];
+    const first = focusable[0];
+    const last  = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
 
   clickableItems.forEach((item, i) => {
     item.addEventListener('click', () => openLb(i));

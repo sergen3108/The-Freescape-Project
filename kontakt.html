@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt | The Freescape Project</title>
+  <title>Kontakt & Kooperationen | The Freescape Project</title>
   <meta name="description" content="Fragen zur Reise, Kooperationsanfragen oder einfach Hallo sagen, wir freuen uns über jede Nachricht.">
   
   <link rel="canonical" href="https://thefreescapeproject.com/kontakt.html">
@@ -285,21 +285,21 @@
         <form class="contact-form" id="contact-form" action="https://formspree.io/f/xykqdgpy" method="POST">
           <div class="form-grid">
             <div class="form-group">
-              <label class="form-label">Vorname</label>
-              <input type="text" name="vorname" class="form-input" placeholder="Max">
+              <label class="form-label" for="cf-vorname">Vorname</label>
+              <input type="text" name="vorname" id="cf-vorname" class="form-input" placeholder="Max" required>
             </div>
             <div class="form-group">
-              <label class="form-label">Nachname</label>
-              <input type="text" name="nachname" class="form-input" placeholder="Mustermann">
+              <label class="form-label" for="cf-nachname">Nachname</label>
+              <input type="text" name="nachname" id="cf-nachname" class="form-input" placeholder="Mustermann" required>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label">E-Mail</label>
-            <input type="email" name="email" class="form-input" placeholder="max@example.de">
+            <label class="form-label" for="cf-email">E-Mail</label>
+            <input type="email" name="email" id="cf-email" class="form-input" placeholder="max@example.de" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Betreff</label>
-            <select name="betreff" class="form-input">
+            <label class="form-label" for="cf-betreff">Betreff</label>
+            <select name="betreff" id="cf-betreff" class="form-input">
               <option>Allgemeine Frage</option>
               <option>Kooperationsanfrage</option>
               <option>Presseanfrage</option>
@@ -308,8 +308,8 @@
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label">Nachricht</label>
-            <textarea name="nachricht" class="form-textarea" placeholder="Deine Nachricht..."></textarea>
+            <label class="form-label" for="cf-nachricht">Nachricht</label>
+            <textarea name="nachricht" id="cf-nachricht" class="form-textarea" placeholder="Deine Nachricht..." required></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" id="submit-btn">
             Nachricht senden

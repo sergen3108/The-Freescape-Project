@@ -23,7 +23,27 @@
 <meta name="twitter:title"       content="The Freescape Project – Julia & Sergen">
 <meta name="twitter:description" content="Ein Jahr durch Südamerika. Vlogs, Reiserouten, Kosten-Checks und echte Einblicke direkt von unterwegs.">
 <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/smallFujiFun.jpeg">
-  
+
+<!-- Strukturierte Daten (statisch, damit Google sie ohne JS sieht) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "The Freescape Project",
+  "description": "Julia und Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.",
+  "url": "https://thefreescapeproject.com/",
+  "inLanguage": "de-DE",
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Freescape Project",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thefreescapeproject.com/assets/img/LOGONEW.png"
+    }
+  }
+}
+</script>
+
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
@@ -437,7 +457,10 @@
 
       // Neueste 3 Langvideos (Shorts ausgeschlossen)
       const videos = (data.videos || []).filter(v => (v.duration || 999) > 60).slice(0, 3);
-      if (!videos.length) { if (loading) loading.remove(); return; }
+      if (!videos.length) {
+        if (loading) loading.innerHTML = '<p style="color:var(--gray-400,#9ca3af);">Aktuell keine Videos verfügbar. <a href="vlogs.html" style="text-decoration:underline;">Alle Vlogs ansehen →</a></p>';
+        return;
+      }
 
       const delays = ['','animate-delay-1','animate-delay-2'];
       grid.innerHTML = videos.map((v, i) => {
@@ -468,7 +491,7 @@
 
     } catch(err) {
       console.error('Vlogs konnten nicht geladen werden:', err);
-      if (loading) loading.remove();
+      if (loading) loading.innerHTML = '<p style="color:var(--gray-400,#9ca3af);">Videos konnten gerade nicht geladen werden. <a href="vlogs.html" style="text-decoration:underline;">Alle Vlogs ansehen →</a></p>';
     }
   }
 
@@ -513,7 +536,13 @@
       svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 14).attr('fill', 'rgba(232,67,26,0.2)');
       svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 6).attr('class', 'map-marker');
     }
-  } catch (e) { console.warn('Karte konnte nicht geladen werden:', e); }
+  } catch (e) {
+    console.warn('Karte konnte nicht geladen werden:', e);
+    const container = document.querySelector('.map-svg-container');
+    if (container) {
+      container.innerHTML = '<p style="text-align:center;color:var(--gray-400,#9ca3af);padding:2rem 0;">Karte konnte nicht geladen werden. <a href="karte.html" style="text-decoration:underline;">Zur Reisekarte →</a></p>';
+    }
+  }
 })();
 </script>
 
@@ -523,6 +552,10 @@
     const grid = document.getElementById('blog-preview-grid');
     if (!grid) return;
     const posts = [...(window.BLOG_POSTS || [])].sort((a, b) => new Date(b.datum) - new Date(a.datum)).slice(0, 3);
+    if (!posts.length) {
+      grid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--gray-400,#9ca3af);padding:2rem 0;">Aktuell keine Artikel verfügbar. <a href="blog.html" style="text-decoration:underline;">Zum Blog →</a></p>';
+      return;
+    }
     const delays = ['', 'animate-delay-1', 'animate-delay-2'];
     grid.innerHTML = posts.map((post, i) => {
       const thumb = post.bild
