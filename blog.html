@@ -204,9 +204,10 @@
 
     <div id="blog-hub-section" style="display:none;">
       <div class="section-header section-header--left" style="margin:2rem 0 1.5rem;">
-        <p class="overline">🗺️ Reiserouten-Guides</p>
+        <p class="overline">Reiserouten-Guides</p>
         <h2 style="font-size:1.4rem;">Deine komplette Route pro Land</h2>
       </div>
+      <div id="blog-hub-featured"></div>
       <div class="blog-grid" id="blog-hub-grid"></div>
     </div>
 
@@ -217,6 +218,7 @@
         <div id="blog-featured"></div>
         <!-- Kleine Karten: erste 3 sichtbar, Rest versteckt -->
         <div class="section-header section-header--left" style="margin:0 0 1.5rem;">
+          <p class="overline">Blog</p>
           <h2 style="font-size:1.2rem;">Weitere Artikel</h2>
         </div>
         <div class="blog-grid blog-grid--sidebar" id="blog-main-grid">
@@ -365,6 +367,32 @@
       </article>`;
   }
 
+  // ── Featured Karte bauen (breit, Thumb + Body nebeneinander) ─
+  function buildFeaturedCard(p) {
+    const thumb = p.bild
+      ? `<img src="${p.bild}" alt="${p.titel}" style="width:100%;height:100%;object-fit:cover;display:block;">`
+      : `<div style="width:100%;height:100%;background:${p.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:4rem;">${p.bildFallback.emoji}</div>`;
+    return `
+  <article class="blog-card blog-card--featured" data-category="${p.kategorie}" data-tags="${(p.tags || []).join(' ').toLowerCase()}">
+    <a href="${p.link}" class="blog-card__thumb blog-card--featured__thumb">
+      ${thumb}<span class="blog-card__category">${p.land}</span>
+    </a>
+    <div class="blog-card__body blog-card--featured__body">
+            <span class="article-type article-type--${typClass[p.typ] || 'guide'}">${p.typLabel}</span>
+            <div class="blog-card__meta">
+              <span class="blog-card__author">${p.autor}</span>
+              <span class="blog-card__date">${p.datumLabel} · ${p.lesezeit}</span>
+            </div>
+            <h3 class="blog-card__title" style="font-size:1.4rem;">
+              <a href="${p.link}" style="color:inherit;text-decoration:none;">${p.titel}</a>
+            </h3>
+            <p class="blog-card__excerpt">${p.teaser}</p>
+            ${(p.tags || []).length ? `<div style="margin:0.75rem 0;">${p.tags.map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
+            <a href="${p.link}" class="blog-card__read">Artikel lesen →</a>
+          </div>
+        </article>`;
+  }
+
   // ── Filter-Logik ─────────────────────────────────────────────
   function cardMatches(card) {
     const cats = card.dataset.category || '';
@@ -395,10 +423,11 @@
   }
 
   function applyFilters() {
-    const featured = document.getElementById('blog-featured');
-    const grid     = document.getElementById('blog-main-grid');
-    const hubGrid  = document.getElementById('blog-hub-grid');
-    const noRes    = document.getElementById('blog-no-results');
+    const featured    = document.getElementById('blog-featured');
+    const grid        = document.getElementById('blog-main-grid');
+    const hubFeatured = document.getElementById('blog-hub-featured');
+    const hubGrid     = document.getElementById('blog-hub-grid');
+    const noRes       = document.getElementById('blog-no-results');
     let visible    = 0;
 
     if (featured) {
@@ -414,16 +443,23 @@
         if (show) visible++;
       });
     }
+    let hubVisible = 0;
+    if (hubFeatured) {
+      const a = hubFeatured.querySelector('[data-category]');
+      const show = a ? cardMatches(a) : false;
+      hubFeatured.style.display = show ? '' : 'none';
+      if (show) { visible++; hubVisible++; }
+    }
     if (hubGrid) {
-      let hubVisible = 0;
       hubGrid.querySelectorAll('[data-category]').forEach(card => {
         const show = cardMatches(card);
         card.style.display = show ? '' : 'none';
         if (show) { visible++; hubVisible++; }
       });
-      const hubSection = document.getElementById('blog-hub-section');
-      if (hubSection) hubSection.style.display = hubVisible > 0 ? '' : 'none';
     }
+    const hubSection = document.getElementById('blog-hub-section');
+    if (hubSection) hubSection.style.display = hubVisible > 0 ? '' : 'none';
+
     if (noRes) noRes.style.display = visible === 0 ? '' : 'none';
 
     // Load-More-Button bei aktiver Suche/Filter nicht anzeigen
@@ -537,16 +573,20 @@
 
   // ── Reiserouten-Hub-Sektion rendern ──────────────────────────
   function renderHubSection(hubPosts) {
-    const section = document.getElementById('blog-hub-section');
+    const section  = document.getElementById('blog-hub-section');
+    const featured = document.getElementById('blog-hub-featured');
     const grid     = document.getElementById('blog-hub-grid');
     if (!section || !grid) return;
     if (!hubPosts.length) {
       section.style.display = 'none';
+      if (featured) featured.innerHTML = '';
       grid.innerHTML = '';
       return;
     }
     const byDateAsc = [...hubPosts].sort((a, b) => new Date(a.datum) - new Date(b.datum));
-    grid.innerHTML = byDateAsc.map((p, i) => buildSmallCard(p, i)).join('');
+    const [first, ...rest] = byDateAsc;
+    if (featured) featured.innerHTML = buildFeaturedCard(first);
+    grid.innerHTML = rest.map((p, i) => buildSmallCard(p, i)).join('');
     section.style.display = '';
     if (window.observeAnimations) window.observeAnimations(grid);
   }
@@ -564,29 +604,7 @@
     // Featured (neuester Post, Hub-Artikel ausgenommen)
     const featured = document.getElementById('blog-featured');
     if (featured && sorted.length > 0) {
-      const p = sorted[0];
-      const thumb = p.bild
-        ? `<img src="${p.bild}" alt="${p.titel}" style="width:100%;height:100%;object-fit:cover;display:block;">`
-        : `<div style="width:100%;height:100%;background:${p.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:4rem;">${p.bildFallback.emoji}</div>`;
-     featured.innerHTML = `
-  <article class="blog-card blog-card--featured" data-category="${p.kategorie}" data-tags="${(p.tags || []).join(' ').toLowerCase()}">
-    <a href="${p.link}" class="blog-card__thumb blog-card--featured__thumb">
-      ${thumb}<span class="blog-card__category">${p.land}</span>
-    </a>
-    <div class="blog-card__body blog-card--featured__body">
-            <span class="article-type article-type--${typClass[p.typ] || 'guide'}">${p.typLabel}</span>
-            <div class="blog-card__meta">
-              <span class="blog-card__author">${p.autor}</span>
-              <span class="blog-card__date">${p.datumLabel} · ${p.lesezeit}</span>
-            </div>
-            <h3 class="blog-card__title" style="font-size:1.4rem;">
-              <a href="${p.link}" style="color:inherit;text-decoration:none;">${p.titel}</a>
-            </h3>
-            <p class="blog-card__excerpt">${p.teaser}</p>
-            ${(p.tags || []).length ? `<div style="margin:0.75rem 0;">${p.tags.map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
-            <a href="${p.link}" class="blog-card__read">Artikel lesen →</a>
-          </div>
-        </article>`;
+      featured.innerHTML = buildFeaturedCard(sorted[0]);
     }
 
     // Kleine Karten (sorted[1..])
