@@ -990,7 +990,6 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 
 /* Reiserouten-Hub-Karte (dynamisch per JS gebaut in blog.html) */
-.blog-card--hub { border-top: 4px solid var(--terra-600); }
 
 /* Featured Blog Card (dynamisch per JS gebaut in blog.html) */
 .blog-card--featured {
@@ -1035,7 +1034,6 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .blog-teaser-card__body { padding: 1rem; }
 .blog-teaser-card__title { font-size: 0.9rem; font-weight: 700; color: var(--gray-900); line-height: 1.4; margin-bottom: 0.25rem; }
 .blog-teaser-card__meta { font-size: 0.75rem; color: var(--gray-400); }
-.blog-teaser-card--hub { border: 2px solid var(--terra-600); }
 .blog-teaser-card__badge {
   display: inline-block;
   font-size: 0.68rem;

@@ -338,10 +338,9 @@
   }
 
   // ── Kleine Karte bauen (OHNE Tags) ──────────────────────────
-  function buildSmallCard(post, i, opts) {
-    const hubClass = opts && opts.hub ? ' blog-card--hub' : '';
+  function buildSmallCard(post, i) {
     return `
-      <article class="blog-card${hubClass} animate-on-scroll${i % 2 === 1 ? ' animate-delay-1' : ''}"
+      <article class="blog-card animate-on-scroll${i % 2 === 1 ? ' animate-delay-1' : ''}"
         data-category="${post.kategorie}"
         data-tags="${(post.tags || []).join(' ').toLowerCase()}">
         <a href="${post.link}" class="blog-card__thumb" style="overflow:hidden;display:block;">
@@ -544,8 +543,9 @@
       return;
     }
     const byDateAsc = [...hubPosts].sort((a, b) => new Date(a.datum) - new Date(b.datum));
-    grid.innerHTML = byDateAsc.map((p, i) => buildSmallCard(p, i, { hub: true })).join('');
+    grid.innerHTML = byDateAsc.map((p, i) => buildSmallCard(p, i)).join('');
     section.style.display = '';
+    if (window.observeAnimations) window.observeAnimations(grid);
   }
 
   // ── Posts rendern ────────────────────────────────────────────

@@ -444,9 +444,9 @@
         ? '<img src="' + p.bild + '" alt="' + p.titel + '" loading="lazy">'
         : '<div style="height:160px;background:' + p.bildFallback.gradient + ';display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + p.bildFallback.emoji + '</div>';
       var isHub = p === hub;
-      return '<a href="' + p.link + '" class="blog-teaser-card' + (isHub ? ' blog-teaser-card--hub' : '') + '">' + thumb +
+      return '<a href="' + p.link + '" class="blog-teaser-card">' + thumb +
         '<div class="blog-teaser-card__body">' +
-          (isHub ? '<span class="blog-teaser-card__badge">🗺️ Reiseroute</span><br>' : '') +
+          (isHub ? '<span class="blog-teaser-card__badge">Reiseroute</span><br>' : '') +
           '<div class="blog-teaser-card__title">' + p.titel + '</div>' +
           '<div class="blog-teaser-card__meta">' + p.datumLabel + ' · ' + p.lesezeit + '</div>' +
         '</div></a>';
