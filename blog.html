@@ -33,6 +33,9 @@
   <style>
     #blog-hub-section{margin-bottom:3rem;padding-bottom:2.5rem;border-bottom:1.5px solid var(--gray-100);}
     .blog-sidebar{display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:start}
+    @media (min-width: 901px) {
+      .blog-sidebar > aside { position: sticky; top: calc(var(--nav-h) + var(--sp-6)); }
+    }
     .sidebar-widget{background:var(--white);border-radius:var(--r-lg);padding:1.5rem;border:1.5px solid var(--gray-100);margin-bottom:1.5rem}
     .sidebar-widget h4{margin-bottom:1rem;font-size:0.95rem}
     .sidebar-links{display:flex;flex-direction:column;gap:0.5rem}
@@ -213,7 +216,10 @@
         <!-- Neuester Artikel (Featured) -->
         <div id="blog-featured"></div>
         <!-- Kleine Karten: erste 3 sichtbar, Rest versteckt -->
-        <div class="blog-grid" id="blog-main-grid">
+        <div class="section-header section-header--left" style="margin:0 0 1.5rem;">
+          <h2 style="font-size:1.2rem;">Weitere Artikel</h2>
+        </div>
+        <div class="blog-grid blog-grid--sidebar" id="blog-main-grid">
           <p style="color:var(--gray-400);padding:2rem 0;">Artikel werden geladen …</p>
         </div>
         <!-- Mehr laden Button -->
@@ -225,10 +231,6 @@
         </div>
       </div>
       <aside>
-        <div class="sidebar-widget">
-          <h4>Nach Land filtern</h4>
-          <div class="sidebar-links" id="sidebar-laender"></div>
-        </div>
         <div class="sidebar-widget">
           <h4>Artikel-Typen</h4>
           <div class="sidebar-links" id="sidebar-typen"></div>

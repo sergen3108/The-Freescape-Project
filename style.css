@@ -1060,9 +1060,9 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 /* Blog-Filter + Suche (Layout-Wrapper für blog.html) */
 .blog-controls {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  gap: var(--sp-4);
+  gap: var(--sp-6);
   margin-bottom: var(--sp-6);
   flex-wrap: wrap;
 }
@@ -2044,7 +2044,10 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   .nav__menu { display: none; }
   .nav__cta { display: none; }
   .nav__burger { display: flex; }
-  .blog-sidebar { grid-template-columns: 1fr; }
+}
+
+@media (min-width: 901px) {
+  .blog-grid--sidebar { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 900px) {
