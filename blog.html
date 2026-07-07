@@ -32,15 +32,6 @@
   <script src="blog-posts.js" defer></script>
   <style>
     #blog-hub-section{margin-bottom:3rem;padding-bottom:2.5rem;border-bottom:1.5px solid var(--gray-100);}
-    .blog-sidebar{display:grid;grid-template-columns:1fr 300px;gap:3rem;align-items:start}
-    @media (min-width: 901px) {
-      .blog-sidebar > aside { position: sticky; top: calc(var(--nav-h) + var(--sp-6)); }
-    }
-    .sidebar-widget{background:var(--white);border-radius:var(--r-lg);padding:1.5rem;border:1.5px solid var(--gray-100);margin-bottom:1.5rem}
-    .sidebar-widget h4{margin-bottom:1rem;font-size:0.95rem}
-    .sidebar-links{display:flex;flex-direction:column;gap:0.5rem}
-    .sidebar-link{font-size:0.875rem;color:var(--gray-700);padding:0.4rem 0;border-bottom:1px solid var(--gray-100);display:flex;justify-content:space-between;text-decoration:none}
-    .sidebar-link:hover{color:var(--terra-600)}
     .tag{display:inline-block;font-size:0.75rem;font-weight:600;padding:3px 12px;border-radius:var(--r-full);border:1.5px solid var(--gray-200);color:var(--gray-600);margin:3px}
     .article-type{display:inline-block;font-size:0.68rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:2px 10px;border-radius:999px;margin-bottom:0.5rem}
     .article-type--guide{background:var(--green-100);color:var(--green-800)}
@@ -62,8 +53,6 @@
     .load-more-btn:hover{background:var(--navy-800,#1a2744);color:#fff;}
     .load-more-btn svg{transition:transform 0.2s;}
     .load-more-btn:hover svg{transform:translateY(2px);}
-
-    @media(max-width:900px){.blog-sidebar{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -187,12 +176,18 @@
   <div class="container">
     <!-- Suchfeld + Filter in einer Zeile -->
     <div class="blog-controls">
-      <!-- Filter links -->
+      <!-- Filter links: Länder + Artikel-Typen in derselben Leiste -->
       <div class="filter-bar" id="blog-filter-bar" style="margin-bottom:0;">
         <button class="filter-btn active" data-filter="all">Alle</button>
         <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
         <button class="filter-btn" data-filter="ecuador">Ecuador</button>
         <button class="filter-btn" data-filter="peru">Peru</button>
+        <span aria-hidden="true" style="align-self:stretch;width:1px;background:var(--gray-200);margin:0 2px;"></span>
+        <button class="filter-btn" data-filter="guide">Routen-Guide</button>
+        <button class="filter-btn" data-filter="kosten">Kosten-Check</button>
+        <button class="filter-btn" data-filter="safety">Sicherheit</button>
+        <button class="filter-btn" data-filter="persoenlich">Erfahrungsbericht</button>
+        <button class="filter-btn" data-filter="reiseroute">Reiseroute</button>
       </div>
       <!-- Suchfeld rechts (inline gestylt um CSS-Konflikte zu vermeiden) -->
       <div class="blog-search-wrap">
@@ -211,33 +206,23 @@
       <div class="blog-grid" id="blog-hub-grid"></div>
     </div>
 
-    <div class="blog-sidebar">
-      <div>
-        <p id="blog-no-results" aria-live="polite" style="display:none;color:var(--gray-500);padding:2rem 0;">Keine Artikel gefunden.</p>
-        <!-- Neuester Artikel (Featured) -->
-        <div id="blog-featured"></div>
-        <!-- Kleine Karten: erste 3 sichtbar, Rest versteckt -->
-        <div class="section-header section-header--left" style="margin:0 0 1.5rem;">
-          <p class="overline">Blog</p>
-          <h2 style="font-size:1.2rem;">Weitere Artikel</h2>
-        </div>
-        <div class="blog-grid blog-grid--sidebar" id="blog-main-grid">
-          <p style="color:var(--gray-400);padding:2rem 0;">Artikel werden geladen …</p>
-        </div>
-        <!-- Mehr laden Button -->
-        <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
-          <button class="load-more-btn" id="load-more-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-            Weitere Artikel laden
-          </button>
-        </div>
-      </div>
-      <aside>
-        <div class="sidebar-widget">
-          <h4>Artikel-Typen</h4>
-          <div class="sidebar-links" id="sidebar-typen"></div>
-        </div>
-      </aside>
+    <div class="section-header section-header--left" style="margin:2rem 0 1.5rem;">
+      <p class="overline">Blog</p>
+      <h2 style="font-size:1.4rem;">Neueste Artikel</h2>
+    </div>
+    <p id="blog-no-results" aria-live="polite" style="display:none;color:var(--gray-500);padding:2rem 0;">Keine Artikel gefunden.</p>
+    <!-- Neuester Artikel (Featured) -->
+    <div id="blog-featured"></div>
+    <!-- Kleine Karten: erste 3 sichtbar, Rest versteckt -->
+    <div class="blog-grid" id="blog-main-grid">
+      <p style="color:var(--gray-400);padding:2rem 0;">Artikel werden geladen …</p>
+    </div>
+    <!-- Mehr laden Button -->
+    <div class="load-more-wrap" id="load-more-wrap" style="display:none;">
+      <button class="load-more-btn" id="load-more-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        Weitere Artikel laden
+      </button>
     </div>
   </div>
 </section>
@@ -611,42 +596,6 @@
     allSmallPosts = sorted.slice(1);
     visibleCount  = CARDS_PER_PAGE;
     renderGrid();
-
-    buildSidebar(allSorted);
-  }
-
-  // ── Sidebar bauen ────────────────────────────────────────────
-  function buildSidebar(posts) {
-    const laender = {};
-    const typen   = {};
-
-    posts.forEach(p => {
-      if (p.land) laender[p.land] = (laender[p.land] || 0) + 1;
-      typen[p.typLabel] = (typen[p.typLabel] || 0) + 1;
-    });
-
-    const laenderEl = document.getElementById('sidebar-laender');
-    if (laenderEl) {
-      laenderEl.innerHTML = Object.entries(laender).sort((a, b) => b[1] - a[1]).map(([l, n]) => {
-        const key = l.toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue');
-        return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${key}">${l} <span class="sidebar-count">${n} Artikel</span></a>`;
-      }).join('');
-    }
-
-    const typenEl = document.getElementById('sidebar-typen');
-    if (typenEl) {
-      typenEl.innerHTML = Object.entries(typen).sort((a, b) => b[1] - a[1]).map(([t, n]) => {
-        const typMap = { 'Routen-Guide': 'guide', 'Kosten-Check': 'kosten', 'Sicherheit': 'safety', 'Erfahrungsbericht': 'persoenlich', 'Reiseroute': 'reiseroute' };
-        return `<a href="#" class="sidebar-link sidebar-filter" data-filter="${typMap[t] || t}">${t} <span class="sidebar-count">${n}</span></a>`;
-      }).join('');
-    }
-
-    document.querySelectorAll('.sidebar-filter').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        setFilter(link.dataset.filter);
-      });
-    });
   }
 
   // ── Init ─────────────────────────────────────────────────────
