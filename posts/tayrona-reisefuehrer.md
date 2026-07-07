@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 8 min
 autor: Julia
 teaser: Drei Stunden Dschungel-Wanderung, eine Nacht in der Hängematte am Cabo San Juan und Sonnenaufgang über dem Meer, der Tayrona Nationalpark war eines unserer Highlights in Kolumbien.
-bild: assets/img/blog/tayrona2.jpg
+bild: assets/img/blog/tayrona3.jpg
 bildEmoji: 🏝️
 bildGradient: linear-gradient(135deg,#0a3d62,#138a36)
 tags:
@@ -79,6 +79,8 @@ Deshalb würden wir auf jeden Fall empfehlen, etwas Warmes zum Anziehen mitzuneh
 Unsere Hängematte haben wir im Voraus per WhatsApp direkt beim Park reserviert, was gut funktioniert hat und uns vor allem in stärker besuchten Zeiten ein sicheres Gefühl gegeben hat.
 
 Neben Hängematten gibt es auch Zelte und Hütten in verschiedenen Teilen des Parks, eine gute Option, wenn man etwas mehr Komfort sucht.
+
+![Tayrona](assets/img/blog/tayrona.jpg)
 
 ---
 
