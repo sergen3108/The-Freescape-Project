@@ -101,4 +101,4 @@ Wer durch Ecuador reist, sollte Baños auf jeden Fall einplanen. Es ist einer de
 
 Danach gibt es je nach Route mehrere Optionen. Viele fahren weiter Richtung Süden nach **Cuenca**, bekannt für Kolonialarchitektur, Cafés und eine entspanntere Atmosphäre. Andere gehen tiefer in die Natur Richtung **Amazonas**, eines der einzigartigsten Erlebnisse Ecuadors.
 
-Wer nach Norden zurückreist, kann auch wieder nach **Quito** und von dort nach **Mindo** oder **Otavalo** weiter. Baños ist außerdem ein häufiger Stopp vor der Küste oder auf dem Weg weiter durch Südamerika, weil das Busnetz gut vernetzt ist.
+Wer nach Norden zurückreist, kann auch wieder nach [**Quito**](artikel.html?post=quito-reisefuehrer) und von dort nach [**Mindo**](artikel.html?post=mindo-reisefuehrer) oder **Otavalo** weiter. Baños ist außerdem ein häufiger Stopp vor der Küste oder auf dem Weg weiter durch Südamerika, weil das Busnetz gut vernetzt ist.

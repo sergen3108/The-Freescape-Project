@@ -145,5 +145,25 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=tayrona-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=palomino-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=mindo-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=santa-cruz-galapagos-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
 </urlset>

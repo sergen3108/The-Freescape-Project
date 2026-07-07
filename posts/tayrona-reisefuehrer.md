@@ -140,10 +140,10 @@ Für uns war er nicht nur eines der Highlights Kolumbiens, sondern auch eine der
 
 Nach dem Besuch des Tayrona Nationalparks gibt es mehrere gute Optionen, um die Reise entlang der kolumbianischen Karibikküste fortzusetzen.
 
-Der naheliegendste Schritt ist die Rückkehr nach **Santa Marta**, das als wichtigste Transport-Drehscheibe der Region dient. Genau das haben auch wir gemacht, wir sind für eine Nacht zurückgekehrt, haben unsere Rucksäcke abgeholt und unsere Reise von dort aus fortgesetzt.
+Der naheliegendste Schritt ist die Rückkehr nach [**Santa Marta**](artikel.html?post=santa-marta-reisefuehrer), das als wichtigste Transport-Drehscheibe der Region dient. Genau das haben auch wir gemacht, wir sind für eine Nacht zurückgekehrt, haben unsere Rucksäcke abgeholt und unsere Reise von dort aus fortgesetzt.
 
-Von Santa Marta aus ist eines der besten nächsten Ziele **Minca**, ein kleines Bergdorf, bekannt für sein kühleres Klima, Wasserfälle und Natur. Nach der Hitze und Feuchtigkeit des Tayrona ist Minca ein perfekter Kontrast und ein toller Ort zum Entspannen.
+Von Santa Marta aus ist eines der besten nächsten Ziele [**Minca**](artikel.html?post=minca-reisefuehrer), ein kleines Bergdorf, bekannt für sein kühleres Klima, Wasserfälle und Natur. Nach der Hitze und Feuchtigkeit des Tayrona ist Minca ein perfekter Kontrast und ein toller Ort zum Entspannen.
 
-Wer lieber an der Küste bleiben möchte, kann weiter Richtung Osten zu Orten wie **Costeño Beach, Palomino oder Rio Hostel** reisen, beliebt bei Backpackern und bekannt für ein entspannteres Strandleben.
+Wer lieber an der Küste bleiben möchte, kann weiter Richtung Osten zu Orten wie [**Costeño Beach oder Rio Hostel**](artikel.html?post=costeno-rio-hostel-reisefuehrer) oder [**Palomino**](artikel.html?post=palomino-reisefuehrer) reisen, beliebt bei Backpackern und bekannt für ein entspannteres Strandleben.
 
 Dank der guten Verbindungen ab Santa Marta lässt sich problemlos zwischen diesen Zielen wechseln, egal ob es in die Berge oder weiter entlang der Küste geht.

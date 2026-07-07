@@ -128,9 +128,9 @@ Besonders empfehlen würden wir die Insel, wenn man eine Pause vom Reisen brauch
 
 ## Wohin nach San Andrés?
 
-Da San Andrés eine Insel ist, geht es zurück aufs Festland per Flugzeug, meist nach Medellín, Bogotá oder Cartagena.
+Da San Andrés eine Insel ist, geht es zurück aufs Festland per Flugzeug, meist nach [Medellín](artikel.html?post=medellin-reisefuehrer), [Bogotá](artikel.html?post=bogota-reisefuehrer) oder Cartagena.
 
 - **Cartagena**: perfekt für alle, die den Karibikurlaub verlängern wollen, mit historischer Altstadt und Inseln in der Nähe
 - **Medellín**: ideal, wenn man zurück in die Stadt möchte, mit gutem Anschluss nach Guatapé oder Salento
-- **Santa Marta & Tayrona**: Traumstrände, Dschungel und Karibikflair direkt an der Küste
-- **Salento & Kaffeezone**: Cocora-Tal, Wachspalmen, Kaffeefarms, ein kompletter Kontrastwechsel
+- [**Santa Marta**](artikel.html?post=santa-marta-reisefuehrer) & [**Tayrona**](artikel.html?post=tayrona-reisefuehrer): Traumstrände, Dschungel und Karibikflair direkt an der Küste
+- [**Salento & Kaffeezone**](artikel.html?post=salento-reisefuehrer): Cocora-Tal, Wachspalmen, Kaffeefarms, ein kompletter Kontrastwechsel

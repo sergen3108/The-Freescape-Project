@@ -132,9 +132,9 @@ Für uns war es ein wirklich lustiger und einprägsamer Teil der Reise, und ein 
 
 Nach der Karibikküste gibt es mehrere gute Optionen, je nachdem wie es weitergehen soll.
 
-Der naheliegendste nächste Schritt ist die Weiterreise nach Osten zu Palomino, eines der beliebtesten Ziele in der Region. Dort erwartet einen ein entspannterer, hippie- und surf-artiger Vibe, mit guten Restaurants, Yoga-Spots und einer wunderschönen Lage zwischen Dschungel und Meer. Da viele Reisende dort mehr Zeit verbringen, behandeln wir Palomino in einem eigenen Reiseführer.
+Der naheliegendste nächste Schritt ist die Weiterreise nach Osten zu [Palomino](artikel.html?post=palomino-reisefuehrer), eines der beliebtesten Ziele in der Region. Dort erwartet einen ein entspannterer, hippie- und surf-artiger Vibe, mit guten Restaurants, Yoga-Spots und einer wunderschönen Lage zwischen Dschungel und Meer. Da viele Reisende dort mehr Zeit verbringen, behandeln wir Palomino in einem eigenen Reiseführer.
 
-Eine weitere Option ist die Rückkehr nach Santa Marta, das als wichtigste Transport-Drehscheibe der Region dient. Von dort lässt sich entweder die Reise durch Kolumbien fortsetzen oder ein Flug zum nächsten Ziel buchen.
+Eine weitere Option ist die Rückkehr nach [Santa Marta](artikel.html?post=santa-marta-reisefuehrer), das als wichtigste Transport-Drehscheibe der Region dient. Von dort lässt sich entweder die Reise durch Kolumbien fortsetzen oder ein Flug zum nächsten Ziel buchen.
 
 Wer noch mehr von Kolumbien sehen möchte, kann von Santa Marta aus leicht weiter nach Cartagena reisen, oder die Reise ins Landesinnere fortsetzen.
 

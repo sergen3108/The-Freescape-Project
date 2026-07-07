@@ -166,9 +166,9 @@ Fünf Nächte in Minca waren für uns eine der besten Entscheidungen unserer Rei
 
 Nach der Zeit in Minca gibt es mehrere gute Möglichkeiten, die Reise durch Kolumbien fortzusetzen, je nachdem ob es zurück an die Küste oder weiter ins Landesinnere gehen soll.
 
-Der naheliegendste Schritt ist die Rückkehr nach **Santa Marta**, nur etwa eine Stunde entfernt. Von dort lässt sich die Reise problemlos in verschiedene Richtungen fortsetzen.
+Der naheliegendste Schritt ist die Rückkehr nach [**Santa Marta**](artikel.html?post=santa-marta-reisefuehrer), nur etwa eine Stunde entfernt. Von dort lässt sich die Reise problemlos in verschiedene Richtungen fortsetzen.
 
-Wer an der Karibikküste bleiben möchte, kann weiter Richtung **Costeño Beach, Palomino oder Rio Hostel** reisen, beliebte Ziele bei Backpackern mit entspannter, strandnaher Atmosphäre.
+Wer an der Karibikküste bleiben möchte, kann weiter Richtung [**Costeño Beach oder Rio Hostel**](artikel.html?post=costeno-rio-hostel-reisefuehrer) oder [**Palomino**](artikel.html?post=palomino-reisefuehrer) reisen, beliebte Ziele bei Backpackern mit entspannter, strandnaher Atmosphäre.
 
 Eine weitere Option ist die Weiterreise nach **Cartagena** oder tiefer ins Landesinnere, um andere Regionen Kolumbiens zu erkunden.
 

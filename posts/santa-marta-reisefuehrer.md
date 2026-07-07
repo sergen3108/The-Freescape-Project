@@ -109,10 +109,10 @@ Abgesehen von Tayrona dient Santa Marta vor allem dazu, die nächsten Schritte v
 
 Santa Marta ist vor allem ein Ausgangspunkt für einige der schönsten Ziele an Kolumbiens Karibikküste, und die Weiterreise von hier ist denkbar einfach.
 
-Die beliebteste Option ist der **Tayrona Nationalpark**, ca. eine Stunde entfernt. Vom Markt aus fährt ein lokaler Bus für ca. 10.500 COP, eine sehr zugängliche und budgetfreundliche Verbindung. Dort haben wir als Erstes eine Nacht im Park verbracht, bevor wir nach Santa Marta zurückgekehrt sind.
+Die beliebteste Option ist der [**Tayrona Nationalpark**](artikel.html?post=tayrona-reisefuehrer), ca. eine Stunde entfernt. Vom Markt aus fährt ein lokaler Bus für ca. 10.500 COP, eine sehr zugängliche und budgetfreundliche Verbindung. Dort haben wir als Erstes eine Nacht im Park verbracht, bevor wir nach Santa Marta zurückgekehrt sind.
 
-Ein weiteres tolles Ziel ist **Minca**, ein kleines Bergdorf, bekannt für sein kühleres Klima, Wasserfälle und Natur. Nach Tayrona haben wir noch eine Nacht in Santa Marta verbracht und sind am nächsten Tag mit dem Bus nach Minca weitergefahren, eine einfache und unkomplizierte Fahrt.
+Ein weiteres tolles Ziel ist [**Minca**](artikel.html?post=minca-reisefuehrer), ein kleines Bergdorf, bekannt für sein kühleres Klima, Wasserfälle und Natur. Nach Tayrona haben wir noch eine Nacht in Santa Marta verbracht und sind am nächsten Tag mit dem Bus nach Minca weitergefahren, eine einfache und unkomplizierte Fahrt.
 
-Wer der Küste weiter folgen möchte, kann auch Richtung **Costeño Beach, Palomino oder Rio Hostel** weiterreisen, beliebte Ziele bei Backpackern, die einen entspannteren, strandnahen Abschnitt der Reise suchen.
+Wer der Küste weiter folgen möchte, kann auch Richtung [**Costeño Beach oder Rio Hostel**](artikel.html?post=costeno-rio-hostel-reisefuehrer) oder [**Palomino**](artikel.html?post=palomino-reisefuehrer) weiterreisen, beliebte Ziele bei Backpackern, die einen entspannteren, strandnahen Abschnitt der Reise suchen.
 
 Dank seiner Lage macht Santa Marta den Wechsel zwischen diesen Zielen einfach, egal ob es in die Natur, in die Berge oder weiter entlang der Karibikküste geht.

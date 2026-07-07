@@ -21,7 +21,7 @@ Eine Reise nach Kolumbien zu planen, kann sich am Anfang überwältigend anfühl
 
 Als wir mit der Planung angefangen haben, wurde uns schnell klar: Alles sehen geht nicht, deshalb ist die richtige Route so wichtig. Das Besondere an Kolumbien ist der Kontrast zwischen den Regionen. Vom kühlen Klima in Medellín zu den tropischen Stränden der Karibikküste sind es nur ein paar Tage. Jedes Ziel bietet etwas völlig anderes, und genau deshalb hilft eine klare Route, das Beste aus deiner Zeit zu machen.
 
-Wir sind selbst durch Kolumbien gereist und haben viele der beliebtesten Ziele erlebt, darunter Bogotá, Salento, Medellín, Guatapé, Tayrona, Minca, Palomino und San Andrés. Hier zeigen wir dir die besten Routen für eine Woche, zwei Wochen und einen Monat, damit du die passende für deine Zeit und deinen Reisestil findest.
+Wir sind selbst durch Kolumbien gereist und haben viele der beliebtesten Ziele erlebt, darunter [Bogotá](artikel.html?post=bogota-reisefuehrer), [Salento](artikel.html?post=salento-reisefuehrer), [Medellín](artikel.html?post=medellin-reisefuehrer), [Guatapé](artikel.html?post=guatape-reisefuehrer), [Tayrona](artikel.html?post=tayrona-reisefuehrer), [Minca](artikel.html?post=minca-reisefuehrer), [Palomino](artikel.html?post=palomino-reisefuehrer) und [San Andrés](artikel.html?post=san-andres-reisefuehrer). Hier zeigen wir dir die besten Routen für eine Woche, zwei Wochen und einen Monat, damit du die passende für deine Zeit und deinen Reisestil findest.
 
 ![Kolumbien Landschaft](assets/img/blog/sanandres4.jpg)
 

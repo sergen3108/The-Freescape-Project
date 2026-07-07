@@ -132,9 +132,9 @@ Kurz: Guatapé ist definitiv eines der Highlights Kolumbiens. Als Tagesausflug l
 
 ## Wohin nach Guatapé?
 
-Von Guatapé aus geht es am einfachsten zurück nach Medellín, von wo aus viele Wege in Kolumbien weitergehen.
+Von Guatapé aus geht es am einfachsten zurück nach [Medellín](artikel.html?post=medellin-reisefuehrer), von wo aus viele Wege in Kolumbien weitergehen.
 
 - **Medellín**: ca. 2 bis 2,5 Stunden mit dem Bus, perfekte Basis für Weiterreisen
-- **San Andrés**: wir sind von Guatapé per Bus zum Flughafen Medellín gefahren und von dort direkt nach San Andrés geflogen, mit einem Umstieg, aber sehr unkompliziert
-- **Salento & Kaffeezone**: Cocora-Tal, Wachspalmen, Kaffeefarms, ein schöner Kontrastwechsel nach dem See
+- [**San Andrés**](artikel.html?post=san-andres-reisefuehrer): wir sind von Guatapé per Bus zum Flughafen Medellín gefahren und von dort direkt nach San Andrés geflogen, mit einem Umstieg, aber sehr unkompliziert
+- [**Salento & Kaffeezone**](artikel.html?post=salento-reisefuehrer): Cocora-Tal, Wachspalmen, Kaffeefarms, ein schöner Kontrastwechsel nach dem See
 - **Cartagena**: Karibikküste, historische Altstadt, Strand

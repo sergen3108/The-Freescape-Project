@@ -122,6 +122,6 @@ Und natürlich: der Kaffee. Frisch gerösteter kolumbianischer Kaffee in der Kaf
 
 ## Wohin nach Salento?
 
-**Medellín:** Wir sind mit dem Direktbus weitergefahren. Ticket am besten mindestens 24 Stunden vorher kaufen, der Bus füllt sich schnell. Im März 2026 haben wir 83.000 COP gezahlt, Barzahlung an der Bushaltestelle. Mehrere Stunden Fahrt, aber komfortabel.
+[**Medellín**](artikel.html?post=medellin-reisefuehrer): Wir sind mit dem Direktbus weitergefahren. Ticket am besten mindestens 24 Stunden vorher kaufen, der Bus füllt sich schnell. Im März 2026 haben wir 83.000 COP gezahlt, Barzahlung an der Bushaltestelle. Mehrere Stunden Fahrt, aber komfortabel.
 
 **Armenia:** Nur 45 Minuten entfernt, Busse fahren den ganzen Tag. Von dort weiter per Bus oder Flugzeug in alle Teile Kolumbiens.

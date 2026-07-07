@@ -117,13 +117,13 @@ Zum Bewegen in der Stadt ist Uber fast überall verfügbar und für die meisten 
 
 Quito ist nicht nur ein Ziel für sich, sondern der perfekte Ausgangspunkt für den Rest von Ecuador. Dank der zentralen Lage und der guten Busverbindungen erreicht man von hier fast jedes Highlight des Landes.
 
-Wir sind weiter nach **Cotopaxi** gefahren, einer der beliebtesten nächsten Stopps. Unser Hostel hat ein Schwesterhaus dort und bietet ein Paket über 2 Nächte und 3 Tage inklusive Shuttle aus Quito an. Das Hostel in Cotopaxi wurde zu einem unserer bisherigen Lieblingsorte: viele Aktivitäten, gutes Essen und sogar Lamas im Garten. Wer nicht so lange bleiben will, kann auch einfach nur den Shuttle aus Quito buchen, für rund 5 USD.
+Wir sind weiter nach [**Cotopaxi**](artikel.html?post=cotopaxi-reisefuehrer) gefahren, einer der beliebtesten nächsten Stopps. Unser Hostel hat ein Schwesterhaus dort und bietet ein Paket über 2 Nächte und 3 Tage inklusive Shuttle aus Quito an. Das Hostel in Cotopaxi wurde zu einem unserer bisherigen Lieblingsorte: viele Aktivitäten, gutes Essen und sogar Lamas im Garten. Wer nicht so lange bleiben will, kann auch einfach nur den Shuttle aus Quito buchen, für rund 5 USD.
 
 Weitere lohnende Ziele in Reichweite:
 
-- **Quilotoa** - Kratersee und Wanderungen
-- **Baños** - Abenteueraktivitäten und Wasserfälle
-- **Mindo** - Nebelwald und Natur
+- [**Quilotoa**](artikel.html?post=quilotoa-reisefuehrer) - Kratersee und Wanderungen
+- [**Baños**](artikel.html?post=banos-reisefuehrer) - Abenteueraktivitäten und Wasserfälle
+- [**Mindo**](artikel.html?post=mindo-reisefuehrer) - Nebelwald und Natur
 - **Otavalo** - berühmter Markt und Kultur
 
 Das Busnetz in Ecuador ist sehr gut ausgebaut, von Quito kommst du fast überall hin. Achte in Bussen aber gut auf deine Wertsachen, Diebstahl kann vorkommen. Wer es komfortabler mag, bucht private Shuttles. Die sind teurer, aber einfacher und oft direkter.

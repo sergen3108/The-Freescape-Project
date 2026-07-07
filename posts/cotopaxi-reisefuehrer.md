@@ -89,6 +89,6 @@ Wenn du Natur, Berge, Wandern, besondere Unterkünfte oder einfach eine Pause vo
 
 ## Wohin nach dem Cotopaxi?
 
-Danach gibt es mehrere schöne Optionen. Ein beliebter nächster Stopp ist **Quilotoa** mit seinem Kratersee und den Wanderwegen. Viele kombinieren Cotopaxi und Quilotoa, weil sie nah beieinander liegen und ähnliche Berglandschaften bieten.
+Danach gibt es mehrere schöne Optionen. Ein beliebter nächster Stopp ist [**Quilotoa**](artikel.html?post=quilotoa-reisefuehrer) mit seinem Kratersee und den Wanderwegen. Viele kombinieren Cotopaxi und Quilotoa, weil sie nah beieinander liegen und ähnliche Berglandschaften bieten.
 
-Eine andere gängige Route führt nach **Baños**, bekannt für Abenteueraktivitäten, Wasserfälle und heiße Quellen. Nach der Ruhe am Cotopaxi ist das ein lebhafter Kontrast. Wer es naturnah und entspannt mag, fährt weiter nach **Mindo** mit Nebelwald und Wasserfällen. Und weil Quito so gut angebunden ist, kehren viele erst dorthin zurück, bevor es weitergeht.
+Eine andere gängige Route führt nach [**Baños**](artikel.html?post=banos-reisefuehrer), bekannt für Abenteueraktivitäten, Wasserfälle und heiße Quellen. Nach der Ruhe am Cotopaxi ist das ein lebhafter Kontrast. Wer es naturnah und entspannt mag, fährt weiter nach [**Mindo**](artikel.html?post=mindo-reisefuehrer) mit Nebelwald und Wasserfällen. Und weil [Quito](artikel.html?post=quito-reisefuehrer) so gut angebunden ist, kehren viele erst dorthin zurück, bevor es weitergeht.

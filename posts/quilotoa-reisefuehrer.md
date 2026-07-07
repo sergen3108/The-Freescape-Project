@@ -79,6 +79,6 @@ Für uns hat ein Tagesausflug von Latacunga gereicht, weil wir keine großen Wan
 
 ## Wohin nach Quilotoa?
 
-Wir sind von **Latacunga nach Baños** weiter, einer der beliebtesten nächsten Stopps. Es gibt gegen Mittag einen direkten Bus, was die Fahrt einfach gemacht hat. Verglichen mit Quilotoa und Cotopaxi bietet Baños eine ganz andere Atmosphäre: mehr Abenteuer, Wasserfälle, Cafés und eine lebhaftere Backpacker-Szene.
+Wir sind von **Latacunga** nach [**Baños**](artikel.html?post=banos-reisefuehrer) weiter, einer der beliebtesten nächsten Stopps. Es gibt gegen Mittag einen direkten Bus, was die Fahrt einfach gemacht hat. Verglichen mit Quilotoa und Cotopaxi bietet Baños eine ganz andere Atmosphäre: mehr Abenteuer, Wasserfälle, Cafés und eine lebhaftere Backpacker-Szene.
 
-Eine andere Option ist die Rückkehr nach **Quito**, besonders wenn du danach nach Mindo oder Otavalo weiterwillst. Wer den kompletten Quilotoa Loop läuft, kommt über viele Routen ohnehin wieder in Richtung Latacunga oder in andere nahe Andendörfer.
+Eine andere Option ist die Rückkehr nach [**Quito**](artikel.html?post=quito-reisefuehrer), besonders wenn du danach nach [Mindo](artikel.html?post=mindo-reisefuehrer) oder Otavalo weiterwillst. Wer den kompletten Quilotoa Loop läuft, kommt über viele Routen ohnehin wieder in Richtung Latacunga oder in andere nahe Andendörfer.
