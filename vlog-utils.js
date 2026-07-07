@@ -76,7 +76,7 @@
 
   // Short oder normales Video? Wie bisher ueber die Dauer.
   function isShort(video) {
-    return (video && (video.duration || 999) <= 60);
+    return (video && (video.duration || 999) <= 120);
   }
 
   window.VlogUtils = {

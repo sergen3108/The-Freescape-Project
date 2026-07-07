@@ -456,7 +456,7 @@
       }
 
       // Neueste 3 Langvideos (Shorts ausgeschlossen)
-      const videos = (data.videos || []).filter(v => (v.duration || 999) > 60).slice(0, 3);
+      const videos = (data.videos || []).filter(v => !window.VlogUtils.isShort(v)).slice(0, 3);
       if (!videos.length) {
         if (loading) loading.innerHTML = '<p style="color:var(--gray-400,#9ca3af);">Aktuell keine Videos verfügbar. <a href="vlogs.html" style="text-decoration:underline;">Alle Vlogs ansehen →</a></p>';
         return;

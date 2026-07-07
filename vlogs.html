@@ -431,7 +431,7 @@ async function loadVlogs() {
     if (window.observeCounters) window.observeCounters();
 
     (data.videos || []).forEach(v => {
-      if ((v.duration || 999) <= 60) allShorts.push(v);
+      if (window.VlogUtils.isShort(v)) allShorts.push(v);
       else allVideos.push(v);
     });
 
