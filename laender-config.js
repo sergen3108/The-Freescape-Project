@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.map-preview__countries').forEach(function (container) {
     container.innerHTML = sortiert.map(function (l) {
       return '<span class="country-chip country-chip--' + STATUS_CLASS[l.status] + '">'
-        + l.emoji + ' ' + l.name + STATUS_SUFFIX[l.status] + '</span>';
+        + l.name + STATUS_SUFFIX[l.status] + '</span>';
     }).join('');
   });
   document.querySelectorAll('.map-preview__progress').forEach(function (progress) {
