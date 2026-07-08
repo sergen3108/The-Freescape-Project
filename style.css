@@ -1196,7 +1196,7 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   border-radius: var(--r-full);
   border: 1px solid;
 
-  width: 120px;
+  min-width: 120px;
   height: 36px;
   display: inline-flex;
   align-items: center;
@@ -1218,6 +1218,21 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   background: rgba(255,255,255,0.04);
   border-color: rgba(255,255,255,0.15);
   color: rgba(255,255,255,0.4);
+}
+
+.map-preview__progress { display: flex; flex-direction: column; gap: var(--sp-2); }
+.map-preview__progress-label { color: rgba(255,255,255,0.6); font-size: 0.8rem; }
+.progress-bar {
+  height: 8px;
+  border-radius: var(--r-full);
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+.progress-bar__fill {
+  height: 100%;
+  border-radius: var(--r-full);
+  background: var(--terra-400);
+  transition: width 1s ease;
 }
 
 /* Simplified SVG Map */

@@ -225,4 +225,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     submenu.innerHTML = html;
   });
+
+  // "Wo sind wir gerade?"-Box auf index.html: Laender-Chips + Fortschrittsbalken.
+  // Gleiches Fallback-Prinzip wie oben: statisches Markup bleibt stehen,
+  // falls dieser Block aus irgendeinem Grund nicht laeuft.
+  var STATUS_CLASS  = { bereist: 'visited', aktuell: 'current', geplant: 'planned' };
+  var STATUS_SUFFIX = { bereist: ' ✓', aktuell: ' ←', geplant: '' };
+  document.querySelectorAll('.map-preview__countries').forEach(function (container) {
+    container.innerHTML = sortiert.map(function (l) {
+      return '<span class="country-chip country-chip--' + STATUS_CLASS[l.status] + '">'
+        + l.emoji + ' ' + l.name + STATUS_SUFFIX[l.status] + '</span>';
+    }).join('');
+  });
+  document.querySelectorAll('.map-preview__progress').forEach(function (progress) {
+    var pct   = Math.round((bereist.length / sortiert.length) * 100);
+    var label = progress.querySelector('.map-preview__progress-label');
+    var fill  = progress.querySelector('.progress-bar__fill');
+    if (label) label.textContent = bereist.length + ' von ' + sortiert.length + ' Laendern bereist';
+    if (fill)  fill.style.width = pct + '%';
+  });
 });

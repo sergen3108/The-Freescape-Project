@@ -13,6 +13,8 @@ const REISE = {
   orteBesucht:          24,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
   naechsteWoche: 'Cusco, dann weiter zum Machu Picchu! Wir sind gespannt 🙌',  // ✏️ hier anpassen
+  // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
+  standort: 'Lima, Peru',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
@@ -48,4 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Nächste-Woche-Box befüllen
   const naechsteWocheEl = document.getElementById('naechste-woche-text');
   if (naechsteWocheEl) naechsteWocheEl.textContent = REISE.naechsteWoche;
+  // Aktueller-Standort-Text befüllen
+  const standortEl = document.getElementById('reise-standort-text');
+  if (standortEl) standortEl.textContent = REISE.standort;
 });
