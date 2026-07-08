@@ -365,14 +365,19 @@
   }
 
   // ── Filter-Logik ─────────────────────────────────────────────
+  // Entfernt Akzente/Umlaute-Diakritika, damit z.B. "banos" auch "Baños" findet.
+  function normalize(str) {
+    return (str || '').normalize('NFD').replace(/[̀-ͯ]/g, '');
+  }
+
   function cardMatches(card) {
     const cats = card.dataset.category || '';
     const tags = card.dataset.tags || '';
-    const q    = searchQuery.toLowerCase();
+    const q    = normalize(searchQuery.toLowerCase());
     const text = (card.querySelector('h3')?.textContent || '') + ' ' +
                  (card.querySelector('.blog-card__excerpt')?.textContent || '') + ' ' + tags;
     const matchFilter = activeFilter === 'all' || cats.includes(activeFilter) || tags.includes(activeFilter);
-    const matchSearch = !q || text.toLowerCase().includes(q);
+    const matchSearch = !q || normalize(text.toLowerCase()).includes(q);
     return matchFilter && matchSearch;
   }
 
