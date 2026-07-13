@@ -95,4 +95,4 @@ Während Santa Cruz für Logistik und Infrastruktur großartig ist, erlebt man a
 
 ## Wohin nach Isabela?
 
-Nach dem entspannten Inselleben auf Isabela nehmen die meisten Reisenden die Morgenfähre zurück nach Santa Cruz, um Vorräte aufzustocken oder einen Flug zu erwischen. Von Santa Cruz aus ist der nächste logische Schritt die Nachmittagsfähre nach **San Cristóbal**, berühmt für seine riesigen Seelöwen-Kolonien an der La Lobería und Weltklasse-Tauchspots.
+Nach dem entspannten Inselleben auf Isabela nehmen die meisten Reisenden die Morgenfähre zurück nach [**Santa Cruz**](artikel.html?post=santa-cruz-galapagos-reisefuehrer), um Vorräte aufzustocken oder einen Flug zu erwischen. Von Santa Cruz aus ist der nächste logische Schritt die Nachmittagsfähre nach **San Cristóbal**, berühmt für seine riesigen Seelöwen-Kolonien an der La Lobería und Weltklasse-Tauchspots.
