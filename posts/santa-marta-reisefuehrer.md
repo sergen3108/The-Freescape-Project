@@ -16,6 +16,8 @@ tags:
   - Reiseführer
 ---
 
+> 💡 Planst du deine Kolumbien-Reise? In unserem [Kolumbien-Reiseroute-Guide](artikel.html?post=kolumbien-reiseroute) findest du fertige Routen für 1 Woche, 2 Wochen und 1 Monat.
+
 Santa Marta ist einer der Haupteinstiegspunkte zur kolumbianischen Karibikküste und steht deshalb in vielen Reiserouten. Für uns war die Stadt selbst aber nicht das Highlight, sondern eher das Tor zu Orten wie dem Tayrona Nationalpark, Minca und der umliegenden Küste.
 
 Wir haben insgesamt zwei Nächte in Santa Marta verbracht, hauptsächlich als Zwischenstopp vor und nach Tayrona, und später auf dem Weg nach Minca.

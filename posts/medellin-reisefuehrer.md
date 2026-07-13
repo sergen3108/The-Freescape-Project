@@ -16,6 +16,8 @@ tags:
   - Reiseführer
 ---
 
+> 💡 Planst du deine Kolumbien-Reise? In unserem [Kolumbien-Reiseroute-Guide](artikel.html?post=kolumbien-reiseroute) findest du fertige Routen für 1 Woche, 2 Wochen und 1 Monat.
+
 Medellín wird oft als "Ciudad de la Eterna Primavera" bezeichnet, und wer einmal dort war, versteht warum. Das perfekte Klima, moderne Infrastruktur, lebhafte Viertel und eine Energie, die einen sofort packt. Kein Wunder, dass die Stadt bei Backpackern und Langzeitreisenden gleichermaßen beliebt ist.
 
 Wir haben am Ende zwei Wochen in Medellín verbracht, deutlich länger als die meisten Reisenden. Während unseres Aufenthalts haben wir eine Sprachschule in El Poblado besucht, was sich als perfekte Basis herausgestellt hat. Alles, was man braucht, ist in der Nähe: Restaurants, Cafés, Supermärkte, Coworking-Spaces. Und trotzdem ist man gut mit dem Rest der Stadt verbunden.

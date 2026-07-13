@@ -16,6 +16,8 @@ tags:
   - Reiseführer
 ---
 
+> 💡 Planst du deine Kolumbien-Reise? In unserem [Kolumbien-Reiseroute-Guide](artikel.html?post=kolumbien-reiseroute) findest du fertige Routen für 1 Woche, 2 Wochen und 1 Monat.
+
 Für viele Reisende ist Bogotá das Tor nach Kolumbien. Die weitläufige Hauptstadt bekommt von Backpackern oft gemischte Bewertungen, weil viele nicht genau wissen, was sie erwartet. Auf 2.640 Metern über dem Meeresspiegel gelegen, ist Bogotá eine Stadt voller Kontraste: chaotische Straßen, bunte Kolonialbauten, beeindruckende Straßenkunst, unglaubliches Essen und einige der herzlichsten Menschen, denen wir in Südamerika begegnet sind.
 
 Als wir ankamen, fühlte sich Bogotá zunächst etwas überwältigend an. Die Stadt ist riesig, der Verkehr dicht, und die Höhe merkt man tatsächlich schon am ersten Tag. Aber nach drei Tagen, in denen wir die historischen Viertel und lokalen Essensplätze erkundet haben, hat die Stadt uns schnell für sich gewonnen.

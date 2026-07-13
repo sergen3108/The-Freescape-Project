@@ -16,6 +16,8 @@ tags:
   - Reiseführer
 ---
 
+> 💡 Planst du deine Kolumbien-Reise? In unserem [Kolumbien-Reiseroute-Guide](artikel.html?post=kolumbien-reiseroute) findest du fertige Routen für 1 Woche, 2 Wochen und 1 Monat.
+
 Die kolumbianische Karibikküste gehört zu den beliebtesten Regionen bei Backpackern, und das aus gutem Grund. Zwischen Stränden, Dschungel, Flüssen und einer durch und durch entspannten Atmosphäre fühlt sich dieser Teil des Landes komplett anders an als Medellín oder Bogotá.
 
 Entlang der Küste gibt es mehrere Stopps, die Reisende oft kombinieren, mit Costeño Beach, Rio Hostel und Palomino als klassischer Route. Jeder dieser Orte hat seinen eigenen Charakter, von sozialen Strand-Hostels bis hin zu naturnäheren Erlebnissen.

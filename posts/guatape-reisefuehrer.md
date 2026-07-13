@@ -16,6 +16,8 @@ tags:
   - Reiseführer
 ---
 
+> 💡 Planst du deine Kolumbien-Reise? In unserem [Kolumbien-Reiseroute-Guide](artikel.html?post=kolumbien-reiseroute) findest du fertige Routen für 1 Woche, 2 Wochen und 1 Monat.
+
 Guatapé liegt nur wenige Stunden von Medellín entfernt und ist trotzdem eine völlig andere Welt. Während Medellín laut, lebendig und urban ist, empfängt einen Guatapé mit bunten Häusern, ruhigen Gassen und einem See, der sich um das ganze Städtchen legt. Die meisten Reisenden kommen als Tagesausflug, bleiben ein paar Stunden und fahren wieder zurück. Wir haben zwei Nächte dort verbracht und können sagen: Das lohnt sich.
 
 Eines unserer persönlichen Highlights war die Bootstour auf dem See, bei der man das Gebiet aus einer völlig anderen Perspektive sieht, vorbei an beeindruckenden Villen und Häusern. Aber dazu später mehr.

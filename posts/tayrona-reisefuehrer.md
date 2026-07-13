@@ -16,6 +16,8 @@ tags:
   - Reiseführer
 ---
 
+> 💡 Planst du deine Kolumbien-Reise? In unserem [Kolumbien-Reiseroute-Guide](artikel.html?post=kolumbien-reiseroute) findest du fertige Routen für 1 Woche, 2 Wochen und 1 Monat.
+
 Der Tayrona Nationalpark gehört zu den bekanntesten Reisezielen Kolumbiens, berühmt für dschungelbedeckte Berge, wilde Strände und kristallklares Karibikwasser. Ein Ort, an dem man durch die Natur wandert, Tiere entdeckt und den Tag direkt am Meer ausklingen lässt.
 
 Wir haben zwei Tage und eine Nacht im Park verbracht und sind bis zum Cabo San Juan gewandert, einem der beliebtesten Strände im Tayrona. Das Erlebnis war komplett anders als alles, was wir sonst in Kolumbien gesehen haben, und definitiv eines der Highlights unserer Reise.

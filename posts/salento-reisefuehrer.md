@@ -17,6 +17,8 @@ tags:
   - Backpacking
 ---
 
+> 💡 Planst du deine Kolumbien-Reise? In unserem [Kolumbien-Reiseroute-Guide](artikel.html?post=kolumbien-reiseroute) findest du fertige Routen für 1 Woche, 2 Wochen und 1 Monat.
+
 Mitten im Herzen von Kolumbiens berühmter **Kaffeezone (Eje Cafetero)** liegt Salento, eines der charmantesten und beliebtesten Reiseziele des Landes. Bunte Straßen, eine entspannte Atmosphäre, Kaffeefincas und das nahegelegene Cocora-Tal machen das kleine Bergstädtchen zu einem unvergesslichen Stop auf jeder Kolumbien-Reise.
 
 Was Salento besonders macht, ist die Kombination aus atemberaubender Natur und traditioneller kolumbianischer Kultur. Wandern zwischen riesigen Wachspalmen, durch bunte Gassen schlendern und frisch geernteten Kaffee trinken, all das gibt es hier. Als wir nach einer langen Busfahrt aus Bogotá ankamen, war der Unterschied sofort spürbar. Das Leben ist langsamer, die Menschen herzlicher, und die Landschaft schlicht wunderschön.

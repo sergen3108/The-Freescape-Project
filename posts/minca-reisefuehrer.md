@@ -16,6 +16,8 @@ tags:
   - Reiseführer
 ---
 
+> 💡 Planst du deine Kolumbien-Reise? In unserem [Kolumbien-Reiseroute-Guide](artikel.html?post=kolumbien-reiseroute) findest du fertige Routen für 1 Woche, 2 Wochen und 1 Monat.
+
 Minca liegt in den Bergen direkt über Santa Marta und fühlt sich trotzdem an wie eine völlig andere Welt. Statt Hitze, Lärm und vollen Straßen erwarten einen hier kühlere Temperaturen, dichter Dschungel, Wasserfälle und beeindruckende Ausblicke auf die Küste.
 
 Nach Santa Marta und Tayrona war die Ankunft in Minca wie ein Aufatmen. Das Klima ist deutlich angenehmer, die Atmosphäre entspannt, und alles läuft hier merklich langsamer ab.

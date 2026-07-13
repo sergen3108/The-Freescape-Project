@@ -16,6 +16,8 @@ tags:
   - Reiseführer
 ---
 
+> 💡 Planst du deine Kolumbien-Reise? In unserem [Kolumbien-Reiseroute-Guide](artikel.html?post=kolumbien-reiseroute) findest du fertige Routen für 1 Woche, 2 Wochen und 1 Monat.
+
 Palomino liegt an Kolumbiens Karibikküste und ist einer dieser Orte, die sich noch wie ein Geheimtipp anfühlen, zumindest im Moment. Mit seiner entspannten Atmosphäre, dem Strandleben und dem Dschungel drumherum hat der Ort eine komplett andere Stimmung als andere Ziele im Land.
 
 Wir haben fünf Nächte in Palomino verbracht, und er wurde schnell zu einem unserer liebsten Stopps entlang der Küste. Was ihn besonders macht, ist nicht eine lange Liste an Sehenswürdigkeiten, sondern das Gesamtgefühl des Ortes.
