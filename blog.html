@@ -181,6 +181,12 @@
         <input type="search" id="blog-search" placeholder="Artikel durchsuchen …" autocomplete="off" aria-label="Artikel durchsuchen"
           style="border:none;outline:none;background:transparent;font-size:0.875rem;color:var(--gray-700);width:100%;font-family:inherit;">
       </div>
+      <div class="filter-bar blog-controls__filter-bar">
+        <button class="filter-btn active" data-filter="all">Alle</button>
+        <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
+        <button class="filter-btn" data-filter="ecuador">Ecuador</button>
+        <button class="filter-btn" data-filter="peru">Peru</button>
+      </div>
     </div>
 
     <div id="blog-hub-section" style="display:none;">
@@ -388,6 +394,9 @@
     const si = document.getElementById('blog-search');
     if (si) si.value = '';
     visibleCount = CARDS_PER_PAGE;
+    document.querySelectorAll('.blog-controls__filter-bar .filter-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.filter === filter);
+    });
     renderGrid();
   }
 
@@ -479,6 +488,10 @@
         renderGrid();
       });
     }
+
+    document.querySelectorAll('.blog-controls__filter-bar .filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => setFilter(btn.dataset.filter));
+    });
 
     document.addEventListener('click', e => {
       const tagEl = e.target.closest('.tag--clickable');
