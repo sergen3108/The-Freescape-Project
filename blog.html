@@ -181,12 +181,9 @@
         <input type="search" id="blog-search" placeholder="Artikel durchsuchen …" autocomplete="off" aria-label="Artikel durchsuchen"
           style="border:none;outline:none;background:transparent;font-size:0.875rem;color:var(--gray-700);width:100%;font-family:inherit;">
       </div>
-      <div class="filter-bar blog-controls__filter-bar">
-        <button class="filter-btn active" data-filter="all">Alle</button>
-        <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
-        <button class="filter-btn" data-filter="ecuador">Ecuador</button>
-        <button class="filter-btn" data-filter="peru">Peru</button>
-      </div>
+      <button id="blog-filter-active" type="button" class="tag tag--clickable" data-tag="all" style="display:none;background:var(--green-800);color:#fff;border-color:var(--green-800);white-space:nowrap;">
+        <span id="blog-filter-active-label"></span> ✕
+      </button>
     </div>
 
     <div id="blog-hub-section" style="display:none;">
@@ -394,10 +391,21 @@
     const si = document.getElementById('blog-search');
     if (si) si.value = '';
     visibleCount = CARDS_PER_PAGE;
-    document.querySelectorAll('.blog-controls__filter-bar .filter-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.filter === filter);
-    });
+    updateActiveFilterUI();
     renderGrid();
+  }
+
+  // ── Anzeige des aktiven Filters (mit Möglichkeit ihn aufzuheben) ─
+  function updateActiveFilterUI() {
+    const btn   = document.getElementById('blog-filter-active');
+    const label = document.getElementById('blog-filter-active-label');
+    if (!btn || !label) return;
+    if (activeFilter === 'all') {
+      btn.style.display = 'none';
+    } else {
+      label.textContent = activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1);
+      btn.style.display = 'inline-block';
+    }
   }
 
   function applyFilters() {
@@ -488,10 +496,6 @@
         renderGrid();
       });
     }
-
-    document.querySelectorAll('.blog-controls__filter-bar .filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => setFilter(btn.dataset.filter));
-    });
 
     document.addEventListener('click', e => {
       const tagEl = e.target.closest('.tag--clickable');

@@ -1077,18 +1077,6 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   border-radius: var(--r-full);
   padding: 0.45rem 1rem;
 }
-.blog-controls__filter-bar {
-  gap: var(--sp-2);
-  margin-bottom: 0;
-}
-.blog-controls__filter-bar .filter-btn {
-  font-size: 0.875rem;
-  padding: 0.45rem 1rem;
-  line-height: 1.2;
-}
-.blog-search-wrap #blog-search {
-  padding: 0;
-}
 
 /* === ABOUT TEASER ========================================== */
 .about-teaser {
@@ -2137,7 +2125,6 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
     gap: var(--sp-3);
   }
   .blog-search-wrap { width: 100%; }
-  .blog-controls__filter-bar { display: none; }
   .filter-bar {
     overflow-x: auto;
     flex-wrap: nowrap;
