@@ -31,6 +31,27 @@
   "description": "Momente aus vier Ländern, ausgewählt aus tausenden Fotos unserer Südamerika-Reise.",
   "url": "https://thefreescapeproject.com/galerie.html",
   "inLanguage": "de-DE",
+  "image": [
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/salento.jpg", "name": "Cocora-Tal", "caption": "Salento, Kolumbien" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/bogota2.png", "name": "La Candelaria", "caption": "Bogotá, Kolumbien" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/sanandres8.jpg", "name": "San Andrés", "caption": "Meer der 7 Farben" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/medellin.jpg", "name": "Medellín", "caption": "Comuna 13, Kolumbien" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/salento6.jpg", "name": "Kaffeeplantage", "caption": "Salento, Kolumbien" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/penol.jpg", "name": "El Peñol", "caption": "Guatapé, Kolumbien" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/masaya.JPEG", "name": "Costeño Beach", "caption": "Karibikküste, Kolumbien" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/minca2.jpg", "name": "Minca", "caption": "Bergdorf, Kolumbien" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/guatape2.JPEG", "name": "Guatapé", "caption": "Bunte Gassen, Kolumbien" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/tayrona3.jpg", "name": "Tayrona", "caption": "Nationalpark, Kolumbien" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/cotopaxipano.JPEG", "name": "Cotopaxi", "caption": "5.897m, Ecuador" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/kilotoas.JPEG", "name": "Quilotoa-Lagune", "caption": "3.900m, Ecuador" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/amazonas.jpg", "name": "Amazonas", "caption": "4 Tage Regenwald, Ecuador" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/banos.JPEG", "name": "Baños", "caption": "Casa del Arbol, Ecuador" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/santacruz4.JPEG", "name": "Santa Cruz", "caption": "Galápagos, Ecuador" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/isabela4.JPEG", "name": "Isabela", "caption": "Galápagos, Ecuador" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/mindo4.JPEG", "name": "Mindo", "caption": "Nebelwald, Ecuador" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/quito.JPEG", "name": "Quito Altstadt", "caption": "Ecuador" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/santacruz2.JPEG", "name": "Galápagos Strände", "caption": "Santa Cruz, Galápagos" }
+  ],
   "isPartOf": {
     "@type": "WebSite",
     "name": "The Freescape Project",
@@ -79,7 +100,7 @@
       font-family: var(--font-display);
       font-size: clamp(1.6rem, 4vw, 2.5rem);
       font-weight: 700;
-      color: var(--navy-800, #1a2744);
+      color: var(--green-900);
       line-height: 1;
     }
     .kapitel-header__count {
@@ -228,6 +249,19 @@
       font-size: 0.72rem;
       letter-spacing: 0.05em;
       margin-top: 2px;
+    }
+
+    /* Auf Touch-Geräten gibt es kein :hover, die Bildunterschrift wäre sonst
+       nie sichtbar. Eigener, schmalerer Balken statt des vollen Hover-Scrims,
+       damit das Grid nicht "zugedeckt" wirkt. */
+    @media (hover: none), (pointer: coarse) {
+      .gi__overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(10,21,32,0.75) 0%, transparent 55%);
+        padding: 0.85rem 0.9rem;
+      }
+      .gi__label { font-size: 0.92rem; }
+      .gi__sub { font-size: 0.66rem; }
     }
 
     /* Kamera-Icon oben rechts */
@@ -432,9 +466,42 @@
       font-family: var(--font-display);
       font-size: clamp(1.6rem, 4vw, 2.5rem);
       font-weight: 700;
-      color: var(--navy-800, #1a2744);
+      color: var(--green-900);
       margin-bottom: 1.5rem;
       line-height: 1.15;
+    }
+
+    /* ── Nach-oben-Button ───────────────────────────────────── */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--terra-600);
+      color: #fff;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg, 0 8px 32px rgba(0,0,0,0.12));
+      z-index: 95;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+    }
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .scroll-top-btn:hover { background: var(--terra-700); }
+    .scroll-top-btn svg { width: 20px; height: 20px; }
+    @media (max-width: 640px) {
+      .scroll-top-btn { bottom: 1.25rem; right: 1.25rem; }
     }
 
     /* ── Responsive ───────────────────────────────────────── */
@@ -467,6 +534,11 @@
   </style>
 </head>
 <body>
+
+<!-- Nach-oben-Button -->
+<button class="scroll-top-btn" id="scroll-top-btn" aria-label="Nach oben scrollen">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
 <!-- ── Navigation ─────────────────────────────────────────── -->
 <nav class="nav nav--transparent" role="navigation">
@@ -764,7 +836,7 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     KAPITEL 2: ECUADOR · 10/10 Top-Plätze, 4 bestätigt + 6 offen
+     KAPITEL 2: ECUADOR · 10/10 Top-Plätze, 9 bestätigt + 1 offen
      ✏️ Gleiches Schema wie Kolumbien: Band A → QUAD → A-REV
      ✏️ "Kommt bald": gi--placeholder entfernen, img-Tag + data-Attribute
         nach Vorbild der echten Fotos oben ergänzen
@@ -1217,21 +1289,37 @@
   let currentIdx = 0;
   let lbLastFocused = null;
 
+  function preloadImg(idx) {
+    const it = clickableItems[idx];
+    if (it) new Image().src = it.dataset.src;
+  }
+
   function openLb(idx) {
     currentIdx = idx;
     const item = clickableItems[idx];
     lbLastFocused = document.activeElement;
     lbImg.classList.add('fading');
-    setTimeout(() => {
-      lbImg.src   = item.dataset.src;
+
+    const next = new Image();
+    next.onload = () => {
+      if (idx !== currentIdx) return; // inzwischen weitergeklickt: veraltete Antwort verwerfen
+      lbImg.src = item.dataset.src;
+      lbImg.alt = item.dataset.label
+        ? `${item.dataset.label}${item.dataset.sub ? ', ' + item.dataset.sub : ''}`
+        : '';
       lbLabel.textContent = item.dataset.label || '';
       lbSub.textContent   = item.dataset.sub   || '';
       lbCnt.textContent   = `${idx + 1} / ${clickableItems.length}`;
       lbImg.classList.remove('fading');
-    }, 150);
+    };
+    next.src = item.dataset.src;
+
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
     document.getElementById('lb-close').focus();
+
+    preloadImg((idx + 1) % clickableItems.length);
+    preloadImg((idx - 1 + clickableItems.length) % clickableItems.length);
   }
 
   function closeLb() {
@@ -1263,17 +1351,37 @@
     });
   });
 
+  function showPrev() { openLb((currentIdx - 1 + clickableItems.length) % clickableItems.length); }
+  function showNext() { openLb((currentIdx + 1) % clickableItems.length); }
+
   document.getElementById('lb-close').addEventListener('click', closeLb);
-  document.getElementById('lb-prev').addEventListener('click', () => openLb((currentIdx - 1 + clickableItems.length) % clickableItems.length));
-  document.getElementById('lb-next').addEventListener('click', () => openLb((currentIdx + 1) % clickableItems.length));
+  document.getElementById('lb-prev').addEventListener('click', showPrev);
+  document.getElementById('lb-next').addEventListener('click', showNext);
 
   lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
     if (e.key === 'Escape')     closeLb();
-    if (e.key === 'ArrowLeft')  openLb((currentIdx - 1 + clickableItems.length) % clickableItems.length);
-    if (e.key === 'ArrowRight') openLb((currentIdx + 1) % clickableItems.length);
+    if (e.key === 'ArrowLeft')  showPrev();
+    if (e.key === 'ArrowRight') showNext();
   });
+
+  // Swipe (Touch): horizontal Wisch-Geste blättert wie die Pfeil-Buttons
+  let touchStartX = 0;
+  lb.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', e => {
+    const delta = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(delta) > 50) { delta < 0 ? showNext() : showPrev(); }
+  }, { passive: true });
+
+  /* ── Nach-oben-Button ───────────────────────────────────── */
+  const topBtn = document.getElementById('scroll-top-btn');
+  if (topBtn) {
+    window.addEventListener('scroll', () => {
+      topBtn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
 
 })();
 </script>
