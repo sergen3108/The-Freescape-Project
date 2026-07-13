@@ -6,6 +6,7 @@ typ: guide
 lesezeit: 9 min
 autor: Julia
 teaser: Weiße Sandstraßen, wilde Flamingos direkt am Ortsrand und kostenloses Schnorcheln mit Seelöwen, Rochen und sogar Pinguinen im Sonnenuntergang, sechs Nächte auf Isabela haben uns gezeigt, warum diese Insel die wilde Seele der Galápagos ist.
+bild: assets/img/blog/isabela2.JPEG
 bildEmoji: 🦩
 bildGradient: linear-gradient(135deg,#0a3d62,#ff6b9d)
 tags:
@@ -23,6 +24,8 @@ Wir haben sechs Nächte auf Isabela verbracht, für uns absolut perfekt. Man kö
 Für unsere Unterkunft haben wir uns für das **Cielo Azul Hotel** entschieden, ein kleines, familiengeführtes Haus etwas außerhalb des Ortszentrums. Die Zimmer waren groß, gefiltertes Trinkwasser wurde gestellt und das Frühstück war richtig lecker, dennoch war die Anlage während unseres Aufenthalts noch eine halbfertige Baustelle. Der Weg ins Zentrum dauert etwa zehn Minuten zu Fuß, und weil uns auf dem etwas abgelegeneren Weg ein paar bellende Straßenhunde gefolgt sind, würden wir uns beim nächsten Mal eher für ein Airbnb oder Hotel näher am Zentrum entscheiden. Wir empfehlen dringend, sich eine Unterkunft näher an der Hauptstraße zu suchen, damit der Nachtweg nach Hause angenehm bleibt.
 
 Die absoluten Highlights unserer Zeit hier drehten sich ums Wasser und die einzigartige lokale Tierwelt. Von der berühmten Los-Túneles-Tour über unglaubliche kostenlose Schnorchelspots direkt am Hauptpier bis hin zu wilden pinken Flamingos mitten im Ort, Isabela hat uns komplett umgehauen. In diesem Reiseführer zeigen wir dir, wie man die raue Fährüberfahrt übersteht, wo es die besten lokalen Strand-Snacks gibt, und wie man beeindruckende Tiere sieht, ohne einen einzigen Dollar auszugeben.
+
+![Sonnenuntergang am Strand von Isabela](assets/img/blog/isabela5.JPEG)
 
 ---
 
@@ -42,9 +45,15 @@ Für ein wunderschönes und komplett kostenloses Wildlife-Erlebnis direkt am Ort
 
 Für ein unabhängigeres Abenteuer haben wir 10 USD für die Tagesmiete von Fahrrädern bezahlt, um die **Muro de las Lágrimas** (Mauer der Tränen) zu besuchen. Beim Mieten unbedingt auf einen guten Verleih achten und die Bikes auf ihren Zustand prüfen, viele Standard-Leihräder auf der Insel haben defekte Gänge. Wir haben uns für Mountainbikes entschieden, eine ausgezeichnete Wahl, da sie uns erlaubt haben, flexibel durch das wechselnde Terrain und die sandigen Wege zu fahren. Die Mauer selbst hat eine sehr traurige Geschichte als ehemalige Strafkolonie, der Weg dorthin war aber wunderschön. Unterwegs haben wir eine wilde Riesenschildkröte direkt auf dem Pfad entdeckt, verschiedene Strände besucht, an denen wir Rochen und Meeresschildkröten gesehen haben, und zahlreiche einzigartige Vogelarten beobachtet.
 
+![Wilde Riesenschildkröte auf Isabela](assets/img/blog/isabela3.JPEG)
+
 Wer kostenloses Weltklasse-Schnorcheln sucht, muss unbedingt zur **Concha de la Perla**. Wir haben es so geliebt, dass wir in unserer Woche mehrmals zurückgekommen sind. Schon der Weg dorthin ist ein Highlight für sich, denn der Holzsteg ist übersät mit sonnenbadenden Meerechsen. Am Ziel führt ein Holzpier direkt ins Wasser, man muss also gar nicht weit hinausschwimmen, um mitten im Riffgeschehen zu sein. Es ist wirklich einer der besten Schnorchelspots, die wir je erlebt haben, wir konnten neben verspielten Seelöwen, Rochen und zahlreichen Schildkröten schwimmen. Am Pier gibt es Haken, um Taschen aufzuhängen, wir hatten zwar keine Probleme und alle haben ihre Sachen dort liegen lassen, wir empfehlen aber trotzdem, so wenig Wertsachen wie möglich mitzunehmen, um auf der sicheren Seite zu sein.
 
+![Meeresschildkröte beim Schnorcheln vor Isabela](assets/img/blog/isabela.JPEG)
+
 Ein ebenso beeindruckender Geheimtipp ist der öffentliche Strand direkt neben der Concha de la Perla, an dem auch die Fähren anlegen. Wir empfehlen dringend, genau zum Sonnenuntergang dorthin zu gehen, denn das ist die magische Stunde, in der alle Tiere zum Fressen zusammenkommen. Tagsüber liegen unzählige Seelöwen faul im Sand, bei Sonnenuntergang stürzen sie sich aber ins Wasser zur Jagd, und man kann direkt neben ihnen schwimmen. Bei unseren Sonnenuntergangs-Schnorchelgängen dort haben wir kleine Riffhaie, Meeresschildkröten und sogar Pinguine an uns vorbeischwimmen sehen, während Seevögel ringsum ins Wasser stürzten, um ihre Beute zu fangen. Es war einfach magisch und mit Abstand unser Lieblingsort auf der Insel. Tagsüber ist dieser Strand außerdem perfekt zum Entspannen, mit viel Schatten, kostenlosen öffentlichen Hängematten und sauberen Toiletten.
+
+![Seelöwe entspannt am Strand von Isabela](assets/img/blog/isabela4.JPEG)
 
 ---
 
@@ -75,6 +84,8 @@ Und logistisch gesehen: Immer Bargeld dabeihaben. Während Santa Cruz ein paar f
 ---
 
 ## Lohnt sich Isabela?
+
+![Blaufußtölpel auf Isabela](assets/img/blog/isabela1.JPEG)
 
 Auf jeden Fall. Isabela Island war ein absolutes Paradies und ist am Ende unser liebster Stopp im ganzen Archipel geworden.
 

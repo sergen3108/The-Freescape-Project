@@ -6,7 +6,7 @@ typ: guide
 lesezeit: 11 min
 autor: Julia
 teaser: Meerechsen auf dem Bürgersteig, Seelöwen auf der Hafenbank und Riesenschildkröten zum Greifen nah, sechs Nächte auf Santa Cruz haben uns gezeigt, dass man die Galápagos-Inseln auch unabhängig und mit Budget bereisen kann.
-bild: assets/img/galapagosbird1.JPEG
+bild: assets/img/blog/santacruz2.JPEG
 bildEmoji: 🐢
 bildGradient: linear-gradient(135deg,#0a3d62,#138a36)
 tags:
@@ -27,7 +27,7 @@ Eines unserer absoluten Highlights war der Spaziergang zur **Tortuga Bay**. Ein 
 
 In diesem Santa Cruz Reiseführer zeigen wir dir, wie man mit der strikten Flughafenlogistik umgeht, wo es die besten lokalen Snacks gibt, und wie man ein magisches Dinner über dem Wasser plant.
 
-![Galápagos](assets/img/galapagosbird1.JPEG)
+![Seelöwe auf einer Bank am Pier von Santa Cruz](assets/img/blog/santacruz.JPEG)
 
 ---
 
@@ -47,9 +47,15 @@ Santa Cruz bietet eine tolle Mischung aus kostenlosen Naturwundern und geführte
 
 Die **Tortuga Bay** ist einer der schönsten Strände, die wir je gesehen haben. Es gibt keinen Eintritt, man muss sich aber vor dem Spaziergang am Parkeingang registrieren. Der Weg dauert etwa 30 bis 45 Minuten ab Stadtzentrum, und der größte Teil davon liegt komplett in der Sonne, also unbedingt genug Wasser und Sonnencreme mitnehmen. Unterwegs erreicht man zuerst einen Strand, an dem die Strömung viel zu stark zum Schwimmen ist. Läuft man am Ufer weiter, erreicht man eine ruhige, geschützte Bucht, versteckt hinter Mangroven. Unglaublich friedlich, mit viel Schatten durch die Bäume. Wir hatten unsere Schnorchelausrüstung dabei, konnten vom Ufer aus aber nicht allzu viel unter Wasser sehen, ein gemietetes Kajak, um näher an die Mangroven zu paddeln, ist wahrscheinlich die bessere Option für Tierbeobachtungen. Trotzdem konnten wir beim Spazierengehen jede Menge Leguane und sogar kleine Haie im Flachwasser sehen.
 
+![Meerechse am Strand der Tortuga Bay](assets/img/blog/santacruz3.JPEG)
+
 Ein weiteres Muss ist die **Charles Darwin Research Station**. Die Ausstellungen im Museum kann man kostenlos auf eigene Faust erkunden, um die Riesenschildkröten zu sehen, braucht man aber einen Guide. Buchen kann man diesen nicht direkt im Zentrum, sondern an einer Station näher an der Hauptstraße auf dem Weg dorthin. Der Guide hat uns 10 USD gekostet und war es absolut wert, wir haben so viel über die Schutzprogramme und die Geschichte dieser beeindruckenden Tiere gelernt.
 
+![Riesenschildkröten in der Charles Darwin Research Station](assets/img/blog/santacruz4.JPEG)
+
 Wir haben außerdem **Las Grietas** besucht, eine beeindruckende vulkanische Felsspalte gefüllt mit kristallklarem Meerwasser. Dafür nimmt man ein Wassertaxi von der Hauptpromenade für 1 USD pro Strecke auf die andere Seite der Bucht und läuft von dort zum Eingang. Las Grietas darf man nur mit einem offiziellen Guide betreten, das kostet 10 USD. Im kühlen, klaren Wasser der Grotte zu schwimmen war unglaublich. Wegen der geführten Gruppen bekommt man nur eine Stunde im Wasser, was uns etwas mehr Zeit gewünscht hätte, aber es ist eine nachvollziehbare Art, wie der Park die Besucherzahlen steuert und die Umwelt schützt.
+
+![Schnorcheln in der Felsspalte von Las Grietas](assets/img/blog/santacruz5.JPEG)
 
 ---
 
@@ -69,6 +75,8 @@ Die Essensszene auf Santa Cruz hat uns positiv überrascht, es gibt großartige 
 
 Wer sich selbst etwas gönnen möchte, dem empfehlen wir ein besonderes Dinner bei **The Point by Midori**. Man sitzt auf einer schönen Terrasse direkt über dem Wasser, und das Tiererlebnis dort ist völlig surreal. Während wir gegessen haben, konnten wir direkt unter uns ins Meer schauen und Mantarochen, Haie und allerlei tropische Fische schwimmen sehen. Es ist etwas teurer als ein normales Insel-Dinner, war aber definitiv eines der Highlights unserer Reise und jeden Dollar wert. Unbedingt rechtzeitig reservieren, um einen Platz direkt am Wasser zu bekommen.
 
+![Sonnenuntergang über dem Hafen von Puerto Ayora](assets/img/blog/santacruz6.JPEG)
+
 Für Tage, an denen man aufs Budget achten möchte, hat die lokale Essensszene ein paar echte Geheimtipps zu bieten. Unsere absolute Geheimwaffe war der **Mercado Municipal**, wo wir die besten Empanadas unserer ganzen Reise gefunden haben, für gerade mal 1,50 USD pro Stück. Serviert mit frischen Saucen und einem Beilagensalat, dazu mehrere Füllungen zur Auswahl, auch gute vegetarische Optionen. Ehrlich gesagt hätten wir dort jeden Tag essen können.
 
 Für ein sättigendes, günstiges Abendessen lohnt sich der lokale **Menú del Día**. Im Restaurant **Servi Sabroson** bekommt man ein Getränk, eine Vorspeise und ein Hauptgericht für nur 5 bis 6 USD, mit Auswahl aus verschiedenen frischen Meeresfrüchte-Gerichten. Die ganze Straße rund um dieses Restaurant ist voll mit ähnlichen lokalen Ständen, die ein tolles Preis-Leistungs-Verhältnis bieten.
@@ -80,6 +88,8 @@ Wir haben außerdem ein paar schöne Orte zum Frühstücken und Abhängen entdec
 ## Praktische Reisetipps für Santa Cruz (Galápagos-Bürokratie)
 
 Die Galápagos-Inseln erfordern etwas bürokratische Vorbereitung, schon bevor man ins Flugzeug steigt. Es gibt vier wichtige Dinge, die man vorher unbedingt wissen sollte.
+
+![Eingang zum Galápagos-Nationalpark](assets/img/blog/santacruz1.JPEG)
 
 Erstens: Stand Mitte 2026 liegt der Eintritt für den Galápagos-Nationalpark bei 200 USD, bar zu zahlen direkt bei der Ankunft am Flughafen auf Santa Cruz. Zweitens muss man vor dem Flug online eine digitale Erklärung für die Transit Control Card ausfüllen, die zusätzlich 20 USD am Abflughafen in Quito kostet. Drittens muss das Gepäck in Quito vor dem Check-in einen strengen Bio-Sicherheits-Scan durchlaufen, um sicherzustellen, dass keine verbotenen organischen Materialien, Pflanzen oder Samen auf die Inseln gelangen. Und schließlich muss man bei der Einreisekontrolle zwingend einen Nachweis über ein Rückflugticket aus Galápagos vorzeigen, das sollte also griffbereit sein.
 
