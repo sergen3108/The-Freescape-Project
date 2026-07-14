@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Alle Links | The Freescape Project</title>
+  <meta name="description" content="Alle wichtigen Links von The Freescape Project an einem Ort: neuestes YouTube-Video, Blog, Live-Reisekarte, Galerie, Kontakt und mehr.">
+  <meta name="theme-color" content="#0a1520">
+  <link rel="canonical" href="https://thefreescapeproject.com/links.html">
+
+<!-- Open Graph / Social Media -->
+<meta property="og:type"         content="website">
+<meta property="og:site_name"    content="The Freescape Project">
+<meta property="og:url"          content="https://thefreescapeproject.com/links.html">
+<meta property="og:title"        content="The Freescape Project – Alle Links">
+<meta property="og:description"  content="Vlogs, Blog, Live-Reisekarte, Galerie &amp; mehr: alle wichtigen Links von Julia &amp; Sergen an einem Ort.">
+<meta property="og:image"        content="https://thefreescapeproject.com/assets/img/smallFujiFun.jpeg">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale"       content="de_DE">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="The Freescape Project – Alle Links">
+<meta name="twitter:description" content="Vlogs, Blog, Live-Reisekarte, Galerie &amp; mehr: alle wichtigen Links von Julia &amp; Sergen an einem Ort.">
+<meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/smallFujiFun.jpeg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "The Freescape Project",
+  "url": "https://thefreescapeproject.com/",
+  "logo": "https://thefreescapeproject.com/assets/img/LOGONEW.png",
+  "sameAs": [
+    "https://www.instagram.com/thefreescapeproject/",
+    "https://www.youtube.com/@TheFreescapeProject",
+    "https://www.tiktok.com/@freescapeproject",
+    "https://www.pinterest.com/thefreescapeproject/"
+  ]
+}
+</script>
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="stylesheet" href="style.css">
+<style>
+  html, body { background: var(--green-950); }
+
+  .lt-page {
+    position: relative;
+    min-height: 100dvh;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+  }
+
+  .lt-bg { position: fixed; inset: 0; z-index: 0; }
+  .lt-bg img {
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: 50% 38%;
+  }
+  .lt-bg-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: radial-gradient(circle, white 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  .lt-bg-overlay {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg, rgba(10,21,32,0.55) 0%, rgba(10,21,32,0.82) 45%, rgba(10,21,32,0.96) 100%),
+      radial-gradient(ellipse at 50% 0%, rgba(232,67,26,0.28), transparent 55%);
+  }
+
+  .lt-wrap {
+    position: relative; z-index: 1;
+    width: 100%; max-width: 460px; min-width: 0;
+    padding: max(2.75rem, env(safe-area-inset-top)) 1.25rem calc(2.5rem + env(safe-area-inset-bottom));
+    display: flex; flex-direction: column; align-items: center;
+  }
+
+  .lt-avatar-ring {
+    width: 96px; height: 96px; border-radius: 50%; padding: 3px;
+    background: linear-gradient(135deg, var(--gold), var(--terra-500));
+    box-shadow: var(--shadow-lg);
+    animation: lt-fade-in 0.6s ease forwards;
+  }
+  .lt-avatar {
+    width: 100%; height: 100%; border-radius: 50%;
+    object-fit: cover; object-position: 50% 25%;
+    border: 3px solid var(--green-950); display: block;
+  }
+
+  .lt-name {
+    font-family: var(--font-display); color: var(--white);
+    font-size: 1.6rem; font-weight: 700; text-align: center;
+    margin-top: 1.1rem;
+  }
+  .lt-tagline {
+    font-family: var(--font-nav); color: rgba(255,255,255,0.72);
+    font-size: clamp(0.8rem, 4vw, 1.2rem); text-align: center; margin-top: 0.35rem;
+    white-space: nowrap; width: 100%; min-width: 0; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  .lt-list { width: 100%; display: flex; flex-direction: column; gap: 0.7rem; margin-top: 1.75rem; }
+
+  .lt-btn {
+    display: flex; align-items: center; gap: 0.9rem; width: 100%;
+    padding: 0.85rem 1.1rem; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.14); border-radius: var(--r-lg);
+    backdrop-filter: blur(10px);
+    text-decoration: none; -webkit-tap-highlight-color: transparent;
+    transition: transform var(--t-fast), background var(--t-fast), border-color var(--t-fast);
+    opacity: 0; transform: translateY(12px);
+    animation: lt-fade-in 0.55s ease forwards;
+  }
+  .lt-btn:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
+  .lt-btn:active { transform: scale(0.97); }
+
+
+  .lt-btn__icon {
+    flex-shrink: 0; width: 2.4rem; height: 2.4rem; border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .lt-btn__icon svg { width: 19px; height: 19px; color: var(--white); }
+
+  .lt-btn__text { flex: 1; min-width: 0; }
+  .lt-btn__title {
+    display: block; font-family: var(--font-nav); font-weight: 600;
+    color: var(--white); font-size: 1.08rem; line-height: 1.25;
+  }
+  .lt-btn__sub {
+    display: block; font-family: var(--font-nav); color: rgba(255,255,255,0.58);
+    font-size: 0.82rem; margin-top: 0.15rem;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .lt-btn__arrow { flex-shrink: 0; color: rgba(255,255,255,0.4); }
+  .lt-btn__arrow svg { width: 18px; height: 18px; }
+
+  .lt-list .lt-btn:nth-child(1) { animation-delay: 0.05s; }
+  .lt-list .lt-btn:nth-child(2) { animation-delay: 0.10s; }
+  .lt-list .lt-btn:nth-child(3) { animation-delay: 0.15s; }
+  .lt-list .lt-btn:nth-child(4) { animation-delay: 0.20s; }
+  .lt-list .lt-btn:nth-child(5) { animation-delay: 0.25s; }
+  .lt-list .lt-btn:nth-child(6) { animation-delay: 0.30s; }
+  .lt-list .lt-btn:nth-child(7) { animation-delay: 0.35s; }
+  .lt-list .lt-btn:nth-child(8) { animation-delay: 0.40s; }
+
+  .lt-social { display: flex; gap: 0.75rem; margin-top: 2.1rem; flex-wrap: wrap; justify-content: center; }
+  .lt-social-link {
+    width: 2.9rem; height: 2.9rem; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+    color: var(--white); transition: transform var(--t-fast), background var(--t-fast);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lt-social-link:hover { transform: translateY(-3px); background: rgba(255,255,255,0.18); }
+  .lt-social-link:active { transform: scale(0.93); }
+  .lt-social-link svg { width: 19px; height: 19px; }
+
+  .lt-footer { margin-top: 2.5rem; text-align: center; }
+  .lt-footer p { font-family: var(--font-nav); color: rgba(255,255,255,0.4); font-size: 0.78rem; line-height: 1.8; }
+  .lt-footer a { color: rgba(255,255,255,0.6); text-decoration: underline; }
+  .lt-footer a:hover { color: var(--white); }
+
+  @keyframes lt-fade-in { to { opacity: 1; transform: translateY(0); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lt-avatar-ring, .lt-btn { animation: none; opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lt-page">
+  <div class="lt-bg" aria-hidden="true">
+    <img src="assets/img/blog/sanandres7.jpg" alt="">
+    <div class="lt-bg-pattern"></div>
+    <div class="lt-bg-overlay"></div>
+  </div>
+
+  <div class="lt-wrap">
+
+    <a href="index.html" class="lt-avatar-ring" aria-label="Zur Startseite">
+      <img src="assets/img/Japantogether.jpg" alt="Julia &amp; Sergen" class="lt-avatar">
+    </a>
+    <h1 class="lt-name">The Freescape Project</h1>
+    <p class="lt-tagline">Julia &amp; Sergen · Ein Jahr durch Südamerika 🌎</p>
+
+    <nav class="lt-list" aria-label="Wichtige Links">
+
+      <a href="index.html" class="lt-btn">
+        <span class="lt-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+        <span class="lt-btn__text">
+          <span class="lt-btn__title">Zur Website</span>
+          <span class="lt-btn__sub">Startseite &amp; alle Infos</span>
+        </span>
+        <span class="lt-btn__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+
+      <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="lt-btn" id="lt-latest-video">
+        <span class="lt-btn__icon"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
+        <span class="lt-btn__text">
+          <span class="lt-btn__title">Neuestes Video ansehen</span>
+          <span class="lt-btn__sub" id="lt-latest-video-sub">YouTube · The Freescape Project</span>
+        </span>
+        <span class="lt-btn__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+
+      <a href="blog.html" class="lt-btn">
+        <span class="lt-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+        <span class="lt-btn__text">
+          <span class="lt-btn__title">Reiseblog</span>
+          <span class="lt-btn__sub">Guides, Kosten-Checks &amp; Erfahrungen</span>
+        </span>
+        <span class="lt-btn__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+
+      <a href="karte.html" class="lt-btn">
+        <span class="lt-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <span class="lt-btn__text">
+          <span class="lt-btn__title">Live-Reisekarte</span>
+          <span class="lt-btn__sub">Unsere Route &amp; aktueller Standort</span>
+        </span>
+        <span class="lt-btn__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+
+      <a href="laender.html" class="lt-btn">
+        <span class="lt-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
+        <span class="lt-btn__text">
+          <span class="lt-btn__title">Länder-Guides</span>
+          <span class="lt-btn__sub">Kolumbien · Ecuador · Peru</span>
+        </span>
+        <span class="lt-btn__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+
+      <a href="galerie.html" class="lt-btn">
+        <span class="lt-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
+        <span class="lt-btn__text">
+          <span class="lt-btn__title">Foto-Galerie</span>
+          <span class="lt-btn__sub">Unsere schönsten Momente</span>
+        </span>
+        <span class="lt-btn__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+
+      <a href="ueber-uns.html" class="lt-btn">
+        <span class="lt-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+        <span class="lt-btn__text">
+          <span class="lt-btn__title">Über uns</span>
+          <span class="lt-btn__sub">Wer wir sind &amp; warum wir reisen</span>
+        </span>
+        <span class="lt-btn__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+
+      <a href="kontakt.html" class="lt-btn">
+        <span class="lt-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg></span>
+        <span class="lt-btn__text">
+          <span class="lt-btn__title">Kontakt &amp; Kooperationen</span>
+          <span class="lt-btn__sub">Fragen, Presse &amp; Zusammenarbeit</span>
+        </span>
+        <span class="lt-btn__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
+      </a>
+
+    </nav>
+
+    <div class="lt-social">
+      <a href="https://www.instagram.com/thefreescapeproject/" target="_blank" rel="noopener" class="lt-social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="lt-social-link" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@freescapeproject" target="_blank" rel="noopener" class="lt-social-link" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1 0-5.78c.27 0 .54.04.8.1v-3.5a6.37 6.37 0 0 0-.8-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.71a8.21 8.21 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.14z"/></svg>
+      </a>
+      <a href="https://www.pinterest.com/thefreescapeproject/" target="_blank" rel="noopener" class="lt-social-link" aria-label="Pinterest">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345c-.091.379-.293 1.194-.333 1.361-.052.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+      </a>
+      <a href="mailto:info@thefreescapeproject.com" class="lt-social-link" aria-label="E-Mail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+      </a>
+    </div>
+
+    <div class="lt-footer">
+      <p>© 2026 The Freescape Project – Julia &amp; Sergen<br>
+      <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+    </div>
+
+  </div>
+</div>
+
+<script src="vlog-utils.js"></script>
+<script>
+  (async function () {
+    var linkEl = document.getElementById('lt-latest-video');
+    var subEl  = document.getElementById('lt-latest-video-sub');
+    try {
+      var res = await fetch('vlogs-data.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('Daten nicht verfuegbar');
+      var data = await res.json();
+      var videos = (data.videos || []).filter(function (v) {
+        return !(window.VlogUtils && window.VlogUtils.isShort(v));
+      });
+      if (videos.length) {
+        var v = videos[0];
+        linkEl.href = 'https://www.youtube.com/watch?v=' + v.id;
+        if (subEl) subEl.textContent = v.title.length > 46 ? v.title.slice(0, 46).trim() + '…' : v.title;
+      }
+    } catch (e) {
+      console.warn('Neuestes Video konnte nicht geladen werden:', e);
+    }
+  })();
+</script>
+
+</body>
+</html>
