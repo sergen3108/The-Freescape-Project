@@ -2261,10 +2261,12 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   }
 }
 
-/* "Passendes Video"-Teaser (artikel.html): bei den schmalsten Phones (≤420px)
-   bleibt dem Titel neben dem festen 150px-Thumb kaum noch Platz. Thumb und
-   Abstaende verkleinern schafft wieder genug Raum fuer den 2-zeiligen Titel. */
-@media (max-width: 420px) {
+/* "Passendes Video"-Teaser (artikel.html): der feste 150px-Thumb wirkt auf
+   Phone-Breiten zu breit/klobig. Breite an die Stats-Bar-Phone-Schwelle
+   (480px, siehe oben) angleichen statt nur die schmalsten Geraete (vorher
+   420px) abzudecken, da sonst z.B. iPhone Pro Max (~430px) den vollen
+   150px-Thumb behaelt. */
+@media (max-width: 480px) {
   .artikel-body .video-teaser { gap: 0.75rem; padding: 0.75rem; }
   .video-teaser__thumb { width: 100px; }
   .video-teaser__title { font-size: 0.88rem; }
