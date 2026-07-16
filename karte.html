@@ -323,7 +323,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;">Nazca → Cusco → Machu Picchu. Wir sind gespannt! 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;">Cusco → Machu Picchu. Wir sind gespannt! 🙌</p>
         </div>
 
       </div>
@@ -484,7 +484,8 @@ const ROUTE = [
   { type: "land",   coords: [[-3.5050,-80.7500],[-4.1076,-81.0472],[-8.0762,-79.1197],[-8.1116,-79.0288],[-9.5277,-77.5286]] },
   { type: "land",   coords: [[-9.5277,-77.5286],[-12.0464,-77.0428]] },
   { type: "land",   coords: [[-12.0464,-77.0428],[-13.8449,-76.2542]] },
-  { type: "next",   coords: [[-13.8449,-76.2542],[-14.0650,-75.7302],[-14.8383,-74.9399],[-13.5170,-71.9785],[-13.1631,-72.5450]] },
+  { type: "land",   coords: [[-13.8449,-76.2542],[-14.0650,-75.7302],[-14.8383,-74.9399]] },
+  { type: "next",   coords: [[-14.8383,-74.9399],[-13.5170,-71.9785],[-13.1631,-72.5450]] },
 ];
 
 const ROUTE_STYLES = {
@@ -507,7 +508,7 @@ function initMap() {
   placeholder.style.display = 'none';
   mapEl.style.display = '';
 
-  var map = L.map('map', { center: MAP_CENTER, zoom: MAP_ZOOM, scrollWheelZoom: false });
+  var map = L.map('map', { center: MAP_CENTER, zoom: MAP_ZOOM, scrollWheelZoom: false, zoomSnap: 0, zoomAnimation: true });
 
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
@@ -519,6 +520,40 @@ function initMap() {
     var s = ROUTE_STYLES[segment.type];
     L.polyline(segment.coords, { color: s.color, weight: s.weight, opacity: s.opacity, dashArray: s.dashArray, lineJoin: 'round', lineCap: 'round' }).addTo(map);
   });
+
+  // Pinch-Zoom per Touchpad: Trackpad-Pinch-Gesten lösen im Browser ein
+  // wheel-Event mit ctrlKey=true aus. Normales Zwei-Finger-Scrollen (ohne
+  // ctrlKey) bleibt Seiten-Scroll, damit die Karte den Seitenscroll nicht blockiert.
+  //
+  // Eine Pinch-Geste feuert auf manchen Trackpads sehr viele wheel-Events
+  // pro Sekunde. setZoomAround löst dabei jedes Mal eine volle Neuberechnung
+  // der Karte aus (Tiles, Marker, Linien neu positionieren) – ruft man das
+  // bei jedem einzelnen Event auf, ruckelt es. Deshalb werden alle Ticks
+  // innerhalb eines Animationsframes zu einem Ziel-Zoom aufsummiert und nur
+  // einmal pro Frame (~60fps) angewendet. zoomSnap:0 (oben) sorgt zusätzlich
+  // dafür, dass jede Zwischenstufe erlaubt ist, statt auf feste Level zu springen.
+  var pendingZoom  = null;
+  var pendingPoint = null;
+  var zoomFrameId  = null;
+
+  function applyPendingZoom() {
+    zoomFrameId = null;
+    if (pendingZoom === null) return;
+    map.setZoomAround(pendingPoint, pendingZoom, { animate: false });
+    pendingZoom = null;
+  }
+
+  mapEl.addEventListener('wheel', function(e) {
+    if (!e.ctrlKey) return;
+    e.preventDefault();
+
+    var base  = pendingZoom !== null ? pendingZoom : map.getZoom();
+    var delta = Math.max(-0.15, Math.min(0.15, -e.deltaY * 0.01));
+    pendingZoom  = Math.max(map.getMinZoom(), Math.min(map.getMaxZoom(), base + delta));
+    pendingPoint = map.mouseEventToContainerPoint(e);
+
+    if (!zoomFrameId) zoomFrameId = requestAnimationFrame(applyPendingZoom);
+  }, { passive: false });
 
   // Pins setzen
   pins.forEach(function(pin) {
@@ -541,8 +576,11 @@ function initMap() {
       '</div>', { maxWidth: 240 });
 
     if (pin.status === 'current') {
+      // Puls-Ring ist rein dekorativ; interactive:false, damit Klicks auf
+      // den Pin weiterhin dessen Popup öffnen statt am Ring abzuprallen.
       L.circleMarker([pin.lat, pin.lng], {
-        radius: 20, fillColor: color, color: color, weight: 1.5, opacity: 0.25, fillOpacity: 0.1
+        radius: 20, fillColor: color, color: color, weight: 1.5, opacity: 0.25, fillOpacity: 0.1,
+        interactive: false
       }).addTo(map);
     }
   });
