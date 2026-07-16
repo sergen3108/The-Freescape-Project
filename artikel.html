@@ -658,12 +658,14 @@
         const video = window.VlogUtils.findMatchingVideo({ land: land, tags: tags }, data.videos || []);
         if (!video) return;
         box.innerHTML =
-          '<a href="https://www.youtube.com/watch?v=' + video.id + '" target="_blank" rel="noopener" ' +
-          'style="display:flex;gap:1rem;align-items:center;margin-top:2rem;padding:1rem;background:var(--sand-50);border-radius:var(--r-lg);text-decoration:none;color:inherit;">' +
-            (video.thumb ? '<img src="' + video.thumb + '" alt="" loading="lazy" style="width:120px;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-md,8px);flex-shrink:0;">' : '') +
-            '<span>' +
-              '<span style="display:block;font-size:0.72rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.3rem;">▶ Passendes Video</span>' +
-              '<span style="display:block;font-size:0.95rem;font-weight:600;line-height:1.4;">' + escapeHtml(video.title) + '</span>' +
+          '<a href="https://www.youtube.com/watch?v=' + video.id + '" target="_blank" rel="noopener" class="video-teaser">' +
+            '<span class="video-teaser__thumb">' +
+              (video.thumb ? '<img src="' + video.thumb + '" alt="" loading="lazy">' : '') +
+              '<span class="video-teaser__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>' +
+            '</span>' +
+            '<span class="video-teaser__body">' +
+              '<span class="video-teaser__label">▶ Passendes Video</span>' +
+              '<span class="video-teaser__title">' + escapeHtml(video.title) + '</span>' +
             '</span>' +
           '</a>';
       })
