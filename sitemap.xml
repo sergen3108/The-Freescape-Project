@@ -86,69 +86,9 @@
        ✏️ Bei jedem neuen Blog-Post hier eine weitere <url> ergänzen.
   ═══════════════════════════════════════════════ -->
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=bogota-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/artikel.html?post=isabela-island-galapagos-reisefuehrer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=costeno-rio-hostel-reisefuehrer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=guatape-reisefuehrer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=medellin-reisefuehrer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=minca-reisefuehrer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=salento-reisefuehrer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=san-andres-reisefuehrer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=santa-marta-reisefuehrer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=quito-reisefuehrer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=banos-reisefuehrer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=cotopaxi-reisefuehrer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=quilotoa-reisefuehrer</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=kolumbien-reiseroute</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thefreescapeproject.com/artikel.html?post=tayrona-reisefuehrer</loc>
@@ -171,7 +111,67 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=isabela-island-galapagos-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/artikel.html?post=san-andres-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=guatape-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=santa-marta-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=minca-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=costeno-rio-hostel-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=medellin-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=banos-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=quilotoa-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=cotopaxi-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=quito-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=salento-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=kolumbien-reiseroute</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=bogota-reisefuehrer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
