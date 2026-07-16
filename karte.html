@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a1520">
   <title>Reisekarte | The Freescape Project</title>
   <meta name="description" content="Verfolge unsere Route in Echtzeit: alle besuchten Orte, die aktuelle Position und was noch kommt.">
   
@@ -14,8 +15,8 @@
   <meta property="og:title"        content="Reisekarte – Live-Reisestatus | The Freescape Project">
   <meta property="og:description"  content="Verfolge unsere Route in Echtzeit: alle besuchten Orte, die aktuelle Position und was noch kommt.">
   <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/blog/sanandres8.jpg">
-  <meta property="og:image:width"  content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image:width"  content="1920">
+  <meta property="og:image:height" content="1080">
   <meta property="og:locale"       content="de_DE">
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Reisekarte – Live-Reisestatus | The Freescape Project">
@@ -323,7 +324,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;">Cusco → Machu Picchu. Wir sind gespannt! 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Weiter Richtung Cusco/Machu Picchu! Wir sind gespannt 🙌</p>
         </div>
 
       </div>
@@ -444,7 +445,8 @@ const pins = [
   { lat: -1.4594, lng: -78.4243, status: "visited", name: "Baños",                desc: "Wasserfälle, Adrenalin-Aktivitäten und heiße Quellen am Fuß des Tungurahua.",                      link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: -2.1333, lng: -75.9833, status: "visited", name: "Amazonas",             desc: "4 Tage mitten im Regenwald, Wildlife, Stille und ein Erlebnis für's Leben.",                       link: "blog.html", linkText: "Zum Blogartikel" },
   // ── GALAPAGOS ─────────────────────────────────────────
-  { lat: -0.9538, lng: -90.9656, status: "visited", name: "Galapagos",            desc: "3 Wochen Insel-Hopping mit Seelöwen, Riesenschildkröten und Blaufußtölpeln.",                      link: "blog.html", linkText: "Zum Kosten-Check" },
+  { lat: -0.7393, lng: -90.3518, status: "visited", name: "Santa Cruz (Galápagos)", desc: "Riesenschildkröten, Puerto Ayora und Ausgangspunkt für die Inseln.",                              link: "blog.html", linkText: "Zum Blogartikel" },
+  { lat: -0.9538, lng: -90.9656, status: "visited", name: "Isabela (Galápagos)",  desc: "Flamingos, Pinguine und Schnorcheln mit Seelöwen und Rochen.",                                     link: "blog.html", linkText: "Zum Blogartikel" },
   { lat: -2.9001, lng: -79.0059, status: "visited", name: "Cuenca",               desc: "Koloniales Juwel im Süden Ecuadors mit UNESCO-Altstadt.",                                          link: "blog.html", linkText: "Zum Blogartikel" },
   // ── PERU ──────────────────────────────────────────────
   { lat: -4.1076,  lng: -81.0472, status: "visited", name: "Máncora",              desc: "Strand, Surfen und Backpacker-Vibes an Perus Nordküste.",                                          link: "blog.html", linkText: "Zum Blogartikel" },

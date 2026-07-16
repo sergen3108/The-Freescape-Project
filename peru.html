@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a1520">
   <title>Peru Backpacking: Route, Highlights und Kosten | The Freescape Project</title>
   <meta name="description" content="Unsere Peru-Route von Máncora ueber Huaraz bis Lima. Highlights, Orte, alle Vlogs und Blog-Artikel aus Peru, ehrlich und direkt von unterwegs.">
 
@@ -16,8 +17,8 @@
   <meta property="og:description"  content="Unsere Peru-Route von Máncora ueber Huaraz bis Lima. Highlights, Orte, alle Vlogs und Blog-Artikel aus Peru.">
   <!-- TODO Sergen: eigenes 1200x630 OG-Bild anlegen (assets/img/og-peru.jpg) und hier eintragen. Vorlaeufig ein vorhandenes lokales Bild. -->
   <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/IMG_2934.JPEG">
-  <meta property="og:image:width"  content="2364">
-  <meta property="og:image:height" content="1330">
+  <meta property="og:image:width"  content="1920">
+  <meta property="og:image:height" content="1080">
   <meta property="og:locale"       content="de_DE">
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:title"       content="Peru Backpacking: Route, Highlights und Kosten | The Freescape Project">
@@ -186,7 +187,7 @@
   <div class="container">
     <div class="stats-bar__grid stats-bar__grid--4col">
       <div class="stats-bar__item animate-on-scroll">
-        <div class="stats-bar__number" data-count="5">0</div>
+        <div class="stats-bar__number" data-count="7">0</div>
         <div class="stats-bar__label">Orte besucht</div>
       </div>
       <div class="stats-bar__item animate-on-scroll animate-delay-1">
@@ -236,11 +237,25 @@
       <a class="ort-chip" data-ort="Lima"><strong>Lima</strong><span>Miraflores, Barranco und Ceviche</span><span class="ort-chip__hint">Mehr im Blog</span></a>
       <a class="ort-chip" data-ort="Paracas"><strong>Paracas</strong><span>Islas Ballestas, Nationalpark und Wüste am Meer</span><span class="ort-chip__hint">Mehr im Blog</span></a>
       <a class="ort-chip" data-ort="Huacachina"><strong>Huacachina</strong><span>Oase in der Wüste, Sandboarding und Dünen</span><span class="ort-chip__hint">Mehr im Blog</span></a>
-      <a class="ort-chip" style="opacity:0.55;" data-ort="Nazca"><strong>Nazca</strong><span>Bald</span><span class="ort-chip__hint">Mehr im Blog</span></a>
+      <a class="ort-chip ort-chip--current" data-ort="Nazca"><strong>Nazca</strong><span>Aktuell hier · Nazca-Linien</span><span class="ort-chip__hint">Mehr im Blog</span></a>
       <a class="ort-chip" style="opacity:0.55;" data-ort="Cusco"><strong>Cusco</strong><span>Bald</span><span class="ort-chip__hint">Mehr im Blog</span></a>
       <a class="ort-chip" style="opacity:0.55;" data-ort="Machu Picchu"><strong>Machu Picchu</strong><span>Bald</span><span class="ort-chip__hint">Mehr im Blog</span></a>
       <a class="ort-chip" style="opacity:0.55;" data-ort="Titicacasee"><strong>Titicacasee</strong><span>Bald</span><span class="ort-chip__hint">Mehr im Blog</span></a>
     </div>
+
+    <h3 style="margin-top:2.5rem;">Praktische Infos für Peru</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem;">
+      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
+        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">☀️ Beste Reisezeit</p>
+        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Perus Küste (u.a. Lima) ist ganzjährig mild und trocken. Für das Hochland rund um Cusco und Machu Picchu ist die Trockenzeit von Mai bis September die beliebteste Reisezeit; in der Regenzeit von Dezember bis März können Wege schwieriger und manche Touren eingeschränkt sein. Der Amazonas-Regenwald ist ganzjährig feucht und warm.</p>
+      </div>
+      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
+        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">🚌 Fortbewegung</p>
+        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Fernbusse (z.B. Cruz del Sur) sind komfortabel und decken die Küste gut ab, für weite Strecken wie Lima–Cusco lohnt sich meist ein Inlandsflug. Nach Machu Picchu geht es mit dem Zug (PeruRail/IncaRail) oder zu Fuß auf dem Inka-Trail.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:2rem;"><a href="galerie.html#peru" class="btn btn-outline">📷 Peru-Fotos in der Galerie ansehen →</a></p>
   </div>
 </section>
 
@@ -487,7 +502,7 @@
     var delay = ['', 'animate-delay-1', 'animate-delay-2'][i % 3];
     var ort = window.VlogUtils ? window.VlogUtils.detectOrt(v.description) : null;
     var desc = (v.description || '').slice(0, 120).trim();
-    return '<article class="vlog-card ' + delay + '">' +
+    return '<article class="vlog-card ' + delay + '" data-video-id="' + v.id + '">' +
       '<div class="vlog-card__thumb">' +
         '<a href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener" style="display:block;position:relative;">' + buildThumb(v) + '</a>' +
       '</div>' +
@@ -500,9 +515,27 @@
         '<p class="vlog-card__desc">' + desc + (desc.length >= 120 ? '…' : '') + '</p>' +
         '<div class="vlog-card__footer">' +
           '<a href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a>' +
+          '<span class="vlog-card__blog-link"></span>' +
         '</div>' +
       '</div>' +
     '</article>';
+  }
+
+  // Traegt nachtraeglich einen "Zum Blogartikel"-Link in die Vlog-Karten ein,
+  // sobald window.BLOG_POSTS geladen ist (laeuft parallel zu den Vlogs, daher
+  // getrennt statt den Vlog-Render zu blockieren).
+  function enrichVlogCardsWithBlogLinks(videos) {
+    function apply(posts) {
+      if (!posts || !posts.length || !window.VlogUtils) return;
+      videos.forEach(function (v) {
+        var post = window.VlogUtils.findMatchingPost(v, posts);
+        if (!post) return;
+        var el = document.querySelector('.vlog-card[data-video-id="' + v.id + '"] .vlog-card__blog-link');
+        if (el) el.innerHTML = ' · <a href="' + post.link + '" class="vlog-card__watch">Zum Blogartikel →</a>';
+      });
+    }
+    if (window.BLOG_POSTS) apply(window.BLOG_POSTS);
+    else document.addEventListener('blogPostsReady', function () { apply(window.BLOG_POSTS || []); }, { once: true });
   }
 
   function loadVlogs() {
@@ -542,6 +575,8 @@
           shortsGrid.querySelectorAll('.vlog-card').forEach(function (el) { el.classList.add('visible'); });
           shortsTab.style.display = '';
         }
+
+        enrichVlogCardsWithBlogLinks(mine);
       })
       .catch(function (err) {
         console.error('[peru] Vlogs konnten nicht geladen werden:', err);

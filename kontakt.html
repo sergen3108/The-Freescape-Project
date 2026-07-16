@@ -2,7 +2,8 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt & Kooperationen | The Freescape Project</title>
+  <meta name="theme-color" content="#0a1520">
+  <title>Kontakt &amp; Kooperationen | The Freescape Project</title>
   <meta name="description" content="Fragen zur Reise, Kooperationsanfragen oder einfach Hallo sagen, wir freuen uns über jede Nachricht.">
   
   <link rel="canonical" href="https://thefreescapeproject.com/kontakt.html">
@@ -10,14 +11,14 @@
   <meta property="og:type"         content="website">
   <meta property="og:site_name"    content="The Freescape Project">
   <meta property="og:url"          content="https://thefreescapeproject.com/kontakt.html">
-  <meta property="og:title"        content="Kontakt & Kooperationen | The Freescape Project">
+  <meta property="og:title"        content="Kontakt &amp; Kooperationen | The Freescape Project">
   <meta property="og:description"  content="Fragen zur Reise, Kooperationsanfragen oder einfach Hallo sagen, wir freuen uns über jede Nachricht.">
   <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/FujiFun.jpeg">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale"       content="de_DE">
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Kontakt & Kooperationen | The Freescape Project">
+  <meta name="twitter:title"       content="Kontakt &amp; Kooperationen | The Freescape Project">
   <meta name="twitter:description" content="Fragen zur Reise, Kooperationsanfragen oder einfach Hallo sagen, wir freuen uns über jede Nachricht.">
   <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/FujiFun.jpeg">
 
@@ -402,6 +403,11 @@
         <div class="koop-box">
           <h3>Kooperationen</h3>
           <p>Wir sind offen für Kooperationen, die zu unserem authentischen Reisestil passen. Keine Werbung, die sich nach Werbung anfühlt, nur Empfehlungen, hinter denen wir wirklich stehen.</p>
+          <div style="display:flex;gap:1.5rem;margin:1rem 0 1.25rem;flex-wrap:wrap;">
+            <div><strong id="koop-stat-views" style="display:block;font-size:1.3rem;color:var(--terra-600);">–</strong><span style="font-size:0.72rem;color:var(--gray-500);">Aufrufe auf YouTube</span></div>
+            <div><strong id="koop-stat-videos" style="display:block;font-size:1.3rem;color:var(--terra-600);">–</strong><span style="font-size:0.72rem;color:var(--gray-500);">Videos</span></div>
+            <div><strong id="koop-stat-subs" style="display:block;font-size:1.3rem;color:var(--terra-600);">–</strong><span style="font-size:0.72rem;color:var(--gray-500);">Abonnenten</span></div>
+          </div>
           <div class="koop-list">
             <div class="koop-list-item"><span class="koop-list-dot"></span>Reiseausrüstung &amp; Gear</div>
             <div class="koop-list-item"><span class="koop-list-dot"></span>Unterkünfte &amp; Hostels</div>
@@ -527,6 +533,27 @@
       btn.disabled    = false;
     });
   }
+
+  // ── Live-Reichweite fuer die Kooperationen-Box (aus vlogs-data.json) ──
+  (async function () {
+    try {
+      const res = await fetch('vlogs-data.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('Daten nicht verfuegbar');
+      const data = await res.json();
+      const set = (id, value) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.setAttribute('data-count', value);
+        el.textContent = '0';
+      };
+      set('koop-stat-views',  data.stats.viewCount);
+      set('koop-stat-videos', data.stats.videoCount);
+      set('koop-stat-subs',   data.stats.subscriberCount);
+      if (window.observeCounters) window.observeCounters();
+    } catch (err) {
+      // Stille Degradierung: Bindestriche bleiben stehen, keine Fehlermeldung noetig.
+    }
+  })();
 </script>
 
 </body>

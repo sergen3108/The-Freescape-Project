@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a1520">
   <title>Kolumbien Backpacking: Route, Highlights und Kosten | The Freescape Project</title>
   <meta name="description" content="Unsere Kolumbien-Route von Bogotá ueber Medellín und die Kaffeeregion bis an die Karibikkueste. Highlights, Orte, alle Vlogs und Blog-Artikel aus Kolumbien.">
 
@@ -235,6 +236,20 @@
       <a class="ort-chip" data-ort="Costeño Beach"><strong>Costeño Beach</strong><span>Strand mitten im Dschungel</span><span class="ort-chip__hint">Mehr im Blog</span></a>
       <a class="ort-chip" data-ort="Palomino"><strong>Palomino</strong><span>Karibik und Backpacker-Vibes</span><span class="ort-chip__hint">Mehr im Blog</span></a>
     </div>
+
+    <h3 style="margin-top:2.5rem;">Praktische Infos für Kolumbien</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem;">
+      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
+        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">☀️ Beste Reisezeit</p>
+        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Kolumbien liegt nah am Äquator, daher schwankt das Klima übers Jahr kaum, wohl aber je nach Höhenlage: Karibikküste ganzjährig heiß, Bogotá und die Anden spürbar kühler. Die trockeneren Monate Dezember bis März und Juli/August eignen sich meist am besten, besonders für Kaffeeregion und Karibikküste.</p>
+      </div>
+      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
+        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">🚌 Fortbewegung</p>
+        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Fernbusse verbinden die großen Städte gut und günstig. Für weite Strecken wie Bogotá–Karibikküste lohnt sich oft ein Inlandsflug (z.B. Avianca, Wingo). In den Städten sind Uber und Taxis verbreitet.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:2rem;"><a href="galerie.html#kolumbien" class="btn btn-outline">📷 Kolumbien-Fotos in der Galerie ansehen →</a></p>
   </div>
 </section>
 
@@ -479,7 +494,7 @@
     var delay = ['', 'animate-delay-1', 'animate-delay-2'][i % 3];
     var ort = window.VlogUtils ? window.VlogUtils.detectOrt(v.description) : null;
     var desc = (v.description || '').slice(0, 120).trim();
-    return '<article class="vlog-card ' + delay + '">' +
+    return '<article class="vlog-card ' + delay + '" data-video-id="' + v.id + '">' +
       '<div class="vlog-card__thumb">' +
         '<a href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener" style="display:block;position:relative;">' + buildThumb(v) + '</a>' +
       '</div>' +
@@ -492,9 +507,27 @@
         '<p class="vlog-card__desc">' + desc + (desc.length >= 120 ? '…' : '') + '</p>' +
         '<div class="vlog-card__footer">' +
           '<a href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a>' +
+          '<span class="vlog-card__blog-link"></span>' +
         '</div>' +
       '</div>' +
     '</article>';
+  }
+
+  // Traegt nachtraeglich einen "Zum Blogartikel"-Link in die Vlog-Karten ein,
+  // sobald window.BLOG_POSTS geladen ist (laeuft parallel zu den Vlogs, daher
+  // getrennt statt den Vlog-Render zu blockieren).
+  function enrichVlogCardsWithBlogLinks(videos) {
+    function apply(posts) {
+      if (!posts || !posts.length || !window.VlogUtils) return;
+      videos.forEach(function (v) {
+        var post = window.VlogUtils.findMatchingPost(v, posts);
+        if (!post) return;
+        var el = document.querySelector('.vlog-card[data-video-id="' + v.id + '"] .vlog-card__blog-link');
+        if (el) el.innerHTML = ' · <a href="' + post.link + '" class="vlog-card__watch">Zum Blogartikel →</a>';
+      });
+    }
+    if (window.BLOG_POSTS) apply(window.BLOG_POSTS);
+    else document.addEventListener('blogPostsReady', function () { apply(window.BLOG_POSTS || []); }, { once: true });
   }
 
   function loadVlogs() {
@@ -534,6 +567,8 @@
           shortsGrid.querySelectorAll('.vlog-card').forEach(function (el) { el.classList.add('visible'); });
           shortsTab.style.display = '';
         }
+
+        enrichVlogCardsWithBlogLinks(mine);
       })
       .catch(function (err) {
         console.error('[kolumbien] Vlogs konnten nicht geladen werden:', err);

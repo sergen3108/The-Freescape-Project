@@ -2,11 +2,13 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog & Reisemagazin | The Freescape Project</title>
+  <meta name="theme-color" content="#0a1520">
+  <title>Blog &amp; Reisemagazin | The Freescape Project</title>
   <meta name="description" content="Ehrliche Reiseberichte, Routen-Guides und Kosten-Checks für Kolumbien, Ecuador und Peru.">
 
  <link rel="canonical" href="https://thefreescapeproject.com/blog.html">
-  
+ <link rel="alternate" type="application/rss+xml" title="The Freescape Project – Blog" href="https://thefreescapeproject.com/feed.xml">
+
   <!-- Open Graph / Social Media -->
 <meta property="og:type"         content="website">
 <meta property="og:site_name"    content="The Freescape Project">
@@ -316,7 +318,7 @@
       : `<div style="height:${h}px;background:${post.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:3rem;">${post.bildFallback.emoji}</div>`;
   }
 
-  // ── Kleine Karte bauen (OHNE Tags) ──────────────────────────
+  // ── Kleine Karte bauen ───────────────────────────────────────
   function buildSmallCard(post, i) {
     return `
       <article class="blog-card animate-on-scroll${i % 2 === 1 ? ' animate-delay-1' : ''}"
@@ -336,6 +338,7 @@
             <a href="${post.link}" style="color:inherit;text-decoration:none;">${post.titel}</a>
           </h3>
           <p class="blog-card__excerpt">${post.teaser}</p>
+          ${(post.tags || []).length ? `<div style="margin:0.6rem 0;">${post.tags.map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
           <a href="${post.link}" class="blog-card__read">Artikel lesen →</a>
         </div>
       </article>`;
@@ -403,7 +406,7 @@
     if (activeFilter === 'all') {
       btn.style.display = 'none';
     } else {
-      label.textContent = activeFilter.charAt(0).toUpperCase() + activeFilter.slice(1);
+      label.textContent = activeFilter.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
       btn.style.display = 'inline-block';
     }
   }
@@ -565,8 +568,8 @@
       grid.innerHTML = '';
       return;
     }
-    const byDateAsc = [...hubPosts].sort((a, b) => new Date(a.datum) - new Date(b.datum));
-    const [first, ...rest] = byDateAsc;
+    const byDateDesc = [...hubPosts].sort((a, b) => new Date(b.datum) - new Date(a.datum));
+    const [first, ...rest] = byDateDesc;
     if (featured) featured.innerHTML = buildFeaturedCard(first);
     grid.innerHTML = rest.map((p, i) => buildSmallCard(p, i)).join('');
     section.style.display = '';

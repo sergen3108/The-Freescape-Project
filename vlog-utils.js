@@ -79,10 +79,50 @@
     return (video && (video.duration || 999) <= 120);
   }
 
+  // Bestes Blogpost-Match zu einem Video: gleiches Land (Pflicht), nach
+  // Moeglichkeit zusaetzlich ein Post-Tag (Ortsname) im Videotitel/-text
+  // gefunden. Erwartet Post-Objekte wie window.BLOG_POSTS (Feld "land",
+  // "tags"). Fuer den "Passendes Video ansehen"-Teaser (Blog -> Vlog).
+  function findMatchingPost(video, posts) {
+    if (!video || !Array.isArray(posts) || !posts.length) return null;
+    var country = detectCountry(video.title);
+    if (!country || !window.slugifyLand) return null;
+    var candidates = posts.filter(function (p) { return window.slugifyLand(p.land) === country; });
+    if (!candidates.length) return null;
+    var haystack = (video.title || '') + ' ' + (video.description || '');
+    for (var i = 0; i < candidates.length; i++) {
+      var tags = candidates[i].tags || [];
+      for (var t = 0; t < tags.length; t++) {
+        if (tags[t].length > 2 && matchesKeyword(haystack, tags[t])) return candidates[i];
+      }
+    }
+    return candidates[0];
+  }
+
+  // Umgekehrte Richtung: bestes Video-Match zu einem Blogpost. Fuer den
+  // "Zum Blogartikel"-Link auf Vlog-Karten (Vlog -> Blog).
+  function findMatchingVideo(post, videos) {
+    if (!post || !Array.isArray(videos) || !videos.length || !window.slugifyLand) return null;
+    var country = window.slugifyLand(post.land || '');
+    if (!country) return null;
+    var candidates = videos.filter(function (v) { return detectCountry(v.title) === country; });
+    if (!candidates.length) return null;
+    var tags = post.tags || [];
+    for (var i = 0; i < candidates.length; i++) {
+      var haystack = (candidates[i].title || '') + ' ' + (candidates[i].description || '');
+      for (var t = 0; t < tags.length; t++) {
+        if (tags[t].length > 2 && matchesKeyword(haystack, tags[t])) return candidates[i];
+      }
+    }
+    return candidates[0];
+  }
+
   window.VlogUtils = {
     detectCountry: detectCountry,
     detectOrt: detectOrt,
-    isShort: isShort
+    isShort: isShort,
+    findMatchingPost: findMatchingPost,
+    findMatchingVideo: findMatchingVideo
   };
 
   // Bequemer globaler Alias (ersetzt die alten lokalen detectCountry).

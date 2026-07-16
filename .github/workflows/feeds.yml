@@ -1,0 +1,48 @@
+# ============================================================
+#  Sitemap & RSS-Feed aktualisieren
+#
+#  Erzeugt aus posts/index.json + den posts/*.md automatisch den
+#  Blog-Artikel-Teil von sitemap.xml sowie feed.xml (RSS). Laeuft
+#  bei jeder Aenderung unter posts/**, damit neue Artikel nicht
+#  mehr von Hand in die Sitemap eingetragen werden muessen.
+# ============================================================
+name: Sitemap & Feed aktualisieren
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'posts/**'
+  # Zusaetzlich manuell ausloesbar (Actions-Tab -> Run workflow)
+  workflow_dispatch:
+
+# Schreibrechte, damit die Action committen darf
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Sitemap & Feed neu erzeugen
+        run: node scripts/generate-feeds.js
+
+      - name: Aenderungen committen
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml feed.xml
+          if git diff --staged --quiet; then
+            echo "Keine Aenderungen, nichts zu committen."
+          else
+            git commit -m "Sitemap & Feed aktualisiert (automatisch)"
+            git push
+          fi

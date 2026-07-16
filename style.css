@@ -1797,6 +1797,12 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 .ort-chip[href] .ort-chip__hint { display: block; }
 .ort-chip[href]:hover .ort-chip__hint { color: var(--terra-600) !important; }
+.ort-chip--current {
+  border-color: rgba(196,98,45,0.5);
+  background: rgba(196,98,45,0.06);
+}
+.ort-chip--current::before { background: #c4622d; }
+.ort-chip--current::after { background: #c4622d; }
 
 /* === LEGAL PAGES =========================================== */
 .legal-content {

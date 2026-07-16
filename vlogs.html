@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a1520">
   <title>Vlogs | The Freescape Project</title>
-  <meta name="description" content="Alle Reisevideos von Julia & Sergen – ungefilterte Vlogs aus Kolumbien, Ecuador, Galapagos und Peru.">
+  <meta name="description" content="Alle Reisevideos von Julia &amp; Sergen – ungefilterte Vlogs aus Kolumbien, Ecuador, Galapagos und Peru.">
 
   <link rel="canonical" href="https://thefreescapeproject.com/vlogs.html">
 
@@ -293,6 +294,7 @@
 
 <script src="laender-config.js"></script>
 <script src="vlog-utils.js"></script>
+<script src="blog-posts.js"></script>
 <script>
 /* ============================================================
    Vlogs werden aus der lokalen vlogs-data.json geladen, die
@@ -335,6 +337,7 @@ function makeCard(v, index, isNew) {
   const country = detectCountry(v.title) || 'other';
   const countryLabel = {kolumbien:'Kolumbien',ecuador:'Ecuador',peru:'Peru',other:''}[country]||'';
   const delay = ['','animate-delay-1','animate-delay-2'][index%3];
+  const matchingPost = (window.BLOG_POSTS && window.VlogUtils) ? window.VlogUtils.findMatchingPost(v, window.BLOG_POSTS) : null;
   return `
     <article class="vlog-card ${delay}" data-category="${country}">
       <div class="vlog-card__thumb">
@@ -352,6 +355,7 @@ function makeCard(v, index, isNew) {
         <p class="vlog-card__desc">${(v.description||'').slice(0,120).trim()}${(v.description||'').length>120?'…':''}</p>
         <div class="vlog-card__footer">
           <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a>
+          ${matchingPost ? `<span class="vlog-card__blog-link"> · <a href="${matchingPost.link}" class="vlog-card__watch">Zum Blogartikel →</a></span>` : ''}
         </div>
       </div>
     </article>`;
@@ -442,6 +446,15 @@ async function loadVlogs() {
     document.getElementById('vlogs-content').style.display = 'block';
 
     renderAll();
+
+    // Blog-Posts laden meist parallel/etwas langsamer (mehrere Dateien) -
+    // sobald sie da sind, einmal neu rendern, damit die "Zum Blogartikel"-
+    // Links auf den Vlog-Karten nachtraeglich erscheinen.
+    if (window.BLOG_POSTS) {
+      renderAll();
+    } else {
+      document.addEventListener('blogPostsReady', renderAll, { once: true });
+    }
 
   } catch (err) {
     console.error(err);

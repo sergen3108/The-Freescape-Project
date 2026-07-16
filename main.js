@@ -123,7 +123,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── Counter Animation ──────────────────────────────── */
   function observeCounters(root = document) {
-    const counters = root.querySelectorAll('[data-count]');
+    // dataset-Flag verhindert Re-Observe, wenn observeCounters() mehrfach
+    // pro Seite aufgerufen wird (z.B. sobald Blog- und Vlog-Stat async
+    // nachladen) - sonst laeuft dieselbe Zahl mehrfach von 0 hoch.
+    const counters = Array.from(root.querySelectorAll('[data-count]')).filter(el => !el.dataset.counterObserved);
     if (!counters.length) return;
     const counterObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -133,7 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }, { threshold: 0.5 });
-    counters.forEach(el => counterObserver.observe(el));
+    counters.forEach(el => {
+      el.dataset.counterObserved = 'true';
+      counterObserver.observe(el);
+    });
   }
   observeCounters();
   window.observeCounters = observeCounters;
