@@ -424,13 +424,16 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .nav__burger {
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 5px;
-  width: 28px;
-  padding: 4px;
+  width: 44px;
+  height: 44px;
   margin-left: auto;
 }
 .nav__burger span {
   display: block;
+  width: 20px;
   height: 2px;
   background: var(--white);
   border-radius: 2px;
@@ -1501,7 +1504,7 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   border: 1.5px solid var(--gray-200);
   border-radius: var(--r-md);
   background: var(--white);
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--gray-900);
   outline: none;
   transition: border-color var(--t-fast), box-shadow var(--t-fast);
@@ -2256,6 +2259,15 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
     line-height: 1.3;
     letter-spacing: 0.02em;
   }
+}
+
+/* "Passendes Video"-Teaser (artikel.html): bei den schmalsten Phones (≤420px)
+   bleibt dem Titel neben dem festen 150px-Thumb kaum noch Platz. Thumb und
+   Abstaende verkleinern schafft wieder genug Raum fuer den 2-zeiligen Titel. */
+@media (max-width: 420px) {
+  .artikel-body .video-teaser { gap: 0.75rem; padding: 0.75rem; }
+  .video-teaser__thumb { width: 100px; }
+  .video-teaser__title { font-size: 0.88rem; }
 }
 
 /* Verhindert horizontalen Overflow durch die Einblend-Animationen
