@@ -913,8 +913,13 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   margin-bottom: 1.5rem;
 }
 
-/* "Passendes Video"-Teaser (Blog -> Vlog Cross-Linking, artikel.html) */
-.video-teaser {
+/* "Passendes Video"-Teaser (Blog -> Vlog Cross-Linking, artikel.html).
+   ".artikel-body .video-teaser" statt nur ".video-teaser", da artikel.html
+   ein eigenes ".artikel-body a { color: terra-600; text-decoration: underline }"
+   fuer verlinkte Orte im Markdown-Text hat, das sonst wegen hoeherer
+   Spezifitaet (Klasse+Element) gewinnen und die Unterstreichung durchdruecken
+   wuerde (text-decoration-color folgt sonst dem Link, nicht dem Titel-Span). */
+.artikel-body .video-teaser {
   display: flex;
   gap: 1.1rem;
   align-items: center;
