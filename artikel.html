@@ -868,7 +868,12 @@
 
     // Fortschrittsbalken
     if (progress) {
-      const pct = total > 0 ? (scrolled / total) * 100 : 0;
+      // Math.min/max clamp: iOS-Rubber-Banding kann scrollY kurzzeitig
+      // ueber "total" hinaus (oder negativ) schieben, sonst wird die
+      // fixed-position Bar >100% breit und die Seite minimal horizontal
+      // scrollbar.
+      const raw = total > 0 ? (scrolled / total) * 100 : 0;
+      const pct = Math.min(100, Math.max(0, raw));
       progress.style.width = pct + '%';
     }
 
