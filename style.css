@@ -143,6 +143,11 @@ body {
   background: var(--white);
   line-height: 1.6;
   overflow-x: hidden;
+  /* Sicherheitsnetz gegen Font-Swap-Overflow: der Fallback-Font (vor dem
+     Laden von Playfair/Cormorant per font-display:swap) kann Zeilen kurz
+     breiter rendern als Custom-Font, wodurch Text ueber den rechten Rand
+     hinaus geschnitten wird statt umzubrechen. */
+  overflow-wrap: break-word;
 }
 img, video { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
