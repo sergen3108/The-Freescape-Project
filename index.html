@@ -545,9 +545,9 @@
         }
       }
     });
-    const peru = saFeatures.find(f => +f.id === 604);
-    if (peru) {
-      const [cx, cy] = pathGen.centroid(peru);
+    const current = saFeatures.find(f => SA[+f.id].status === 'current');
+    if (current) {
+      const [cx, cy] = pathGen.centroid(current);
       svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 14).attr('fill', 'rgba(232,67,26,0.2)');
       svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 6).attr('class', 'map-marker');
     }
