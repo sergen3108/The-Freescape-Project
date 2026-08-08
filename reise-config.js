@@ -5,8 +5,8 @@ const REISE = {
   // ── Reise-Start ────────────────────────────────────────────────
   startDatum: new Date('2026-02-25'),
   // ── Persönliche Länder-Bilanz (Lifetime, inkl. vor der Reise) ──
-  sergenLaender: 14,
-  juliaLaender:  47,
+  sergenLaender: 15,
+  juliaLaender:  48,
 // ── Reise-Zahlen ───────────────────────────────────────────────
   kmZurueckgelegt:      13500,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
