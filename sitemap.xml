@@ -40,6 +40,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://thefreescapeproject.com/bolivien.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://thefreescapeproject.com/karte.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

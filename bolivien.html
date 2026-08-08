@@ -4,26 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a1520">
-  <title>Ecuador Backpacking: Route, Highlights und Galapagos | The Freescape Project</title>
-  <meta name="description" content="Unsere Ecuador-Route von Quito ueber Cotopaxi, Quilotoa und den Amazonas bis nach Galapagos. Highlights, Orte, alle Vlogs und Blog-Artikel aus Ecuador.">
+  <title>Bolivien Backpacking: Route, Highlights und Kosten | The Freescape Project</title>
+  <meta name="description" content="Unsere Bolivien-Route ab Copacabana am Titicacasee. Highlights, Orte, alle Vlogs und Blog-Artikel aus Bolivien, ehrlich und direkt von unterwegs.">
 
-  <link rel="canonical" href="https://thefreescapeproject.com/ecuador.html">
+  <link rel="canonical" href="https://thefreescapeproject.com/bolivien.html">
 
   <!-- Open Graph / Social Media -->
   <meta property="og:type"         content="website">
   <meta property="og:site_name"    content="The Freescape Project">
-  <meta property="og:url"          content="https://thefreescapeproject.com/ecuador.html">
-  <meta property="og:title"        content="Ecuador Backpacking: Route, Highlights und Galapagos | The Freescape Project">
-  <meta property="og:description"  content="Unsere Ecuador-Route von Quito ueber Cotopaxi, Quilotoa und den Amazonas bis nach Galapagos. Highlights, Orte, alle Vlogs und Blog-Artikel aus Ecuador.">
-  <!-- TODO Sergen: eigenes 1200x630 OG-Bild anlegen (assets/img/og-ecuador.jpg) und hier eintragen. Vorlaeufig ein vorhandenes lokales Bild. -->
-  <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/kilotoas.JPEG">
+  <meta property="og:url"          content="https://thefreescapeproject.com/bolivien.html">
+  <meta property="og:title"        content="Bolivien Backpacking: Route, Highlights und Kosten | The Freescape Project">
+  <meta property="og:description"  content="Unsere Bolivien-Route ab Copacabana am Titicacasee. Highlights, Orte, alle Vlogs und Blog-Artikel aus Bolivien.">
+  <!-- TODO Sergen: eigenes 1200x630 OG-Bild anlegen (assets/img/og-bolivien.jpg) und hier eintragen. Vorlaeufig ein vorhandenes lokales Bild. -->
+  <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/IMG_2934.JPEG">
   <meta property="og:image:width"  content="1920">
   <meta property="og:image:height" content="1080">
   <meta property="og:locale"       content="de_DE">
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Ecuador Backpacking: Route, Highlights und Galapagos | The Freescape Project">
-  <meta name="twitter:description" content="Unsere Ecuador-Route von Quito ueber Cotopaxi, Quilotoa und den Amazonas bis nach Galapagos. Highlights, Orte, alle Vlogs und Blog-Artikel aus Ecuador.">
-  <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/kilotoas.JPEG">
+  <meta name="twitter:title"       content="Bolivien Backpacking: Route, Highlights und Kosten | The Freescape Project">
+  <meta name="twitter:description" content="Unsere Bolivien-Route ab Copacabana am Titicacasee. Highlights, Orte, alle Vlogs und Blog-Artikel aus Bolivien.">
+  <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/IMG_2934.JPEG">
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
@@ -37,22 +37,22 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Ecuador Backpacking: Route, Highlights und Galapagos",
-    "description": "Unsere Ecuador-Route von Quito ueber Cotopaxi, Quilotoa und den Amazonas bis nach Galapagos. Highlights, Orte, alle Vlogs und Blog-Artikel aus Ecuador.",
-    "url": "https://thefreescapeproject.com/ecuador.html",
+    "name": "Bolivien Backpacking: Route, Highlights und Kosten",
+    "description": "Unsere Bolivien-Route ab Copacabana am Titicacasee. Highlights, Orte, alle Vlogs und Blog-Artikel aus Bolivien.",
+    "url": "https://thefreescapeproject.com/bolivien.html",
     "inLanguage": "de-DE",
     "isPartOf": {
       "@type": "WebSite",
       "name": "The Freescape Project",
       "url": "https://thefreescapeproject.com"
     },
-    "about": { "@type": "Country", "name": "Ecuador" },
+    "about": { "@type": "Country", "name": "Bolivien" },
     "breadcrumb": {
       "@type": "BreadcrumbList",
       "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://thefreescapeproject.com/" },
         { "@type": "ListItem", "position": 2, "name": "Länder", "item": "https://thefreescapeproject.com/laender.html" },
-        { "@type": "ListItem", "position": 3, "name": "Ecuador", "item": "https://thefreescapeproject.com/ecuador.html" }
+        { "@type": "ListItem", "position": 3, "name": "Bolivien", "item": "https://thefreescapeproject.com/bolivien.html" }
       ]
     }
   }
@@ -61,6 +61,7 @@
   <style>
     @keyframes spin { to { transform: rotate(360deg); } }
 
+    /* Status-Badge (aus laender.html uebernommen) */
     .status-badge {
       display:inline-flex; align-items:center; gap:0.4rem;
       font-size:0.75rem; font-weight:700; letter-spacing:0.07em;
@@ -70,12 +71,14 @@
     .status-badge--visited { background:var(--green-100); color:var(--green-800); }
     .status-badge--current { background:var(--terra-100); color:var(--terra-700); }
 
+    /* Lokaler Vlog-Thumbnail-Fallback (kein externer Request) */
     .vlog-thumb-fallback {
       width:100%; aspect-ratio:16/9; display:flex;
       align-items:center; justify-content:center;
       background:linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
     }
 
+    /* Nachbar-Laender unten */
   </style>
 </head>
 <body>
@@ -100,6 +103,7 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="nav__dropdown-menu">
+          <!-- Wird aus laender-config.js befuellt. Statisch als Fallback: -->
           <a href="laender.html" class="nav__dropdown-link" style="font-weight:600;">Alle Länder</a>
           <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
           <a href="kolumbien.html" class="nav__dropdown-link">Kolumbien</a>
@@ -164,31 +168,31 @@
 <!-- ── Hero ─────────────────────────────────────────────────── -->
 <section class="page-hero">
   <div class="hero__bg">
-    <img src="assets/img/kilotoas.JPEG" class="hero__bg-photo" alt="Quilotoa-Lagune in Ecuador"
-         onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#1a3c2a,#2d7a2d)'">
+    <img src="assets/img/IMG_2934.JPEG" class="hero__bg-photo" alt="Bolivien"
+         onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#4a7fa0,#c8e8f5)'">
     <div class="hero__pattern"></div>
   </div>
   <div class="hero__overlay"></div>
   <div class="container page-hero__content">
     <p class="overline">Südamerika · Land für Land</p>
-    <h1>Ecuador</h1>
-    <p class="lead">Vulkane, Amazonas und Galapagos auf kleinem Raum. Sechs Wochen in einem der abwechslungsreichsten Länder unserer Reise.</p>
+    <h1>Bolivien</h1>
+    <p class="lead">Mit dem Bus über den Titicacasee von Puno nach Copacabana, unsere erste Station in Bolivien. Der Salar de Uyuni und die höchste Hauptstadt der Welt warten noch auf uns.</p>
     <div class="hero-facts">
-      <span class="hero-fact">Highlight: Galápagos</span>
+      <span class="hero-fact">Aktuell hier: Copacabana</span>
     </div>
   </div>
 </section>
 
-<!-- ── Ecuador in Zahlen ────────────────────────────────────── -->
+<!-- ── Bolivien in Zahlen ───────────────────────────────────── -->
 <section class="stats-bar">
   <div class="container">
     <div class="stats-bar__grid stats-bar__grid--4col">
       <div class="stats-bar__item animate-on-scroll">
-        <div class="stats-bar__number" data-count="9">0</div>
+        <div class="stats-bar__number" data-count="1">0</div>
         <div class="stats-bar__label">Orte besucht</div>
       </div>
       <div class="stats-bar__item animate-on-scroll animate-delay-1">
-        <div class="stats-bar__number" data-count="42">0</div>
+        <div class="stats-bar__number" data-count="1">0</div>
         <div class="stats-bar__label">Tage im Land</div>
       </div>
       <div class="stats-bar__item animate-on-scroll animate-delay-2">
@@ -207,57 +211,54 @@
 <section class="section">
   <div class="container">
     <div style="max-width:760px;">
-      <span class="status-badge status-badge--visited">✓ Bereist · Apr bis Jun 2026</span>
-      <h2>Unsere Zeit in Ecuador</h2>
+      <span class="status-badge status-badge--current">← Aktuell hier · ab Aug 2026</span>
+      <h2>Unsere Zeit in Bolivien</h2>
       <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
-        Ecuador ist klein, aber unglaublich vielfältig. In sechs Wochen sind wir von der
-        kolonialen Altstadt in Quito über schneebedeckte Vulkane und die smaragdgrüne
-        Quilotoa-Lagune bis in den Amazonas gereist. Ein Land, das auf kurzer Strecke Hochland,
-        Nebelwald, Dschungel und Küste zusammenbringt.
+        Nach zwei Monaten in Peru sind wir von Puno aus mit dem Bus über den Titicacasee
+        nach Bolivien weitergereist. Unsere erste Station im Land ist Copacabana, ein
+        kleiner Ort direkt am See, von dem aus man auch auf die Isla del Sol übersetzen kann.
+        Bolivien ist das Land, in dem wir uns gerade befinden.
       </p>
       <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
-        Der Höhepunkt waren die Galapagos-Inseln mit Seelöwen, Riesenschildkröten und Tölpeln.
-        Hier sammeln wir alle Videos, Orte und Blog-Artikel aus Ecuador an einer Stelle, ehrlich
-        und direkt von unterwegs.
+        Als Nächstes geht es weiter Richtung La Paz, der höchsten Regierungssitzstadt der
+        Welt, und danach zum Salar de Uyuni, dem größten Salzsee der Erde. Hier sammeln wir
+        alle Videos, Orte und Blog-Artikel aus Bolivien an einer Stelle, ehrlich und direkt
+        von unterwegs.
       </p>
     </div>
 
-    <h3 style="margin-top:2.5rem;">Orte, die wir in Ecuador besucht haben</h3>
+    <h3 style="margin-top:2.5rem;">Orte, die wir in Bolivien besucht haben</h3>
     <div class="orte-grid">
-      <a class="ort-chip" data-ort="Quito"><strong>Quito</strong><span>UNESCO-Altstadt und Mitte der Welt</span><span class="ort-chip__hint">Mehr im Blog</span></a>
-      <a class="ort-chip" data-ort="Cotopaxi"><strong>Cotopaxi</strong><span>Schneebedeckter Vulkan</span><span class="ort-chip__hint">Mehr im Blog</span></a>
-      <a class="ort-chip" data-ort="Quilotoa"><strong>Quilotoa</strong><span>Smaragdgrüne Kraterlagune</span><span class="ort-chip__hint">Mehr im Blog</span></a>
-      <a class="ort-chip" data-ort="Baños"><strong>Baños</strong><span>Adrenalinsport und Wasserfälle</span><span class="ort-chip__hint">Mehr im Blog</span></a>
-      <a class="ort-chip" data-ort="Mindo"><strong>Mindo</strong><span>Nebelwald und Vögel</span><span class="ort-chip__hint">Mehr im Blog</span></a>
-      <a class="ort-chip" data-ort="Amazonas"><strong>Amazonas</strong><span>Vier Tage im Regenwald</span><span class="ort-chip__hint">Mehr im Blog</span></a>
-      <a class="ort-chip" data-ort="Santa Cruz"><strong>Santa Cruz (Galápagos)</strong><span>Riesenschildkröten & Budget-Tipps</span><span class="ort-chip__hint">Mehr im Blog</span></a>
-      <a class="ort-chip" data-ort="Isabela"><strong>Isabela (Galápagos)</strong><span>Flamingos, Pinguine & Schnorcheln</span><span class="ort-chip__hint">Mehr im Blog</span></a>
-      <a class="ort-chip" data-ort="Cuenca"><strong>Cuenca</strong><span>Koloniales Juwel im Süden</span><span class="ort-chip__hint">Mehr im Blog</span></a>
+      <a class="ort-chip ort-chip--current" data-ort="Copacabana"><strong>Copacabana</strong><span>Aktuell hier · am Titicacasee</span><span class="ort-chip__hint">Mehr im Blog</span></a>
+      <a class="ort-chip" style="opacity:0.55;" data-ort="La Paz"><strong>La Paz</strong><span>Bald</span><span class="ort-chip__hint">Mehr im Blog</span></a>
+      <a class="ort-chip" style="opacity:0.55;" data-ort="Salar de Uyuni"><strong>Salar de Uyuni</strong><span>Bald</span><span class="ort-chip__hint">Mehr im Blog</span></a>
+      <a class="ort-chip" style="opacity:0.55;" data-ort="Sucre"><strong>Sucre</strong><span>Bald</span><span class="ort-chip__hint">Mehr im Blog</span></a>
+      <a class="ort-chip" style="opacity:0.55;" data-ort="Potosí"><strong>Potosí</strong><span>Bald</span><span class="ort-chip__hint">Mehr im Blog</span></a>
     </div>
 
-    <h3 style="margin-top:2.5rem;">Praktische Infos für Ecuador</h3>
+    <h3 style="margin-top:2.5rem;">Praktische Infos für Bolivien</h3>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem;">
       <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
         <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">☀️ Beste Reisezeit</p>
-        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Ecuador hat je nach Region völlig unterschiedliche Klimazonen: An der Küste ist die Regenzeit von Dezember bis Mai, im Andenhochland rund um Quito ist Juni bis September trockener und angenehm mild. Auf Galápagos ist Juni bis November kühler mit mehr Wind, Dezember bis Mai wärmer mit besserer Sicht zum Schnorcheln.</p>
+        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Die Trockenzeit von Mai bis Oktober ist die beliebteste Reisezeit für das bolivianische Hochland, unter anderem für den Salar de Uyuni, der in der Regenzeit teilweise geflutet ist. Nächte auf über 3.500m können auch tagsüber sonnig, aber empfindlich kalt sein.</p>
       </div>
       <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
         <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">🚌 Fortbewegung</p>
-        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Busse sind günstig und gut ausgebaut. Für die Galápagos-Inseln braucht es einen Inlandsflug ab Quito oder Guayaquil. In Quito gibt es zusätzlich Metro und Trolebus.</p>
+        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Die Grenze von Peru nach Bolivien lässt sich gut per Bus über Copacabana überqueren. Im Land selbst sind Fernbusse die günstigste Option, für weite Strecken wie nach Uyuni oder Sucre lohnt sich teils auch ein Inlandsflug.</p>
       </div>
     </div>
 
-    <p style="margin-top:2rem;"><a href="galerie.html#ecuador" class="btn btn-outline">📷 Ecuador-Fotos in der Galerie ansehen →</a></p>
+    <p style="margin-top:2rem;"><a href="galerie.html#bolivien" class="btn btn-outline">📷 Bolivien-Fotos in der Galerie ansehen →</a></p>
   </div>
 </section>
 
-<!-- ── Vlogs aus Ecuador ────────────────────────────────────── -->
+<!-- ── Vlogs aus Bolivien ───────────────────────────────────── -->
 <section class="section" style="background:var(--sand-50);">
   <div class="container">
     <div class="section-header section-header--left" style="margin-bottom:2rem;">
       <p class="overline">Videos</p>
-      <h2>Ecuador in Vlogs</h2>
-      <p class="lead" style="margin:0;">Alle unsere Videos aus Ecuador, direkt vom Reiseweg.</p>
+      <h2>Bolivien in Vlogs</h2>
+      <p class="lead" style="margin:0;">Alle unsere Videos aus Bolivien, direkt vom Reiseweg.</p>
     </div>
 
     <div id="land-vlogs-loading" style="text-align:center;padding:3rem 0;color:var(--gray-400);">
@@ -278,7 +279,7 @@
     </div>
 
     <div id="land-vlogs-empty" class="land-empty" style="display:none;">
-      Aus Ecuador sind noch keine Videos online. Schau auf dem
+      Aus Bolivien sind noch keine Videos online. Schau auf dem
       <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" style="color:var(--terra-600);">YouTube-Kanal</a> vorbei.
     </div>
 
@@ -288,19 +289,19 @@
   </div>
 </section>
 
-<!-- ── Blog-Artikel aus Ecuador ─────────────────────────────── -->
+<!-- ── Blog-Artikel aus Bolivien ────────────────────────────── -->
 <section class="section">
   <div class="container">
     <div class="section-header section-header--left" style="margin-bottom:1rem;">
       <p class="overline">Reisemagazin</p>
-      <h2>Ecuador im Blog</h2>
-      <p class="lead" style="margin:0;">Routen-Guides, Kosten-Checks und Erfahrungsberichte aus Ecuador.</p>
+      <h2>Bolivien im Blog</h2>
+      <p class="lead" style="margin:0;">Routen-Guides, Kosten-Checks und Erfahrungsberichte aus Bolivien.</p>
     </div>
 
     <div id="land-blog-grid" class="blog-teaser-grid"></div>
 
     <div id="land-blog-empty" class="land-empty" style="display:none;">
-      Für Ecuador schreiben wir gerade an den ersten Artikeln. Bis dahin findest du unsere
+      Für Bolivien schreiben wir gerade an den ersten Artikeln. Bis dahin findest du unsere
       bisherigen Reiseberichte im <a href="blog.html" style="color:var(--terra-600);">Blog</a>.
     </div>
   </div>
@@ -314,14 +315,19 @@
       <h2 style="color:white;">Andere Länder unserer Reise</h2>
     </div>
     <div class="land-nav-grid">
+      <a href="peru.html" class="land-nav-card">
+        <img src="assets/img/IMG_2934.JPEG" class="land-nav-card__thumb" alt="Peru" loading="lazy">
+        <span><span class="land-nav-card__label">Bereist</span><span class="land-nav-card__name">Peru</span></span>
+        <span class="land-nav-card__arrow">→</span>
+      </a>
+      <a href="ecuador.html" class="land-nav-card">
+        <img src="assets/img/kilotoas.JPEG" class="land-nav-card__thumb" alt="Ecuador" loading="lazy">
+        <span><span class="land-nav-card__label">Bereist</span><span class="land-nav-card__name">Ecuador</span></span>
+        <span class="land-nav-card__arrow">→</span>
+      </a>
       <a href="kolumbien.html" class="land-nav-card">
         <img src="assets/img/blog/sanandres8.jpg" class="land-nav-card__thumb" alt="Kolumbien" loading="lazy">
         <span><span class="land-nav-card__label">Bereist</span><span class="land-nav-card__name">Kolumbien</span></span>
-        <span class="land-nav-card__arrow">→</span>
-      </a>
-      <a href="peru.html" class="land-nav-card">
-        <img src="assets/img/IMG_2934.JPEG" class="land-nav-card__thumb" alt="Peru" loading="lazy">
-        <span><span class="land-nav-card__label">Aktuell hier</span><span class="land-nav-card__name">Peru</span></span>
         <span class="land-nav-card__arrow">→</span>
       </a>
     </div>
@@ -418,8 +424,9 @@
 <!-- ── Länderspezifische Inhalte (Blog + Vlogs fuer DIESES Land) ── -->
 <script>
 (function () {
-  var LAND_SLUG = 'ecuador';   // einziger Wert, der sich pro Laenderseite aendert
+  var LAND_SLUG = 'bolivien';   // einziger Wert, der sich pro Laenderseite aendert
 
+  /* ── Blog-Artikel dieses Landes ─────────────────────────── */
   function linkOrteToArticles(posts) {
     var chips = document.querySelectorAll('.ort-chip[data-ort]');
     chips.forEach(function (chip) {
@@ -454,7 +461,7 @@
     }
     empty.style.display = 'none';
     var hub = mine.find(function (p) { return p.typ === 'reiseroute'; });
-    var others = mine.filter(function (p) { return p !== hub; }).slice(0, hub ? 7 : 8);
+    var others = mine.filter(function (p) { return p !== hub; }).slice(0, hub ? 5 : 6);
     var toRender = hub ? [hub].concat(others) : others;
     grid.innerHTML = toRender.map(function (p) {
       var thumb = p.bild
@@ -476,6 +483,7 @@
     document.addEventListener('blogPostsReady', function () { renderBlog(window.BLOG_POSTS || []); });
   }
 
+  /* ── Vlogs dieses Landes (aus lokaler vlogs-data.json) ──── */
   function formatDate(iso) {
     return new Date(iso).toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
   }
@@ -529,9 +537,9 @@
   }
 
   function loadVlogs() {
-    var loading    = document.getElementById('land-vlogs-loading');
-    var grid       = document.getElementById('land-vlogs-grid');
-    var empty      = document.getElementById('land-vlogs-empty');
+    var loading   = document.getElementById('land-vlogs-loading');
+    var grid      = document.getElementById('land-vlogs-grid');
+    var empty     = document.getElementById('land-vlogs-empty');
     var shortsTab  = document.getElementById('land-shorts-tab');
     var shortsGrid = document.getElementById('land-shorts-grid');
 
@@ -569,7 +577,7 @@
         enrichVlogCardsWithBlogLinks(mine);
       })
       .catch(function (err) {
-        console.error('[ecuador] Vlogs konnten nicht geladen werden:', err);
+        console.error('[bolivien] Vlogs konnten nicht geladen werden:', err);
         if (loading) loading.style.display = 'none';
         empty.style.display = 'block';
       });

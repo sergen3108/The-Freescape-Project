@@ -172,7 +172,7 @@
           <a href="ecuador.html" class="nav__dropdown-link">Ecuador</a>
           <a href="peru.html" class="nav__dropdown-link">Peru</a>
           <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Bolivien</a>
+          <a href="bolivien.html" class="nav__dropdown-link">Bolivien</a>
           <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Chile</a>
           <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Argentinien</a>
           <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
@@ -222,6 +222,7 @@
     <a href="kolumbien.html" class="nav__mobile-link nav__mobile-sublink">Kolumbien</a>
     <a href="ecuador.html" class="nav__mobile-link nav__mobile-sublink">Ecuador</a>
     <a href="peru.html" class="nav__mobile-link nav__mobile-sublink">Peru</a>
+    <a href="bolivien.html" class="nav__mobile-link nav__mobile-sublink">Bolivien</a>
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
@@ -306,13 +307,13 @@
         <div class="status-card">
           <div class="status-card__header">
             <h3>Reisestatus</h3>
-            <p>Zuletzt aktualisiert: Juli 2026</p>
+            <p>Zuletzt aktualisiert: Aug 2026</p>
           </div>
           <ul class="status-list">
             <li><div class="status-dot status-dot--visited"></div> Kolumbien</li>
             <li><div class="status-dot status-dot--visited"></div> Ecuador</li>
-            <li><div class="status-dot status-dot--current"></div> Peru &nbsp;<strong style="color:var(--terra-600);font-size:0.75rem;">← wir sind hier</strong></li>
-            <li><div class="status-dot status-dot--planned"></div> Bolivien</li>
+            <li><div class="status-dot status-dot--visited"></div> Peru</li>
+            <li><div class="status-dot status-dot--current"></div> Bolivien &nbsp;<strong style="color:var(--terra-600);font-size:0.75rem;">← wir sind hier</strong></li>
             <li><div class="status-dot status-dot--planned"></div> Chile</li>
             <li><div class="status-dot status-dot--planned"></div> Argentinien</li>
             <li><div class="status-dot status-dot--planned"></div> Brasilien</li>
@@ -372,7 +373,7 @@
           <a href="kolumbien.html" class="footer__link">Kolumbien</a>
           <a href="ecuador.html" class="footer__link">Ecuador</a>
           <a href="peru.html" class="footer__link">Peru</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Bolivien</a>
+          <a href="bolivien.html" class="footer__link">Bolivien</a>
           <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Chile</a>
           <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Argentinien</a>
           <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Brasilien</a>
@@ -456,9 +457,17 @@ const pins = [
   { lat: -12.0464, lng: -77.0428, status: "visited", name: "Lima",                 desc: "Ankunft in Peru! Miraflores, Barranco und das beste Ceviche unseres Lebens.",                      link: "", linkText: "" },
   { lat: -13.8449, lng: -76.2542, status: "visited", name: "Paracas",              desc: "Wüste trifft Pazifik: Bootstour zu den Islas Ballestas mit Seelöwen, Pinguinen und der Nationalpark Paracas.", link: "", linkText: "" },
   { lat: -14.0650, lng: -75.7302, status: "visited", name: "Huacachina",           desc: "Oase mitten in der Wüste, Sandboarding und Sonnenuntergang über den Dünen.",                       link: "", linkText: "" },
-  { lat: -14.8383, lng: -74.9399, status: "current", name: "Nazca ← wir sind hier", desc: "Die berühmten Nazca-Linien, geheimnisvolle Bodenzeichnungen aus der Vogelperspektive.",              link: "", linkText: "" },
-  { lat: -13.5170, lng: -71.9785, status: "planned", name: "Cusco",                desc: "Das Tor zu Machu Picchu und ehemaliger Mittelpunkt des Inka-Reichs.",                              link: "", linkText: "" },
-  { lat: -13.1631, lng: -72.5450, status: "planned", name: "Machu Picchu",         desc: "Das Ziel. Tickets bereits gebucht, wir können es kaum erwarten!",                                 link: "", linkText: "" },
+  { lat: -14.8383, lng: -74.9399, status: "visited", name: "Nazca",                desc: "Die berühmten Nazca-Linien, geheimnisvolle Bodenzeichnungen aus der Vogelperspektive.",              link: "", linkText: "" },
+  { lat: -13.5320, lng: -71.9675, status: "visited", name: "Cusco",                desc: "Das Tor zu Machu Picchu und ehemaliger Mittelpunkt des Inka-Reichs.",                              link: "", linkText: "" },
+  { lat: -13.2583, lng: -72.2636, status: "visited", name: "Ollantaytambo",        desc: "Inka-Festung und letzter Halt auf dem Weg nach Aguas Calientes.",                                 link: "", linkText: "" },
+  { lat: -13.1547, lng: -72.5253, status: "visited", name: "Aguas Calientes",      desc: "Machu-Picchu-Pueblo am Fuß der Ruinen, Ausgangspunkt für den Aufstieg.",                          link: "", linkText: "" },
+  { lat: -13.1631, lng: -72.5450, status: "visited", name: "Machu Picchu",         desc: "Das Ziel! Die legendäre Inka-Stadt hoch über dem Urubamba-Tal.",                                  link: "", linkText: "" },
+  { lat: -13.8791, lng: -71.3103, status: "visited", name: "Rainbow Mountain",     desc: "Vinicunca, der farbenfrohe Berg auf über 5.000m, ein harter, aber lohnender Aufstieg.",           link: "", linkText: "" },
+  { lat: -16.4090, lng: -71.5375, status: "visited", name: "Arequipa",             desc: "Die weiße Stadt, Ausgangspunkt für den Colca Canyon.",                                             link: "", linkText: "" },
+  { lat: -15.6216, lng: -71.9835, status: "visited", name: "Colca Canyon",         desc: "Einer der tiefsten Canyons der Welt, zweitägige Wanderung mit Übernachtung im Tal.",               link: "", linkText: "" },
+  { lat: -15.8402, lng: -70.0219, status: "visited", name: "Puno",                 desc: "Am Titicacasee, letzte Station in Peru vor der Weiterfahrt nach Bolivien.",                       link: "", linkText: "" },
+  // ── BOLIVIEN ──────────────────────────────────────────
+  { lat: -16.1667, lng: -69.0833, status: "current", name: "Copacabana ← wir sind hier", desc: "Mit dem Bus über den Titicacasee nach Bolivien, unsere erste Station im Land.",              link: "", linkText: "" },
   // ── GEPLANTE LÄNDER ───────────────────────────────────
   { lat: -20.2640, lng: -67.6328, status: "planned", name: "Salar de Uyuni",       desc: "Der größte Salzflat der Welt, ein Traum auf unserer Liste.",                                      link: "", linkText: "" },
   { lat: -23.1500, lng: -68.2000, status: "planned", name: "Atacama",              desc: "Die trockenste Wüste der Welt mit Geysiren und Sternen wie nirgendwo sonst.",                     link: "", linkText: "" },
@@ -487,7 +496,10 @@ const ROUTE = [
   { type: "land",   coords: [[-9.5277,-77.5286],[-12.0464,-77.0428]] },
   { type: "land",   coords: [[-12.0464,-77.0428],[-13.8449,-76.2542]] },
   { type: "land",   coords: [[-13.8449,-76.2542],[-14.0650,-75.7302],[-14.8383,-74.9399]] },
-  { type: "next",   coords: [[-14.8383,-74.9399],[-13.5170,-71.9785],[-13.1631,-72.5450]] },
+  { type: "land",   coords: [[-14.8383,-74.9399],[-13.5320,-71.9675],[-13.2583,-72.2636],[-13.1547,-72.5253],[-13.1631,-72.5450]] },
+  { type: "land",   coords: [[-13.1631,-72.5450],[-13.5320,-71.9675],[-13.8791,-71.3103],[-13.5320,-71.9675],[-16.4090,-71.5375]] },
+  { type: "land",   coords: [[-16.4090,-71.5375],[-15.6216,-71.9835],[-16.4090,-71.5375],[-15.8402,-70.0219]] },
+  { type: "next",   coords: [[-15.8402,-70.0219],[-16.1667,-69.0833]] },
 ];
 
 const ROUTE_STYLES = {
