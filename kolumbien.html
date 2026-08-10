@@ -494,9 +494,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var chips = document.querySelectorAll('.ort-chip[data-ort]');
     chips.forEach(function (chip) {
       var name = chip.getAttribute('data-ort').toLowerCase();
+      // Exakter Tag-Abgleich statt Freitext-Suche in Titel/Teaser: sonst
+      // gewinnt faelschlicherweise ein neuerer Artikel, der den Ort nur
+      // beilaeufig im Teaser erwaehnt.
       var match = posts.filter(function (p) {
-        var haystack = (p.titel + ' ' + (p.teaser || '') + ' ' + (p.tags || []).join(' ')).toLowerCase();
-        return haystack.indexOf(name) !== -1;
+        return (p.tags || []).some(function (t) { return t.toLowerCase() === name; });
       })[0];
       if (match) chip.setAttribute('href', match.link);
     });
