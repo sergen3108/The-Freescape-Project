@@ -925,10 +925,55 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .kosten-card__placeholder-icon { font-size: 2rem; opacity: 0.6; }
 .kosten-card__placeholder-text { color: var(--gray-500); font-size: 0.95rem; max-width: 380px; }
 
+/* Laenderuebergreifende Uebersicht auf index.html: gleicher Look wie
+   .kosten-card, aber Donut-Segmente + Legende sind Links zu den
+   Kosten-Sektionen der Laenderseiten. */
+.kosten-overview {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--r-lg);
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+  max-width: 760px;
+  margin: 0 auto;
+}
+.kosten-overview .kosten-chart { width: clamp(170px, 22vw, 220px); }
+.kosten-overview svg a { cursor: pointer; }
+.kosten-overview svg a circle { transition: opacity 0.2s ease; }
+.kosten-overview svg a:hover circle,
+.kosten-overview svg a:focus-visible circle { opacity: 0.82; }
+
+.kosten-legend__link {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  margin: -0.4rem -0.5rem;
+  border-radius: var(--r-md);
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.kosten-legend__link:hover,
+.kosten-legend__link:focus-visible {
+  background: var(--sand-50);
+}
+.kosten-legend__link .kosten-legend__name {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s ease;
+}
+.kosten-legend__link:hover .kosten-legend__name { text-decoration-color: currentColor; }
+
 @media (max-width: 680px) {
   .kosten-card__body { grid-template-columns: 1fr; }
   .kosten-card__head { flex-direction: column; align-items: flex-start; }
   .kosten-card__facts { align-items: flex-start; text-align: left; }
+  .kosten-overview { grid-template-columns: 1fr; }
 }
 
 /* === VIDEO / VLOG CARDS ==================================== */

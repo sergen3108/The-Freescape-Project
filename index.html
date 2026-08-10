@@ -200,25 +200,6 @@
   </div>
 </section>
 
-<!-- VLOGS: aus lokaler vlogs-data.json (kein Google-Request) -->
-<section class="section">
-  <div class="container">
-    <div class="section-header animate-on-scroll">
-      <p class="overline">YouTube · The Freescape Project</p>
-      <h2>Aktuelle Vlogs</h2>
-      <p class="lead">Unsere neuesten Videos direkt vom Reiseweg:<br>Ungefiltert, authentisch und immer mit einem echten Erlebnis.</p>
-    </div>
-    <div class="vlogs-grid" id="home-vlogs-grid">
-      <div id="home-vlogs-loading" style="grid-column:1/-1;text-align:center;padding:3rem 0;color:var(--gray-400,#9ca3af);">
-        <svg style="width:1.5rem;height:1.5rem;animation:spin 1s linear infinite;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:3rem;">
-      <a href="vlogs.html" class="btn btn-outline btn-lg">Alle Vlogs ansehen</a>
-    </div>
-  </div>
-</section>
-
 <!-- ÜBER UNS -->
 <section class="section" style="background:var(--sand-50);">
   <div class="container">
@@ -249,6 +230,25 @@
         </div>
         <a href="ueber-uns.html" class="btn btn-dark btn-lg">Unsere Geschichte lesen</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- VLOGS: aus lokaler vlogs-data.json (kein Google-Request) -->
+<section class="section">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <p class="overline">YouTube · The Freescape Project</p>
+      <h2>Aktuelle Vlogs</h2>
+      <p class="lead">Unsere neuesten Videos direkt vom Reiseweg:<br>Ungefiltert, authentisch und immer mit einem echten Erlebnis.</p>
+    </div>
+    <div class="vlogs-grid" id="home-vlogs-grid">
+      <div id="home-vlogs-loading" style="grid-column:1/-1;text-align:center;padding:3rem 0;color:var(--gray-400,#9ca3af);">
+        <svg style="width:1.5rem;height:1.5rem;animation:spin 1s linear infinite;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="vlogs.html" class="btn btn-outline btn-lg">Alle Vlogs ansehen</a>
     </div>
   </div>
 </section>
@@ -308,6 +308,28 @@
     <div class="blog-grid" id="blog-preview-grid"></div>
     <div style="text-align:center;margin-top:3rem;">
       <a href="blog.html" class="btn btn-outline btn-lg">Alle Artikel lesen</a>
+    </div>
+  </div>
+</section>
+
+<!-- GESAMTAUSGABEN -->
+<section class="section" style="background:var(--sand-50);">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <p class="overline">Reisekasse</p>
+      <h2>Was die Reise bisher gekostet hat</h2>
+      <p class="lead">9.129,63 Euro pro Person haben wir in Kolumbien, Ecuador und Peru ausgegeben. Klick auf ein Land für die genaue Aufschlüsselung.</p>
+    </div>
+
+    <div class="kosten-overview" id="kosten-overview">
+      <div class="kosten-chart">
+        <svg data-k="donut" role="img" aria-label="Gesamtausgaben nach Land"></svg>
+        <div class="kosten-chart__center">
+          <span class="kosten-chart__center-value" data-k="total">–</span>
+          <span class="kosten-chart__center-label">Gesamt</span>
+        </div>
+      </div>
+      <ul class="kosten-legend" data-k="legend"></ul>
     </div>
   </div>
 </section>
@@ -418,7 +440,17 @@
 <script src="reise-config.js"></script>
 <script src="laender-config.js"></script>
 <script src="vlog-utils.js"></script>
+<script src="kosten-widget.js"></script>
 <script src="main.js"></script>
+
+<!-- Gesamtausgaben-Uebersicht (Donut mit Link je Land) -->
+<script>
+  KostenWidget.initOverview(document.getElementById('kosten-overview'), [
+    { name: 'Kolumbien', total: 2856.97, color: '#2a78d6', href: 'kolumbien.html#kosten-kolumbien' },
+    { name: 'Ecuador',   total: 3398.47, color: '#eb6834', href: 'ecuador.html#kosten-ecuador' },
+    { name: 'Peru',      total: 2874.19, color: '#1baf7a', href: 'peru.html#kosten-peru' }
+  ]);
+</script>
 
 <!-- D3 + Südamerika-Karte (unveraendert, separates Thema) -->
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>

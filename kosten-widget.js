@@ -19,13 +19,18 @@ window.KostenWidget = (function () {
     return n.toLocaleString('de-DE', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' %';
   }
 
-  function renderDonut(svg, kategorien, sum) {
+  /* Generischer Donut-Renderer ueber die klassische
+     stroke-dasharray/-dashoffset-Technik. segments: [{ value, color,
+     title, href }] - href ist optional und macht das Segment als
+     natives SVG-<a> klickbar (kein JS-Klick-Handler noetig). */
+  function buildDonut(svg, segments) {
     var svgns = 'http://www.w3.org/2000/svg';
     var R = 80, CX = 100, CY = 100, STROKE = 30, GAP = 3;
     svg.innerHTML = '';
     svg.setAttribute('viewBox', '0 0 200 200');
 
-    var active = CATS.filter(function (c) { return (kategorien[c.key] || 0) > 0; });
+    var active = segments.filter(function (s) { return s.value > 0; });
+    var sum = active.reduce(function (acc, s) { return acc + s.value; }, 0);
     var circumference = 2 * Math.PI * R;
     var usable = circumference - GAP * active.length;
 
@@ -34,24 +39,38 @@ window.KostenWidget = (function () {
     svg.appendChild(g);
 
     var cum = 0;
-    active.forEach(function (c) {
-      var betrag = kategorien[c.key];
-      var segLen = (betrag / sum) * usable;
+    active.forEach(function (s) {
+      var segLen = (s.value / sum) * usable;
       var circle = document.createElementNS(svgns, 'circle');
       circle.setAttribute('cx', CX);
       circle.setAttribute('cy', CY);
       circle.setAttribute('r', R);
       circle.setAttribute('fill', 'none');
-      circle.setAttribute('stroke', c.color);
+      circle.setAttribute('stroke', s.color);
       circle.setAttribute('stroke-width', STROKE);
       circle.setAttribute('stroke-dasharray', segLen.toFixed(2) + ' ' + (circumference - segLen).toFixed(2));
       circle.setAttribute('stroke-dashoffset', (-cum).toFixed(2));
-      var title = document.createElementNS(svgns, 'title');
-      title.textContent = c.label + ': ' + fmtEUR(betrag);
-      circle.appendChild(title);
-      g.appendChild(circle);
+      if (s.title) {
+        var title = document.createElementNS(svgns, 'title');
+        title.textContent = s.title;
+        circle.appendChild(title);
+      }
+      if (s.href) {
+        var a = document.createElementNS(svgns, 'a');
+        a.setAttribute('href', s.href);
+        a.appendChild(circle);
+        g.appendChild(a);
+      } else {
+        g.appendChild(circle);
+      }
       cum += segLen + GAP;
     });
+  }
+
+  function renderDonut(svg, kategorien) {
+    buildDonut(svg, CATS.filter(function (c) { return (kategorien[c.key] || 0) > 0; }).map(function (c) {
+      return { value: kategorien[c.key], color: c.color, title: c.label + ': ' + fmtEUR(kategorien[c.key]) };
+    }));
   }
 
   function render(root, variant) {
@@ -74,7 +93,7 @@ window.KostenWidget = (function () {
     if (tageEl)     tageEl.textContent = variant.tage + ' Tage';
     if (perDayEl)   perDayEl.textContent = fmtEUR(perDay);
     if (perMonthEl) perMonthEl.textContent = fmtEUR(perMonth);
-    if (svg)        renderDonut(svg, kategorien, sum);
+    if (svg)        renderDonut(svg, kategorien);
 
     if (legendEl) {
       legendEl.innerHTML = CATS.map(function (c) {
@@ -108,5 +127,38 @@ window.KostenWidget = (function () {
     });
   }
 
-  return { init: init };
+  /* Laenderuebergreifende Uebersicht (index.html): ein Donut aus den
+     Gesamtsummen je Land, jedes Segment und jeder Legenden-Zeile
+     verlinkt zur Kosten-Sektion der jeweiligen Laenderseite.
+     items: [{ name, total, color, href }] */
+  function initOverview(root, items) {
+    if (!root) return;
+    var sum = items.reduce(function (acc, it) { return acc + it.total; }, 0);
+
+    var totalEl  = root.querySelector('[data-k="total"]');
+    var svg      = root.querySelector('[data-k="donut"]');
+    var legendEl = root.querySelector('[data-k="legend"]');
+
+    if (totalEl) totalEl.textContent = fmtEUR(sum);
+    if (svg) {
+      buildDonut(svg, items.map(function (it) {
+        return { value: it.total, color: it.color, href: it.href, title: it.name + ': ' + fmtEUR(it.total) };
+      }));
+    }
+    if (legendEl) {
+      legendEl.innerHTML = items.map(function (it) {
+        var pct = sum > 0 ? (it.total / sum) * 100 : 0;
+        return '<li class="kosten-legend__item">' +
+          '<a href="' + it.href + '" class="kosten-legend__link">' +
+            '<span class="kosten-legend__swatch" style="background:' + it.color + '"></span>' +
+            '<span class="kosten-legend__name">' + it.name + '</span>' +
+            '<span class="kosten-legend__amount">' + fmtEUR(it.total) + '</span>' +
+            '<span class="kosten-legend__pct">' + fmtPct(pct) + '</span>' +
+          '</a>' +
+        '</li>';
+      }).join('');
+    }
+  }
+
+  return { init: init, initOverview: initOverview };
 })();
