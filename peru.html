@@ -30,6 +30,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
+  <link rel="preload" href="assets/fonts/playfair-display-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
 
   <!-- Strukturierte Daten (statisch, damit Google sie ohne JS sieht) -->
@@ -70,13 +72,6 @@
     }
     .status-badge--visited { background:var(--green-100); color:var(--green-800); }
     .status-badge--current { background:var(--terra-100); color:var(--terra-700); }
-
-    /* Lokaler Vlog-Thumbnail-Fallback (kein externer Request) */
-    .vlog-thumb-fallback {
-      width:100%; aspect-ratio:16/9; display:flex;
-      align-items:center; justify-content:center;
-      background:linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
-    }
 
     /* Nachbar-Laender unten */
   </style>
@@ -169,6 +164,7 @@
 <section class="page-hero">
   <div class="hero__bg">
     <img src="assets/img/IMG_2934.JPEG" class="hero__bg-photo" alt="Peru"
+         width="1920" height="1080" loading="eager" fetchpriority="high"
          onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#8b3a15,#c4622d)'">
     <div class="hero__pattern"></div>
   </div>
@@ -488,14 +484,15 @@
 </div>
 
 <script src="blog-posts.js" defer></script>
-<script src="reise-config.js"></script>
-<script src="laender-config.js"></script>
-<script src="vlog-utils.js"></script>
-<script src="kosten-widget.js"></script>
-<script src="main.js"></script>
+<script src="reise-config.js" defer></script>
+<script src="laender-config.js" defer></script>
+<script src="vlog-utils.js" defer></script>
+<script src="kosten-widget.js" defer></script>
+<script src="main.js" defer></script>
 
 <!-- ── Reisekosten-Daten Peru ───────────────────────────────── -->
 <script>
+document.addEventListener('DOMContentLoaded', function () {
   KostenWidget.init(document.getElementById('kosten-peru'), {
     defaultKey: 'gesamt',
     variants: {
@@ -507,6 +504,7 @@
       }
     }
   });
+});
 </script>
 
 <!-- ── Länderspezifische Inhalte (Blog + Vlogs fuer DIESES Land) ── -->

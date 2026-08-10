@@ -1012,6 +1012,16 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   align-items: center;
   justify-content: center;
 }
+/* Lokaler Platzhalter, falls fuer ein Video (noch) kein
+   heruntergeladenes Thumbnail existiert. Kein externer Request. */
+.vlog-thumb-fallback {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
+}
 .vlog-card__play {
   position: absolute;
   top: 50%; left: 50%;

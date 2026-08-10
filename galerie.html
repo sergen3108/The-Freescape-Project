@@ -34,7 +34,7 @@
   "inLanguage": "de-DE",
   "image": [
     { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/salento.jpg", "name": "Cocora-Tal", "caption": "Salento, Kolumbien" },
-    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/bogota2.png", "name": "La Candelaria", "caption": "Bogotá, Kolumbien" },
+    { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/bogota2.jpg", "name": "La Candelaria", "caption": "Bogotá, Kolumbien" },
     { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/sanandres8.jpg", "name": "San Andrés", "caption": "Meer der 7 Farben" },
     { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/medellin.jpg", "name": "Medellín", "caption": "Comuna 13, Kolumbien" },
     { "@type": "ImageObject", "contentUrl": "https://thefreescapeproject.com/assets/img/blog/salento6.jpg", "name": "Kaffeeplantage", "caption": "Salento, Kolumbien" },
@@ -78,6 +78,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/fonts/playfair-display-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 
   <style>
@@ -630,7 +632,7 @@
 <!-- ── Page Hero ──────────────────────────────────────────── -->
 <section class="page-hero">
   <div class="hero__bg">
-    <img src="assets/img/rockygalap.jpg" class="hero__bg-photo" alt="" loading="eager" fetchpriority="high">
+    <img src="assets/img/rockygalap.jpg" class="hero__bg-photo" alt="" width="1920" height="1080" loading="eager" fetchpriority="high">
     <div class="hero__pattern"></div>
   </div>
   <div class="hero__overlay"></div>
@@ -704,8 +706,8 @@
       <div class="gi" tabindex="0" role="button"
            data-label="La Candelaria"
            data-sub="Bogotá, Kolumbien"
-           data-src="assets/img/blog/bogota2.png">
-        <img src="assets/img/blog/bogota2.png"
+           data-src="assets/img/blog/bogota2.jpg">
+        <img src="assets/img/blog/bogota2.jpg"
              alt="La Candelaria, Bogotá"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1423,8 +1425,8 @@
   </div>
 </div>
 
-<script src="reise-config.js"></script>
-<script src="main.js"></script>
+<script src="reise-config.js" defer></script>
+<script src="main.js" defer></script>
 <script>
 (function () {
 

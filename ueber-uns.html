@@ -52,6 +52,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/fonts/playfair-display-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <style>
       .timeline{position:relative;padding-left:2rem}
@@ -184,7 +186,7 @@
     <!-- ✏️ HERO HINTERGRUNDBILD: Pfad zu deinem Foto ersetzen
          Empfehlung: Querformat, mindestens 1600px breit
          Eigenes Bild: src="assets/img/hero-hintergrund.jpg" -->
-    <img src="assets/img/breitbildfuji.jpg" class="hero__bg-photo" alt="">
+    <img src="assets/img/breitbildfuji.jpg" class="hero__bg-photo" alt="" width="1920" height="1080" loading="eager" fetchpriority="high">
     <div class="hero__pattern"></div>
   </div>
   <div class="hero__overlay"></div>
@@ -531,8 +533,8 @@
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
 </div>
-  <script src="reise-config.js"></script>
-  <script src="main.js"></script>
+  <script src="reise-config.js" defer></script>
+  <script src="main.js" defer></script>
   <script>
   document.querySelectorAll('.faq-question').forEach(q=>{q.addEventListener('click',()=>{const item=q.closest('.faq-item');const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-question').setAttribute('aria-expanded','false');});if(!wasOpen){item.classList.add('open');q.setAttribute('aria-expanded','true');}})});
   </script>

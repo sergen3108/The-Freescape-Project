@@ -24,7 +24,7 @@ Als wir ankamen, fühlte sich Bogotá zunächst etwas überwältigend an. Die St
 
 Eines unserer absoluten Highlights war die Seilbahnfahrt auf den Monserrate, von wo aus man einen der beeindruckendsten Ausblicke über die gesamte Stadt hat. Kombiniert mit köstlichem kolumbianischen Essen, lebhaften Straßen und faszinierender Geschichte wird Bogotá plötzlich zu einem Ziel, das weit interessanter ist als viele Reisende erwarten.
 
-![Bogotá Skyline](assets/img/blog/bogota2.png)
+![Bogotá Skyline](assets/img/blog/bogota2.jpg)
 
 ---
 
@@ -114,7 +114,7 @@ Für ein lokales Erlebnis: der **Paloquemao Markt** mit frischen Früchten, Blum
 
 ## Essen & Trinken in Bogotá
 
-![Kolumbianisches Essen](assets/img/blog/essenbogota.png)
+![Kolumbianisches Essen](assets/img/blog/essenbogota.jpg)
 
 Essen ist eines der Highlights in Bogotá. Das berühmteste traditionelle Gericht ist **Ajiaco**, eine herzhafte Hühner-Kartoffel-Suppe, serviert mit Mais, Reis, Kapern, Sahne und Avocado. Perfekt für Bogotás kühles Klima.
 

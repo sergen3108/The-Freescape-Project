@@ -13,6 +13,8 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<link rel="preload" href="assets/fonts/playfair-display-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
   
 </head>
@@ -101,7 +103,7 @@
 
 <section class="page-hero" style="min-height:100vh;display:flex;align-items:center;">
   <div class="hero__bg">
-    <img src="assets/img/404.jpg" class="hero__bg-photo" alt="" aria-hidden="true" loading="eager" fetchpriority="high">
+    <img src="assets/img/404.jpg" class="hero__bg-photo" alt="" aria-hidden="true" width="1920" height="1080" loading="eager" fetchpriority="high">
     <div class="hero__pattern"></div>
   </div>
   <div class="hero__overlay"></div>
@@ -198,6 +200,6 @@
   </div>
 </div>
 
-<script src="main.js"></script>
+<script src="main.js" defer></script>
 </body>
 </html>

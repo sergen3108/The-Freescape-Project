@@ -30,6 +30,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" href="assets/fonts/playfair-display-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
   <style>
     /* ── Hero ─────────────────────────────────────────────── */
@@ -483,11 +486,11 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
-<script src="blog-posts.js"></script>
-<script src="laender-config.js"></script>
-<script src="vlog-utils.js"></script>
-<script src="main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js" defer></script>
+<script src="blog-posts.js" defer></script>
+<script src="laender-config.js" defer></script>
+<script src="vlog-utils.js" defer></script>
+<script src="main.js" defer></script>
 <script>
 (async function () {
   const BASE_URL = 'https://thefreescapeproject.com';

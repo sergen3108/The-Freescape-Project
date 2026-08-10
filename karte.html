@@ -28,6 +28,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
+  <link rel="preconnect" href="https://basemaps.cartocdn.com" crossorigin>
+  <link rel="preload" href="assets/fonts/playfair-display-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-latin-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <!-- Leaflet lokal geladen, keine externe Serververbindung -->
   <link rel="stylesheet" href="assets/leaflet/leaflet.css"/>
@@ -230,7 +233,7 @@
 <!-- ── Page Hero ─────────────────────────────────────────── -->
 <section class="page-hero">
   <div class="hero__bg">
-    <img src="assets/img/blog/sanandres8.jpg" class="hero__bg-photo" alt="" loading="eager" fetchpriority="high"
+    <img src="assets/img/blog/sanandres8.jpg" class="hero__bg-photo" alt="" width="1920" height="1080" loading="eager" fetchpriority="high"
          onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#c4622d,#1a2744)'">
     <div class="hero__pattern"></div>
   </div>
@@ -414,10 +417,10 @@
 </div>
 
 <!-- Leaflet lokal geladen, keine externe Serververbindung -->
-<script src="assets/leaflet/leaflet.js"></script>
-<script src="reise-config.js"></script>
-<script src="laender-config.js"></script>
-<script src="main.js"></script>
+<script src="assets/leaflet/leaflet.js" defer></script>
+<script src="reise-config.js" defer></script>
+<script src="laender-config.js" defer></script>
+<script src="main.js" defer></script>
 
 <script>
 /* ═══════════════════════════════════════════════════════
@@ -616,18 +619,20 @@ function grantMapConsent() {
   initMap();
 }
 
-// Bei bereits erteiltem Consent sofort laden
-if (hasMapConsent()) {
-  initMap();
-}
+document.addEventListener('DOMContentLoaded', function () {
+  // Bei bereits erteiltem Consent sofort laden
+  if (hasMapConsent()) {
+    initMap();
+  }
 
-// Button im Platzhalter
-document.getElementById('mapConsentBtn').addEventListener('click', grantMapConsent);
+  // Button im Platzhalter
+  document.getElementById('mapConsentBtn').addEventListener('click', grantMapConsent);
 
-// Falls der zentrale Cookie-Banner "Alle akzeptieren" geklickt wird,
-// auch die Karte freigeben (falls noch nicht geschehen)
-document.querySelector('.cookie-btn-accept').addEventListener('click', function() {
-  if (!hasMapConsent()) { grantMapConsent(); }
+  // Falls der zentrale Cookie-Banner "Alle akzeptieren" geklickt wird,
+  // auch die Karte freigeben (falls noch nicht geschehen)
+  document.querySelector('.cookie-btn-accept').addEventListener('click', function() {
+    if (!hasMapConsent()) { grantMapConsent(); }
+  });
 });
 </script>
 

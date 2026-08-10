@@ -51,20 +51,13 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" href="assets/fonts/playfair-display-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/cormorant-garamond-latin-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
   <style>
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Lokaler Platzhalter, falls fuer ein Video (noch) kein
-       heruntergeladenes Thumbnail existiert. Kein externer Request. */
-    .vlog-thumb-fallback {
-      width: 100%;
-      aspect-ratio: 16/9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
-    }
   </style>
 </head>
 <body>
@@ -153,7 +146,7 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero__bg">
-    <img src="assets/img/IMG_2934.JPEG" class="hero__bg-photo" alt="" aria-hidden="true">
+    <img src="assets/img/IMG_2934.JPEG" class="hero__bg-photo" alt="" aria-hidden="true" width="1920" height="1080" loading="eager" fetchpriority="high">
     <div class="hero__pattern"></div>
   </div>
   <div class="hero__overlay"></div>
@@ -436,25 +429,27 @@
   </div>
 </div>
 
-<script src="blog-posts.js"></script>
-<script src="reise-config.js"></script>
-<script src="laender-config.js"></script>
-<script src="vlog-utils.js"></script>
-<script src="kosten-widget.js"></script>
-<script src="main.js"></script>
+<script src="blog-posts.js" defer></script>
+<script src="reise-config.js" defer></script>
+<script src="laender-config.js" defer></script>
+<script src="vlog-utils.js" defer></script>
+<script src="kosten-widget.js" defer></script>
+<script src="main.js" defer></script>
 
 <!-- Gesamtausgaben-Uebersicht (Donut mit Link je Land) -->
 <script>
+document.addEventListener('DOMContentLoaded', function () {
   KostenWidget.initOverview(document.getElementById('kosten-overview'), [
     { name: 'Kolumbien', total: 2856.97, color: '#2a78d6', href: 'kolumbien.html#kosten-kolumbien' },
     { name: 'Ecuador',   total: 3398.47, color: '#eb6834', href: 'ecuador.html#kosten-ecuador' },
     { name: 'Peru',      total: 2874.19, color: '#1baf7a', href: 'peru.html#kosten-peru' }
   ]);
+});
 </script>
 
 <!-- D3 + Südamerika-Karte (unveraendert, separates Thema) -->
-<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js" defer></script>
 
 <!-- Vlogs + Vlog-Anzahl aus lokaler vlogs-data.json (kein Google-Request) -->
 <script>
@@ -549,7 +544,7 @@
 
 <!-- Südamerika-Karte (D3, unveraendert) -->
 <script>
-(async function() {
+document.addEventListener('DOMContentLoaded', async function() {
   const SA = REISE.saMap;
   try {
     const world = await d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
@@ -593,7 +588,7 @@
       container.innerHTML = '<p style="text-align:center;color:var(--gray-400,#9ca3af);padding:2rem 0;">Karte konnte nicht geladen werden. <a href="karte.html" style="text-decoration:underline;">Zur Reisekarte →</a></p>';
     }
   }
-})();
+});
 </script>
 
 <!-- Blog-Vorschau -->
