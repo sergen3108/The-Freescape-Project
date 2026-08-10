@@ -254,6 +254,51 @@
   </div>
 </section>
 
+<!-- ── Reisekosten Kolumbien ────────────────────────────────── -->
+<section class="section" style="background:var(--sand-50);">
+  <div class="container">
+    <div class="section-header section-header--left" style="margin-bottom:2rem;">
+      <p class="overline">Reisekasse</p>
+      <h2>Was Kolumbien uns gekostet hat</h2>
+      <p class="lead" style="margin:0;">
+        Kolumbien hat uns pro Person 2.856,97 Euro gekostet, auf 52 Tage verteilt. Wir hätten
+        nicht gedacht, dass Aktivitäten unser größter Posten werden, aber die Touren im
+        Kaffeeanbaugebiet und auf San Andrés kosten ordentlich. Wir zeigen hier offen, wofür
+        genau das Geld draufging.
+      </p>
+    </div>
+
+    <div class="kosten-card" id="kosten-kolumbien">
+      <div class="kosten-card__head">
+        <div>
+          <span class="kosten-card__total-value" data-k="total">–</span>
+          <span class="kosten-card__total-label">Gesamt pro Person</span>
+        </div>
+        <div class="kosten-card__facts">
+          <span data-k="zeitraum">–</span>
+          <strong data-k="tage">–</strong>
+        </div>
+      </div>
+
+      <div class="kosten-card__body">
+        <div class="kosten-chart">
+          <svg data-k="donut" role="img" aria-label="Kostenverteilung Kolumbien nach Kategorie"></svg>
+          <div class="kosten-chart__center">
+            <span class="kosten-chart__center-value" data-k="perday">–</span>
+            <span class="kosten-chart__center-label">Ø pro Tag</span>
+          </div>
+        </div>
+        <ul class="kosten-legend" data-k="legend"></ul>
+      </div>
+
+      <div class="kosten-card__monthly">
+        <span class="kosten-card__monthly-value" data-k="permonth">–</span>
+        <span class="kosten-card__monthly-label">⌀ Ausgaben pro Monat</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Vlogs aus Kolumbien ──────────────────────────────────── -->
 <section class="section" style="background:var(--sand-50);">
   <div class="container">
@@ -419,7 +464,23 @@
 <script src="reise-config.js"></script>
 <script src="laender-config.js"></script>
 <script src="vlog-utils.js"></script>
+<script src="kosten-widget.js"></script>
 <script src="main.js"></script>
+
+<!-- ── Reisekosten-Daten Kolumbien ──────────────────────────── -->
+<script>
+  KostenWidget.init(document.getElementById('kosten-kolumbien'), {
+    defaultKey: 'gesamt',
+    variants: {
+      gesamt: {
+        zeitraum: '25.02. – 17.04.2026',
+        tage: 52,
+        gesamt: 2856.97,
+        kategorien: { activities: 809.06, accommodation: 784.97, food: 761.56, transportation: 385.79, others: 115.05 }
+      }
+    }
+  });
+</script>
 
 <!-- ── Länderspezifische Inhalte (Blog + Vlogs fuer DIESES Land) ── -->
 <script>

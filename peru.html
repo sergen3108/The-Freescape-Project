@@ -272,6 +272,51 @@
   </div>
 </section>
 
+<!-- ── Reisekosten Peru ─────────────────────────────────────── -->
+<section class="section" style="background:var(--sand-50);">
+  <div class="container">
+    <div class="section-header section-header--left" style="margin-bottom:2rem;">
+      <p class="overline">Reisekasse</p>
+      <h2>Was Peru uns gekostet hat</h2>
+      <p class="lead" style="margin:0;">
+        Peru war mit 67 Tagen unsere längste Station in Südamerika und kostete uns 2.874,19 Euro
+        pro Person. Am meisten ging fürs Essen drauf, kein Wunder bei Ceviche in Lima und
+        Menüs für zwei Euro in den Anden. Wir hätten gedacht, dass die Zugfahrt nach Machu
+        Picchu das Budget stärker belastet, aber am Ende hielt sich das in Grenzen.
+      </p>
+    </div>
+
+    <div class="kosten-card" id="kosten-peru">
+      <div class="kosten-card__head">
+        <div>
+          <span class="kosten-card__total-value" data-k="total">–</span>
+          <span class="kosten-card__total-label">Gesamt pro Person</span>
+        </div>
+        <div class="kosten-card__facts">
+          <span data-k="zeitraum">–</span>
+          <strong data-k="tage">–</strong>
+        </div>
+      </div>
+
+      <div class="kosten-card__body">
+        <div class="kosten-chart">
+          <svg data-k="donut" role="img" aria-label="Kostenverteilung Peru nach Kategorie"></svg>
+          <div class="kosten-chart__center">
+            <span class="kosten-chart__center-value" data-k="perday">–</span>
+            <span class="kosten-chart__center-label">Ø pro Tag</span>
+          </div>
+        </div>
+        <ul class="kosten-legend" data-k="legend"></ul>
+      </div>
+
+      <div class="kosten-card__monthly">
+        <span class="kosten-card__monthly-value" data-k="permonth">–</span>
+        <span class="kosten-card__monthly-label">⌀ Ausgaben pro Monat</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Vlogs aus Peru ───────────────────────────────────────── -->
 <section class="section" style="background:var(--sand-50);">
   <div class="container">
@@ -442,7 +487,23 @@
 <script src="reise-config.js"></script>
 <script src="laender-config.js"></script>
 <script src="vlog-utils.js"></script>
+<script src="kosten-widget.js"></script>
 <script src="main.js"></script>
+
+<!-- ── Reisekosten-Daten Peru ───────────────────────────────── -->
+<script>
+  KostenWidget.init(document.getElementById('kosten-peru'), {
+    defaultKey: 'gesamt',
+    variants: {
+      gesamt: {
+        zeitraum: '01.06. – 07.08.2026',
+        tage: 67,
+        gesamt: 2874.19,
+        kategorien: { activities: 560.13, accommodation: 766.84, food: 1033.09, transportation: 411.89, others: 102.24 }
+      }
+    }
+  });
+</script>
 
 <!-- ── Länderspezifische Inhalte (Blog + Vlogs fuer DIESES Land) ── -->
 <script>

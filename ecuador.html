@@ -251,6 +251,59 @@
   </div>
 </section>
 
+<!-- ── Reisekosten Ecuador ──────────────────────────────────── -->
+<section class="section" style="background:var(--sand-50);">
+  <div class="container">
+    <div class="section-header section-header--left" style="margin-bottom:2rem;">
+      <p class="overline">Reisekasse</p>
+      <h2>Was Ecuador uns gekostet hat</h2>
+      <p class="lead" style="margin:0;">
+        Ecuador zerfällt für unsere Reisekasse in zwei Welten: das Festland und Galápagos, das
+        den Preis kräftig nach oben treibt. Wir hätten die Inseln fast ausgelassen, weil sie mit
+        Abstand am teuersten waren, aber im Rückblick war es das wert. Ohne Galápagos kamen wir
+        mit 1.647,82 Euro pro Person aus, mit Galápagos wurden daraus 3.398,47 Euro.
+      </p>
+    </div>
+
+    <div id="kosten-ecuador">
+      <div class="content-tabs" style="margin-bottom:1.5rem;">
+        <button type="button" class="content-tab active" data-variant="mit">Mit Galápagos</button>
+        <button type="button" class="content-tab" data-variant="ohne">Ohne Galápagos</button>
+        <button type="button" class="content-tab" data-variant="nur">Nur Galápagos</button>
+      </div>
+
+      <div class="kosten-card">
+        <div class="kosten-card__head">
+          <div>
+            <span class="kosten-card__total-value" data-k="total">–</span>
+            <span class="kosten-card__total-label">Gesamt pro Person</span>
+          </div>
+          <div class="kosten-card__facts">
+            <span data-k="zeitraum">–</span>
+            <strong data-k="tage">–</strong>
+          </div>
+        </div>
+
+        <div class="kosten-card__body">
+          <div class="kosten-chart">
+            <svg data-k="donut" role="img" aria-label="Kostenverteilung Ecuador nach Kategorie"></svg>
+            <div class="kosten-chart__center">
+              <span class="kosten-chart__center-value" data-k="perday">–</span>
+              <span class="kosten-chart__center-label">Ø pro Tag</span>
+            </div>
+          </div>
+          <ul class="kosten-legend" data-k="legend"></ul>
+        </div>
+
+        <div class="kosten-card__monthly">
+          <span class="kosten-card__monthly-value" data-k="permonth">–</span>
+          <span class="kosten-card__monthly-label">⌀ Ausgaben pro Monat</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── Vlogs aus Ecuador ────────────────────────────────────── -->
 <section class="section" style="background:var(--sand-50);">
   <div class="container">
@@ -416,7 +469,35 @@
 <script src="reise-config.js"></script>
 <script src="laender-config.js"></script>
 <script src="vlog-utils.js"></script>
+<script src="kosten-widget.js"></script>
 <script src="main.js"></script>
+
+<!-- ── Reisekosten-Daten Ecuador ────────────────────────────── -->
+<script>
+  KostenWidget.init(document.getElementById('kosten-ecuador'), {
+    defaultKey: 'mit',
+    variants: {
+      mit: {
+        zeitraum: '17.04. – 31.05.2026',
+        tage: 44,
+        gesamt: 3398.47,
+        kategorien: { activities: 1142.60, accommodation: 611.70, food: 689.79, transportation: 708.81, others: 244.95 }
+      },
+      ohne: {
+        zeitraum: '17.04. – 08.05. & 27. – 31.05.2026',
+        tage: 25,
+        gesamt: 1647.82,
+        kategorien: { activities: 653.79, accommodation: 372.17, food: 286.30, transportation: 290.61, others: 44.95 }
+      },
+      nur: {
+        zeitraum: '08.05. – 27.05.2026',
+        tage: 19,
+        gesamt: 1750.65,
+        kategorien: { activities: 488.81, accommodation: 239.53, food: 403.49, transportation: 418.20, others: 200 }
+      }
+    }
+  });
+</script>
 
 <!-- ── Länderspezifische Inhalte (Blog + Vlogs fuer DIESES Land) ── -->
 <script>
