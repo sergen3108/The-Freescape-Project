@@ -125,7 +125,7 @@
       background: var(--white, #fff);
       border-bottom: 1px solid var(--gray-100, #f0ede8);
       position: sticky;
-      top: 64px;
+      top: var(--nav-h);
       z-index: 49;
       box-shadow: 0 2px 20px rgba(0,0,0,0.06);
     }
@@ -671,6 +671,7 @@
     <button class="kapitel-btn active" data-target="kolumbien">Kolumbien</button>
     <button class="kapitel-btn" data-target="ecuador">Ecuador</button>
     <button class="kapitel-btn" data-target="peru">Peru</button>
+    <button class="kapitel-btn" data-target="bolivien">Bolivien</button>
   </div>
 </nav>
 
@@ -1095,14 +1096,18 @@
         <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <div class="gi gi--placeholder">
-        <div class="gi__placeholder-inner">
-          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
-          <div>
-            <div class="gi__placeholder-label">Titicacasee</div>
-            <div class="gi__placeholder-sub">Kommt bald</div>
-          </div>
+      <div class="gi" tabindex="0" role="button"
+           data-label="Titicacasee"
+           data-sub="Puno, Peru"
+           data-src="assets/img/titicaca.jpeg">
+        <img src="assets/img/titicaca.jpeg"
+             alt="Titicacasee, Puno"
+             style="width:100%;height:100%;object-fit:cover;display:block;"
+             loading="lazy">
+        <div class="gi__overlay">
+          <div><div class="gi__label">Titicacasee</div><div class="gi__sub">Puno, Peru</div></div>
         </div>
+        <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
       <div class="gi" tabindex="0" role="button"
@@ -1186,7 +1191,7 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════
-     KAPITEL 4: BOLIVIEN · 10/10 Top-Plätze, 0 bestätigt + 10 offen
+     KAPITEL 4: BOLIVIEN · 10/10 Top-Plätze, 3 bestätigt + 7 offen
      ✏️ Gleiches Schema wie oben: Band A → QUAD → A-REV
      ✏️ "Kommt bald": gi--placeholder entfernen, img-Tag + data-Attribute
         nach Vorbild der echten Fotos oben ergänzen
@@ -1202,34 +1207,47 @@
     <!-- Band 1: groß links + 2 klein rechts -->
     <div class="bento bento--a animate-on-scroll">
 
-      <div class="gi gi--placeholder">
-        <div class="gi__placeholder-inner">
-          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
-          <div>
-            <div class="gi__placeholder-label">Copacabana</div>
-            <div class="gi__placeholder-sub">Kommt bald</div>
-          </div>
+      <div class="gi" tabindex="0" role="button"
+           data-label="Isla del Sol"
+           data-sub="Titicacasee, Bolivien"
+           data-src="assets/img/isladelsol.jpeg">
+        <img src="assets/img/isladelsol.jpeg"
+             alt="Isla del Sol, Titicacasee"
+             style="width:100%;height:100%;object-fit:cover;display:block;"
+             loading="lazy">
+        <div class="gi__badge">Highlight</div>
+        <div class="gi__overlay">
+          <div><div class="gi__label">Isla del Sol</div><div class="gi__sub">Titicacasee, Bolivien</div></div>
         </div>
+        <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <div class="gi gi--placeholder">
-        <div class="gi__placeholder-inner">
-          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
-          <div>
-            <div class="gi__placeholder-label">Isla del Sol</div>
-            <div class="gi__placeholder-sub">Kommt bald</div>
-          </div>
+      <div class="gi" tabindex="0" role="button"
+           data-label="Copacabana"
+           data-sub="Titicacasee, Bolivien"
+           data-src="assets/img/copacabana.jpeg">
+        <img src="assets/img/copacabana.jpeg"
+             alt="Copacabana, Titicacasee"
+             style="width:100%;height:100%;object-fit:cover;display:block;"
+             loading="lazy">
+        <div class="gi__overlay">
+          <div><div class="gi__label">Copacabana</div><div class="gi__sub">Titicacasee, Bolivien</div></div>
         </div>
+        <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
-      <div class="gi gi--placeholder">
-        <div class="gi__placeholder-inner">
-          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.4-2h5.2L16 5"/></svg></div>
-          <div>
-            <div class="gi__placeholder-label">La Paz</div>
-            <div class="gi__placeholder-sub">Kommt bald</div>
-          </div>
+      <div class="gi" tabindex="0" role="button"
+           data-label="La Paz"
+           data-sub="Bolivien"
+           data-src="assets/img/lapaz.jpeg">
+        <img src="assets/img/lapaz.jpeg"
+             alt="La Paz"
+             style="width:100%;height:100%;object-fit:cover;display:block;"
+             loading="lazy">
+        <div class="gi__overlay">
+          <div><div class="gi__label">La Paz</div><div class="gi__sub">Bolivien</div></div>
         </div>
+        <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
       </div>
 
     </div><!-- /Band 1 -->
@@ -1439,7 +1457,7 @@
 
   /* ── Kapitel-Navigation: Scroll-Spy ────────────────────── */
   const kapitelBtns = document.querySelectorAll('.kapitel-btn');
-  const sections = ['kolumbien','ecuador','peru'].map(id => document.getElementById(id));
+  const sections = ['kolumbien','ecuador','peru','bolivien'].map(id => document.getElementById(id));
 
   kapitelBtns.forEach(btn => {
     btn.addEventListener('click', () => {

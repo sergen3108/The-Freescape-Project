@@ -136,13 +136,16 @@
 
 /* === RESET ================================================== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
   font-family: 'Playfair Display', Georgia, serif;
   color: var(--gray-900);
   background: var(--white);
   line-height: 1.6;
-  overflow-x: hidden;
+  /* overflow-x: clip statt hidden, sonst bricht position:sticky (z.B.
+     .kapitel-nav in galerie.html) in Safari; clip erzeugt anders als
+     hidden keinen impliziten Scroll-Container fuer overflow-y. */
+  overflow-x: clip;
   /* Sicherheitsnetz gegen Font-Swap-Overflow: der Fallback-Font (vor dem
      Laden von Playfair/Cormorant per font-display:swap) kann Zeilen kurz
      breiter rendern als Custom-Font, wodurch Text ueber den rechten Rand
