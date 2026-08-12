@@ -138,6 +138,19 @@
       gap: 0;
     }
     .kapitel-nav__inner::-webkit-scrollbar { display: none; }
+    .kapitel-nav__fade {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 32px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 1;
+    }
+    .kapitel-nav__fade--left  { left: 0;  background: linear-gradient(to right, var(--white, #fff), transparent); }
+    .kapitel-nav__fade--right { right: 0; background: linear-gradient(to left,  var(--white, #fff), transparent); }
+    .kapitel-nav.is-scrollable-left  .kapitel-nav__fade--left  { opacity: 1; }
+    .kapitel-nav.is-scrollable-right .kapitel-nav__fade--right { opacity: 1; }
     .kapitel-btn {
       flex-shrink: 0;
       display: flex;
@@ -667,12 +680,14 @@
 
 <!-- ── Sticky Kapitel-Navigation ──────────────────────────── -->
 <nav class="kapitel-nav" aria-label="Kapitel">
+  <div class="kapitel-nav__fade kapitel-nav__fade--left"></div>
   <div class="kapitel-nav__inner">
     <button class="kapitel-btn active" data-target="kolumbien">Kolumbien</button>
     <button class="kapitel-btn" data-target="ecuador">Ecuador</button>
     <button class="kapitel-btn" data-target="peru">Peru</button>
     <button class="kapitel-btn" data-target="bolivien">Bolivien</button>
   </div>
+  <div class="kapitel-nav__fade kapitel-nav__fade--right"></div>
 </nav>
 
 <!-- ══════════════════════════════════════════════════════════
@@ -1456,7 +1471,9 @@
   if (countEl) countEl.setAttribute('data-count', realItems.length);
 
   /* ── Kapitel-Navigation: Scroll-Spy ────────────────────── */
-  const kapitelBtns = document.querySelectorAll('.kapitel-btn');
+  const kapitelBtns  = document.querySelectorAll('.kapitel-btn');
+  const kapitelNav   = document.querySelector('.kapitel-nav');
+  const kapitelInner = document.querySelector('.kapitel-nav__inner');
   const sections = ['kolumbien','ecuador','peru','bolivien'].map(id => document.getElementById(id));
 
   kapitelBtns.forEach(btn => {
@@ -1468,12 +1485,28 @@
     });
   });
 
+  /* Fade-Raender nur zeigen, wenn die Leiste tatsaechlich ueberläuft */
+  function updateKapitelFades() {
+    if (!kapitelNav || !kapitelInner) return;
+    const maxScroll = kapitelInner.scrollWidth - kapitelInner.clientWidth;
+    kapitelNav.classList.toggle('is-scrollable-left',  kapitelInner.scrollLeft > 4);
+    kapitelNav.classList.toggle('is-scrollable-right', kapitelInner.scrollLeft < maxScroll - 4);
+  }
+  if (kapitelInner) {
+    kapitelInner.addEventListener('scroll', updateKapitelFades, { passive: true });
+    window.addEventListener('resize', updateKapitelFades);
+    updateKapitelFades();
+  }
+
   const spy = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         kapitelBtns.forEach(b => b.classList.remove('active'));
         const active = document.querySelector(`.kapitel-btn[data-target="${entry.target.id}"]`);
-        if (active) active.classList.add('active');
+        if (active) {
+          active.classList.add('active');
+          active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }
       }
     });
   }, { rootMargin: '-20% 0px -75% 0px' });
