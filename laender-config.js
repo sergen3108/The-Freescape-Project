@@ -88,8 +88,8 @@ window.LAENDER = [
     hook: 'Mit dem Bus von Puno über den Titicacasee nach Copacabana, jetzt in La Paz, dem hoechsten Regierungssitz der Welt. Als naechstes geht es nach Sucre.',
     tags: ['Wueste', 'Berge', 'Natur', 'Budget'],
     gradient: 'linear-gradient(135deg,#4a7fa0,#c8e8f5)',
-    heroImage: null,
-    ogImage: null,
+    heroImage: 'assets/img/lapaz.jpeg',
+    ogImage: 'https://thefreescapeproject.com/assets/img/lapaz.jpeg',
     vlogKeywords: ['bolivien', 'la paz', 'uyuni', 'sucre', 'copacabana', 'potosí', 'potosi', 'salar']
   },
   {
