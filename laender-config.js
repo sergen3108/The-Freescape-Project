@@ -85,7 +85,7 @@ window.LAENDER = [
     datei: 'bolivien.html',
     reihenfolge: 4,
     zeitraum: 'ab Aug 2026',
-    hook: 'Mit dem Bus von Puno über den Titicacasee nach Copacabana, jetzt in La Paz, dem hoechsten Regierungssitz der Welt. Als naechstes geht es nach Sucre.',
+    hook: 'Mit dem Bus von Puno über den Titicacasee nach Copacabana, ueber La Paz jetzt in Sucre, der konstitutionellen Hauptstadt Boliviens. Als naechstes geht es zum Salar de Uyuni.',
     tags: ['Wueste', 'Berge', 'Natur', 'Budget'],
     gradient: 'linear-gradient(135deg,#4a7fa0,#c8e8f5)',
     heroImage: 'assets/img/lapaz.jpeg',
