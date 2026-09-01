@@ -6,7 +6,25 @@
   <atom:link href="https://thefreescapeproject.com/feed.xml" rel="self" type="application/rss+xml" />
   <description>Reiseberichte, Routen-Guides und Kosten-Checks von Julia &amp; Sergen aus Kolumbien, Ecuador und Peru.</description>
   <language>de-DE</language>
-  <lastBuildDate>Mon, 10 Aug 2026 02:55:08 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 01 Sep 2026 23:24:20 GMT</lastBuildDate>
+
+  <item>
+    <title>Ecuador Reiseroute: 2 Wochen, 4 Wochen und 2 Monate im Überblick</title>
+    <link>https://thefreescapeproject.com/artikel.html?post=ecuador-reiseroute</link>
+    <guid>https://thefreescapeproject.com/artikel.html?post=ecuador-reiseroute</guid>
+    <pubDate>Sat, 25 Jul 2026 12:00:00 GMT</pubDate>
+    <category>Ecuador</category>
+    <description>Ecuador ist ein Paradies fürs Backpacking, auf einer Fläche kaum größer als Großbritannien findest du Anden, Amazonas und die Galápagos-Inseln. Hier zeigen wir dir Routen für 2 Wochen, 4 Wochen und die vollen 2 Monate, inklusive Kosten und allen Links zu unseren Einzel-Guides.</description>
+  </item>
+
+  <item>
+    <title>Cuenca Reiseführer: Unsere Lieblingsstadt in Ecuador &amp; der Cajas Nationalpark</title>
+    <link>https://thefreescapeproject.com/artikel.html?post=cuenca-reisefuehrer</link>
+    <guid>https://thefreescapeproject.com/artikel.html?post=cuenca-reisefuehrer</guid>
+    <pubDate>Mon, 20 Jul 2026 12:00:00 GMT</pubDate>
+    <category>Ecuador</category>
+    <description>Kopfsteinpflastergassen, Kolonialbauten und ein rauschender Fluss, Cuenca ist unsere Lieblingsstadt in Ecuador geworden. Fünf Tage voller Altstadt-Spaziergänge, Cajas-Nationalpark und richtig gutem Essen.</description>
+  </item>
 
   <item>
     <title>Isabela Island Galápagos Reiseführer: Schnorchel-Paradiese &amp; Insider-Tipps</title>
@@ -51,6 +69,15 @@
     <pubDate>Mon, 06 Jul 2026 12:00:00 GMT</pubDate>
     <category>Ecuador</category>
     <description>Meerechsen auf dem Bürgersteig, Seelöwen auf der Hafenbank und Riesenschildkröten zum Greifen nah, sechs Nächte auf Santa Cruz haben uns gezeigt, dass man die Galápagos-Inseln auch unabhängig und mit Budget bereisen kann.</description>
+  </item>
+
+  <item>
+    <title>San Cristóbal Galápagos Reiseführer: Seelöwen, Kicker Rock &amp; Schnorchelspots</title>
+    <link>https://thefreescapeproject.com/artikel.html?post=san-cristobal-galapagos-reisefuehrer</link>
+    <guid>https://thefreescapeproject.com/artikel.html?post=san-cristobal-galapagos-reisefuehrer</guid>
+    <pubDate>Mon, 06 Jul 2026 12:00:00 GMT</pubDate>
+    <category>Ecuador</category>
+    <description>Die östlichste Insel des Archipels ist das Paradies der Seelöwen. Neun Tage auf San Cristóbal haben uns Schnorcheln mit Seelöwen an der Muelle Tijeretas, einen Tauchgang am Kicker Rock und die entspannteste Atmosphäre der drei Hauptinseln beschert.</description>
   </item>
 
   <item>
@@ -108,6 +135,33 @@
   </item>
 
   <item>
+    <title>Galápagos-Inseln auf eigene Faust: Der Insel-Hopping Guide &amp; Insel-Vergleich</title>
+    <link>https://thefreescapeproject.com/artikel.html?post=galapagos-inselhopping-guide</link>
+    <guid>https://thefreescapeproject.com/artikel.html?post=galapagos-inselhopping-guide</guid>
+    <pubDate>Sun, 28 Jun 2026 12:00:00 GMT</pubDate>
+    <category>Ecuador</category>
+    <description>Man muss nicht auf eine teure Kreuzfahrt gehen, um die Galápagos-Inseln zu erleben. Wir haben Santa Cruz, Isabela und San Cristóbal auf eigene Faust erkundet und zeigen dir, wie du deine Route planst, welche Insel zu dir passt und wie du dabei Geld sparst.</description>
+  </item>
+
+  <item>
+    <title>Amazonas Ecuador Reiseführer: Cuyabeno, Tucán Lodge &amp; Dschungel-Tipps</title>
+    <link>https://thefreescapeproject.com/artikel.html?post=amazonas-cuyabeno-reisefuehrer</link>
+    <guid>https://thefreescapeproject.com/artikel.html?post=amazonas-cuyabeno-reisefuehrer</guid>
+    <pubDate>Sat, 20 Jun 2026 12:00:00 GMT</pubDate>
+    <category>Ecuador</category>
+    <description>Vier Tage im Cuyabeno Wildlife Reserve, mit Baden im Amazonas zum Sonnenuntergang, Nachtwanderungen und Pink Dolphins. Hier erzählen wir, wie die Anreise, das Leben in der Tucán Lodge und der Digital Detox für uns waren.</description>
+  </item>
+
+  <item>
+    <title>Otavalo Markt &amp; Cuicocha-Lagune: Tagesausflug ab Quito</title>
+    <link>https://thefreescapeproject.com/artikel.html?post=otavalo-reisefuehrer</link>
+    <guid>https://thefreescapeproject.com/artikel.html?post=otavalo-reisefuehrer</guid>
+    <pubDate>Sat, 30 May 2026 12:00:00 GMT</pubDate>
+    <category>Ecuador</category>
+    <description>Der größte indigene Markt Südamerikas, eine spiegelglatte Kraterlagune und die Lederstadt Cotacachi, als Tagesausflug ab Quito lässt sich das alles gut verbinden. Hier unsere ehrliche Erfahrung inklusive Handel-Tipps.</description>
+  </item>
+
+  <item>
     <title>Baños Reiseführer: Abenteuer, heiße Quellen und die Schaukel am Ende der Welt</title>
     <link>https://thefreescapeproject.com/artikel.html?post=banos-reisefuehrer</link>
     <guid>https://thefreescapeproject.com/artikel.html?post=banos-reisefuehrer</guid>
@@ -141,6 +195,15 @@
     <pubDate>Tue, 24 Mar 2026 12:00:00 GMT</pubDate>
     <category>Ecuador</category>
     <description>Quito ist für die meisten Reisenden der Startpunkt in Ecuador und braucht ein bisschen Zeit, bis es einen packt. Hier teilen wir unsere Eindrücke aus fünf Tagen in einer der höchstgelegenen Hauptstädte der Welt.</description>
+  </item>
+
+  <item>
+    <title>Cartagena Reiseführer: Highlights, Sicherheit &amp; Reisetipps</title>
+    <link>https://thefreescapeproject.com/artikel.html?post=cartagena-reisefuehrer</link>
+    <guid>https://thefreescapeproject.com/artikel.html?post=cartagena-reisefuehrer</guid>
+    <pubDate>Tue, 24 Mar 2026 12:00:00 GMT</pubDate>
+    <category>Kolumbien</category>
+    <description>Bunte Kolonialbauten, eine historische Stadtmauer und karibisches Flair, fünf Tage in Cartagena waren für uns genau die richtige Zeit. Hier erzählen wir, was uns am meisten begeistert hat und worauf man achten sollte.</description>
   </item>
 
   <item>

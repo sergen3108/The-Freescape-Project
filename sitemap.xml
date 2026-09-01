@@ -91,6 +91,16 @@
        ✏️ Bei jedem neuen Blog-Post hier eine weitere <url> ergänzen.
   ═══════════════════════════════════════════════ -->
   <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=ecuador-reiseroute</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=cuenca-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://thefreescapeproject.com/artikel.html?post=isabela-island-galapagos-reisefuehrer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -112,6 +122,11 @@
   </url>
   <url>
     <loc>https://thefreescapeproject.com/artikel.html?post=santa-cruz-galapagos-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=san-cristobal-galapagos-reisefuehrer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -146,6 +161,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=galapagos-inselhopping-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=amazonas-cuyabeno-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=otavalo-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://thefreescapeproject.com/artikel.html?post=banos-reisefuehrer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -162,6 +192,11 @@
   </url>
   <url>
     <loc>https://thefreescapeproject.com/artikel.html?post=quito-reisefuehrer</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://thefreescapeproject.com/artikel.html?post=cartagena-reisefuehrer</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
