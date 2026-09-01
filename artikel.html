@@ -627,7 +627,7 @@
       const titel = escapeHtml(p.titel);
       const thumb = p.bild
         ? '<a href="' + p.link + '" class="blog-card__thumb" style="overflow:hidden;display:block;"><img src="' + p.bild + '" alt="' + titel + '" loading="lazy" style="width:100%;height:200px;object-fit:cover;display:block;"><span class="blog-card__category">' + escapeHtml(p.land) + '</span></a>'
-        : '<a href="' + p.link + '" class="blog-card__thumb" style="overflow:hidden;display:block;"><div style="height:200px;background:' + (p.bildFallback ? p.bildFallback.gradient : 'linear-gradient(135deg,#1a2744,#e8431a)') + ';display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + (p.bildFallback && p.bildFallback.emoji === '' ? '<span style="font-size:0.8rem;font-weight:600;opacity:0.7;">Bild folgt in Kürze</span>' : (p.bildFallback ? p.bildFallback.emoji : '✈️')) + '</div><span class="blog-card__category">' + escapeHtml(p.land) + '</span></a>';
+        : '<a href="' + p.link + '" class="blog-card__thumb" style="overflow:hidden;display:block;"><div style="height:200px;background:' + (p.bildFallback ? p.bildFallback.gradient : 'linear-gradient(135deg,#1a2744,#e8431a)') + ';display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + (p.bildFallback && p.bildFallback.emoji === '' ? '<span style="font-size:1.1rem;font-weight:600;opacity:0.75;">Bild folgt in Kürze</span>' : (p.bildFallback ? p.bildFallback.emoji : '✈️')) + '</div><span class="blog-card__category">' + escapeHtml(p.land) + '</span></a>';
       return '' +
         '<article class="blog-card">' +
           thumb +
@@ -730,7 +730,7 @@
 
     const heroHtml = bildSrc
       ? '<img class="artikel-hero__img" src="' + bildSrc + '" alt="' + escapeHtml(data.titel) + '">'
-      : '<div class="artikel-hero__fallback" style="background:' + (data.bildGradient || 'linear-gradient(135deg,#1a2744,#e8431a)') + ';">' + (data.bildEmoji === '' ? '<span style="font-size:1rem;font-weight:600;opacity:0.75;">Bild folgt in Kürze</span>' : (data.bildEmoji !== undefined ? data.bildEmoji : '✈️')) + '</div>';
+      : '<div class="artikel-hero__fallback" style="background:' + (data.bildGradient || 'linear-gradient(135deg,#1a2744,#e8431a)') + ';">' + (data.bildEmoji === '' ? '<span style="font-size:1.6rem;font-weight:600;opacity:0.8;">Bild folgt in Kürze</span>' : (data.bildEmoji !== undefined ? data.bildEmoji : '✈️')) + '</div>';
 
     const monate = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
     const d = data.datum ? new Date(data.datum + 'T12:00:00') : new Date();
