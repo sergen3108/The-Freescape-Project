@@ -111,4 +111,4 @@ Santa Cruz bietet eine großartige Balance: erstklassige Tierbegegnungen direkt 
 
 Da Santa Cruz mitten im Archipel liegt, ist es der perfekte Ausgangspunkt, um weiterzureisen. Nach unseren sechs Nächten hier sind wir zum Hauptpier gegangen, um eine öffentliche Schnellfähre nach [**Isabela**](artikel.html?post=isabela-island-galapagos-reisefuehrer) zu nehmen, bekannt für seine vulkanischen Landschaften, riesigen Meerechsen-Kolonien und entspannte weiße Sandwege.
 
-Alternativ kann man in die andere Richtung nach **San Cristóbal** übersetzen, berühmt für seine unglaublichen Seelöwen-Populationen und fantastische Schnorchel-Spots wie den Kicker Rock.
+Alternativ kann man in die andere Richtung nach [**San Cristóbal**](artikel.html?post=san-cristobal-galapagos-reisefuehrer) übersetzen, berühmt für seine unglaublichen Seelöwen-Populationen und fantastische Schnorchel-Spots wie den Kicker Rock.

@@ -10,11 +10,11 @@ const REISE = {
 // ── Reise-Zahlen ───────────────────────────────────────────────
   kmZurueckgelegt:      14300,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          36,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          38,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Von Sucre geht es als nächstes weiter zum Salar de Uyuni, dem größten Salzsee der Erde! Wir sind gespannt 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'In Uyuni angekommen steht als nächstes die Tour über den Salar de Uyuni an, den größten Salzsee der Erde! Wir sind gespannt 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Sucre, Bolivien',  // ✏️ hier anpassen
+  standort: 'Uyuni, Bolivien',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },

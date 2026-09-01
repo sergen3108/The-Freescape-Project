@@ -221,7 +221,7 @@ Früh aufbrechen Richtung **Guatapé**, den El Peñol-Felsen besteigen, die bunt
 Von Medellín aus lässt sich Kolumbien gut weiter erkunden:
 
 - [**Guatapé**](artikel.html?post=guatape-reisefuehrer): bunte Kolonialstadt, El Peñol Felsen, Seen (ca. 2 Stunden mit dem Bus)
-- **Cartagena**: Karibikküste, historische Altstadt, Strand
+- [**Cartagena**](artikel.html?post=cartagena-reisefuehrer): Karibikküste, historische Altstadt, Strand
 - [**Santa Marta**](artikel.html?post=santa-marta-reisefuehrer) & [**Tayrona**](artikel.html?post=tayrona-reisefuehrer): Traumstrände, Dschungel, Karibikfeeling
 - [**Salento & Kaffeezone**](artikel.html?post=salento-reisefuehrer): Cocora-Tal, Wachspalmen, Kaffeefarms
 - [**Bogotá**](artikel.html?post=bogota-reisefuehrer): Kolumbiens Hauptstadt mit Monserrate, Goldmuseum und lebhafter Stadtkultur

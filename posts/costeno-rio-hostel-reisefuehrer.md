@@ -138,6 +138,6 @@ Der naheliegendste nächste Schritt ist die Weiterreise nach Osten zu [Palomino]
 
 Eine weitere Option ist die Rückkehr nach [Santa Marta](artikel.html?post=santa-marta-reisefuehrer), das als wichtigste Transport-Drehscheibe der Region dient. Von dort lässt sich entweder die Reise durch Kolumbien fortsetzen oder ein Flug zum nächsten Ziel buchen.
 
-Wer noch mehr von Kolumbien sehen möchte, kann von Santa Marta aus leicht weiter nach Cartagena reisen, oder die Reise ins Landesinnere fortsetzen.
+Wer noch mehr von Kolumbien sehen möchte, kann von Santa Marta aus leicht weiter nach [**Cartagena**](artikel.html?post=cartagena-reisefuehrer) reisen, oder die Reise ins Landesinnere fortsetzen.
 
 Da entlang der Küste alles über eine Hauptroute verbunden ist, lässt sich die Reise sehr flexibel anpassen, und man kann spontan entscheiden, wohin es als Nächstes geht.

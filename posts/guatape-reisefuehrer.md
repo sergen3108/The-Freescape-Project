@@ -139,4 +139,4 @@ Von Guatapé aus geht es am einfachsten zurück nach [Medellín](artikel.html?po
 - **Medellín**: ca. 2 bis 2,5 Stunden mit dem Bus, perfekte Basis für Weiterreisen
 - [**San Andrés**](artikel.html?post=san-andres-reisefuehrer): wir sind von Guatapé per Bus zum Flughafen Medellín gefahren und von dort direkt nach San Andrés geflogen, mit einem Umstieg, aber sehr unkompliziert
 - [**Salento & Kaffeezone**](artikel.html?post=salento-reisefuehrer): Cocora-Tal, Wachspalmen, Kaffeefarms, ein schöner Kontrastwechsel nach dem See
-- **Cartagena**: Karibikküste, historische Altstadt, Strand
+- [**Cartagena**](artikel.html?post=cartagena-reisefuehrer): Karibikküste, historische Altstadt, Strand

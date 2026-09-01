@@ -172,6 +172,6 @@ Der naheliegendste Schritt ist die Rückkehr nach [**Santa Marta**](artikel.html
 
 Wer an der Karibikküste bleiben möchte, kann weiter Richtung [**Costeño Beach oder Rio Hostel**](artikel.html?post=costeno-rio-hostel-reisefuehrer) oder [**Palomino**](artikel.html?post=palomino-reisefuehrer) reisen, beliebte Ziele bei Backpackern mit entspannter, strandnaher Atmosphäre.
 
-Eine weitere Option ist die Weiterreise nach **Cartagena** oder tiefer ins Landesinnere, um andere Regionen Kolumbiens zu erkunden.
+Eine weitere Option ist die Weiterreise nach [**Cartagena**](artikel.html?post=cartagena-reisefuehrer) oder tiefer ins Landesinnere, um andere Regionen Kolumbiens zu erkunden.
 
 Da Minca über Santa Marta so gut angebunden ist, lässt sich die Route flexibel an die eigenen Reisepläne anpassen, ein wirklich unkomplizierter Zwischenstopp auf der Kolumbien-Reise.

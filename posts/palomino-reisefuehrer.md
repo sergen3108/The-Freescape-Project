@@ -152,7 +152,7 @@ Nach der Zeit in Palomino gibt es mehrere gute Optionen, um die Reise durch Kolu
 
 Die gängigste Route führt zurück nach [**Santa Marta**](artikel.html?post=santa-marta-reisefuehrer), der wichtigsten Transport-Drehscheibe an der Karibikküste. Von dort lässt sich die Reise problemlos fortsetzen, oder man bucht einen Flug in einen anderen Teil des Landes.
 
-Ein weiterer sehr beliebter nächster Stopp ist **Cartagena**, besonders wenn man nach dem entspannten Strandleben in Palomino mehr Kultur, Nightlife und koloniale Architektur erleben möchte. Cartagena bietet eine komplett andere Atmosphäre und gehört zu Kolumbiens bekanntesten Reisezielen.
+Ein weiterer sehr beliebter nächster Stopp ist [**Cartagena**](artikel.html?post=cartagena-reisefuehrer), besonders wenn man nach dem entspannten Strandleben in Palomino mehr Kultur, Nightlife und koloniale Architektur erleben möchte. Cartagena bietet eine komplett andere Atmosphäre und gehört zu Kolumbiens bekanntesten Reisezielen.
 
 Wer die Reise durch Südamerika fortsetzt, kann Santa Marta ebenfalls gut nutzen, um die Weiterreise zu organisieren, egal ob es ins Landesinnere geht oder in ein anderes Land.
 

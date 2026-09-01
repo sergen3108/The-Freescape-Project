@@ -730,7 +730,7 @@
 
     const heroHtml = bildSrc
       ? '<img class="artikel-hero__img" src="' + bildSrc + '" alt="' + escapeHtml(data.titel) + '">'
-      : '<div class="artikel-hero__fallback" style="background:' + (data.bildGradient || 'linear-gradient(135deg,#1a2744,#e8431a)') + ';">' + (data.bildEmoji || '✈️') + '</div>';
+      : '<div class="artikel-hero__fallback" style="background:' + (data.bildGradient || 'linear-gradient(135deg,#1a2744,#e8431a)') + ';">' + (data.bildEmoji !== undefined ? data.bildEmoji : '✈️') + '</div>';
 
     const monate = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
     const d = data.datum ? new Date(data.datum + 'T12:00:00') : new Date();

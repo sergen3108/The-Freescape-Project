@@ -182,6 +182,6 @@ Bogotá ist für viele der Startpunkt einer Kolumbien-Reise. Von hier aus geht e
 
 - [**Salento & Kaffeezone**](artikel.html?post=salento-reisefuehrer) - bunte Kolonialstadt, Cocora-Tal, Wachspalmen (wir sind mit dem Bus gefahren)
 - [**Medellín**](artikel.html?post=medellin-reisefuehrer) - "Stadt des ewigen Frühlings", Comuna 13, modernes Stadtleben
-- **Cartagena** - Karibikküste, Kolonialarchitektur, Strand
+- [**Cartagena**](artikel.html?post=cartagena-reisefuehrer) - Karibikküste, Kolonialarchitektur, Strand
 - **Villa de Leyva** - schönes Kolonialstädtchen nicht weit von Bogotá
 - [**Tayrona Nationalpark**](artikel.html?post=tayrona-reisefuehrer) - Traumstrände und Dschungel an der Karibikküste

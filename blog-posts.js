@@ -88,8 +88,9 @@ function parseFrontmatterRaw(text) {
     const sep = line.indexOf(':');
     if (sep === -1) { listKey = null; return; }
     const key = line.slice(0, sep).trim();
-    const val = line.slice(sep + 1).trim().replace(/^["']|["']$/g, '');
-    if (val === '') {
+    const rawVal = line.slice(sep + 1).trim();
+    const val = rawVal.replace(/^["']|["']$/g, '');
+    if (rawVal === '') {
       listKey = key;
     } else {
       listKey = null;
@@ -137,7 +138,7 @@ function parseFrontmatter(text, filename) {
     tags,
     bild:        data.bild     || null,
     bildFallback: {
-      emoji:    data.bildEmoji    || '✈️',
+      emoji:    data.bildEmoji !== undefined ? data.bildEmoji : '✈️',
       gradient: data.bildGradient || 'linear-gradient(135deg,#1a2744,#e8431a)'
     },
     link: `artikel.html?post=${id}`

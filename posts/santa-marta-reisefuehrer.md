@@ -32,7 +32,7 @@ Trotzdem spielt die Stadt eine wichtige Rolle für diese Region. Ihr Wert liegt 
 
 ## Wie kommt man nach Santa Marta?
 
-Es gibt mehrere Wege nach Santa Marta, die häufigste Route führt von **Cartagena** aus.
+Es gibt mehrere Wege nach Santa Marta, die häufigste Route führt von [**Cartagena**](artikel.html?post=cartagena-reisefuehrer) aus.
 
 Wir sind mit dem privaten Busunternehmen **MarSol** gefahren, und das war eine wirklich angenehme und unkomplizierte Erfahrung. Die Busse fahren **stündlich**, sodass sich leicht eine passende Verbindung finden lässt.
 

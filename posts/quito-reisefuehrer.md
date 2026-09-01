@@ -124,6 +124,6 @@ Weitere lohnende Ziele in Reichweite:
 - [**Quilotoa**](artikel.html?post=quilotoa-reisefuehrer) - Kratersee und Wanderungen
 - [**Baños**](artikel.html?post=banos-reisefuehrer) - Abenteueraktivitäten und Wasserfälle
 - [**Mindo**](artikel.html?post=mindo-reisefuehrer) - Nebelwald und Natur
-- **Otavalo** - berühmter Markt und Kultur
+- [**Otavalo**](artikel.html?post=otavalo-reisefuehrer) - berühmter Markt und Kultur
 
 Das Busnetz in Ecuador ist sehr gut ausgebaut, von Quito kommst du fast überall hin. Achte in Bussen aber gut auf deine Wertsachen, Diebstahl kann vorkommen. Wer es komfortabler mag, bucht private Shuttles. Die sind teurer, aber einfacher und oft direkter.
