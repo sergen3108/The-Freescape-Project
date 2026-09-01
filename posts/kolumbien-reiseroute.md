@@ -110,6 +110,23 @@ Beende die Reise mit einem Flug nach **San Andrés**, einem der schönsten Orte 
 
 ---
 
+## Was kostet Backpacking in Kolumbien?
+
+Wir waren 52 Tage in Kolumbien unterwegs und haben dabei **2.856,97 € pro Person** ausgegeben. Damit ist Kolumbien im südamerikanischen Vergleich eines der günstigeren Länder, gerade wenn man Busse statt Inlandsflüge nutzt und nicht durchgehend in Hostels mit Privatzimmer wohnt.
+
+Unsere Ausgaben pro Person im Überblick:
+
+- Aktivitäten: 809,06 €
+- Unterkunft: 784,97 €
+- Essen & Trinken: 761,56 €
+- Transport: 385,79 €
+- Sonstiges: 115,05 €
+- **Gesamtkosten für 52 Tage Kolumbien: 2.856,97 €**
+
+Das entspricht ungefähr 55 € pro Tag und Person. Wer kürzer bleibt, kann die Zahlen grob herunterrechnen, für eine Woche liegst du damit bei etwa 380 bis 400 €, für zwei Wochen bei etwa 770 €. Inlandsflüge wie Medellín–San Andrés oder Bogotá–Cartagena treiben das Budget etwas nach oben, sparen dafür aber viel Zeit gegenüber langen Busfahrten.
+
+---
+
 ## Reisetipps für Kolumbien
 
 Reisen in Kolumbien ist ein tolles Erlebnis, ein paar Dinge machen deine Reise aber deutlich reibungsloser. Das Wichtigste zuerst: **Die Distanzen sind größer, als sie wirken.** Auch wenn Orte auf der Karte nah aussehen, dauern Fahrten wegen Bergen und Straßenzustand lange. Deshalb lohnen sich oft **Inlandsflüge** statt langer Busfahrten, gerade wenn die Zeit knapp ist.
