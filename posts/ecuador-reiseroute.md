@@ -6,6 +6,7 @@ typ: reiseroute
 lesezeit: 11 min
 autor: Sergen & Julia
 teaser: Ecuador ist ein Paradies fürs Backpacking, auf einer Fläche kaum größer als Großbritannien findest du Anden, Amazonas und die Galápagos-Inseln. Hier zeigen wir dir Routen für 2 Wochen, 4 Wochen und die vollen 2 Monate, inklusive Kosten und allen Links zu unseren Einzel-Guides.
+bild: assets/img/cotopaxipano.JPEG
 bildEmoji: ""
 bildGradient: linear-gradient(135deg,#1a2744,#e8431a)
 tags:
@@ -49,15 +50,27 @@ Hier erfährst du kurz, was dich an den einzelnen Stationen erwartet. Klick einf
 
 **Stopp 1: [Quito](artikel.html?post=quito-reisefuehrer)** — Die kolonial geprägte Hauptstadt auf knapp 3.000 Metern Höhe. Erkunde die historische Altstadt, fahr mit dem Teleférico auf den Pichincha und steh am Äquatordenkmal Mitad del Mundo. Von hier lässt sich auch super ein Tagesausflug zum [Otavalo-Markt](artikel.html?post=otavalo-reisefuehrer) einbauen. Empfohlene Dauer: 3 bis 4 Tage.
 
+![Altstadt von Quito](assets/img/blog/quito2.JPEG)
+
 **Stopp 2: [Cotopaxi Nationalpark](artikel.html?post=cotopaxi-reisefuehrer)** — Wandere hinauf zum Refugio José Rivas auf 4.864 Metern Höhe an einem der höchsten aktiven Vulkane der Erde, oder sause mit dem Mountainbike den Vulkan hinab. Empfohlene Dauer: 2 Tage.
+
+![Cotopaxi Vulkan](assets/img/blog/cotpaxi1.jpg)
 
 **Stopp 3: [Latacunga & Quilotoa-Lagune](artikel.html?post=quilotoa-reisefuehrer)** — Erlebe den atemberaubenden Blick auf den kraterfüllenden, smaragdgrünen See oder erwandere den berühmten Quilotoa Loop. Empfohlene Dauer: 2 bis 3 Tage.
 
+![Quilotoa Kratersee](assets/img/kilotoas.JPEG)
+
 **Stopp 4: [Baños de Agua Santa](artikel.html?post=banos-reisefuehrer)** — Die Outdoor-Hauptstadt Ecuadors. Hier erwarten dich die Wasserfall-Route, die berühmte Schaukel Casa del Árbol, Canyoning und heiße Thermalquellen. Empfohlene Dauer: 4 bis 5 Tage.
+
+![Baños Ecuador](assets/img/blog/banos1.JPEG)
 
 **Stopp 5: [Amazonas (Cuyabeno Wildlife Reserve)](artikel.html?post=amazonas-cuyabeno-reisefuehrer)** — Über einen kurzen Zwischenstopp in Quito geht es tief in den Dschungel. Wir waren in der Tucán Lodge und haben im Amazonas gebadet, Kaimane beobachtet, eine indigene Community besucht und Pink Dolphins gesehen. Empfohlene Dauer: 3 bis 4 Tage.
 
+![Kanufahrt im Amazonas](assets/img/Amazonkanu.JPEG)
+
 **Stopp 6: [Galápagos-Inseln](artikel.html?post=galapagos-inselhopping-guide)** — Ein absoluter Bucket-List-Traum. Beim Inselhopping auf [Santa Cruz](artikel.html?post=santa-cruz-galapagos-reisefuehrer), [Isabela](artikel.html?post=isabela-island-galapagos-reisefuehrer) und [San Cristóbal](artikel.html?post=san-cristobal-galapagos-reisefuehrer) schwimmst du mit Meerechsen, Haien, Rochen und triffst auf riesige Schildkröten sowie Seelöwen. Empfohlene Dauer: 2 bis 3 Wochen.
+
+![Vogel auf Galápagos](assets/img/galapagosbird1.JPEG)
 
 **Stopp 7: [Cuenca](artikel.html?post=cuenca-reisefuehrer)** — Das kulturelle Herz im Süden Ecuadors, mit wunderschöner Architektur, gemütlichen Cafés und dem nahegelegenen Nationalpark Cajas. Empfohlene Dauer: 4 bis 5 Tage.
 
