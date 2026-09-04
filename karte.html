@@ -176,7 +176,7 @@
           <a href="peru.html" class="nav__dropdown-link">Peru</a>
           <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
           <a href="bolivien.html" class="nav__dropdown-link">Bolivien</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Chile</a>
+          <a href="chile.html" class="nav__dropdown-link">Chile</a>
           <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Argentinien</a>
           <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
           <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Uruguay</a>
@@ -226,6 +226,7 @@
     <a href="ecuador.html" class="nav__mobile-link nav__mobile-sublink">Ecuador</a>
     <a href="peru.html" class="nav__mobile-link nav__mobile-sublink">Peru</a>
     <a href="bolivien.html" class="nav__mobile-link nav__mobile-sublink">Bolivien</a>
+    <a href="chile.html" class="nav__mobile-link nav__mobile-sublink">Chile</a>
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
@@ -316,8 +317,8 @@
             <li><div class="status-dot status-dot--visited"></div> Kolumbien</li>
             <li><div class="status-dot status-dot--visited"></div> Ecuador</li>
             <li><div class="status-dot status-dot--visited"></div> Peru</li>
-            <li><div class="status-dot status-dot--current"></div> Bolivien &nbsp;<strong style="color:var(--terra-600);font-size:0.75rem;">← wir sind hier</strong></li>
-            <li><div class="status-dot status-dot--planned"></div> Chile</li>
+            <li><div class="status-dot status-dot--visited"></div> Bolivien</li>
+            <li><div class="status-dot status-dot--current"></div> Chile &nbsp;<strong style="color:var(--terra-600);font-size:0.75rem;">← wir sind hier</strong></li>
             <li><div class="status-dot status-dot--planned"></div> Argentinien</li>
             <li><div class="status-dot status-dot--planned"></div> Brasilien</li>
             <li><div class="status-dot status-dot--planned"></div> Uruguay</li>
@@ -380,7 +381,7 @@
           <a href="ecuador.html" class="footer__link">Ecuador</a>
           <a href="peru.html" class="footer__link">Peru</a>
           <a href="bolivien.html" class="footer__link">Bolivien</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Chile</a>
+          <a href="chile.html" class="footer__link">Chile</a>
           <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Argentinien</a>
           <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Brasilien</a>
           <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Uruguay</a>
@@ -477,10 +478,11 @@ const pins = [
   { lat: -16.5000, lng: -68.1500, status: "visited", name: "La Paz",                              desc: "Der höchste Regierungssitz der Welt, auf über 3.600m Höhe.",                             link: "", linkText: "" },
   { lat: -19.0333, lng: -65.2627, status: "visited", name: "Sucre",                                desc: "Die konstitutionelle Hauptstadt Boliviens, weiße Kolonialbauten.",                        link: "", linkText: "" },
   { lat: -19.5836, lng: -65.7531, status: "visited", name: "Potosí",                                desc: "Historische Bergbaustadt auf über 4.000m, einst reichste Stadt der Kolonialzeit.",         link: "", linkText: "" },
-  { lat: -20.4597, lng: -66.8253, status: "current", name: "Uyuni ← wir sind hier",                 desc: "Tor zum Salar de Uyuni, dem größten Salzsee der Erde.",                                    link: "", linkText: "" },
+  { lat: -20.4597, lng: -66.8253, status: "visited", name: "Uyuni",                                 desc: "Tor zum Salar de Uyuni, dem größten Salzsee der Erde.",                                    link: "", linkText: "" },
+  { lat: -20.2640, lng: -67.6328, status: "visited", name: "Salar de Uyuni",       desc: "Der größte Salzflat der Welt, 3-tägige Tour mit Übernachtungen mitten in der Wüste.",             link: "", linkText: "" },
+  // ── CHILE ──────────────────────────────────────────────
+  { lat: -22.9087, lng: -68.1997, status: "current", name: "San Pedro de Atacama ← wir sind hier",  desc: "Die trockenste Wüste der Welt mit Geysiren und Sternen wie nirgendwo sonst.",                     link: "", linkText: "" },
   // ── GEPLANTE LÄNDER ───────────────────────────────────
-  { lat: -20.2640, lng: -67.6328, status: "planned", name: "Salar de Uyuni",       desc: "Der größte Salzflat der Welt, ein Traum auf unserer Liste.",                                      link: "", linkText: "" },
-  { lat: -23.1500, lng: -68.2000, status: "planned", name: "Atacama",              desc: "Die trockenste Wüste der Welt mit Geysiren und Sternen wie nirgendwo sonst.",                     link: "", linkText: "" },
   { lat: -34.6037, lng: -58.3816, status: "planned", name: "Buenos Aires",         desc: "Das Paris Südamerikas, Tango, Steak und das vorläufige Ende unserer Reise.",                      link: "", linkText: "" },
 ];
 

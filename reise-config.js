@@ -12,16 +12,16 @@ const REISE = {
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
   orteBesucht:          38,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'In Uyuni angekommen steht als nächstes die Tour über den Salar de Uyuni an, den größten Salzsee der Erde! Wir sind gespannt 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Nach der 3-tägigen Tour über den Salar de Uyuni sind wir in San Pedro de Atacama in Chile angekommen. Wir sind gespannt, was die Atacama-Wüste für uns bereithält 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Uyuni, Bolivien',  // ✏️ hier anpassen
+  standort: 'San Pedro de Atacama, Chile',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
     { name: 'Ecuador',        iso: 218, status: 'visited', href: 'ecuador.html'           },
     { name: 'Peru',           iso: 604, status: 'visited', href: 'peru.html'              },
-    { name: 'Bolivien',       iso:  68, status: 'current', href: 'bolivien.html'          },
-    { name: 'Chile',          iso: 152, status: '',        href: 'laender.html#geplant'   },
+    { name: 'Bolivien',       iso:  68, status: 'visited', href: 'bolivien.html'          },
+    { name: 'Chile',          iso: 152, status: 'current', href: 'chile.html'             },
     { name: 'Argentinien',    iso:  32, status: '',        href: 'laender.html#geplant'   },
     { name: 'Brasilien',      iso:  76, status: '',        href: 'laender.html#geplant'   },
     { name: 'Venezuela',      iso: 862, status: '',        href: '#'                      },
