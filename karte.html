@@ -483,6 +483,7 @@ const pins = [
   // ── CHILE ──────────────────────────────────────────────
   { lat: -22.9087, lng: -68.1997, status: "current", name: "San Pedro de Atacama ← wir sind hier",  desc: "Die trockenste Wüste der Welt mit Geysiren und Sternen wie nirgendwo sonst.",                     link: "", linkText: "" },
   // ── GEPLANTE LÄNDER ───────────────────────────────────
+  { lat: -24.7859, lng: -65.4117, status: "planned", name: "Salta",                desc: "Nordargentinien, unsere nächste Station nach der Atacama-Wüste.",                                link: "", linkText: "" },
   { lat: -34.6037, lng: -58.3816, status: "planned", name: "Buenos Aires",         desc: "Das Paris Südamerikas, Tango, Steak und das vorläufige Ende unserer Reise.",                      link: "", linkText: "" },
 ];
 
@@ -514,7 +515,10 @@ const ROUTE = [
   { type: "land",   coords: [[-15.8402,-70.0219],[-16.1667,-69.0833]] },
   { type: "land",   coords: [[-16.1667,-69.0833],[-16.5000,-68.1500]] },
   { type: "land",   coords: [[-16.5000,-68.1500],[-19.0333,-65.2627]] },
-  { type: "next",   coords: [[-19.0333,-65.2627],[-20.2640,-67.6328]] },
+  { type: "land",   coords: [[-19.0333,-65.2627],[-19.5836,-65.7531]] },
+  { type: "land",   coords: [[-19.5836,-65.7531],[-20.4597,-66.8253]] },
+  { type: "land",   coords: [[-20.4597,-66.8253],[-20.2640,-67.6328],[-22.9087,-68.1997]] },
+  { type: "next",   coords: [[-22.9087,-68.1997],[-24.7859,-65.4117]] },
 ];
 
 const ROUTE_STYLES = {
