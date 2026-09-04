@@ -28,7 +28,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
-  <link rel="preconnect" href="https://basemaps.cartocdn.com" crossorigin>
+  <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
   <link rel="preload" href="assets/fonts/playfair-display-latin-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/cormorant-garamond-latin-600.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
@@ -287,7 +287,7 @@
               </svg>
             </div>
             <div class="map-consent-placeholder__title">Interaktive Karte</div>
-            <div class="map-consent-placeholder__text">Beim Laden der Karte werden Kartendaten von OpenStreetMap und CARTO abgerufen. Dabei wird deine IP-Adresse an diese Dienste übermittelt.</div>
+            <div class="map-consent-placeholder__text">Beim Laden der Karte werden Kartendaten von OpenStreetMap abgerufen. Dabei wird deine IP-Adresse an diesen Dienst übermittelt.</div>
             <button class="map-consent-placeholder__btn" id="mapConsentBtn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Karte laden
@@ -311,7 +311,7 @@
         <div class="status-card">
           <div class="status-card__header">
             <h3>Reisestatus</h3>
-            <p>Zuletzt aktualisiert: Aug 2026</p>
+            <p>Zuletzt aktualisiert: Sep 2026</p>
           </div>
           <ul class="status-list">
             <li><div class="status-dot status-dot--visited"></div> Kolumbien</li>
@@ -427,7 +427,7 @@
 /* ═══════════════════════════════════════════════════════
    Karte mit Consent-Gating
    - Leaflet-Framework: lokal geladen (kein CDN)
-   - Kartenkacheln (CARTO/OSM): erst nach Einwilligung
+   - Kartenkacheln (OSM): erst nach Einwilligung
    ═══════════════════════════════════════════════════════ */
 
 const CONSENT_KEY = 'map_consent';
@@ -543,9 +543,10 @@ function initMap() {
 
   var map = L.map('map', { center: MAP_CENTER, zoom: MAP_ZOOM, scrollWheelZoom: false, zoomSnap: 0, zoomAnimation: true });
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
-    maxZoom: 18
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19,
+    subdomains: 'abc'
   }).addTo(map);
 
   // Routen zeichnen
