@@ -177,7 +177,7 @@
           <a href="bolivien.html" class="nav__dropdown-link">Bolivien</a>
           <a href="chile.html" class="nav__dropdown-link">Chile</a>
           <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Argentinien</a>
+          <a href="argentinien.html" class="nav__dropdown-link">Argentinien</a>
           <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
           <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Uruguay</a>
           <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Paraguay</a>
@@ -227,6 +227,7 @@
     <a href="peru.html" class="nav__mobile-link nav__mobile-sublink">Peru</a>
     <a href="bolivien.html" class="nav__mobile-link nav__mobile-sublink">Bolivien</a>
     <a href="chile.html" class="nav__mobile-link nav__mobile-sublink">Chile</a>
+    <a href="argentinien.html" class="nav__mobile-link nav__mobile-sublink">Argentinien</a>
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
 </div>
@@ -318,8 +319,8 @@
             <li><div class="status-dot status-dot--visited"></div> Ecuador</li>
             <li><div class="status-dot status-dot--visited"></div> Peru</li>
             <li><div class="status-dot status-dot--visited"></div> Bolivien</li>
-            <li><div class="status-dot status-dot--current"></div> Chile &nbsp;<strong style="color:var(--terra-600);font-size:0.75rem;">← wir sind hier</strong></li>
-            <li><div class="status-dot status-dot--planned"></div> Argentinien</li>
+            <li><div class="status-dot status-dot--visited"></div> Chile</li>
+            <li><div class="status-dot status-dot--current"></div> Argentinien &nbsp;<strong style="color:var(--terra-600);font-size:0.75rem;">← wir sind hier</strong></li>
             <li><div class="status-dot status-dot--planned"></div> Brasilien</li>
             <li><div class="status-dot status-dot--planned"></div> Uruguay</li>
             <li><div class="status-dot status-dot--planned"></div> Paraguay</li>
@@ -329,7 +330,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Weiter Richtung Machu Picchu! Wir sind gespannt 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Mit dem Bus von San Pedro de Atacama nach Salta, unser sechstes Land! Wir sind gespannt 🙌</p>
         </div>
 
       </div>
@@ -382,7 +383,7 @@
           <a href="peru.html" class="footer__link">Peru</a>
           <a href="bolivien.html" class="footer__link">Bolivien</a>
           <a href="chile.html" class="footer__link">Chile</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Argentinien</a>
+          <a href="argentinien.html" class="footer__link">Argentinien</a>
           <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Brasilien</a>
           <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Uruguay</a>
           <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Paraguay</a>
@@ -481,9 +482,9 @@ const pins = [
   { lat: -20.4597, lng: -66.8253, status: "visited", name: "Uyuni",                                 desc: "Tor zum Salar de Uyuni, dem größten Salzsee der Erde.",                                    link: "", linkText: "" },
   { lat: -20.2640, lng: -67.6328, status: "visited", name: "Salar de Uyuni",       desc: "Der größte Salzflat der Welt, 3-tägige Tour mit Übernachtungen mitten in der Wüste.",             link: "", linkText: "" },
   // ── CHILE ──────────────────────────────────────────────
-  { lat: -22.9087, lng: -68.1997, status: "current", name: "San Pedro de Atacama ← wir sind hier",  desc: "Die trockenste Wüste der Welt mit Geysiren und Sternen wie nirgendwo sonst.",                     link: "", linkText: "" },
-  // ── GEPLANTE LÄNDER ───────────────────────────────────
-  { lat: -24.7859, lng: -65.4117, status: "planned", name: "Salta",                desc: "Nordargentinien, unsere nächste Station nach der Atacama-Wüste.",                                link: "", linkText: "" },
+  { lat: -22.9087, lng: -68.1997, status: "visited", name: "San Pedro de Atacama",  desc: "Die trockenste Wüste der Welt mit Geysiren und Sternen wie nirgendwo sonst.",                     link: "", linkText: "" },
+  // ── ARGENTINIEN ────────────────────────────────────────
+  { lat: -24.7859, lng: -65.4117, status: "current", name: "Salta ← wir sind hier", desc: "Mit dem Bus über die Grenze aus San Pedro de Atacama, unsere erste Station in Argentinien.",      link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -517,7 +518,7 @@ const ROUTE = [
   { type: "land",   coords: [[-19.0333,-65.2627],[-19.5836,-65.7531]] },
   { type: "land",   coords: [[-19.5836,-65.7531],[-20.4597,-66.8253]] },
   { type: "land",   coords: [[-20.4597,-66.8253],[-20.2640,-67.6328],[-22.9087,-68.1997]] },
-  { type: "next",   coords: [[-22.9087,-68.1997],[-24.7859,-65.4117]] },
+  { type: "land",   coords: [[-22.9087,-68.1997],[-24.7859,-65.4117]] },
 ];
 
 const ROUTE_STYLES = {

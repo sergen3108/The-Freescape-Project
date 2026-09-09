@@ -5,24 +5,24 @@ const REISE = {
   // ── Reise-Start ────────────────────────────────────────────────
   startDatum: new Date('2026-02-25'),
   // ── Persönliche Länder-Bilanz (Lifetime, inkl. vor der Reise) ──
-  sergenLaender: 16,
-  juliaLaender:  49,
+  sergenLaender: 17,
+  juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      14300,
+  kmZurueckgelegt:      14800,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          38,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          39,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Nach der 3-tägigen Tour über den Salar de Uyuni sind wir in San Pedro de Atacama in Chile angekommen. Wir sind gespannt, was die Atacama-Wüste für uns bereithält 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Mit dem Bus von San Pedro de Atacama über die Grenze nach Salta, wir sind jetzt offiziell in Argentinien, unserem sechsten Land auf dieser Reise. Wir sind gespannt, was der Norden Argentiniens für uns bereithält 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'San Pedro de Atacama, Chile',  // ✏️ hier anpassen
+  standort: 'Salta, Argentinien',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
     { name: 'Ecuador',        iso: 218, status: 'visited', href: 'ecuador.html'           },
     { name: 'Peru',           iso: 604, status: 'visited', href: 'peru.html'              },
     { name: 'Bolivien',       iso:  68, status: 'visited', href: 'bolivien.html'          },
-    { name: 'Chile',          iso: 152, status: 'current', href: 'chile.html'             },
-    { name: 'Argentinien',    iso:  32, status: '',        href: 'laender.html#geplant'   },
+    { name: 'Chile',          iso: 152, status: 'visited', href: 'chile.html'             },
+    { name: 'Argentinien',    iso:  32, status: 'current', href: 'argentinien.html'       },
     { name: 'Brasilien',      iso:  76, status: '',        href: 'laender.html#geplant'   },
     { name: 'Venezuela',      iso: 862, status: '',        href: '#'                      },
     { name: 'Uruguay',        iso: 858, status: '',        href: 'laender.html#geplant'   },
