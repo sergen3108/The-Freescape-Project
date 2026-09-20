@@ -229,7 +229,7 @@
     <a href="chile.html" class="nav__mobile-link nav__mobile-sublink">Chile</a>
     <a href="argentinien.html" class="nav__mobile-link nav__mobile-sublink">Argentinien</a>
   </div>
-  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
 
 <!-- ── Page Hero ─────────────────────────────────────────── -->
@@ -484,7 +484,15 @@ const pins = [
   // ── CHILE ──────────────────────────────────────────────
   { lat: -22.9087, lng: -68.1997, status: "visited", name: "San Pedro de Atacama",  desc: "Die trockenste Wüste der Welt mit Geysiren und Sternen wie nirgendwo sonst.",                     link: "", linkText: "" },
   // ── ARGENTINIEN ────────────────────────────────────────
-  { lat: -24.7859, lng: -65.4117, status: "current", name: "Salta ← wir sind hier", desc: "Mit dem Bus über die Grenze aus San Pedro de Atacama, unsere erste Station in Argentinien.",      link: "", linkText: "" },
+  { lat: -24.7859, lng: -65.4117, status: "visited", name: "Salta", desc: "Mit dem Bus über die Grenze aus San Pedro de Atacama, unsere erste Station in Argentinien und Ausgangspunkt für zwei Roadtrip-Schleifen mit dem Mietwagen.", link: "", linkText: "" },
+  { lat: -23.7495, lng: -65.4989, status: "visited", name: "Purmamarca",     desc: "Siebenfarbiger Berg am Eingang der Quebrada de Humahuaca, Roadtrip-Stopp ab Salta.", link: "", linkText: "" },
+  { lat: -23.6300, lng: -65.5300, status: "visited", name: "Maimará",        desc: "Weinterrassen und Aussicht auf die 'Paleta del Pintor', Roadtrip-Stopp ab Salta.",  link: "", linkText: "" },
+  { lat: -23.5697, lng: -65.3852, status: "visited", name: "Tilcara",        desc: "Pukará-Ruinen und Andenmarkt in der Quebrada, Roadtrip-Stopp ab Salta.",           link: "", linkText: "" },
+  { lat: -23.2058, lng: -65.3505, status: "visited", name: "Humahuaca",      desc: "Nördlichster Punkt unserer Roadtrip-Schleife ab Salta.",                          link: "", linkText: "" },
+  { lat: -23.5661, lng: -66.0326, status: "visited", name: "Salinas Grandes",desc: "Riesige Salzebene auf über 3.000m Höhe, Roadtrip-Stopp ab Salta.",                link: "", linkText: "" },
+  { lat: -25.1223, lng: -66.1670, status: "visited", name: "Cachi",          desc: "Kolonialdorf an der Ruta 40 in den Valles Calchaquíes, Roadtrip-Stopp ab Salta.", link: "", linkText: "" },
+  { lat: -26.0725, lng: -65.9747, status: "visited", name: "Cafayate",       desc: "Weinregion und Quebrada de las Conchas, Roadtrip-Stopp ab Salta.",                link: "", linkText: "" },
+  { lat: -31.4201, lng: -64.1888, status: "current", name: "Córdoba ← wir sind hier", desc: "Mit dem Nachtbus aus Salta, nachdem wir das Mietauto abgegeben haben.", link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -519,6 +527,9 @@ const ROUTE = [
   { type: "land",   coords: [[-19.5836,-65.7531],[-20.4597,-66.8253]] },
   { type: "land",   coords: [[-20.4597,-66.8253],[-20.2640,-67.6328],[-22.9087,-68.1997]] },
   { type: "land",   coords: [[-22.9087,-68.1997],[-24.7859,-65.4117]] },
+  { type: "land",   coords: [[-24.7859,-65.4117],[-23.7495,-65.4989],[-23.6300,-65.5300],[-23.5697,-65.3852],[-23.2058,-65.3505],[-23.6300,-65.5300],[-23.5661,-66.0326],[-24.7859,-65.4117]] },
+  { type: "land",   coords: [[-24.7859,-65.4117],[-25.1223,-66.1670],[-26.0725,-65.9747],[-24.7859,-65.4117]] },
+  { type: "land",   coords: [[-24.7859,-65.4117],[-31.4201,-64.1888]] },
 ];
 
 const ROUTE_STYLES = {
