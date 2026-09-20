@@ -71,6 +71,55 @@
     }
     .status-badge--visited { background:var(--green-100); color:var(--green-800); }
     .status-badge--current { background:var(--terra-100); color:var(--terra-700); }
+
+    /* Das Salinas-Grandes-Hero-Foto hat die beiden mittig im Bild sitzend,
+       genau dort wo der Hero-Text auf schmaleren Viewports landet. Eigener,
+       staerkerer Verlauf nur fuer diese Seite, statt das globale
+       .hero__overlay fuer alle Laenderseiten zu aendern. */
+    .page-hero .hero__overlay {
+      background:
+        linear-gradient(
+          100deg,
+          rgba(10, 21, 32, 0.85) 0%,
+          rgba(10, 21, 32, 0.72) 35%,
+          rgba(10, 21, 32, 0.45) 60%,
+          rgba(10, 21, 32, 0.15) 85%,
+          rgba(10, 21, 32, 0.00) 100%
+        ),
+        linear-gradient(
+          to bottom,
+          rgba(10, 21, 32, 0.55) 0%,
+          rgba(10, 21, 32, 0.05) 22%,
+          rgba(10, 21, 32, 0.05) 70%,
+          rgba(10, 21, 32, 0.35) 100%
+        );
+    }
+    /* Auf schmalen Viewports (Handy/Tablet) nimmt der Hero-Text die
+       ganze Breite ein, ein seitlicher Verlauf reicht dann nicht mehr.
+       Zusaetzlicher gleichmaessiger Dunkel-Schleier ueber das ganze
+       Foto, damit der Text ueberall lesbar bleibt, unabhaengig davon,
+       wo genau die beiden im Ausschnitt landen. */
+    @media (max-width: 900px) {
+      .page-hero .hero__overlay {
+        background:
+          linear-gradient(rgba(10,21,32,0.55), rgba(10,21,32,0.55)),
+          linear-gradient(
+            to bottom,
+            rgba(10, 21, 32, 0.55) 0%,
+            rgba(10, 21, 32, 0.15) 22%,
+            rgba(10, 21, 32, 0.15) 70%,
+            rgba(10, 21, 32, 0.45) 100%
+          );
+      }
+    }
+    /* Auf Handy-Breiten kroppt object-fit:cover das Foto stark horizontal
+       (der volle 16:9-Ausschnitt passt nicht in die schmale, hohe Box).
+       Bildausschnitt hier auf den linken, personenfreien Wasser-Teil
+       verschieben, statt die beiden hinter dem Volltext-breiten Absatz
+       zu verstecken. */
+    @media (max-width: 1024px) {
+      .page-hero .hero__bg-photo { object-position: 12% 40%; }
+    }
   </style>
 </head>
 <body>
@@ -169,9 +218,8 @@
   </div>
   <div class="hero__overlay"></div>
   <div class="container page-hero__content">
-    <p class="overline">Südamerika · Land für Land</p>
     <h1>Argentinien</h1>
-    <p class="lead">Mit dem Bus von San Pedro de Atacama über die Grenze, seit dem 08.09. waren wir in Salta, im Norden Argentiniens, unserem sechsten Land auf dieser Reise. Von dort aus zwei Roadtrip-Schleifen mit dem Mietwagen, dann mit dem Nachtbus weiter nach Córdoba, wo wir gerade sind.</p>
+    <p class="lead" style="max-width:460px;">Kolonialstädte im Norden, Roadtrip-Schleifen durch die Anden und jetzt weiter Richtung Süden. Unser sechstes Land auf dieser Reise.</p>
     <div class="hero-facts">
       <span class="hero-fact">Aktuell hier: Córdoba</span>
     </div>
@@ -209,11 +257,14 @@
       <span class="status-badge status-badge--current">← Aktuell hier · ab Sep 2026</span>
       <h2>Unsere Zeit in Argentinien</h2>
       <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
-        Nach ein paar Tagen in San Pedro de Atacama sind wir mit dem Fernbus über die Grenze
-        gefahren. Seit dem 08.09. waren wir in Salta, einer der schönsten Kolonialstädte im
-        Norden Argentiniens, und von dort aus mit dem Mietwagen auf zwei Roadtrip-Schleifen
-        unterwegs. Danach ging es mit dem Nachtbus weiter nach Córdoba, wo wir gerade sind.
-        Hier sammeln wir alle Videos, Orte und Blog-Artikel aus Argentinien an einer Stelle,
+        Mit dem Bus von San Pedro de Atacama über die Grenze sind wir in Salta angekommen,
+        einer der schönsten Kolonialstädte im Norden Argentiniens. Von dort aus ging es mit
+        dem Mietwagen auf zwei Roadtrip-Schleifen durch die Anden, unter anderem zur Quebrada
+        de Humahuaca und in die Valles Calchaquíes.
+      </p>
+      <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
+        Mit dem Nachtbus sind wir weiter nach Córdoba gereist, wo wir gerade sind. Hier
+        sammeln wir alle Videos, Orte und Blog-Artikel aus Argentinien an einer Stelle,
         ehrlich und direkt von unterwegs.
       </p>
     </div>
