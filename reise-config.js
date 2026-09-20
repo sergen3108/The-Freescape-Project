@@ -12,9 +12,9 @@ const REISE = {
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
   orteBesucht:          39,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Mit dem Bus von San Pedro de Atacama über die Grenze nach Salta, wir sind jetzt offiziell in Argentinien, unserem sechsten Land auf dieser Reise. Wir sind gespannt, was der Norden Argentiniens für uns bereithält 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Übermorgen ziehen wir von Córdoba weiter nach Rosario, der Stadt am Río Paraná. Wir sind gespannt, was uns dort erwartet 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Salta, Argentinien',  // ✏️ hier anpassen
+  standort: 'Córdoba, Argentinien',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
