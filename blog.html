@@ -141,7 +141,7 @@
     <a href="chile.html" class="nav__mobile-link nav__mobile-sublink">Chile</a>
     <a href="argentinien.html" class="nav__mobile-link nav__mobile-sublink">Argentinien</a>
   </div>
-  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
 
 <!-- ── Hero ─────────────────────────────────────────────────── -->
@@ -319,10 +319,20 @@
   const CARDS_PER_PAGE = 9;
   let visibleCount = CARDS_PER_PAGE;
 
+  // Einfaches HTML-Escaping fuer Frontmatter-Textfelder, die per
+  // String-Konkatenation in innerHTML landen (siehe artikel.html).
+  function escapeHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   // ── Thumbnail bauen ──────────────────────────────────────────
   function buildThumb(post, h) {
     return post.bild
-      ? `<img src="${post.bild}" alt="${post.titel}" loading="lazy" style="width:100%;height:${h}px;object-fit:cover;display:block;">`
+      ? `<img src="${post.bild}" alt="${escapeHtml(post.titel)}" loading="lazy" style="width:100%;height:${h}px;object-fit:cover;display:block;">`
       : `<div style="height:${h}px;background:${post.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:3rem;">${post.bildFallback.emoji === '' ? '<span style="font-size:1.15rem;font-weight:600;opacity:0.75;">Bild folgt in Kürze</span>' : post.bildFallback.emoji}</div>`;
   }
 
@@ -334,19 +344,19 @@
         data-tags="${(post.tags || []).join(' ').toLowerCase()}">
         <a href="${post.link}" class="blog-card__thumb" style="overflow:hidden;display:block;">
           ${buildThumb(post, 220)}
-          <span class="blog-card__category">${post.land}</span>
+          <span class="blog-card__category">${escapeHtml(post.land)}</span>
         </a>
         <div class="blog-card__body">
           <span class="article-type article-type--${typClass[post.typ] || 'guide'}">${post.typLabel}</span>
           <div class="blog-card__meta">
-            <span class="blog-card__author">${post.autor}</span>
+            <span class="blog-card__author">${escapeHtml(post.autor)}</span>
             <span class="blog-card__date">${post.datumLabel} · ${post.lesezeit}</span>
           </div>
           <h3 class="blog-card__title">
-            <a href="${post.link}" style="color:inherit;text-decoration:none;">${post.titel}</a>
+            <a href="${post.link}" style="color:inherit;text-decoration:none;">${escapeHtml(post.titel)}</a>
           </h3>
-          <p class="blog-card__excerpt">${post.teaser}</p>
-          ${(post.tags || []).length ? `<div style="margin:0.6rem 0;">${post.tags.map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
+          <p class="blog-card__excerpt">${escapeHtml(post.teaser)}</p>
+          ${(post.tags || []).length ? `<div style="margin:0.6rem 0;">${post.tags.map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
           <a href="${post.link}" class="blog-card__read">Artikel lesen →</a>
         </div>
       </article>`;
@@ -354,25 +364,26 @@
 
   // ── Featured Karte bauen (breit, Thumb + Body nebeneinander) ─
   function buildFeaturedCard(p) {
+    const titel = escapeHtml(p.titel);
     const thumb = p.bild
-      ? `<img src="${p.bild}" alt="${p.titel}" style="width:100%;height:100%;object-fit:cover;display:block;">`
+      ? `<img src="${p.bild}" alt="${titel}" style="width:100%;height:100%;object-fit:cover;display:block;">`
       : `<div style="width:100%;height:100%;background:${p.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:4rem;">${p.bildFallback.emoji === '' ? '<span style="font-size:1.3rem;font-weight:600;opacity:0.8;">Bild folgt in Kürze</span>' : p.bildFallback.emoji}</div>`;
     return `
   <article class="blog-card blog-card--featured" data-category="${p.kategorie}" data-tags="${(p.tags || []).join(' ').toLowerCase()}">
     <a href="${p.link}" class="blog-card__thumb blog-card--featured__thumb">
-      ${thumb}<span class="blog-card__category">${p.land}</span>
+      ${thumb}<span class="blog-card__category">${escapeHtml(p.land)}</span>
     </a>
     <div class="blog-card__body blog-card--featured__body">
             <span class="article-type article-type--${typClass[p.typ] || 'guide'}">${p.typLabel}</span>
             <div class="blog-card__meta">
-              <span class="blog-card__author">${p.autor}</span>
+              <span class="blog-card__author">${escapeHtml(p.autor)}</span>
               <span class="blog-card__date">${p.datumLabel} · ${p.lesezeit}</span>
             </div>
             <h3 class="blog-card__title" style="font-size:1.4rem;">
-              <a href="${p.link}" style="color:inherit;text-decoration:none;">${p.titel}</a>
+              <a href="${p.link}" style="color:inherit;text-decoration:none;">${titel}</a>
             </h3>
-            <p class="blog-card__excerpt">${p.teaser}</p>
-            ${(p.tags || []).length ? `<div style="margin:0.75rem 0;">${p.tags.map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${t}</span>`).join('')}</div>` : ''}
+            <p class="blog-card__excerpt">${escapeHtml(p.teaser)}</p>
+            ${(p.tags || []).length ? `<div style="margin:0.75rem 0;">${p.tags.map(t => `<span class="tag tag--clickable" data-tag="${t.toLowerCase()}">${escapeHtml(t)}</span>`).join('')}</div>` : ''}
             <a href="${p.link}" class="blog-card__read">Artikel lesen →</a>
           </div>
         </article>`;

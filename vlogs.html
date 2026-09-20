@@ -122,7 +122,7 @@
     <a href="chile.html" class="nav__mobile-link nav__mobile-sublink">Chile</a>
     <a href="argentinien.html" class="nav__mobile-link nav__mobile-sublink">Argentinien</a>
   </div>
-  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank">▶ YouTube</a>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
 
 <section class="page-hero">
@@ -316,12 +316,22 @@ function formatDate(iso) {
   return new Date(iso).toLocaleDateString('de-DE', { month: 'long', year: 'numeric' });
 }
 
+// Einfaches HTML-Escaping fuer Titel/Beschreibung aus der YouTube-API,
+// die per String-Konkatenation in innerHTML landen (siehe artikel.html).
+function escapeHtml(str) {
+  return String(str == null ? '' : str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
 // Thumbnail-Markup. Bild kommt aus dem lokalen assets/vlog-thumbs/
 // (vorab heruntergeladen). Fehlt es, lokaler Fallback ohne Request.
 function buildThumbMarkup(v) {
   if (v.thumb) {
     return `
-      <img src="${v.thumb}" alt="${v.title}" loading="lazy"
+      <img src="${v.thumb}" alt="${escapeHtml(v.title)}" loading="lazy"
            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
       <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>`;
   }
@@ -349,8 +359,8 @@ function makeCard(v, index, isNew) {
           ${countryLabel ? `<span class="vlog-card__country">${countryLabel}</span>` : ''}
           <span class="vlog-card__date">${formatDate(v.publishedAt)}</span>
         </div>
-        <h3 class="vlog-card__title">${v.title}</h3>
-        <p class="vlog-card__desc">${(v.description||'').slice(0,120).trim()}${(v.description||'').length>120?'…':''}</p>
+        <h3 class="vlog-card__title">${escapeHtml(v.title)}</h3>
+        <p class="vlog-card__desc">${escapeHtml((v.description||'').slice(0,120).trim())}${(v.description||'').length>120?'…':''}</p>
         <div class="vlog-card__footer">
           <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a>
           ${matchingPost ? `<span class="vlog-card__blog-link"> · <a href="${matchingPost.link}" class="vlog-card__watch">Zum Blogartikel →</a></span>` : ''}
