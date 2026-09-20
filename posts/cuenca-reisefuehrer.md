@@ -6,7 +6,8 @@ typ: guide
 lesezeit: 8 min
 autor: Sergen & Julia
 teaser: Kopfsteinpflastergassen, Kolonialbauten und ein rauschender Fluss, Cuenca ist unsere Lieblingsstadt in Ecuador geworden. Fünf Tage voller Altstadt-Spaziergänge, Cajas-Nationalpark und richtig gutem Essen.
-bildEmoji: ""
+bild: assets/img/CuencaAussicht.jpg
+bildEmoji: ⛪
 bildGradient: linear-gradient(135deg,#1a3d5c,#3d7a9e)
 tags:
   - Cuenca
@@ -22,6 +23,8 @@ Wir haben fünf Tage in Cuenca verbracht, für uns die perfekte Zeitspanne. So h
 Übernachtet haben wir in der **Posada Del Rey**, einer fantastischen Unterkunft mitten in der historischen Altstadt. Das Hotel war extrem günstig, unser Zimmer war riesig, ein leckeres Frühstück war inklusive und die Lage hätte nicht besser sein können.
 
 Zu den Highlights unseres Aufenthalts gehörten eine Walking Tour durch die Altstadt, das Probieren von echter ecuadorianischer Schokolade, ein Ausflug zum Aussichtspunkt Turi sowie eine Wanderung durch die Landschaften des Cajas-Nationalparks. In diesem Reiseführer zeigen wir dir, warum Cuenca zu Unrecht oft unterschätzt wird, wie du günstig mit dem Bus zum Nationalpark kommst und wo du das beste Essen der Stadt findest.
+
+![Kolonialbauten in der Altstadt von Cuenca](assets/img/Cuencagebäude.jpg)
 
 ---
 
@@ -58,6 +61,8 @@ Neben dem unschlagbar günstigen Preis haben uns vor allem die riesigen Zimmer u
 Cuenca ist eine erstaunlich günstige Stadt für Foodies. Spaziere unbedingt am malerischen Fluss Río Tomebamba entlang, dort findest du gemütliche Cafés mit Blick ins Grüne, wo du fantastischen ecuadorianischen Kaffee trinken kannst.
 
 Für das tägliche Mittagessen haben wir uns fast immer in der Nähe des Hauptplatzes lokale Restaurants gesucht, die ein Menú del Día anbieten. Für sehr wenig Geld bekommst du hier eine vollständige, leckere Mahlzeit. Ein Tipp für den Abend ist das **Cositas Restaurant**, mit sehr leckerem Essen in entspannter Atmosphäre. Und wenn du mal Lust auf internationale Küche oder eine schnelle Option hast, bietet der Food Court in der neuen Mall del Alto eine riesige Auswahl.
+
+![Cuenca bei Nacht](assets/img/CuencaLichter.jpeg)
 
 ---
 
