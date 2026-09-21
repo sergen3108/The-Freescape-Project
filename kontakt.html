@@ -130,11 +130,12 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <!-- ═══════════════════════════════════════════
      NAV
 ═══════════════════════════════════════════ -->
-<nav class="nav nav--transparent" role="navigation">
+<nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
       <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
@@ -218,6 +219,7 @@
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
+<main id="main">
 
 <!-- ═══════════════════════════════════════════
      HERO
@@ -292,16 +294,16 @@
           <div class="form-grid">
             <div class="form-group">
               <label class="form-label" for="cf-vorname">Vorname</label>
-              <input type="text" name="vorname" id="cf-vorname" class="form-input" placeholder="Max" required>
+              <input type="text" name="vorname" id="cf-vorname" class="form-input" placeholder="Max" autocomplete="given-name" required>
             </div>
             <div class="form-group">
               <label class="form-label" for="cf-nachname">Nachname</label>
-              <input type="text" name="nachname" id="cf-nachname" class="form-input" placeholder="Mustermann" required>
+              <input type="text" name="nachname" id="cf-nachname" class="form-input" placeholder="Mustermann" autocomplete="family-name" required>
             </div>
           </div>
           <div class="form-group">
             <label class="form-label" for="cf-email">E-Mail</label>
-            <input type="email" name="email" id="cf-email" class="form-input" placeholder="max@example.de" required>
+            <input type="email" name="email" id="cf-email" class="form-input" placeholder="max@example.de" autocomplete="email" required>
           </div>
           <div class="form-group">
             <label class="form-label" for="cf-betreff">Betreff</label>
@@ -317,14 +319,19 @@
             <label class="form-label" for="cf-nachricht">Nachricht</label>
             <textarea name="nachricht" id="cf-nachricht" class="form-textarea" placeholder="Deine Nachricht..." required></textarea>
           </div>
+          <!-- Spam-Schutz: fuer Menschen unsichtbar, Bots fuellen es aus (Formspree ignoriert Einsendungen mit _gotcha) -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;">
           <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" id="submit-btn">
             Nachricht senden
           </button>
-          <div id="form-success" style="display:none;margin-top:1rem;padding:1rem 1.25rem;background:#d1fae5;border-radius:var(--r-lg);color:#065f46;font-weight:500;">
-            ✅ Nachricht gesendet! Wir melden uns bald.
+          <p style="margin-top:0.75rem;font-size:0.8rem;color:var(--gray-500);line-height:1.5;">
+            Mit dem Absenden stimmst du der Verarbeitung deiner Angaben zur Beantwortung deiner Anfrage zu. Mehr dazu in der <a href="datenschutz.html" style="text-decoration:underline;">Datenschutzerklärung</a>.
+          </p>
+          <div id="form-success" role="status" aria-live="polite" tabindex="-1" style="display:none;margin-top:1rem;padding:1rem 1.25rem;background:#d1fae5;border-radius:var(--r-lg);color:#065f46;font-weight:500;">
+            <span aria-hidden="true">✅</span> Nachricht gesendet! Wir antworten innerhalb von 3 bis 5 Werktagen.
           </div>
-          <div id="form-error" style="display:none;margin-top:1rem;padding:1rem 1.25rem;background:#fee2e2;border-radius:var(--r-lg);color:#991b1b;font-weight:500;">
-            ❌ Etwas ist schiefgelaufen. Bitte versuch es nochmal oder schreib uns direkt.
+          <div id="form-error" role="alert" tabindex="-1" style="display:none;margin-top:1rem;padding:1rem 1.25rem;background:#fee2e2;border-radius:var(--r-lg);color:#991b1b;font-weight:500;">
+            <span aria-hidden="true">❌</span> Etwas ist schiefgelaufen. Bitte versuch es nochmal oder schreib uns direkt an <a href="mailto:info@thefreescapeproject.com" style="text-decoration:underline;">info@thefreescapeproject.com</a>.
           </div>
         </form>
       </div>
@@ -409,9 +416,9 @@
           <h3>Kooperationen</h3>
           <p>Wir sind offen für Kooperationen, die zu unserem authentischen Reisestil passen. Keine Werbung, die sich nach Werbung anfühlt, nur Empfehlungen, hinter denen wir wirklich stehen.</p>
           <div style="display:flex;gap:1.5rem;margin:1rem 0 1.25rem;flex-wrap:wrap;">
-            <div><strong id="koop-stat-views" style="display:block;font-size:1.3rem;color:var(--terra-600);">–</strong><span style="font-size:0.72rem;color:var(--gray-500);">Aufrufe auf YouTube</span></div>
-            <div><strong id="koop-stat-videos" style="display:block;font-size:1.3rem;color:var(--terra-600);">–</strong><span style="font-size:0.72rem;color:var(--gray-500);">Videos</span></div>
-            <div><strong id="koop-stat-subs" style="display:block;font-size:1.3rem;color:var(--terra-600);">–</strong><span style="font-size:0.72rem;color:var(--gray-500);">Abonnenten</span></div>
+            <div><strong id="koop-stat-views" style="display:block;font-size:1.3rem;color:var(--terra-300);">–</strong><span style="font-size:0.72rem;color:rgba(255,255,255,0.7);">Aufrufe auf YouTube</span></div>
+            <div><strong id="koop-stat-videos" style="display:block;font-size:1.3rem;color:var(--terra-300);">–</strong><span style="font-size:0.72rem;color:rgba(255,255,255,0.7);">Videos</span></div>
+            <div><strong id="koop-stat-subs" style="display:block;font-size:1.3rem;color:var(--terra-300);">–</strong><span style="font-size:0.72rem;color:rgba(255,255,255,0.7);">Abonnenten</span></div>
           </div>
           <div class="koop-list">
             <div class="koop-list-item"><span class="koop-list-dot"></span>Reiseausrüstung &amp; Gear</div>
@@ -419,7 +426,7 @@
             <div class="koop-list-item"><span class="koop-list-dot"></span>Reise-Apps &amp; Services</div>
             <div class="koop-list-item"><span class="koop-list-dot"></span>Content-Partnerschaften</div>
           </div>
-          <p class="koop-reply"><strong>Antwortzeit:</strong> Wir antworten innerhalb von 3–5 Werktagen (Zeitzonenpuffer inklusive 😅).</p>
+          <p class="koop-reply"><strong>Antwortzeit:</strong> Wir antworten innerhalb von 3 bis 5 Werktagen (Zeitzonenpuffer inklusive 😅).</p>
         </div>
 
       </div>
@@ -428,6 +435,7 @@
 </section>
 
 <!-- FOOTER -->
+</main>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
@@ -498,7 +506,7 @@
   </div>
 </footer>
   
-<div class="cookie-banner">
+<div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
   <div class="cookie-banner__actions">
@@ -530,12 +538,15 @@
         });
         if (res.ok) {
           success.style.display = 'block';
+          success.focus();
           form.reset();
         } else {
           error.style.display = 'block';
+          error.focus();
         }
       } catch(err) {
         error.style.display = 'block';
+        error.focus();
       }
       btn.textContent = 'Nachricht senden';
       btn.disabled    = false;

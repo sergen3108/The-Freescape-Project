@@ -146,6 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function animateCounter(el) {
     const target = parseInt(el.dataset.count, 10);
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      el.textContent = target.toLocaleString('de-DE');
+      return;
+    }
     const duration = 1800;
     const start = performance.now();
     const tick = (now) => {

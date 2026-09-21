@@ -123,9 +123,10 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <!-- ── Navigation ───────────────────────────────────────────── -->
-<nav class="nav nav--transparent" role="navigation">
+<nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
       <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
@@ -207,6 +208,7 @@
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
+<main id="main">
 
 <!-- ── Hero ─────────────────────────────────────────────────── -->
 <section class="page-hero">
@@ -254,7 +256,7 @@
 <section class="section">
   <div class="container">
     <div style="max-width:760px;">
-      <span class="status-badge status-badge--current">← Aktuell hier · ab Sep 2026</span>
+      <span class="status-badge status-badge--current">← Aktuell hier · ab 08. Sep 2026</span>
       <h2>Unsere Zeit in Argentinien</h2>
       <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
         Mit dem Bus von San Pedro de Atacama über die Grenze sind wir in Salta angekommen,
@@ -409,6 +411,7 @@
 </section>
 
 <!-- FOOTER -->
+</main>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
@@ -480,7 +483,7 @@
 </footer>
 
 <!-- ── Cookie Banner ────────────────────────────────────────── -->
-<div class="cookie-banner">
+<div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
   <div class="cookie-banner__actions">
@@ -490,8 +493,8 @@
 </div>
 
 <script src="blog-posts.js" defer></script>
-<script src="reise-config.js" defer></script>
 <script src="laender-config.js" defer></script>
+<script src="reise-config.js" defer></script>
 <script src="vlog-utils.js" defer></script>
 <script src="main.js" defer></script>
 

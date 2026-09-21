@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a1520">
   <title>Vlogs | The Freescape Project</title>
-  <meta name="description" content="Alle Reisevideos von Julia &amp; Sergen – ungefilterte Vlogs aus Kolumbien, Ecuador, Galapagos und Peru.">
+  <meta name="description" content="Alle Reisevideos von Julia &amp; Sergen: ungefilterte Vlogs aus Kolumbien, Ecuador, Galápagos, Peru und den weiteren Ländern Südamerikas.">
 
   <link rel="canonical" href="https://thefreescapeproject.com/vlogs.html">
 
@@ -14,14 +14,14 @@
 <meta property="og:site_name"    content="The Freescape Project">
 <meta property="og:url"          content="https://thefreescapeproject.com/vlogs.html">
 <meta property="og:title"        content="Vlogs – Alle Reisevideos | The Freescape Project">
-<meta property="og:description"  content="Unsere Reise in Videos, ungefiltert, ehrlich, hautnah. Kolumbien, Ecuador, Galápagos und Peru.">
+<meta property="og:description"  content="Unsere Reise in Videos, ungefiltert, ehrlich, hautnah. Kolumbien, Ecuador, Galápagos, Peru und weiteren Ländern Südamerikas.">
 <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/kilotoas.JPEG">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale"       content="de_DE">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Vlogs – Alle Reisevideos | The Freescape Project">
-<meta name="twitter:description" content="Unsere Reise in Videos, ungefiltert, ehrlich, hautnah. Kolumbien, Ecuador, Galápagos und Peru.">
+<meta name="twitter:description" content="Unsere Reise in Videos, ungefiltert, ehrlich, hautnah. Kolumbien, Ecuador, Galápagos, Peru und weiteren Ländern Südamerikas.">
 <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/kilotoas.JPEG">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -43,7 +43,8 @@
   </style>
 </head>
 <body>
-<nav class="nav nav--transparent" role="navigation">
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
       <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
@@ -124,6 +125,7 @@
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
+<main id="main">
 
 <section class="page-hero">
   <div class="hero__bg">
@@ -176,11 +178,8 @@
       </div>
 
       <!-- Filter -->
-      <div class="filter-bar">
+      <div class="filter-bar" id="filter-bar">
         <button class="filter-btn active" data-filter="all">Alle</button>
-        <button class="filter-btn" data-filter="kolumbien">Kolumbien</button>
-        <button class="filter-btn" data-filter="ecuador">Ecuador</button>
-        <button class="filter-btn" data-filter="peru">Peru</button>
       </div>
 
       <!-- Videos Tab -->
@@ -211,6 +210,7 @@
 </section>
 
 <!-- FOOTER -->
+</main>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
@@ -281,7 +281,7 @@
   </div>
 </footer>
   
-<div class="cookie-banner">
+<div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
   <div class="cookie-banner__actions">
@@ -343,7 +343,8 @@ function buildThumbMarkup(v) {
 
 function makeCard(v, index, isNew) {
   const country = detectCountry(v.title) || 'other';
-  const countryLabel = {kolumbien:'Kolumbien',ecuador:'Ecuador',peru:'Peru',other:''}[country]||'';
+  const land = window.laenderBySlug ? window.laenderBySlug(country) : null;
+  const countryLabel = land ? land.name : '';
   const delay = ['','animate-delay-1','animate-delay-2'][index%3];
   const matchingPost = (window.BLOG_POSTS && window.VlogUtils) ? window.VlogUtils.findMatchingPost(v, window.BLOG_POSTS) : null;
   return `
@@ -409,16 +410,31 @@ document.getElementById('btn-more-shorts').addEventListener('click', () => {
 });
 
 // Filter
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeFilter = btn.dataset.filter;
-    shownVideos = PAGE_SIZE;
-    shownShorts = PAGE_SIZE;
-    renderAll();
-  });
+// Die Laender-Buttons kommen aus laender-config.js, daher Event-Delegation.
+document.getElementById('filter-bar').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = btn.dataset.filter;
+  shownVideos = PAGE_SIZE;
+  shownShorts = PAGE_SIZE;
+  renderAll();
 });
+
+// Ein Filter-Button pro bereistem oder aktuellem Land, in Reisereihenfolge.
+function buildFilterButtons() {
+  const bar = document.getElementById('filter-bar');
+  window.laenderSortiert()
+    .filter(l => l.status !== 'geplant')
+    .forEach(l => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.filter = l.slug;
+      btn.textContent = l.name;
+      bar.appendChild(btn);
+    });
+}
 
 async function loadVlogs() {
   const showError = msg => {
@@ -449,6 +465,7 @@ async function loadVlogs() {
 
     shownVideos = PAGE_SIZE;
     shownShorts = PAGE_SIZE;
+    buildFilterButtons();
 
     document.getElementById('vlogs-loading').style.display = 'none';
     document.getElementById('vlogs-content').style.display = 'block';

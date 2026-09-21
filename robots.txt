@@ -6,6 +6,5 @@ Allow: /
 
 # Interne / technische Pfade nicht crawlen
 Disallow: /posts/index.json
-Disallow: /posts/*.md
 
 Sitemap: https://thefreescapeproject.com/sitemap.xml

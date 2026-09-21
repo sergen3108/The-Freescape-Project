@@ -314,6 +314,7 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <!-- Reading Progress Bar (nur artikel.html) -->
 <div class="reading-progress" id="reading-progress"></div>
@@ -323,7 +324,7 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
-<nav class="nav nav--transparent" role="navigation">
+<nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
       <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
@@ -404,11 +405,13 @@
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
+<main id="main">
 
 <div id="artikel-loading">Artikel wird geladen …</div>
 <div id="artikel-root" style="display:none;"></div>
 
 <!-- FOOTER -->
+</main>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
@@ -479,7 +482,7 @@
   </div>
 </footer>
 
-<div class="cookie-banner">
+<div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
   <div class="cookie-banner__actions">

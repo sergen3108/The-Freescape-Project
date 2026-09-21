@@ -556,6 +556,7 @@
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <!-- Nach-oben-Button -->
 <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Nach oben scrollen">
@@ -563,7 +564,7 @@
 </button>
 
 <!-- ── Navigation ─────────────────────────────────────────── -->
-<nav class="nav nav--transparent" role="navigation">
+<nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
       <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
@@ -644,6 +645,7 @@
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
+<main id="main">
 
 <!-- ── Page Hero ──────────────────────────────────────────── -->
 <section class="page-hero">
@@ -689,6 +691,7 @@
     <button class="kapitel-btn" data-target="peru">Peru</button>
     <button class="kapitel-btn" data-target="bolivien">Bolivien</button>
     <button class="kapitel-btn" data-target="chile">Chile</button>
+    <button class="kapitel-btn" data-target="argentinien">Argentinien</button>
   </div>
   <div class="kapitel-nav__fade kapitel-nav__fade--right"></div>
 </nav>
@@ -1387,7 +1390,7 @@
 
     <div class="kapitel-header animate-on-scroll">
       <h2 class="kapitel-header__name">Chile</h2>
-      <span class="kapitel-header__count">ab Sep 2026 · aktuell</span>
+      <span class="kapitel-header__count">04. bis 08. Sep 2026</span>
     </div>
 
     <!-- Band 1: groß links + 2 klein rechts -->
@@ -1516,6 +1519,59 @@
   </div>
 </section>
 
+<section class="galerie-section" id="argentinien" style="background:var(--sand-50,#faf8f5);">
+  <div class="container">
+
+    <div class="kapitel-header animate-on-scroll">
+      <h2 class="kapitel-header__name">Argentinien</h2>
+      <span class="kapitel-header__count">ab 08. Sep 2026 · aktuell</span>
+    </div>
+
+    <div class="bento bento--a animate-on-scroll">
+
+      <div class="gi" tabindex="0" role="button"
+           data-label="Salinas Grandes"
+           data-sub="Salzebene auf über 3.000 m, Argentinien"
+           data-src="assets/img/SalinasGrandes.jpg">
+        <img src="assets/img/SalinasGrandes.jpg"
+             alt="Weite weiße Salzebene der Salinas Grandes in Nordargentinien"
+             style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
+             loading="lazy">
+        <div class="gi__badge">Highlight</div>
+        <div class="gi__overlay">
+          <div><div class="gi__label">Salinas Grandes</div><div class="gi__sub">Salzebene auf über 3.000 m, Argentinien</div></div>
+        </div>
+        <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
+      </div>
+
+      <div class="gi" tabindex="0" role="button"
+           data-label="Straße in Nordargentinien"
+           data-sub="Argentinien"
+           data-src="assets/img/ArgentinischeStraße.jpg">
+        <img src="assets/img/ArgentinischeStraße.jpg"
+             alt="Straße durch die Landschaft Nordargentiniens"
+             style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
+             loading="lazy">
+        <div class="gi__overlay">
+          <div><div class="gi__label">Straße in Nordargentinien</div><div class="gi__sub">Argentinien</div></div>
+        </div>
+        <div class="gi__lens"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><circle cx="11" cy="11" r="3"/><path d="m21 21-4.35-4.35"/></svg></div>
+      </div>
+
+      <div class="gi gi--placeholder">
+        <div class="gi__placeholder-inner">
+          <div class="gi__placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.2"/></svg></div>
+          <div>
+            <div class="gi__placeholder-label">Purmamarca</div>
+            <div class="gi__placeholder-sub">Kommt bald</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── Instagram CTA ──────────────────────────────────────── -->
 <div class="ig-cta">
   <p class="ig-cta__eyebrow">Noch mehr Bilder</p>
@@ -1547,6 +1603,7 @@
 </div>
 
 <!-- FOOTER -->
+</main>
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
@@ -1617,7 +1674,7 @@
   </div>
 </footer>
 
-<div class="cookie-banner">
+<div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
   <div class="cookie-banner__actions">
@@ -1642,7 +1699,7 @@
   const kapitelBtns  = document.querySelectorAll('.kapitel-btn');
   const kapitelNav   = document.querySelector('.kapitel-nav');
   const kapitelInner = document.querySelector('.kapitel-nav__inner');
-  const sections = ['kolumbien','ecuador','peru','bolivien','chile'].map(id => document.getElementById(id));
+  const sections = ['kolumbien','ecuador','peru','bolivien','chile','argentinien'].map(id => document.getElementById(id));
 
   kapitelBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1702,7 +1759,7 @@
   function openLb(idx) {
     currentIdx = idx;
     const item = clickableItems[idx];
-    lbLastFocused = document.activeElement;
+    if (!lb.classList.contains('open')) lbLastFocused = document.activeElement;
     lbImg.classList.add('fading');
 
     const next = new Image();
