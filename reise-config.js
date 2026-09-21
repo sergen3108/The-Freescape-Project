@@ -32,8 +32,21 @@ const REISE = {
     { name: 'Franz. Guayana', iso: 254, status: '',        href: '#'                      },
   ],
 };
+// ── Länder-Status aus laender-config.js übernehmen ──────────────
+// laender-config.js (status: bereist | aktuell | geplant) ist die einzige
+// Quelle. Die status-Werte oben sind nur der Fallback für Seiten, die
+// laender-config.js nicht laden. So zeigen Zähler, Karte und Chips immer
+// dieselbe Zahl. Auf Seiten mit beiden Skripten muss laender-config.js VOR
+// reise-config.js eingebunden sein.
+if (window.LAENDER) {
+  const STATUS_MAP = { bereist: 'visited', aktuell: 'current', geplant: '' };
+  REISE.suedamerika.forEach(l => {
+    const eintrag = window.LAENDER.find(x => x.name === l.name);
+    if (eintrag) l.status = STATUS_MAP[eintrag.status];
+  });
+}
 // ── Automatisch berechnete Werte ────────────────────────────────
-REISE.laenderBereist = REISE.suedamerika.filter(l => l.status === 'visited' || l.status === 'current').length;
+REISE.laenderBereist =REISE.suedamerika.filter(l => l.status === 'visited' || l.status === 'current').length;
 REISE.tageDrausweg   = Math.floor((new Date() - REISE.startDatum) / 86400000);
 // ISO-Map für die Südamerika-Karte (index.html)
 REISE.saMap = {};
@@ -46,6 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
       el.setAttribute('data-count', val);
       el.textContent = '0';
     }
+  });
+  // Zahlen mitten im Fließtext (kein Zähler-Effekt)
+  document.querySelectorAll('[data-reise-text]').forEach(el => {
+    const val = REISE[el.dataset.reiseText];
+    if (val !== undefined) el.textContent = val;
   });
   // Nächste-Woche-Box befüllen
   const naechsteWocheEl = document.getElementById('naechste-woche-text');
