@@ -987,6 +987,7 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 .vlogs-grid--2col { grid-template-columns: repeat(2, 1fr); }
 
+.vlog-card[hidden] { display: none; }
 .vlog-card {
   background: var(--white);
   border-radius: var(--r-lg);

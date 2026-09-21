@@ -117,7 +117,31 @@
     return candidates[0];
   }
 
+  // Zeigt in einem Karten-Grid nur die ersten `max` Karten (die Daten sind
+  // neueste zuerst) und haengt einen Knopf an, der den Rest einblendet.
+  // `label` ist der Plural im Knopftext, z.B. "Vlogs" oder "Shorts".
+  function limitCards(grid, max, label) {
+    if (!grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.vlog-card'));
+    var rest = cards.slice(max);
+    if (!rest.length) return;
+    rest.forEach(function (el) { el.hidden = true; });
+    var wrap = document.createElement('div');
+    wrap.style.cssText = 'text-align:center;margin-top:2rem;';
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'btn btn-outline';
+    btn.textContent = 'Weitere ' + label + ' anzeigen (' + rest.length + ')';
+    btn.addEventListener('click', function () {
+      rest.forEach(function (el) { el.hidden = false; });
+      wrap.remove();
+    });
+    wrap.appendChild(btn);
+    grid.insertAdjacentElement('afterend', wrap);
+  }
+
   window.VlogUtils = {
+    limitCards: limitCards,
     detectCountry: detectCountry,
     detectOrt: detectOrt,
     isShort: isShort,

@@ -638,10 +638,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         grid.innerHTML = videos.map(makeCard).join('');
         grid.querySelectorAll('.vlog-card').forEach(function (el) { el.classList.add('visible'); });
+        window.VlogUtils.limitCards(grid, 3, 'Vlogs');
 
         if (shorts.length) {
           shortsGrid.innerHTML = shorts.map(makeCard).join('');
           shortsGrid.querySelectorAll('.vlog-card').forEach(function (el) { el.classList.add('visible'); });
+          window.VlogUtils.limitCards(shortsGrid, 3, 'Shorts');
           shortsTab.style.display = '';
         }
 
