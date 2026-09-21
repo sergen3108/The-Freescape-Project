@@ -103,8 +103,8 @@ window.LAENDER = [
     hook: 'Von der Grenze bei Uyuni aus direkt in die Atacama-Wueste, ein paar Tage in San Pedro de Atacama zwischen Wueste, Geysiren und Sternenhimmel.',
     tags: ['Wueste', 'Berge', 'Natur', 'Abenteuer'],
     gradient: 'linear-gradient(135deg,#1a2d3d,#3d6080)',
-    heroImage: null,
-    ogImage: null,
+    heroImage: 'assets/img/ChileSterne.jpeg',
+    ogImage: 'https://thefreescapeproject.com/assets/img/ChileSterne.jpeg',
     vlogKeywords: ['chile', 'atacama', 'san pedro de atacama', 'santiago', 'torres del paine', 'valparaíso', 'valparaiso']
   },
   {
@@ -115,11 +115,11 @@ window.LAENDER = [
     datei: 'argentinien.html',
     reihenfolge: 6,
     zeitraum: 'ab Sep 2026',
-    hook: 'Mit dem Bus von San Pedro de Atacama ueber die Grenze nach Salta im Norden Argentiniens, unser sechstes Land auf dieser Reise.',
+    hook: 'Ueber die Grenze nach Salta, von dort im Mietauto durch den Norden Argentiniens und per Nachtbus weiter nach Cordoba, unser sechstes Land auf dieser Reise.',
     tags: ['Staedte', 'Berge', 'Natur', 'Kultur'],
     gradient: 'linear-gradient(135deg,#1a1a2e,#0f3460)',
-    heroImage: null,
-    ogImage: null,
+    heroImage: 'assets/img/SalinasGrandes.jpg',
+    ogImage: 'https://thefreescapeproject.com/assets/img/SalinasGrandes.jpg',
     vlogKeywords: ['argentinien', 'salta', 'buenos aires', 'patagonien', 'mendoza', 'bariloche', 'ushuaia', 'iguazú', 'iguazu']
   },
   {
