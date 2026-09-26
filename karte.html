@@ -332,7 +332,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Übermorgen ziehen wir von Córdoba weiter nach Rosario, der Stadt am Río Paraná. Wir sind gespannt, was uns dort erwartet 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Seit gestern sind wir in Rosario, der Stadt am Río Paraná. Wir sind gespannt, was uns hier erwartet 🙌</p>
         </div>
 
       </div>
@@ -495,7 +495,8 @@ const pins = [
   { lat: -23.5661, lng: -66.0326, status: "visited", name: "Salinas Grandes",desc: "Riesige Salzebene auf über 3.000m Höhe, Roadtrip-Stopp ab Salta.",                link: "", linkText: "" },
   { lat: -25.1223, lng: -66.1670, status: "visited", name: "Cachi",          desc: "Kolonialdorf an der Ruta 40 in den Valles Calchaquíes, Roadtrip-Stopp ab Salta.", link: "", linkText: "" },
   { lat: -26.0725, lng: -65.9747, status: "visited", name: "Cafayate",       desc: "Weinregion und Quebrada de las Conchas, Roadtrip-Stopp ab Salta.",                link: "", linkText: "" },
-  { lat: -31.4201, lng: -64.1888, status: "current", name: "Córdoba ← wir sind hier", desc: "Mit dem Nachtbus aus Salta, nachdem wir das Mietauto abgegeben haben.", link: "", linkText: "" },
+  { lat: -31.4201, lng: -64.1888, status: "visited", name: "Córdoba", desc: "Mit dem Nachtbus aus Salta, nachdem wir das Mietauto abgegeben haben.", link: "", linkText: "" },
+  { lat: -32.9468, lng: -60.6393, status: "current", name: "Rosario ← wir sind hier", desc: "Von Córdoba weiter an den Río Paraná, unsere aktuelle Station.", link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -533,6 +534,7 @@ const ROUTE = [
   { type: "land",   coords: [[-24.7859,-65.4117],[-23.7495,-65.4989],[-23.6300,-65.5300],[-23.5697,-65.3852],[-23.2058,-65.3505],[-23.6300,-65.5300],[-23.5661,-66.0326],[-24.7859,-65.4117]] },
   { type: "land",   coords: [[-24.7859,-65.4117],[-25.1223,-66.1670],[-26.0725,-65.9747],[-24.7859,-65.4117]] },
   { type: "land",   coords: [[-24.7859,-65.4117],[-31.4201,-64.1888]] },
+  { type: "land",   coords: [[-31.4201,-64.1888],[-32.9468,-60.6393]] },
 ];
 
 const ROUTE_STYLES = {

@@ -10,11 +10,11 @@ const REISE = {
 // ── Reise-Zahlen ───────────────────────────────────────────────
   kmZurueckgelegt:      14800,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          39,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          40,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Übermorgen ziehen wir von Córdoba weiter nach Rosario, der Stadt am Río Paraná. Wir sind gespannt, was uns dort erwartet 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Seit gestern sind wir in Rosario, der Stadt am Río Paraná. Wir sind gespannt, was uns hier erwartet 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Córdoba, Argentinien',  // ✏️ hier anpassen
+  standort: 'Rosario, Argentinien',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },

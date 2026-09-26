@@ -120,7 +120,7 @@ window.LAENDER = [
     gradient: 'linear-gradient(135deg,#1a1a2e,#0f3460)',
     heroImage: 'assets/img/SalinasGrandes.jpg',
     ogImage: 'https://thefreescapeproject.com/assets/img/SalinasGrandes.jpg',
-    vlogKeywords: ['argentinien', 'salta', 'buenos aires', 'patagonien', 'mendoza', 'bariloche', 'ushuaia', 'iguazú', 'iguazu']
+    vlogKeywords: ['argentinien', 'salta', 'córdoba', 'cordoba', 'rosario', 'buenos aires', 'patagonien', 'mendoza', 'bariloche', 'ushuaia', 'iguazú', 'iguazu']
   },
   {
     slug: 'brasilien',
