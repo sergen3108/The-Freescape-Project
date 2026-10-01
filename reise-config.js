@@ -12,7 +12,7 @@ const REISE = {
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
   orteBesucht:          41,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Seit gestern sind wir in Mendoza, mit dem Nachtbus aus Rosario. In ein paar Tagen geht es über die Anden weiter nach Santiago de Chile 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Aktuell sind wir in Mendoza. Als Nächstes geht es über die Anden nach Santiago de Chile 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
   standort: 'Mendoza, Argentinien',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
