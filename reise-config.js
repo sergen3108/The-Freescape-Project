@@ -8,7 +8,7 @@ const REISE = {
   sergenLaender: 17,
   juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      18100,
+  kmZurueckgelegt:      18200,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
   orteBesucht:          41,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
