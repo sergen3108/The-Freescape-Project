@@ -8,13 +8,13 @@ const REISE = {
   sergenLaender: 17,
   juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      14800,
+  kmZurueckgelegt:      18100,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          40,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          41,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Von Rosario geht es weiter nach Mendoza und von dort nach Santiago de Chile. Wir sind gespannt, was uns dort erwartet 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Seit gestern sind wir in Mendoza, mit dem Nachtbus aus Rosario. In ein paar Tagen geht es über die Anden weiter nach Santiago de Chile 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Rosario, Argentinien',  // ✏️ hier anpassen
+  standort: 'Mendoza, Argentinien',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
