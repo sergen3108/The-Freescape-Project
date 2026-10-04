@@ -8,21 +8,21 @@ const REISE = {
   sergenLaender: 17,
   juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      18200,
+  kmZurueckgelegt:      18600,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          41,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          42,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Aktuell sind wir in Mendoza. Als Nächstes geht es über die Anden nach Santiago de Chile 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Aktuell sind wir in Santiago de Chile, mit dem Bus über die Anden aus Mendoza. Wie es weitergeht, verraten wir bald 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Mendoza, Argentinien',  // ✏️ hier anpassen
+  standort: 'Santiago de Chile, Chile',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
     { name: 'Ecuador',        iso: 218, status: 'visited', href: 'ecuador.html'           },
     { name: 'Peru',           iso: 604, status: 'visited', href: 'peru.html'              },
     { name: 'Bolivien',       iso:  68, status: 'visited', href: 'bolivien.html'          },
-    { name: 'Chile',          iso: 152, status: 'visited', href: 'chile.html'             },
-    { name: 'Argentinien',    iso:  32, status: 'current', href: 'argentinien.html'       },
+    { name: 'Chile',          iso: 152, status: 'current', href: 'chile.html'             },
+    { name: 'Argentinien',    iso:  32, status: 'visited', href: 'argentinien.html'       },
     { name: 'Brasilien',      iso:  76, status: '',        href: 'laender.html#geplant'   },
     { name: 'Venezuela',      iso: 862, status: '',        href: '#'                      },
     { name: 'Uruguay',        iso: 858, status: '',        href: 'laender.html#geplant'   },

@@ -314,15 +314,15 @@
         <div class="status-card">
           <div class="status-card__header">
             <h3>Reisestatus</h3>
-            <p>Zuletzt aktualisiert: Sep 2026</p>
+            <p>Zuletzt aktualisiert: Okt 2026</p>
           </div>
           <ul class="status-list">
             <li><div class="status-dot status-dot--visited"></div> Kolumbien</li>
             <li><div class="status-dot status-dot--visited"></div> Ecuador</li>
             <li><div class="status-dot status-dot--visited"></div> Peru</li>
             <li><div class="status-dot status-dot--visited"></div> Bolivien</li>
-            <li><div class="status-dot status-dot--visited"></div> Chile</li>
-            <li><div class="status-dot status-dot--current"></div> Argentinien &nbsp;<strong style="color:var(--terra-600);font-size:0.75rem;">← wir sind hier</strong></li>
+            <li><div class="status-dot status-dot--current"></div> Chile &nbsp;<strong style="color:var(--terra-600);font-size:0.75rem;">← wir sind hier</strong></li>
+            <li><div class="status-dot status-dot--visited"></div> Argentinien</li>
             <li><div class="status-dot status-dot--planned"></div> Brasilien</li>
             <li><div class="status-dot status-dot--planned"></div> Uruguay</li>
             <li><div class="status-dot status-dot--planned"></div> Paraguay</li>
@@ -332,7 +332,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Aktuell sind wir in Mendoza. Als Nächstes geht es über die Anden nach Santiago de Chile 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Aktuell sind wir in Santiago de Chile, mit dem Bus über die Anden aus Mendoza. Wie es weitergeht, verraten wir bald 🙌</p>
         </div>
 
       </div>
@@ -497,7 +497,9 @@ const pins = [
   { lat: -26.0725, lng: -65.9747, status: "visited", name: "Cafayate",       desc: "Weinregion und Quebrada de las Conchas, Roadtrip-Stopp ab Salta.",                link: "", linkText: "" },
   { lat: -31.4201, lng: -64.1888, status: "visited", name: "Córdoba", desc: "Mit dem Nachtbus aus Salta, nachdem wir das Mietauto abgegeben haben.", link: "", linkText: "" },
   { lat: -32.9468, lng: -60.6393, status: "visited", name: "Rosario", desc: "Von Córdoba weiter an den Río Paraná.", link: "", linkText: "" },
-  { lat: -32.8895, lng: -68.8458, status: "current", name: "Mendoza ← wir sind hier", desc: "Mit dem Nachtbus aus Rosario, unsere letzte Station vor Santiago de Chile.", link: "", linkText: "" },
+  { lat: -32.8895, lng: -68.8458, status: "visited", name: "Mendoza", desc: "Mit dem Nachtbus aus Rosario, unsere letzte Station in Argentinien vor Santiago de Chile.", link: "", linkText: "" },
+  // ── CHILE (zurück) ─────────────────────────────────────
+  { lat: -33.4489, lng: -70.6693, status: "current", name: "Santiago de Chile ← wir sind hier", desc: "Mit dem Bus über die Anden aus Mendoza, zurück in Chile.", link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -537,6 +539,7 @@ const ROUTE = [
   { type: "land",   coords: [[-24.7859,-65.4117],[-31.4201,-64.1888]] },
   { type: "land",   coords: [[-31.4201,-64.1888],[-32.9468,-60.6393]] },
   { type: "land",   coords: [[-32.9468,-60.6393],[-32.8895,-68.8458]] },
+  { type: "land",   coords: [[-32.8895,-68.8458],[-33.4489,-70.6693]] },
 ];
 
 const ROUTE_STYLES = {
