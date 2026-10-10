@@ -50,7 +50,9 @@ REISE.laenderBereist =REISE.suedamerika.filter(l => l.status === 'visited' || l.
 // Heutiger Tag zaehlt mit (Starttag = Tag 1), passend zu "Tage im Land" (main.js).
 REISE.tageDrausweg   = (() => {
   const h = new Date(); h.setHours(0, 0, 0, 0);
-  const s = new Date(REISE.startDatum); s.setHours(0, 0, 0, 0);
+  // startDatum ist UTC-Mitternacht: Datum aus dem ISO-String nehmen, sonst
+  // rutscht es in westlichen Zeitzonen (z.B. Chile) auf den Vortag.
+  const s = new Date(REISE.startDatum.toISOString().slice(0, 10) + 'T00:00:00');
   return Math.round((h - s) / 86400000) + 1;
 })();
 // ISO-Map für die Südamerika-Karte (index.html)
