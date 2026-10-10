@@ -8,13 +8,13 @@ const REISE = {
   sergenLaender: 17,
   juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      18600,
+  kmZurueckgelegt:      18700,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          42,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          43,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Aktuell sind wir in Santiago de Chile, mit dem Bus über die Anden aus Mendoza. Wie es weitergeht, verraten wir bald 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Aktuell sind wir in Viña del Mar an der chilenischen Pazifikküste, mit dem Bus aus Santiago. Wie es weitergeht, verraten wir bald 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Santiago de Chile, Chile',  // ✏️ hier anpassen
+  standort: 'Viña del Mar, Chile',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
@@ -47,7 +47,12 @@ if (window.LAENDER) {
 }
 // ── Automatisch berechnete Werte ────────────────────────────────
 REISE.laenderBereist =REISE.suedamerika.filter(l => l.status === 'visited' || l.status === 'current').length;
-REISE.tageDrausweg   = Math.floor((new Date() - REISE.startDatum) / 86400000);
+// Heutiger Tag zaehlt mit (Starttag = Tag 1), passend zu "Tage im Land" (main.js).
+REISE.tageDrausweg   = (() => {
+  const h = new Date(); h.setHours(0, 0, 0, 0);
+  const s = new Date(REISE.startDatum); s.setHours(0, 0, 0, 0);
+  return Math.round((h - s) / 86400000) + 1;
+})();
 // ISO-Map für die Südamerika-Karte (index.html)
 REISE.saMap = {};
 REISE.suedamerika.forEach(l => { REISE.saMap[l.iso] = l; });

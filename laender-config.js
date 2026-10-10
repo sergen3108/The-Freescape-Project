@@ -12,6 +12,14 @@
    anlegen (Kopie einer bestehenden Laenderseite) und in die
    sitemap.xml eintragen. Geplante Laender brauchen keine Seite.
 
+   tage: Aufenthalte als [Start, Ende] (ISO-Datum). Ende null = laeuft
+   noch, dann zaehlt main.js bis einschliesslich heute weiter (Anzeige
+   "Tage im Land").
+   Beim Weiterreisen: beim alten Land das Ende eintragen, beim neuen
+   Land [['<Ankunft>', null]] setzen. Rueckkehr in ein Land = weiterer
+   Eintrag in der Liste. Anzahl = Ende minus Start, summiert ueber alle
+   Laender ergibt das die "Tage unterwegs" (Start 25.02.2026).
+
    WICHTIG: keine Em-Dashes in Texten (Projekt-Stil).
    ============================================================ */
 
@@ -24,6 +32,7 @@ window.LAENDER = [
     datei: 'kolumbien.html',      // null bei geplanten Laendern
     reihenfolge: 1,
     zeitraum: 'Feb bis Apr 2026',
+    tage: [['2026-02-25', '2026-04-17']],
     hook: 'Karibikstraende, Kaffeeberge und lebendige Grossstaedte, das Land das uns komplett ueberrascht hat.',
     tags: ['Karibik', 'Staedte', 'Berge', 'Budget', 'Abenteuer'],
     gradient: 'linear-gradient(135deg,#c4622d,#1a2744)',
@@ -44,6 +53,7 @@ window.LAENDER = [
     datei: 'ecuador.html',
     reihenfolge: 2,
     zeitraum: 'Apr bis Jun 2026',
+    tage: [['2026-04-17', '2026-06-01']],
     hook: 'Vulkane, Amazonas und Galapagos auf kleinem Raum, eines der abwechslungsreichsten Laender der Reise.',
     tags: ['Berge', 'Dschungel', 'Natur', 'Inseln', 'Budget'],
     gradient: 'linear-gradient(135deg,#1a3c2a,#2d7a2d)',
@@ -62,6 +72,7 @@ window.LAENDER = [
     datei: 'peru.html',
     reihenfolge: 3,
     zeitraum: 'Jun bis Aug 2026',
+    tage: [['2026-06-01', '2026-08-07']],
     hook: 'Pazifikkueste, Wueste, Machu Picchu und der Colca Canyon, eines der intensivsten Laender der Reise.',
     tags: ['Strand', 'Berge', 'Wueste', 'Staedte', 'Abenteuer'],
     gradient: 'linear-gradient(135deg,#8b3a15,#c4622d)',
@@ -85,6 +96,7 @@ window.LAENDER = [
     datei: 'bolivien.html',
     reihenfolge: 4,
     zeitraum: 'Aug bis Sep 2026',
+    tage: [['2026-08-07', '2026-09-04']],
     hook: 'Mit dem Bus von Puno ueber den Titicacasee nach Copacabana, ueber La Paz und Sucre nach Potosi bis zur 3-taegigen Tour durch den Salar de Uyuni.',
     tags: ['Wueste', 'Berge', 'Natur', 'Budget'],
     gradient: 'linear-gradient(135deg,#4a7fa0,#c8e8f5)',
@@ -100,7 +112,8 @@ window.LAENDER = [
     datei: 'chile.html',
     reihenfolge: 5,
     zeitraum: '04. bis 08. Sep und ab 03. Okt 2026',
-    hook: 'Erst ein paar Tage in San Pedro de Atacama zwischen Wueste, Geysiren und Sternenhimmel, jetzt zurueck: mit dem Bus von Mendoza ueber die Anden nach Santiago de Chile.',
+    tage: [['2026-09-04', '2026-09-08'], ['2026-10-03', null]],
+    hook: 'Erst ein paar Tage in San Pedro de Atacama zwischen Wueste, Geysiren und Sternenhimmel, jetzt zurueck: mit dem Bus von Mendoza ueber die Anden nach Santiago de Chile und weiter an die Kueste nach Vina del Mar.',
     tags: ['Wueste', 'Berge', 'Natur', 'Abenteuer'],
     gradient: 'linear-gradient(135deg,#1a2d3d,#3d6080)',
     heroImage: 'assets/img/ChileSterne.jpeg',
@@ -115,6 +128,7 @@ window.LAENDER = [
     datei: 'argentinien.html',
     reihenfolge: 6,
     zeitraum: '08. Sep bis 03. Okt 2026',
+    tage: [['2026-09-08', '2026-10-03']],
     hook: 'Ueber die Grenze nach Salta, von dort im Mietauto durch den Norden Argentiniens und per Nachtbus ueber Cordoba und Rosario bis nach Mendoza, unser sechstes Land auf dieser Reise.',
     tags: ['Staedte', 'Berge', 'Natur', 'Kultur'],
     gradient: 'linear-gradient(135deg,#1a1a2e,#0f3460)',

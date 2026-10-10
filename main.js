@@ -121,6 +121,27 @@ document.addEventListener('DOMContentLoaded', () => {
   observeAnimations();
   window.observeAnimations = observeAnimations;
 
+  /* ── Tage im Land (aus laender-config.js, taeglich aktuell) ──
+     Element mit data-tage-land="<slug>": Summe aller Aufenthalte
+     (Ende minus Start, Abreisetag zaehlt zum naechsten Land), offenes
+     Ende (null) zaehlt bis einschliesslich heute. Bei fehlenden Daten
+     bleibt der statische data-count als Fallback. */
+  const morgen = new Date();
+  morgen.setHours(0, 0, 0, 0);
+  morgen.setDate(morgen.getDate() + 1);
+  const tageZwischen = (von, bis) => {
+    const start = new Date(von + 'T00:00:00');
+    const ende = bis ? new Date(bis + 'T00:00:00') : morgen;
+    const d = Math.round((ende - start) / 86400000);
+    return isNaN(d) || d < 0 ? 0 : d;
+  };
+  document.querySelectorAll('[data-tage-land]').forEach(el => {
+    const land = (window.LAENDER || []).find(l => l.slug === el.dataset.tageLand);
+    if (!land || !Array.isArray(land.tage) || !land.tage.length) return;
+    const summe = land.tage.reduce((s, [von, bis]) => s + tageZwischen(von, bis), 0);
+    el.setAttribute('data-count', summe);
+  });
+
   /* ── Counter Animation ──────────────────────────────── */
   function observeCounters(root = document) {
     // dataset-Flag verhindert Re-Observe, wenn observeCounters() mehrfach

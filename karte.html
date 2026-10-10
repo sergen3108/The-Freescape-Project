@@ -332,7 +332,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Aktuell sind wir in Santiago de Chile, mit dem Bus über die Anden aus Mendoza. Wie es weitergeht, verraten wir bald 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Aktuell sind wir in Viña del Mar an der chilenischen Pazifikküste, mit dem Bus aus Santiago. Wie es weitergeht, verraten wir bald 🙌</p>
         </div>
 
       </div>
@@ -499,7 +499,8 @@ const pins = [
   { lat: -32.9468, lng: -60.6393, status: "visited", name: "Rosario", desc: "Von Córdoba weiter an den Río Paraná.", link: "", linkText: "" },
   { lat: -32.8895, lng: -68.8458, status: "visited", name: "Mendoza", desc: "Mit dem Nachtbus aus Rosario, unsere letzte Station in Argentinien vor Santiago de Chile.", link: "", linkText: "" },
   // ── CHILE (zurück) ─────────────────────────────────────
-  { lat: -33.4489, lng: -70.6693, status: "current", name: "Santiago de Chile ← wir sind hier", desc: "Mit dem Bus über die Anden aus Mendoza, zurück in Chile.", link: "", linkText: "" },
+  { lat: -33.4489, lng: -70.6693, status: "visited", name: "Santiago de Chile", desc: "Mit dem Bus über die Anden aus Mendoza, zurück in Chile.", link: "", linkText: "" },
+  { lat: -33.0245, lng: -71.5518, status: "current", name: "Viña del Mar ← wir sind hier", desc: "Seit dem 10.10. mit dem Bus von Santiago an der chilenischen Pazifikküste.", link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -540,6 +541,7 @@ const ROUTE = [
   { type: "land",   coords: [[-31.4201,-64.1888],[-32.9468,-60.6393]] },
   { type: "land",   coords: [[-32.9468,-60.6393],[-32.8895,-68.8458]] },
   { type: "land",   coords: [[-32.8895,-68.8458],[-33.4489,-70.6693]] },
+  { type: "land",   coords: [[-33.4489,-70.6693],[-33.0245,-71.5518]] },
 ];
 
 const ROUTE_STYLES = {
