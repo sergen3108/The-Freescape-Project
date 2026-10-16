@@ -127,6 +127,7 @@
     .legend-dot--visited { background: #3d7a52; }
     .legend-dot--current { background: #c4622d; }
     .legend-dot--planned { background: #c0c0c0; }
+    .legend-dot--julia { background: #8e44ad; }
 
     .karte-layout { display: grid; grid-template-columns: 1fr 320px; gap: 2rem; align-items: start; }
     .status-card { background: var(--white); border: 1.5px solid var(--gray-100); border-radius: var(--r-lg); overflow: hidden; }
@@ -301,10 +302,12 @@
         </div>
         <div class="map-legend">
           <div class="legend-item"><div class="legend-dot legend-dot--visited"></div> Bereist</div>
-          <div class="legend-item"><div class="legend-dot legend-dot--current"></div> Aktuell hier</div>
+          <div class="legend-item"><div class="legend-dot legend-dot--current"></div> Aktuell hier (Sergen)</div>
+          <div class="legend-item"><div class="legend-dot legend-dot--julia"></div> Aktuell hier (Julia)</div>
           <div class="legend-item"><div class="legend-dot legend-dot--planned"></div> Geplant</div>
           <div class="legend-item"><div style="width:22px;height:3px;background:#e8431a;border-radius:2px;flex-shrink:0;"></div> Landroute</div>
           <div class="legend-item"><div style="width:22px;height:0;border-top:3px dashed #3b61a8;flex-shrink:0;"></div> Flug</div>
+          <div class="legend-item"><div style="width:22px;height:0;border-top:3px dashed #8e44ad;flex-shrink:0;"></div> Julias Flug</div>
           <div class="legend-item"><div style="width:22px;height:0;border-top:3px dashed #2e8c2e;flex-shrink:0;"></div> Nächste Station</div>
         </div>
       </div>
@@ -332,7 +335,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Aktuell sind wir in Viña del Mar an der chilenischen Pazifikküste, mit dem Bus aus Santiago. Wie es weitergeht, verraten wir bald 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Julia ist am 15.10. auf die Osterinsel geflogen, Sergen wartet in Santiago auf sie. Wie es danach weitergeht, verraten wir bald 🙌</p>
         </div>
 
       </div>
@@ -499,8 +502,10 @@ const pins = [
   { lat: -32.9468, lng: -60.6393, status: "visited", name: "Rosario", desc: "Von Córdoba weiter an den Río Paraná.", link: "", linkText: "" },
   { lat: -32.8895, lng: -68.8458, status: "visited", name: "Mendoza", desc: "Mit dem Nachtbus aus Rosario, unsere letzte Station in Argentinien vor Santiago de Chile.", link: "", linkText: "" },
   // ── CHILE (zurück) ─────────────────────────────────────
-  { lat: -33.4489, lng: -70.6693, status: "visited", name: "Santiago de Chile", desc: "Mit dem Bus über die Anden aus Mendoza, zurück in Chile.", link: "", linkText: "" },
-  { lat: -33.0245, lng: -71.5518, status: "current", name: "Viña del Mar ← wir sind hier", desc: "Seit dem 10.10. mit dem Bus von Santiago an der chilenischen Pazifikküste.", link: "", linkText: "" },
+  { lat: -33.0245, lng: -71.5518, status: "visited", name: "Viña del Mar", desc: "Vom 10.10. bis 14.10. an der chilenischen Pazifikküste, mit dem Bus aus Santiago.", link: "", linkText: "" },
+  { lat: -33.4489, lng: -70.6693, status: "current", name: "Santiago de Chile ← Sergen ist hier", desc: "Mit dem Bus über die Anden aus Mendoza, zurück in Chile. Am 14.10. zurück aus Viña del Mar, Sergen wartet hier auf Julia.", link: "", linkText: "" },
+  // ── JULIA (reist ab 15.10. separat) ────────────────────
+  { lat: -27.1127, lng: -109.3497, status: "current", person: "julia", name: "Hanga Roa, Osterinsel ← Julia ist hier", desc: "Julia ist am 15.10. von Santiago auf die Osterinsel (Rapa Nui) geflogen. Sergen wartet in Santiago.", link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -508,7 +513,8 @@ const MAP_ZOOM   = 4;
 const COLORS = {
   visited : '#3d7a52',
   current : '#c4622d',
-  planned : '#c0c0c0'
+  planned : '#c0c0c0',
+  julia   : '#8e44ad'
 };
 
 const ROUTE = [
@@ -541,13 +547,15 @@ const ROUTE = [
   { type: "land",   coords: [[-31.4201,-64.1888],[-32.9468,-60.6393]] },
   { type: "land",   coords: [[-32.9468,-60.6393],[-32.8895,-68.8458]] },
   { type: "land",   coords: [[-32.8895,-68.8458],[-33.4489,-70.6693]] },
-  { type: "land",   coords: [[-33.4489,-70.6693],[-33.0245,-71.5518]] },
+  { type: "land",   coords: [[-33.4489,-70.6693],[-33.0245,-71.5518],[-33.4489,-70.6693]] },
+  { type: "julia",  coords: [[-33.4489,-70.6693],[-27.1127,-109.3497]] },
 ];
 
 const ROUTE_STYLES = {
   land:   { color: '#e8431a', weight: 3,   opacity: 0.85, dashArray: null },
   flight: { color: '#3b61a8', weight: 2,   opacity: 0.6,  dashArray: '8, 8' },
   next:   { color: '#2e8c2e', weight: 2.5, opacity: 0.65, dashArray: '6, 5' },
+  julia:  { color: '#8e44ad', weight: 3,   opacity: 0.85, dashArray: '8, 8' },
 };
 
 /* ── Karte initialisieren (erst nach Consent) ──────── */
@@ -612,9 +620,12 @@ function initMap() {
     if (!zoomFrameId) zoomFrameId = requestAnimationFrame(applyPendingZoom);
   }, { passive: false });
 
+  // Ausschnitt so wählen, dass alle Pins (inkl. Osterinsel) sichtbar sind
+  map.fitBounds(pins.map(function(p) { return [p.lat, p.lng]; }), { padding: [24, 24] });
+
   // Pins setzen
   pins.forEach(function(pin) {
-    var color  = pin.status === 'current' ? COLORS.current : pin.status === 'visited' ? COLORS.visited : COLORS.planned;
+    var color  = pin.person === 'julia' ? COLORS.julia : pin.status === 'current' ? COLORS.current : pin.status === 'visited' ? COLORS.visited : COLORS.planned;
     var radius = pin.status === 'current' ? 11 : pin.status === 'visited' ? 7 : 6;
     var marker = L.circleMarker([pin.lat, pin.lng], {
       radius: radius, fillColor: color, color: '#fff', weight: 2, opacity: 1,
@@ -623,10 +634,11 @@ function initMap() {
 
     var linkHtml    = pin.link ? '<a href="' + pin.link + '" class="popup-link">' + pin.linkText + ' →</a>' : '';
     var statusLabel = { visited: '✓ Bereist', current: '📍 Aktuell hier', planned: 'Geplant' }[pin.status];
+    if (pin.person === 'julia') statusLabel = '📍 Julia ist hier';
 
     marker.bindPopup(
       '<div class="popup-inner">' +
-        '<div class="popup-status popup-status--' + pin.status + '">' + statusLabel + '</div>' +
+        '<div class="popup-status popup-status--' + pin.status + '"' + (pin.person === 'julia' ? ' style="color:' + COLORS.julia + '"' : '') + '>' + statusLabel + '</div>' +
         '<div class="popup-title">' + pin.name + '</div>' +
         '<div class="popup-desc">' + pin.desc + '</div>' +
         linkHtml +

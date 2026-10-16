@@ -8,13 +8,13 @@ const REISE = {
   sergenLaender: 17,
   juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      18700,
+  kmZurueckgelegt:      18800,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          43,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          44,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Aktuell sind wir in Viña del Mar an der chilenischen Pazifikküste, mit dem Bus aus Santiago. Wie es weitergeht, verraten wir bald 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Julia ist am 15.10. auf die Osterinsel geflogen, Sergen wartet in Santiago auf sie. Wie es danach weitergeht, verraten wir bald 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Viña del Mar, Chile',  // ✏️ hier anpassen
+  standort: 'Sergen in Santiago de Chile, Julia auf der Osterinsel',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
