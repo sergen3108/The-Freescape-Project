@@ -497,7 +497,11 @@
 <script src="vlog-utils.js" defer></script>
 <script src="main.js" defer></script>
 <script>
-(async function () {
+// Erst nach DOMContentLoaded starten: marked.js und blog-posts.js
+// (parseFrontmatterRaw) sind defer-Skripte und laufen erst nach dem Parsen.
+// Sonst kann der Artikeltext schneller da sein als diese Skripte, und es
+// erscheint faelschlich "Artikel nicht gefunden".
+document.addEventListener('DOMContentLoaded', async function () {
   const BASE_URL = 'https://thefreescapeproject.com';
   const FALLBACK_IMG = BASE_URL + '/assets/img/FujiFun.jpeg';
 
@@ -871,7 +875,7 @@
     }
     console.error('[artikel.html]', err);
   }
-})();
+});
 </script>
 <script>
 /* ── Reading Progress Bar + Scroll-to-Top ──────────────────── */

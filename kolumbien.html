@@ -678,7 +678,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  loadVlogs();
+  // Erst nach DOMContentLoaded starten: vlog-utils.js und laender-config.js
+  // sind defer-Skripte und laufen erst nach dem Parsen. Sonst kann die
+  // JSON schneller da sein als window.VlogUtils und die Liste bleibt leer.
+  document.addEventListener('DOMContentLoaded', loadVlogs);
 })();
 </script>
 
