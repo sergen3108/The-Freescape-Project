@@ -30,6 +30,18 @@ const OUT_JSON   = path.join(process.cwd(), 'vlogs-data.json');
 const THUMB_DIR  = path.join(process.cwd(), 'assets', 'vlog-thumbs');
 // Pfad, wie er später im <img src> steht (von der Website aus)
 const THUMB_WEB  = 'assets/vlog-thumbs';
+// Breite der gespeicherten Vorschaubilder. Die Karten sind ca. 380 px
+// breit, 960 px reichen auch fuer hochaufloesende Displays.
+const THUMB_WIDTH = 960;
+
+// sharp ist optional: Fehlt das Paket, werden die Vorschaubilder
+// unveraendert gespeichert, statt dass das ganze Update scheitert.
+let sharp = null;
+try {
+  sharp = require('sharp');
+} catch (e) {
+  console.warn('Hinweis: sharp nicht installiert, Vorschaubilder bleiben in Originalgröße.');
+}
 
 if (!API_KEY) {
   console.error('FEHLER: Umgebungsvariable YT_API_KEY ist nicht gesetzt.');
@@ -52,6 +64,21 @@ async function getJSON(url) {
   return data;
 }
 
+// Verkleinert ein Vorschaubild auf THUMB_WIDTH (maxresdefault ist
+// 1280 px und im Schnitt rund 250 KB gross). Ohne sharp oder bei einem
+// Fehler bleibt das Original.
+async function shrinkThumb(buf) {
+  if (!sharp) return buf;
+  try {
+    return await sharp(buf)
+      .resize({ width: THUMB_WIDTH, withoutEnlargement: true })
+      .jpeg({ quality: 78, mozjpeg: true })
+      .toBuffer();
+  } catch (err) {
+    return buf;
+  }
+}
+
 // Lädt ein Thumbnail herunter. Versucht zuerst maxresdefault,
 // fällt bei 404 auf hqdefault zurück. Gibt den lokalen
 // Dateinamen zurück (oder null, wenn beides fehlschlägt).
@@ -70,7 +97,7 @@ async function downloadThumb(videoId) {
       // Dateien überspringen, damit der hq-Fallback greift.
       if (buf.length < 3000) continue;
       const file = `${videoId}.jpg`;
-      fs.writeFileSync(path.join(THUMB_DIR, file), buf);
+      fs.writeFileSync(path.join(THUMB_DIR, file), await shrinkThumb(buf));
       return `${THUMB_WEB}/${file}`;
     } catch (err) {
       // nächsten Kandidaten versuchen

@@ -40,6 +40,12 @@ jobs:
         with:
           node-version: '20'
 
+      # Verkleinert die Vorschaubilder. Optional: Schlaegt die
+      # Installation fehl, laeuft das Update trotzdem (mit Originalbildern).
+      - name: sharp installieren
+        continue-on-error: true
+        run: npm install --no-save --no-audit --no-fund sharp@0.33.5
+
       - name: YouTube-Daten holen
         env:
           YT_API_KEY: ${{ secrets.YT_API_KEY }}
@@ -54,5 +60,7 @@ jobs:
             echo "Keine Aenderungen, nichts zu committen."
           else
             git commit -m "YouTube-Daten aktualisiert (automatisch)"
+            # Falls parallel eine andere Action gepusht hat
+            git pull --rebase
             git push
           fi

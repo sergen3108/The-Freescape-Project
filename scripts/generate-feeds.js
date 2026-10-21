@@ -7,6 +7,9 @@
        bleiben unangetastet, nur die <url>-Liste unterhalb des
        "BLOG-ARTIKEL"-Markers wird ersetzt)
      - feed.xml (RSS 2.0) mit allen Artikeln, neueste zuerst
+     - posts/posts-meta.json mit den Frontmatter-Feldern aller
+       Artikel. blog-posts.js laedt damit die Blog-Karten mit einer
+       einzigen Anfrage, statt jede .md-Datei einzeln zu holen.
 
    Zweck: Bisher musste bei jedem neuen Blog-Post von Hand ein
    <url>-Eintrag in sitemap.xml ergänzt werden - das wurde schon
@@ -27,6 +30,7 @@ const POSTS_DIR       = path.join(ROOT, 'posts');
 const INDEX_JSON      = path.join(POSTS_DIR, 'index.json');
 const SITEMAP_PATH    = path.join(ROOT, 'sitemap.xml');
 const FEED_PATH       = path.join(ROOT, 'feed.xml');
+const META_PATH       = path.join(POSTS_DIR, 'posts-meta.json');
 const BASE_URL        = 'https://thefreescapeproject.com';
 const SITEMAP_MARKER  = '✏️ Bei jedem neuen Blog-Post hier eine weitere <url> ergänzen.\n  ═══════════════════════════════════════════════ -->';
 
@@ -52,6 +56,50 @@ function parseFrontmatter(text) {
     if (val !== '') data[key] = val;
   });
   return data;
+}
+
+// Vollstaendiger Frontmatter-Parser, 1:1 wie parseFrontmatterRaw() in
+// blog-posts.js (inkl. Listen wie "tags" und leerer Werte wie
+// bildEmoji: ""). Bei Aenderungen dort hier mitziehen, damit
+// posts-meta.json dieselben Daten liefert wie das Parsen der .md.
+function parseFrontmatterFull(text) {
+  const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  const match = normalized.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  if (!match) return null;
+
+  const data = {};
+  let listKey = null;
+  match[1].split('\n').forEach(line => {
+    const listMatch = line.match(/^\s{2}-\s(.+)/);
+    if (listMatch && listKey) {
+      if (!Array.isArray(data[listKey])) data[listKey] = [];
+      data[listKey].push(listMatch[1].trim());
+      return;
+    }
+    const sep = line.indexOf(':');
+    if (sep === -1) { listKey = null; return; }
+    const key = line.slice(0, sep).trim();
+    const rawVal = line.slice(sep + 1).trim();
+    const val = rawVal.replace(/^["']|["']$/g, '');
+    if (rawVal === '') {
+      listKey = key;
+    } else {
+      listKey = null;
+      data[key] = val;
+    }
+  });
+  return data;
+}
+
+function updateMeta() {
+  const files = JSON.parse(fs.readFileSync(INDEX_JSON, 'utf8'));
+  const meta = files.map(datei => {
+    const raw  = fs.readFileSync(path.join(POSTS_DIR, datei), 'utf8');
+    const data = parseFrontmatterFull(raw);
+    return data ? { datei, data } : null;
+  }).filter(Boolean);
+  fs.writeFileSync(META_PATH, JSON.stringify(meta, null, 1) + '\n', 'utf8');
+  console.log(`[generate-feeds] posts-meta.json aktualisiert (${meta.length} Artikel).`);
 }
 
 function loadPosts() {
@@ -145,3 +193,4 @@ function updateFeed(posts) {
 const posts = loadPosts();
 updateSitemap(posts);
 updateFeed(posts);
+updateMeta();

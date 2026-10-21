@@ -154,7 +154,7 @@
 <nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
-      <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <img src="assets/img/LOGONEW-128.png" alt="The Freescape Project Logo" class="nav__logo-img">
       <span class="nav__logo-text">
         <span class="nav__logo-main">The Freescape Project</span>
         <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
@@ -348,7 +348,7 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW-128.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
         <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
        <div class="footer__social">
   <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
@@ -423,8 +423,8 @@
   </div>
 </div>
 
-<!-- Leaflet lokal geladen, keine externe Serververbindung -->
-<script src="assets/leaflet/leaflet.js" defer></script>
+<!-- Leaflet (assets/leaflet/leaflet.js, lokal, keine externe Serververbindung)
+     wird erst nach der Einwilligung nachgeladen, siehe loadLeaflet() -->
 <script src="laender-config.js" defer></script>
 <script src="reise-config.js" defer></script>
 <script src="main.js" defer></script>
@@ -557,8 +557,36 @@ const ROUTE_STYLES = {
   julia:  { color: '#8e44ad', weight: 3,   opacity: 0.85, dashArray: '8, 8' },
 };
 
+/* ── Leaflet nachladen ─────────────────────────────── */
+// leaflet.js (147 KB) wird nur gebraucht, wenn die Karte wirklich
+// angezeigt wird. Ohne Einwilligung muss es niemand herunterladen.
+var leafletLoading = null;
+function loadLeaflet() {
+  if (typeof L !== 'undefined') return Promise.resolve();
+  if (!leafletLoading) {
+    leafletLoading = new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = 'assets/leaflet/leaflet.js';
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+  return leafletLoading;
+}
+
 /* ── Karte initialisieren (erst nach Consent) ──────── */
+// mapStarted verhindert, dass ein Doppelklick waehrend des Nachladens
+// die Karte zweimal anlegt (Leaflet wirft dann einen Fehler).
+var mapStarted = false;
 function initMap() {
+  if (mapStarted) return;
+  mapStarted = true;
+  // Bei einem Ladefehler zeigt renderMap() selbst die Fehlermeldung
+  loadLeaflet().then(renderMap, renderMap);
+}
+
+function renderMap() {
   var placeholder = document.getElementById('mapConsentPlaceholder');
   var mapEl       = document.getElementById('map');
 

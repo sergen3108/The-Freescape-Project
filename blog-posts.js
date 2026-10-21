@@ -10,14 +10,20 @@ const GITHUB_BRANCH = 'main';
 (async function () {
 
   let files = [];
+  let meta = {};
 
-  // 1. Versuche zuerst index.json
-  try {
-    const res = await fetch('/posts/index.json');
-    if (res.ok) {
-      files = await res.json();
-    }
-  } catch (e) {}
+  // 1. index.json (Liste der Artikel) und posts-meta.json (fertig
+  //    ausgelesene Frontmatter aller Artikel, erzeugt von
+  //    scripts/generate-feeds.js) parallel laden
+  const getJson = url => fetch(url).then(r => (r.ok ? r.json() : null)).catch(() => null);
+  const [index, metaList] = await Promise.all([
+    getJson('/posts/index.json'),
+    getJson('/posts/posts-meta.json')
+  ]);
+  if (Array.isArray(index)) files = index;
+  if (Array.isArray(metaList)) {
+    metaList.forEach(m => { if (m && m.datei && m.data) meta[m.datei] = m.data; });
+  }
 
   // 2. Falls index.json leer → GitHub API
   if (!files || files.length === 0) {
@@ -41,9 +47,16 @@ const GITHUB_BRANCH = 'main';
     return;
   }
 
-  // Posts laden
+  // Posts laden. Kopfdaten kommen aus posts-meta.json; nur Artikel,
+  // die dort (noch) fehlen, werden einzeln geholt. Das betrifft z.B.
+  // einen gerade gepushten Artikel, bevor die Action posts-meta.json
+  // neu erzeugt hat.
   const posts = [];
   await Promise.all(files.map(async (filename) => {
+    if (meta[filename]) {
+      posts.push(buildPost(meta[filename], filename));
+      return;
+    }
     try {
       const res = await fetch(`/posts/${filename}`);
       if (!res.ok) return;
@@ -107,8 +120,18 @@ function parseFrontmatterRaw(text) {
 function parseFrontmatter(text, filename) {
   const parsed = parseFrontmatterRaw(text);
   if (!parsed) return null;
-  const data = parsed.data;
+  return buildPost(parsed.data, filename);
+}
 
+/* Vorschaubild zu einem Foto: assets/img/x.jpg -> assets/img/thumbs/x.jpg
+   (erzeugt von scripts/optimize-images.js). Andere Pfade bleiben, wie
+   sie sind. Fehlt ein Vorschaubild, faellt main.js aufs Original zurueck. */
+function thumbOf(src) {
+  const m = /^\/?assets\/img\/(?!thumbs\/)(.+\.jpe?g)$/i.exec(src || '');
+  return m ? 'assets/img/thumbs/' + m[1] : src;
+}
+
+function buildPost(data, filename) {
   const id       = filename.replace(/\.md$/, '');
   const datum    = data.datum || new Date().toISOString().slice(0, 10);
   const land     = data.land || '';
@@ -137,6 +160,7 @@ function parseFrontmatter(text, filename) {
     teaser:      data.teaser   || '',
     tags,
     bild:        data.bild     || null,
+    bildKlein:   data.bild ? thumbOf(data.bild) : null,
     bildFallback: {
       emoji:    data.bildEmoji !== undefined ? data.bildEmoji : '✈️',
       gradient: data.bildGradient || 'linear-gradient(135deg,#1a2744,#e8431a)'

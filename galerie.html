@@ -567,7 +567,7 @@
 <nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
-      <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <img src="assets/img/LOGONEW-128.png" alt="The Freescape Project Logo" class="nav__logo-img">
       <span class="nav__logo-text">
         <span class="nav__logo-main">The Freescape Project</span>
         <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
@@ -699,6 +699,10 @@
 <!-- ══════════════════════════════════════════════════════════
      KAPITEL 1: KOLUMBIEN · 10/10 Top-Fotos, alle bestätigt
      ✏️ src="assets/img/..." anpassen, falls sich ein Dateiname ändert
+     ✏️ Kleine Kacheln zeigen das Vorschaubild (src="assets/img/thumbs/..."),
+        große Kacheln und data-src (Lightbox) die große Fassung
+        (assets/img/...). Die Vorschaubilder erzeugt die GitHub Action
+        "Bilder optimieren" nach dem Push automatisch.
 ══════════════════════════════════════════════════════════ -->
 <section class="galerie-section" id="kolumbien">
   <div class="container">
@@ -730,7 +734,7 @@
            data-label="La Candelaria"
            data-sub="Bogotá, Kolumbien"
            data-src="assets/img/blog/bogota2.jpg">
-        <img src="assets/img/blog/bogota2.jpg"
+        <img src="assets/img/thumbs/blog/bogota2.jpg"
              alt="La Candelaria, Bogotá"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -744,7 +748,7 @@
            data-label="San Andrés"
            data-sub="Meer der 7 Farben"
            data-src="assets/img/blog/sanandres8.jpg">
-        <img src="assets/img/blog/sanandres8.jpg"
+        <img src="assets/img/thumbs/blog/sanandres8.jpg"
              alt="San Andrés, Meer der 7 Farben"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -763,7 +767,7 @@
            data-label="Medellín"
            data-sub="Comuna 13, Kolumbien"
            data-src="assets/img/blog/medellin.jpg">
-        <img src="assets/img/blog/medellin.jpg"
+        <img src="assets/img/thumbs/blog/medellin.jpg"
              alt="Medellín Comuna 13"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -777,7 +781,7 @@
            data-label="Kaffeeplantage"
            data-sub="Salento, Kolumbien"
            data-src="assets/img/blog/salento6.jpg">
-        <img src="assets/img/blog/salento6.jpg"
+        <img src="assets/img/thumbs/blog/salento6.jpg"
              alt="Kaffeeplantage, Salento"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -791,7 +795,7 @@
            data-label="El Peñol"
            data-sub="Guatapé, Kolumbien"
            data-src="assets/img/penol.jpg">
-        <img src="assets/img/penol.jpg"
+        <img src="assets/img/thumbs/penol.jpg"
              alt="El Peñol, Guatapé"
              style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;"
              loading="lazy">
@@ -805,7 +809,7 @@
            data-label="Costeño Beach"
            data-sub="Karibikküste, Kolumbien"
            data-src="assets/img/blog/masaya.JPEG">
-        <img src="assets/img/blog/masaya.JPEG"
+        <img src="assets/img/thumbs/blog/masaya.JPEG"
              alt="Costeño Beach, Karibikküste"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -824,7 +828,7 @@
            data-label="Minca"
            data-sub="Bergdorf, Kolumbien"
            data-src="assets/img/minca2.jpg">
-        <img src="assets/img/minca2.jpg"
+        <img src="assets/img/thumbs/minca2.jpg"
              alt="Minca Bergdorf"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -838,7 +842,7 @@
            data-label="Guatapé"
            data-sub="Bunte Gassen, Kolumbien"
            data-src="assets/img/blog/guatape2.JPEG">
-        <img src="assets/img/blog/guatape2.JPEG"
+        <img src="assets/img/thumbs/blog/guatape2.JPEG"
              alt="Guatapé, bunte Gassen"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -903,7 +907,7 @@
            data-label="Quilotoa-Lagune"
            data-sub="3.900m, Ecuador"
            data-src="assets/img/kilotoas.JPEG">
-        <img src="assets/img/kilotoas.JPEG"
+        <img src="assets/img/thumbs/kilotoas.JPEG"
              alt="Quilotoa Kratersee"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -917,7 +921,7 @@
            data-label="Amazonas"
            data-sub="4 Tage Regenwald, Ecuador"
            data-src="assets/img/amazonas.jpg">
-        <img src="assets/img/amazonas.jpg"
+        <img src="assets/img/thumbs/amazonas.jpg"
              alt="Amazonas Regenwald"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -937,7 +941,7 @@
            data-label="Baños"
            data-sub="Casa del Arbol, Ecuador"
            data-src="assets/img/banos.JPEG">
-        <img src="assets/img/banos.JPEG"
+        <img src="assets/img/thumbs/banos.JPEG"
              alt="Baños Casa del Arbol"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -951,7 +955,7 @@
            data-label="Santa Cruz"
            data-sub="Galápagos, Ecuador"
            data-src="assets/img/blog/santacruz4.JPEG">
-        <img src="assets/img/blog/santacruz4.JPEG"
+        <img src="assets/img/thumbs/blog/santacruz4.JPEG"
              alt="Santa Cruz Galápagos"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -965,7 +969,7 @@
            data-label="Isabela"
            data-sub="Galápagos, Ecuador"
            data-src="assets/img/blog/isabela4.JPEG">
-        <img src="assets/img/blog/isabela4.JPEG"
+        <img src="assets/img/thumbs/blog/isabela4.JPEG"
              alt="Isabela Galápagos"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -979,7 +983,7 @@
            data-label="Amazonasschlange"
            data-sub="Amazonas, Ecuador"
            data-src="assets/img/amazonasSchlange.JPEG">
-        <img src="assets/img/amazonasSchlange.JPEG"
+        <img src="assets/img/thumbs/amazonasSchlange.JPEG"
              alt="Schlange im Amazonas-Regenwald"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -998,7 +1002,7 @@
            data-label="Mindo"
            data-sub="Nebelwald, Ecuador"
            data-src="assets/img/blog/mindo4.JPEG">
-        <img src="assets/img/blog/mindo4.JPEG"
+        <img src="assets/img/thumbs/blog/mindo4.JPEG"
              alt="Mindo Nebelwald"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1012,7 +1016,7 @@
            data-label="Quito Altstadt"
            data-sub="Ecuador"
            data-src="assets/img/blog/quito.JPEG">
-        <img src="assets/img/blog/quito.JPEG"
+        <img src="assets/img/thumbs/blog/quito.JPEG"
              alt="Quito Altstadt"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1074,7 +1078,7 @@
            data-label="Lima"
            data-sub="Peru"
            data-src="assets/img/lima.JPEG">
-        <img src="assets/img/lima.JPEG"
+        <img src="assets/img/thumbs/lima.JPEG"
              alt="Lima"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1088,7 +1092,7 @@
            data-label="Arequipa"
            data-sub="Die weiße Stadt, Peru"
            data-src="assets/img/arequipa.jpeg">
-        <img src="assets/img/arequipa.jpeg"
+        <img src="assets/img/thumbs/arequipa.jpeg"
              alt="Arequipa, die weiße Stadt"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1107,7 +1111,7 @@
            data-label="Colca-Canyon"
            data-sub="Peru"
            data-src="assets/img/colcacanyon.jpeg">
-        <img src="assets/img/colcacanyon.jpeg"
+        <img src="assets/img/thumbs/colcacanyon.jpeg"
              alt="Colca Canyon"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1121,7 +1125,7 @@
            data-label="Titicacasee"
            data-sub="Puno, Peru"
            data-src="assets/img/titicaca.jpeg">
-        <img src="assets/img/titicaca.jpeg"
+        <img src="assets/img/thumbs/titicaca.jpeg"
              alt="Titicacasee, Puno"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1135,7 +1139,7 @@
            data-label="Rainbow Mountain"
            data-sub="Vinicunca, Peru"
            data-src="assets/img/rainbowmountain.jpeg">
-        <img src="assets/img/rainbowmountain.jpeg"
+        <img src="assets/img/thumbs/rainbowmountain.jpeg"
              alt="Rainbow Mountain (Vinicunca)"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1149,7 +1153,7 @@
            data-label="Paracas"
            data-sub="Wüste am Meer, Peru"
            data-src="assets/img/paracas.JPEG">
-        <img src="assets/img/paracas.JPEG"
+        <img src="assets/img/thumbs/paracas.JPEG"
              alt="Paracas, Wüste am Meer"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1168,7 +1172,7 @@
            data-label="Nazca-Linien"
            data-sub="Peru"
            data-src="assets/img/nazcalinie.jpeg">
-        <img src="assets/img/nazcalinie.jpeg"
+        <img src="assets/img/thumbs/nazcalinie.jpeg"
              alt="Nazca-Linien"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1182,7 +1186,7 @@
            data-label="Cusco"
            data-sub="Peru"
            data-src="assets/img/cusco.jpeg">
-        <img src="assets/img/cusco.jpeg"
+        <img src="assets/img/thumbs/cusco.jpeg"
              alt="Cusco"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1247,7 +1251,7 @@
            data-label="Copacabana"
            data-sub="Titicacasee, Bolivien"
            data-src="assets/img/copacabana.jpeg">
-        <img src="assets/img/copacabana.jpeg"
+        <img src="assets/img/thumbs/copacabana.jpeg"
              alt="Copacabana, Titicacasee"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1261,7 +1265,7 @@
            data-label="La Paz"
            data-sub="Bolivien"
            data-src="assets/img/lapaz.jpeg">
-        <img src="assets/img/lapaz.jpeg"
+        <img src="assets/img/thumbs/lapaz.jpeg"
              alt="La Paz"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1280,7 +1284,7 @@
            data-label="Salar de Uyuni"
            data-sub="Größter Salzsee der Erde, Bolivien"
            data-src="assets/img/Salardeuyuni.jpg">
-        <img src="assets/img/Salardeuyuni.jpg"
+        <img src="assets/img/thumbs/Salardeuyuni.jpg"
              alt="Salar de Uyuni"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1295,7 +1299,7 @@
            data-label="Uyuni Zugfriedhof"
            data-sub="Cementerio de Trenes, Uyuni, Bolivien"
            data-src="assets/img/Zugfriedhof.jpg">
-        <img src="assets/img/Zugfriedhof.jpg"
+        <img src="assets/img/thumbs/Zugfriedhof.jpg"
              alt="Zugfriedhof bei Uyuni"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1309,7 +1313,7 @@
            data-label="Sucre"
            data-sub="Dino-Park, Sucre, Bolivien"
            data-src="assets/img/Sucredinopark.jpg">
-        <img src="assets/img/Sucredinopark.jpg"
+        <img src="assets/img/thumbs/Sucredinopark.jpg"
              alt="Dino-Park in Sucre"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1323,7 +1327,7 @@
            data-label="Potosí"
            data-sub="Minentour in Potosí, Bolivien"
            data-src="assets/img/Potosimiene.jpg">
-        <img src="assets/img/Potosimiene.jpg"
+        <img src="assets/img/thumbs/Potosimiene.jpg"
              alt="Minentour in Potosí"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1342,7 +1346,7 @@
            data-label="Valle de la Luna"
            data-sub="Bei La Paz, Bolivien"
            data-src="assets/img/Valledelaluna.jpeg">
-        <img src="assets/img/Valledelaluna.jpeg"
+        <img src="assets/img/thumbs/Valledelaluna.jpeg"
              alt="Valle de la Luna bei La Paz"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1356,7 +1360,7 @@
            data-label="Isla Incahuasi"
            data-sub="Kakteeninsel mitten im Salar de Uyuni"
            data-src="assets/img/Isalincahuasi.jpeg">
-        <img src="assets/img/Isalincahuasi.jpeg"
+        <img src="assets/img/thumbs/Isalincahuasi.jpeg"
              alt="Isla Incahuasi im Salar de Uyuni"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1440,7 +1444,7 @@
            data-label="El Tatio Geysire"
            data-sub="San Pedro de Atacama, Chile"
            data-src="assets/img/SanPedroGeysir.jpg">
-        <img src="assets/img/SanPedroGeysir.jpg"
+        <img src="assets/img/thumbs/SanPedroGeysir.jpg"
              alt="El Tatio Geysire bei San Pedro de Atacama"
              style="width:100%;height:100%;object-fit:cover;display:block;"
              loading="lazy">
@@ -1548,7 +1552,7 @@
            data-label="Straße in Nordargentinien"
            data-sub="Argentinien"
            data-src="assets/img/ArgentinischeStraße.jpg">
-        <img src="assets/img/ArgentinischeStraße.jpg"
+        <img src="assets/img/thumbs/ArgentinischeStraße.jpg"
              alt="Straße durch die Landschaft Nordargentiniens"
              style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
              loading="lazy">
@@ -1608,7 +1612,7 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW-128.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
         <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
        <div class="footer__social">
   <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">

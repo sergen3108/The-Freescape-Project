@@ -66,7 +66,7 @@
 <nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
-      <img src="assets/img/LOGONEW.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <img src="assets/img/LOGONEW-128.png" alt="The Freescape Project Logo" class="nav__logo-img">
       <span class="nav__logo-text">
         <span class="nav__logo-main">The Freescape Project</span>
         <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
@@ -168,7 +168,7 @@
     </div>
   </div>
   <a href="ueber-uns.html" class="hero__photo-card" aria-label="Mehr über uns erfahren">
-    <img src="assets/img/Japantogether.jpg" alt="Julia & Sergen">
+    <img src="assets/img/thumbs/Japantogether.jpg" alt="Julia & Sergen" loading="lazy">
   </a>
 </section>
 
@@ -359,7 +359,7 @@
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW-128.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
         <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
        <div class="footer__social">
   <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
@@ -453,10 +453,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-<!-- D3 + Südamerika-Karte. Lokal eingebunden (d3 7.9.0, topojson-client 3.1.0),
-     damit keine Besucher-IP an ein CDN geht -->
-<script src="assets/vendor/d3.min.js" defer></script>
-<script src="assets/vendor/topojson-client.min.js" defer></script>
+<!-- Südamerika-Karte: Umrisse vorberechnet (erzeugt von scripts/build-sa-map.js),
+     daher kein d3 und keine Weltkarte im Browser noetig -->
+<script src="sa-map-shapes.js" defer></script>
 
 <!-- Vlogs + Vlog-Anzahl aus lokaler vlogs-data.json (kein Google-Request) -->
 <script>
@@ -563,51 +562,52 @@ document.addEventListener('DOMContentLoaded', function () {
 })();
 </script>
 
-<!-- Südamerika-Karte (D3, unveraendert) -->
+<!-- Südamerika-Karte: Umrisse aus sa-map-shapes.js, Status und Links aus reise-config.js -->
 <script>
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', function() {
   const SA = REISE.saMap;
-  try {
-    const world = await d3.json('assets/vendor/countries-110m.json');
-    const allFeatures = topojson.feature(world, world.objects.countries).features;
-    const saFeatures  = allFeatures.filter(f => SA[+f.id]);
-    const svg     = d3.select('#sa-map');
-    const proj    = d3.geoMercator().fitSize([300, 420], { type: 'FeatureCollection', features: saFeatures });
-    const pathGen = d3.geoPath().projection(proj);
-    const LABEL_COUNTRIES = new Set(['Peru','Brasilien','Argentinien','Chile','Bolivien','Kolumbien','Venezuela','Ecuador','Paraguay','Uruguay']);
-    saFeatures.forEach(feat => {
-      const info = SA[+feat.id];
-      const cls  = 'map-country'
-        + (info.status === 'visited' ? ' map-country--visited' : '')
-        + (info.status === 'current' ? ' map-country--current' : '');
-      const link = info.href === '#'
-        ? svg.append('g')
-        : svg.append('a').attr('href', info.href).attr('xlink:href', info.href);
-      link.append('path').attr('d', pathGen(feat)).attr('class', cls);
-      if (LABEL_COUNTRIES.has(info.name)) {
-        const [cx, cy] = pathGen.centroid(feat);
-        if (!isNaN(cx) && !isNaN(cy)) {
-          link.append('text')
-            .attr('x', cx).attr('y', cy)
-            .attr('text-anchor', 'middle').attr('dominant-baseline', 'central')
-            .attr('font-size', info.name.length > 9 ? '5' : '7')
-            .attr('fill', info.status === 'current' ? 'rgba(255,255,255,0.95)' : info.status === 'visited' ? 'rgba(255,255,255,0.75)' : 'rgba(255,255,255,0.35)')
-            .attr('pointer-events', 'none').text(info.name);
-        }
-      }
-    });
-    const current = saFeatures.find(f => SA[+f.id].status === 'current');
-    if (current) {
-      const [cx, cy] = pathGen.centroid(current);
-      svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 14).attr('fill', 'rgba(232,67,26,0.2)');
-      svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 6).attr('class', 'map-marker');
-    }
-  } catch (e) {
-    console.warn('Karte konnte nicht geladen werden:', e);
+  const shapes = window.SA_MAP_SHAPES || [];
+  const svg = document.getElementById('sa-map');
+  if (!svg) return;
+  if (!shapes.length) {
     const container = document.querySelector('.map-svg-container');
     if (container) {
       container.innerHTML = '<p style="text-align:center;color:var(--gray-400,#9ca3af);padding:2rem 0;">Karte konnte nicht geladen werden. <a href="karte.html" style="text-decoration:underline;">Zur Reisekarte →</a></p>';
     }
+    return;
+  }
+  const el = (name, attrs) => {
+    const node = document.createElementNS('http://www.w3.org/2000/svg', name);
+    Object.keys(attrs).forEach(k => node.setAttribute(k, attrs[k]));
+    return node;
+  };
+  const LABEL_COUNTRIES = new Set(['Peru','Brasilien','Argentinien','Chile','Bolivien','Kolumbien','Venezuela','Ecuador','Paraguay','Uruguay']);
+  let current = null;
+  shapes.forEach(shape => {
+    const info = SA[shape.iso];
+    if (!info) return;
+    const cls  = 'map-country'
+      + (info.status === 'visited' ? ' map-country--visited' : '')
+      + (info.status === 'current' ? ' map-country--current' : '');
+    const link = info.href === '#' ? el('g', {}) : el('a', { href: info.href });
+    link.appendChild(el('path', { d: shape.d, class: cls }));
+    if (LABEL_COUNTRIES.has(info.name)) {
+      const label = el('text', {
+        x: shape.cx, y: shape.cy,
+        'text-anchor': 'middle', 'dominant-baseline': 'central',
+        'font-size': info.name.length > 9 ? '5' : '7',
+        fill: info.status === 'current' ? 'rgba(255,255,255,0.95)' : info.status === 'visited' ? 'rgba(255,255,255,0.75)' : 'rgba(255,255,255,0.35)',
+        'pointer-events': 'none'
+      });
+      label.textContent = info.name;
+      link.appendChild(label);
+    }
+    svg.appendChild(link);
+    if (info.status === 'current') current = shape;
+  });
+  if (current) {
+    svg.appendChild(el('circle', { cx: current.cx, cy: current.cy, r: 14, fill: 'rgba(232,67,26,0.2)' }));
+    svg.appendChild(el('circle', { cx: current.cx, cy: current.cy, r: 6, class: 'map-marker' }));
   }
 });
 </script>
@@ -636,7 +636,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     grid.innerHTML = posts.map((post, i) => {
       const titel = escapeHtml(post.titel);
       const thumb = post.bild
-        ? `<a href="${post.link}"><img src="${post.bild}" alt="${titel}" style="width:100%;height:220px;object-fit:cover;display:block;"></a>`
+        ? `<a href="${post.link}"><img src="${post.bildKlein}" alt="${titel}" loading="lazy" style="width:100%;height:220px;object-fit:cover;display:block;"></a>`
         : `<a href="${post.link}"><div style="height:220px;background:${post.bildFallback.gradient};display:flex;align-items:center;justify-content:center;font-size:3rem;">${post.bildFallback.emoji === '' ? '<span style="font-size:1.15rem;font-weight:600;opacity:0.75;">Bild folgt in Kürze</span>' : post.bildFallback.emoji}</div></a>`;
       return `
       <article class="blog-card animate-on-scroll ${delays[i]}">

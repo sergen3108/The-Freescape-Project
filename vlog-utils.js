@@ -23,14 +23,21 @@
   // Wortgrenzen-Match, damit kurze Stichwoerter nicht in anderen
   // Woertern zuenden (z.B. "lima" nicht in "Klima", "rio" nicht in
   // "Rio Hostel" wenn nicht als eigenes Wort gelistet).
+  // Fertige Ausdruecke pro Stichwort merken, statt sie bei jedem Video
+  // und jedem Land neu zu bauen (null = Browser kann \p{...} nicht).
+  var keywordRegex = Object.create(null);
   function matchesKeyword(text, kw) {
-    var esc = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    try {
-      return new RegExp('(?:^|[^\\p{L}\\p{N}])' + esc + '(?:[^\\p{L}\\p{N}]|$)', 'iu').test(text);
-    } catch (e) {
-      // Sehr alte Browser ohne Unicode-Property-Escapes: Fallback
-      return text.toLowerCase().indexOf(kw.toLowerCase()) !== -1;
+    if (!(kw in keywordRegex)) {
+      var esc = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      try {
+        keywordRegex[kw] = new RegExp('(?:^|[^\\p{L}\\p{N}])' + esc + '(?:[^\\p{L}\\p{N}]|$)', 'iu');
+      } catch (e) {
+        keywordRegex[kw] = null;
+      }
     }
+    var re = keywordRegex[kw];
+    // Sehr alte Browser ohne Unicode-Property-Escapes: Fallback
+    return re ? re.test(text) : text.toLowerCase().indexOf(kw.toLowerCase()) !== -1;
   }
 
   // Land (slug) aus dem Video-Titel. Gibt null zurueck, wenn kein

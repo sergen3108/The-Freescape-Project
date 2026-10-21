@@ -1,5 +1,19 @@
 'use strict';
 
+/* ── Vorschaubild-Fallback ─────────────────────────────────
+   Bilder unter assets/img/thumbs/ erzeugt die GitHub Action
+   (scripts/optimize-images.js) erst nach dem Push. Fehlt eins
+   (noch), wird stattdessen das Original geladen. error-Events
+   steigen nicht auf, daher in der Capture-Phase abfangen. */
+document.addEventListener('error', (e) => {
+  const img = e.target;
+  if (!img || img.tagName !== 'IMG' || img.dataset.thumbFallback) return;
+  const src = img.getAttribute('src') || '';
+  if (src.indexOf('assets/img/thumbs/') === -1) return;
+  img.dataset.thumbFallback = '1';
+  img.src = src.replace('assets/img/thumbs/', 'assets/img/');
+}, true);
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ── Navigation ─────────────────────────────────────── */
@@ -183,72 +197,10 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(tick);
   }
 
-  /* ── Filter Buttons ──────────────────────────────────── */
-document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
-    const btns = bar.querySelectorAll('.filter-btn');
-    btns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
-        filterItems(filter);
-      });
-    });
-  });
-
-  function filterItems(filter) {
-    const items = document.querySelectorAll('[data-category]');
-    items.forEach(item => {
-      if (filter === 'all' || item.dataset.category === filter) {
-        item.style.display = '';
-        item.style.animation = 'fade-in 0.3s ease';
-      } else {
-        item.style.display = 'none';
-      }
-    });
-  }
-
   /* ── Dropdown "Länder": Klick auf Button → laender.html ─── */
   document.querySelectorAll('.nav__dropdown-toggle[data-href]').forEach(btn => {
     btn.addEventListener('click', () => {
       if (btn.dataset.href) window.location.href = btn.dataset.href;
-    });
-  });
-
-  /* ── Newsletter Form ─────────────────────────────────── */
-  const newsletterForms = document.querySelectorAll('.newsletter__form');
-  newsletterForms.forEach(form => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = form.querySelector('.newsletter__input');
-      const btn = form.querySelector('.btn');
-      if (!input || !input.value.includes('@')) {
-        input?.classList.add('error');
-        return;
-      }
-      btn.textContent = 'Angemeldet! ✓';
-      btn.disabled = true;
-      btn.style.background = 'var(--green-600)';
-      input.value = '';
-    });
-  });
-
-  /* ── Interactive Map (karte.html) ─────────────────────── */
-  const mapCountries = document.querySelectorAll('.map-country');
-
-  mapCountries.forEach(country => {
-    country.addEventListener('mouseenter', () => {
-      const name = country.dataset.country;
-      const card = document.querySelector(`[data-map-card="${name}"]`);
-      document.querySelectorAll('.map-country-card').forEach(c => c.classList.remove('active'));
-      if (card) {
-        card.classList.add('active');
-        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    });
-    country.addEventListener('click', () => {
-      const url = country.dataset.url;
-      if (url) window.location.href = url;
     });
   });
 
@@ -373,15 +325,5 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
       });
     });
   }
-
-  /* ── Progress Tracker (reise-status) ─────────────────── */
-  const progressBars = document.querySelectorAll('[data-progress]');
-  progressBars.forEach(bar => {
-    const pct = bar.dataset.progress;
-    const fill = bar.querySelector('.progress-fill');
-    if (fill) {
-      setTimeout(() => { fill.style.width = pct + '%'; }, 300);
-    }
-  });
 
 });

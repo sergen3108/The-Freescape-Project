@@ -2,7 +2,8 @@
 #  Sitemap & RSS-Feed aktualisieren
 #
 #  Erzeugt aus posts/index.json + den posts/*.md automatisch den
-#  Blog-Artikel-Teil von sitemap.xml sowie feed.xml (RSS). Laeuft
+#  Blog-Artikel-Teil von sitemap.xml, feed.xml (RSS) und
+#  posts/posts-meta.json (Kopfdaten fuer die Blog-Karten). Laeuft
 #  bei jeder Aenderung unter posts/**, damit neue Artikel nicht
 #  mehr von Hand in die Sitemap eingetragen werden muessen.
 # ============================================================
@@ -39,10 +40,12 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add sitemap.xml feed.xml
+          git add sitemap.xml feed.xml posts/posts-meta.json
           if git diff --staged --quiet; then
             echo "Keine Aenderungen, nichts zu committen."
           else
             git commit -m "Sitemap & Feed aktualisiert (automatisch)"
+            # Falls parallel eine andere Action gepusht hat
+            git pull --rebase
             git push
           fi

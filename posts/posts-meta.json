@@ -1,0 +1,533 @@
+[
+ {
+  "datei": "bogota-reisefuehrer.md",
+  "data": {
+   "titel": "Bogotá Reiseführer: Was dich in Kolumbiens Hauptstadt erwartet",
+   "datum": "2026-03-10",
+   "land": "Kolumbien",
+   "typ": "guide",
+   "lesezeit": "12 min",
+   "autor": "Julia",
+   "teaser": "Bogotá ist für viele Reisende der Einstieg in Kolumbien und überrascht fast jeden. Hier teilen wir unsere ehrlichen Eindrücke aus drei Tagen in der Andenmetropole.",
+   "bild": "assets/img/blog/Skylinebogota.jpg",
+   "bildEmoji": "🏙️",
+   "bildGradient": "linear-gradient(135deg,#1a2744,#e8431a)",
+   "tags": [
+    "Bogotá",
+    "Kolumbien",
+    "Backpacking",
+    "Reiseführer"
+   ]
+  }
+ },
+ {
+  "datei": "salento-reisefuehrer.md",
+  "data": {
+   "titel": "Salento Reiseführer: Das Herz der kolumbianischen Kaffeezone",
+   "datum": "2026-03-18",
+   "land": "Kolumbien",
+   "typ": "guide",
+   "lesezeit": "10 min",
+   "autor": "Julia",
+   "teaser": "Salento ist eines der charmantesten Städtchen Kolumbiens, bunt, entspannt und umgeben von Kaffeeplantagen und Wachspalmen. Hier sind unsere Eindrücke aus der Kaffeezone.",
+   "bild": "assets/img/blog/salento.jpg",
+   "bildEmoji": "☕",
+   "bildGradient": "linear-gradient(135deg,#2d5a1b,#7ab648)",
+   "tags": [
+    "Salento",
+    "Kolumbien",
+    "Kaffeezone",
+    "Cocora Valley",
+    "Backpacking"
+   ]
+  }
+ },
+ {
+  "datei": "medellin-reisefuehrer.md",
+  "data": {
+   "titel": "Medellín Reiseführer: Die beste Stadt Kolumbiens?",
+   "datum": "2026-06-28",
+   "land": "Kolumbien",
+   "typ": "guide",
+   "lesezeit": "14 min",
+   "autor": "Julia",
+   "teaser": "Zwei Wochen in der 'Stadt des ewigen Frühlings', und wir wären gerne noch länger geblieben. Hier kommt alles, was du für Medellín wissen musst.",
+   "bild": "assets/img/blog/medellin.jpg",
+   "bildEmoji": "🌸",
+   "bildGradient": "linear-gradient(135deg,#1a2744,#e8431a)",
+   "tags": [
+    "Medellín",
+    "Kolumbien",
+    "Backpacking",
+    "Reiseführer"
+   ]
+  }
+ },
+ {
+  "datei": "san-andres-reisefuehrer.md",
+  "data": {
+   "titel": "San Andrés Reiseführer: Das Meer der 7 Farben",
+   "datum": "2026-06-29",
+   "land": "Kolumbien",
+   "typ": "guide",
+   "lesezeit": "10 min",
+   "autor": "Julia",
+   "teaser": "Eine Insel, die sich anfühlt wie eine andere Welt. San Andrés hat uns mit seinem türkisblauen Wasser und dem entspannten Karibikflair sofort in den Bann gezogen.",
+   "bild": "assets/img/blog/sanandres8.jpg",
+   "bildEmoji": "🏝️",
+   "bildGradient": "linear-gradient(135deg,#0a3d62,#38ada9)",
+   "tags": [
+    "San Andrés",
+    "Kolumbien",
+    "Karibik",
+    "Reiseführer"
+   ]
+  }
+ },
+ {
+  "datei": "guatape-reisefuehrer.md",
+  "data": {
+   "titel": "Guatapé Reiseführer: El Peñol, bunte Gassen und warum du länger bleiben solltest",
+   "datum": "2026-06-29",
+   "land": "Kolumbien",
+   "typ": "guide",
+   "lesezeit": "11 min",
+   "autor": "Julia",
+   "teaser": "Guatapé wird oft als Tagesausflug abgehakt. Wir haben zwei Nächte dort verbracht und bereuen keine Minute davon. Hier ist alles, was du wissen musst.",
+   "bild": "assets/img/blog/guatape.jpg",
+   "bildEmoji": "🪨",
+   "bildGradient": "linear-gradient(135deg,#1a3a2a,#e8431a)",
+   "tags": [
+    "Guatapé",
+    "Kolumbien",
+    "Backpacking",
+    "Reiseführer"
+   ]
+  }
+ },
+ {
+  "datei": "santa-marta-reisefuehrer.md",
+  "data": {
+   "titel": "Santa Marta Reiseführer: Tor zu Tayrona, Minca und der Karibikküste",
+   "datum": "2026-06-29",
+   "land": "Kolumbien",
+   "typ": "guide",
+   "lesezeit": "9 min",
+   "autor": "Julia",
+   "teaser": "Santa Marta ist selten das eigentliche Ziel, sondern eher die Drehscheibe für Tayrona, Minca und die Küste. Hier teilen wir unsere ehrlichen Eindrücke und was du wissen solltest.",
+   "bild": "assets/img/blog/tayrona3.jpg",
+   "bildEmoji": "🌴",
+   "bildGradient": "linear-gradient(135deg,#1a2744,#138a36)",
+   "tags": [
+    "Santa Marta",
+    "Tayrona",
+    "Kolumbien",
+    "Reiseführer"
+   ]
+  }
+ },
+ {
+  "datei": "minca-reisefuehrer.md",
+  "data": {
+   "titel": "Minca Reiseführer: Bergdorf, Wasserfälle und die beste Pause der Reise",
+   "datum": "2026-06-29",
+   "land": "Kolumbien",
+   "typ": "guide",
+   "lesezeit": "9 min",
+   "autor": "Julia",
+   "teaser": "Fünf Nächte in den Bergen über Santa Marta, ohne Hitze, ohne Trubel. Minca war für uns eine der besten Entscheidungen der ganzen Reise.",
+   "bild": "assets/img/minca2.jpg",
+   "bildEmoji": "🌿",
+   "bildGradient": "linear-gradient(135deg,#1a3a2a,#138a36)",
+   "tags": [
+    "Minca",
+    "Kolumbien",
+    "Backpacking",
+    "Reiseführer"
+   ]
+  }
+ },
+ {
+  "datei": "quito-reisefuehrer.md",
+  "data": {
+   "titel": "Quito Reiseführer: Altstadt, Äquator und Höhenluft in Ecuadors Hauptstadt",
+   "datum": "2026-03-24",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "11 min",
+   "autor": "Julia",
+   "teaser": "Quito ist für die meisten Reisenden der Startpunkt in Ecuador und braucht ein bisschen Zeit, bis es einen packt. Hier teilen wir unsere Eindrücke aus fünf Tagen in einer der höchstgelegenen Hauptstädte der Welt.",
+   "bild": "assets/img/blog/quito.JPEG",
+   "bildEmoji": "⛰️",
+   "bildGradient": "linear-gradient(135deg,#1a2744,#e8431a)",
+   "tags": [
+    "Quito",
+    "Ecuador",
+    "Backpacking",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "banos-reisefuehrer.md",
+  "data": {
+   "titel": "Baños Reiseführer: Abenteuer, heiße Quellen und die Schaukel am Ende der Welt",
+   "datum": "2026-04-14",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "10 min",
+   "autor": "Julia",
+   "teaser": "Nach Cotopaxi und Quilotoa war Baños genau der Kontrast, den wir gebraucht haben. Fünf Tage voller Abenteuer, gutem Essen und entspannter Backpacker-Stimmung, das erzählen wir hier.",
+   "bild": "assets/img/banos.JPEG",
+   "bildEmoji": "🌿",
+   "bildGradient": "linear-gradient(135deg,#1a2744,#e8431a)",
+   "tags": [
+    "Baños",
+    "Ecuador",
+    "Abenteuer",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "cotopaxi-reisefuehrer.md",
+  "data": {
+   "titel": "Cotopaxi Reiseführer: Secret Garden, Wanderungen und Leben am Vulkan",
+   "datum": "2026-03-31",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "10 min",
+   "autor": "Julia",
+   "teaser": "Nur ein paar Stunden von Quito entfernt liegt einer unserer Lieblingsorte in ganz Ecuador. Drei Tage am Cotopaxi, geschlafen in einer Höhle mit Blick auf den Vulkan, das erzählen wir hier.",
+   "bild": "assets/img/cotopaxipano.JPEG",
+   "bildEmoji": "🌋",
+   "bildGradient": "linear-gradient(135deg,#1a2744,#e8431a)",
+   "tags": [
+    "Cotopaxi",
+    "Ecuador",
+    "Backpacking",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "costeno-rio-hostel-reisefuehrer.md",
+  "data": {
+   "titel": "Costeño Beach & Rio Hostel: Karibikküste Reiseführer",
+   "datum": "2026-06-29",
+   "land": "Kolumbien",
+   "typ": "guide",
+   "lesezeit": "9 min",
+   "autor": "Julia",
+   "teaser": "Zwischen Strand-Hostel und Tubing auf dem Fluss, die Karibikküste zwischen Costeño Beach und Rio Hostel ist genau der entspannte Kontrast, den man nach den Städten braucht.",
+   "bild": "assets/img/blog/riotubing.JPEG",
+   "bildEmoji": "🏖️",
+   "bildGradient": "linear-gradient(135deg,#0a3d62,#f6b93b)",
+   "tags": [
+    "Costeño Beach",
+    "Rio Hostel",
+    "Kolumbien",
+    "Reiseführer"
+   ]
+  }
+ },
+ {
+  "datei": "kolumbien-reiseroute.md",
+  "data": {
+   "titel": "Kolumbien Reiseroute: 1 Woche, 2 Wochen und 1 Monat im Überblick",
+   "datum": "2026-03-17",
+   "land": "Kolumbien",
+   "typ": "reiseroute",
+   "lesezeit": "12 min",
+   "autor": "Julia",
+   "teaser": "Kolumbien zu planen fühlt sich am Anfang riesig an. Berge, Dschungel, Karibikstrände und Kolonialstädte, alles weit auseinander. Hier zeigen wir dir Routen für eine Woche, zwei Wochen und einen ganzen Monat.",
+   "bild": "assets/img/blog/sanandres7.jpg",
+   "bildEmoji": "🗺️",
+   "bildGradient": "linear-gradient(135deg,#1a2744,#e8431a)",
+   "tags": [
+    "Kolumbien",
+    "Reiseroute",
+    "Backpacking",
+    "Reiseplanung"
+   ]
+  }
+ },
+ {
+  "datei": "quilotoa-reisefuehrer.md",
+  "data": {
+   "titel": "Quilotoa Reiseführer: Kratersee, Wanderung und der Aufstieg zurück",
+   "datum": "2026-04-07",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "10 min",
+   "autor": "Julia",
+   "teaser": "Der türkise Kratersee von Quilotoa sieht fast unwirklich aus. Wir haben ihn als Tagesausflug von Latacunga besucht, sind runter zum Wasser und wieder hoch, und ehrlich ziemlich erledigt gewesen.",
+   "bild": "assets/img/kilotoas.JPEG",
+   "bildEmoji": "💧",
+   "bildGradient": "linear-gradient(135deg,#1a2744,#e8431a)",
+   "tags": [
+    "Quilotoa",
+    "Ecuador",
+    "Wandern",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "tayrona-reisefuehrer.md",
+  "data": {
+   "titel": "Tayrona Nationalpark Reiseführer: Cabo San Juan, Hängematten & Tipps",
+   "datum": "2026-07-06",
+   "land": "Kolumbien",
+   "typ": "guide",
+   "lesezeit": "8 min",
+   "autor": "Julia",
+   "teaser": "Drei Stunden Dschungel-Wanderung, eine Nacht in der Hängematte am Cabo San Juan und Sonnenaufgang über dem Meer, der Tayrona Nationalpark war eines unserer Highlights in Kolumbien.",
+   "bild": "assets/img/blog/tayrona3.jpg",
+   "bildEmoji": "🏝️",
+   "bildGradient": "linear-gradient(135deg,#0a3d62,#138a36)",
+   "tags": [
+    "Tayrona",
+    "Santa Marta",
+    "Kolumbien",
+    "Reiseführer"
+   ]
+  }
+ },
+ {
+  "datei": "palomino-reisefuehrer.md",
+  "data": {
+   "titel": "Palomino Reiseführer: Strand, Yoga und Boho-Vibes an der Karibikküste",
+   "datum": "2026-07-06",
+   "land": "Kolumbien",
+   "typ": "guide",
+   "lesezeit": "9 min",
+   "autor": "Julia",
+   "teaser": "Fünf Nächte zwischen Yoga, Tubing und Strandleben, Palomino war einer unserer liebsten Stopps an der kolumbianischen Karibikküste.",
+   "bild": "assets/img/blog/palomino.JPEG",
+   "bildEmoji": "🏄",
+   "bildGradient": "linear-gradient(135deg,#e8431a,#f6b93b)",
+   "tags": [
+    "Palomino",
+    "Kolumbien",
+    "Backpacking",
+    "Reiseführer"
+   ]
+  }
+ },
+ {
+  "datei": "mindo-reisefuehrer.md",
+  "data": {
+   "titel": "Mindo Reiseführer: Nebelwald, Kolibris und Schokolade in Ecuador",
+   "datum": "2026-07-06",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "9 min",
+   "autor": "Julia",
+   "teaser": "Kolibris aus der Hand füttern, eigene Schokolade herstellen und durch den Nebelwald wandern, Mindo war unser ruhiger Gegenpol zu Quito und Baños.",
+   "bild": "assets/img/blog/mindo3.JPEG",
+   "bildEmoji": "🐦",
+   "bildGradient": "linear-gradient(135deg,#138a36,#1a3a2a)",
+   "tags": [
+    "Mindo",
+    "Ecuador",
+    "Natur",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "santa-cruz-galapagos-reisefuehrer.md",
+  "data": {
+   "titel": "Santa Cruz Galápagos Reiseführer: Riesenschildkröten & Budget-Tipps",
+   "datum": "2026-07-06",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "11 min",
+   "autor": "Julia",
+   "teaser": "Meerechsen auf dem Bürgersteig, Seelöwen auf der Hafenbank und Riesenschildkröten zum Greifen nah, sechs Nächte auf Santa Cruz haben uns gezeigt, dass man die Galápagos-Inseln auch unabhängig und mit Budget bereisen kann.",
+   "bild": "assets/img/blog/santacruz2.JPEG",
+   "bildEmoji": "🐢",
+   "bildGradient": "linear-gradient(135deg,#0a3d62,#138a36)",
+   "tags": [
+    "Galápagos",
+    "Santa Cruz",
+    "Ecuador",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "isabela-island-galapagos-reisefuehrer.md",
+  "data": {
+   "titel": "Isabela Island Galápagos Reiseführer: Schnorchel-Paradiese & Insider-Tipps",
+   "datum": "2026-07-12",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "9 min",
+   "autor": "Julia",
+   "teaser": "Weiße Sandstraßen, wilde Flamingos direkt am Ortsrand und kostenloses Schnorcheln mit Seelöwen, Rochen und sogar Pinguinen im Sonnenuntergang, sechs Nächte auf Isabela haben uns gezeigt, warum diese Insel die wilde Seele der Galápagos ist.",
+   "bild": "assets/img/blog/isabela2.JPEG",
+   "bildEmoji": "🦩",
+   "bildGradient": "linear-gradient(135deg,#0a3d62,#ff6b9d)",
+   "tags": [
+    "Galápagos",
+    "Isabela",
+    "Ecuador",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "ecuador-reiseroute.md",
+  "data": {
+   "titel": "Ecuador Reiseroute: 2 Wochen, 4 Wochen und 2 Monate im Überblick",
+   "datum": "2026-07-25",
+   "land": "Ecuador",
+   "typ": "reiseroute",
+   "lesezeit": "11 min",
+   "autor": "Sergen & Julia",
+   "teaser": "Ecuador ist ein Paradies fürs Backpacking, auf einer Fläche kaum größer als Großbritannien findest du Anden, Amazonas und die Galápagos-Inseln. Hier zeigen wir dir Routen für 2 Wochen, 4 Wochen und die vollen 2 Monate, inklusive Kosten und allen Links zu unseren Einzel-Guides.",
+   "bild": "assets/img/cotopaxipano.JPEG",
+   "bildEmoji": "",
+   "bildGradient": "linear-gradient(135deg,#1a2744,#e8431a)",
+   "tags": [
+    "Ecuador",
+    "Reiseroute",
+    "Backpacking",
+    "Reiseplanung"
+   ]
+  }
+ },
+ {
+  "datei": "amazonas-cuyabeno-reisefuehrer.md",
+  "data": {
+   "titel": "Amazonas Ecuador Reiseführer: Cuyabeno, Tucán Lodge & Dschungel-Tipps",
+   "datum": "2026-06-20",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "9 min",
+   "autor": "Sergen & Julia",
+   "teaser": "Vier Tage im Cuyabeno Wildlife Reserve, mit Baden im Amazonas zum Sonnenuntergang, Nachtwanderungen und Pink Dolphins. Hier erzählen wir, wie die Anreise, das Leben in der Tucán Lodge und der Digital Detox für uns waren.",
+   "bild": "assets/img/amazonas.jpg",
+   "bildEmoji": "🌴",
+   "bildGradient": "linear-gradient(135deg,#0a3d1f,#2f7a3d)",
+   "tags": [
+    "Amazonas",
+    "Cuyabeno",
+    "Ecuador",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "cuenca-reisefuehrer.md",
+  "data": {
+   "titel": "Cuenca Reiseführer: Unsere Lieblingsstadt in Ecuador & der Cajas Nationalpark",
+   "datum": "2026-07-20",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "8 min",
+   "autor": "Sergen & Julia",
+   "teaser": "Kopfsteinpflastergassen, Kolonialbauten und ein rauschender Fluss, Cuenca ist unsere Lieblingsstadt in Ecuador geworden. Fünf Tage voller Altstadt-Spaziergänge, Cajas-Nationalpark und richtig gutem Essen.",
+   "bild": "assets/img/CuencaAussicht.jpg",
+   "bildEmoji": "⛪",
+   "bildGradient": "linear-gradient(135deg,#1a3d5c,#3d7a9e)",
+   "tags": [
+    "Cuenca",
+    "Ecuador",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "otavalo-reisefuehrer.md",
+  "data": {
+   "titel": "Otavalo Markt & Cuicocha-Lagune: Tagesausflug ab Quito",
+   "datum": "2026-05-30",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "7 min",
+   "autor": "Sergen & Julia",
+   "teaser": "Der größte indigene Markt Südamerikas, eine spiegelglatte Kraterlagune und die Lederstadt Cotacachi, als Tagesausflug ab Quito lässt sich das alles gut verbinden. Hier unsere ehrliche Erfahrung inklusive Handel-Tipps.",
+   "bildEmoji": "",
+   "bildGradient": "linear-gradient(135deg,#5c2d1a,#c46d2d)",
+   "tags": [
+    "Otavalo",
+    "Ecuador",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "galapagos-inselhopping-guide.md",
+  "data": {
+   "titel": "Galápagos-Inseln auf eigene Faust: Der Insel-Hopping Guide & Insel-Vergleich",
+   "datum": "2026-06-28",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "10 min",
+   "autor": "Sergen & Julia",
+   "teaser": "Man muss nicht auf eine teure Kreuzfahrt gehen, um die Galápagos-Inseln zu erleben. Wir haben Santa Cruz, Isabela und San Cristóbal auf eigene Faust erkundet und zeigen dir, wie du deine Route planst, welche Insel zu dir passt und wie du dabei Geld sparst.",
+   "bildEmoji": "",
+   "bildGradient": "linear-gradient(135deg,#0a3d62,#138a36)",
+   "tags": [
+    "Galápagos",
+    "Ecuador",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "san-cristobal-galapagos-reisefuehrer.md",
+  "data": {
+   "titel": "San Cristóbal Galápagos Reiseführer: Seelöwen, Kicker Rock & Schnorchelspots",
+   "datum": "2026-07-06",
+   "land": "Ecuador",
+   "typ": "guide",
+   "lesezeit": "9 min",
+   "autor": "Sergen & Julia",
+   "teaser": "Die östlichste Insel des Archipels ist das Paradies der Seelöwen. Neun Tage auf San Cristóbal haben uns Schnorcheln mit Seelöwen an der Muelle Tijeretas, einen Tauchgang am Kicker Rock und die entspannteste Atmosphäre der drei Hauptinseln beschert.",
+   "bildEmoji": "",
+   "bildGradient": "linear-gradient(135deg,#0a3d62,#138a36)",
+   "tags": [
+    "Galápagos",
+    "San Cristóbal",
+    "Ecuador",
+    "Reiseführer"
+   ],
+   "kategorie": "ecuador guide"
+  }
+ },
+ {
+  "datei": "cartagena-reisefuehrer.md",
+  "data": {
+   "titel": "Cartagena Reiseführer: Highlights, Sicherheit & Reisetipps",
+   "datum": "2026-03-24",
+   "land": "Kolumbien",
+   "typ": "guide",
+   "lesezeit": "8 min",
+   "autor": "Sergen & Julia",
+   "teaser": "Bunte Kolonialbauten, eine historische Stadtmauer und karibisches Flair, fünf Tage in Cartagena waren für uns genau die richtige Zeit. Hier erzählen wir, was uns am meisten begeistert hat und worauf man achten sollte.",
+   "bildEmoji": "",
+   "bildGradient": "linear-gradient(135deg,#8a2d1f,#e8a13d)",
+   "tags": [
+    "Cartagena",
+    "Kolumbien",
+    "Reiseführer"
+   ],
+   "kategorie": "kolumbien guide"
+  }
+ }
+]
