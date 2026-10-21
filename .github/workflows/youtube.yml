@@ -12,9 +12,15 @@
 name: YouTube-Daten aktualisieren
 
 on:
-  # Taeglich um 05:00 UTC
   schedule:
+    # Taeglich um 05:00 UTC
     - cron: '0 5 * * *'
+    # Neue Videos kommen sonntags um 18:00 deutscher Zeit. Cron laeuft in
+    # UTC, deshalb drei Laeufe um 16:15, 17:15 und 18:15 UTC: Das ist im
+    # Sommer 18:15/19:15/20:15 und im Winter 17:15/18:15/19:15 Uhr. So gibt
+    # es in beiden Zeiten mindestens zwei Laeufe nach Veroeffentlichung,
+    # auch wenn GitHub einen geplanten Lauf verspaetet oder auslaesst.
+    - cron: '15 16-18 * * 0'
   # Zusaetzlich manuell ausloesbar (Actions-Tab -> Run workflow)
   workflow_dispatch:
 

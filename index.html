@@ -51,7 +51,6 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preload" href="assets/fonts/playfair-display-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/cormorant-garamond-latin-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
@@ -428,7 +427,7 @@
 
 <div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
-  <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
+  <p class="cookie-banner__text">Mit „Alle akzeptieren“ erlaubst du uns, Google Analytics für eine Besucherstatistik zu nutzen (dabei können Daten an Google in den USA gehen) und die Reisekarte von OpenStreetMap zu laden. Mit „Nur notwendige“ bleibt beides aus. Deine Wahl kannst du jederzeit unter „Cookie-Einstellungen“ im Footer ändern. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
   <div class="cookie-banner__actions">
     <button class="cookie-btn-accept">Alle akzeptieren</button>
     <button class="cookie-btn-decline">Nur notwendige</button>
@@ -454,9 +453,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-<!-- D3 + Südamerika-Karte (unveraendert, separates Thema) -->
-<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js" defer></script>
+<!-- D3 + Südamerika-Karte. Lokal eingebunden (d3 7.9.0, topojson-client 3.1.0),
+     damit keine Besucher-IP an ein CDN geht -->
+<script src="assets/vendor/d3.min.js" defer></script>
+<script src="assets/vendor/topojson-client.min.js" defer></script>
 
 <!-- Vlogs + Vlog-Anzahl aus lokaler vlogs-data.json (kein Google-Request) -->
 <script>
@@ -565,7 +565,7 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', async function() {
   const SA = REISE.saMap;
   try {
-    const world = await d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json');
+    const world = await d3.json('assets/vendor/countries-110m.json');
     const allFeatures = topojson.feature(world, world.objects.countries).features;
     const saFeatures  = allFeatures.filter(f => SA[+f.id]);
     const svg     = d3.select('#sa-map');

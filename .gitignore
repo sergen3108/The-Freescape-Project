@@ -1,0 +1,8 @@
+# Das Repository ist oeffentlich: lokale Logs, Editor-Einstellungen und
+# Zugangsdaten duerfen hier nicht landen.
+*.log
+.vscode/
+.env
+.env.*
+.DS_Store
+Thumbs.db

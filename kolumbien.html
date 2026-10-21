@@ -464,7 +464,7 @@
 <!-- ── Cookie Banner ────────────────────────────────────────── -->
 <div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
-  <p class="cookie-banner__text">Wir nutzen Cookies. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
+  <p class="cookie-banner__text">Mit „Alle akzeptieren“ erlaubst du uns, Google Analytics für eine Besucherstatistik zu nutzen (dabei können Daten an Google in den USA gehen) und die Reisekarte von OpenStreetMap zu laden. Mit „Nur notwendige“ bleibt beides aus. Deine Wahl kannst du jederzeit unter „Cookie-Einstellungen“ im Footer ändern. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
   <div class="cookie-banner__actions">
     <button class="cookie-btn-accept">Alle akzeptieren</button>
     <button class="cookie-btn-decline">Nur notwendige</button>
@@ -514,6 +514,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // HTML-Escaping fuer Texte aus vlogs-data.json und Blog-Frontmatter, die
+  // per String-Konkatenation in innerHTML landen (wie in vlogs.html).
+  function escapeHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   function renderBlog(posts) {
     var grid    = document.getElementById('land-blog-grid');
     var empty   = document.getElementById('land-blog-empty');
@@ -540,14 +550,14 @@ document.addEventListener('DOMContentLoaded', function () {
     var toRender = hub ? [hub].concat(others) : others;
     grid.innerHTML = toRender.map(function (p) {
       var thumb = p.bild
-        ? '<img src="' + p.bild + '" alt="' + p.titel + '" loading="lazy">'
+        ? '<img src="' + p.bild + '" alt="' + escapeHtml(p.titel) + '" loading="lazy">'
         : '<div style="height:160px;background:' + p.bildFallback.gradient + ';display:flex;align-items:center;justify-content:center;font-size:2.5rem;">' + (p.bildFallback.emoji === '' ? '<span style="font-size:1.05rem;font-weight:600;opacity:0.75;">Bild folgt in Kürze</span>' : p.bildFallback.emoji) + '</div>';
       var isHub = p === hub;
       return '<a href="' + p.link + '" class="blog-teaser-card">' + thumb +
         '<div class="blog-teaser-card__body">' +
           (isHub ? '<span class="blog-teaser-card__badge">Reiseroute</span><br>' : '') +
-          '<div class="blog-teaser-card__title">' + p.titel + '</div>' +
-          '<div class="blog-teaser-card__meta">' + p.datumLabel + ' · ' + p.lesezeit + '</div>' +
+          '<div class="blog-teaser-card__title">' + escapeHtml(p.titel) + '</div>' +
+          '<div class="blog-teaser-card__meta">' + escapeHtml(p.datumLabel) + ' · ' + escapeHtml(p.lesezeit) + '</div>' +
         '</div></a>';
     }).join('');
   }
@@ -564,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function buildThumb(v) {
     if (v.thumb) {
-      return '<img src="' + v.thumb + '" alt="' + v.title + '" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">' +
+      return '<img src="' + v.thumb + '" alt="' + escapeHtml(v.title) + '" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">' +
         '<span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
     }
     return '<div class="vlog-thumb-fallback"><span class="vlog-card__play" style="position:static;transform:none;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>';
@@ -580,11 +590,11 @@ document.addEventListener('DOMContentLoaded', function () {
       '</div>' +
       '<div class="vlog-card__body">' +
         '<div class="vlog-card__meta">' +
-          (ort ? '<span class="vlog-card__country">📍 ' + ort + '</span>' : '') +
+          (ort ? '<span class="vlog-card__country">📍 ' + escapeHtml(ort) + '</span>' : '') +
           '<span class="vlog-card__date">' + formatDate(v.publishedAt) + '</span>' +
         '</div>' +
-        '<h3 class="vlog-card__title">' + v.title + '</h3>' +
-        '<p class="vlog-card__desc">' + desc + (desc.length >= 120 ? '…' : '') + '</p>' +
+        '<h3 class="vlog-card__title">' + escapeHtml(v.title) + '</h3>' +
+        '<p class="vlog-card__desc">' + escapeHtml(desc) + (desc.length >= 120 ? '…' : '') + '</p>' +
         '<div class="vlog-card__footer">' +
           '<a href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a>' +
           '<span class="vlog-card__blog-link"></span>' +

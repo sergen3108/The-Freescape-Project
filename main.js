@@ -267,6 +267,7 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
   });
 
   /* ── Cookie Banner ───────────────────────────────────── */
+  const GA_ID = 'G-FXRW5YYPTB';
   const cookieBanner = document.querySelector('.cookie-banner');
   const cookieAccept = document.querySelector('.cookie-btn-accept');
   const cookieDecline = document.querySelector('.cookie-btn-decline');
@@ -278,14 +279,18 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
     cookieAccept.addEventListener('click', () => {
       localStorage.setItem('ans_cookie', 'accepted');
       cookieBanner.classList.remove('show');
+      window['ga-disable-' + GA_ID] = false;
       loadGA4();
     });
   }
-  
+
   if (cookieDecline) {
     cookieDecline.addEventListener('click', () => {
       localStorage.setItem('ans_cookie', 'declined');
+      // "Nur notwendige" gilt laut Bannertext fuer Analytics UND Karte
+      localStorage.removeItem('map_consent');
       cookieBanner.classList.remove('show');
+      revokeGA4();
     });
   }
 
@@ -304,13 +309,30 @@ document.querySelectorAll('.filter-bar:not(#blog-filter-bar)').forEach(bar => {
     if (document.querySelector('script[src*="gtag"]')) return;
     var s = document.createElement('script');
     s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-FXRW5YYPTB';
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
     document.head.appendChild(s);
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     window.gtag = gtag;
     gtag('js', new Date());
-    gtag('config', 'G-FXRW5YYPTB', { anonymize_ip: true });
+    gtag('config', GA_ID, { anonymize_ip: true });
+  }
+
+  // Widerruf: GA auf der offenen Seite stoppen (offizielles Opt-out-Flag)
+  // und die bereits gesetzten _ga-Cookies loeschen, die sonst bis zu zwei
+  // Jahre liegen bleiben. GA setzt sie auf der Hauptdomain mit fuehrendem
+  // Punkt, daher alle Domain-Varianten durchprobieren.
+  function revokeGA4() {
+    window['ga-disable-' + GA_ID] = true;
+    const host = window.location.hostname;
+    const domains = ['', host, '.' + host, '.' + host.split('.').slice(-2).join('.')];
+    document.cookie.split(';').forEach(c => {
+      const name = c.split('=')[0].trim();
+      if (!/^_ga/.test(name)) return;
+      domains.forEach(d => {
+        document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/' + (d ? '; domain=' + d : '');
+      });
+    });
   }
 
   if (localStorage.getItem('ans_cookie') === 'accepted') {

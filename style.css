@@ -2146,13 +2146,18 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   transition: background var(--t-fast);
 }
 .cookie-btn-accept:hover { background: var(--terra-700); }
+/* Ablehnen muss genauso gut sicht- und klickbar sein wie Akzeptieren
+   (gleiche Breite, Schrift und Kontrast), sonst ist die Einwilligung
+   nach Auffassung der Datenschutzbehoerden nicht freiwillig. */
 .cookie-btn-decline {
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.6);
-  border: none;
+  flex: 1;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.5);
   padding: var(--sp-3) var(--sp-5);
   border-radius: var(--r-full);
   font-size: 0.85rem;
+  font-weight: 600;
   cursor: pointer;
   transition: background var(--t-fast);
 }
