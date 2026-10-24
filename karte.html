@@ -301,8 +301,8 @@
         </div>
         <div class="map-legend">
           <div class="legend-item"><div class="legend-dot legend-dot--visited"></div> Bereist</div>
-          <div class="legend-item"><div class="legend-dot legend-dot--current"></div> Aktuell hier (Sergen)</div>
-          <div class="legend-item"><div class="legend-dot legend-dot--julia"></div> Aktuell hier (Julia)</div>
+          <div class="legend-item"><div class="legend-dot legend-dot--current"></div> Aktuell hier</div>
+          <div class="legend-item"><div class="legend-dot legend-dot--julia"></div> Bereist (nur Julia)</div>
           <div class="legend-item"><div class="legend-dot legend-dot--planned"></div> Geplant</div>
           <div class="legend-item"><div style="width:22px;height:3px;background:#e8431a;border-radius:2px;flex-shrink:0;"></div> Landroute</div>
           <div class="legend-item"><div style="width:22px;height:0;border-top:3px dashed #3b61a8;flex-shrink:0;"></div> Flug</div>
@@ -334,7 +334,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Julia ist am 15.10. auf die Osterinsel geflogen, Sergen wartet in Santiago auf sie. Wie es danach weitergeht, verraten wir bald 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Julia ist am 22.10. von der Osterinsel zurück nach Santiago geflogen, von dort ging es gemeinsam mit dem Nachtbus nach Pucón. Wie es danach weitergeht, verraten wir bald 🙌</p>
         </div>
 
       </div>
@@ -502,9 +502,10 @@ const pins = [
   { lat: -32.8895, lng: -68.8458, status: "visited", name: "Mendoza", desc: "Mit dem Nachtbus aus Rosario, unsere letzte Station in Argentinien vor Santiago de Chile.", link: "", linkText: "" },
   // ── CHILE (zurück) ─────────────────────────────────────
   { lat: -33.0245, lng: -71.5518, status: "visited", name: "Viña del Mar", desc: "Vom 10.10. bis 14.10. an der chilenischen Pazifikküste, mit dem Bus aus Santiago.", link: "", linkText: "" },
-  { lat: -33.4489, lng: -70.6693, status: "current", name: "Santiago de Chile ← Sergen ist hier", desc: "Mit dem Bus über die Anden aus Mendoza, zurück in Chile. Am 14.10. zurück aus Viña del Mar, Sergen wartet hier auf Julia.", link: "", linkText: "" },
-  // ── JULIA (reist ab 15.10. separat) ────────────────────
-  { lat: -27.1127, lng: -109.3497, status: "current", person: "julia", name: "Hanga Roa, Osterinsel ← Julia ist hier", desc: "Julia ist am 15.10. von Santiago auf die Osterinsel (Rapa Nui) geflogen. Sergen wartet in Santiago.", link: "", linkText: "" },
+  { lat: -33.4489, lng: -70.6693, status: "visited", name: "Santiago de Chile", desc: "Mit dem Bus über die Anden aus Mendoza, zurück in Chile. Ausgangspunkt für Viña del Mar und Julias Flug auf die Osterinsel, am 22.10. mit dem Nachtbus weiter nach Pucón.", link: "", linkText: "" },
+  { lat: -39.2725, lng: -71.9770, status: "current", name: "Pucón ← wir sind hier", desc: "Am 23.10. mit dem Nachtbus aus Santiago angekommen, am Lago Villarrica am Fuß des Vulkans Villarrica.", link: "", linkText: "" },
+  // ── JULIA (15. bis 22.10. separat) ─────────────────────
+  { lat: -27.1127, lng: -109.3497, status: "visited", person: "julia", name: "Hanga Roa, Osterinsel", desc: "Julia war vom 15. bis 22.10. auf der Osterinsel (Rapa Nui), Sergen hat in Santiago auf sie gewartet.", link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -547,7 +548,8 @@ const ROUTE = [
   { type: "land",   coords: [[-32.9468,-60.6393],[-32.8895,-68.8458]] },
   { type: "land",   coords: [[-32.8895,-68.8458],[-33.4489,-70.6693]] },
   { type: "land",   coords: [[-33.4489,-70.6693],[-33.0245,-71.5518],[-33.4489,-70.6693]] },
-  { type: "julia",  coords: [[-33.4489,-70.6693],[-27.1127,-109.3497]] },
+  { type: "julia",  coords: [[-33.4489,-70.6693],[-27.1127,-109.3497],[-33.4489,-70.6693]] },
+  { type: "land",   coords: [[-33.4489,-70.6693],[-39.2725,-71.9770]] },
 ];
 
 const ROUTE_STYLES = {
@@ -661,7 +663,7 @@ function renderMap() {
 
     var linkHtml    = pin.link ? '<a href="' + pin.link + '" class="popup-link">' + pin.linkText + ' →</a>' : '';
     var statusLabel = { visited: '✓ Bereist', current: '📍 Aktuell hier', planned: 'Geplant' }[pin.status];
-    if (pin.person === 'julia') statusLabel = '📍 Julia ist hier';
+    if (pin.person === 'julia') statusLabel = pin.status === 'current' ? '📍 Julia ist hier' : '✓ Julia war hier';
 
     marker.bindPopup(
       '<div class="popup-inner">' +
