@@ -12,7 +12,7 @@ const REISE = {
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
   orteBesucht:          45,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Seit dem 23.10. sind wir in Pucón, mit dem Nachtbus aus Santiago. Als Nächstes geht es weiter nach Puerto Varas am Lago Llanquihue 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Seit dem 23.10. sind wir in Pucón, mit dem Nachtbus aus Santiago. Als Nächstes geht es weiter nach Puerto Varas am Lago Llanquihue, danach nach Puerto Natales in Patagonien 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
   standort: 'Pucón, Chile',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
