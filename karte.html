@@ -334,7 +334,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Julia ist am 22.10. von der Osterinsel zurück nach Santiago geflogen, von dort ging es gemeinsam mit dem Nachtbus nach Pucón. Wie es danach weitergeht, verraten wir bald 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Seit dem 23.10. sind wir in Pucón, mit dem Nachtbus aus Santiago. Als Nächstes geht es weiter nach Puerto Varas am Lago Llanquihue 🙌</p>
         </div>
 
       </div>
@@ -506,6 +506,8 @@ const pins = [
   { lat: -39.2725, lng: -71.9770, status: "current", name: "Pucón ← wir sind hier", desc: "Am 23.10. mit dem Nachtbus aus Santiago angekommen, am Lago Villarrica am Fuß des Vulkans Villarrica.", link: "", linkText: "" },
   // ── JULIA (15. bis 22.10. separat) ─────────────────────
   { lat: -27.1127, lng: -109.3497, status: "visited", person: "julia", name: "Hanga Roa, Osterinsel", desc: "Julia war vom 15. bis 22.10. auf der Osterinsel (Rapa Nui), Sergen hat in Santiago auf sie gewartet.", link: "", linkText: "" },
+  // ── GEPLANT ────────────────────────────────────────────
+  { lat: -41.3195, lng: -72.9854, status: "planned", name: "Puerto Varas", desc: "Am Lago Llanquihue in der chilenischen Seenregion, unsere nächste Station nach Pucón.", link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -550,6 +552,7 @@ const ROUTE = [
   { type: "land",   coords: [[-33.4489,-70.6693],[-33.0245,-71.5518],[-33.4489,-70.6693]] },
   { type: "julia",  coords: [[-33.4489,-70.6693],[-27.1127,-109.3497],[-33.4489,-70.6693]] },
   { type: "land",   coords: [[-33.4489,-70.6693],[-39.2725,-71.9770]] },
+  { type: "next",   coords: [[-39.2725,-71.9770],[-41.3195,-72.9854]] },
 ];
 
 const ROUTE_STYLES = {
