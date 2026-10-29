@@ -334,7 +334,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Seit dem 27.10. sind wir in Puerto Varas am Lago Llanquihue, mit dem Bus aus Pucón. Als Nächstes geht es weiter nach Puerto Natales in Patagonien 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Seit dem 27.10. sind wir in Puerto Varas am Lago Llanquihue, mit dem Bus aus Pucón. Als Nächstes geht es weiter nach Castro auf der Insel Chiloé, danach nach Puerto Natales in Patagonien 🙌</p>
         </div>
 
       </div>
@@ -508,7 +508,8 @@ const pins = [
   // ── JULIA (15. bis 22.10. separat) ─────────────────────
   { lat: -27.1127, lng: -109.3497, status: "visited", person: "julia", name: "Hanga Roa, Osterinsel", desc: "Julia war vom 15. bis 22.10. auf der Osterinsel (Rapa Nui), Sergen hat in Santiago auf sie gewartet.", link: "", linkText: "" },
   // ── GEPLANT ────────────────────────────────────────────
-  { lat: -51.7290, lng: -72.5060, status: "planned", name: "Puerto Natales", desc: "Tor zum Nationalpark Torres del Paine in Patagonien, unsere nächste Station nach Puerto Varas.", link: "", linkText: "" },
+  { lat: -42.4825, lng: -73.7623, status: "planned", name: "Castro", desc: "Hauptort der Insel Chiloé mit den bunten Pfahlbauten, unsere nächste Station nach Puerto Varas.", link: "", linkText: "" },
+  { lat: -51.7290, lng: -72.5060, status: "planned", name: "Puerto Natales", desc: "Tor zum Nationalpark Torres del Paine in Patagonien, unsere Station nach Castro.", link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -554,7 +555,7 @@ const ROUTE = [
   { type: "julia",  coords: [[-33.4489,-70.6693],[-27.1127,-109.3497],[-33.4489,-70.6693]] },
   { type: "land",   coords: [[-33.4489,-70.6693],[-39.2725,-71.9770]] },
   { type: "land",   coords: [[-39.2725,-71.9770],[-41.3195,-72.9854]] },
-  { type: "next",   coords: [[-41.3195,-72.9854],[-51.7290,-72.5060]] },
+  { type: "next",   coords: [[-41.3195,-72.9854],[-42.4825,-73.7623],[-51.7290,-72.5060]] },
 ];
 
 const ROUTE_STYLES = {
