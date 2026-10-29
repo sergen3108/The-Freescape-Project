@@ -113,12 +113,12 @@ window.LAENDER = [
     reihenfolge: 5,
     zeitraum: '04. bis 08. Sep und ab 03. Okt 2026',
     tage: [['2026-09-04', '2026-09-08'], ['2026-10-03', null]],
-    hook: 'Erst ein paar Tage in San Pedro de Atacama zwischen Wueste, Geysiren und Sternenhimmel, jetzt zurueck: mit dem Bus von Mendoza ueber die Anden nach Santiago de Chile, an die Kueste nach Vina del Mar und mit dem Nachtbus weiter nach Pucon.',
+    hook: 'Erst ein paar Tage in San Pedro de Atacama zwischen Wueste, Geysiren und Sternenhimmel, jetzt zurueck: mit dem Bus von Mendoza ueber die Anden nach Santiago de Chile, an die Kueste nach Vina del Mar, mit dem Nachtbus nach Pucon und weiter nach Puerto Varas.',
     tags: ['Wueste', 'Berge', 'Natur', 'Abenteuer'],
     gradient: 'linear-gradient(135deg,#1a2d3d,#3d6080)',
     heroImage: 'assets/img/ChileSterne.jpeg',
     ogImage: 'https://thefreescapeproject.com/assets/img/ChileSterne.jpeg',
-    vlogKeywords: ['chile', 'atacama', 'san pedro de atacama', 'santiago', 'torres del paine', 'valparaíso', 'valparaiso', 'pucón', 'pucon', 'osterinsel', 'rapa nui']
+    vlogKeywords: ['chile', 'atacama', 'san pedro de atacama', 'santiago', 'torres del paine', 'valparaíso', 'valparaiso', 'pucón', 'pucon', 'osterinsel', 'rapa nui', 'puerto varas']
   },
   {
     slug: 'argentinien',

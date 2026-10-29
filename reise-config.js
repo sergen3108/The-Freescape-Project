@@ -8,13 +8,13 @@ const REISE = {
   sergenLaender: 17,
   juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      19600,
+  kmZurueckgelegt:      19900,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          45,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          46,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Seit dem 23.10. sind wir in Pucón, mit dem Nachtbus aus Santiago. Als Nächstes geht es weiter nach Puerto Varas am Lago Llanquihue, danach nach Puerto Natales in Patagonien 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Seit dem 27.10. sind wir in Puerto Varas am Lago Llanquihue, mit dem Bus aus Pucón. Als Nächstes geht es weiter nach Puerto Natales in Patagonien 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Pucón, Chile',  // ✏️ hier anpassen
+  standort: 'Puerto Varas, Chile',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
