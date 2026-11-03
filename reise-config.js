@@ -8,13 +8,13 @@ const REISE = {
   sergenLaender: 17,
   juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      20100,
+  kmZurueckgelegt:      20200,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          47,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          48,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Seit dem 31.10. sind wir in Castro auf der Insel Chiloé. Als Nächstes geht es weiter nach Puerto Natales in Patagonien 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Seit dem 03.11. sind wir in Ancud im Norden der Insel Chiloé. Als Nächstes geht es weiter nach Puerto Natales in Patagonien 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Castro, Chile',  // ✏️ hier anpassen
+  standort: 'Ancud, Chile',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
