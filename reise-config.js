@@ -8,13 +8,13 @@ const REISE = {
   sergenLaender: 17,
   juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      20300,
+  kmZurueckgelegt:      21450,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          49,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          50,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Seit dem 05.11. sind wir in Puerto Montt. Am 06.11. fliegen wir weiter nach Puerto Natales in Patagonien 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Seit dem 06.11. sind wir in Puerto Natales, dem Tor zum Nationalpark Torres del Paine in Patagonien 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Puerto Montt, Chile',  // ✏️ hier anpassen
+  standort: 'Puerto Natales, Chile',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
