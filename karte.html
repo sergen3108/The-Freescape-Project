@@ -316,15 +316,15 @@
         <div class="status-card">
           <div class="status-card__header">
             <h3>Reisestatus</h3>
-            <p>Zuletzt aktualisiert: Okt 2026</p>
+            <p>Zuletzt aktualisiert: Nov 2026</p>
           </div>
           <ul class="status-list">
             <li><div class="status-dot status-dot--visited"></div> Kolumbien</li>
             <li><div class="status-dot status-dot--visited"></div> Ecuador</li>
             <li><div class="status-dot status-dot--visited"></div> Peru</li>
             <li><div class="status-dot status-dot--visited"></div> Bolivien</li>
-            <li><div class="status-dot status-dot--current"></div> Chile &nbsp;<strong style="color:var(--terra-600);font-size:0.75rem;">← wir sind hier</strong></li>
-            <li><div class="status-dot status-dot--visited"></div> Argentinien</li>
+            <li><div class="status-dot status-dot--visited"></div> Chile</li>
+            <li><div class="status-dot status-dot--current"></div> Argentinien &nbsp;<strong style="color:var(--terra-600);font-size:0.75rem;">← wir sind hier</strong></li>
             <li><div class="status-dot status-dot--planned"></div> Brasilien</li>
             <li><div class="status-dot status-dot--planned"></div> Uruguay</li>
             <li><div class="status-dot status-dot--planned"></div> Paraguay</li>
@@ -334,7 +334,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Nächste Station</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Seit dem 06.11. sind wir in Puerto Natales, dem Tor zum Nationalpark Torres del Paine in Patagonien 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Seit dem 09.11. sind wir in El Calafate, dem Tor zum Perito-Moreno-Gletscher in Patagonien 🙌</p>
         </div>
 
       </div>
@@ -508,7 +508,9 @@ const pins = [
   { lat: -42.4825, lng: -73.7623, status: "visited", name: "Castro", desc: "Vom 31.10. bis 03.11. im Hauptort der Insel Chiloé mit den bunten Pfahlbauten, mit dem Bus weiter nach Ancud.", link: "", linkText: "" },
   { lat: -41.8697, lng: -73.8203, status: "visited", name: "Ancud", desc: "Vom 03. bis 05.11. in der Hafenstadt im Norden der Insel Chiloé, mit dem Bus weiter nach Puerto Montt.", link: "", linkText: "" },
   { lat: -41.4693, lng: -72.9424, status: "visited", name: "Puerto Montt", desc: "Vom 05. bis 06.11. in der Hafenstadt am Seno de Reloncaví, mit dem Bus aus Ancud und per Flug weiter nach Puerto Natales.", link: "", linkText: "" },
-  { lat: -51.7290, lng: -72.5060, status: "current", name: "Puerto Natales ← wir sind hier", desc: "Seit dem 06.11. im Tor zum Nationalpark Torres del Paine in Patagonien.", link: "", linkText: "" },
+  { lat: -51.7290, lng: -72.5060, status: "visited", name: "Puerto Natales", desc: "Vom 06. bis 09.11. im Tor zum Nationalpark Torres del Paine in Patagonien, per Flug aus Puerto Montt und mit dem Bus weiter nach El Calafate in Argentinien.", link: "", linkText: "" },
+  // ── ARGENTINIEN (zurück) ───────────────────────────────
+  { lat: -50.3380, lng: -72.2650, status: "current", name: "El Calafate ← wir sind hier", desc: "Seit dem 09.11. am Lago Argentino, dem Tor zum Perito-Moreno-Gletscher in Patagonien.", link: "", linkText: "" },
   // ── JULIA (15. bis 22.10. separat) ─────────────────────
   { lat: -27.1127, lng: -109.3497, status: "visited", person: "julia", name: "Hanga Roa, Osterinsel", desc: "Julia war vom 15. bis 22.10. auf der Osterinsel (Rapa Nui), Sergen hat in Santiago auf sie gewartet.", link: "", linkText: "" },
   // ── GEPLANT ────────────────────────────────────────────
@@ -561,6 +563,7 @@ const ROUTE = [
   { type: "land",   coords: [[-42.4825,-73.7623],[-41.8697,-73.8203]] },
   { type: "land",   coords: [[-41.8697,-73.8203],[-41.4693,-72.9424]] },
   { type: "flight", coords: [[-41.4693,-72.9424],[-51.7290,-72.5060]] },
+  { type: "land",   coords: [[-51.7290,-72.5060],[-50.3380,-72.2650]] },
 ];
 
 const ROUTE_STYLES = {

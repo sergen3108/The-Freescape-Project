@@ -1,4 +1,4 @@
-/* Kosten-Widget fuer die Laenderseiten (kolumbien/ecuador/peru.html).
+/* Kosten-Widget fuer die Laenderseiten (kolumbien/ecuador/peru/bolivien/chile.html).
    Reines Vanilla JS + SVG, kein Chart-CDN, kein externes Tracking.
    Zeigt Gesamtsumme, Zeitraum, Kosten/Tag, Kosten/Monat und die Kategorien
    als Donut samt Legende mit den exakten Betraegen. Optional mit

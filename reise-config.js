@@ -8,21 +8,21 @@ const REISE = {
   sergenLaender: 17,
   juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      21450,
+  kmZurueckgelegt:      21750,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          50,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          64,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Seit dem 06.11. sind wir in Puerto Natales, dem Tor zum Nationalpark Torres del Paine in Patagonien 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Seit dem 09.11. sind wir in El Calafate, dem Tor zum Perito-Moreno-Gletscher in Patagonien 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Puerto Natales, Chile',  // ✏️ hier anpassen
+  standort: 'El Calafate, Argentinien',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
     { name: 'Ecuador',        iso: 218, status: 'visited', href: 'ecuador.html'           },
     { name: 'Peru',           iso: 604, status: 'visited', href: 'peru.html'              },
     { name: 'Bolivien',       iso:  68, status: 'visited', href: 'bolivien.html'          },
-    { name: 'Chile',          iso: 152, status: 'current', href: 'chile.html'             },
-    { name: 'Argentinien',    iso:  32, status: 'visited', href: 'argentinien.html'       },
+    { name: 'Chile',          iso: 152, status: 'visited', href: 'chile.html'             },
+    { name: 'Argentinien',    iso:  32, status: 'current', href: 'argentinien.html'       },
     { name: 'Brasilien',      iso:  76, status: '',        href: 'laender.html#geplant'   },
     { name: 'Venezuela',      iso: 862, status: '',        href: '#'                      },
     { name: 'Uruguay',        iso: 858, status: '',        href: 'laender.html#geplant'   },
