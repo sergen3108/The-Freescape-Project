@@ -7,7 +7,7 @@
   <title>Artikel · The Freescape Project</title>
   <meta name="description" content="Reiseberichte, Kosten-Checks und Erfahrungen aus Südamerika, direkt von Julia &amp; Sergen auf ihrer Backpacking-Reise.">
 
-  <!-- OG-Tags: generische Fallbacks, werden per JS mit den echten Post-Daten ueberschrieben sobald geladen -->
+  <!-- OG-Tags: Standardwerte der Vorlage. scripts/build-articles.js traegt beim Erzeugen von blog/<slug>.html die Werte des Artikels ein. -->
   <meta property="og:type"         content="article">
   <meta property="og:site_name"    content="The Freescape Project">
   <meta property="og:locale"       content="de_DE">
@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="Reiseberichte, Kosten-Checks und Erfahrungen aus Südamerika, direkt von Julia &amp; Sergen auf ihrer Backpacking-Reise." id="tw-description">
   <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/FujiFun.jpeg" id="tw-image">
 
-  <!-- Kanonische URL: generischer Fallback, wird per JS mit dem echten ?post=SLUG ueberschrieben -->
+  <!-- Kanonische URL: Standardwert der Vorlage, die erzeugten Seiten nennen ihre eigene Adresse -->
   <link rel="canonical" href="https://thefreescapeproject.com/artikel.html" id="canonical-url">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -499,18 +499,18 @@
 
 <!-- marked 9.1.6, lokal eingebunden (kein CDN, keine Besucher-IP an Dritte) -->
 <script src="assets/vendor/marked.min.js" defer></script>
+<script src="artikel-render.js" defer></script>
 <script src="blog-posts.js" defer></script>
 <script src="laender-config.js" defer></script>
 <script src="vlog-utils.js" defer></script>
 <script src="main.js" defer></script>
 <script>
-// Erst nach DOMContentLoaded starten: marked.js und blog-posts.js
-// (parseFrontmatterRaw) sind defer-Skripte und laufen erst nach dem Parsen.
+// Erst nach DOMContentLoaded starten: marked.js, artikel-render.js und
+// blog-posts.js sind defer-Skripte und laufen erst nach dem Parsen.
 // Sonst kann der Artikeltext schneller da sein als diese Skripte, und es
 // erscheint faelschlich "Artikel nicht gefunden".
 document.addEventListener('DOMContentLoaded', async function () {
-  const BASE_URL = 'https://thefreescapeproject.com';
-  const FALLBACK_IMG = BASE_URL + '/assets/img/FujiFun.jpeg';
+  const AR = window.ArtikelRender;
 
   // Einfaches HTML-Escaping fuer Frontmatter-Textfelder, die per
   // String-Konkatenation in innerHTML landen (Titel, Teaser, Autor, ...).
@@ -524,86 +524,35 @@ document.addEventListener('DOMContentLoaded', async function () {
       .replace(/"/g, '&quot;');
   }
 
-  /* ── OG-Tags dynamisch setzen ───────────────────────────── */
-  function setOGTags(data, slug) {
-    const img = data.bild
-      ? (data.bild.startsWith('http') ? data.bild : BASE_URL + (data.bild.startsWith('/') ? '' : '/') + data.bild)
-      : FALLBACK_IMG;
-
-    const title = (data.titel || 'Artikel') + ' | The Freescape Project';
-    const desc  = data.teaser || '';
-    const url   = BASE_URL + '/artikel.html?post=' + encodeURIComponent(slug);
-
+  /* ── Kopfdaten setzen ───────────────────────────────────────
+     Nur fuer die Rueckfall-Ansicht (artikel.html?post=...). Die
+     fertigen Seiten unter blog/ haben Titel, Vorschaubild und
+     strukturierte Daten schon im Quelltext (scripts/build-articles.js). */
+  function setHead(m) {
     const set = (id, val) => { const el = document.getElementById(id); if (el) el.setAttribute('content', val); };
-    set('og-url',         url);
-    set('og-title',       title);
-    set('og-description', desc);
-    set('og-image',       img);
-    set('tw-title',       title);
-    set('tw-description', desc);
-    set('tw-image',       img);
+    set('og-url',         m.url);
+    set('og-title',       m.title);
+    set('og-description', m.description);
+    set('og-image',       m.image);
+    set('tw-title',       m.title);
+    set('tw-description', m.description);
+    set('tw-image',       m.image);
 
-    // Auch <title> und <meta name="description"> aktualisieren
-    document.title = title;
+    document.title = m.title;
     const descEl = document.querySelector('meta[name="description"]');
-    if (descEl) descEl.setAttribute('content', desc);
+    if (descEl) descEl.setAttribute('content', m.description);
 
-    // Kanonische URL setzen (eindeutige Adresse dieses Artikels)
+    // Kanonische URL: die fertige Seite dieses Artikels
     const canonEl = document.getElementById('canonical-url');
-    if (canonEl) canonEl.setAttribute('href', url);
-  }
+    if (canonEl) canonEl.setAttribute('href', m.url);
 
-  /* ── Schema.org JSON-LD (strukturierte Daten für Google) ── */
-  function setSchemaOrg(data, slug) {
-    const img = data.bild
-      ? (data.bild.startsWith('http') ? data.bild : BASE_URL + (data.bild.startsWith('/') ? '' : '/') + data.bild)
-      : FALLBACK_IMG;
-
-    const url = BASE_URL + '/artikel.html?post=' + encodeURIComponent(slug);
-
-    // Autor kann "Sergen & Julia" sein → in einzelne Personen aufteilen
-    const autorRoh = data.autor || 'Sergen & Julia';
-    const autoren = autorRoh.split(/\s*(?:&|und|,)\s*/).filter(Boolean).map(function (name) {
-      return { "@type": "Person", "name": name.trim() };
-    });
-
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": data.titel || 'Artikel',
-      "description": data.teaser || '',
-      "image": img,
-      "author": autoren.length === 1 ? autoren[0] : autoren,
-      "publisher": {
-        "@type": "Organization",
-        "name": "The Freescape Project",
-        "logo": {
-          "@type": "ImageObject",
-          "url": BASE_URL + "/assets/img/LOGONEW.png"
-        }
-      },
-      "datePublished": data.datum || '',
-      "dateModified": data.datum || '',
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": url
-      },
-      "inLanguage": "de-DE"
-    };
-
-    // Land als Thema ergänzen, falls vorhanden
-    if (data.land) {
-      schema.about = { "@type": "Place", "name": data.land };
-    }
-
-    // Altes Schema-Script (falls vorhanden) entfernen, dann neu setzen
+    // Schema.org JSON-LD (strukturierte Daten fuer Google)
     const alt = document.getElementById('schema-org-jsonld');
     if (alt) alt.remove();
-
     const script = document.createElement('script');
     script.type = 'application/ld+json';
     script.id = 'schema-org-jsonld';
-    script.textContent = JSON.stringify(schema);
+    script.textContent = JSON.stringify(m.schema);
     document.head.appendChild(script);
   }
 
@@ -612,10 +561,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     const posts = window.BLOG_POSTS;
     if (!Array.isArray(posts) || posts.length === 0) return;
 
-    // Aktuellen Artikel ausschließen (Slug steckt im link: artikel.html?post=SLUG)
+    // Aktuellen Artikel ausschließen
     const others = posts.filter(function (p) {
-      const slug = (p.link || '').split('post=')[1] || p.id || '';
-      return slug !== currentSlug;
+      return (p.id || '') !== currentSlug;
     });
     if (others.length === 0) return;
 
@@ -708,170 +656,80 @@ document.addEventListener('DOMContentLoaded', async function () {
     document.head.appendChild(meta);
   }
 
-  /* ── Artikel laden ──────────────────────────────────────── */
-  const params   = new URLSearchParams(window.location.search);
-  const postSlug = params.get('post');
-  const loading  = document.getElementById('artikel-loading');
-  const root     = document.getElementById('artikel-root');
+  /* ── Nach dem Rendern: Video-Teaser, Inhaltsverzeichnis, weitere Artikel ── */
+  function ergaenze(land, tags, slug) {
+    renderVideoTeaser(land, tags);
 
-  if (!postSlug) {
-    setNoindex();
-    loading.innerHTML = 'Kein Artikel angegeben. <a href="blog.html">Zurück zum Blog</a>';
-    return;
-  }
-
-  const filename = postSlug.endsWith('.md') ? postSlug : postSlug + '.md';
-
-  try {
-    const res = await fetch('/posts/' + filename);
-    if (!res.ok) throw new Error('Not found');
-    const raw = await res.text();
-
-    // Frontmatter-Parsing wird mit blog-posts.js geteilt (parseFrontmatterRaw)
-    const parsed = typeof parseFrontmatterRaw === 'function' ? parseFrontmatterRaw(raw) : null;
-    if (!parsed) throw new Error('Kein Frontmatter');
-    const data = parsed.data;
-    const body = parsed.body;
-
-    const typLabel = { guide:'Routen-Guide', kosten:'Kosten-Check', safety:'Sicherheit', persoenlich:'Erfahrungsbericht', reiseroute:'Reiseroute' }[data.typ] || 'Artikel';
-    const tags     = Array.isArray(data.tags) ? data.tags : [];
-
-    // ── OG-Tags setzen (sofort nach Frontmatter-Parsing) ───
-    setOGTags(data, postSlug);
-    // ── Schema.org JSON-LD setzen (strukturierte Daten) ────
-    setSchemaOrg(data, postSlug);
-
-    let bildSrc = data.bild || '';
-    if (bildSrc && !bildSrc.startsWith('/') && !bildSrc.startsWith('http')) bildSrc = '/' + bildSrc;
-
-    const heroHtml = bildSrc
-      ? '<img class="artikel-hero__img" src="' + bildSrc + '" alt="' + escapeHtml(data.titel) + '">'
-      : '<div class="artikel-hero__fallback" style="background:' + (data.bildGradient || 'linear-gradient(135deg,#1a2744,#e8431a)') + ';">' + (data.bildEmoji === '' ? '<span style="font-size:1.6rem;font-weight:600;opacity:0.8;">Bild folgt in Kürze</span>' : (data.bildEmoji !== undefined ? data.bildEmoji : '✈️')) + '</div>';
-
-    const monate = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
-    const d = data.datum ? new Date(data.datum + 'T12:00:00') : new Date();
-    const datumLabel = d.getDate() + '. ' + monate[d.getMonth()] + ' ' + d.getFullYear();
-
-    if (typeof marked === 'undefined') throw new Error('MARKED_MISSING');
-
-    // Bilder im Artikeltext bekommen loading="lazy" (liegen immer unterhalb des Heros)
-    const renderer = new marked.Renderer();
-    renderer.image = function (href, title, text) {
-      return '<img src="' + href + '" alt="' + (text || '') + '"' +
-        (title ? ' title="' + title + '"' : '') + ' loading="lazy">';
-    };
-    marked.setOptions({ breaks: true, gfm: true, renderer: renderer });
-
-    // Marked rendern
-    let parsedBody = marked.parse(body);
-
-    // IDs zu h2 Elementen hinzufügen für Inhaltsverzeichnis
-    let tocIndex = 0;
-    parsedBody = parsedBody.replace(/<h2>(.*?)<\/h2>/g, function(match, title) {
-      const id = 'abschnitt-' + (tocIndex++);
-      return '<h2 id="' + id + '">' + title + '</h2>';
-    });
-
-    // Inhaltsverzeichnis aus h2 Elementen bauen
-    const h2Matches = [...body.matchAll(/^## (.+)$/gm)];
-    const tocHtml = h2Matches.length > 1 ? `
-      <div class="toc-widget">
-        <h4>Inhaltsverzeichnis</h4>
-        <ul class="toc-list">
-          ${h2Matches.map((m, i) => `<li><a href="#abschnitt-${i}">${m[1]}</a></li>`).join('')}
-        </ul>
-      </div>` : '';
-
-    // Teilen
-    const shareUrl   = encodeURIComponent(window.location.href);
-    const shareTitle = encodeURIComponent(data.titel || '');
-    const shareImg   = encodeURIComponent(data.bild
-      ? (data.bild.startsWith('http') ? data.bild : BASE_URL + (data.bild.startsWith('/') ? '' : '/') + data.bild)
-      : FALLBACK_IMG);
-    const shareHtml  = `
-      <div class="share-bar">
-        <a href="https://wa.me/?text=${shareTitle}%20${shareUrl}" target="_blank" rel="noopener" class="share-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.824L0 24l6.388-1.676A11.954 11.954 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.017-1.378l-.36-.214-3.732.979 1.001-3.645-.235-.374A9.818 9.818 0 1 1 12 21.818z"/></svg>
-          WhatsApp
-        </a>
-        <a href="https://pinterest.com/pin/create/button/?url=${shareUrl}&media=${shareImg}&description=${shareTitle}" target="_blank" rel="noopener" class="share-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345c-.091.379-.293 1.194-.333 1.361-.052.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
-          Pinterest
-        </a>
-        <button onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.textContent='✓ Kopiert!';setTimeout(()=>{this.innerHTML='<svg width=\\'16\\' height=\\'16\\' viewBox=\\'0 0 24 24\\' fill=\\'none\\' stroke=\\'currentColor\\' stroke-width=\\'2\\'><rect x=\\'9\\' y=\\'9\\' width=\\'13\\' height=\\'13\\' rx=\\'2\\'/><path d=\\'M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1\\'/></svg> Link kopieren'},2000)})" class="share-btn">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          Link kopieren
-        </button>
-      </div>`;
-
-    root.innerHTML =
-      '<div id="artikel-top"></div>' +
-      '<div class="artikel-hero">' +
-        heroHtml +
-        '<div class="artikel-hero__overlay"></div>' +
-        '<div class="container artikel-hero__meta">' +
-          '<span class="artikel-badge">' + typLabel + '</span>' +
-          '<h1 style="color:white;margin:0.5rem 0;font-size:clamp(1.6rem,4vw,2.8rem);max-width:800px;line-height:1.2;">' + escapeHtml(data.titel) + '</h1>' +
-          '<p style="color:rgba(255,255,255,0.7);margin:0.5rem 0 0;font-size:0.9rem;">' +
-            escapeHtml(data.autor || 'Sergen & Julia') + ' · ' + datumLabel + ' · ' + escapeHtml(data.lesezeit || '5 min') + ' Lesezeit' +
-            (data.land ? ' · ' + escapeHtml(data.land) : '') +
-          '</p>' +
-        '</div>' +
-      '</div>' +
-      '<div class="container">' +
-        '<div class="artikel-layout">' +
-          '<div class="artikel-body">' +
-            '<a href="blog.html" class="artikel-back">← Zurück zum Blog</a>' +
-            (data.teaser ? '<p class="artikel-teaser">' + escapeHtml(data.teaser) + '</p>' : '') +
-            '<div class="artikel-meta-bar">' +
-              '<span class="artikel-badge">' + typLabel + '</span>' +
-              (data.land ? '<span style="font-size:0.85rem;color:var(--gray-500);">' + escapeHtml(data.land) + '</span>' : '') +
-              '<span style="font-size:0.85rem;color:var(--gray-400);">' + datumLabel + '</span>' +
-              '<span style="font-size:0.85rem;color:var(--gray-400);">' + escapeHtml(data.lesezeit || '5 min') + ' Lesezeit</span>' +
-            '</div>' +
-            '<div id="artikel-content">' + parsedBody + '</div>' +
-            shareHtml +
-            '<div id="artikel-video-teaser"></div>' +
-            (tags.length ? '<div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--gray-200);"><p style="font-size:0.8rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray-400);margin-bottom:0.75rem;">Tags</p>' + tags.map(t => '<span class="tag">' + escapeHtml(t) + '</span>').join('') + '</div>' : '') +
-            '<div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--gray-200);text-align:center;">' +
-              '<a href="blog.html" class="btn btn-outline">← Alle Artikel</a>' +
-            '</div>' +
-          '</div>' +
-          '<aside class="artikel-sidebar">' + tocHtml + '</aside>' +
-        '</div>' +
-      '</div>';
-
-    loading.style.display = 'none';
-    root.style.display    = '';
-
-    renderVideoTeaser(data.land, tags);
-
-    // Aktiven TOC-Eintrag beim Scrollen markieren
+    // Aktiven Eintrag im Inhaltsverzeichnis beim Scrollen markieren
     const tocLinks = document.querySelectorAll('.toc-list a');
     if (tocLinks.length) {
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            tocLinks.forEach(l => l.classList.remove('active'));
-            const active = document.querySelector('.toc-list a[href="#' + entry.target.id + '"]');
-            if (active) active.classList.add('active');
-          }
+          if (!entry.isIntersecting) return;
+          tocLinks.forEach(l => {
+            l.classList.toggle('active', (l.getAttribute('href') || '').split('#')[1] === entry.target.id);
+          });
         });
       }, { rootMargin: '-80px 0px -60% 0px' });
 
       document.querySelectorAll('.artikel-body h2[id]').forEach(h => observer.observe(h));
     }
 
-    // ── Weitere Artikel ("Das könnte dich auch interessieren") ──
-    // BLOG_POSTS wird asynchron geladen. Wenn schon da: sofort rendern,
+    // Weitere Artikel ("Das könnte dich auch interessieren").
+    // BLOG_POSTS wird asynchron geladen: wenn schon da, sofort rendern,
     // sonst auf das blogPostsReady-Event warten.
     if (window.BLOG_POSTS) {
-      renderRelatedPosts(data.land, postSlug);
+      renderRelatedPosts(land, slug);
     } else {
       document.addEventListener('blogPostsReady', function () {
-        renderRelatedPosts(data.land, postSlug);
+        renderRelatedPosts(land, slug);
       });
     }
+  }
+
+  /* ── Fertige Seite (blog/<slug>.html) ───────────────────────
+     Der Artikel steht schon im HTML, window.ARTIKEL nennt Slug,
+     Land und Tags. Hier kommen nur noch die Ergaenzungen dazu. */
+  if (window.ARTIKEL) {
+    ergaenze(window.ARTIKEL.land, window.ARTIKEL.tags || [], window.ARTIKEL.slug);
+    return;
+  }
+
+  /* ── Rueckfall: alte Adresse artikel.html?post=<slug> ─────── */
+  const params   = new URLSearchParams(window.location.search);
+  const postSlug = (params.get('post') || '').replace(/\.md$/, '');
+  const loading  = document.getElementById('artikel-loading');
+  const root     = document.getElementById('artikel-root');
+
+  if (!postSlug || !/^[\w-]+$/.test(postSlug)) {
+    setNoindex();
+    loading.innerHTML = 'Kein Artikel angegeben. <a href="blog.html">Zurück zum Blog</a>';
+    return;
+  }
+
+  // Gibt es die fertige Seite schon, dorthin weiterleiten. Sie fehlt nur
+  // kurz, wenn ein Artikel gerade neu ist und die Action noch laeuft.
+  try {
+    const fertig = await fetch(AR.pagePath(postSlug), { method: 'HEAD' });
+    if (fertig.ok) {
+      window.location.replace(AR.pagePath(postSlug) + window.location.hash);
+      return;
+    }
+  } catch (e) { /* nicht erreichbar: unten weiter und hier rendern */ }
+
+  try {
+    const res = await fetch('/posts/' + postSlug + '.md');
+    if (!res.ok) throw new Error('Not found');
+    const parsed = AR.parseFrontmatter(await res.text());
+    if (!parsed) throw new Error('Kein Frontmatter');
+    if (typeof marked === 'undefined') throw new Error('MARKED_MISSING');
+
+    setHead(AR.meta(parsed.data, postSlug));
+    root.innerHTML = AR.renderBody(parsed.data, parsed.body, postSlug, marked);
+    loading.style.display = 'none';
+    root.style.display    = '';
+
+    ergaenze(parsed.data.land, AR.tagsOf(parsed.data), postSlug);
 
   } catch (err) {
     setNoindex();

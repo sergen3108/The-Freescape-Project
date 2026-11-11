@@ -131,7 +131,7 @@ function buildSitemapUrls(posts) {
     const priority = p.typ === 'reiseroute' ? '0.7' : '0.8';
     return (
       '  <url>\n' +
-      `    <loc>${BASE_URL}/artikel.html?post=${p.slug}</loc>\n` +
+      `    <loc>${BASE_URL}/blog/${p.slug}.html</loc>\n` +
       '    <changefreq>monthly</changefreq>\n' +
       `    <priority>${priority}</priority>\n` +
       '  </url>'
@@ -140,7 +140,9 @@ function buildSitemapUrls(posts) {
 }
 
 function updateSitemap(posts) {
-  const current = fs.readFileSync(SITEMAP_PATH, 'utf8');
+  // Zeilenenden vereinheitlichen: der Marker enthaelt einen Umbruch und
+  // wird in einer Windows-Arbeitskopie (CRLF) sonst nicht gefunden
+  const current = fs.readFileSync(SITEMAP_PATH, 'utf8').replace(/\r\n/g, '\n');
   const markerIdx = current.indexOf(SITEMAP_MARKER);
   if (markerIdx === -1) {
     console.error('[generate-feeds] Sitemap-Marker nicht gefunden, sitemap.xml wird NICHT veraendert.');
@@ -155,7 +157,7 @@ function updateSitemap(posts) {
 function buildFeed(posts) {
   const now = new Date().toUTCString();
   const items = posts.map(p => {
-    const link = `${BASE_URL}/artikel.html?post=${p.slug}`;
+    const link = `${BASE_URL}/blog/${p.slug}.html`;
     const pubDate = new Date(p.datum + 'T12:00:00Z').toUTCString();
     return (
       '  <item>\n' +
@@ -176,7 +178,7 @@ function buildFeed(posts) {
     '  <title>The Freescape Project – Blog</title>\n' +
     `  <link>${BASE_URL}/blog.html</link>\n` +
     `  <atom:link href="${BASE_URL}/feed.xml" rel="self" type="application/rss+xml" />\n` +
-    '  <description>Reiseberichte, Routen-Guides und Kosten-Checks von Julia &amp; Sergen aus Kolumbien, Ecuador und Peru.</description>\n' +
+    '  <description>Reiseberichte, Routen-Guides und Kosten-Checks von Julia &amp; Sergen aus Südamerika.</description>\n' +
     '  <language>de-DE</language>\n' +
     `  <lastBuildDate>${now}</lastBuildDate>\n\n` +
     items + '\n\n' +

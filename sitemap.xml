@@ -106,127 +106,127 @@
        ✏️ Bei jedem neuen Blog-Post hier eine weitere <url> ergänzen.
   ═══════════════════════════════════════════════ -->
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=ecuador-reiseroute</loc>
+    <loc>https://thefreescapeproject.com/blog/ecuador-reiseroute.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=cuenca-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/cuenca-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=isabela-island-galapagos-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/isabela-island-galapagos-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=tayrona-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/tayrona-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=palomino-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/palomino-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=mindo-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/mindo-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=santa-cruz-galapagos-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/santa-cruz-galapagos-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=san-cristobal-galapagos-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/san-cristobal-galapagos-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=san-andres-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/san-andres-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=guatape-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/guatape-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=santa-marta-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/santa-marta-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=minca-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/minca-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=costeno-rio-hostel-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/costeno-rio-hostel-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=medellin-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/medellin-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=galapagos-inselhopping-guide</loc>
+    <loc>https://thefreescapeproject.com/blog/galapagos-inselhopping-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=amazonas-cuyabeno-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/amazonas-cuyabeno-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=otavalo-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/otavalo-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=banos-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/banos-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=quilotoa-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/quilotoa-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=cotopaxi-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/cotopaxi-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=quito-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/quito-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=cartagena-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/cartagena-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=salento-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/salento-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=kolumbien-reiseroute</loc>
+    <loc>https://thefreescapeproject.com/blog/kolumbien-reiseroute.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://thefreescapeproject.com/artikel.html?post=bogota-reisefuehrer</loc>
+    <loc>https://thefreescapeproject.com/blog/bogota-reisefuehrer.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

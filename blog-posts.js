@@ -54,7 +54,7 @@ const GITHUB_BRANCH = 'main';
   const posts = [];
   await Promise.all(files.map(async (filename) => {
     if (meta[filename]) {
-      posts.push(buildPost(meta[filename], filename));
+      posts.push(buildPost(meta[filename], filename, true));
       return;
     }
     try {
@@ -120,7 +120,7 @@ function parseFrontmatterRaw(text) {
 function parseFrontmatter(text, filename) {
   const parsed = parseFrontmatterRaw(text);
   if (!parsed) return null;
-  return buildPost(parsed.data, filename);
+  return buildPost(parsed.data, filename, false);
 }
 
 /* Vorschaubild zu einem Foto: assets/img/x.jpg -> assets/img/thumbs/x.jpg
@@ -131,7 +131,11 @@ function thumbOf(src) {
   return m ? 'assets/img/thumbs/' + m[1] : src;
 }
 
-function buildPost(data, filename) {
+/* fertig: true, wenn der Artikel in posts-meta.json steht. Die Action
+   schreibt posts-meta.json und die fertige Seite blog/<slug>.html im
+   selben Lauf, also gibt es die Seite dann. Ein gerade erst gepushter
+   Artikel zeigt bis dahin auf die Rueckfall-Ansicht artikel.html. */
+function buildPost(data, filename, fertig) {
   const id       = filename.replace(/\.md$/, '');
   const datum    = data.datum || new Date().toISOString().slice(0, 10);
   const land     = data.land || '';
@@ -165,7 +169,7 @@ function buildPost(data, filename) {
       emoji:    data.bildEmoji !== undefined ? data.bildEmoji : '✈️',
       gradient: data.bildGradient || 'linear-gradient(135deg,#1a2744,#e8431a)'
     },
-    link: `artikel.html?post=${id}`
+    link: fertig ? `blog/${id}.html` : `artikel.html?post=${id}`
   };
 }
 
