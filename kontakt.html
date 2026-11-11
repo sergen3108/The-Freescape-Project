@@ -127,6 +127,7 @@
 <!-- ═══════════════════════════════════════════
      NAV
 ═══════════════════════════════════════════ -->
+<!-- partial:nav aktiv="kontakt.html" (wird aus partials/nav.html erzeugt, nicht hier bearbeiten) -->
 <nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -146,26 +147,24 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="nav__dropdown-menu">
-          <a href="laender.html" class="nav__dropdown-link" style="font-weight:600;">Alle Länder</a>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Länder</a>
+          <div class="nav__dropdown-trenner"></div>
           <a href="kolumbien.html" class="nav__dropdown-link">Kolumbien</a>
           <a href="ecuador.html" class="nav__dropdown-link">Ecuador</a>
           <a href="peru.html" class="nav__dropdown-link">Peru</a>
           <a href="bolivien.html" class="nav__dropdown-link">Bolivien</a>
           <a href="chile.html" class="nav__dropdown-link">Chile</a>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
           <a href="argentinien.html" class="nav__dropdown-link">Argentinien</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Uruguay</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Paraguay</a>
+          <div class="nav__dropdown-trenner"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Brasilien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Uruguay</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Paraguay</a>
         </div>
       </div>
       <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
       <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
       <a href="kontakt.html" class="nav__link active" data-page="kontakt.html">Kontakt</a>
     </div>
-
-    <!-- Sprachauswahl -->
     <div class="lang-switcher">
       <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
         <span class="lang-switcher__flag">🇩🇪</span>
@@ -180,7 +179,6 @@
         <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
       </div>
     </div>
-
     <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
       YouTube
@@ -211,6 +209,7 @@
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
+<!-- /partial:nav -->
 <main id="main">
 
 <!-- ═══════════════════════════════════════════
@@ -388,11 +387,12 @@
 
 <!-- FOOTER -->
 </main>
+<!-- partial:footer (wird aus partials/footer.html erzeugt, nicht hier bearbeiten) -->
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW-128.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <div class="footer__brand-logo"><img src="assets/img/LOGONEW-128.png" alt=""><span>The Freescape Project</span></div>
         <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
        <div class="footer__social">
   <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
@@ -434,9 +434,9 @@
           <a href="bolivien.html" class="footer__link">Bolivien</a>
           <a href="chile.html" class="footer__link">Chile</a>
           <a href="argentinien.html" class="footer__link">Argentinien</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Brasilien</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Uruguay</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Paraguay</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Brasilien</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Uruguay</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Paraguay</a>
         </div>
       </div>
       <div>
@@ -458,7 +458,9 @@
     </div>
   </div>
 </footer>
+<!-- /partial:footer -->
   
+<!-- partial:cookie-banner (wird aus partials/cookie-banner.html erzeugt, nicht hier bearbeiten) -->
 <div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Mit „Alle akzeptieren“ erlaubst du uns, Google Analytics für eine Besucherstatistik zu nutzen (dabei können Daten an Google in den USA gehen) und die Reisekarte von OpenStreetMap zu laden. Mit „Nur notwendige“ bleibt beides aus. Deine Wahl kannst du jederzeit unter „Cookie-Einstellungen“ im Footer ändern. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -467,6 +469,7 @@
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
 </div>
+<!-- /partial:cookie-banner -->
 
 <script src="main.js" defer></script>
 

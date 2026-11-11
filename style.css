@@ -318,6 +318,9 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   transition: color var(--t-fast), background var(--t-fast);
 }
 .nav__dropdown-link:hover { color: var(--white); background: rgba(255,255,255,0.08); }
+.nav__dropdown-link--alle { font-weight: 600; }
+.nav__dropdown-link--geplant { opacity: 0.55; }
+.nav__dropdown-trenner { border-top: 1px solid rgba(255,255,255,0.1); margin: 4px 0; }
 
 /* === LANGUAGE SWITCHER =======================================
    Deaktiviert (siehe .lang-switcher { display:none } weiter unten).
@@ -1701,12 +1704,16 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   margin-bottom: var(--sp-12);
 }
 .footer__brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   font-family: var(--font-display);
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--white);
   margin-bottom: var(--sp-4);
 }
+.footer__brand-logo img { height: 2.5rem; }
 .footer__brand-desc {
   color: rgba(255,255,255,0.5);
   font-size: 0.875rem;
@@ -1745,6 +1752,7 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   transition: color var(--t-fast);
 }
 .footer__link:hover { color: var(--white); }
+.footer__link--geplant { opacity: 0.5; }
 .footer__bottom {
   border-top: 1px solid rgba(255,255,255,0.08);
   padding-top: var(--sp-8);
@@ -1893,6 +1901,34 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   padding: 0.55rem 1rem;
   border-radius: var(--r-full);
 }
+
+/* Laenderseiten: Fliesstext, Zwischenueberschriften und die Karten
+   unter "Praktische Infos" (Reisezeit, Fortbewegung, Sicherheit ...) */
+.land-text { color: var(--gray-600); line-height: 1.9; margin: 1rem 0; }
+.land-subhead { margin-top: 2.5rem; }
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.info-card {
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--r-lg);
+  padding: 1.25rem 1.5rem;
+}
+.info-card__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--terra-600);
+  margin-bottom: 0.5rem;
+}
+.info-card__text { font-size: 0.9rem; color: var(--gray-600); line-height: 1.6; }
+/* Hinweis unter den Kosten-Karten (Laenderseiten, index.html, kosten.html) */
+.kosten-hinweis { color: var(--gray-500); font-size: 0.85rem; margin-top: 1rem; }
 
 .orte-grid {
   display: grid;

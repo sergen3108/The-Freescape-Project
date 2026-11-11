@@ -218,15 +218,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Desktop-Dropdown
   document.querySelectorAll('.nav__dropdown-menu').forEach(function (menu) {
-    var html = '<a href="laender.html" class="nav__dropdown-link" style="font-weight:600;">Alle Länder</a>'
-      + '<div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>';
+    var html = '<a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Länder</a>'
+      + '<div class="nav__dropdown-trenner"></div>';
     bereist.forEach(function (l) {
       html += '<a href="' + l.datei + '" class="nav__dropdown-link">' + l.name + '</a>';
     });
     if (geplant.length) {
-      html += '<div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>';
+      html += '<div class="nav__dropdown-trenner"></div>';
       geplant.forEach(function (l) {
-        html += '<a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">' + l.name + '</a>';
+        html += '<a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">' + l.name + '</a>';
       });
     }
     menu.innerHTML = html;

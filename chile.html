@@ -78,6 +78,7 @@
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <!-- ── Navigation ───────────────────────────────────────────── -->
+<!-- partial:nav aktiv="laender.html" (wird aus partials/nav.html erzeugt, nicht hier bearbeiten) -->
 <nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -97,19 +98,18 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="nav__dropdown-menu">
-          <!-- Wird aus laender-config.js befuellt. Statisch als Fallback: -->
-          <a href="laender.html" class="nav__dropdown-link" style="font-weight:600;">Alle Länder</a>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Länder</a>
+          <div class="nav__dropdown-trenner"></div>
           <a href="kolumbien.html" class="nav__dropdown-link">Kolumbien</a>
           <a href="ecuador.html" class="nav__dropdown-link">Ecuador</a>
           <a href="peru.html" class="nav__dropdown-link">Peru</a>
           <a href="bolivien.html" class="nav__dropdown-link">Bolivien</a>
           <a href="chile.html" class="nav__dropdown-link">Chile</a>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
           <a href="argentinien.html" class="nav__dropdown-link">Argentinien</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Uruguay</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Paraguay</a>
+          <div class="nav__dropdown-trenner"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Brasilien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Uruguay</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Paraguay</a>
         </div>
       </div>
       <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
@@ -160,6 +160,7 @@
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
+<!-- /partial:nav -->
 <main id="main">
 
 <!-- ── Hero ─────────────────────────────────────────────────── -->
@@ -210,13 +211,13 @@
     <div style="max-width:760px;">
       <span class="status-badge status-badge--visited">✓ Bereist · 04. bis 08. Sep und 03. Okt bis 09. Nov 2026</span>
       <h2>Unsere Zeit in Chile</h2>
-      <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
+      <p class="land-text">
         Nach der dreitägigen Tour über den Salar de Uyuni haben wir ein paar Tage in San Pedro
         de Atacama verbracht, mitten in der trockensten Wüste der Welt. Zwischen Geysiren,
         Salzseen und einem unglaublichen Sternenhimmel war das ein kurzer, aber intensiver
         Zwischenstopp, bevor es weiter nach Argentinien ging.
       </p>
-      <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
+      <p class="land-text">
         Nach knapp vier Wochen Argentinien sind wir zurückgekommen: Mit dem Bus ging es von
         Mendoza über die Anden nach Santiago de Chile und von dort weiter mit dem Bus nach
         Viña del Mar an die Pazifikküste und am 14.10. gemeinsam zurück nach Santiago. Vom 15. bis 22.10.
@@ -230,7 +231,7 @@
       </p>
     </div>
 
-    <h3 style="margin-top:2.5rem;">Orte, die wir in Chile besucht haben</h3>
+    <h3 class="land-subhead">Orte, die wir in Chile besucht haben</h3>
     <div class="orte-grid">
       <a class="ort-chip" data-ort="San Pedro de Atacama"><strong>San Pedro de Atacama</strong><span>Tor zur Atacama-Wüste</span><span class="ort-chip__hint">Mehr im Blog</span></a>
       <a class="ort-chip" data-ort="Viña del Mar"><strong>Viña del Mar</strong><span>10. bis 14. Okt, mit dem Bus aus Santiago an die Pazifikküste</span><span class="ort-chip__hint">Mehr im Blog</span></a>
@@ -244,15 +245,15 @@
       <a class="ort-chip" data-ort="Puerto Natales"><strong>Puerto Natales</strong><span>06. bis 09. Nov, Tor zum Nationalpark Torres del Paine</span><span class="ort-chip__hint">Mehr im Blog</span></a>
     </div>
 
-    <h3 style="margin-top:2.5rem;">Praktische Infos für Chile</h3>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem;">
-      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
-        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">☀️ Beste Reisezeit</p>
-        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Die Atacama-Wüste lässt sich ganzjährig bereisen, die Trockenzeit von April bis November gilt aber als angenehmste Zeit. Nächte auf über 2.400m können sehr kalt werden, auch wenn es tagsüber heiß ist.</p>
+    <h3 class="land-subhead">Praktische Infos für Chile</h3>
+    <div class="info-grid">
+      <div class="info-card">
+        <p class="info-card__label">☀️ Beste Reisezeit</p>
+        <p class="info-card__text">Die Atacama-Wüste lässt sich ganzjährig bereisen, die Trockenzeit von April bis November gilt aber als angenehmste Zeit. Nächte auf über 2.400m können sehr kalt werden, auch wenn es tagsüber heiß ist.</p>
       </div>
-      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
-        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">🚌 Fortbewegung</p>
-        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Die meisten Salar-de-Uyuni-Touren enden direkt an der Grenze bei San Pedro de Atacama, ein bequemer Übergang ohne separate Busfahrt. Von Mendoza nach Santiago fahren täglich Busse über den Andenpass Cristo Redentor, eine der schönsten Strecken der Reise.</p>
+      <div class="info-card">
+        <p class="info-card__label">🚌 Fortbewegung</p>
+        <p class="info-card__text">Die meisten Salar-de-Uyuni-Touren enden direkt an der Grenze bei San Pedro de Atacama, ein bequemer Übergang ohne separate Busfahrt. Von Mendoza nach Santiago fahren täglich Busse über den Andenpass Cristo Redentor, eine der schönsten Strecken der Reise.</p>
       </div>
     </div>
 
@@ -311,7 +312,7 @@
         </div>
       </div>
     </div>
-    <p style="color:var(--gray-500);font-size:0.85rem;margin-top:1rem;">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
+    <p class="kosten-hinweis">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
     <p style="margin-top:1.5rem;"><a href="kosten.html" class="btn btn-outline">Alle Länder im Kostenvergleich →</a></p>
   </div>
 </section>
@@ -408,11 +409,12 @@
 
 <!-- FOOTER -->
 </main>
+<!-- partial:footer (wird aus partials/footer.html erzeugt, nicht hier bearbeiten) -->
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW-128.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <div class="footer__brand-logo"><img src="assets/img/LOGONEW-128.png" alt=""><span>The Freescape Project</span></div>
         <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
        <div class="footer__social">
   <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
@@ -454,9 +456,9 @@
           <a href="bolivien.html" class="footer__link">Bolivien</a>
           <a href="chile.html" class="footer__link">Chile</a>
           <a href="argentinien.html" class="footer__link">Argentinien</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Brasilien</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Uruguay</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Paraguay</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Brasilien</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Uruguay</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Paraguay</a>
         </div>
       </div>
       <div>
@@ -478,8 +480,10 @@
     </div>
   </div>
 </footer>
+<!-- /partial:footer -->
 
 <!-- ── Cookie Banner ────────────────────────────────────────── -->
+<!-- partial:cookie-banner (wird aus partials/cookie-banner.html erzeugt, nicht hier bearbeiten) -->
 <div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Mit „Alle akzeptieren“ erlaubst du uns, Google Analytics für eine Besucherstatistik zu nutzen (dabei können Daten an Google in den USA gehen) und die Reisekarte von OpenStreetMap zu laden. Mit „Nur notwendige“ bleibt beides aus. Deine Wahl kannst du jederzeit unter „Cookie-Einstellungen“ im Footer ändern. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -488,6 +492,7 @@
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
 </div>
+<!-- /partial:cookie-banner -->
 
 <script src="blog-posts.js" defer></script>
 <script src="laender-config.js" defer></script>

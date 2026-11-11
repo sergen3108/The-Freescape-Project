@@ -1,0 +1,81 @@
+<nav class="nav {{klasse}}" aria-label="Hauptnavigation">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/img/LOGONEW-128.png" alt="The Freescape Project Logo" class="nav__logo-img">
+      <span class="nav__logo-text">
+        <span class="nav__logo-main">The Freescape Project</span>
+        <span class="nav__logo-sub">Julia &amp; Sergen · Auf Reisen</span>
+      </span>
+    </a>
+    <div class="nav__menu">
+      <a href="index.html" class="nav__link" data-page="index.html">Start</a>
+      <a href="ueber-uns.html" class="nav__link" data-page="ueber-uns.html">Über uns</a>
+      <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
+      <a href="blog.html" class="nav__link" data-page="blog.html">Blog</a>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Länder
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Länder</a>
+          <div class="nav__dropdown-trenner"></div>
+          <a href="kolumbien.html" class="nav__dropdown-link">Kolumbien</a>
+          <a href="ecuador.html" class="nav__dropdown-link">Ecuador</a>
+          <a href="peru.html" class="nav__dropdown-link">Peru</a>
+          <a href="bolivien.html" class="nav__dropdown-link">Bolivien</a>
+          <a href="chile.html" class="nav__dropdown-link">Chile</a>
+          <a href="argentinien.html" class="nav__dropdown-link">Argentinien</a>
+          <div class="nav__dropdown-trenner"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Brasilien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Uruguay</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Paraguay</a>
+        </div>
+      </div>
+      <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
+      <a href="galerie.html" class="nav__link" data-page="galerie.html">Galerie</a>
+      <a href="kontakt.html" class="nav__link" data-page="kontakt.html">Kontakt</a>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-switcher__btn" aria-expanded="false" aria-haspopup="listbox">
+        <span class="lang-switcher__flag">🇩🇪</span>
+        <span class="lang-switcher__label">DE</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lang-switcher__dropdown" role="listbox">
+        <button class="lang-switcher__option lang-switcher__option--active" data-flag="🇩🇪" data-label="DE">🇩🇪 Deutsch</button>
+        <button class="lang-switcher__option" data-flag="🇬🇧" data-label="EN">🇬🇧 English</button>
+        <button class="lang-switcher__option" data-flag="🇪🇸" data-label="ES">🇪🇸 Español</button>
+        <button class="lang-switcher__option" data-flag="🇹🇷" data-label="TR">🇹🇷 Türkçe</button>
+        <button class="lang-switcher__option" data-flag="🇷🇺" data-label="RU">🇷🇺 Русский</button>
+      </div>
+    </div>
+    <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="nav__cta">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg>
+      YouTube
+    </a>
+    <button class="nav__burger" aria-label="Menü" aria-expanded="false" aria-controls="nav-mobile-menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mobile" id="nav-mobile-menu">
+  <a href="index.html" class="nav__mobile-link">Start</a>
+  <a href="ueber-uns.html" class="nav__mobile-link">Über uns</a>
+  <a href="vlogs.html" class="nav__mobile-link">Vlogs</a>
+  <a href="blog.html" class="nav__mobile-link">Blog</a>
+  <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
+  <a href="galerie.html" class="nav__mobile-link">Galerie</a>
+  <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <button type="button" class="nav__mobile-link nav__mobile-toggle" id="nav-mobile-laender-toggle" aria-expanded="false" aria-controls="nav-mobile-laender-submenu">
+    Länder
+    <svg class="nav__mobile-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="nav__mobile-submenu" id="nav-mobile-laender-submenu" hidden>
+    <a href="laender.html" class="nav__mobile-link nav__mobile-sublink">Alle Länder</a>
+    <a href="kolumbien.html" class="nav__mobile-link nav__mobile-sublink">Kolumbien</a>
+    <a href="ecuador.html" class="nav__mobile-link nav__mobile-sublink">Ecuador</a>
+    <a href="peru.html" class="nav__mobile-link nav__mobile-sublink">Peru</a>
+    <a href="bolivien.html" class="nav__mobile-link nav__mobile-sublink">Bolivien</a>
+    <a href="chile.html" class="nav__mobile-link nav__mobile-sublink">Chile</a>
+    <a href="argentinien.html" class="nav__mobile-link nav__mobile-sublink">Argentinien</a>
+  </div>
+  <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
+</div>

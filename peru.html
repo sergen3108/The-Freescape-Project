@@ -80,6 +80,7 @@
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <!-- ── Navigation ───────────────────────────────────────────── -->
+<!-- partial:nav aktiv="laender.html" (wird aus partials/nav.html erzeugt, nicht hier bearbeiten) -->
 <nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -99,19 +100,18 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="nav__dropdown-menu">
-          <!-- Wird aus laender-config.js befuellt. Statisch als Fallback: -->
-          <a href="laender.html" class="nav__dropdown-link" style="font-weight:600;">Alle Länder</a>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Länder</a>
+          <div class="nav__dropdown-trenner"></div>
           <a href="kolumbien.html" class="nav__dropdown-link">Kolumbien</a>
           <a href="ecuador.html" class="nav__dropdown-link">Ecuador</a>
           <a href="peru.html" class="nav__dropdown-link">Peru</a>
           <a href="bolivien.html" class="nav__dropdown-link">Bolivien</a>
           <a href="chile.html" class="nav__dropdown-link">Chile</a>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
           <a href="argentinien.html" class="nav__dropdown-link">Argentinien</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Uruguay</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Paraguay</a>
+          <div class="nav__dropdown-trenner"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Brasilien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Uruguay</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Paraguay</a>
         </div>
       </div>
       <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
@@ -162,6 +162,7 @@
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
+<!-- /partial:nav -->
 <main id="main">
 
 <!-- ── Hero ─────────────────────────────────────────────────── -->
@@ -212,13 +213,13 @@
     <div style="max-width:760px;">
       <span class="status-badge status-badge--visited">Bereist · Jun bis Aug 2026</span>
       <h2>Unsere Zeit in Peru</h2>
-      <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
+      <p class="land-text">
         Nach über anderthalb Monaten in Ecuador haben wir die Grenze nach Peru überquert und
         sind direkt an der Pazifikküste gelandet. Peru war eines der abwechslungsreichsten
         Länder der ganzen Reise. Vom Surfer-Ort Máncora im Norden über die Lehmstädte bei
         Trujillo bis in die Bergwelt rund um Huaraz auf über 4.000 Metern war bisher alles dabei.
       </p>
-      <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
+      <p class="land-text">
         Von Paracas ging es weiter nach Huacachina, der Oase mitten in der Wüste mit
         Sandboarding und Sonnenuntergang über den Dünen, und dann nach Nazca zu den
         berühmten Nazca-Linien. Von dort aus sind wir nach Cusco weitergereist, haben eine
@@ -226,7 +227,7 @@
         von wo aus wir Machu Picchu besucht haben. Danach haben wir den Rainbow Mountain
         bestiegen und sind über Cusco weiter nach Arequipa gereist.
       </p>
-      <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
+      <p class="land-text">
         Von Arequipa aus ging es auf eine Wanderung zum Colca Canyon mit einer Übernachtung
         im Tal. Anschließend sind wir nach Puno weitergereist und haben dort ebenfalls eine
         Nacht verbracht, bevor wir mit dem Bus über den Titicacasee nach Copacabana in
@@ -235,7 +236,7 @@
       </p>
     </div>
 
-    <h3 style="margin-top:2.5rem;">Orte, die wir in Peru besucht haben</h3>
+    <h3 class="land-subhead">Orte, die wir in Peru besucht haben</h3>
     <div class="orte-grid">
       <a class="ort-chip" data-ort="Máncora"><strong>Máncora</strong><span>Strand, Surfen und Backpacker-Vibes</span><span class="ort-chip__hint">Mehr im Blog</span></a>
       <a class="ort-chip" data-ort="Huanchaco"><strong>Huanchaco</strong><span>Totora-Boote und Ausgangspunkt für Chan Chan</span><span class="ort-chip__hint">Mehr im Blog</span></a>
@@ -255,19 +256,19 @@
       <a class="ort-chip" data-ort="Puno"><strong>Puno</strong><span>Letzte Station am Titicacasee vor Bolivien</span><span class="ort-chip__hint">Mehr im Blog</span></a>
     </div>
 
-    <h3 style="margin-top:2.5rem;">Praktische Infos für Peru</h3>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem;">
-      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
-        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">☀️ Beste Reisezeit</p>
-        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Perus Küste (u.a. Lima) ist ganzjährig mild und trocken. Für das Hochland rund um Cusco und Machu Picchu ist die Trockenzeit von Mai bis September die beliebteste Reisezeit; in der Regenzeit von Dezember bis März können Wege schwieriger und manche Touren eingeschränkt sein. Der Amazonas-Regenwald ist ganzjährig feucht und warm.</p>
+    <h3 class="land-subhead">Praktische Infos für Peru</h3>
+    <div class="info-grid">
+      <div class="info-card">
+        <p class="info-card__label">☀️ Beste Reisezeit</p>
+        <p class="info-card__text">Perus Küste (u.a. Lima) ist ganzjährig mild und trocken. Für das Hochland rund um Cusco und Machu Picchu ist die Trockenzeit von Mai bis September die beliebteste Reisezeit; in der Regenzeit von Dezember bis März können Wege schwieriger und manche Touren eingeschränkt sein. Der Amazonas-Regenwald ist ganzjährig feucht und warm.</p>
       </div>
-      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
-        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">🚌 Fortbewegung</p>
-        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Fernbusse (z.B. Cruz del Sur) sind komfortabel und decken die Küste gut ab, für weite Strecken wie Lima–Cusco lohnt sich meist ein Inlandsflug. Nach Machu Picchu geht es mit dem Zug (PeruRail/IncaRail) oder zu Fuß auf dem Inka-Trail.</p>
+      <div class="info-card">
+        <p class="info-card__label">🚌 Fortbewegung</p>
+        <p class="info-card__text">Fernbusse (z.B. Cruz del Sur) sind komfortabel und decken die Küste gut ab, für weite Strecken wie Lima–Cusco lohnt sich meist ein Inlandsflug. Nach Machu Picchu geht es mit dem Zug (PeruRail/IncaRail) oder zu Fuß auf dem Inka-Trail.</p>
       </div>
-      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
-        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">🛡️ Sicherheit</p>
-        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Wir haben uns auch in Peru überall sicher gefühlt, waren aber nie allein oder nachts unterwegs. Einheimische haben uns immer wieder vor bestimmten Gefahren gewarnt, und wer sich daran hält, ist meistens auf der sicheren Seite. Wie in den anderen Ländern sind wir ausschließlich mit inDrive und Uber statt mit Straßentaxis gefahren. Wir haben immer aufgepasst. Für aktuelle Einschätzungen empfiehlt sich ein Blick in die Reise- und Sicherheitshinweise des Auswärtigen Amts.</p>
+      <div class="info-card">
+        <p class="info-card__label">🛡️ Sicherheit</p>
+        <p class="info-card__text">Wir haben uns auch in Peru überall sicher gefühlt, waren aber nie allein oder nachts unterwegs. Einheimische haben uns immer wieder vor bestimmten Gefahren gewarnt, und wer sich daran hält, ist meistens auf der sicheren Seite. Wie in den anderen Ländern sind wir ausschließlich mit inDrive und Uber statt mit Straßentaxis gefahren. Wir haben immer aufgepasst. Für aktuelle Einschätzungen empfiehlt sich ein Blick in die Reise- und Sicherheitshinweise des Auswärtigen Amts.</p>
       </div>
     </div>
 
@@ -317,7 +318,7 @@
         <span class="kosten-card__monthly-label">⌀ Ausgaben pro Monat</span>
       </div>
     </div>
-    <p style="color:var(--gray-500);font-size:0.85rem;margin-top:1rem;">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
+    <p class="kosten-hinweis">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
     <p style="margin-top:1.5rem;"><a href="kosten.html" class="btn btn-outline">Alle Länder im Kostenvergleich →</a></p>
   </div>
 </section>
@@ -414,11 +415,12 @@
 
 <!-- FOOTER -->
 </main>
+<!-- partial:footer (wird aus partials/footer.html erzeugt, nicht hier bearbeiten) -->
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW-128.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <div class="footer__brand-logo"><img src="assets/img/LOGONEW-128.png" alt=""><span>The Freescape Project</span></div>
         <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
        <div class="footer__social">
   <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
@@ -460,9 +462,9 @@
           <a href="bolivien.html" class="footer__link">Bolivien</a>
           <a href="chile.html" class="footer__link">Chile</a>
           <a href="argentinien.html" class="footer__link">Argentinien</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Brasilien</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Uruguay</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Paraguay</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Brasilien</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Uruguay</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Paraguay</a>
         </div>
       </div>
       <div>
@@ -484,8 +486,10 @@
     </div>
   </div>
 </footer>
+<!-- /partial:footer -->
 
 <!-- ── Cookie Banner ────────────────────────────────────────── -->
+<!-- partial:cookie-banner (wird aus partials/cookie-banner.html erzeugt, nicht hier bearbeiten) -->
 <div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Mit „Alle akzeptieren“ erlaubst du uns, Google Analytics für eine Besucherstatistik zu nutzen (dabei können Daten an Google in den USA gehen) und die Reisekarte von OpenStreetMap zu laden. Mit „Nur notwendige“ bleibt beides aus. Deine Wahl kannst du jederzeit unter „Cookie-Einstellungen“ im Footer ändern. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -494,6 +498,7 @@
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
 </div>
+<!-- /partial:cookie-banner -->
 
 <script src="blog-posts.js" defer></script>
 <script src="laender-config.js" defer></script>

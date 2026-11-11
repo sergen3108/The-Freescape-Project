@@ -63,6 +63,7 @@
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <!-- ── Navigation ───────────────────────────────────────── -->
+<!-- partial:nav aktiv="index.html" (wird aus partials/nav.html erzeugt, nicht hier bearbeiten) -->
 <nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -73,7 +74,7 @@
       </span>
     </a>
     <div class="nav__menu">
-      <a href="index.html" class="nav__link" data-page="index.html">Start</a>
+      <a href="index.html" class="nav__link active" data-page="index.html">Start</a>
       <a href="ueber-uns.html" class="nav__link" data-page="ueber-uns.html">Über uns</a>
       <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
       <a href="blog.html" class="nav__link" data-page="blog.html">Blog</a>
@@ -82,18 +83,18 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="nav__dropdown-menu">
-          <a href="laender.html" class="nav__dropdown-link" style="font-weight:600;">Alle Länder</a>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Länder</a>
+          <div class="nav__dropdown-trenner"></div>
           <a href="kolumbien.html" class="nav__dropdown-link">Kolumbien</a>
           <a href="ecuador.html" class="nav__dropdown-link">Ecuador</a>
           <a href="peru.html" class="nav__dropdown-link">Peru</a>
           <a href="bolivien.html" class="nav__dropdown-link">Bolivien</a>
           <a href="chile.html" class="nav__dropdown-link">Chile</a>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
           <a href="argentinien.html" class="nav__dropdown-link">Argentinien</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Uruguay</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Paraguay</a>
+          <div class="nav__dropdown-trenner"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Brasilien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Uruguay</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Paraguay</a>
         </div>
       </div>
       <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
@@ -144,6 +145,7 @@
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
+<!-- /partial:nav -->
 <main id="main">
 
 <!-- HERO -->
@@ -327,7 +329,7 @@
       </div>
       <ul class="kosten-legend" data-k="legend"></ul>
     </div>
-    <p style="color:var(--gray-500);font-size:0.85rem;margin-top:1rem;">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
+    <p class="kosten-hinweis">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
     <div style="text-align:center;margin-top:2.5rem;">
       <a href="kosten.html" class="btn btn-outline btn-lg">Alle Kosten im Ländervergleich</a>
     </div>
@@ -358,11 +360,12 @@
 
 <!-- FOOTER -->
 </main>
+<!-- partial:footer (wird aus partials/footer.html erzeugt, nicht hier bearbeiten) -->
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW-128.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <div class="footer__brand-logo"><img src="assets/img/LOGONEW-128.png" alt=""><span>The Freescape Project</span></div>
         <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
        <div class="footer__social">
   <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
@@ -404,9 +407,9 @@
           <a href="bolivien.html" class="footer__link">Bolivien</a>
           <a href="chile.html" class="footer__link">Chile</a>
           <a href="argentinien.html" class="footer__link">Argentinien</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Brasilien</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Uruguay</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Paraguay</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Brasilien</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Uruguay</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Paraguay</a>
         </div>
       </div>
       <div>
@@ -428,7 +431,9 @@
     </div>
   </div>
 </footer>
+<!-- /partial:footer -->
 
+<!-- partial:cookie-banner (wird aus partials/cookie-banner.html erzeugt, nicht hier bearbeiten) -->
 <div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Mit „Alle akzeptieren“ erlaubst du uns, Google Analytics für eine Besucherstatistik zu nutzen (dabei können Daten an Google in den USA gehen) und die Reisekarte von OpenStreetMap zu laden. Mit „Nur notwendige“ bleibt beides aus. Deine Wahl kannst du jederzeit unter „Cookie-Einstellungen“ im Footer ändern. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -437,6 +442,7 @@
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
 </div>
+<!-- /partial:cookie-banner -->
 
 <script src="blog-posts.js" defer></script>
 <script src="laender-config.js" defer></script>

@@ -1,0 +1,58 @@
+# ============================================================
+#  Seitenbausteine abgleichen
+#
+#  Navigation, Footer und Cookie-Banner liegen als Vorlagen in
+#  partials/. Diese Action traegt sie in alle Seiten ein (zwischen
+#  die Marker <!-- partial:... --> und <!-- /partial:... -->), damit
+#  eine Aenderung an der Navigation nur an EINER Stelle noetig ist.
+#  Laeuft bei Aenderungen an den Vorlagen oder an einer Seite.
+# ============================================================
+name: Seitenbausteine abgleichen
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'partials/**'
+      - '*.html'
+      - 'scripts/sync-partials.js'
+  # Zusaetzlich manuell ausloesbar (Actions-Tab -> Run workflow)
+  workflow_dispatch:
+
+# Schreibrechte, damit die Action committen darf
+permissions:
+  contents: write
+
+# Nicht gleichzeitig mit den anderen Actions laufen, die Seiten erzeugen
+concurrency:
+  group: seiten-erzeugen
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Node einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Bausteine in alle Seiten eintragen
+        run: node scripts/sync-partials.js
+
+      - name: Aenderungen committen
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -u -- '*.html'
+          if git diff --staged --quiet; then
+            echo "Keine Aenderungen, nichts zu committen."
+          else
+            git commit -m "Seitenbausteine abgeglichen (automatisch)"
+            # Falls parallel eine andere Action gepusht hat
+            git pull --rebase
+            git push
+          fi

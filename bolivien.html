@@ -80,6 +80,7 @@
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
 <!-- ── Navigation ───────────────────────────────────────────── -->
+<!-- partial:nav aktiv="laender.html" (wird aus partials/nav.html erzeugt, nicht hier bearbeiten) -->
 <nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -99,19 +100,18 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
         <div class="nav__dropdown-menu">
-          <!-- Wird aus laender-config.js befuellt. Statisch als Fallback: -->
-          <a href="laender.html" class="nav__dropdown-link" style="font-weight:600;">Alle Länder</a>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
+          <a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Länder</a>
+          <div class="nav__dropdown-trenner"></div>
           <a href="kolumbien.html" class="nav__dropdown-link">Kolumbien</a>
           <a href="ecuador.html" class="nav__dropdown-link">Ecuador</a>
           <a href="peru.html" class="nav__dropdown-link">Peru</a>
           <a href="bolivien.html" class="nav__dropdown-link">Bolivien</a>
           <a href="chile.html" class="nav__dropdown-link">Chile</a>
-          <div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>
           <a href="argentinien.html" class="nav__dropdown-link">Argentinien</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Brasilien</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Uruguay</a>
-          <a href="laender.html#geplant" class="nav__dropdown-link" style="opacity:0.55;">Paraguay</a>
+          <div class="nav__dropdown-trenner"></div>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Brasilien</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Uruguay</a>
+          <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Paraguay</a>
         </div>
       </div>
       <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
@@ -162,6 +162,7 @@
   </div>
   <a href="https://www.youtube.com/@TheFreescapeProject" class="nav__mobile-link" target="_blank" rel="noopener">▶ YouTube</a>
 </div>
+<!-- /partial:nav -->
 <main id="main">
 
 <!-- ── Hero ─────────────────────────────────────────────────── -->
@@ -212,12 +213,12 @@
     <div style="max-width:760px;">
       <span class="status-badge status-badge--visited">✓ Bereist · Aug bis Sep 2026</span>
       <h2>Unsere Zeit in Bolivien</h2>
-      <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
+      <p class="land-text">
         Nach zwei Monaten in Peru sind wir mit dem Bus über den Titicacasee nach Bolivien
         weitergereist. Von Copacabana und der Isla del Sol ging es nach La Paz, dem höchsten
         Regierungssitz der Welt, und weiter über die Kolonialstädte Sucre und Potosí.
       </p>
-      <p style="color:var(--gray-600);line-height:1.9;margin:1rem 0;">
+      <p class="land-text">
         Den Abschluss bildete eine dreitägige Tour über den Salar de Uyuni, den größten
         Salzsee der Erde, mit Übernachtungen mitten in der Wüste. Hier sammeln wir alle
         Videos, Orte und Blog-Artikel aus Bolivien an einer Stelle, ehrlich und direkt von
@@ -225,7 +226,7 @@
       </p>
     </div>
 
-    <h3 style="margin-top:2.5rem;">Orte, die wir in Bolivien besucht haben</h3>
+    <h3 class="land-subhead">Orte, die wir in Bolivien besucht haben</h3>
     <div class="orte-grid">
       <a class="ort-chip" data-ort="Copacabana"><strong>Copacabana</strong><span>Am Titicacasee, erste Station in Bolivien</span><span class="ort-chip__hint">Mehr im Blog</span></a>
       <a class="ort-chip" data-ort="Isla del Sol"><strong>Isla del Sol</strong><span>Insel im Titicacasee, eine Nacht</span><span class="ort-chip__hint">Mehr im Blog</span></a>
@@ -236,15 +237,15 @@
       <a class="ort-chip" data-ort="Salar de Uyuni"><strong>Salar de Uyuni</strong><span>3-tägige Tour über den größten Salzsee der Erde</span><span class="ort-chip__hint">Mehr im Blog</span></a>
     </div>
 
-    <h3 style="margin-top:2.5rem;">Praktische Infos für Bolivien</h3>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem;">
-      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
-        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">☀️ Beste Reisezeit</p>
-        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Die Trockenzeit von Mai bis Oktober ist die beliebteste Reisezeit für das bolivianische Hochland, unter anderem für den Salar de Uyuni, der in der Regenzeit teilweise geflutet ist. Nächte auf über 3.500m können auch tagsüber sonnig, aber empfindlich kalt sein.</p>
+    <h3 class="land-subhead">Praktische Infos für Bolivien</h3>
+    <div class="info-grid">
+      <div class="info-card">
+        <p class="info-card__label">☀️ Beste Reisezeit</p>
+        <p class="info-card__text">Die Trockenzeit von Mai bis Oktober ist die beliebteste Reisezeit für das bolivianische Hochland, unter anderem für den Salar de Uyuni, der in der Regenzeit teilweise geflutet ist. Nächte auf über 3.500m können auch tagsüber sonnig, aber empfindlich kalt sein.</p>
       </div>
-      <div style="background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
-        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra-600);margin-bottom:0.5rem;">🚌 Fortbewegung</p>
-        <p style="font-size:0.9rem;color:var(--gray-600);line-height:1.6;">Die Grenze von Peru nach Bolivien lässt sich gut per Bus über Copacabana überqueren. Im Land selbst sind Fernbusse die günstigste Option, wir sind auch für weite Strecken wie nach Uyuni oder Sucre immer mit dem Nachtbus gefahren.</p>
+      <div class="info-card">
+        <p class="info-card__label">🚌 Fortbewegung</p>
+        <p class="info-card__text">Die Grenze von Peru nach Bolivien lässt sich gut per Bus über Copacabana überqueren. Im Land selbst sind Fernbusse die günstigste Option, wir sind auch für weite Strecken wie nach Uyuni oder Sucre immer mit dem Nachtbus gefahren.</p>
       </div>
     </div>
 
@@ -293,7 +294,7 @@
         <span class="kosten-card__monthly-label">⌀ Ausgaben pro Monat</span>
       </div>
     </div>
-    <p style="color:var(--gray-500);font-size:0.85rem;margin-top:1rem;">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
+    <p class="kosten-hinweis">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
     <p style="margin-top:1.5rem;"><a href="kosten.html" class="btn btn-outline">Alle Länder im Kostenvergleich →</a></p>
   </div>
 </section>
@@ -395,11 +396,12 @@
 
 <!-- FOOTER -->
 </main>
+<!-- partial:footer (wird aus partials/footer.html erzeugt, nicht hier bearbeiten) -->
 <footer class="footer">
   <div class="container">
     <div class="footer__grid">
       <div>
-        <div class="footer__brand-logo" style="display:flex;align-items:center;gap:0.75rem;"><img src="assets/img/LOGONEW-128.png" alt="" style="height:2.5rem;"><span>The Freescape Project</span></div>
+        <div class="footer__brand-logo"><img src="assets/img/LOGONEW-128.png" alt=""><span>The Freescape Project</span></div>
         <p class="footer__brand-desc">Julia &amp; Sergen reisen ein Jahr durch Südamerika. Vlogs, Reiseberichte und ehrliche Einblicke.</p>
        <div class="footer__social">
   <a href="https://www.youtube.com/@TheFreescapeProject" target="_blank" rel="noopener" class="footer__social-link" aria-label="YouTube">
@@ -441,9 +443,9 @@
           <a href="bolivien.html" class="footer__link">Bolivien</a>
           <a href="chile.html" class="footer__link">Chile</a>
           <a href="argentinien.html" class="footer__link">Argentinien</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Brasilien</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Uruguay</a>
-          <a href="laender.html#geplant" class="footer__link" style="opacity:0.5;">Paraguay</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Brasilien</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Uruguay</a>
+          <a href="laender.html#geplant" class="footer__link footer__link--geplant">Paraguay</a>
         </div>
       </div>
       <div>
@@ -465,8 +467,10 @@
     </div>
   </div>
 </footer>
+<!-- /partial:footer -->
 
 <!-- ── Cookie Banner ────────────────────────────────────────── -->
+<!-- partial:cookie-banner (wird aus partials/cookie-banner.html erzeugt, nicht hier bearbeiten) -->
 <div class="cookie-banner" role="region" aria-label="Cookie-Hinweis">
   <div class="cookie-banner__title">Cookies &amp; Datenschutz</div>
   <p class="cookie-banner__text">Mit „Alle akzeptieren“ erlaubst du uns, Google Analytics für eine Besucherstatistik zu nutzen (dabei können Daten an Google in den USA gehen) und die Reisekarte von OpenStreetMap zu laden. Mit „Nur notwendige“ bleibt beides aus. Deine Wahl kannst du jederzeit unter „Cookie-Einstellungen“ im Footer ändern. <a href="datenschutz.html" style="color:var(--terra-400);">Datenschutzerklärung</a></p>
@@ -475,6 +479,7 @@
     <button class="cookie-btn-decline">Nur notwendige</button>
   </div>
 </div>
+<!-- /partial:cookie-banner -->
 
 <script src="blog-posts.js" defer></script>
 <script src="laender-config.js" defer></script>
