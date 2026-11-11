@@ -1902,6 +1902,50 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   border-radius: var(--r-full);
 }
 
+/* Ratgeberseiten (packliste.html, versicherung-geld.html,
+   routenplanung.html, sicherheit.html): schmale Textspalte */
+.ratgeber { max-width: 780px; }
+.ratgeber h2 { margin: 3rem 0 1rem; font-size: clamp(1.5rem, 3vw, 2rem); }
+.ratgeber h2:first-child { margin-top: 0; }
+.ratgeber h3 { margin: 2rem 0 0.75rem; font-size: 1.2rem; }
+.ratgeber p, .ratgeber li { color: var(--gray-700); line-height: 1.85; }
+.ratgeber p { margin-bottom: 1.1rem; }
+.ratgeber ul { list-style: disc; margin: 0 0 1.25rem 1.4rem; }
+.ratgeber li { margin-bottom: 0.35rem; }
+.ratgeber a { color: var(--terra-600); text-decoration: underline; }
+.ratgeber .kosten-tabelle-wrap { margin: 1.25rem 0 1.5rem; }
+.ratgeber .kosten-tabelle { min-width: 520px; }
+.ratgeber .kosten-tabelle td, .ratgeber .kosten-tabelle th { text-align: left; white-space: normal; }
+.page-hero--ohne-bild .hero__bg { background: linear-gradient(135deg, var(--green-900), var(--green-700)); }
+
+/* Nur fuer Entwuerfe: Hinweis oben und markierte Luecken im Text.
+   Beim Veroeffentlichen einer Seite beides entfernen. */
+.entwurf-banner {
+  background: #fff4d6;
+  border-bottom: 1.5px solid #e8c766;
+  color: #5c4500;
+  padding: 0.8rem 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.entwurf-luecke {
+  background: #fff9e8;
+  border: 1.5px dashed #e0b84a;
+  border-radius: var(--r-md);
+  padding: 1rem 1.25rem;
+  margin: 1.25rem 0;
+  color: #5c4500;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+.entwurf-luecke strong {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
 /* Laenderseiten: Fliesstext, Zwischenueberschriften und die Karten
    unter "Praktische Infos" (Reisezeit, Fortbewegung, Sicherheit ...) */
 .land-text { color: var(--gray-600); line-height: 1.9; margin: 1rem 0; }
