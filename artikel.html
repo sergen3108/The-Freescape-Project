@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a1520">
   <title>Artikel · The Freescape Project</title>
-  <meta name="description" content="Reiseberichte, Kosten-Checks und Erfahrungen aus Südamerika, direkt von Julia &amp; Sergen auf ihrer Backpacking-Reise durch Kolumbien, Ecuador und Peru.">
+  <meta name="description" content="Reiseberichte, Kosten-Checks und Erfahrungen aus Südamerika, direkt von Julia &amp; Sergen auf ihrer Backpacking-Reise.">
 
   <!-- OG-Tags: generische Fallbacks, werden per JS mit den echten Post-Daten ueberschrieben sobald geladen -->
   <meta property="og:type"         content="article">
@@ -14,12 +14,12 @@
   <meta name="twitter:card"        content="summary_large_image">
   <meta property="og:url"          content="https://thefreescapeproject.com/artikel.html" id="og-url">
   <meta property="og:title"        content="Artikel · The Freescape Project" id="og-title">
-  <meta property="og:description"  content="Reiseberichte, Kosten-Checks und Erfahrungen aus Südamerika, direkt von Julia &amp; Sergen auf ihrer Backpacking-Reise durch Kolumbien, Ecuador und Peru." id="og-description">
+  <meta property="og:description"  content="Reiseberichte, Kosten-Checks und Erfahrungen aus Südamerika, direkt von Julia &amp; Sergen auf ihrer Backpacking-Reise." id="og-description">
   <meta property="og:image"        content="https://thefreescapeproject.com/assets/img/FujiFun.jpeg" id="og-image">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:title"       content="Artikel · The Freescape Project" id="tw-title">
-  <meta name="twitter:description" content="Reiseberichte, Kosten-Checks und Erfahrungen aus Südamerika, direkt von Julia &amp; Sergen auf ihrer Backpacking-Reise durch Kolumbien, Ecuador und Peru." id="tw-description">
+  <meta name="twitter:description" content="Reiseberichte, Kosten-Checks und Erfahrungen aus Südamerika, direkt von Julia &amp; Sergen auf ihrer Backpacking-Reise." id="tw-description">
   <meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/FujiFun.jpeg" id="tw-image">
 
   <!-- Kanonische URL: generischer Fallback, wird per JS mit dem echten ?post=SLUG ueberschrieben -->
@@ -686,7 +686,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             '</span>' +
             '<span class="video-teaser__body">' +
               '<span class="video-teaser__label">▶ Passendes Video</span>' +
-              '<span class="video-teaser__title">' + escapeHtml(video.title) + '</span>' +
+              '<span class="video-teaser__title">' + escapeHtml(window.VlogUtils.displayTitle(video.title)) + '</span>' +
             '</span>' +
           '</a>';
       })

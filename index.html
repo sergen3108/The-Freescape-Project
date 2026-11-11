@@ -207,8 +207,8 @@
                alt="Julia & Sergen" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
         <div class="about-teaser__badge">
-          <div class="about-teaser__badge-num">365</div>
-          <div class="about-teaser__badge-text">Tage Abenteuer</div>
+          <div class="about-teaser__badge-num" id="badge-tag-num">365</div>
+          <div class="about-teaser__badge-text" id="badge-tag-text">Tage Abenteuer</div>
         </div>
       </div>
       <div class="about-teaser__content animate-on-scroll animate-delay-1">
@@ -281,7 +281,7 @@
           <div class="progress-bar"><div class="progress-bar__fill" style="width:67%;"></div></div>
         </div>
         <div style="background:rgba(212,168,67,0.12);border:1px solid rgba(212,168,67,0.3);border-radius:0.75rem;padding:1rem 1.25rem;font-size:0.85rem;color:rgba(255,255,255,0.8);line-height:1.6;">
-          <span style="color:var(--gold);font-weight:700;">📍 Nächste Woche:</span>
+          <span style="color:var(--gold);font-weight:700;">📍 Aktuell:</span>
           <span id="naechste-woche-text"></span>
         </div>
         <a href="karte.html" class="btn btn-primary">Interaktive Reisekarte öffnen</a>
@@ -454,6 +454,19 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<!-- Badge am Foto: "Tag X von 365" statt der festen 365. Ohne JavaScript
+     bleibt "365 Tage Abenteuer" stehen. -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var num  = document.getElementById('badge-tag-num');
+  var text = document.getElementById('badge-tag-text');
+  if (!num || !text || typeof REISE === 'undefined' || !(REISE.tageDrausweg > 0)) return;
+  num.textContent = 'Tag ' + REISE.tageDrausweg;
+  text.textContent = REISE.tageDrausweg <= 365 ? 'von 365 Tagen' : 'Tage Abenteuer';
+  if (REISE.tageDrausweg > 365) num.textContent = REISE.tageDrausweg;
+});
+</script>
+
 <!-- Südamerika-Karte: Umrisse vorberechnet (erzeugt von scripts/build-sa-map.js),
      daher kein d3 und keine Weltkarte im Browser noetig -->
 <script src="sa-map-shapes.js" defer></script>
@@ -490,7 +503,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function buildThumb(v) {
     if (v.thumb) {
       return `
-        <img src="${v.thumb}" alt="${escapeHtml(v.title)}" loading="lazy"
+        <img src="${v.thumb}" alt="${escapeHtml(window.VlogUtils.displayTitle(v.title))}" loading="lazy"
              style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
         <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>`;
     }
@@ -540,7 +553,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 ${country ? `<span class="vlog-card__country">${country}</span>` : ''}
                 <span class="vlog-card__date">${formatDate(v.publishedAt)}</span>
               </div>
-              <h3 class="vlog-card__title">${escapeHtml(v.title)}</h3>
+              <h3 class="vlog-card__title">${escapeHtml(window.VlogUtils.displayTitle(v.title))}</h3>
               <p class="vlog-card__desc">${escapeHtml(desc)}${desc.length>=120?'…':''}</p>
               <div class="vlog-card__footer">
                 <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" class="vlog-card__watch">Ansehen →</a>

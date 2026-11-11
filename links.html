@@ -233,7 +233,7 @@
         <span class="lt-btn__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></span>
         <span class="lt-btn__text">
           <span class="lt-btn__title">Länder-Guides</span>
-          <span class="lt-btn__sub">Kolumbien · Ecuador · Peru</span>
+          <span class="lt-btn__sub">Alle Länder unserer Reise</span>
         </span>
         <span class="lt-btn__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></span>
       </a>
@@ -311,7 +311,8 @@
       if (videos.length) {
         var v = videos[0];
         linkEl.href = 'https://www.youtube.com/watch?v=' + v.id;
-        if (subEl) subEl.textContent = v.title.length > 46 ? v.title.slice(0, 46).trim() + '…' : v.title;
+        var titel = window.VlogUtils ? window.VlogUtils.displayTitle(v.title) : v.title;
+        if (subEl) subEl.textContent = titel.length > 46 ? titel.slice(0, 46).trim() + '…' : titel;
       }
     } catch (e) {
       console.warn('Neuestes Video konnte nicht geladen werden:', e);

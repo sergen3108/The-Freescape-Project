@@ -44,6 +44,29 @@
       .replace(/"/g, '&quot;');
   }
 
+  // Zahlenleiste: Wert setzen und hochzaehlen lassen. Bei 0 wird der
+  // ganze Eintrag ausgeblendet ("0 Vlogs" wirkt wie ein Fehler) und die
+  // Leiste auf die Zahl der sichtbaren Eintraege umgestellt.
+  function setStat(el, value) {
+    if (!el) return;
+    var item = el.closest('.stats-bar__item');
+    var grid = el.closest('.stats-bar__grid');
+    if (item) item.hidden = !value;
+    if (grid) {
+      var sichtbar = grid.querySelectorAll('.stats-bar__item:not([hidden])');
+      grid.classList.remove('stats-bar__grid--2col', 'stats-bar__grid--3col', 'stats-bar__grid--4col');
+      grid.classList.add('stats-bar__grid--' + Math.min(Math.max(sichtbar.length, 2), 4) + 'col');
+      // Letzten sichtbaren Eintrag markieren: bei 3 Eintraegen rutscht er
+      // mobil zentriert in eine eigene Zeile (siehe style.css).
+      grid.querySelectorAll('.stats-bar__item--last').forEach(function (n) { n.classList.remove('stats-bar__item--last'); });
+      if (sichtbar.length) sichtbar[sichtbar.length - 1].classList.add('stats-bar__item--last');
+    }
+    if (!value) return;
+    el.setAttribute('data-count', value);
+    el.textContent = '0';
+    if (window.observeCounters) window.observeCounters();
+  }
+
   /* ── Blog-Artikel dieses Landes ─────────────────────────── */
   function renderBlog(posts) {
     var grid    = document.getElementById('land-blog-grid');
@@ -53,11 +76,7 @@
       return window.slugifyLand(p.land) === LAND_SLUG;
     });
 
-    if (statEl) {
-      statEl.setAttribute('data-count', mine.length);
-      statEl.textContent = '0';
-      if (window.observeCounters) window.observeCounters();
-    }
+    setStat(statEl, mine.length);
     linkOrteToArticles(mine);
 
     if (!mine.length) {
@@ -96,7 +115,7 @@
 
   function buildThumb(v) {
     if (v.thumb) {
-      return '<img src="' + v.thumb + '" alt="' + escapeHtml(v.title) + '" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">' +
+      return '<img src="' + v.thumb + '" alt="' + escapeHtml(window.VlogUtils.displayTitle(v.title)) + '" loading="lazy" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">' +
         '<span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>';
     }
     return '<div class="vlog-thumb-fallback"><span class="vlog-card__play" style="position:static;transform:none;"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>';
@@ -115,7 +134,7 @@
           (ort ? '<span class="vlog-card__country">📍 ' + escapeHtml(ort) + '</span>' : '') +
           '<span class="vlog-card__date">' + formatDate(v.publishedAt) + '</span>' +
         '</div>' +
-        '<h3 class="vlog-card__title">' + escapeHtml(v.title) + '</h3>' +
+        '<h3 class="vlog-card__title">' + escapeHtml(window.VlogUtils.displayTitle(v.title)) + '</h3>' +
         '<p class="vlog-card__desc">' + escapeHtml(desc) + (desc.length >= 120 ? '…' : '') + '</p>' +
         '<div class="vlog-card__footer">' +
           '<a href="https://www.youtube.com/watch?v=' + v.id + '" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a>' +
@@ -157,12 +176,7 @@
         });
         var videos = mine.filter(function (v) { return !window.VlogUtils.isShort(v); });
         var shorts = mine.filter(function (v) { return window.VlogUtils.isShort(v); });
-        var statEl = document.getElementById('stat-vlogs-num');
-        if (statEl) {
-          statEl.setAttribute('data-count', mine.length);
-          statEl.textContent = '0';
-          if (window.observeCounters) window.observeCounters();
-        }
+        setStat(document.getElementById('stat-vlogs-num'), mine.length);
 
         if (loading) loading.style.display = 'none';
 
@@ -186,6 +200,7 @@
       })
       .catch(function (err) {
         console.error('[' + LAND_SLUG + '] Vlogs konnten nicht geladen werden:', err);
+        setStat(document.getElementById('stat-vlogs-num'), 0);
         if (loading) loading.style.display = 'none';
         empty.style.display = 'block';
       });

@@ -55,9 +55,27 @@
     return null;
   }
 
-  // Ort aus der Beschreibung. Reihenfolge: zuerst eine Zeile mit 📍
-  // (z.B. "📍 Máncora, Peru" oder "📍 Orte im Video: Huaraz, ..."),
-  // sonst null. Der Ort ist optional, das Land ist Pflicht.
+  // Einen Ortseintrag saeubern: Aufzaehlungszeichen vorne, Klammerzusatz
+  // und angehaengtes Land hinten weg ("• Cusco, Peru" -> "Cusco",
+  // "Rainbow Mountain (Vinicunca)" -> "Rainbow Mountain"). Ein reiner
+  // Laendername ("• Bolivien") ergibt einen leeren Text.
+  function cleanOrt(s) {
+    s = s.replace(/^[•\-\u2013\u2014*]\s*/, '').replace(/\s*\([^)]*\)\s*$/, '').trim();
+    if (Array.isArray(window.LAENDER)) {
+      window.LAENDER.forEach(function (land) {
+        var re = new RegExp('\\s*,?\\s*' + land.name + '\\s*$', 'i');
+        s = s.replace(re, '').trim();
+      });
+    }
+    return s;
+  }
+
+  var ORT_LABEL = /^(orte in diesem video|orte im video|orte|ort)\s*:?\s*/i;
+
+  // Ort aus der Beschreibung: die Zeile mit 📍. Entweder steht der Ort
+  // direkt dahinter ("📍 Máncora, Peru", "📍 Ort: Cuenca, Ecuador") oder
+  // als Aufzaehlung in den Folgezeilen ("📍 Orte in diesem Video:").
+  // Sonst null. Der Ort ist optional, das Land ist Pflicht.
   function detectOrt(description) {
     if (!description) return null;
     var lines = description.replace(/\r\n/g, '\n').split('\n');
@@ -65,18 +83,24 @@
     for (var i = 0; i < lines.length; i++) {
       if (lines[i].indexOf('📍') === -1) continue;
       var s = lines[i].split('📍').slice(1).join('📍').trim();
-      // Label vorne weg ("Orte im Video:", "Ort:", "Orte:")
-      s = s.replace(/^(orte im video|orte|ort)\s*:?\s*/i, '').trim();
-      // Ein angehaengtes Land am Ende entfernen ("Máncora, Peru" -> "Máncora")
-      if (Array.isArray(window.LAENDER)) {
-        window.LAENDER.forEach(function (land) {
-          var re = new RegExp('\\s*,?\\s*' + land.name + '\\s*$', 'i');
-          s = s.replace(re, '').trim();
-        });
+      var hatLabel = ORT_LABEL.test(s);
+      // Label vorne weg ("Orte in diesem Video:", "Orte im Video:", "Ort:")
+      s = s.replace(ORT_LABEL, '').trim();
+
+      if (!s && hatLabel) {
+        // Die Orte stehen als Aufzaehlung in den Folgezeilen (bis zur
+        // naechsten Leerzeile). Die ersten zwei reichen fuer die Karte.
+        var orte = [];
+        for (var j = i + 1; j < lines.length && orte.length < 2; j++) {
+          if (!lines[j].trim()) break;
+          var ort = cleanOrt(lines[j].trim());
+          if (ort) orte.push(ort);
+        }
+        return orte.join(', ') || null;
       }
-      // Fuehrende Aufzaehlungszeichen entfernen
-      s = s.replace(/^[•\-\u2013\u2014]\s*/, '').trim();
-      return s || null;
+      // Anderes Label ohne Ort dahinter (z.B. "Bisher bereist:"): kein Ort
+      if (/:$/.test(s)) return null;
+      return cleanOrt(s) || null;
     }
     return null;
   }
@@ -124,6 +148,33 @@
     return candidates[0];
   }
 
+  // Kann der Browser Flaggen-Emojis darstellen? Windows zeigt statt der
+  // Flagge nur die zwei Laenderbuchstaben ("BO", "PE"). Erkennung ueber
+  // die Breite: eine echte Flagge ist etwa so breit wie EIN Zeichen, der
+  // Buchstaben-Ersatz doppelt so breit. Im Zweifel: Flaggen stehen lassen.
+  var flagsOk = null;
+  function flagsSupported() {
+    if (flagsOk !== null) return flagsOk;
+    flagsOk = true;
+    try {
+      var ctx = document.createElement('canvas').getContext('2d');
+      ctx.font = '32px sans-serif';
+      var paar = ctx.measureText('🇩🇪').width;   // DE-Flagge
+      var einzeln = ctx.measureText('🇩').width;            // nur "D"
+      if (paar > 0 && einzeln > 0) flagsOk = paar < einzeln * 1.5;
+    } catch (e) { /* Canvas nicht verfuegbar: Flaggen stehen lassen */ }
+    return flagsOk;
+  }
+
+  // Videotitel fuer die Anzeige: Flaggen-Emojis raus, wenn der Browser sie
+  // nicht darstellen kann (sonst steht "Backpacking Bolivien BO #3" da).
+  // Die Daten selbst bleiben unveraendert.
+  function displayTitle(title) {
+    var t = String(title == null ? '' : title);
+    if (flagsSupported()) return t;
+    return t.replace(/(?:\uD83C[\uDDE6-\uDDFF]){2}/g, '').replace(/ {2,}/g, ' ').trim();
+  }
+
   // Zeigt in einem Karten-Grid nur die ersten `max` Karten (die Daten sind
   // neueste zuerst) und haengt einen Knopf an, der den Rest einblendet.
   // `label` ist der Plural im Knopftext, z.B. "Vlogs" oder "Shorts".
@@ -149,6 +200,7 @@
 
   window.VlogUtils = {
     limitCards: limitCards,
+    displayTitle: displayTitle,
     detectCountry: detectCountry,
     detectOrt: detectOrt,
     isShort: isShort,

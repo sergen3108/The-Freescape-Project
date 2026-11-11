@@ -331,7 +331,7 @@ function escapeHtml(str) {
 function buildThumbMarkup(v) {
   if (v.thumb) {
     return `
-      <img src="${v.thumb}" alt="${escapeHtml(v.title)}" loading="lazy"
+      <img src="${v.thumb}" alt="${escapeHtml(window.VlogUtils.displayTitle(v.title))}" loading="lazy"
            style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
       <span class="vlog-card__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>`;
   }
@@ -360,7 +360,7 @@ function makeCard(v, index, isNew) {
           ${countryLabel ? `<span class="vlog-card__country">${countryLabel}</span>` : ''}
           <span class="vlog-card__date">${formatDate(v.publishedAt)}</span>
         </div>
-        <h3 class="vlog-card__title">${escapeHtml(v.title)}</h3>
+        <h3 class="vlog-card__title">${escapeHtml(window.VlogUtils.displayTitle(v.title))}</h3>
         <p class="vlog-card__desc">${escapeHtml((v.description||'').slice(0,120).trim())}${(v.description||'').length>120?'…':''}</p>
         <div class="vlog-card__footer">
           <a href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener" class="vlog-card__watch">Auf YouTube ansehen →</a>

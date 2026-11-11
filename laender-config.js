@@ -33,8 +33,8 @@ window.LAENDER = [
     reihenfolge: 1,
     zeitraum: 'Feb bis Apr 2026',
     tage: [['2026-02-25', '2026-04-17']],
-    hook: 'Karibikstraende, Kaffeeberge und lebendige Grossstaedte, das Land das uns komplett ueberrascht hat.',
-    tags: ['Karibik', 'Staedte', 'Berge', 'Budget', 'Abenteuer'],
+    hook: 'Karibikstrände, Kaffeeberge und lebendige Großstädte, das Land, das uns komplett überrascht hat.',
+    tags: ['Karibik', 'Städte', 'Berge', 'Budget', 'Abenteuer'],
     gradient: 'linear-gradient(135deg,#c4622d,#1a2744)',
     heroImage: 'assets/img/blog/sanandres8.jpg',
     ogImage: 'https://thefreescapeproject.com/assets/img/blog/sanandres8.jpg',
@@ -54,7 +54,7 @@ window.LAENDER = [
     reihenfolge: 2,
     zeitraum: 'Apr bis Jun 2026',
     tage: [['2026-04-17', '2026-06-01']],
-    hook: 'Vulkane, Amazonas und Galapagos auf kleinem Raum, eines der abwechslungsreichsten Laender der Reise.',
+    hook: 'Vulkane, Amazonas und Galápagos auf kleinem Raum, eines der abwechslungsreichsten Länder der Reise.',
     tags: ['Berge', 'Dschungel', 'Natur', 'Inseln', 'Budget'],
     gradient: 'linear-gradient(135deg,#1a3c2a,#2d7a2d)',
     heroImage: 'assets/img/kilotoas.JPEG',
@@ -73,8 +73,8 @@ window.LAENDER = [
     reihenfolge: 3,
     zeitraum: 'Jun bis Aug 2026',
     tage: [['2026-06-01', '2026-08-07']],
-    hook: 'Pazifikkueste, Wueste, Machu Picchu und der Colca Canyon, eines der intensivsten Laender der Reise.',
-    tags: ['Strand', 'Berge', 'Wueste', 'Staedte', 'Abenteuer'],
+    hook: 'Pazifikküste, Wüste, Machu Picchu und der Colca Canyon, eines der intensivsten Länder der Reise.',
+    tags: ['Strand', 'Berge', 'Wüste', 'Städte', 'Abenteuer'],
     gradient: 'linear-gradient(135deg,#8b3a15,#c4622d)',
     heroImage: 'assets/img/IMG_2934.JPEG',
     ogImage: 'https://thefreescapeproject.com/assets/img/IMG_2934.JPEG',
@@ -97,8 +97,8 @@ window.LAENDER = [
     reihenfolge: 4,
     zeitraum: 'Aug bis Sep 2026',
     tage: [['2026-08-07', '2026-09-04']],
-    hook: 'Mit dem Bus von Puno ueber den Titicacasee nach Copacabana, ueber La Paz und Sucre nach Potosi bis zur 3-taegigen Tour durch den Salar de Uyuni.',
-    tags: ['Wueste', 'Berge', 'Natur', 'Budget'],
+    hook: 'Vom Titicacasee über La Paz, Sucre und Potosí bis zur dreitägigen Tour durch den Salar de Uyuni.',
+    tags: ['Wüste', 'Berge', 'Natur', 'Budget'],
     gradient: 'linear-gradient(135deg,#4a7fa0,#c8e8f5)',
     heroImage: 'assets/img/lapaz.jpeg',
     ogImage: 'https://thefreescapeproject.com/assets/img/lapaz.jpeg',
@@ -113,8 +113,8 @@ window.LAENDER = [
     reihenfolge: 5,
     zeitraum: '04. bis 08. Sep und 03. Okt bis 09. Nov 2026',
     tage: [['2026-09-04', '2026-09-08'], ['2026-10-03', '2026-11-09']],
-    hook: 'Erst ein paar Tage in San Pedro de Atacama zwischen Wueste, Geysiren und Sternenhimmel, dann zurueck: mit dem Bus von Mendoza ueber die Anden nach Santiago de Chile, an die Kueste nach Vina del Mar, mit dem Nachtbus nach Pucon, weiter nach Puerto Varas und nach Castro und Ancud auf der Insel Chiloe, nach Puerto Montt und per Flug nach Puerto Natales in Patagonien.',
-    tags: ['Wueste', 'Berge', 'Natur', 'Abenteuer'],
+    hook: 'Von der Atacama-Wüste über Santiago, die Seenregion und Chiloé bis nach Patagonien, fast die ganze Länge des Landes.',
+    tags: ['Wüste', 'Berge', 'Natur', 'Abenteuer'],
     gradient: 'linear-gradient(135deg,#1a2d3d,#3d6080)',
     heroImage: 'assets/img/ChileSterne.jpeg',
     ogImage: 'https://thefreescapeproject.com/assets/img/ChileSterne.jpeg',
@@ -129,8 +129,8 @@ window.LAENDER = [
     reihenfolge: 6,
     zeitraum: '08. Sep bis 03. Okt und ab 09. Nov 2026',
     tage: [['2026-09-08', '2026-10-03'], ['2026-11-09', null]],
-    hook: 'Ueber die Grenze nach Salta, von dort im Mietauto durch den Norden Argentiniens und per Nachtbus ueber Cordoba und Rosario bis nach Mendoza, unser sechstes Land auf dieser Reise. Jetzt sind wir zurueck, diesmal in El Calafate in Patagonien.',
-    tags: ['Staedte', 'Berge', 'Natur', 'Kultur'],
+    hook: 'Roadtrips durch den Norden, die Städte Córdoba, Rosario und Mendoza und Patagonien rund um El Calafate.',
+    tags: ['Städte', 'Berge', 'Natur', 'Kultur'],
     gradient: 'linear-gradient(135deg,#1a1a2e,#0f3460)',
     heroImage: 'assets/img/SalinasGrandes.jpg',
     ogImage: 'https://thefreescapeproject.com/assets/img/SalinasGrandes.jpg',
@@ -144,8 +144,8 @@ window.LAENDER = [
     datei: null,
     reihenfolge: 7,
     zeitraum: 'geplant',
-    hook: 'Regenwald, Straende und Rhythmus, der moegliche Abschluss unserer Reise.',
-    tags: ['Strand', 'Dschungel', 'Staedte', 'Kultur'],
+    hook: 'Regenwald, Strände und Rhythmus, der mögliche Abschluss unserer Reise.',
+    tags: ['Strand', 'Dschungel', 'Städte', 'Kultur'],
     gradient: 'linear-gradient(135deg,#0d2418,#2d5a3d)',
     heroImage: null,
     ogImage: null,
@@ -162,7 +162,7 @@ window.LAENDER = [
     reihenfolge: 8,
     zeitraum: 'geplant',
     hook: 'Kleines Land, entspanntes Tempo, Montevideo und die Strände von Punta del Este.',
-    tags: ['Strand', 'Staedte', 'Entspannt'],
+    tags: ['Strand', 'Städte', 'Entspannt'],
     gradient: 'linear-gradient(135deg,#2d5a7d,#7db9d4)',
     heroImage: null,
     ogImage: null,
@@ -176,8 +176,8 @@ window.LAENDER = [
     datei: null,
     reihenfolge: 9,
     zeitraum: 'geplant',
-    hook: 'Wenig bereist, viel Ueberraschung, Asuncion und das Guarani-Erbe.',
-    tags: ['Staedte', 'Kultur', 'Abenteuer'],
+    hook: 'Wenig bereist, viel Überraschung, Asunción und das Guaraní-Erbe.',
+    tags: ['Städte', 'Kultur', 'Abenteuer'],
     gradient: 'linear-gradient(135deg,#3d6b3d,#7db97d)',
     heroImage: null,
     ogImage: null,
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Desktop-Dropdown
   document.querySelectorAll('.nav__dropdown-menu').forEach(function (menu) {
-    var html = '<a href="laender.html" class="nav__dropdown-link" style="font-weight:600;">Alle Laender</a>'
+    var html = '<a href="laender.html" class="nav__dropdown-link" style="font-weight:600;">Alle Länder</a>'
       + '<div style="border-top:1px solid rgba(255,255,255,0.1);margin:4px 0;"></div>';
     bereist.forEach(function (l) {
       html += '<a href="' + l.datei + '" class="nav__dropdown-link">' + l.name + '</a>';
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Mobiles Menue: Laender-Untermenue (Button + Submenu) befuellen
   document.querySelectorAll('#nav-mobile-laender-submenu').forEach(function (submenu) {
-    var html = '<a href="laender.html" class="nav__mobile-link nav__mobile-sublink">Alle Laender</a>';
+    var html = '<a href="laender.html" class="nav__mobile-link nav__mobile-sublink">Alle Länder</a>';
     bereist.forEach(function (l) {
       html += '<a href="' + l.datei + '" class="nav__mobile-link nav__mobile-sublink">' + l.name + '</a>';
     });
@@ -256,7 +256,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var pct   = Math.round((bereist.length / sortiert.length) * 100);
     var label = progress.querySelector('.map-preview__progress-label');
     var fill  = progress.querySelector('.progress-bar__fill');
-    if (label) label.textContent = bereist.length + ' von ' + sortiert.length + ' Laendern bereist';
+    if (label) label.textContent = bereist.length + ' von ' + sortiert.length + ' Ländern bereist';
     if (fill)  fill.style.width = pct + '%';
   });
 });

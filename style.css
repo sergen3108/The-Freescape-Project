@@ -689,6 +689,8 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   gap: var(--sp-4);
   text-align: center;
 }
+/* 2 Spalten: Laenderseiten, wenn Zaehler mit 0 ausgeblendet sind (land-page.js) */
+.stats-bar__grid--2col { grid-template-columns: repeat(2, 1fr); max-width: 640px; margin: 0 auto; }
 .stats-bar__grid--3col { grid-template-columns: repeat(3, 1fr); }
 .stats-bar__grid--4col { grid-template-columns: repeat(4, 1fr); }
 .stats-bar__item { padding: var(--sp-4); }
@@ -1137,6 +1139,14 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   grid-template-columns: repeat(3, 1fr);
   gap: var(--sp-6);
 }
+/* Zweispaltig (Reiserouten-Guides auf blog.html). Die Regeln fuer
+   schmale Bildschirme weiter unten gelten weiterhin. */
+.blog-grid--2 { grid-template-columns: repeat(2, 1fr); }
+/* Breitere Karten: Bild fuellt den Bildbereich (die Karten setzen sonst
+   eine feste Bildhoehe per style-Attribut, daher !important). */
+.blog-grid--2 .blog-card__thumb { aspect-ratio: 2 / 1; }
+.blog-grid--2 .blog-card__thumb > img,
+.blog-grid--2 .blog-card__thumb > div { height: 100% !important; }
 
 .blog-card {
   background: var(--white);
@@ -1997,7 +2007,8 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
     grid-template-columns: repeat(2, 1fr);
     gap: var(--sp-4) var(--sp-2);
   }
-  .stats-bar__grid--3col .stats-bar__item:last-child {
+  .stats-bar__grid--3col .stats-bar__item:last-child,
+  .stats-bar__grid--3col .stats-bar__item--last {
     grid-column: 1 / -1;
     justify-self: center;
     max-width: 50%;
@@ -2103,6 +2114,13 @@ main:focus { outline: none; }
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  .animate-on-scroll { opacity: 1 !important; transform: none !important; }
+  .img-reveal-wrap { opacity: 1 !important; transform: none !important; }
+}
+
+/* Ohne JavaScript blendet main.js nichts ein: Inhalte dann direkt zeigen,
+   statt sie im unsichtbaren Startzustand der Animation zu lassen. */
+@media (scripting: none) {
   .animate-on-scroll { opacity: 1 !important; transform: none !important; }
   .img-reveal-wrap { opacity: 1 !important; transform: none !important; }
 }
