@@ -308,6 +308,7 @@
       </div>
     </div>
     <p style="color:var(--gray-500);font-size:0.85rem;margin-top:1rem;">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
+    <p style="margin-top:1.5rem;"><a href="kosten.html" class="btn btn-outline">Alle Länder im Kostenvergleich →</a></p>
   </div>
 </section>
 
@@ -431,6 +432,7 @@
           <a href="blog.html" class="footer__link">Blog</a>
           <a href="karte.html" class="footer__link">Reisekarte</a>
           <a href="galerie.html" class="footer__link">Galerie</a>
+          <a href="kosten.html" class="footer__link">Reisekosten</a>
           <a href="kontakt.html" class="footer__link">Kontakt</a>
         </div>
       </div>
@@ -482,35 +484,14 @@
 <script src="laender-config.js" defer></script>
 <script src="reise-config.js" defer></script>
 <script src="vlog-utils.js" defer></script>
+<script src="kosten-data.js" defer></script>
 <script src="kosten-widget.js" defer></script>
 <script src="main.js" defer></script>
 
-<!-- ── Reisekosten-Daten Ecuador ────────────────────────────── -->
+<!-- ── Reisekosten-Daten Ecuador (Zahlen stehen in kosten-data.js) ────────────────────────────── -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  KostenWidget.init(document.getElementById('kosten-ecuador'), {
-    defaultKey: 'mit',
-    variants: {
-      mit: {
-        zeitraum: '17.04. – 31.05.2026',
-        tage: 44,
-        gesamt: 3398.47,
-        kategorien: { activities: 1142.60, accommodation: 611.70, food: 689.79, transportation: 708.81, others: 244.95 }
-      },
-      ohne: {
-        zeitraum: '17.04. – 08.05. & 27. – 31.05.2026',
-        tage: 25,
-        gesamt: 1647.82,
-        kategorien: { activities: 653.79, accommodation: 372.17, food: 286.30, transportation: 290.61, others: 44.95 }
-      },
-      nur: {
-        zeitraum: '08.05. – 27.05.2026',
-        tage: 19,
-        gesamt: 1750.65,
-        kategorien: { activities: 488.81, accommodation: 239.53, food: 403.49, transportation: 418.20, others: 200 }
-      }
-    }
-  });
+  KostenWidget.init(document.getElementById('kosten-ecuador'), KostenWidget.land('ecuador'));
 });
 </script>
 

@@ -301,6 +301,7 @@
       </div>
     </div>
     <p style="color:var(--gray-500);font-size:0.85rem;margin-top:1rem;">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
+    <p style="margin-top:1.5rem;"><a href="kosten.html" class="btn btn-outline">Alle Länder im Kostenvergleich →</a></p>
   </div>
 </section>
 
@@ -424,6 +425,7 @@
           <a href="blog.html" class="footer__link">Blog</a>
           <a href="karte.html" class="footer__link">Reisekarte</a>
           <a href="galerie.html" class="footer__link">Galerie</a>
+          <a href="kosten.html" class="footer__link">Reisekosten</a>
           <a href="kontakt.html" class="footer__link">Kontakt</a>
         </div>
       </div>
@@ -475,23 +477,14 @@
 <script src="laender-config.js" defer></script>
 <script src="reise-config.js" defer></script>
 <script src="vlog-utils.js" defer></script>
+<script src="kosten-data.js" defer></script>
 <script src="kosten-widget.js" defer></script>
 <script src="main.js" defer></script>
 
-<!-- ── Reisekosten-Daten Kolumbien ──────────────────────────── -->
+<!-- ── Reisekosten-Daten Kolumbien (Zahlen stehen in kosten-data.js) ──────────────────────────── -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  KostenWidget.init(document.getElementById('kosten-kolumbien'), {
-    defaultKey: 'gesamt',
-    variants: {
-      gesamt: {
-        zeitraum: '25.02. – 17.04.2026',
-        tage: 52,
-        gesamt: 2856.97,
-        kategorien: { activities: 809.06, accommodation: 784.97, food: 761.56, transportation: 385.79, others: 115.05 }
-      }
-    }
-  });
+  KostenWidget.init(document.getElementById('kosten-kolumbien'), KostenWidget.land('kolumbien'));
 });
 </script>
 

@@ -294,6 +294,7 @@
       </div>
     </div>
     <p style="color:var(--gray-500);font-size:0.85rem;margin-top:1rem;">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
+    <p style="margin-top:1.5rem;"><a href="kosten.html" class="btn btn-outline">Alle Länder im Kostenvergleich →</a></p>
   </div>
 </section>
 
@@ -427,6 +428,7 @@
           <a href="blog.html" class="footer__link">Blog</a>
           <a href="karte.html" class="footer__link">Reisekarte</a>
           <a href="galerie.html" class="footer__link">Galerie</a>
+          <a href="kosten.html" class="footer__link">Reisekosten</a>
           <a href="kontakt.html" class="footer__link">Kontakt</a>
         </div>
       </div>
@@ -478,23 +480,14 @@
 <script src="laender-config.js" defer></script>
 <script src="reise-config.js" defer></script>
 <script src="vlog-utils.js" defer></script>
+<script src="kosten-data.js" defer></script>
 <script src="kosten-widget.js" defer></script>
 <script src="main.js" defer></script>
 
-<!-- ── Reisekosten-Daten Bolivien ───────────────────────────────── -->
+<!-- ── Reisekosten-Daten Bolivien (Zahlen stehen in kosten-data.js) ───────────────────────────────── -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  KostenWidget.init(document.getElementById('kosten-bolivien'), {
-    defaultKey: 'gesamt',
-    variants: {
-      gesamt: {
-        zeitraum: '07.08. – 04.09.2026',
-        tage: 29,
-        gesamt: 886.15,
-        kategorien: { activities: 329.79, accommodation: 266.37, food: 232.63, transportation: 41.46, others: 15.90 }
-      }
-    }
-  });
+  KostenWidget.init(document.getElementById('kosten-bolivien'), KostenWidget.land('bolivien'));
 });
 </script>
 

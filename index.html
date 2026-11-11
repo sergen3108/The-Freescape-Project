@@ -314,7 +314,7 @@
     <div class="section-header animate-on-scroll">
       <p class="overline">Reisekasse</p>
       <h2>Was die Reise bisher gekostet hat</h2>
-      <p class="lead">12.948,93 Euro pro Person haben wir in Kolumbien, Ecuador, Peru, Bolivien und Chile ausgegeben. Klick auf ein Land für die genaue Aufschlüsselung.</p>
+      <p class="lead"><span data-kosten="gesamt">12.948,93</span> Euro pro Person haben wir in <span data-kosten="laenderliste">Kolumbien, Ecuador, Peru, Bolivien und Chile</span> ausgegeben. Klick auf ein Land für die genaue Aufschlüsselung.</p>
     </div>
 
     <div class="kosten-overview" id="kosten-overview">
@@ -328,6 +328,9 @@
       <ul class="kosten-legend" data-k="legend"></ul>
     </div>
     <p style="color:var(--gray-500);font-size:0.85rem;margin-top:1rem;">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="kosten.html" class="btn btn-outline btn-lg">Alle Kosten im Ländervergleich</a>
+    </div>
   </div>
 </section>
 
@@ -388,6 +391,7 @@
           <a href="blog.html" class="footer__link">Blog</a>
           <a href="karte.html" class="footer__link">Reisekarte</a>
           <a href="galerie.html" class="footer__link">Galerie</a>
+          <a href="kosten.html" class="footer__link">Reisekosten</a>
           <a href="kontakt.html" class="footer__link">Kontakt</a>
         </div>
       </div>
@@ -438,19 +442,16 @@
 <script src="laender-config.js" defer></script>
 <script src="reise-config.js" defer></script>
 <script src="vlog-utils.js" defer></script>
+<script src="kosten-data.js" defer></script>
 <script src="kosten-widget.js" defer></script>
 <script src="main.js" defer></script>
 
 <!-- Gesamtausgaben-Uebersicht (Donut mit Link je Land) -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  KostenWidget.initOverview(document.getElementById('kosten-overview'), [
-    { name: 'Kolumbien', total: 2856.97, color: '#2a78d6', href: 'kolumbien.html#kosten-kolumbien' },
-    { name: 'Ecuador',   total: 3398.47, color: '#eb6834', href: 'ecuador.html#kosten-ecuador' },
-    { name: 'Peru',      total: 2874.19, color: '#1baf7a', href: 'peru.html#kosten-peru' },
-    { name: 'Bolivien',  total: 886.15,  color: '#eda100', href: 'bolivien.html#kosten-bolivien' },
-    { name: 'Chile',     total: 2933.15, color: '#7c5cc4', href: 'chile.html#kosten-chile' }
-  ]);
+  // Zahlen und Laender kommen aus kosten-data.js
+  KostenWidget.initOverview(document.getElementById('kosten-overview'));
+  KostenWidget.fillText();
 });
 </script>
 

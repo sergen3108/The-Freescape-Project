@@ -312,6 +312,7 @@
       </div>
     </div>
     <p style="color:var(--gray-500);font-size:0.85rem;margin-top:1rem;">Hinweis: Unsere Auslandskrankenversicherung ist in diesen Zahlen nicht enthalten. Die haben wir einmal für die gesamte Reise abgeschlossen und nicht auf einzelne Länder aufgeteilt. Eine ausführliche Erklärung zu unseren Kosten pro Land folgt außerdem in einem eigenen YouTube-Video.</p>
+    <p style="margin-top:1.5rem;"><a href="kosten.html" class="btn btn-outline">Alle Länder im Kostenvergleich →</a></p>
   </div>
 </section>
 
@@ -440,6 +441,7 @@
           <a href="blog.html" class="footer__link">Blog</a>
           <a href="karte.html" class="footer__link">Reisekarte</a>
           <a href="galerie.html" class="footer__link">Galerie</a>
+          <a href="kosten.html" class="footer__link">Reisekosten</a>
           <a href="kontakt.html" class="footer__link">Kontakt</a>
         </div>
       </div>
@@ -491,36 +493,15 @@
 <script src="laender-config.js" defer></script>
 <script src="reise-config.js" defer></script>
 <script src="vlog-utils.js" defer></script>
+<script src="kosten-data.js" defer></script>
 <script src="kosten-widget.js" defer></script>
 <script src="main.js" defer></script>
 
-<!-- ── Reisekosten-Daten Chile ──────────────────────────────── -->
+<!-- ── Reisekosten-Daten Chile (Zahlen stehen in kosten-data.js) ──────────────────────────────── -->
 <!-- Mit = Julias Weg (inkl. Osterinsel), Ohne = Sergens Weg (inkl. Santiago 15. bis 22.10.) -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  KostenWidget.init(document.getElementById('kosten-chile'), {
-    defaultKey: 'mit',
-    variants: {
-      mit: {
-        zeitraum: '04. bis 08.09. und 03.10. bis 09.11.2026',
-        tage: 41,
-        gesamt: 2933.15,
-        kategorien: { activities: 623.59, accommodation: 746.57, food: 567.26, transportation: 945.31, others: 50.42 }
-      },
-      ohne: {
-        zeitraum: '04. bis 08.09. und 03.10. bis 09.11.2026',
-        tage: 41,
-        gesamt: 1781.20,
-        kategorien: { activities: 313.83, accommodation: 652.60, food: 470.78, transportation: 316.98, others: 27.01 }
-      },
-      nur: {
-        zeitraum: '15. bis 22.10.2026',
-        tage: 7,
-        gesamt: 1300.96,
-        kategorien: { activities: 309.76, accommodation: 189.98, food: 131.63, transportation: 646.18, others: 23.41 }
-      }
-    }
-  });
+  KostenWidget.init(document.getElementById('kosten-chile'), KostenWidget.land('chile'));
 });
 </script>
 

@@ -927,6 +927,153 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 }
 .kosten-legend__link:hover .kosten-legend__name { text-decoration-color: currentColor; }
 
+/* Laendervergleich auf kosten.html: ein gestapelter Balken je Land.
+   Aufbau und Daten: KostenWidget.initVergleich in kosten-widget.js. */
+.kosten-vgl {
+  position: relative;
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--r-lg);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+.kosten-vgl__kopf {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-bottom: 1.75rem;
+}
+.kosten-vgl__kopf .content-tabs { margin: 0; }
+.kosten-vgl__legende {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--gray-600);
+}
+.kosten-vgl__legende-item { display: inline-flex; align-items: center; gap: 0.45rem; }
+.kosten-vgl__balken { display: grid; gap: 1.1rem; }
+.kosten-vgl__row {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+.kosten-vgl__name {
+  font-weight: 700;
+  color: var(--gray-900);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s ease;
+}
+.kosten-vgl__name:hover { text-decoration-color: currentColor; }
+.kosten-vgl__track { display: flex; align-items: center; gap: 0.75rem; min-width: 0; }
+/* Breite = Anteil am groessten Wert; rechts bleibt Platz fuer den Betrag */
+.kosten-vgl__bar {
+  display: flex;
+  gap: 2px;
+  height: 20px;
+  width: calc((100% - 6.5rem) * var(--anteil, 1));
+  flex-shrink: 0;
+}
+.kosten-vgl__seg {
+  flex: 1 0 0;
+  min-width: 2px;
+  cursor: default;
+  transition: opacity 0.15s ease;
+}
+.kosten-vgl__seg:last-child { border-radius: 0 4px 4px 0; }
+.kosten-vgl__seg:hover { opacity: 0.8; }
+.kosten-vgl__seg:focus-visible { outline: 2px solid var(--gray-900); outline-offset: 2px; }
+.kosten-vgl__wert {
+  font-weight: 700;
+  color: var(--gray-900);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.kosten-vgl__fazit { margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1.5px solid var(--gray-100); color: var(--gray-600); line-height: 1.7; }
+.kosten-vgl__fazit:empty { display: none; }
+.kosten-vgl__tip {
+  position: absolute;
+  z-index: 5;
+  background: var(--gray-900);
+  color: var(--white);
+  border-radius: var(--r-sm);
+  padding: 0.45rem 0.7rem;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  pointer-events: none;
+  max-width: 260px;
+  box-shadow: var(--shadow-md);
+}
+.kosten-vgl__tip[hidden] { display: none; }
+.kosten-vgl__tip-wert { display: block; font-size: 0.95rem; }
+.kosten-vgl__tip-text { color: rgba(255,255,255,0.75); }
+
+/* Tabelle mit allen Zahlen */
+.kosten-tabelle-wrap {
+  overflow-x: auto;
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--r-lg);
+}
+.kosten-tabelle { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 760px; }
+.kosten-tabelle th, .kosten-tabelle td {
+  padding: 0.8rem 1rem;
+  text-align: right;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--gray-100);
+  font-variant-numeric: tabular-nums;
+}
+.kosten-tabelle th:first-child { text-align: left; }
+.kosten-tabelle thead th {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  background: var(--sand-50);
+}
+.kosten-tabelle tbody th { font-weight: 700; color: var(--gray-900); }
+.kosten-tabelle tbody th a { text-decoration: underline; text-decoration-color: var(--gray-300); }
+.kosten-tabelle tbody th a:hover { text-decoration-color: currentColor; }
+.kosten-tabelle tbody td { color: var(--gray-700); }
+.kosten-tabelle tfoot th, .kosten-tabelle tfoot td { font-weight: 700; color: var(--gray-900); border-bottom: none; background: var(--sand-50); }
+
+/* Eine Karte je Land */
+.kosten-laender {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+.kosten-land {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: var(--white);
+  border: 1.5px solid var(--gray-100);
+  border-radius: var(--r-lg);
+  padding: 1.5rem;
+  transition: transform var(--t-base), box-shadow var(--t-base), border-color var(--t-base);
+}
+.kosten-land:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--terra-300); }
+.kosten-land__name { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: var(--gray-900); }
+.kosten-land__zeit { font-size: 0.8rem; color: var(--gray-500); line-height: 1.5; min-height: 2.4em; }
+.kosten-land__summe { font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; color: var(--green-900); margin-top: 0.5rem; }
+.kosten-land__fakten { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; font-size: 0.85rem; color: var(--gray-600); }
+.kosten-land__link { margin-top: 0.9rem; font-size: 0.85rem; font-weight: 700; color: var(--terra-600); }
+.kosten-land--offen { border-style: dashed; border-color: var(--gray-200); }
+.kosten-land--offen:hover { transform: none; box-shadow: none; border-color: var(--gray-200); }
+.kosten-land--offen .kosten-land__summe { color: var(--gray-400); font-size: 1.1rem; }
+
+@media (max-width: 680px) {
+  .kosten-vgl__row { grid-template-columns: 1fr; gap: 0.35rem; }
+  .kosten-vgl__bar { width: calc((100% - 5.5rem) * var(--anteil, 1)); }
+}
+
 @media (max-width: 680px) {
   .kosten-card__body { grid-template-columns: 1fr; }
   .kosten-card__head { flex-direction: column; align-items: flex-start; }
