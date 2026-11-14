@@ -23,8 +23,6 @@
 
   var teilById = {};
   D.TEILE.forEach(function (t) { teilById[t.id] = t; });
-  var fragenByKey = {};
-  D.FRAGEN.forEach(function (f) { fragenByKey[f.key] = f; });
 
   /* ── Zustand ─────────────────────────────────────────────── */
 
@@ -34,9 +32,13 @@
     return { a: a, aus: [], hak: [], eigen: [] };
   }
 
+  function vorlage(key) {
+    return D.VORLAGEN.filter(function (x) { return x.key === key; })[0] || null;
+  }
+
   function ausVorlage(key) {
     var s = leer();
-    var v = D.VORLAGEN.filter(function (x) { return x.key === key; })[0];
+    var v = vorlage(key);
     if (v) Object.keys(v.antworten).forEach(function (k) { s.a[k] = v.antworten[k].slice(); });
     return s;
   }
@@ -106,6 +108,9 @@
   function linkFuer(s) {
     return location.href.split('#')[0] + '#liste=' + kodieren(kompakt(s));
   }
+  function hashEntfernen() {
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* egal */ }
+  }
 
   /* ── Welche Teile gehoeren dazu? ─────────────────────────── */
 
@@ -130,17 +135,44 @@
     return t.text.replace('{menge}', menge);
   }
 
+  // Entsprechen die Antworten genau einer Vorlage? (fuer die Markierung)
+  function gleicheVorlage(v) {
+    return D.FRAGEN.every(function (f) {
+      var a = (state.a[f.key] || []).slice().sort().join(',');
+      var b = (v.antworten[f.key] || []).slice().sort().join(',');
+      return a === b;
+    });
+  }
+
+  // Kurze Zusammenfassung der Antworten (Panel auf dem Handy, Ausdruck)
+  function zusammenfassung() {
+    var teile = [];
+    D.FRAGEN.forEach(function (f) {
+      if (f.key === 'fern') return;
+      var labels = f.optionen.filter(function (o) { return state.a[f.key].indexOf(o.wert) !== -1; })
+        .map(function (o) { return o.label; });
+      if (labels.length) teile.push(labels.join(', '));
+    });
+    return teile.join(' · ');
+  }
+
   /* ── Elemente ────────────────────────────────────────────── */
 
   var el = {
-    vorlagen: root.querySelector('[data-pl="vorlagen"]'),
-    fragen:   root.querySelector('[data-pl="fragen"]'),
-    liste:    root.querySelector('[data-pl="liste"]'),
-    aus:      root.querySelector('[data-pl="ausgeblendet"]'),
-    zaehler:  root.querySelector('[data-pl="zaehler"]'),
+    vorlagen:  root.querySelector('[data-pl="vorlagen"]'),
+    fragen:    root.querySelector('[data-pl="fragen"]'),
+    panel:     root.querySelector('[data-pl="panel"]'),
+    panelBtn:  root.querySelector('[data-pl="panel-toggle"]'),
+    panelInfo: root.querySelector('[data-pl="panel-info"]'),
+    liste:     root.querySelector('[data-pl="liste"]'),
+    aus:       root.querySelector('[data-pl="ausgeblendet"]'),
+    status:    root.querySelector('[data-pl="status"]'),
+    zaehler:   root.querySelector('[data-pl="zaehler"]'),
+    prozent:   root.querySelector('[data-pl="prozent"]'),
+    balken:    root.querySelector('[data-pl="balken"]'),
     druckInfo: root.querySelector('[data-pl="druck-info"]'),
-    hinweis:  root.querySelector('[data-pl="hinweis"]'),
-    meldung:  root.querySelector('[data-pl="meldung"]')
+    hinweis:   root.querySelector('[data-pl="hinweis"]'),
+    meldung:   root.querySelector('[data-pl="meldung"]')
   };
 
   function erzeuge(tag, klasse, text) {
@@ -150,10 +182,18 @@
     return n;
   }
 
+  var SVG = {
+    chevron: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>',
+    tipp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>',
+    weg: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+    plus: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>'
+  };
+
   /* ── Zustand laden ───────────────────────────────────────── */
 
   var state;
   var geteilt = false;   // true: Liste kommt aus einem geteilten Link und ist noch nicht gespeichert
+  var hatteSpeicher = false;
 
   var hashMatch = location.hash.match(/^#liste=([A-Za-z0-9_-]+)$/);
   var ausLink = hashMatch ? dekodieren(hashMatch[1]) : null;
@@ -161,42 +201,56 @@
     state = ausLink;
     geteilt = true;
   } else {
-    state = speicherLesen() || ausVorlage('suedamerika');
+    var gespeichert = speicherLesen();
+    hatteSpeicher = !!gespeichert;
+    state = gespeichert || ausVorlage('suedamerika');
   }
 
   function geaendert() {
-    if (geteilt) {
-      geteilt = false;
-      try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* egal */ }
-    }
+    if (geteilt) { geteilt = false; hashEntfernen(); }
     speicherSchreiben(state);
     render();
   }
 
   // Abhaken: nur speichern und zaehlen, ohne alles neu zu zeichnen (Fokus bleibt)
   function nurSpeichern() {
-    if (geteilt) {
-      geteilt = false;
-      try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* egal */ }
-      renderHinweis();
-    }
+    if (geteilt) { geteilt = false; hashEntfernen(); renderHinweis(); }
     speicherSchreiben(state);
     zaehlen();
   }
 
-  function zaehlen() {
-    var gesamt = el.liste.querySelectorAll('.pl-teil').length;
-    var gepackt = el.liste.querySelectorAll('.pl-teil.is-gepackt').length;
-    el.zaehler.textContent = gepackt + ' von ' + gesamt + ' gepackt';
-  }
+  /* ── Panel "Deine Reise" (auf dem Handy einklappbar) ─────── */
 
-  /* ── Fragen und Vorlagen ─────────────────────────────────── */
+  // Einklappen gibt es nur auf schmalen Bildschirmen, auf dem Desktop ist das Panel immer offen
+  var schmal = window.matchMedia('(max-width: 900px)');
+  var panelOffen = !(hatteSpeicher || geteilt);   // wer schon eine Liste hat, sieht sie zuerst
+  function renderPanel() {
+    var offen = panelOffen || !schmal.matches;
+    el.panel.classList.toggle('is-zu', !offen);
+    el.panelBtn.setAttribute('aria-expanded', String(offen));
+    el.panelInfo.textContent = zusammenfassung() || 'Noch nichts ausgewählt';
+  }
+  el.panelBtn.addEventListener('click', function () {
+    if (!schmal.matches) return;
+    panelOffen = !panelOffen;
+    renderPanel();
+  });
+  if (schmal.addEventListener) schmal.addEventListener('change', renderPanel);
+
+  /* ── Vorlagen und Fragen ─────────────────────────────────── */
 
   function renderVorlagen() {
     el.vorlagen.innerHTML = '';
     D.VORLAGEN.forEach(function (v) {
-      var b = erzeuge('button', 'pl-vorlage', v.label);
+      var aktiv = gleicheVorlage(v);
+      var b = erzeuge('button', 'pl-vorlage' + (aktiv ? ' is-aktiv' : ''));
       b.type = 'button';
+      b.setAttribute('aria-pressed', String(aktiv));
+      b.appendChild(erzeuge('span', 'pl-vorlage__icon', v.icon || ''));
+      var t = erzeuge('span', 'pl-vorlage__text');
+      t.appendChild(erzeuge('span', 'pl-vorlage__titel', v.label));
+      if (v.text) t.appendChild(erzeuge('span', 'pl-vorlage__info', v.text));
+      b.appendChild(t);
       b.addEventListener('click', function () {
         var neu = ausVorlage(v.key);
         neu.eigen = state.eigen;   // eigene Teile bleiben erhalten
@@ -211,13 +265,17 @@
     el.fragen.innerHTML = '';
     D.FRAGEN.forEach(function (f) {
       var gruppe = erzeuge('fieldset', 'pl-frage');
-      gruppe.appendChild(erzeuge('legend', 'pl-frage__titel', f.titel + (f.mehrfach ? ' (mehrere möglich)' : '')));
+      var legend = erzeuge('legend', 'pl-frage__titel', f.titel);
+      if (f.mehrfach) legend.appendChild(erzeuge('span', 'pl-frage__hint', 'mehrere möglich'));
+      gruppe.appendChild(legend);
       var chips = erzeuge('div', 'pl-chips');
       f.optionen.forEach(function (o) {
         var aktiv = state.a[f.key].indexOf(o.wert) !== -1;
-        var b = erzeuge('button', 'pl-chip' + (aktiv ? ' is-aktiv' : ''), o.label);
+        var b = erzeuge('button', 'pl-chip' + (aktiv ? ' is-aktiv' : ''));
         b.type = 'button';
         b.setAttribute('aria-pressed', String(aktiv));
+        if (o.icon) b.appendChild(erzeuge('span', 'pl-chip__icon', o.icon));
+        b.appendChild(document.createTextNode(o.label));
         b.addEventListener('click', function () {
           var werte = state.a[f.key];
           var i = werte.indexOf(o.wert);
@@ -238,6 +296,7 @@
   /* ── Liste ───────────────────────────────────────────────── */
 
   var offeneTipps = {};
+  var zuKats = {};
 
   function renderListe() {
     el.liste.innerHTML = '';
@@ -249,15 +308,43 @@
       teile.forEach(function (t) { if (state.aus.indexOf(t.id) !== -1) ausgeblendet.push(t); });
       var eigene = state.eigen.filter(function (e) { return e.kat === kat.key; });
 
-      var block = erzeuge('section', 'pl-kat');
-      block.appendChild(erzeuge('h3', 'pl-kat__titel', kat.titel));
-      block.appendChild(erzeuge('p', 'pl-kat__intro', kat.intro));
+      var block = erzeuge('section', 'pl-kat' + (zuKats[kat.key] ? ' is-zu' : ''));
+      block.dataset.kat = kat.key;
+      var inhaltId = 'pl-kat-' + kat.key;
+
+      var h = erzeuge('h3', 'pl-kat__h');
+      var kopf = erzeuge('button', 'pl-kat__kopf');
+      kopf.type = 'button';
+      kopf.setAttribute('aria-expanded', String(!zuKats[kat.key]));
+      kopf.setAttribute('aria-controls', inhaltId);
+      kopf.appendChild(erzeuge('span', 'pl-kat__icon', kat.icon || ''));
+      var tw = erzeuge('span', 'pl-kat__titelwrap');
+      tw.appendChild(erzeuge('span', 'pl-kat__titel', kat.titel));
+      tw.appendChild(erzeuge('span', 'pl-kat__intro', kat.intro));
+      kopf.appendChild(tw);
+      kopf.appendChild(erzeuge('span', 'pl-kat__stand'));
+      var chev = erzeuge('span', 'pl-kat__chevron');
+      chev.innerHTML = SVG.chevron;
+      kopf.appendChild(chev);
+      kopf.addEventListener('click', function () {
+        zuKats[kat.key] = !zuKats[kat.key];
+        block.classList.toggle('is-zu', !!zuKats[kat.key]);
+        kopf.setAttribute('aria-expanded', String(!zuKats[kat.key]));
+      });
+      h.appendChild(kopf);
+      block.appendChild(h);
+
+      var balken = erzeuge('div', 'pl-kat__balken');
+      balken.appendChild(erzeuge('div', 'pl-kat__balken-fill'));
+      block.appendChild(balken);
+
+      var inhalt = erzeuge('div', 'pl-kat__inhalt');
+      inhalt.id = inhaltId;
       var ul = erzeuge('ul', 'pl-teile');
 
       sichtbar.forEach(function (t) {
-        var hak = state.hak.indexOf(t.id) !== -1;
         ul.appendChild(zeile({
-          id: t.id, text: textVon(t, state.a), tipp: t.tipp, hak: hak,
+          id: t.id, text: textVon(t, state.a), tipp: t.tipp, hak: state.hak.indexOf(t.id) !== -1,
           onHak: function (an) {
             var i = state.hak.indexOf(t.id);
             if (an && i === -1) state.hak.push(t.id);
@@ -279,16 +366,17 @@
       });
 
       if (!sichtbar.length && !eigene.length) {
-        ul.appendChild(erzeuge('li', 'pl-teile__leer', 'Für deine Auswahl nichts Besonderes. Eigene Teile kannst du unten ergänzen.'));
+        ul.appendChild(erzeuge('li', 'pl-teile__leer', 'Für deine Auswahl nichts Besonderes. Eigene Teile kannst du hier ergänzen.'));
       }
-      block.appendChild(ul);
-      block.appendChild(eigenesFormular(kat.key));
+      inhalt.appendChild(ul);
+      inhalt.appendChild(eigenesFormular(kat.key));
+      block.appendChild(inhalt);
       el.liste.appendChild(block);
     });
 
     renderAusgeblendet(ausgeblendet);
     zaehlen();
-    renderDruckInfo();
+    el.druckInfo.textContent = zusammenfassung();
   }
 
   function zeile(o) {
@@ -296,20 +384,25 @@
     var label = erzeuge('label', 'pl-teil__label');
     var cb = document.createElement('input');
     cb.type = 'checkbox';
+    cb.className = 'pl-cb';
     cb.checked = o.hak;
     cb.addEventListener('change', function () {
       li.classList.toggle('is-gepackt', cb.checked);
       o.onHak(cb.checked);
     });
     label.appendChild(cb);
+    label.appendChild(erzeuge('span', 'pl-cb__box'));
     label.appendChild(erzeuge('span', 'pl-teil__text', o.text));
+    if (o.eigen) label.appendChild(erzeuge('span', 'pl-teil__marke', 'eigenes'));
     li.appendChild(label);
 
     var aktionen = erzeuge('span', 'pl-teil__aktionen');
     var tippBox = null;
     if (o.tipp) {
-      var tb = erzeuge('button', 'pl-teil__btn pl-teil__btn--tipp', 'i');
+      var tb = erzeuge('button', 'pl-teil__btn pl-teil__btn--tipp');
       tb.type = 'button';
+      tb.innerHTML = SVG.tipp;
+      tb.title = 'Unser Tipp';
       tb.setAttribute('aria-label', 'Tipp zu: ' + o.text);
       tb.setAttribute('aria-expanded', String(!!offeneTipps[o.id]));
       tb.addEventListener('click', function () {
@@ -321,10 +414,11 @@
       tippBox = erzeuge('p', 'pl-teil__tipp', o.tipp);
       tippBox.hidden = !offeneTipps[o.id];
     }
-    var wb = erzeuge('button', 'pl-teil__btn pl-teil__btn--weg', '×');
+    var wb = erzeuge('button', 'pl-teil__btn pl-teil__btn--weg');
     wb.type = 'button';
-    wb.setAttribute('aria-label', o.wegLabel + ': ' + o.text);
+    wb.innerHTML = SVG.weg;
     wb.title = o.wegLabel;
+    wb.setAttribute('aria-label', o.wegLabel + ': ' + o.text);
     wb.addEventListener('click', o.onWeg);
     aktionen.appendChild(wb);
     li.appendChild(aktionen);
@@ -334,14 +428,16 @@
 
   function eigenesFormular(katKey) {
     var form = erzeuge('form', 'pl-eigen');
+    var plus = erzeuge('span', 'pl-eigen__plus');
+    plus.innerHTML = SVG.plus;
     var input = document.createElement('input');
     input.type = 'text';
     input.maxLength = MAX_TEXT;
     input.placeholder = 'Eigenes Teil ergänzen';
     input.setAttribute('aria-label', 'Eigenes Teil ergänzen');
-    var b = erzeuge('button', 'pl-eigen__btn', '+');
+    var b = erzeuge('button', 'pl-eigen__btn', 'Hinzufügen');
     b.type = 'submit';
-    b.setAttribute('aria-label', 'Hinzufügen');
+    form.appendChild(plus);
     form.appendChild(input);
     form.appendChild(b);
     form.addEventListener('submit', function (ev) {
@@ -351,10 +447,9 @@
       if (state.eigen.length >= MAX_EIGEN) { melde('Mehr als ' + MAX_EIGEN + ' eigene Teile gehen leider nicht.'); return; }
       state.eigen.push({ id: 'e' + Date.now(), kat: katKey, text: text, hak: false });
       geaendert();
-      var neu = el.liste.querySelectorAll('.pl-eigen input');
       // Fokus zurueck ins gleiche Feld, damit man direkt weitertippen kann
-      var idx = D.KATEGORIEN.map(function (k) { return k.key; }).indexOf(katKey);
-      if (neu[idx]) neu[idx].focus();
+      var feld = el.liste.querySelector('.pl-kat[data-kat="' + katKey + '"] .pl-eigen input');
+      if (feld) feld.focus();
     });
     return form;
   }
@@ -382,16 +477,23 @@
     el.aus.appendChild(details);
   }
 
-  // Kurze Zusammenfassung der Antworten fuer den Ausdruck
-  function renderDruckInfo() {
-    var teile = [];
-    D.FRAGEN.forEach(function (f) {
-      var labels = f.optionen.filter(function (o) { return state.a[f.key].indexOf(o.wert) !== -1; })
-        .map(function (o) { return o.label; });
-      if (f.key === 'fern') return;
-      if (labels.length) teile.push(labels.join(', '));
+  // Zaehler oben und je Kategorie, Fortschrittsbalken, "fertig"-Zustand
+  function zaehlen() {
+    var gesamt = 0, gepackt = 0;
+    el.liste.querySelectorAll('.pl-kat').forEach(function (block) {
+      var n = block.querySelectorAll('.pl-teil').length;
+      var g = block.querySelectorAll('.pl-teil.is-gepackt').length;
+      gesamt += n; gepackt += g;
+      block.querySelector('.pl-kat__stand').textContent = n ? g + '/' + n : '';
+      block.querySelector('.pl-kat__balken-fill').style.width = (n ? Math.round(g / n * 100) : 0) + '%';
+      block.classList.toggle('is-fertig', n > 0 && g === n);
     });
-    el.druckInfo.textContent = teile.join(' · ');
+    var pct = gesamt ? Math.round(gepackt / gesamt * 100) : 0;
+    var fertig = gesamt > 0 && gepackt === gesamt;
+    el.zaehler.textContent = fertig ? 'Alles gepackt, gute Reise!' : gepackt + ' von ' + gesamt + ' gepackt';
+    el.prozent.textContent = pct + ' %';
+    el.balken.style.width = pct + '%';
+    el.status.classList.toggle('is-fertig', fertig);
   }
 
   /* ── Hinweis bei geteilten Links ─────────────────────────── */
@@ -407,7 +509,7 @@
       b.addEventListener('click', function () {
         state = speicherLesen() || ausVorlage('suedamerika');
         geteilt = false;
-        try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* egal */ }
+        hashEntfernen();
         render();
       });
       el.hinweis.appendChild(b);
@@ -443,7 +545,8 @@
     state = ausVorlage('suedamerika');
     geteilt = false;
     offeneTipps = {};
-    try { history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* egal */ }
+    zuKats = {};
+    hashEntfernen();
     render();
     melde('Liste zurückgesetzt.');
   });
@@ -451,11 +554,12 @@
   /* ── Start ───────────────────────────────────────────────── */
 
   function render() {
+    renderVorlagen();
     renderFragen();
+    renderPanel();
     renderListe();
     renderHinweis();
   }
 
-  renderVorlagen();
   render();
 })();

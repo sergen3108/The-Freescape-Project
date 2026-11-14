@@ -4,7 +4,9 @@
    ------------------------------------------------------------
    FRAGEN: die Auswahl oben im Generator. Jede Frage hat einen
    key, die Antworten landen als Liste von Werten unter diesem key
-   (auch bei Einfachauswahl, dann mit genau einem Wert).
+   (auch bei Einfachauswahl, dann mit genau einem Wert). icon ist
+   optional (Emoji vor dem Label), genauso bei KATEGORIEN und
+   VORLAGEN (dort zusaetzlich text als kurze Beschreibung).
 
    TEILE: jedes Teil der Liste.
      id        eindeutig und dauerhaft (steckt in gespeicherten und
@@ -31,11 +33,11 @@ window.PACKLISTE = {
     {
       key: 'klima', titel: 'Welches Klima erwartet dich?', mehrfach: true,
       optionen: [
-        { wert: 'tropisch',   label: 'Tropisch und heiß' },
-        { wert: 'kalt',       label: 'Kalt oder große Höhe' },
-        { wert: 'wueste',     label: 'Wüste' },
-        { wert: 'gemaessigt', label: 'Gemäßigt' },
-        { wert: 'regen',      label: 'Regenzeit' }
+        { wert: 'tropisch',   icon: '☀️', label: 'Tropisch und heiß' },
+        { wert: 'kalt',       icon: '🏔️', label: 'Kalt oder große Höhe' },
+        { wert: 'wueste',     icon: '🏜️', label: 'Wüste' },
+        { wert: 'gemaessigt', icon: '🌤️', label: 'Gemäßigt' },
+        { wert: 'regen',      icon: '🌧️', label: 'Regenzeit' }
       ]
     },
     {
@@ -50,30 +52,30 @@ window.PACKLISTE = {
     {
       key: 'gepaeck', titel: 'Womit reist du?', mehrfach: false,
       optionen: [
-        { wert: 'handgepaeck', label: 'Nur Handgepäck' },
-        { wert: 'rucksack',    label: 'Großer Rucksack' },
-        { wert: 'koffer',      label: 'Koffer' }
+        { wert: 'handgepaeck', icon: '🎒', label: 'Nur Handgepäck' },
+        { wert: 'rucksack',    icon: '🏕️', label: 'Großer Rucksack' },
+        { wert: 'koffer',      icon: '🧳', label: 'Koffer' }
       ]
     },
     {
       key: 'unterkunft', titel: 'Wo schläfst du?', mehrfach: true,
       optionen: [
-        { wert: 'hostel',  label: 'Hostels' },
-        { wert: 'hotel',   label: 'Hotels oder Apartments' },
-        { wert: 'camping', label: 'Camping' }
+        { wert: 'hostel',  icon: '🛏️', label: 'Hostels' },
+        { wert: 'hotel',   icon: '🏨', label: 'Hotels oder Apartments' },
+        { wert: 'camping', icon: '⛺', label: 'Camping' }
       ]
     },
     {
       key: 'aktiv', titel: 'Was hast du vor?', mehrfach: true,
       optionen: [
-        { wert: 'wandern',   label: 'Wandern und Trekking' },
-        { wert: 'strand',    label: 'Strand und Schnorcheln' },
-        { wert: 'dschungel', label: 'Dschungel' },
-        { wert: 'staedte',   label: 'Städte' },
-        { wert: 'boot',      label: 'Bootstouren' },
-        { wert: 'arbeiten',  label: 'Arbeiten unterwegs' },
-        { wert: 'filmen',    label: 'Filmen und Fotografieren' },
-        { wert: 'drohne',    label: 'Drohne' }
+        { wert: 'wandern',   icon: '🥾', label: 'Wandern und Trekking' },
+        { wert: 'strand',    icon: '🏝️', label: 'Strand und Schnorcheln' },
+        { wert: 'dschungel', icon: '🌿', label: 'Dschungel' },
+        { wert: 'staedte',   icon: '🏙️', label: 'Städte' },
+        { wert: 'boot',      icon: '⛵', label: 'Bootstouren' },
+        { wert: 'arbeiten',  icon: '💻', label: 'Arbeiten unterwegs' },
+        { wert: 'filmen',    icon: '🎥', label: 'Filmen und Fotografieren' },
+        { wert: 'drohne',    icon: '🚁', label: 'Drohne' }
       ]
     },
     {
@@ -86,12 +88,12 @@ window.PACKLISTE = {
   ],
 
   KATEGORIEN: [
-    { key: 'rucksack',   titel: 'Rucksack und Organisation', intro: 'Dein Zuhause auf dem Rücken. Weniger ist hier wörtlich mehr.' },
-    { key: 'kleidung',   titel: 'Kleidung',                  intro: 'Zwiebelprinzip statt Spezialkleidung. Waschen kannst du fast überall, günstig und kiloweise.' },
-    { key: 'technik',    titel: 'Technik',                   intro: 'So viel wie nötig, so wenig wie möglich. Steckdosen sind in Bussen Glückssache.' },
-    { key: 'dokumente',  titel: 'Dokumente und Geld',        intro: 'Der Teil, den du nicht vor Ort nachkaufen kannst. Zweimal prüfen.' },
-    { key: 'gesundheit', titel: 'Gesundheit und Hygiene',    intro: 'Apotheken gibt es fast überall, aber nachts im Bus hilft dir nur, was du dabeihast.' },
-    { key: 'sonstiges',  titel: 'Sonstiges und Kleinkram',   intro: 'Wiegt fast nichts, rettet aber regelmäßig den Tag.' }
+    { key: 'rucksack',   icon: '🎒', titel: 'Rucksack und Organisation', intro: 'Dein Zuhause auf dem Rücken. Weniger ist hier wörtlich mehr.' },
+    { key: 'kleidung',   icon: '👕', titel: 'Kleidung',                  intro: 'Zwiebelprinzip statt Spezialkleidung. Waschen kannst du fast überall, günstig und kiloweise.' },
+    { key: 'technik',    icon: '🔌', titel: 'Technik',                   intro: 'So viel wie nötig, so wenig wie möglich. Steckdosen sind in Bussen Glückssache.' },
+    { key: 'dokumente',  icon: '🛂', titel: 'Dokumente und Geld',        intro: 'Der Teil, den du nicht vor Ort nachkaufen kannst. Zweimal prüfen.' },
+    { key: 'gesundheit', icon: '🩹', titel: 'Gesundheit und Hygiene',    intro: 'Apotheken gibt es fast überall, aber nachts im Bus hilft dir nur, was du dabeihast.' },
+    { key: 'sonstiges',  icon: '🧰', titel: 'Sonstiges und Kleinkram',   intro: 'Wiegt fast nichts, rettet aber regelmäßig den Tag.' }
   ],
 
   TEILE: [
@@ -307,7 +309,7 @@ window.PACKLISTE = {
 
   VORLAGEN: [
     {
-      key: 'suedamerika', label: 'Wie wir: 1 Jahr Südamerika',
+      key: 'suedamerika', icon: '🌎', label: 'Wie wir: 1 Jahr Südamerika', text: 'Handgepäck, vier Klimazonen, Hostels',
       antworten: {
         klima: ['tropisch', 'kalt', 'wueste', 'gemaessigt', 'regen'],
         dauer: ['sehrlang'], gepaeck: ['handgepaeck'], unterkunft: ['hostel', 'hotel'],
@@ -315,14 +317,14 @@ window.PACKLISTE = {
       }
     },
     {
-      key: 'strand', label: '2 Wochen Strand und Sonne',
+      key: 'strand', icon: '🏝️', label: '2 Wochen Strand und Sonne', text: 'Koffer, Hotel, Meer',
       antworten: {
         klima: ['tropisch'], dauer: ['mittel'], gepaeck: ['koffer'], unterkunft: ['hotel'],
         aktiv: ['strand', 'boot'], fern: ['ja']
       }
     },
     {
-      key: 'staedte', label: 'Städtetrip in Europa',
+      key: 'staedte', icon: '🏙️', label: 'Städtetrip in Europa', text: 'Handgepäck, ein paar Tage',
       antworten: {
         klima: ['gemaessigt'], dauer: ['kurz'], gepaeck: ['handgepaeck'], unterkunft: ['hotel'],
         aktiv: ['staedte'], fern: ['nein']

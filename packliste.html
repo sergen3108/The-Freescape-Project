@@ -9,6 +9,19 @@
 
   <link rel="canonical" href="https://thefreescapeproject.com/packliste.html">
 
+<!-- Open Graph / Social Media -->
+<meta property="og:type"         content="website">
+<meta property="og:site_name"    content="The Freescape Project">
+<meta property="og:url"          content="https://thefreescapeproject.com/packliste.html">
+<meta property="og:title"        content="Packliste und Packlisten-Generator">
+<meta property="og:description"  content="Unsere Packliste für ein Jahr Südamerika als PDF und ein Generator, der dir für jede Reise eine eigene Liste mit Tipps baut.">
+<meta property="og:image"        content="https://thefreescapeproject.com/assets/img/TorresDelPaine.jpeg">
+<meta property="og:locale"       content="de_DE">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Packliste und Packlisten-Generator">
+<meta name="twitter:description" content="Unsere Packliste für ein Jahr Südamerika als PDF und ein Generator, der dir für jede Reise eine eigene Liste mit Tipps baut.">
+<meta name="twitter:image"       content="https://thefreescapeproject.com/assets/img/TorresDelPaine.jpeg">
+
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
@@ -125,8 +138,9 @@
 <main id="main">
 
 <!-- ── Hero ─────────────────────────────────────────────────── -->
-<section class="page-hero page-hero--ohne-bild">
+<section class="page-hero">
   <div class="hero__bg">
+    <img src="assets/img/TorresDelPaine.jpeg" class="hero__bg-photo" alt="" width="1920" height="1080" loading="eager" fetchpriority="high">
     <div class="hero__pattern"></div>
   </div>
   <div class="hero__overlay"></div>
@@ -174,24 +188,52 @@
     <div class="section-header pl-kopf">
       <p class="overline">Packlisten-Generator</p>
       <h2>Deine eigene Packliste</h2>
-      <p>Wähle aus, wohin und wie du reist. Die Liste passt sich sofort an. Abhaken, abwählen, was du nicht brauchst, und eigene Teile ergänzen. Hinter jedem ⓘ steckt ein Tipp von uns.</p>
+      <p>Wähle aus, wohin und wie du reist, die Liste passt sich sofort an. Abhaken, abwählen, was du nicht brauchst, und eigene Teile ergänzen. Hinter jeder Glühbirne steckt ein Tipp von uns.</p>
     </div>
 
     <div class="pl-generator" id="pl-generator">
-      <aside class="pl-fragen-wrap">
-        <p class="pl-label">Schnellstart</p>
-        <div class="pl-vorlagen" data-pl="vorlagen"></div>
-        <div data-pl="fragen"></div>
+      <aside class="pl-panel" data-pl="panel">
+        <button type="button" class="pl-panel__kopf" data-pl="panel-toggle" aria-controls="pl-panel-inhalt" aria-expanded="true">
+          <span class="pl-schritt">1</span>
+          <span class="pl-panel__titelwrap">
+            <span class="pl-panel__titel">Deine Reise</span>
+            <span class="pl-panel__info" data-pl="panel-info"></span>
+          </span>
+          <span class="pl-panel__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="pl-panel__inhalt" id="pl-panel-inhalt">
+          <p class="pl-label">Schnellstart</p>
+          <div class="pl-vorlagen" data-pl="vorlagen"></div>
+          <p class="pl-label">Oder selbst auswählen</p>
+          <div data-pl="fragen"></div>
+        </div>
       </aside>
 
       <div class="pl-ergebnis">
         <div class="pl-hinweis" data-pl="hinweis" hidden></div>
-        <div class="pl-werkzeuge">
-          <span class="pl-zaehler" data-pl="zaehler" aria-live="polite"></span>
-          <div class="pl-werkzeuge__btns">
-            <button type="button" class="btn btn-primary" data-pl="drucken">Drucken oder als PDF speichern</button>
-            <button type="button" class="btn btn-outline" data-pl="teilen">Link zum Teilen kopieren</button>
-            <button type="button" class="pl-link-btn" data-pl="zuruecksetzen">Zurücksetzen</button>
+        <div class="pl-status" data-pl="status">
+          <div class="pl-status__oben">
+            <span class="pl-schritt">2</span>
+            <div class="pl-status__text">
+              <span class="pl-status__titel">Deine Packliste</span>
+              <span class="pl-status__zaehler" data-pl="zaehler" aria-live="polite"></span>
+            </div>
+            <span class="pl-status__prozent" data-pl="prozent"></span>
+          </div>
+          <div class="pl-balken"><div class="pl-balken__fill" data-pl="balken"></div></div>
+          <div class="pl-status__btns">
+            <button type="button" class="pl-tool pl-tool--primaer" data-pl="drucken">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+              Drucken / PDF
+            </button>
+            <button type="button" class="pl-tool" data-pl="teilen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+              Link teilen
+            </button>
+            <button type="button" class="pl-tool pl-tool--leise" data-pl="zuruecksetzen">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+              Zurücksetzen
+            </button>
           </div>
           <p class="pl-meldung" data-pl="meldung" role="status"></p>
         </div>
