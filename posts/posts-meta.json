@@ -479,7 +479,8 @@
    "lesezeit": "10 min",
    "autor": "Sergen & Julia",
    "teaser": "Man muss nicht auf eine teure Kreuzfahrt gehen, um die Galápagos-Inseln zu erleben. Wir haben Santa Cruz, Isabela und San Cristóbal auf eigene Faust erkundet und zeigen dir, wie du deine Route planst, welche Insel zu dir passt und wie du dabei Geld sparst.",
-   "bildEmoji": "",
+   "bild": "assets/img/galapagosbird1.JPEG",
+   "bildEmoji": "🐢",
    "bildGradient": "linear-gradient(135deg,#0a3d62,#138a36)",
    "tags": [
     "Galápagos",
@@ -499,7 +500,8 @@
    "lesezeit": "9 min",
    "autor": "Sergen & Julia",
    "teaser": "Die östlichste Insel des Archipels ist das Paradies der Seelöwen. Neun Tage auf San Cristóbal haben uns Schnorcheln mit Seelöwen an der Muelle Tijeretas, einen Tauchgang am Kicker Rock und die entspannteste Atmosphäre der drei Hauptinseln beschert.",
-   "bildEmoji": "",
+   "bild": "assets/img/blog/sancristobal3.jpeg",
+   "bildEmoji": "🦭",
    "bildGradient": "linear-gradient(135deg,#0a3d62,#138a36)",
    "tags": [
     "Galápagos",
