@@ -4,14 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#0a1520">
-  <!-- ENTWURF: noch nicht veroeffentlicht. Die Seite ist nirgends verlinkt,
-       steht nicht in der sitemap.xml und ist fuer Suchmaschinen gesperrt.
-       Zum Veroeffentlichen: diese robots-Zeile entfernen, den Entwurf-Hinweis
-       und die gelben Luecken (class="entwurf-luecke") im Text entfernen,
-       die Seite in sitemap.xml eintragen und verlinken. -->
-  <meta name="robots" content="noindex, nofollow">
-  <title>Packliste Südamerika | The Freescape Project</title>
-  <meta name="description" content="Was wir für ein Jahr mit dem Rucksack durch Südamerika dabeihaben, von der Karibikküste bis nach Patagonien.">
+  <title>Packliste und Packlisten-Generator | The Freescape Project</title>
+  <meta name="description" content="Unsere Packliste für ein Jahr Südamerika als PDF und ein kostenloser Generator, der dir für jede Reise eine eigene Packliste mit Tipps erstellt.">
 
   <link rel="canonical" href="https://thefreescapeproject.com/packliste.html">
 
@@ -27,7 +21,7 @@
 <body>
 <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-<!-- partial:nav (wird aus partials/nav.html erzeugt, nicht hier bearbeiten) -->
+<!-- partial:nav aktiv="packliste.html" (wird aus partials/nav.html erzeugt, nicht hier bearbeiten) -->
 <nav class="nav nav--transparent" aria-label="Hauptnavigation">
   <div class="nav__inner">
     <a href="index.html" class="nav__logo">
@@ -43,22 +37,31 @@
       <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
       <a href="blog.html" class="nav__link" data-page="blog.html">Blog</a>
       <div class="nav__dropdown">
-        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Länder
+        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Reiseziele
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="nav__dropdown-menu">
-          <a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Länder</a>
+        <div class="nav__dropdown-menu" id="nav-reiseziele-menu">
+          <a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Reiseziele</a>
           <div class="nav__dropdown-trenner"></div>
+          <a href="laender.html" class="nav__dropdown-gruppe">Südamerika</a>
           <a href="kolumbien.html" class="nav__dropdown-link">Kolumbien</a>
           <a href="ecuador.html" class="nav__dropdown-link">Ecuador</a>
           <a href="peru.html" class="nav__dropdown-link">Peru</a>
           <a href="bolivien.html" class="nav__dropdown-link">Bolivien</a>
           <a href="chile.html" class="nav__dropdown-link">Chile</a>
           <a href="argentinien.html" class="nav__dropdown-link">Argentinien</a>
-          <div class="nav__dropdown-trenner"></div>
           <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Brasilien</a>
           <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Uruguay</a>
           <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Paraguay</a>
+        </div>
+      </div>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" type="button">Reiseplanung
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="kosten.html" class="nav__dropdown-link" data-page="kosten.html">Reisekosten</a>
+          <a href="packliste.html" class="nav__dropdown-link active" data-page="packliste.html">Packliste</a>
         </div>
       </div>
       <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
@@ -94,12 +97,21 @@
   <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
   <a href="galerie.html" class="nav__mobile-link">Galerie</a>
   <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <button type="button" class="nav__mobile-link nav__mobile-toggle" id="nav-mobile-planung-toggle" aria-expanded="false" aria-controls="nav-mobile-planung-submenu">
+    Reiseplanung
+    <svg class="nav__mobile-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="nav__mobile-submenu" id="nav-mobile-planung-submenu" hidden>
+    <a href="kosten.html" class="nav__mobile-link nav__mobile-sublink">Reisekosten</a>
+    <a href="packliste.html" class="nav__mobile-link nav__mobile-sublink">Packliste</a>
+  </div>
   <button type="button" class="nav__mobile-link nav__mobile-toggle" id="nav-mobile-laender-toggle" aria-expanded="false" aria-controls="nav-mobile-laender-submenu">
-    Länder
+    Reiseziele
     <svg class="nav__mobile-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
   </button>
   <div class="nav__mobile-submenu" id="nav-mobile-laender-submenu" hidden>
-    <a href="laender.html" class="nav__mobile-link nav__mobile-sublink">Alle Länder</a>
+    <a href="laender.html" class="nav__mobile-link nav__mobile-sublink">Alle Reiseziele</a>
+    <span class="nav__mobile-gruppe">Südamerika</span>
     <a href="kolumbien.html" class="nav__mobile-link nav__mobile-sublink">Kolumbien</a>
     <a href="ecuador.html" class="nav__mobile-link nav__mobile-sublink">Ecuador</a>
     <a href="peru.html" class="nav__mobile-link nav__mobile-sublink">Peru</a>
@@ -112,7 +124,7 @@
 <!-- /partial:nav -->
 <main id="main">
 
-<!-- ── Hero (Titelbild fehlt noch, bis dahin Farbverlauf) ───── -->
+<!-- ── Hero ─────────────────────────────────────────────────── -->
 <section class="page-hero page-hero--ohne-bild">
   <div class="hero__bg">
     <div class="hero__pattern"></div>
@@ -120,102 +132,107 @@
   <div class="hero__overlay"></div>
   <div class="container page-hero__content">
     <p class="overline">Reiseplanung</p>
-    <h1>Packliste für Südamerika</h1>
-    <p class="lead">Was wir für ein Jahr mit dem Rucksack dabeihaben, von der Karibik bis Patagonien.</p>
+    <h1>Packliste</h1>
+    <p class="lead">Unsere Liste nach einem Jahr mit dem Rucksack durch Südamerika, und ein Generator, der dir für jede Reise deine eigene Liste baut.</p>
   </div>
 </section>
 
-<div class="entwurf-banner">
-  <div class="container">Entwurf, noch nicht veröffentlicht. Gelb markierte Stellen brauchen eure eigenen Erfahrungen.</div>
-</div>
+<!-- ── Download + Grundregeln ───────────────────────────────── -->
+<section class="section">
+  <div class="container">
+    <div class="pl-download">
+      <div class="pl-download__text">
+        <p class="overline">Zum Ausdrucken</p>
+        <h2>Unsere Packliste für Südamerika</h2>
+        <p>Alles, was wirklich in unseren Rucksäcken steckt, unterwegs zwischen Anden, Amazonas und Atlantik. Vier Seiten zum Abhaken, mit unseren Grundregeln und der ehrlichen Liste der Dinge, die du zu Hause lassen kannst.</p>
+        <ul class="pl-download__fakten">
+          <li>40 Liter, nur Handgepäck</li>
+          <li>4 Klimazonen</li>
+          <li>1 Jahr unterwegs</li>
+        </ul>
+      </div>
+      <a href="assets/downloads/packliste-suedamerika.pdf" class="btn btn-primary btn-lg" download>PDF herunterladen (1 MB)</a>
+    </div>
 
+    <div class="ratgeber pl-regeln">
+      <h2>Bevor du packst: vier Grundregeln</h2>
+      <p>Südamerika ist kein Ziel, es sind zwanzig. In derselben Woche stehst du morgens frierend auf 4.800 Metern und schwitzt abends im Dschungel. Das haben wir unterwegs gelernt:</p>
+      <ol class="pl-regeln__liste">
+        <li><strong>Nur Handgepäck.</strong> Unsere Rucksäcke haben 40 Liter und passen in die Kabine. Das spart bei jedem Flug Gepäckgebühren, und nichts geht verloren. 40 Liter klingen wenig, reichen aber, versprochen.</li>
+        <li><strong>Zwiebelprinzip statt Spezialkleidung.</strong> Drei dünne Schichten schlagen jede dicke Jacke. Merino trocknet schnell und riecht auch nach Tag drei nicht.</li>
+        <li><strong>Alles, was du zweimal nicht benutzt hast, fliegt raus.</strong> Wir haben in Quito ein ganzes Paket nach Hause geschickt. Ohne Reue.</li>
+        <li><strong>Kaufen kannst du fast alles vor Ort.</strong> Nur gute Wanderschuhe, Technik und deine Reiseapotheke solltest du von zu Hause mitbringen.</li>
+      </ol>
+      <p>Gefilmt wird bei uns mit der DJI Osmo Pocket 4, dem iPhone 17 Pro und der Drohne DJI Mini 3. Wenn du das Filmen im Generator auswählst, kommen die passenden Teile mit auf deine Liste.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Generator ────────────────────────────────────────────── -->
+<section class="section pl-bereich" id="generator">
+  <div class="container">
+    <div class="section-header pl-kopf">
+      <p class="overline">Packlisten-Generator</p>
+      <h2>Deine eigene Packliste</h2>
+      <p>Wähle aus, wohin und wie du reist. Die Liste passt sich sofort an. Abhaken, abwählen, was du nicht brauchst, und eigene Teile ergänzen. Hinter jedem ⓘ steckt ein Tipp von uns.</p>
+    </div>
+
+    <div class="pl-generator" id="pl-generator">
+      <aside class="pl-fragen-wrap">
+        <p class="pl-label">Schnellstart</p>
+        <div class="pl-vorlagen" data-pl="vorlagen"></div>
+        <div data-pl="fragen"></div>
+      </aside>
+
+      <div class="pl-ergebnis">
+        <div class="pl-hinweis" data-pl="hinweis" hidden></div>
+        <div class="pl-werkzeuge">
+          <span class="pl-zaehler" data-pl="zaehler" aria-live="polite"></span>
+          <div class="pl-werkzeuge__btns">
+            <button type="button" class="btn btn-primary" data-pl="drucken">Drucken oder als PDF speichern</button>
+            <button type="button" class="btn btn-outline" data-pl="teilen">Link zum Teilen kopieren</button>
+            <button type="button" class="pl-link-btn" data-pl="zuruecksetzen">Zurücksetzen</button>
+          </div>
+          <p class="pl-meldung" data-pl="meldung" role="status"></p>
+        </div>
+
+        <!-- Kopf nur im Ausdruck -->
+        <div class="pl-druckkopf">
+          <img src="assets/img/LOGONEW-128.png" alt="" width="40" height="40">
+          <div>
+            <p class="pl-druckkopf__marke">The Freescape Project</p>
+            <p class="pl-druckkopf__titel">Meine Packliste</p>
+            <p class="pl-druckkopf__info" data-pl="druck-info"></p>
+          </div>
+        </div>
+
+        <div data-pl="liste"></div>
+        <div data-pl="ausgeblendet" hidden></div>
+        <p class="pl-druckfuss">Erstellt mit dem Packlisten-Generator auf thefreescapeproject.com</p>
+      </div>
+    </div>
+    <noscript><p>Der Generator braucht JavaScript. Unsere fertige Liste gibt es oben als PDF.</p></noscript>
+  </div>
+</section>
+
+<!-- ── Zu Hause lassen ──────────────────────────────────────── -->
 <section class="section">
   <div class="container">
     <div class="ratgeber">
-      <h2>Wofür diese Packliste gedacht ist</h2>
-      <p>
-        Wir sind seit Februar 2026 mit dem Rucksack in Südamerika unterwegs. Auf unserer Route liegt fast jedes
-        Klima: die heiße Karibikküste in Kolumbien, Nächte auf über 3.500 Metern in Bolivien, die Atacama-Wüste
-        und Patagonien. Die Liste muss also für Hitze, Kälte, Regen und lange Busfahrten funktionieren.
-      </p>
-      <div class="entwurf-luecke">
-        <strong>Eure Erfahrung fehlt</strong>
-        Ein bis zwei Sätze zu eurer Packstrategie: Wie schwer sind eure Rucksäcke, was war die wichtigste Entscheidung beim Packen?
-      </div>
-
-      <h2>Rucksack und Taschen</h2>
-      <ul>
-        <li>Hauptrucksack</li>
-        <li>Tagesrucksack für Ausflüge und als Handgepäck im Bus</li>
-        <li>Regenhülle für den Rucksack</li>
-        <li>Packbeutel oder Packwürfel, um Ordnung zu halten</li>
+      <h2>Was du zu Hause lassen kannst</h2>
+      <p>Ehrlichkeit gehört dazu: Das hier haben wir eingepackt und bereut, verschenkt oder nach Hause geschickt.</p>
+      <ul class="pl-regeln__liste pl-regeln__liste--ohne-nummer">
+        <li><strong>Die zweite Jeans.</strong> Schwer, trocknet nie, und in den Bergen trägst du sie sowieso nicht.</li>
+        <li><strong>Der dicke Reiseführer.</strong> 900 Gramm Papier. Offline-Karten und Blogs (zum Beispiel unserer) reichen völlig.</li>
+        <li><strong>Schmuck und alles, was glänzt.</strong> Du trägst es nicht, und du machst dir nur Sorgen darum.</li>
+        <li><strong>Das dritte Paar Schuhe für „besondere Anlässe“.</strong> Der besondere Anlass kam nie.</li>
+        <li><strong>Zu viel „für alle Fälle“.</strong> Für fast jeden Fall gibt es in Südamerika einen Laden an der nächsten Ecke.</li>
       </ul>
-      <div class="entwurf-luecke">
-        <strong>Eure Erfahrung fehlt</strong>
-        Welche Rucksäcke habt ihr (Modell, Liter)? Würdet ihr sie wieder nehmen? Was nutzt ihr als Tagesrucksack?
-      </div>
 
-      <h2>Kleidung</h2>
-      <p>
-        Bei so unterschiedlichen Höhenlagen hilft das Zwiebelprinzip: mehrere dünne Schichten statt einer dicken
-        Jacke. Auf dem Altiplano kann es tagsüber sonnig und nachts empfindlich kalt sein.
-      </p>
-      <ul>
-        <li>T-Shirts und ein bis zwei langärmlige Oberteile</li>
-        <li>Fleece oder leichte Daunenjacke</li>
-        <li>Regenjacke</li>
-        <li>Lange Hose, kurze Hose, bequeme Hose für Bustage</li>
-        <li>Wanderschuhe oder feste Trailschuhe, dazu Sandalen</li>
-        <li>Mütze, Handschuhe und Schal für die Höhe</li>
-        <li>Badesachen und schnell trocknendes Handtuch</li>
-      </ul>
-      <div class="entwurf-luecke">
-        <strong>Eure Erfahrung fehlt</strong>
-        Eure tatsächliche Kleiderliste mit Stückzahlen. Was habt ihr unterwegs nachgekauft (zum Beispiel warme Sachen für Bolivien oder Patagonien), was habt ihr aussortiert?
-      </div>
-
-      <h2>Technik und Kamera</h2>
-      <p>Damit filmen wir unsere Vlogs:</p>
-      <ul>
-        <li>DJI Osmo Pocket 4 Creator Combo</li>
-        <li>iPhone 17 Pro</li>
-        <li>DJI Mini 3 (Drohne)</li>
-      </ul>
-      <div class="entwurf-luecke">
-        <strong>Eure Erfahrung fehlt</strong>
-        Der Rest eurer Technik: Laptop, Powerbank, Speicherkarten und Festplatten, Reiseadapter, Kopfhörer. Wie sichert ihr eure Aufnahmen unterwegs? Gab es Probleme mit der Drohne (Regeln, Einreise)?
-      </div>
-
-      <h2>Gesundheit und Reiseapotheke</h2>
-      <ul>
-        <li>Sonnenschutz mit hohem Lichtschutzfaktor, auch für die Höhe</li>
-        <li>Mückenschutz für Karibikküste und Amazonas</li>
-        <li>Pflaster, Blasenpflaster, Desinfektion</li>
-        <li>Persönliche Medikamente in ausreichender Menge</li>
-        <li>Impfpass</li>
-      </ul>
-      <p>
-        Welche Impfungen und Medikamente für deine Route sinnvoll sind, klärst du am besten rechtzeitig in einer
-        reisemedizinischen Beratung.
-      </p>
-      <div class="entwurf-luecke">
-        <strong>Eure Erfahrung fehlt</strong>
-        Was ist in eurer Reiseapotheke, was habt ihr wirklich gebraucht? Wie seid ihr mit der Höhe zurechtgekommen?
-      </div>
-
-      <h2>Dokumente und Geld</h2>
-      <ul>
-        <li>Reisepass, dazu Kopien auf Papier und digital</li>
-        <li>Kreditkarten von verschiedenen Anbietern, getrennt aufbewahrt</li>
-        <li>Nachweis der Auslandskrankenversicherung</li>
-        <li>Führerschein, falls ein Mietwagen geplant ist (wir sind im Norden Argentiniens mit dem Mietwagen gefahren)</li>
-      </ul>
-      <p>Mehr dazu auf der Seite <a href="versicherung-geld.html">Versicherung und Geld</a>.</p>
-
-      <h2>Was wir nicht gebraucht haben und was gefehlt hat</h2>
-      <div class="entwurf-luecke">
-        <strong>Eure Erfahrung fehlt</strong>
-        Dieser Abschnitt lebt nur von euch: drei bis fünf Dinge, die umsonst im Rucksack waren, und drei bis fünf Dinge, die ihr gern von Anfang an dabeigehabt hättet.
+      <div class="pl-mehr">
+        <p class="overline">Mehr von unserer Reise</p>
+        <h3>Was du auf keiner Packliste findest: die 18-Stunden-Busfahrten, die Fehlkäufe, die Momente dazwischen.</h3>
+        <p>Das alles zeigen wir im <a href="blog.html">Blog</a> und in unseren <a href="vlogs.html">Vlogs</a>. Was die Reise kostet, siehst du bei unseren <a href="kosten.html">Reisekosten</a>. Und wenn dir die Liste geholfen hat: <a href="kontakt.html">Erzähl uns</a>, welche drei Dinge du gestrichen hast.</p>
       </div>
     </div>
   </div>
@@ -257,11 +274,12 @@
           <a href="karte.html" class="footer__link">Reisekarte</a>
           <a href="galerie.html" class="footer__link">Galerie</a>
           <a href="kosten.html" class="footer__link">Reisekosten</a>
+          <a href="packliste.html" class="footer__link">Packliste</a>
           <a href="kontakt.html" class="footer__link">Kontakt</a>
         </div>
       </div>
       <div>
-        <p class="footer__heading">Länder</p>
+        <p class="footer__heading">Reiseziele</p>
         <div class="footer__links">
           <a href="kolumbien.html" class="footer__link">Kolumbien</a>
           <a href="ecuador.html" class="footer__link">Ecuador</a>
@@ -308,5 +326,7 @@
 
 <script src="laender-config.js" defer></script>
 <script src="main.js" defer></script>
+<script src="packliste-data.js" defer></script>
+<script src="packliste-tool.js" defer></script>
 </body>
 </html>

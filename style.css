@@ -320,6 +320,19 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .nav__dropdown-link:hover { color: var(--white); background: rgba(255,255,255,0.08); }
 .nav__dropdown-link--alle { font-weight: 600; }
 .nav__dropdown-link--geplant { opacity: 0.55; }
+.nav__dropdown-link.active { color: var(--white); background: rgba(255,255,255,0.1); }
+/* Kontinent-Ueberschrift im Menue "Reiseziele" */
+.nav__dropdown-gruppe {
+  display: block;
+  color: var(--terra-400);
+  font-family: var(--font-nav);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: var(--sp-2) var(--sp-3) 2px;
+}
+.nav__dropdown-gruppe:hover { color: var(--terra-300); text-decoration: underline; }
 .nav__dropdown-trenner { border-top: 1px solid rgba(255,255,255,0.1); margin: 4px 0; }
 
 /* === LANGUAGE SWITCHER =======================================
@@ -432,6 +445,21 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .nav__cta:hover { background: var(--terra-700); }
 .nav__cta svg { width: 16px; height: 16px; flex-shrink: 0; }
 
+/* Schmale Desktop-Breiten: neun Menuepunkte passen sonst nicht in die
+   Leiste. Erst Abstaende kleiner und YouTube nur als Icon, darunter
+   zusaetzlich den Schriftzug neben dem Logo ausblenden. */
+@media (min-width: 1025px) and (max-width: 1400px) {
+  .nav__inner { gap: var(--sp-4); }
+  .nav__menu { gap: 0; }
+  .nav__link { padding: var(--sp-2) 0.55rem; font-size: 1rem; letter-spacing: 0.02em; }
+  .nav__link.active::after { left: 0.55rem; right: 0.55rem; }
+  .nav__cta { font-size: 0; gap: 0; padding: 0.6rem; }
+  .nav__cta svg { width: 18px; height: 18px; }
+}
+@media (min-width: 1025px) and (max-width: 1240px) {
+  .nav__logo-text { display: none; }
+}
+
 .nav__burger {
   display: none;
   flex-direction: column;
@@ -505,6 +533,15 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   padding-left: var(--sp-8);
   font-size: 1.1rem;
   color: rgba(255,255,255,0.65);
+}
+.nav__mobile-gruppe {
+  padding: var(--sp-4) var(--sp-4) var(--sp-1) var(--sp-8);
+  color: var(--terra-400);
+  font-family: var(--font-nav);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 /* === BUTTONS =============================================== */
@@ -1902,8 +1939,7 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   border-radius: var(--r-full);
 }
 
-/* Ratgeberseiten (packliste.html, versicherung-geld.html,
-   routenplanung.html, sicherheit.html): schmale Textspalte */
+/* Ratgeber-Textspalte (packliste.html) */
 .ratgeber { max-width: 780px; }
 .ratgeber h2 { margin: 3rem 0 1rem; font-size: clamp(1.5rem, 3vw, 2rem); }
 .ratgeber h2:first-child { margin-top: 0; }
@@ -1913,39 +1949,176 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .ratgeber ul { list-style: disc; margin: 0 0 1.25rem 1.4rem; }
 .ratgeber li { margin-bottom: 0.35rem; }
 .ratgeber a { color: var(--terra-600); text-decoration: underline; }
-.ratgeber .kosten-tabelle-wrap { margin: 1.25rem 0 1.5rem; }
-.ratgeber .kosten-tabelle { min-width: 520px; }
-.ratgeber .kosten-tabelle td, .ratgeber .kosten-tabelle th { text-align: left; white-space: normal; }
 .page-hero--ohne-bild .hero__bg { background: linear-gradient(135deg, var(--green-900), var(--green-700)); }
 
-/* Nur fuer Entwuerfe: Hinweis oben und markierte Luecken im Text.
-   Beim Veroeffentlichen einer Seite beides entfernen. */
-.entwurf-banner {
-  background: #fff4d6;
-  border-bottom: 1.5px solid #e8c766;
-  color: #5c4500;
-  padding: 0.8rem 0;
-  font-size: 0.9rem;
-  text-align: center;
+/* ── Packliste: Download, Grundregeln, Generator ─────────── */
+.pl-bereich { background: var(--sand-100); }
+.pl-download {
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+  background: var(--green-900); color: var(--white);
+  border-radius: var(--r-lg); padding: 2rem 2.25rem; margin-bottom: 4rem;
 }
-.entwurf-luecke {
-  background: #fff9e8;
-  border: 1.5px dashed #e0b84a;
-  border-radius: var(--r-md);
-  padding: 1rem 1.25rem;
-  margin: 1.25rem 0;
-  color: #5c4500;
-  font-size: 0.92rem;
-  line-height: 1.6;
+.pl-download h2 { color: var(--white); margin: 0.25rem 0 0.75rem; font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.pl-download p { color: rgba(255,255,255,0.8); line-height: 1.7; max-width: 620px; }
+.pl-download .overline { color: var(--terra-400); }
+.pl-download__fakten { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.pl-download__fakten li {
+  border: 1px solid rgba(255,255,255,0.3); border-radius: var(--r-full);
+  padding: 0.3rem 0.85rem; font-size: 0.85rem; color: rgba(255,255,255,0.9);
 }
-.entwurf-luecke strong {
-  display: block;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 0.3rem;
+.pl-download .btn { flex-shrink: 0; }
+.pl-regeln__liste { margin: 1rem 0 1.5rem 1.4rem; list-style: decimal; }
+.pl-regeln__liste li { margin-bottom: 0.8rem; padding-left: 0.3rem; }
+.pl-regeln__liste li::marker { color: var(--terra-600); font-weight: 700; }
+.ratgeber ul.pl-regeln__liste--ohne-nummer { list-style: none; margin-left: 0; }
+.pl-regeln__liste--ohne-nummer li { padding-left: 0; }
+.pl-mehr {
+  border: 1.5px solid var(--green-900); border-radius: var(--r-lg);
+  padding: 1.75rem 2rem; margin-top: 3rem;
+}
+.ratgeber .pl-mehr h3 { margin-top: 0.25rem; font-size: 1.25rem; line-height: 1.4; }
+.pl-mehr p:last-child { margin-bottom: 0; }
+.pl-kopf p { max-width: 640px; margin: 0.75rem auto 0; color: var(--gray-600); line-height: 1.7; }
+
+.pl-generator { display: grid; grid-template-columns: 330px 1fr; gap: 2rem; align-items: start; }
+.pl-fragen-wrap {
+  position: sticky; top: calc(var(--nav-h) + 1rem);
+  background: var(--white); border-radius: var(--r-lg); padding: 1.5rem;
+  border: 1.5px solid var(--gray-100);
+  max-height: calc(100vh - var(--nav-h) - 2rem); overflow-y: auto;
+}
+.pl-label, .pl-frage__titel {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--terra-600); margin-bottom: 0.6rem; padding: 0;
+}
+.pl-vorlagen { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1.5rem; }
+.pl-vorlage {
+  text-align: left; background: var(--sand-100); border: 1.5px solid var(--sand-200);
+  border-radius: var(--r-md); padding: 0.55rem 0.8rem; font: inherit; font-size: 0.9rem;
+  color: var(--gray-800); cursor: pointer; transition: border-color var(--t-fast), background var(--t-fast);
+}
+.pl-vorlage:hover { border-color: var(--terra-400); background: var(--white); }
+.pl-frage { border: none; margin: 0 0 1.25rem; padding: 0; }
+.pl-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pl-chip {
+  font: inherit; font-size: 0.85rem; padding: 0.4rem 0.8rem; cursor: pointer;
+  border-radius: var(--r-full); border: 1.5px solid var(--gray-200);
+  background: var(--white); color: var(--gray-700);
+  transition: all var(--t-fast);
+}
+.pl-chip:hover { border-color: var(--green-700); }
+.pl-chip.is-aktiv { background: var(--green-900); border-color: var(--green-900); color: var(--white); }
+
+.pl-ergebnis { min-width: 0; }
+.pl-hinweis {
+  background: var(--white); border-left: 4px solid var(--terra-400); border-radius: var(--r-md);
+  padding: 0.9rem 1.1rem; margin-bottom: 1rem; font-size: 0.92rem; color: var(--gray-700);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;
+}
+.pl-hinweis[hidden] { display: none; }
+.pl-hinweis__btn, .pl-link-btn {
+  background: none; border: none; padding: 0; font: inherit; font-size: 0.9rem; cursor: pointer;
+  color: var(--terra-600); text-decoration: underline;
+}
+.pl-werkzeuge {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem;
+  background: var(--white); border-radius: var(--r-lg); padding: 1rem 1.25rem; margin-bottom: 1.25rem;
+  border: 1.5px solid var(--gray-100);
+}
+.pl-zaehler { font-weight: 700; color: var(--green-900); }
+.pl-werkzeuge__btns { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; }
+.pl-meldung { flex-basis: 100%; margin: 0; font-size: 0.85rem; color: var(--green-700); min-height: 0; }
+.pl-meldung:empty { display: none; }
+
+.pl-kat {
+  background: var(--white); border-radius: var(--r-lg); padding: 1.4rem 1.5rem 1.1rem;
+  margin-bottom: 1rem; border: 1.5px solid var(--gray-100);
+}
+.pl-kat__titel { font-size: 1.3rem; margin: 0; }
+.pl-kat__intro { font-style: italic; color: var(--gray-500); font-size: 0.9rem; margin: 0.2rem 0 0.8rem; }
+.pl-teile { display: grid; grid-template-columns: 1fr 1fr; column-gap: 1.5rem; }
+.pl-teil {
+  display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0.25rem;
+  border-bottom: 1px solid var(--gray-100); padding: 0.45rem 0;
+}
+.pl-teil__label { display: flex; align-items: flex-start; gap: 0.6rem; flex: 1; min-width: 0; cursor: pointer; line-height: 1.45; }
+.pl-teil__label input { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; accent-color: var(--green-900); cursor: pointer; }
+.pl-teil__text { color: var(--gray-800); font-size: 0.95rem; }
+.pl-teil.is-gepackt .pl-teil__text { color: var(--gray-400); text-decoration: line-through; }
+.pl-teil--eigen .pl-teil__text { font-style: italic; }
+.pl-teil__aktionen { display: flex; gap: 0.2rem; flex-shrink: 0; }
+.pl-teil__btn {
+  width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--gray-200);
+  background: var(--white); color: var(--gray-500); font: inherit; font-size: 0.85rem; line-height: 1;
+  cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+}
+.pl-teil__btn--tipp { font-style: italic; font-weight: 700; color: var(--terra-600); border-color: var(--terra-400); }
+.pl-teil__btn--tipp[aria-expanded="true"] { background: var(--terra-600); color: var(--white); }
+.pl-teil__btn--weg:hover { border-color: var(--gray-500); color: var(--gray-800); }
+.pl-teil__tipp {
+  flex-basis: 100%; margin: 0.3rem 0 0.2rem 1.9rem; padding: 0.55rem 0.8rem;
+  background: var(--sand-100); border-radius: var(--r-md); font-size: 0.87rem; line-height: 1.55; color: var(--gray-700);
+}
+.pl-teile__leer { grid-column: 1 / -1; color: var(--gray-500); font-size: 0.9rem; padding: 0.4rem 0; }
+.pl-eigen { display: flex; gap: 0.4rem; margin-top: 0.8rem; max-width: 420px; }
+.pl-eigen input {
+  flex: 1; min-width: 0; font: inherit; font-size: 16px; padding: 0.45rem 0.75rem;
+  border: 1.5px dashed var(--gray-200); border-radius: var(--r-md); background: var(--white);
+}
+.pl-eigen input:focus { outline: none; border-style: solid; border-color: var(--green-700); }
+.pl-eigen__btn {
+  width: 38px; border-radius: var(--r-md); border: none; background: var(--green-900); color: var(--white);
+  font-size: 1.2rem; cursor: pointer;
+}
+.pl-aus { background: var(--white); border-radius: var(--r-lg); padding: 1rem 1.5rem; border: 1.5px solid var(--gray-100); }
+.pl-aus__titel { cursor: pointer; font-weight: 600; color: var(--gray-700); }
+.pl-aus__liste { margin-top: 0.75rem; }
+.pl-aus__teil {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 0.4rem 0; border-bottom: 1px solid var(--gray-100); color: var(--gray-500); font-size: 0.92rem;
+}
+.pl-aus__btn { background: none; border: none; font: inherit; font-size: 0.85rem; color: var(--terra-600); text-decoration: underline; cursor: pointer; flex-shrink: 0; }
+.pl-druckkopf, .pl-druckfuss { display: none; }
+
+@media (max-width: 900px) {
+  .pl-generator { grid-template-columns: 1fr; }
+  .pl-fragen-wrap { position: static; max-height: none; }
+  .pl-download { flex-direction: column; align-items: flex-start; padding: 1.5rem; }
+}
+@media (max-width: 640px) {
+  .pl-teile { grid-template-columns: 1fr; }
+  .pl-kat { padding: 1.1rem 1rem 0.9rem; }
+  .pl-werkzeuge__btns .btn { width: 100%; justify-content: center; }
+  .pl-mehr { padding: 1.25rem; }
 }
 
+/* Ausdruck bzw. "als PDF speichern": nur die Liste, im Stil des PDFs */
+@media print {
+  .nav, .nav__mobile, .footer, .cookie-banner, .skip-link, .page-hero,
+  main > section:not(#generator), .pl-kopf, .pl-fragen-wrap, .pl-werkzeuge, .pl-hinweis,
+  .pl-eigen, .pl-teil__aktionen, .pl-teil__tipp, [data-pl="ausgeblendet"], .pl-teile__leer, noscript { display: none !important; }
+  body { background: #fff; }
+  .pl-bereich { background: #fff; padding: 0 !important; }
+  .container { max-width: none; padding: 0; }
+  .pl-generator { display: block; }
+  .pl-druckkopf {
+    display: flex; align-items: center; gap: 0.8rem;
+    border-bottom: 1px solid #ccc; padding-bottom: 0.6rem; margin-bottom: 0.8rem;
+  }
+  .pl-druckkopf p { margin: 0; }
+  .pl-druckkopf__marke { font-weight: 700; color: var(--green-900); font-size: 0.85rem; }
+  .pl-druckkopf__titel { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--green-900); line-height: 1.2; }
+  .pl-druckkopf__info { font-size: 0.75rem; color: #666; }
+  .pl-kat { border: none; padding: 0; margin: 0 0 0.9rem; break-inside: avoid-page; }
+  .pl-kat__titel { font-size: 1.1rem; color: var(--green-900); }
+  .pl-kat__intro { font-size: 0.75rem; margin-bottom: 0.3rem; }
+  .pl-teile { grid-template-columns: 1fr 1fr; }
+  .pl-teil { padding: 0.25rem 0; break-inside: avoid; border-bottom-color: #e5e5e5; }
+  .pl-teil__text { font-size: 0.8rem; color: #222; }
+  .pl-teil.is-gepackt .pl-teil__text { color: #222; text-decoration: none; }
+  .pl-teil__label input { width: 13px; height: 13px; }
+  .pl-druckfuss { display: block; margin-top: 1rem; font-size: 0.7rem; color: #888; text-align: center; }
+}
 /* Laenderseiten: Fliesstext, Zwischenueberschriften und die Karten
    unter "Praktische Infos" (Reisezeit, Fortbewegung, Sicherheit ...) */
 .land-text { color: var(--gray-600); line-height: 1.9; margin: 1rem 0; }

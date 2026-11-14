@@ -30,6 +30,7 @@ window.LAENDER = [
     emoji: '🇨🇴',
     status: 'bereist',            // bereist | aktuell | geplant
     datei: 'kolumbien.html',      // null bei geplanten Laendern
+    kontinent: 'suedamerika',
     reihenfolge: 1,
     zeitraum: 'Feb bis Apr 2026',
     tage: [['2026-02-25', '2026-04-17']],
@@ -51,6 +52,7 @@ window.LAENDER = [
     emoji: '🇪🇨',
     status: 'bereist',
     datei: 'ecuador.html',
+    kontinent: 'suedamerika',
     reihenfolge: 2,
     zeitraum: 'Apr bis Jun 2026',
     tage: [['2026-04-17', '2026-06-01']],
@@ -70,6 +72,7 @@ window.LAENDER = [
     emoji: '🇵🇪',
     status: 'bereist',
     datei: 'peru.html',
+    kontinent: 'suedamerika',
     reihenfolge: 3,
     zeitraum: 'Jun bis Aug 2026',
     tage: [['2026-06-01', '2026-08-07']],
@@ -94,6 +97,7 @@ window.LAENDER = [
     emoji: '🧂',
     status: 'bereist',
     datei: 'bolivien.html',
+    kontinent: 'suedamerika',
     reihenfolge: 4,
     zeitraum: 'Aug bis Sep 2026',
     tage: [['2026-08-07', '2026-09-04']],
@@ -110,6 +114,7 @@ window.LAENDER = [
     emoji: '🏔️',
     status: 'bereist',
     datei: 'chile.html',
+    kontinent: 'suedamerika',
     reihenfolge: 5,
     zeitraum: '04. bis 08. Sep und 03. Okt bis 09. Nov 2026',
     tage: [['2026-09-04', '2026-09-08'], ['2026-10-03', '2026-11-09']],
@@ -126,6 +131,7 @@ window.LAENDER = [
     emoji: '🥩',
     status: 'aktuell',
     datei: 'argentinien.html',
+    kontinent: 'suedamerika',
     reihenfolge: 6,
     zeitraum: '08. Sep bis 03. Okt und ab 09. Nov 2026',
     tage: [['2026-09-08', '2026-10-03'], ['2026-11-09', null]],
@@ -142,6 +148,7 @@ window.LAENDER = [
     emoji: '🇧🇷',
     status: 'geplant',
     datei: null,
+    kontinent: 'suedamerika',
     reihenfolge: 7,
     zeitraum: 'geplant',
     hook: 'Regenwald, Strände und Rhythmus, der mögliche Abschluss unserer Reise.',
@@ -159,6 +166,7 @@ window.LAENDER = [
     emoji: '⚽',
     status: 'geplant',
     datei: null,
+    kontinent: 'suedamerika',
     reihenfolge: 8,
     zeitraum: 'geplant',
     hook: 'Kleines Land, entspanntes Tempo, Montevideo und die Strände von Punta del Este.',
@@ -174,6 +182,7 @@ window.LAENDER = [
     emoji: '🌾',
     status: 'geplant',
     datei: null,
+    kontinent: 'suedamerika',
     reihenfolge: 9,
     zeitraum: 'geplant',
     hook: 'Wenig bereist, viel Überraschung, Asunción und das Guaraní-Erbe.',
@@ -206,40 +215,65 @@ window.laenderSortiert = function () {
   return [...window.LAENDER].sort((a, b) => a.reihenfolge - b.reihenfolge);
 };
 
-/* ── Nav-Dropdown + mobile Laenderliste aus der Konfig fuellen ─
+/* ── Kontinente ──────────────────────────────────────────────
+   Gruppierung im Nav-Menue "Reiseziele". Jedes Land oben hat ein
+   Feld kontinent mit dem slug von hier. Neuer Kontinent: hier
+   eintragen (seite = Uebersichtsseite des Kontinents), dann
+   erscheint er automatisch als eigener Block im Menue. */
+window.KONTINENTE = [
+  { slug: 'suedamerika', name: 'Südamerika', seite: 'laender.html' }
+];
+
+/* ── Nav-Menue "Reiseziele" + mobile Liste aus der Konfig fuellen ─
    Haelt die Laenderliste auf ALLEN Seiten identisch, ohne dass
    jede Seite von Hand gepflegt werden muss. Das statische Markup
    im HTML bleibt als Fallback (falls JS aus ist) erhalten und
-   wird hier nur aktualisiert. */
+   wird hier nur aktualisiert. Nur die Menues mit diesen IDs werden
+   angefasst, andere Dropdowns (z.B. "Reiseplanung") bleiben stehen. */
 document.addEventListener('DOMContentLoaded', function () {
   var sortiert = window.laenderSortiert();
   var bereist  = sortiert.filter(function (l) { return l.status !== 'geplant'; });
-  var geplant  = sortiert.filter(function (l) { return l.status === 'geplant'; });
+
+  // Laender je Kontinent, Kontinente ohne Laender fallen weg
+  var gruppen = window.KONTINENTE.map(function (k) {
+    var laender = sortiert.filter(function (l) { return l.kontinent === k.slug; });
+    return {
+      kontinent: k,
+      bereist: laender.filter(function (l) { return l.status !== 'geplant'; }),
+      geplant: laender.filter(function (l) { return l.status === 'geplant'; })
+    };
+  }).filter(function (g) { return g.bereist.length || g.geplant.length; });
 
   // Desktop-Dropdown
-  document.querySelectorAll('.nav__dropdown-menu').forEach(function (menu) {
-    var html = '<a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Länder</a>'
-      + '<div class="nav__dropdown-trenner"></div>';
-    bereist.forEach(function (l) {
-      html += '<a href="' + l.datei + '" class="nav__dropdown-link">' + l.name + '</a>';
-    });
-    if (geplant.length) {
-      html += '<div class="nav__dropdown-trenner"></div>';
-      geplant.forEach(function (l) {
+  var menu = document.getElementById('nav-reiseziele-menu');
+  if (menu) {
+    var html = '<a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Reiseziele</a>';
+    gruppen.forEach(function (g) {
+      html += '<div class="nav__dropdown-trenner"></div>'
+        + '<a href="' + g.kontinent.seite + '" class="nav__dropdown-gruppe">' + g.kontinent.name + '</a>';
+      g.bereist.forEach(function (l) {
+        html += '<a href="' + l.datei + '" class="nav__dropdown-link">' + l.name + '</a>';
+      });
+      g.geplant.forEach(function (l) {
         html += '<a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">' + l.name + '</a>';
       });
-    }
-    menu.innerHTML = html;
-  });
-
-  // Mobiles Menue: Laender-Untermenue (Button + Submenu) befuellen
-  document.querySelectorAll('#nav-mobile-laender-submenu').forEach(function (submenu) {
-    var html = '<a href="laender.html" class="nav__mobile-link nav__mobile-sublink">Alle Länder</a>';
-    bereist.forEach(function (l) {
-      html += '<a href="' + l.datei + '" class="nav__mobile-link nav__mobile-sublink">' + l.name + '</a>';
     });
-    submenu.innerHTML = html;
-  });
+    menu.innerHTML = html;
+  }
+
+  // Mobiles Menue: Untermenue "Reiseziele" befuellen (nur bereiste Laender)
+  var submenu = document.getElementById('nav-mobile-laender-submenu');
+  if (submenu) {
+    var mhtml = '<a href="laender.html" class="nav__mobile-link nav__mobile-sublink">Alle Reiseziele</a>';
+    gruppen.forEach(function (g) {
+      if (!g.bereist.length) return;
+      mhtml += '<span class="nav__mobile-gruppe">' + g.kontinent.name + '</span>';
+      g.bereist.forEach(function (l) {
+        mhtml += '<a href="' + l.datei + '" class="nav__mobile-link nav__mobile-sublink">' + l.name + '</a>';
+      });
+    });
+    submenu.innerHTML = mhtml;
+  }
 
   // "Wo sind wir gerade?"-Box auf index.html: Laender-Chips + Fortschrittsbalken.
   // Gleiches Fallback-Prinzip wie oben: statisches Markup bleibt stehen,

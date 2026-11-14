@@ -35,8 +35,19 @@ document.addEventListener('DOMContentLoaded', () => {
     updateNav();
   }
 
-  const laenderToggle = mobileMenu?.querySelector('.nav__mobile-toggle');
-  const laenderSubmenu = mobileMenu?.querySelector('.nav__mobile-submenu');
+  // Klapp-Buttons im mobilen Menü ("Reiseplanung", "Reiseziele"), jeder
+  // steuert das Untermenü, auf das sein aria-controls zeigt
+  const mobileToggles = mobileMenu
+    ? [...mobileMenu.querySelectorAll('.nav__mobile-toggle')]
+        .map(btn => ({ btn, submenu: document.getElementById(btn.getAttribute('aria-controls')) }))
+        .filter(t => t.submenu)
+    : [];
+  const setToggle = (t, open) => {
+    t.btn.classList.toggle('open', open);
+    t.btn.setAttribute('aria-expanded', String(open));
+    if (open) t.submenu.removeAttribute('hidden');
+    else t.submenu.setAttribute('hidden', '');
+  };
 
   const closeMobileMenu = () => {
     if (!burger || !mobileMenu) return;
@@ -44,11 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenu.classList.remove('open');
     burger.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
-    // Untermenü bei jedem Schließen zurücksetzen, damit es beim erneuten
-    // Öffnen wieder eingeklappt startet
-    laenderToggle?.classList.remove('open');
-    laenderToggle?.setAttribute('aria-expanded', 'false');
-    laenderSubmenu?.setAttribute('hidden', '');
+    // Untermenüs bei jedem Schließen zurücksetzen, damit sie beim erneuten
+    // Öffnen wieder eingeklappt starten
+    mobileToggles.forEach(t => setToggle(t, false));
   };
 
   if (burger && mobileMenu) {
@@ -65,20 +74,15 @@ document.addEventListener('DOMContentLoaded', () => {
       else openMobileMenu();
     });
 
-    // "Länder"-Button klappt das Untermenü auf/zu, ohne das ganze Menü zu schließen
-    if (laenderToggle && laenderSubmenu) {
-      laenderToggle.addEventListener('click', () => {
-        const isOpen = laenderToggle.classList.toggle('open');
-        laenderToggle.setAttribute('aria-expanded', String(isOpen));
-        if (isOpen) laenderSubmenu.removeAttribute('hidden');
-        else laenderSubmenu.setAttribute('hidden', '');
-      });
-    }
+    // Klapp-Buttons öffnen/schließen ihr Untermenü, ohne das ganze Menü zu schließen
+    mobileToggles.forEach(t => {
+      t.btn.addEventListener('click', () => setToggle(t, !t.btn.classList.contains('open')));
+    });
 
     // Menü schließen, sobald ein echter Link geklickt wird (auch bei
     // target="_blank", z.B. der YouTube-Link, wo sonst nichts die Seite/den
-    // Zustand zurücksetzt). Der "Länder"-Umschalter (ein <button>, kein <a>)
-    // ist bewusst ausgeschlossen.
+    // Zustand zurücksetzt). Die Klapp-Buttons (<button>, kein <a>) sind
+    // bewusst ausgeschlossen.
     mobileMenu.querySelectorAll('a.nav__mobile-link').forEach(link => {
       link.addEventListener('click', closeMobileMenu);
     });
@@ -111,10 +115,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // data-page zuerst pruefen (auch bei <button>-Elementen wie dem
   // "Laender"-Dropdown-Toggle vorhanden, die kein href haben), sonst href.
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav__link, .nav__mobile-link').forEach(link => {
+  document.querySelectorAll('.nav__link, .nav__mobile-link, .nav__dropdown-link[data-page]').forEach(link => {
     const page = link.dataset.page || link.getAttribute('href');
     if (page && (page === currentPage || (currentPage === '' && page === 'index.html'))) {
       link.classList.add('active');
+    }
+  });
+  // Liegt die aktuelle Seite in einem Dropdown (z.B. kosten.html unter
+  // "Reiseplanung"), wird auch dessen Button markiert
+  document.querySelectorAll('.nav__dropdown').forEach(dd => {
+    if (dd.querySelector('.nav__dropdown-link.active')) {
+      dd.querySelector('.nav__dropdown-toggle')?.classList.add('active');
     }
   });
 
