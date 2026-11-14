@@ -151,23 +151,9 @@
   </div>
 </section>
 
-<!-- ── Download + Grundregeln ───────────────────────────────── -->
+<!-- ── Grundregeln ──────────────────────────────────────────── -->
 <section class="section">
   <div class="container">
-    <div class="pl-download">
-      <div class="pl-download__text">
-        <p class="overline">Zum Ausdrucken</p>
-        <h2>Unsere Packliste für Südamerika</h2>
-        <p>Alles, was wirklich in unseren Rucksäcken steckt, unterwegs zwischen Anden, Amazonas und Atlantik. Vier Seiten zum Abhaken, mit unseren Grundregeln und der ehrlichen Liste der Dinge, die du zu Hause lassen kannst.</p>
-        <ul class="pl-download__fakten">
-          <li>40 Liter, nur Handgepäck</li>
-          <li>4 Klimazonen</li>
-          <li>1 Jahr unterwegs</li>
-        </ul>
-      </div>
-      <a href="assets/downloads/packliste-suedamerika.pdf" class="btn btn-primary btn-lg" download>PDF herunterladen (1 MB)</a>
-    </div>
-
     <div class="ratgeber pl-regeln">
       <h2>Bevor du packst: vier Grundregeln</h2>
       <p>Südamerika ist kein Ziel, es sind zwanzig. In derselben Woche stehst du morgens frierend auf 4.800 Metern und schwitzt abends im Dschungel. Das haben wir unterwegs gelernt:</p>
@@ -188,72 +174,70 @@
     <div class="section-header pl-kopf">
       <p class="overline">Packlisten-Generator</p>
       <h2>Deine eigene Packliste</h2>
-      <p>Wähle aus, wohin und wie du reist, die Liste passt sich sofort an. Abhaken, abwählen, was du nicht brauchst, und eigene Teile ergänzen. Hinter jeder Glühbirne steckt ein Tipp von uns.</p>
+      <p>Wähle eine Vorlage oder pass die Reise an, die Liste ändert sich sofort. Abhaken, abwählen, eigene Teile ergänzen. Hinter der Glühbirne an jedem Teil steckt ein Tipp von uns.</p>
     </div>
 
     <div class="pl-generator" id="pl-generator">
-      <aside class="pl-panel" data-pl="panel">
-        <button type="button" class="pl-panel__kopf" data-pl="panel-toggle" aria-controls="pl-panel-inhalt" aria-expanded="true">
-          <span class="pl-schritt">1</span>
-          <span class="pl-panel__titelwrap">
-            <span class="pl-panel__titel">Deine Reise</span>
-            <span class="pl-panel__info" data-pl="panel-info"></span>
-          </span>
-          <span class="pl-panel__chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
-        </button>
-        <div class="pl-panel__inhalt" id="pl-panel-inhalt">
-          <p class="pl-label">Schnellstart</p>
+      <!-- Deine Reise: Vorlagen, Zusammenfassung, aufklappbare Fragen -->
+      <div class="pl-reise" data-pl="panel">
+        <div class="pl-reise__oben">
+          <span class="pl-reise__titel">Deine Reise</span>
           <div class="pl-vorlagen" data-pl="vorlagen"></div>
-          <p class="pl-label">Oder selbst auswählen</p>
-          <div data-pl="fragen"></div>
         </div>
-      </aside>
-
-      <div class="pl-ergebnis">
-        <div class="pl-hinweis" data-pl="hinweis" hidden></div>
-        <div class="pl-status" data-pl="status">
-          <div class="pl-status__oben">
-            <span class="pl-schritt">2</span>
-            <div class="pl-status__text">
-              <span class="pl-status__titel">Deine Packliste</span>
-              <span class="pl-status__zaehler" data-pl="zaehler" aria-live="polite"></span>
-            </div>
-            <span class="pl-status__prozent" data-pl="prozent"></span>
-          </div>
-          <div class="pl-balken"><div class="pl-balken__fill" data-pl="balken"></div></div>
-          <div class="pl-status__btns">
-            <button type="button" class="pl-tool pl-tool--primaer" data-pl="drucken">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
-              Drucken / PDF
-            </button>
-            <button type="button" class="pl-tool" data-pl="teilen">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
-              Link teilen
-            </button>
-            <button type="button" class="pl-tool pl-tool--leise" data-pl="zuruecksetzen">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
-              Zurücksetzen
-            </button>
-          </div>
-          <p class="pl-meldung" data-pl="meldung" role="status"></p>
+        <div class="pl-reise__zeile">
+          <p class="pl-reise__info" data-pl="panel-info"></p>
+          <button type="button" class="pl-reise__btn" data-pl="panel-toggle" aria-controls="pl-reise-fragen" aria-expanded="false">
+            <span data-pl="panel-toggle-text">Reise anpassen</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
         </div>
-
-        <!-- Kopf nur im Ausdruck -->
-        <div class="pl-druckkopf">
-          <img src="assets/img/LOGONEW-128.png" alt="" width="40" height="40">
-          <div>
-            <p class="pl-druckkopf__marke">The Freescape Project</p>
-            <p class="pl-druckkopf__titel">Meine Packliste</p>
-            <p class="pl-druckkopf__info" data-pl="druck-info"></p>
+        <div class="pl-reise__fragen" id="pl-reise-fragen" hidden>
+          <div class="pl-fragen" data-pl="fragen"></div>
+          <div class="pl-reise__fertig">
+            <button type="button" class="pl-reise__fertig-btn" data-pl="panel-fertig">Fertig</button>
           </div>
         </div>
-
-        <div data-pl="liste"></div>
-        <div data-pl="ausgeblendet" hidden></div>
-        <p class="pl-druckfuss">Erstellt mit dem Packlisten-Generator auf thefreescapeproject.com</p>
       </div>
+
+      <div class="pl-hinweis" data-pl="hinweis" hidden></div>
+
+      <!-- Statuszeile, klebt beim Scrollen unter der Navigation -->
+      <div class="pl-status" data-pl="status">
+        <div class="pl-status__fortschritt">
+          <span class="pl-status__zaehler" data-pl="zaehler" aria-live="polite"></span>
+          <div class="pl-balken"><div class="pl-balken__fill" data-pl="balken"></div></div>
+        </div>
+        <div class="pl-status__btns">
+          <button type="button" class="pl-tool pl-tool--primaer" data-pl="drucken" aria-label="Drucken oder als PDF speichern" title="Drucken oder als PDF speichern">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+            <span class="pl-tool__text">PDF</span>
+          </button>
+          <button type="button" class="pl-tool" data-pl="teilen" aria-label="Link zum Teilen kopieren" title="Link zum Teilen kopieren">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+            <span class="pl-tool__text">Teilen</span>
+          </button>
+          <button type="button" class="pl-tool pl-tool--leise" data-pl="zuruecksetzen" aria-label="Liste zurücksetzen" title="Liste zurücksetzen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+          </button>
+        </div>
+        <p class="pl-meldung" data-pl="meldung" role="status"></p>
+      </div>
+
+      <!-- Kopf nur im Ausdruck -->
+      <div class="pl-druckkopf">
+        <img src="assets/img/LOGONEW-128.png" alt="" width="40" height="40">
+        <div>
+          <p class="pl-druckkopf__marke">The Freescape Project</p>
+          <p class="pl-druckkopf__titel">Meine Packliste</p>
+          <p class="pl-druckkopf__info" data-pl="druck-info"></p>
+        </div>
+      </div>
+
+      <div class="pl-liste" data-pl="liste"></div>
+      <div data-pl="ausgeblendet" hidden></div>
+      <p class="pl-druckfuss">Erstellt mit dem Packlisten-Generator auf thefreescapeproject.com</p>
     </div>
-    <noscript><p>Der Generator braucht JavaScript. Unsere fertige Liste gibt es oben als PDF.</p></noscript>
+    <noscript><p>Der Generator braucht JavaScript. Unsere fertige Liste gibt es weiter unten als PDF.</p></noscript>
   </div>
 </section>
 
@@ -276,6 +260,25 @@
         <h3>Was du auf keiner Packliste findest: die 18-Stunden-Busfahrten, die Fehlkäufe, die Momente dazwischen.</h3>
         <p>Das alles zeigen wir im <a href="blog.html">Blog</a> und in unseren <a href="vlogs.html">Vlogs</a>. Was die Reise kostet, siehst du bei unseren <a href="kosten.html">Reisekosten</a>. Und wenn dir die Liste geholfen hat: <a href="kontakt.html">Erzähl uns</a>, welche drei Dinge du gestrichen hast.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Unsere Packliste als PDF ─────────────────────────────── -->
+<section class="section pl-pdf-section">
+  <div class="container">
+    <div class="pl-download">
+      <div class="pl-download__text">
+        <p class="overline">Zum Ausdrucken</p>
+        <h2>Unsere Packliste für Südamerika</h2>
+        <p>Alles, was wirklich in unseren Rucksäcken steckt, unterwegs zwischen Anden, Amazonas und Atlantik. Vier Seiten zum Abhaken, mit unseren Grundregeln und der ehrlichen Liste der Dinge, die du zu Hause lassen kannst.</p>
+        <ul class="pl-download__fakten">
+          <li>40 Liter, nur Handgepäck</li>
+          <li>4 Klimazonen</li>
+          <li>1 Jahr unterwegs</li>
+        </ul>
+      </div>
+      <a href="assets/downloads/packliste-suedamerika.pdf" class="btn btn-primary btn-lg" download>PDF herunterladen (1 MB)</a>
     </div>
   </div>
 </section>

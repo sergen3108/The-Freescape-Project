@@ -163,12 +163,14 @@
     fragen:    root.querySelector('[data-pl="fragen"]'),
     panel:     root.querySelector('[data-pl="panel"]'),
     panelBtn:  root.querySelector('[data-pl="panel-toggle"]'),
+    panelBtnText: root.querySelector('[data-pl="panel-toggle-text"]'),
+    panelFertig: root.querySelector('[data-pl="panel-fertig"]'),
     panelInfo: root.querySelector('[data-pl="panel-info"]'),
+    fragenWrap: root.querySelector('#pl-reise-fragen'),
     liste:     root.querySelector('[data-pl="liste"]'),
     aus:       root.querySelector('[data-pl="ausgeblendet"]'),
     status:    root.querySelector('[data-pl="status"]'),
     zaehler:   root.querySelector('[data-pl="zaehler"]'),
-    prozent:   root.querySelector('[data-pl="prozent"]'),
     balken:    root.querySelector('[data-pl="balken"]'),
     druckInfo: root.querySelector('[data-pl="druck-info"]'),
     hinweis:   root.querySelector('[data-pl="hinweis"]'),
@@ -193,7 +195,6 @@
 
   var state;
   var geteilt = false;   // true: Liste kommt aus einem geteilten Link und ist noch nicht gespeichert
-  var hatteSpeicher = false;
 
   var hashMatch = location.hash.match(/^#liste=([A-Za-z0-9_-]+)$/);
   var ausLink = hashMatch ? dekodieren(hashMatch[1]) : null;
@@ -201,9 +202,7 @@
     state = ausLink;
     geteilt = true;
   } else {
-    var gespeichert = speicherLesen();
-    hatteSpeicher = !!gespeichert;
-    state = gespeichert || ausVorlage('suedamerika');
+    state = speicherLesen() || ausVorlage('suedamerika');
   }
 
   function geaendert() {
@@ -219,23 +218,23 @@
     zaehlen();
   }
 
-  /* ── Panel "Deine Reise" (auf dem Handy einklappbar) ─────── */
+  /* ── "Deine Reise": Fragen auf- und zuklappen ────────────── */
 
-  // Einklappen gibt es nur auf schmalen Bildschirmen, auf dem Desktop ist das Panel immer offen
-  var schmal = window.matchMedia('(max-width: 900px)');
-  var panelOffen = !(hatteSpeicher || geteilt);   // wer schon eine Liste hat, sieht sie zuerst
+  // Startet zugeklappt, die Liste ist mit der Vorlage "Wie wir" ja schon gefuellt
+  var panelOffen = false;
   function renderPanel() {
-    var offen = panelOffen || !schmal.matches;
-    el.panel.classList.toggle('is-zu', !offen);
-    el.panelBtn.setAttribute('aria-expanded', String(offen));
+    el.fragenWrap.hidden = !panelOffen;
+    el.panel.classList.toggle('is-offen', panelOffen);
+    el.panelBtn.setAttribute('aria-expanded', String(panelOffen));
+    el.panelBtnText.textContent = panelOffen ? 'Zuklappen' : 'Reise anpassen';
     el.panelInfo.textContent = zusammenfassung() || 'Noch nichts ausgewählt';
   }
-  el.panelBtn.addEventListener('click', function () {
-    if (!schmal.matches) return;
-    panelOffen = !panelOffen;
+  el.panelBtn.addEventListener('click', function () { panelOffen = !panelOffen; renderPanel(); });
+  el.panelFertig.addEventListener('click', function () {
+    panelOffen = false;
     renderPanel();
+    el.panelBtn.focus();
   });
-  if (schmal.addEventListener) schmal.addEventListener('change', renderPanel);
 
   /* ── Vorlagen und Fragen ─────────────────────────────────── */
 
@@ -246,11 +245,9 @@
       var b = erzeuge('button', 'pl-vorlage' + (aktiv ? ' is-aktiv' : ''));
       b.type = 'button';
       b.setAttribute('aria-pressed', String(aktiv));
-      b.appendChild(erzeuge('span', 'pl-vorlage__icon', v.icon || ''));
-      var t = erzeuge('span', 'pl-vorlage__text');
-      t.appendChild(erzeuge('span', 'pl-vorlage__titel', v.label));
-      if (v.text) t.appendChild(erzeuge('span', 'pl-vorlage__info', v.text));
-      b.appendChild(t);
+      if (v.text) b.title = v.text;
+      if (v.icon) b.appendChild(erzeuge('span', 'pl-vorlage__icon', v.icon));
+      b.appendChild(document.createTextNode(v.label));
       b.addEventListener('click', function () {
         var neu = ausVorlage(v.key);
         neu.eigen = state.eigen;   // eigene Teile bleiben erhalten
@@ -333,10 +330,6 @@
       });
       h.appendChild(kopf);
       block.appendChild(h);
-
-      var balken = erzeuge('div', 'pl-kat__balken');
-      balken.appendChild(erzeuge('div', 'pl-kat__balken-fill'));
-      block.appendChild(balken);
 
       var inhalt = erzeuge('div', 'pl-kat__inhalt');
       inhalt.id = inhaltId;
@@ -426,32 +419,63 @@
     return li;
   }
 
+  // "+ Teil hinzufuegen": erst nur ein Link, ein Klick oeffnet Feld und Knopf.
+  // Nach dem Hinzufuegen bleibt das Feld offen (eigenOffen merkt sich die
+  // Kategorie ueber das Neuzeichnen hinweg), Esc oder leeres Verlassen schliesst es.
+  var eigenOffen = null;
+
   function eigenesFormular(katKey) {
+    var wrap = erzeuge('div', 'pl-eigen-wrap');
+    var link = erzeuge('button', 'pl-eigen-link');
+    link.type = 'button';
+    link.innerHTML = SVG.plus;
+    link.appendChild(document.createTextNode('Teil hinzufügen'));
+
     var form = erzeuge('form', 'pl-eigen');
-    var plus = erzeuge('span', 'pl-eigen__plus');
-    plus.innerHTML = SVG.plus;
     var input = document.createElement('input');
     input.type = 'text';
     input.maxLength = MAX_TEXT;
-    input.placeholder = 'Eigenes Teil ergänzen';
+    input.placeholder = 'Was fehlt noch?';
     input.setAttribute('aria-label', 'Eigenes Teil ergänzen');
     var b = erzeuge('button', 'pl-eigen__btn', 'Hinzufügen');
     b.type = 'submit';
-    form.appendChild(plus);
     form.appendChild(input);
     form.appendChild(b);
+
+    function zeigen(offen, fokus) {
+      eigenOffen = offen ? katKey : (eigenOffen === katKey ? null : eigenOffen);
+      link.hidden = offen;
+      form.hidden = !offen;
+      if (offen && fokus) input.focus();
+    }
+    zeigen(eigenOffen === katKey, false);
+
+    link.addEventListener('click', function () { zeigen(true, true); });
+    input.addEventListener('keydown', function (ev) {
+      if (ev.key === 'Escape') { input.value = ''; zeigen(false); link.focus(); }
+    });
+    form.addEventListener('focusout', function () {
+      // Kurz warten: der Fokus kann gerade vom Feld auf den Knopf wandern
+      setTimeout(function () {
+        if (!form.contains(document.activeElement) && !input.value.trim() && !form.hidden) zeigen(false);
+      }, 150);
+    });
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
       var text = input.value.trim().slice(0, MAX_TEXT);
-      if (!text) return;
+      if (!text) { input.focus(); return; }
       if (state.eigen.length >= MAX_EIGEN) { melde('Mehr als ' + MAX_EIGEN + ' eigene Teile gehen leider nicht.'); return; }
       state.eigen.push({ id: 'e' + Date.now(), kat: katKey, text: text, hak: false });
+      eigenOffen = katKey;
       geaendert();
-      // Fokus zurueck ins gleiche Feld, damit man direkt weitertippen kann
+      // Fokus zurueck ins (neu gezeichnete) Feld, damit man direkt weitertippen kann
       var feld = el.liste.querySelector('.pl-kat[data-kat="' + katKey + '"] .pl-eigen input');
       if (feld) feld.focus();
     });
-    return form;
+
+    wrap.appendChild(link);
+    wrap.appendChild(form);
+    return wrap;
   }
 
   function renderAusgeblendet(liste) {
@@ -485,13 +509,11 @@
       var g = block.querySelectorAll('.pl-teil.is-gepackt').length;
       gesamt += n; gepackt += g;
       block.querySelector('.pl-kat__stand').textContent = n ? g + '/' + n : '';
-      block.querySelector('.pl-kat__balken-fill').style.width = (n ? Math.round(g / n * 100) : 0) + '%';
       block.classList.toggle('is-fertig', n > 0 && g === n);
     });
     var pct = gesamt ? Math.round(gepackt / gesamt * 100) : 0;
     var fertig = gesamt > 0 && gepackt === gesamt;
-    el.zaehler.textContent = fertig ? 'Alles gepackt, gute Reise!' : gepackt + ' von ' + gesamt + ' gepackt';
-    el.prozent.textContent = pct + ' %';
+    el.zaehler.textContent = fertig ? 'Alles gepackt, gute Reise!' : gepackt + ' von ' + gesamt + ' gepackt · ' + pct + ' %';
     el.balken.style.width = pct + '%';
     el.status.classList.toggle('is-fertig', fertig);
   }
@@ -546,6 +568,7 @@
     geteilt = false;
     offeneTipps = {};
     zuKats = {};
+    eigenOffen = null;
     hashEntfernen();
     render();
     melde('Liste zurückgesetzt.');
