@@ -45,6 +45,20 @@
   src: url('assets/fonts/cormorant-garamond-latin-600italic.woff2') format('woff2');
 }
 
+/* ── SOURCE SERIF 4 (Fliesstext) ──
+   Variable Schrift (Strichstaerke 400 bis 700 in einer Datei), selbst
+   gehostet, Lizenz SIL Open Font License. Ueberschriften bleiben Playfair. */
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal; font-weight: 400 700; font-display: swap;
+  src: url('assets/fonts/source-serif-4-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: italic; font-weight: 400 700; font-display: swap;
+  src: url('assets/fonts/source-serif-4-latin-italic.woff2') format('woff2');
+}
+
 /* ✏️ NAV & FOOTER SCHRIFTART: hier ändern um alle Menüpunkte und Footer zu aktualisieren */
 
 /* === TOKENS ================================================= */
@@ -90,7 +104,7 @@
 
   /* Typography */
   --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'Playfair Display', Georgia, serif;
+  --font-body:    'Source Serif 4', Georgia, serif;
   --font-nav:     'Cormorant Garamond', Georgia, serif; /* ✏️ Nav & Footer Schriftart */
 
   /* Spacing (8px grid) */
@@ -138,7 +152,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; overflow-x: clip; }
 body {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: var(--font-body);
   color: var(--gray-900);
   background: var(--white);
   line-height: 1.6;
