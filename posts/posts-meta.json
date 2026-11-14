@@ -459,7 +459,8 @@
    "lesezeit": "7 min",
    "autor": "Sergen & Julia",
    "teaser": "Der größte indigene Markt Südamerikas, eine spiegelglatte Kraterlagune und die Lederstadt Cotacachi, als Tagesausflug ab Quito lässt sich das alles gut verbinden. Hier unsere ehrliche Erfahrung inklusive Handel-Tipps.",
-   "bildEmoji": "",
+   "bild": "assets/img/blog/otavalo1.jpeg",
+   "bildEmoji": "🧶",
    "bildGradient": "linear-gradient(135deg,#5c2d1a,#c46d2d)",
    "tags": [
     "Otavalo",
@@ -522,7 +523,8 @@
    "lesezeit": "8 min",
    "autor": "Sergen & Julia",
    "teaser": "Bunte Kolonialbauten, eine historische Stadtmauer und karibisches Flair, fünf Tage in Cartagena waren für uns genau die richtige Zeit. Hier erzählen wir, was uns am meisten begeistert hat und worauf man achten sollte.",
-   "bildEmoji": "",
+   "bild": "assets/img/blog/cartagena1.jpeg",
+   "bildEmoji": "🏰",
    "bildGradient": "linear-gradient(135deg,#8a2d1f,#e8a13d)",
    "tags": [
     "Cartagena",
