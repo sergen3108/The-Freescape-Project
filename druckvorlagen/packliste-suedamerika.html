@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Packliste Südamerika (Druckvorlage)</title>
+<!--
+  DRUCKVORLAGE fuer assets/downloads/packliste-suedamerika.pdf
+  Texte hier aendern, dann neu als PDF ausgeben:
+    Chrome: Datei oeffnen (ueber einen lokalen Server oder direkt),
+    Drucken, Ziel "Als PDF speichern", Papier A4, Raender "Keine",
+    Kopf- und Fusszeilen aus, Hintergrundgrafiken an.
+  Oder headless:
+    chrome --headless=new --no-pdf-header-footer --print-to-pdf=packliste-suedamerika.pdf druckvorlagen/packliste-suedamerika.html
+  Jede <section class="seite"> ist genau eine A4-Seite, Seitenumbrueche
+  sind von Hand gesetzt. Keine Gedankenstriche in Texten (Projekt-Stil).
+-->
+<style>
+@font-face { font-family: 'Playfair Display'; font-weight: 400; src: url('../assets/fonts/playfair-display-latin-400.woff2') format('woff2'); }
+@font-face { font-family: 'Playfair Display'; font-weight: 700; src: url('../assets/fonts/playfair-display-latin-700.woff2') format('woff2'); }
+@font-face { font-family: 'Playfair Display'; font-weight: 900; src: url('../assets/fonts/playfair-display-latin-900.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 500; src: url('../assets/fonts/cormorant-garamond-latin-500.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 600; src: url('../assets/fonts/cormorant-garamond-latin-600.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 700; src: url('../assets/fonts/cormorant-garamond-latin-700.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; src: url('../assets/fonts/cormorant-garamond-latin-400italic.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 600; src: url('../assets/fonts/cormorant-garamond-latin-600italic.woff2') format('woff2'); }
+
+@page { size: A4; margin: 0; }
+:root {
+  --navy: #1a2744;
+  --terra: #d9461c;
+  --text: #3a3a3a;
+  --grau: #8a8a8a;
+  --linie: #e4e4e4;
+  --sand: #fcf7ee;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #fff; }
+body {
+  font-family: 'Playfair Display', Georgia, serif; color: var(--text);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.seite {
+  position: relative; width: 210mm; height: 297mm; overflow: hidden;
+  padding: 30mm 15mm 22mm; page-break-after: always; break-after: page;
+}
+.seite:last-child { page-break-after: auto; break-after: auto; }
+@media screen { body { background: #888; } .seite { background: #fff; margin: 8mm auto; } }
+
+/* Kopf und Fuss jeder Seite */
+.kopf {
+  position: absolute; top: 0; left: 0; right: 0; height: 21mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 15mm; border-bottom: 0.3mm solid #d8d8d8;
+}
+.marke { display: flex; align-items: center; gap: 3.2mm; }
+.marke img { width: 11.5mm; height: 11.5mm; display: block; }
+.marke span { font-weight: 700; font-size: 14pt; color: var(--navy); letter-spacing: -0.01em; }
+.kopf__titel { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 8.5pt; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terra); }
+.fuss {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 13mm;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 15mm; border-top: 0.3mm solid #d8d8d8;
+  font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 8pt; letter-spacing: 0.06em; color: var(--grau);
+}
+
+/* Typografie */
+.overline { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 9pt; letter-spacing: 0.24em; text-transform: uppercase; color: var(--terra); }
+h1 { font-weight: 700; font-size: 31pt; line-height: 1.12; color: var(--navy); letter-spacing: -0.01em; margin: 4.5mm 0 5mm; }
+h2 { font-weight: 700; font-size: 17pt; line-height: 1.25; color: var(--navy); letter-spacing: -0.005em; }
+h3 { font-weight: 700; font-size: 13.5pt; line-height: 1.35; color: var(--navy); }
+p { font-size: 10pt; line-height: 1.85; }
+.lead { font-size: 11pt; line-height: 1.8; max-width: 150mm; }
+.unter { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 10.5pt; color: var(--grau); margin: 0.6mm 0 2.6mm; }
+strong { font-weight: 700; color: #222; }
+
+.chips { display: flex; gap: 2.8mm; margin: 6mm 0 6mm; }
+.chips span {
+  font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 9.5pt; letter-spacing: 0.04em; color: var(--terra);
+  border: 0.3mm solid var(--terra); border-radius: 99px; padding: 2.2mm 4.4mm;
+}
+.strich { width: 17mm; height: 0.7mm; background: var(--terra); margin-bottom: 7.5mm; }
+
+.regeln { margin: 2.2mm 0 0 5.8mm; }
+.regeln p { margin-bottom: 1.6mm; }
+
+.box { background: var(--sand); border-radius: 4.5mm; padding: 7mm 7.2mm 6mm; }
+.box .overline { font-size: 8.5pt; margin-bottom: 4mm; color: var(--terra); }
+.inhalt { display: grid; grid-template-columns: 1fr 1fr; row-gap: 3mm; column-gap: 7mm; margin-bottom: 4mm; }
+.inhalt div { font-size: 11pt; color: #333; }
+.inhalt b { color: var(--terra); font-weight: 700; margin-right: 2.2mm; }
+.box p { color: #666; font-size: 9.5pt; line-height: 1.75; }
+
+/* Checklisten */
+.abschnitt { margin-bottom: 4.2mm; }
+.liste { display: grid; grid-template-columns: 1fr 1fr; column-gap: 7.5mm; }
+.liste div {
+  display: flex; gap: 2.7mm; align-items: flex-start;
+  font-size: 10pt; line-height: 1.5; color: #333;
+  padding: 2mm 0; border-bottom: 0.25mm solid var(--linie);
+}
+.liste div::before {
+  content: ''; flex-shrink: 0; width: 3.1mm; height: 3.1mm; margin-top: 0.75mm;
+  border: 0.3mm solid #444; border-radius: 0.7mm;
+}
+
+/* Seite 4 */
+.leer { display: grid; grid-template-columns: 1fr 1fr; column-gap: 7.5mm; row-gap: 5.3mm; margin: 4mm 0 9mm; }
+.leer div { display: flex; align-items: flex-end; gap: 2.7mm; height: 6.4mm; }
+.leer div::before { content: ''; flex-shrink: 0; width: 3.1mm; height: 3.1mm; margin-bottom: 1mm; border: 0.3mm solid #444; border-radius: 0.7mm; }
+.leer div::after { content: ''; flex: 1; border-bottom: 0.3mm solid #b5b5b5; }
+.mehr { border: 0.3mm solid var(--navy); border-radius: 4.5mm; padding: 9mm 9mm 8mm; }
+.mehr .overline { font-size: 8.5pt; margin-bottom: 3.5mm; color: var(--terra); }
+.mehr h3 { margin-bottom: 3mm; }
+.mehr p { color: #666; }
+</style>
+</head>
+<body>
+
+<!-- ═════════ Seite 1 ═════════ -->
+<section class="seite">
+  <header class="kopf"><div class="marke"><img src="../assets/img/LOGONEW.png" alt=""><span>The Freescape Project</span></div><div class="kopf__titel">Packliste Südamerika</div></header>
+
+  <p class="overline" style="margin-top:12mm">Ein Jahr · Ein Rucksack · Ein Kontinent</p>
+  <h1>Unsere Packliste<br>für Südamerika</h1>
+  <p class="lead">Alles, was wirklich in unseren Rucksäcken steckt, unterwegs zwischen Anden, Amazonas und Atlantik. Zum Abhaken, Ausdrucken und Anpassen.</p>
+  <div class="chips"><span>40 L Rucksack, nur Handgepäck</span><span>4 Klimazonen</span><span>1 Jahr unterwegs</span></div>
+  <div class="strich"></div>
+
+  <h2>Bevor du packst: vier Grundregeln</h2>
+  <p style="margin-top:1.6mm">Südamerika ist kein Ziel, es sind zwanzig. In derselben Woche stehst du morgens frierend auf 4.800 Metern und schwitzt abends im Dschungel. Unsere Regeln nach einem halben Jahr unterwegs:</p>
+  <div class="regeln">
+    <p><strong>Nur Handgepäck.</strong> Unsere Rucksäcke haben 40 Liter und passen in die Kabine. Das spart bei jedem Flug Gepäckgebühren, und nichts geht verloren. 40 Liter klingen wenig, reichen aber, versprochen.</p>
+    <p><strong>Zwiebelprinzip statt Spezialkleidung.</strong> Drei dünne Schichten schlagen jede dicke Jacke. Merino trocknet schnell und riecht auch nach Tag drei nicht.</p>
+    <p><strong>Alles, was du zweimal nicht benutzt hast, fliegt raus.</strong> Lieber unterwegs aussortieren oder verschenken, als es monatelang herumzutragen.</p>
+    <p><strong>Kaufen kannst du fast alles vor Ort.</strong> Nur gute Wanderschuhe, Technik und deine Reiseapotheke solltest du von zu Hause mitbringen.</p>
+  </div>
+
+  <div class="box" style="margin-top:6mm">
+    <p class="overline">Das findest du in diesem Guide</p>
+    <div class="inhalt">
+      <div><b>1</b>Rucksack &amp; Organisation</div><div><b>4</b>Dokumente &amp; Geld</div>
+      <div><b>2</b>Kleidung für 4 Klimazonen</div><div><b>5</b>Gesundheit &amp; Hygiene</div>
+      <div><b>3</b>Technik</div><div><b>6</b>Sonstiges &amp; Kleinkram</div>
+    </div>
+    <p>Ganz am Ende: unsere ehrliche Liste der Dinge, die du getrost zu Hause lassen kannst. Hak beim Packen einfach ab, was im Rucksack liegt.</p>
+  </div>
+
+  <footer class="fuss"><span>thefreescapeproject.com</span><span>Julia &amp; Sergen · 2026</span></footer>
+</section>
+
+<!-- ═════════ Seite 2 ═════════ -->
+<section class="seite">
+  <header class="kopf"><div class="marke"><img src="../assets/img/LOGONEW.png" alt=""><span>The Freescape Project</span></div><div class="kopf__titel">Packliste Südamerika</div></header>
+
+  <div class="abschnitt">
+    <h2>1 · Rucksack &amp; Organisation</h2>
+    <p class="unter">Dein Zuhause auf dem Rücken. Weniger ist hier wörtlich mehr.</p>
+    <div class="liste">
+      <div>Hauptrucksack, 40 Liter, Handgepäckmaß</div><div>Daypack, ca. 20 Liter</div>
+      <div>Packwürfel, 4 bis 6 Stück</div><div>Regenhülle für den Rucksack</div>
+      <div>Drybag, 10 Liter (Bootstouren, Wäsche)</div><div>Brustbeutel oder flache Bauchtasche</div>
+      <div>Kleines Zahlenschloss, 2 Stück</div><div>Faltbarer Stoffbeutel für Einkäufe</div>
+    </div>
+  </div>
+
+  <div class="abschnitt">
+    <h2>2 · Kleidung für 4 Klimazonen</h2>
+    <p class="unter">Für alles zwischen Gletscher und Dschungel. Waschen kannst du überall, günstig und kiloweise.</p>
+    <div class="liste">
+      <div>Merino-Shirts, 3 Stück</div><div>T-Shirts, 2 bis 3 Stück</div>
+      <div>Langarmshirt, dünn (Sonne, Mücken)</div><div>Fleece oder warmer Pulli</div>
+      <div>Daunenjacke, klein packbar</div><div>Regenjacke, wirklich wasserdicht</div>
+      <div>Wanderhose, leicht</div><div>Kurze Hosen, 2 Stück</div>
+      <div>Eine bequeme Hose für Busnächte</div><div>Unterwäsche für 7 Tage</div>
+      <div>Wandersocken, 3 Paar</div><div>Normale Socken, 4 Paar</div>
+      <div>Mütze und dünne Handschuhe</div><div>Cap oder Sonnenhut</div>
+      <div>Badesachen</div><div>Eingelaufene Wanderschuhe</div>
+      <div>Sneaker für die Stadt</div><div>Flip-Flops (Hostelduschen!)</div>
+    </div>
+  </div>
+
+  <div class="abschnitt">
+    <h2>3 · Technik</h2>
+    <p class="unter">So viel wie nötig, so wenig wie möglich. Steckdosen sind in Bussen Glückssache.</p>
+    <div class="liste">
+      <div>Smartphone mit eSIM</div><div>Powerbank, mindestens 10.000 mAh</div>
+      <div>Kamera oder GoPro, mit Ersatzakku</div><div>Universaladapter mit USB-Ports</div>
+      <div>Kopfhörer mit Geräuschunterdrückung</div><div>Ladekabel, kurz und in doppelter Ausführung</div>
+      <div>Stirnlampe (Stromausfälle, Frühstarts)</div><div>Laptop oder Tablet, nur wenn du arbeitest</div>
+    </div>
+  </div>
+
+  <footer class="fuss"><span>thefreescapeproject.com</span><span>Julia &amp; Sergen · 2026</span></footer>
+</section>
+
+<!-- ═════════ Seite 3 ═════════ -->
+<section class="seite">
+  <header class="kopf"><div class="marke"><img src="../assets/img/LOGONEW.png" alt=""><span>The Freescape Project</span></div><div class="kopf__titel">Packliste Südamerika</div></header>
+
+  <div class="abschnitt">
+    <h2>4 · Dokumente &amp; Geld</h2>
+    <p class="unter">Der Teil, den du nicht vor Ort nachkaufen kannst. Zweimal prüfen.</p>
+    <div class="liste">
+      <div>Reisepass, gültig für die ganze Reisedauer plus 6 Monate</div><div>Kopien: digital und auf Papier</div>
+      <div>Impfpass mit Gelbfieber-Eintrag plus Kopie (an einigen Grenzen Pflicht)</div><div>2 Kreditkarten ohne Auslandsgebühren, getrennt aufbewahrt</div>
+      <div>Notfall-Bargeld: 200 bis 300 USD, in kleinen Scheinen</div><div>Auslandskrankenversicherung, Police als PDF</div>
+      <div>Internationaler Führerschein</div><div>Passfotos, 4 Stück (Visa, Permits)</div>
+    </div>
+  </div>
+
+  <div class="abschnitt">
+    <h2>5 · Gesundheit &amp; Hygiene</h2>
+    <p class="unter">Apotheken gibt es überall, aber nachts im 18-Stunden-Bus hilft dir nur, was du dabei hast.</p>
+    <div class="liste">
+      <div>Reiseapotheke: Schmerzmittel, Durchfallmittel, Elektrolyte, Pflaster</div><div>Mittel gegen Höhenkrankheit<br>(ärztlich beraten lassen)</div>
+      <div>Sonnencreme LSF 50</div><div>Mückenspray mit DEET</div>
+      <div>Festes Shampoo und feste Seife</div><div>Mikrofaser-Handtuch, groß</div>
+      <div>Ohrstöpsel und Schlafmaske</div><div>Wäscheleine und Reisewaschmittel</div>
+      <div>Wasserflasche mit Filter</div><div>Handdesinfektion und Taschentücher</div>
+      <div>Menstruationsprodukte (unterwegs oft teuer)</div>
+    </div>
+  </div>
+
+  <div class="abschnitt">
+    <h2>6 · Sonstiges &amp; Kleinkram</h2>
+    <p class="unter">Wiegt fast nichts, rettet aber regelmäßig den Tag.</p>
+    <div class="liste">
+      <div>Kleines Nähzeug, Gaffa-Tape und Kabelbinder</div><div>Ersatzbrille oder Kontaktlinsen-Vorrat</div>
+      <div>Sonnenbrille mit UV-Schutz</div><div>Kartenspiel für Busfahrten und Hostelabende</div>
+      <div>Notizbuch und Kugelschreiber</div>
+    </div>
+  </div>
+
+  <div class="box" style="margin-top:3mm">
+    <p class="overline">Gut zu wissen</p>
+    <p style="color:#444;font-size:10pt;line-height:1.85">Alles Wichtige doppelt: Passkopien einmal im Hauptrucksack, einmal im Daypack und einmal in der Cloud. Und die zweite Kreditkarte nie am selben Ort wie die erste. Klingt übervorsichtig, bis der Tag kommt, an dem du es brauchst.</p>
+  </div>
+
+  <footer class="fuss"><span>thefreescapeproject.com</span><span>Julia &amp; Sergen · 2026</span></footer>
+</section>
+
+<!-- ═════════ Seite 4 ═════════ -->
+<section class="seite">
+  <header class="kopf"><div class="marke"><img src="../assets/img/LOGONEW.png" alt=""><span>The Freescape Project</span></div><div class="kopf__titel">Packliste Südamerika</div></header>
+
+  <h2>Was du zu Hause lassen kannst</h2>
+  <p style="margin:1mm 0 2.6mm; max-width:160mm">Ehrlichkeit gehört dazu: Das hier haben wir eingepackt und bereut.</p>
+  <div class="regeln" style="margin-bottom:7mm">
+    <p><strong>Die zweite Jeans.</strong> Schwer, trocknet nie, und in den Bergen trägst du sie sowieso nicht.</p>
+    <p><strong>Der dicke Reiseführer.</strong> 900 Gramm Papier. Offline-Karten und Blogs (zum Beispiel unserer) reichen völlig.</p>
+    <p><strong>Schmuck und alles, was glänzt.</strong> Du trägst es nicht, und du machst dir nur Sorgen darum.</p>
+    <p><strong>Das dritte Paar Schuhe für "besondere Anlässe".</strong> Der besondere Anlass kam nie.</p>
+    <p><strong>Zu viel "für alle Fälle".</strong> Für fast jeden Fall gibt es in Südamerika einen Laden an der nächsten Ecke.</p>
+  </div>
+
+  <h2>Deine eigenen sieben Sachen</h2>
+  <p class="unter">Jede Reise ist anders. Platz für alles, was auf deiner Liste nicht fehlen darf.</p>
+  <div class="leer"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+
+  <div class="mehr">
+    <p class="overline">Mehr von unserer Reise</p>
+    <h3>Was du auf keiner Packliste findest: die 18-Stunden-Busfahrten, die Fehlkäufe, die Momente dazwischen.</h3>
+    <p>Das alles zeigen wir im Blog und in unseren Vlogs auf YouTube. Such nach <strong>The Freescape Project</strong>, wir freuen uns auf dich. Und wenn dir diese Liste geholfen hat: Erzähl uns davon, welche drei Dinge du gestrichen hast.</p>
+  </div>
+
+  <footer class="fuss"><span>thefreescapeproject.com</span><span>Julia &amp; Sergen · 2026</span></footer>
+</section>
+
+</body>
+</html>
