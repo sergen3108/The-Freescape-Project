@@ -5,11 +5,17 @@
   "Amazonkanu.JPEG": {
     "hash": "9d3a3a477c50f2430d26f5ff534f5f1219f34275"
   },
+  "AncudPunihuil.jpeg": {
+    "hash": "03a721b3d1ec467c20a0f278a3ceb0078ac7aafa"
+  },
   "ArgentinischeStraße.jpg": {
     "hash": "9e513de696e38996df9e29b060f5d2a1933ce7a3"
   },
   "Bogota.JPEG": {
     "hash": "fbb4175f1736d750bc41710b54e656e54d805e48"
+  },
+  "CastroPalafitos.jpeg": {
+    "hash": "28ea609d13d22ad905dcb47d95c6f512fcf60e59"
   },
   "ChileSterne.jpeg": {
     "hash": "ec527b64e21875f9e32cff14092a15a769705397"
@@ -32,6 +38,12 @@
   "Fujiback.jpg": {
     "hash": "13b205dc116de229fa9c7b25b991041131ce5f7e"
   },
+  "Guachipas.jpeg": {
+    "hash": "370f0e7bbdc47ad99d0a72018304084372baead3"
+  },
+  "Hornocal.jpeg": {
+    "hash": "55e13d2c0802decef53293abd80620d168edbd39"
+  },
   "IMG_2934.JPEG": {
     "hash": "4ea9c410c1512a2117cc14fb4a29d7561df9d95b"
   },
@@ -50,8 +62,32 @@
   "JundSkontakt.jpeg": {
     "hash": "878e8fb0ced02f4a3a19cfa20c6536526aed555c"
   },
+  "OsterinselMoai.jpeg": {
+    "hash": "d91d6f392a2b3b94d1d24a2aa1df4d914ea7f06e"
+  },
+  "OsterinselRanoRaraku.jpeg": {
+    "hash": "d8baac6e9b538b2d84422936c2b174ced3be6599"
+  },
+  "OsterinselTongariki.jpeg": {
+    "hash": "2a0d4c5ad8960b7c456d042e5cbdf5f7474542b1"
+  },
+  "PeritoMoreno.jpeg": {
+    "hash": "dabc0569b612f1bebdf234619743a4cc3bdfed30"
+  },
   "Potosimiene.jpg": {
     "hash": "2d67416132c7bcf9195db26643916c31fa7ddfe0"
+  },
+  "PucaraTilcara.jpeg": {
+    "hash": "782dedf699d274ac75bdc23170c1fe6b8b37bf41"
+  },
+  "Pucon.jpeg": {
+    "hash": "1b546ec64e9b467379e32827f71af6a3e2452ddf"
+  },
+  "QuebradaConchas.jpeg": {
+    "hash": "4c2f045f963f10d9294eacef98d750fc499a6333"
+  },
+  "Rosario.jpeg": {
+    "hash": "4ffdb54c1d6d06e6318faf6255954a5140290b35"
   },
   "Salardeuyuni.jpg": {
     "hash": "c4f3f1181b033477e04bb99715e1485247f88069"
@@ -68,11 +104,20 @@
   "Sucredinopark.jpg": {
     "hash": "16aa436d548216589da50a74ac0b9569a4e52a00"
   },
+  "TodosLosSantos.jpeg": {
+    "hash": "87ebe71d2a6a159fdb5dbd92879221dd9d15cb05"
+  },
+  "TorresDelPaine.jpeg": {
+    "hash": "220278566c847984ee3ebb2204570216ee6307df"
+  },
   "TürkeiSerJul.jpeg": {
     "hash": "03ffe4db363695925f4e5f199e25fe7374f7aa63"
   },
   "Valledelaluna.jpeg": {
     "hash": "e44b698f0792cade1e3683611f16e173d8d3aa9b"
+  },
+  "VillaGeneralBelgrano.jpeg": {
+    "hash": "7a55f6810017fa5cc462a9a5f3b66cad368df5db"
   },
   "Zugfriedhof.jpg": {
     "hash": "66a1a5e17c996abd3125f2d5a540632d8bbf744a"
