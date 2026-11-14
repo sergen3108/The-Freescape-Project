@@ -6,7 +6,8 @@ typ: guide
 lesezeit: 9 min
 autor: Sergen & Julia
 teaser: Die östlichste Insel des Archipels ist das Paradies der Seelöwen. Neun Tage auf San Cristóbal haben uns Schnorcheln mit Seelöwen an der Muelle Tijeretas, einen Tauchgang am Kicker Rock und die entspannteste Atmosphäre der drei Hauptinseln beschert.
-bildEmoji: ""
+bild: assets/img/blog/sancristobal3.jpeg
+bildEmoji: 🦭
 bildGradient: linear-gradient(135deg,#0a3d62,#138a36)
 tags:
   - Galápagos
@@ -21,6 +22,8 @@ San Cristóbal ist die östlichste Insel des Archipels und gilt für viele als d
 Wir haben insgesamt neun Tage auf San Cristóbal verbracht. Eine sehr entspannte Zeitspanne, die es uns erlaubt hat, die Insel ohne Zeitdruck zu erkunden, mehrere Ausflüge zu machen und unsere liebsten Schnorchelorte gleich mehrfach zu besuchen.
 
 Gewohnt haben wir in einem gemütlichen Airbnb nahe dem Zentrum von Puerto Baquerizo Moreno. Durch die gute Lage konnten wir fast die gesamte Promenade, die Strände im Ort sowie viele lokale Restaurants bequem zu Fuß erreichen.
+
+![Sonnenuntergang am Hafen von Puerto Baquerizo Moreno](assets/img/blog/sancristobal2.jpeg)
 
 Zu unseren Highlights gehörten das unvergessliche Schnorcheln mit Seelöwen an der Muelle Tijeretas, ein Tauchgang am Kicker Rock und die vielseitige 360-Grad-Inseltour. In diesem Reiseführer verraten wir dir unsere besten Reisetipps, Restaurant-Empfehlungen und wie du die Anreise am besten planst.
 
@@ -38,9 +41,15 @@ Wir haben uns daher für die indirekte Route über Santa Cruz entschieden: nachm
 
 Das absolute Highlight auf der gesamten Insel, und für uns sogar der schönste Schnorchelspot auf den ganzen Galápagos-Inseln, ist die **Muelle Tijeretas**. Über einen kurzen Wanderweg vorbei am Interpretation Center gelangst du zu einer malerischen Bucht mit einem Holzsteg. Unter Wasser schwimmen überall neugierige Seelöwen, extrem verspielt und direkt auf dich zutauchend.
 
+![Türkise Bucht an der Muelle Tijeretas](assets/img/blog/sancristobal4.jpeg)
+
 Ebenfalls perfekt für entspannte Strandtage sind der **Punta Carola Beach** sowie die beliebte **Playa Mann**. An beiden Stränden kannst du wunderbar entspannen und die Seelöwen beim Sonnenbaden beobachten. Wer mehr über die Geschichte, die Besiedlung und den Schutz des Archipels erfahren möchte, sollte zudem dem kostenlosen Interpretation Center einen Besuch abstatten.
 
+![Weißer Sandstrand auf San Cristóbal](assets/img/blog/sancristobal1.jpeg)
+
 An geführten Ausflügen haben wir zwei Touren unternommen. Ein Muss für Unterwasser-Fans ist eine Tauchtour zum **Kicker Rock** (León Dormido). Die steil aus dem Ocean aufragende Felsformation ist weltberühmt für Begegnungen mit Hammerhaien, Galápagos-Haien und Rochen. Zudem haben wir die **360-Grad-Tour** gebucht, die beliebteste Tagestour auf der Insel. Dabei umrundest du San Cristóbal komplett per Boot, schnorchelst an entlegenen Buchten und siehst die Insel aus allen Blickwinkeln.
+
+![Kicker Rock (León Dormido) vor San Cristóbal](assets/img/blog/sancristobal5.jpeg)
 
 ---
 

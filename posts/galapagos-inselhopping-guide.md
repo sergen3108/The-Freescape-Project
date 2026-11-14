@@ -6,7 +6,8 @@ typ: guide
 lesezeit: 10 min
 autor: Sergen & Julia
 teaser: Man muss nicht auf eine teure Kreuzfahrt gehen, um die Galápagos-Inseln zu erleben. Wir haben Santa Cruz, Isabela und San Cristóbal auf eigene Faust erkundet und zeigen dir, wie du deine Route planst, welche Insel zu dir passt und wie du dabei Geld sparst.
-bildEmoji: ""
+bild: assets/img/galapagosbird1.JPEG
+bildEmoji: 🐢
 bildGradient: linear-gradient(135deg,#0a3d62,#138a36)
 tags:
   - Galápagos
@@ -27,15 +28,21 @@ Jede der drei Hauptinseln hat ihren eigenen Charakter, eigene Highlights und ein
 
 **[Santa Cruz](artikel.html?post=santa-cruz-galapagos-reisefuehrer) — Der geschäftige Knotenpunkt:** Santa Cruz ist das logistische Herz der Inseln. Im Hauptort Puerto Ayora findest du die beste Infrastruktur, unzählige Restaurants, Geldautomaten und Reiseagenturen. Der perfekte Ausgangspunkt für Tagestouren zu unbewohnten Nachbarinseln oder für Ausflüge zu den Riesenschildkröten in den Highlands.
 
+![Riesenschildkröten auf Santa Cruz](assets/img/blog/santacruz4.JPEG)
+
 **[Isabela Island](artikel.html?post=isabela-island-galapagos-reisefuehrer) — Das wilde Naturparadies:** Isabela ist geformt wie ein Seepferdchen, geprägt von riesigen Vulkanlandschaften und strahlt eine unglaubliche Ruhe aus. Hier bestehen die Straßen aus weißem Sand, das Leben verläuft entschleunigt, und du findest kostenlose Schnorchelspots wie Concha de la Perla sowie die berühmten Unterwassertunnel von Los Túneles.
 
 **[San Cristóbal](artikel.html?post=san-cristobal-galapagos-reisefuehrer) — Das Paradies der Seelöwen:** Die östlichste Insel ist berühmt für ihre riesigen Seelöwen-Kolonien, die direkt an der Uferpromenade liegen. San Cristóbal bietet eine Mischung aus entspanntem Kleinstadt-Vibe, phänomenalen Tauchspots wie dem Kicker Rock und dem magischen Schnorcheln an der Muelle Tijeretas.
+
+![Seelöwen-Kolonie am Strand von San Cristóbal](assets/img/blog/sancristobal3.jpeg)
 
 ---
 
 ## Anreise & Route für das perfekte Insel-Hopping
 
 Der beste Buchungstrick für die Anreise ist ein Open-Jaw-Flug (Gabelflug): Fliege auf die eine Insel hin und von einer anderen Insel wieder zurück aufs Festland. Wir sind zum Beispiel nach Baltra (Santa Cruz) geflogen und von San Cristóbal aus wieder zurückgeflogen. Dadurch sparst du dir Zeit, Geld und vor allem eine anstrengende Fährüberfahrt zurück zum Ausgangspunkt.
+
+![Kicker Rock vor San Cristóbal](assets/img/blog/sancristobal5.jpeg)
 
 Für die Route zwischen den Inseln nutzen fast alle Individualreisenden öffentliche Schnellfähren (Speedboats). Die Überfahrten dauern jeweils etwa zwei bis zweieinhalb Stunden. Da der Seegang auf dem Pazifik extrem rau werden kann, solltet ihr euch unbedingt vorab in einer lokalen Apotheke für 1 USD eine Packung Reisetabletten gegen Seekrankheit besorgen.
 
@@ -53,15 +60,23 @@ Obwohl die Galápagos-Inseln zu den teuersten Reisezielen Südamerikas gehören,
 
 **Kostenlose Highlights voll auskosten:** Egal ob die pinken Flamingos an der Poza de los Flamingos, die Iguanas auf dem Holzsteg oder die Sonnenuntergänge am Fährstrand, viele der schönsten Erlebnisse kosten keinen einzigen Cent.
 
+![Seelöwe schläft am Strand von Isabela](assets/img/blog/isabela4.JPEG)
+
 ---
 
 ## Unsere Top 3 Tier-Erlebnisse auf den Galápagos-Inseln
 
 **Schnorcheln an der Muelle Tijeretas (San Cristóbal):** Für uns der schönste Schnorchelspot der gesamten Inseln. Die Seelöwen dort sind unglaublich neugierig, verspielt und schwimmen direkt auf einen zu.
 
+![Türkise Bucht an der Muelle Tijeretas auf San Cristóbal](assets/img/blog/sancristobal4.jpeg)
+
 **Sonnenuntergang am Fährstrand (Isabela):** Wenn die Sonne untergeht, kommen Seelöwen, kleine Riffhaie, Schildkröten, Pinguine und jagende Meeresvögel zusammen, ein magisches Naturschauspiel.
 
+![Sonnenuntergang am Strand von Isabela](assets/img/blog/isabela5.JPEG)
+
 **Los Túneles Tour (Isabela):** Auch wenn die Tour mit 120 USD nicht günstig ist, lohnt sie sich komplett: Die vulkanischen Felsformationen unter Wasser sowie Begegnungen mit Haien und Schildkröten sind unvergesslich.
+
+![Meeresschildkröte beim Schnorcheln vor Isabela](assets/img/blog/isabela.JPEG)
 
 ---
 
