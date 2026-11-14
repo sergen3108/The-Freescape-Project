@@ -339,22 +339,31 @@
       <a href="vlogs.html" class="nav__link" data-page="vlogs.html">Vlogs</a>
       <a href="blog.html" class="nav__link active" data-page="blog.html">Blog</a>
       <div class="nav__dropdown">
-        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Länder
+        <button class="nav__link nav__dropdown-toggle" data-href="laender.html" data-page="laender.html">Reiseziele
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
         </button>
-        <div class="nav__dropdown-menu">
-          <a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Länder</a>
+        <div class="nav__dropdown-menu" id="nav-reiseziele-menu">
+          <a href="laender.html" class="nav__dropdown-link nav__dropdown-link--alle">Alle Reiseziele</a>
           <div class="nav__dropdown-trenner"></div>
+          <a href="laender.html" class="nav__dropdown-gruppe">Südamerika</a>
           <a href="kolumbien.html" class="nav__dropdown-link">Kolumbien</a>
           <a href="ecuador.html" class="nav__dropdown-link">Ecuador</a>
           <a href="peru.html" class="nav__dropdown-link">Peru</a>
           <a href="bolivien.html" class="nav__dropdown-link">Bolivien</a>
           <a href="chile.html" class="nav__dropdown-link">Chile</a>
           <a href="argentinien.html" class="nav__dropdown-link">Argentinien</a>
-          <div class="nav__dropdown-trenner"></div>
           <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Brasilien</a>
           <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Uruguay</a>
           <a href="laender.html#geplant" class="nav__dropdown-link nav__dropdown-link--geplant">Paraguay</a>
+        </div>
+      </div>
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-toggle" type="button">Reiseplanung
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="kosten.html" class="nav__dropdown-link" data-page="kosten.html">Reisekosten</a>
+          <a href="packliste.html" class="nav__dropdown-link" data-page="packliste.html">Packliste</a>
         </div>
       </div>
       <a href="karte.html" class="nav__link" data-page="karte.html">Reisekarte</a>
@@ -390,12 +399,21 @@
   <a href="karte.html" class="nav__mobile-link">Reisekarte</a>
   <a href="galerie.html" class="nav__mobile-link">Galerie</a>
   <a href="kontakt.html" class="nav__mobile-link">Kontakt</a>
+  <button type="button" class="nav__mobile-link nav__mobile-toggle" id="nav-mobile-planung-toggle" aria-expanded="false" aria-controls="nav-mobile-planung-submenu">
+    Reiseplanung
+    <svg class="nav__mobile-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+  </button>
+  <div class="nav__mobile-submenu" id="nav-mobile-planung-submenu" hidden>
+    <a href="kosten.html" class="nav__mobile-link nav__mobile-sublink">Reisekosten</a>
+    <a href="packliste.html" class="nav__mobile-link nav__mobile-sublink">Packliste</a>
+  </div>
   <button type="button" class="nav__mobile-link nav__mobile-toggle" id="nav-mobile-laender-toggle" aria-expanded="false" aria-controls="nav-mobile-laender-submenu">
-    Länder
+    Reiseziele
     <svg class="nav__mobile-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
   </button>
   <div class="nav__mobile-submenu" id="nav-mobile-laender-submenu" hidden>
-    <a href="laender.html" class="nav__mobile-link nav__mobile-sublink">Alle Länder</a>
+    <a href="laender.html" class="nav__mobile-link nav__mobile-sublink">Alle Reiseziele</a>
+    <span class="nav__mobile-gruppe">Südamerika</span>
     <a href="kolumbien.html" class="nav__mobile-link nav__mobile-sublink">Kolumbien</a>
     <a href="ecuador.html" class="nav__mobile-link nav__mobile-sublink">Ecuador</a>
     <a href="peru.html" class="nav__mobile-link nav__mobile-sublink">Peru</a>
@@ -509,11 +527,12 @@
           <a href="karte.html" class="footer__link">Reisekarte</a>
           <a href="galerie.html" class="footer__link">Galerie</a>
           <a href="kosten.html" class="footer__link">Reisekosten</a>
+          <a href="packliste.html" class="footer__link">Packliste</a>
           <a href="kontakt.html" class="footer__link">Kontakt</a>
         </div>
       </div>
       <div>
-        <p class="footer__heading">Länder</p>
+        <p class="footer__heading">Reiseziele</p>
         <div class="footer__links">
           <a href="kolumbien.html" class="footer__link">Kolumbien</a>
           <a href="ecuador.html" class="footer__link">Ecuador</a>
