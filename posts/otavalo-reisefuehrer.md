@@ -6,7 +6,8 @@ typ: guide
 lesezeit: 7 min
 autor: Sergen & Julia
 teaser: Der größte indigene Markt Südamerikas, eine spiegelglatte Kraterlagune und die Lederstadt Cotacachi, als Tagesausflug ab Quito lässt sich das alles gut verbinden. Hier unsere ehrliche Erfahrung inklusive Handel-Tipps.
-bildEmoji: ""
+bild: assets/img/blog/otavalo1.jpeg
+bildEmoji: 🧶
 bildGradient: linear-gradient(135deg,#5c2d1a,#c46d2d)
 tags:
   - Otavalo
@@ -27,6 +28,8 @@ Gebucht haben wir den Ausflug direkt über unser Secret Garden Hostel in Quito. 
 
 Die Buchung über das Secret Garden Hostel war unkompliziert. Im Preis von 55 USD war der Transfer in einem Minivan inklusive eines englischsprachigen Guides enthalten. Die Fahrt von [**Quito**](artikel.html?post=quito-reisefuehrer) nach Otavalo dauert je nach Verkehr etwa zwei Stunden und führt durch schöne Andenlandschaften.
 
+![Lago San Pablo und der Vulkan Imbabura bei Otavalo](assets/img/blog/otavalo3.jpeg)
+
 Wer es günstiger gestalten möchte, kann auch auf eigene Faust mit dem öffentlichen Fernbus ab dem Nordbusbahnhof (Carcelén) in Quito anreisen. Wenn du an einem Tag neben dem Markt auch die Naturwunder in der Umgebung sehen willst, ist eine geführte Tagestour aber die entspannteste und zeitsparendste Option.
 
 ---
@@ -34,6 +37,8 @@ Wer es günstiger gestalten möchte, kann auch auf eigene Faust mit dem öffentl
 ## Der indigene Markt in Otavalo & Handeltipps
 
 Der Hauptgrund für den Besuch ist die weltberühmte **Plaza de los Ponchos**. Wir waren unter der Woche auf dem Markt, weshalb es dort wirklich sehr leer und ruhig war. Wenn du das volle, trubelige und authentische Markttreiben erleben möchtest, solltest du deinen Ausflug am besten auf einen Samstag legen, da dann der Hauptmarkttag stattfindet.
+
+![Ruhige Marktstände auf der Plaza de los Ponchos unter der Woche](assets/img/blog/otavalo2.jpeg)
 
 Zum Shoppen ist der Markt trotzdem unschlagbar: Du findest hier alles an Souvenirs, von flauschigen Alpaka-Ponchos über Schmuck, Handtaschen und Travel Journals bis hin zu handgefertigtem Kunsthandwerk. Unser Guide gab uns zwei wertvolle Tipps für das Einkaufen mit auf den Weg:
 

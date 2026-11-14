@@ -6,7 +6,8 @@ typ: guide
 lesezeit: 8 min
 autor: Sergen & Julia
 teaser: Bunte Kolonialbauten, eine historische Stadtmauer und karibisches Flair, fünf Tage in Cartagena waren für uns genau die richtige Zeit. Hier erzählen wir, was uns am meisten begeistert hat und worauf man achten sollte.
-bildEmoji: ""
+bild: assets/img/blog/cartagena1.jpeg
+bildEmoji: 🏰
 bildGradient: linear-gradient(135deg,#8a2d1f,#e8a13d)
 tags:
   - Cartagena
@@ -41,9 +42,13 @@ Cartagena lässt sich wunderbar zu Fuß erkunden, und rund um das historische Ze
 
 Ein absolutes Pflichtprogramm ist das **Castillo San Felipe de Barajas**. Diese riesige Festungsanlage thront über der Stadt und bietet nicht nur einen Einblick in die Kolonialgeschichte, sondern auch einen großartigen Panoramablick über Cartagena.
 
+![Blick vom Castillo San Felipe de Barajas auf die Skyline von Cartagena](assets/img/blog/cartagena3.jpeg)
+
 Für den späten Nachmittag empfehlen wir einen Spaziergang entlang der historischen **Stadtmauer** zum Sonnenuntergang. Die Atmosphäre dort oben ist wundervoll und der perfekte Ausklang für einen Tag voller Sightseeing.
 
 Außerdem lohnt sich ein kurzer Ausflug nach **Bocagrande**. Dieser Stadtteil ist geprägt von hohen Wolkenkratzern und Luxusresorts. Wir haben dort einen entspannten Tag verbracht, waren im Einkaufszentrum, haben im Food Court gegessen und uns nachmittags spontan eine Auszeit im Kino gegönnt. An den Stränden direkt in Cartagena waren wir nicht baden, aber sie sahen völlig in Ordnung aus, allerdings wird man dort sehr häufig von Verkäufern angesprochen.
+
+![Strand und Hochhäuser in Bocagrande](assets/img/blog/cartagena2.jpeg)
 
 ---
 
