@@ -123,6 +123,7 @@
   }
 
   function gehoertDazu(t, a) {
+    if (t.ohne && t.ohne.some(function (k) { return (a[k] || []).length > 0; })) return false;
     if (t.wenn && !passt(t.wenn, a, false)) return false;
     if (t.nur && !passt(t.nur, a, true)) return false;
     return true;
@@ -202,7 +203,7 @@
     state = ausLink;
     geteilt = true;
   } else {
-    state = speicherLesen() || ausVorlage('suedamerika');
+    state = speicherLesen() || leer();   // Start ohne Auswahl, jeder waehlt selbst
   }
 
   function geaendert() {
@@ -220,14 +221,15 @@
 
   /* ── "Deine Reise": Fragen auf- und zuklappen ────────────── */
 
-  // Startet zugeklappt, die Liste ist mit der Vorlage "Wie wir" ja schon gefuellt
+  // Startet zugeklappt, damit die Seite ruhig bleibt; ohne Auswahl zeigt
+  // die Liste die Grundausstattung, die Zeile darueber sagt, was zu tun ist
   var panelOffen = false;
   function renderPanel() {
     el.fragenWrap.hidden = !panelOffen;
     el.panel.classList.toggle('is-offen', panelOffen);
     el.panelBtn.setAttribute('aria-expanded', String(panelOffen));
     el.panelBtnText.textContent = panelOffen ? 'Zuklappen' : 'Reise anpassen';
-    el.panelInfo.textContent = zusammenfassung() || 'Noch nichts ausgewählt';
+    el.panelInfo.textContent = zusammenfassung() || 'Noch nichts ausgewählt. Wähle eine Vorlage oder pass die Reise an, dann kommen passende Teile dazu.';
   }
   el.panelBtn.addEventListener('click', function () { panelOffen = !panelOffen; renderPanel(); });
   el.panelFertig.addEventListener('click', function () {
@@ -529,7 +531,7 @@
       var b = erzeuge('button', 'pl-hinweis__btn', 'Meine gespeicherte Liste öffnen');
       b.type = 'button';
       b.addEventListener('click', function () {
-        state = speicherLesen() || ausVorlage('suedamerika');
+        state = speicherLesen() || leer();
         geteilt = false;
         hashEntfernen();
         render();
@@ -564,7 +566,7 @@
   root.querySelector('[data-pl="zuruecksetzen"]').addEventListener('click', function () {
     if (!window.confirm('Liste zurücksetzen? Deine Häkchen und eigenen Teile gehen dabei verloren.')) return;
     speicherLoeschen();
-    state = ausVorlage('suedamerika');
+    state = leer();
     geteilt = false;
     offeneTipps = {};
     zuKats = {};

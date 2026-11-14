@@ -20,7 +20,10 @@
                passt, z.B. { klima: ['kalt'], aktiv: ['wandern'] }
      nur       optional: Teil kommt nur dazu, wenn ALLE Angaben
                passen, z.B. { gepaeck: ['handgepaeck'] }
-     Ohne wenn und nur gehoert ein Teil immer dazu.
+     ohne      optional: Teil erscheint nur, solange diese Fragen
+               noch unbeantwortet sind, z.B. ['gepaeck'] (neutrales
+               Teil, bis eine genauere Variante greift)
+     Ohne wenn, nur und ohne gehoert ein Teil immer dazu.
 
    VORLAGEN: fertige Antworten zum Schnellstart.
 
@@ -107,6 +110,9 @@ window.PACKLISTE = {
     { id: 'koffer', kat: 'rucksack', text: 'Koffer oder Trolley',
       tipp: 'Gut für feste Unterkünfte. Für Kopfsteinpflaster und Busbahnhöfe sind große, robuste Rollen Gold wert.',
       nur: { gepaeck: ['koffer'] } },
+    { id: 'hauptgepaeck', kat: 'rucksack', text: 'Hauptgepäck: Rucksack oder Koffer',
+      tipp: 'Bei vielen Ortswechseln ist ein Rucksack meist praktischer als ein Koffer. Wählst du oben aus, womit du reist, passt sich dieser Punkt an.',
+      ohne: ['gepaeck'] },
     { id: 'daypack', kat: 'rucksack', text: 'Daypack, ca. 20 Liter',
       tipp: 'Für Ausflüge und als Handgepäck im Bus. Wertsachen gehören hier hinein, nicht in den Gepäckraum.' },
     { id: 'packwuerfel', kat: 'rucksack', text: 'Packwürfel, {menge}',
@@ -224,6 +230,9 @@ window.PACKLISTE = {
     { id: 'ausweis', kat: 'dokumente', text: 'Personalausweis oder Reisepass',
       tipp: 'Innerhalb von EU und Schengen reicht meist der Personalausweis.',
       nur: { fern: ['nein'] } },
+    { id: 'pass-oder-ausweis', kat: 'dokumente', text: 'Reisepass oder Personalausweis',
+      tipp: 'Außerhalb von EU und Schengen brauchst du meist einen Reisepass, der noch mindestens sechs Monate gültig ist.',
+      ohne: ['fern'] },
     { id: 'kopien', kat: 'dokumente', text: 'Kopien aller Dokumente, digital und auf Papier',
       tipp: 'Alles Wichtige doppelt: einmal im Hauptrucksack, einmal im Daypack und einmal in der Cloud.' },
     { id: 'impfpass', kat: 'dokumente', text: 'Impfpass plus Kopie',
