@@ -8,13 +8,13 @@ const REISE = {
   sergenLaender: 17,
   juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      21750,
+  kmZurueckgelegt:      23250,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          64,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          66,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Seit dem 09.11. sind wir in El Calafate, dem Tor zum Perito-Moreno-Gletscher in Patagonien 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Wir sind gerade in Bariloche am Lago Nahuel Huapi. Am 18./19.11. fliegen wir nach Buenos Aires, um den 21.11. geht es mit der Fähre nach Colonia del Sacramento in Uruguay 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'El Calafate, Argentinien',  // ✏️ hier anpassen
+  standort: 'Bariloche, Argentinien',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },

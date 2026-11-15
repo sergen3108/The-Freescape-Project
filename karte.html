@@ -354,7 +354,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Aktuell</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Seit dem 09.11. sind wir in El Calafate, dem Tor zum Perito-Moreno-Gletscher in Patagonien 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Wir sind gerade in Bariloche am Lago Nahuel Huapi. Am 18./19.11. fliegen wir nach Buenos Aires, um den 21.11. geht es mit der Fähre nach Colonia del Sacramento in Uruguay 🙌</p>
         </div>
 
       </div>
@@ -536,10 +536,14 @@ const pins = [
   { lat: -41.4693, lng: -72.9424, status: "visited", name: "Puerto Montt", desc: "Vom 05. bis 06.11. in der Hafenstadt am Seno de Reloncaví, mit dem Bus aus Ancud und per Flug weiter nach Puerto Natales.", link: "", linkText: "" },
   { lat: -51.7290, lng: -72.5060, status: "visited", name: "Puerto Natales", desc: "Vom 06. bis 09.11. im Tor zum Nationalpark Torres del Paine in Patagonien, per Flug aus Puerto Montt und mit dem Bus weiter nach El Calafate in Argentinien.", link: "", linkText: "" },
   // ── ARGENTINIEN (zurück) ───────────────────────────────
-  { lat: -50.3380, lng: -72.2650, status: "current", name: "El Calafate ← wir sind hier", desc: "Seit dem 09.11. am Lago Argentino, dem Tor zum Perito-Moreno-Gletscher in Patagonien.", link: "", linkText: "" },
+  { lat: -50.3380, lng: -72.2650, status: "visited", name: "El Calafate", desc: "Ab dem 09.11. am Lago Argentino, dem Tor zum Perito-Moreno-Gletscher in Patagonien, danach weiter nach El Chaltén.", link: "", linkText: "" },
+  { lat: -49.3315, lng: -72.8863, status: "visited", name: "El Chaltén", desc: "Wanderdorf am Fuß des Fitz Roy in Patagonien, von dort per Flug weiter nach Bariloche.", link: "", linkText: "" },
+  { lat: -41.1335, lng: -71.3103, status: "current", name: "Bariloche ← wir sind hier", desc: "Am Lago Nahuel Huapi im Norden Patagoniens. Am 18./19.11. geht es per Flug weiter nach Buenos Aires.", link: "", linkText: "" },
   // ── JULIA (15. bis 22.10. separat) ─────────────────────
   { lat: -27.1127, lng: -109.3497, status: "visited", person: "julia", name: "Hanga Roa, Osterinsel", desc: "Julia war vom 15. bis 22.10. auf der Osterinsel (Rapa Nui), Sergen hat in Santiago auf sie gewartet.", link: "", linkText: "" },
   // ── GEPLANT ────────────────────────────────────────────
+  { lat: -34.6037, lng: -58.3816, status: "planned", name: "Buenos Aires", desc: "Geplant: am 18./19.11. per Flug aus Bariloche.", link: "", linkText: "" },
+  { lat: -34.4626, lng: -57.8400, status: "planned", name: "Colonia del Sacramento", desc: "Geplant: um den 21.11. mit der Fähre aus Buenos Aires nach Uruguay.", link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -590,6 +594,8 @@ const ROUTE = [
   { type: "land",   coords: [[-41.8697,-73.8203],[-41.4693,-72.9424]] },
   { type: "flight", coords: [[-41.4693,-72.9424],[-51.7290,-72.5060]] },
   { type: "land",   coords: [[-51.7290,-72.5060],[-50.3380,-72.2650]] },
+  { type: "land",   coords: [[-50.3380,-72.2650],[-49.3315,-72.8863]] },
+  { type: "flight", coords: [[-49.3315,-72.8863],[-41.1335,-71.3103]] },
 ];
 
 const ROUTE_STYLES = {
