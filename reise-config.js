@@ -8,9 +8,9 @@ const REISE = {
   sergenLaender: 17,
   juliaLaender:  50,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      23250,
+  kmZurueckgelegt:      22850,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          66,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          65,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
   naechsteWoche: 'Seit dem 15.11. sind wir in Bariloche am Lago Nahuel Huapi. Am 18./19.11. fliegen wir nach Buenos Aires, um den 21.11. geht es mit der Fähre nach Colonia del Sacramento in Uruguay 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─

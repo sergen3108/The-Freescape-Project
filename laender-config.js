@@ -135,7 +135,7 @@ window.LAENDER = [
     reihenfolge: 6,
     zeitraum: '08. Sep bis 03. Okt und ab 09. Nov 2026',
     tage: [['2026-09-08', '2026-10-03'], ['2026-11-09', null]],
-    hook: 'Roadtrips durch den Norden, die Städte Córdoba, Rosario und Mendoza und Patagonien von El Calafate über El Chaltén bis Bariloche.',
+    hook: 'Roadtrips durch den Norden, die Städte Córdoba, Rosario und Mendoza und Patagonien von El Calafate bis Bariloche.',
     tags: ['Städte', 'Berge', 'Natur', 'Kultur'],
     gradient: 'linear-gradient(135deg,#1a1a2e,#0f3460)',
     heroImage: 'assets/img/SalinasGrandes.jpg',
