@@ -138,11 +138,15 @@
     if (!country) return null;
     var candidates = videos.filter(function (v) { return detectCountry(v.title) === country; });
     if (!candidates.length) return null;
+    // Tags in ihrer Reihenfolge pruefen: der erste Tag ist der Ort
+    // ("Máncora"), danach kommen allgemeine wie "Peru" oder "Backpacking",
+    // die auf fast jedes Video passen. So gewinnt das Video zum Ort.
     var tags = post.tags || [];
-    for (var i = 0; i < candidates.length; i++) {
-      var haystack = (candidates[i].title || '') + ' ' + (candidates[i].description || '');
-      for (var t = 0; t < tags.length; t++) {
-        if (tags[t].length > 2 && matchesKeyword(haystack, tags[t])) return candidates[i];
+    for (var t = 0; t < tags.length; t++) {
+      if (tags[t].length <= 2) continue;
+      for (var i = 0; i < candidates.length; i++) {
+        var haystack = (candidates[i].title || '') + ' ' + (candidates[i].description || '');
+        if (matchesKeyword(haystack, tags[t])) return candidates[i];
       }
     }
     return candidates[0];
