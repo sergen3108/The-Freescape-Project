@@ -130,6 +130,6 @@ Wer dagegen den ganzen Tag Partys sucht, ist hier eher falsch. Huanchaco ist ent
 
 ## Wohin nach Huanchaco?
 
-Für uns ging es von Trujillo aus mit dem Bus weiter nach **Huaraz**, für ungefähr 20 Euro. Huaraz liegt in den Anden und ist der Ausgangspunkt für einige der schönsten Wanderungen in Peru, also ein kompletter Kontrast zur Küste.
+Für uns ging es von Trujillo aus mit dem Bus weiter nach [**Huaraz**](artikel.html?post=huaraz-reisefuehrer), für ungefähr 20 Euro. Huaraz liegt in den Anden und ist der Ausgangspunkt für einige der schönsten Wanderungen in Peru, also ein kompletter Kontrast zur Küste.
 
 Mehr zu unserer Zeit in Peru findest du auf unserer [Peru-Seite](peru.html).
