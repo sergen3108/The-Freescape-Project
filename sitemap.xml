@@ -111,6 +111,11 @@
        ✏️ Bei jedem neuen Blog-Post hier eine weitere <url> ergänzen.
   ═══════════════════════════════════════════════ -->
   <url>
+    <loc>https://thefreescapeproject.com/blog/mancora-reisefuehrer.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://thefreescapeproject.com/blog/ecuador-reiseroute.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

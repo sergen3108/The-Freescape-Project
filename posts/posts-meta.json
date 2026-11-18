@@ -533,5 +533,25 @@
    ],
    "kategorie": "kolumbien guide"
   }
+ },
+ {
+  "datei": "mancora-reisefuehrer.md",
+  "data": {
+   "titel": "Máncora Reiseführer: Sonne, Surfer und Ceviche an Perus Nordküste",
+   "datum": "2026-11-18",
+   "land": "Peru",
+   "typ": "guide",
+   "lesezeit": "8 min",
+   "autor": "Julia",
+   "teaser": "Eine Woche Strand, Pool und richtig gutes Essen, Máncora ist kein Ort für Sightseeing, sondern zum Runterfahren. Wir zeigen dir, was dich erwartet und für wen sich der Stopp lohnt.",
+   "bildEmoji": "🏄",
+   "bildGradient": "linear-gradient(135deg,#e8431a,#f6b93b)",
+   "tags": [
+    "Máncora",
+    "Peru",
+    "Backpacking",
+    "Reiseführer"
+   ]
+  }
  }
 ]
