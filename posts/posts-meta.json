@@ -553,5 +553,26 @@
     "Reiseführer"
    ]
   }
+ },
+ {
+  "datei": "huanchaco-reisefuehrer.md",
+  "data": {
+   "titel": "Huanchaco Reiseführer: Strandpromenade, Chan Chan und Sonnenuntergänge in Peru",
+   "datum": "2026-11-18",
+   "land": "Peru",
+   "typ": "guide",
+   "lesezeit": "8 min",
+   "autor": "Julia",
+   "teaser": "Vier Nächte zwischen Strandpromenade, alten Lehmstädten und Pfannkuchen zum Frühstück, Huanchaco hat uns noch besser gefallen als Máncora. Hier erfährst du alles, was du für deinen Besuch wissen musst.",
+   "bildEmoji": "🌅",
+   "bildGradient": "linear-gradient(135deg,#e8431a,#f6b93b)",
+   "tags": [
+    "Huanchaco",
+    "Trujillo",
+    "Chan Chan",
+    "Peru",
+    "Reiseführer"
+   ]
+  }
  }
 ]
