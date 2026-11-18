@@ -121,6 +121,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://thefreescapeproject.com/blog/huaraz-reisefuehrer.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://thefreescapeproject.com/blog/ecuador-reiseroute.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

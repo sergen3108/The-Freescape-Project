@@ -574,5 +574,26 @@
     "Reiseführer"
    ]
   }
+ },
+ {
+  "datei": "huaraz-reisefuehrer.md",
+  "data": {
+   "titel": "Huaraz Reiseführer: Laguna 69, Laguna Parón und die schönsten Wanderungen Perus",
+   "datum": "2026-11-18",
+   "land": "Peru",
+   "typ": "guide",
+   "lesezeit": "9 min",
+   "autor": "Julia",
+   "teaser": "Türkise Bergseen, Gletscher und Gipfel über 6.000 Meter, die Ausflüge rund um Huaraz gehören zu den schönsten unserer ganzen Südamerika-Reise. Hier erfährst du, wie du dich akklimatisierst, welche Wanderungen sich lohnen und wo du gut wohnst und isst.",
+   "bildEmoji": "🏔️",
+   "bildGradient": "linear-gradient(135deg,#1a3d5c,#3d7a9e)",
+   "tags": [
+    "Huaraz",
+    "Laguna 69",
+    "Peru",
+    "Wandern",
+    "Reiseführer"
+   ]
+  }
  }
 ]
