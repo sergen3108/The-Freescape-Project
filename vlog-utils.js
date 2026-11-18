@@ -141,12 +141,21 @@
     // Tags in ihrer Reihenfolge pruefen: der erste Tag ist der Ort
     // ("Máncora"), danach kommen allgemeine wie "Peru" oder "Backpacking",
     // die auf fast jedes Video passen. So gewinnt das Video zum Ort.
+    // Erst nur die Titel, dann die Beschreibungen: ein neueres Video
+    // erwaehnt den vorigen Ort oft in der Beschreibung ("von Huaraz nach
+    // Lima"), der Titel nennt aber den Ort, um den es wirklich geht.
+    // Der Laendername als Tag zaehlt bei den Titeln nicht mit, sonst
+    // gewinnt dort immer das Uebersichtsvideo ("2 Monate Kolumbien").
     var tags = post.tags || [];
-    for (var t = 0; t < tags.length; t++) {
-      if (tags[t].length <= 2) continue;
-      for (var i = 0; i < candidates.length; i++) {
-        var haystack = (candidates[i].title || '') + ' ' + (candidates[i].description || '');
-        if (matchesKeyword(haystack, tags[t])) return candidates[i];
+    var landName = String(post.land || '').toLowerCase();
+    var felder = ['title', 'description'];
+    for (var f = 0; f < felder.length; f++) {
+      for (var t = 0; t < tags.length; t++) {
+        if (tags[t].length <= 2) continue;
+        if (f === 0 && tags[t].toLowerCase() === landName) continue;
+        for (var i = 0; i < candidates.length; i++) {
+          if (matchesKeyword(candidates[i][felder[f]] || '', tags[t])) return candidates[i];
+        }
       }
     }
     return candidates[0];
