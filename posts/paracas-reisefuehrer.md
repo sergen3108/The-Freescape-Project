@@ -106,6 +106,6 @@ Wenn du ohnehin von Lima in den Süden Perus reist, liegt Paracas perfekt auf de
 
 ## Wohin nach Paracas?
 
-Von Paracas ging es für uns mit dem Bus weiter nach **Huacachina**, der berühmten Wüstenoase ganz in der Nähe.
+Von Paracas ging es für uns mit dem Bus weiter nach [**Huacachina**](artikel.html?post=huacachina-reisefuehrer), der berühmten Wüstenoase ganz in der Nähe.
 
 Mehr zu unserer Zeit in Peru findest du auf unserer [Peru-Seite](peru.html).
