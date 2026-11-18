@@ -595,5 +595,26 @@
     "Reiseführer"
    ]
   }
+ },
+ {
+  "datei": "lima-reisefuehrer.md",
+  "data": {
+   "titel": "Lima Reiseführer: Miraflores, Barranco und die beste Essensszene Südamerikas",
+   "datum": "2026-11-18",
+   "land": "Peru",
+   "typ": "guide",
+   "lesezeit": "9 min",
+   "autor": "Julia",
+   "teaser": "Über zwei Wochen zwischen Klippenpromenade, Street Art und Food Tour, Lima hat uns so gut gefallen, dass wir uns vorstellen könnten, dort zu leben. Hier sind unsere Tipps für Unterkunft, Aktivitäten und Essen.",
+   "bildEmoji": "🌊",
+   "bildGradient": "linear-gradient(135deg,#1a3d5c,#3d7a9e)",
+   "tags": [
+    "Miraflores",
+    "Lima",
+    "Barranco",
+    "Peru",
+    "Reiseführer"
+   ]
+  }
  }
 ]
