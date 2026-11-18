@@ -125,7 +125,7 @@ Für uns war die Woche in Máncora genau die Pause, die wir gebraucht haben. Vie
 
 ## Wohin nach Máncora?
 
-Von Máncora aus ging es für uns mit dem Bus weiter Richtung Süden nach **Huanchaco**, einem weiteren Surferort an der peruanischen Küste.
+Von Máncora aus ging es für uns mit dem Bus weiter Richtung Süden nach [**Huanchaco**](artikel.html?post=huanchaco-reisefuehrer), einem weiteren Surferort an der peruanischen Küste.
 
 Da Máncora direkt an der Panamericana liegt, kommst du von hier mit dem Bus gut in viele Richtungen weiter, ob nach Süden entlang der Küste oder zurück nach Ecuador.
 
