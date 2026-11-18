@@ -140,7 +140,7 @@ Nimm dir nur genug Zeit und unterschätze die Höhe nicht. Wenn du dich gut akkl
 
 ## Wohin nach Huaraz?
 
-Von Huaraz aus sind wir wieder mit dem **Nachtbus nach Lima** gefahren, in die Hauptstadt Perus.
+Von Huaraz aus sind wir wieder mit dem **Nachtbus nach [Lima](artikel.html?post=lima-reisefuehrer)** gefahren, in die Hauptstadt Perus.
 
 Wenn du von Norden kommst, so wie wir aus [**Huanchaco**](artikel.html?post=huanchaco-reisefuehrer) und Trujillo, passt Huaraz perfekt als Stopp zwischen der Küste und Lima.
 
