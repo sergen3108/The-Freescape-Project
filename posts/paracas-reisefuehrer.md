@@ -6,6 +6,7 @@ typ: guide
 lesezeit: 7 min
 autor: Julia
 teaser: Seelöwen und Pinguine auf den Islas Ballestas und eine Wüste, die direkt ins Meer fällt, Paracas lebt von seinen Highlights in der Umgebung. Wir zeigen dir, wie du sie am besten erkundest und was es kostet.
+bild: assets/img/paracas.JPEG
 bildEmoji: 🦭
 bildGradient: linear-gradient(135deg,#e8431a,#f6b93b)
 tags:

@@ -6,6 +6,7 @@ typ: guide
 lesezeit: 9 min
 autor: Julia
 teaser: Türkise Bergseen, Gletscher und Gipfel über 6.000 Meter, die Ausflüge rund um Huaraz gehören zu den schönsten unserer ganzen Südamerika-Reise. Hier erfährst du, wie du dich akklimatisierst, welche Wanderungen sich lohnen und wo du gut wohnst und isst.
+bild: assets/img/IMG_2934.JPEG
 bildEmoji: 🏔️
 bildGradient: linear-gradient(135deg,#1a3d5c,#3d7a9e)
 tags:

@@ -6,6 +6,7 @@ typ: guide
 lesezeit: 9 min
 autor: Julia
 teaser: Über zwei Wochen zwischen Klippenpromenade, Street Art und Food Tour, Lima hat uns so gut gefallen, dass wir uns vorstellen könnten, dort zu leben. Hier sind unsere Tipps für Unterkunft, Aktivitäten und Essen.
+bild: assets/img/lima.JPEG
 bildEmoji: 🌊
 bildGradient: linear-gradient(135deg,#1a3d5c,#3d7a9e)
 tags:
