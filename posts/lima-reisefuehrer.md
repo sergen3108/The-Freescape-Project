@@ -130,6 +130,6 @@ Wenn du gern isst, Städte mit hoher Lebensqualität magst oder einfach ein paar
 
 ## Wohin nach Lima?
 
-Nach Lima ging es für uns weiter nach **Paracas**, an die Küste südlich der Hauptstadt.
+Nach Lima ging es für uns weiter nach [**Paracas**](artikel.html?post=paracas-reisefuehrer), an die Küste südlich der Hauptstadt.
 
 Mehr zu unserer Zeit in Peru findest du auf unserer [Peru-Seite](peru.html).
