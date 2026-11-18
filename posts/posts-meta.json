@@ -636,5 +636,25 @@
     "Reiseführer"
    ]
   }
+ },
+ {
+  "datei": "huacachina-reisefuehrer.md",
+  "data": {
+   "titel": "Huacachina Reiseführer: Sandbuggy, Sandboarding und eine Oase mitten in der Wüste",
+   "datum": "2026-11-18",
+   "land": "Peru",
+   "typ": "guide",
+   "lesezeit": "6 min",
+   "autor": "Julia",
+   "teaser": "Eine kleine Lagune zwischen riesigen Sanddünen, Huacachina ist einer der ungewöhnlichsten Orte Perus. Wir verraten dir, worauf du bei der Buggy-Tour achten solltest und warum zwei Nächte völlig reichen.",
+   "bildEmoji": "🏜️",
+   "bildGradient": "linear-gradient(135deg,#e8431a,#f6b93b)",
+   "tags": [
+    "Huacachina",
+    "Sandboarding",
+    "Peru",
+    "Reiseführer"
+   ]
+  }
  }
 ]
