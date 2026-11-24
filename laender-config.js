@@ -173,8 +173,8 @@ window.LAENDER = [
     hook: 'Mit der Fähre über den Río de la Plata nach Colonia del Sacramento, unser siebtes Land auf dieser Reise.',
     tags: ['Strand', 'Städte', 'Entspannt'],
     gradient: 'linear-gradient(135deg,#2d5a7d,#7db9d4)',
-    heroImage: null,
-    ogImage: null,
+    heroImage: 'assets/img/ColoniaDelSacramento.jpeg',
+    ogImage: 'https://thefreescapeproject.com/assets/img/ColoniaDelSacramento.jpeg',
     vlogKeywords: ['uruguay', 'montevideo', 'punta del este', 'colonia del sacramento']
   },
   {
