@@ -12,7 +12,7 @@ const REISE = {
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
   orteBesucht:          67,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Seit dem 23.11. sind wir in Colonia del Sacramento, Uruguay ist unser siebtes Land auf dieser Reise 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Seit dem 23.11. sind wir in Colonia del Sacramento, unserem siebten Land Uruguay. Am 24.11. geht es mit dem Bus weiter nach Montevideo 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
   standort: 'Colonia del Sacramento, Uruguay',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
