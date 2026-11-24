@@ -21,6 +21,8 @@ Huaraz liegt in den Anden im Norden Perus, auf rund 3.000 Metern Höhe, und ist 
 
 Wir waren vom 12. bis zum 22. Juni in Huaraz, und ehrlich gesagt: Die Stadt selbst ist nicht die schönste. Aber alles drumherum, also die ganzen Ausflüge und Wanderungen, gehört zu den schönsten Dingen, die wir auf unserer ganzen Südamerika-Reise gemacht haben. Für uns ist die Landschaft hier sogar mit Patagonien zu vergleichen.
 
+![Huaraz im Abendlicht, dahinter die Gipfel der Cordillera Blanca](assets/img/blog/huaraz1.jpeg)
+
 Es gibt in Huaraz sehr viel zu tun. Wir persönlich finden **ungefähr eine Woche** einen guten Zeitraum, vor allem weil du wegen der Höhe unbedingt ein paar Tage zum Akklimatisieren einplanen solltest, bevor du wandern gehst.
 
 In diesem Huaraz Reiseführer erzählen wir dir, wie du hinkommst, wie du mit der Höhe umgehst, welche Wanderungen sich lohnen und wo wir gewohnt und gegessen haben.
@@ -57,6 +59,8 @@ Bei uns im Juni war es in Huaraz generell eher kalt, besonders morgens und abend
 
 Pack deshalb unbedingt warme Sachen ein und setz auf den **Zwiebellook**, damit du dich jederzeit an- und ausziehen kannst. Geregnet hat es bei unseren Wanderungen zum Glück nicht.
 
+![Sonne und Gletscher über einem grünen Bergsee im Nationalpark Huascarán](assets/img/blog/huaraz4.jpeg)
+
 ---
 
 ## Wo übernachten in Huaraz?
@@ -75,11 +79,15 @@ Die meisten Ausflüge führen in den **Nationalpark Huascarán**, benannt nach d
 
 Wir haben alle Ausflüge als **Touren** gebucht und würden das auch jedem empfehlen. Die Startpunkte liegen teilweise weit außerhalb der Stadt, und auf eigene Faust ist es relativ schwierig, dorthin zu kommen. Mit einer Tour musst du dich um den Transport nicht kümmern.
 
+![Türkiser Bergsee zwischen Felswänden im Nationalpark Huascarán](assets/img/blog/huaraz2.jpeg)
+
 ### Laguna 69
 
 Die **Laguna 69** ist die bekannteste Wanderung in Huaraz und war für uns eines der Highlights der ganzen Reise. Am Ende wartet ein leuchtend türkiser See direkt unter schneebedeckten Gipfeln.
 
 Die Wanderung ist schon anstrengend, vor allem wegen der Höhe, aber mit guter Akklimatisierung definitiv machbar. Wir hatten nicht einmal Wanderstöcke dabei.
+
+![Die Laguna 69 auf 4.604 Metern unter schneebedeckten Gipfeln](assets/img/blog/huaraz3.jpeg)
 
 ### Laguna Parón
 
@@ -89,9 +97,13 @@ Die **Laguna Parón** war unser zweites großes Highlight. Sie ist perfekt für 
 
 Der **Pastoruri Gletscher** liegt noch einmal deutlich höher als die anderen Ausflüge. Hier solltest du auf jeden Fall gut akklimatisiert sein, bevor du hinfährst.
 
+![Eiswand und gefrorene Lagune am Pastoruri Gletscher](assets/img/blog/huaraz5.jpeg)
+
 ### Mirador de Rataquenua
 
 Außerdem waren wir am **Mirador de Rataquenua**, einem Aussichtspunkt in der Nähe der Stadt, von dem aus man über Huaraz und die Berge blickt. Wir sind mit dem Taxi hingefahren, man kann aber auch hinwandern, was sich gut als Akklimatisierungstour eignet.
+
+![Blick vom Mirador de Rataquenua über Huaraz](assets/img/blog/huaraz6.jpeg)
 
 Oben gibt es ein schönes Restaurant, in dem wir etwas getrunken haben. Das Besondere: Man bekommt dort Ferngläser, um sich die Natur genauer anzuschauen, und dazu Bücher über die Umgebung. So kannst du beim Schauen direkt nachschlagen, wie die Berge und Orte heißen, die du gerade siehst, und alles dazu lesen. Das hat uns richtig gut gefallen.
 
