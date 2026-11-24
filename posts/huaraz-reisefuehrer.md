@@ -59,7 +59,7 @@ Bei uns im Juni war es in Huaraz generell eher kalt, besonders morgens und abend
 
 Pack deshalb unbedingt warme Sachen ein und setz auf den **Zwiebellook**, damit du dich jederzeit an- und ausziehen kannst. Geregnet hat es bei unseren Wanderungen zum Glück nicht.
 
-![Sonne und Gletscher über einem grünen Bergsee im Nationalpark Huascarán](assets/img/blog/huaraz4.jpeg)
+![Kleiner Bergsee auf dem Weg zur Laguna 69 im Nationalpark Huascarán](assets/img/blog/huaraz4.jpeg)
 
 ---
 
@@ -79,7 +79,7 @@ Die meisten Ausflüge führen in den **Nationalpark Huascarán**, benannt nach d
 
 Wir haben alle Ausflüge als **Touren** gebucht und würden das auch jedem empfehlen. Die Startpunkte liegen teilweise weit außerhalb der Stadt, und auf eigene Faust ist es relativ schwierig, dorthin zu kommen. Mit einer Tour musst du dich um den Transport nicht kümmern.
 
-![Türkiser Bergsee zwischen Felswänden im Nationalpark Huascarán](assets/img/blog/huaraz2.jpeg)
+![Die türkisen Llanganuco-Seen im Nationalpark Huascarán](assets/img/blog/huaraz2.jpeg)
 
 ### Laguna 69
 
