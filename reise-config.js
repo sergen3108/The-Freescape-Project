@@ -5,16 +5,16 @@ const REISE = {
   // ── Reise-Start ────────────────────────────────────────────────
   startDatum: new Date('2026-02-25'),
   // ── Persönliche Länder-Bilanz (Lifetime, inkl. vor der Reise) ──
-  sergenLaender: 17,
-  juliaLaender:  50,
+  sergenLaender: 18,
+  juliaLaender:  51,
 // ── Reise-Zahlen ───────────────────────────────────────────────
-  kmZurueckgelegt:      24200,
+  kmZurueckgelegt:      24250,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          66,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          67,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Seit dem 19.11. sind wir in Buenos Aires. Als Nächstes geht es um den 21.11. mit der Fähre nach Colonia del Sacramento in Uruguay 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Seit dem 23.11. sind wir in Colonia del Sacramento, Uruguay ist unser siebtes Land auf dieser Reise 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Buenos Aires, Argentinien',  // ✏️ hier anpassen
+  standort: 'Colonia del Sacramento, Uruguay',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
@@ -22,10 +22,10 @@ const REISE = {
     { name: 'Peru',           iso: 604, status: 'visited', href: 'peru.html'              },
     { name: 'Bolivien',       iso:  68, status: 'visited', href: 'bolivien.html'          },
     { name: 'Chile',          iso: 152, status: 'visited', href: 'chile.html'             },
-    { name: 'Argentinien',    iso:  32, status: 'current', href: 'argentinien.html'       },
+    { name: 'Argentinien',    iso:  32, status: 'visited', href: 'argentinien.html'       },
     { name: 'Brasilien',      iso:  76, status: '',        href: 'laender.html#geplant'   },
     { name: 'Venezuela',      iso: 862, status: '',        href: '#'                      },
-    { name: 'Uruguay',        iso: 858, status: '',        href: 'laender.html#geplant'   },
+    { name: 'Uruguay',        iso: 858, status: 'current', href: 'uruguay.html'           },
     { name: 'Paraguay',       iso: 600, status: '',        href: 'laender.html#geplant'   },
     { name: 'Guyana',         iso: 328, status: '',        href: '#'                      },
     { name: 'Suriname',       iso: 740, status: '',        href: '#'                      },
