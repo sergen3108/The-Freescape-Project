@@ -43,6 +43,8 @@ Wir waren im peruanischen Winter in Lima. Das Wetter war in Ordnung: relativ gra
 
 Lima ist generell bekannt dafür, dass der Himmel im Winter oft grau ist. Wenn du viel Sonne möchtest, ist der Sommer ungefähr von Dezember bis März die bessere Zeit. Für Sightseeing und Essen ist die Stadt aber das ganze Jahr über gut geeignet.
 
+![Grauer Winterhimmel über der Costa Verde und den Klippen von Miraflores](assets/img/blog/lima5.jpg)
+
 ---
 
 ## Wo übernachten in Lima?
@@ -63,6 +65,8 @@ Beide Airbnbs waren sehr zentral. Von dort aus kommst du wirklich überall hin, 
 
 Der **Malecón** ist die Promenade entlang der Klippen von Miraflores und für uns einer der schönsten Orte der Stadt. Hier kannst du spazieren, Sport machen, aufs Meer schauen und den Sonnenuntergang genießen.
 
+![Sonnenuntergang über dem Pazifik, gesehen von den Klippen in Miraflores](assets/img/blog/lima4.jpg)
+
 Direkt am Malecón liegt auch der **Parque del Amor** mit seiner bekannten Skulptur eines sich küssenden Paares und den bunten Mosaikmauern.
 
 ### Larcomar
@@ -77,7 +81,11 @@ In **Barranco** haben wir uns die vielen Wandbilder und die Street Art angeschau
 
 Für einen Mittag waren wir in der **Altstadt** und haben dort eine **Walking Tour** gemacht. Das war ein guter Weg, um in kurzer Zeit viel über die Geschichte der Stadt zu erfahren.
 
+![Platz mit Reiterstatue in der Altstadt von Lima](assets/img/blog/lima2.jpg)
+
 Danach sind wir in **Chinatown** essen gegangen. Lima hat eine große chinesische Gemeinschaft, und daraus ist eine ganz eigene peruanisch-chinesische Küche entstanden, die man in Peru Chifa nennt. Genau die haben wir dort probiert, und das solltest du in Lima auf jeden Fall auch machen.
+
+![Das chinesische Tor am Eingang von Limas Chinatown](assets/img/blog/lima1.jpg)
 
 Die Altstadt hat sich für uns aber direkt ganz anders angefühlt als Miraflores und Barranco. Mehr dazu in den Tipps weiter unten.
 
@@ -126,6 +134,8 @@ Auf jeden Fall! Lima ist für uns viel mehr als nur ein Zwischenstopp auf dem We
 Die Promenade in Miraflores, die bunten Straßen in Barranco und vor allem das Essen machen die Stadt zu einem der spannendsten Orte in Peru. Wir haben uns hier so wohlgefühlt, dass wir uns sogar vorstellen konnten, eine Zeit lang hier zu leben.
 
 Wenn du gern isst, Städte mit hoher Lebensqualität magst oder einfach ein paar entspannte Tage mit Meerblick verbringen willst, solltest du Lima auf keinen Fall auslassen.
+
+![Bunt beleuchtete Wasserfontänen im Circuito Mágico del Agua in Lima](assets/img/blog/lima3.jpg)
 
 ---
 
