@@ -46,6 +46,8 @@ Wir haben in der **Hospedaje Viento** gewohnt, und die hat uns sehr gut gefallen
 
 Da Paracas so klein ist, ist die Lage aber generell kein großes Problem. Von den meisten Unterkünften erreichst du den Hafen, die Restaurants und die Bars zu Fuß.
 
+![Pelikane und Fischerboote am Hafen von Paracas](assets/img/blog/paracas3.jpg)
+
 ---
 
 ## Die besten Aktivitäten in Paracas
@@ -54,17 +56,29 @@ Da Paracas so klein ist, ist die Lage aber generell kein großes Problem. Von de
 
 Die Bootstour zu den **Islas Ballestas** ist der Klassiker in Paracas, und wir können sie sehr empfehlen. Die Inseln werden oft auch als „Galápagos für Arme“ bezeichnet, weil man hier so viele Tiere aus nächster Nähe sieht.
 
+![Felsbogen an den Islas Ballestas](assets/img/blog/paracas2.jpg)
+
 Unsere Tour hat ein paar Stunden gedauert, und wir haben **Seelöwen**, **Pinguine** und viele verschiedene **Vögel** gesehen. Auf dem Weg zu den Inseln fährt das Boot außerdem am **Candelabro** vorbei, einer riesigen Figur, die in den Sandhang auf der Halbinsel gezeichnet ist und deren Herkunft bis heute nicht ganz geklärt ist.
 
+![Der Candelabro im Sandhang der Halbinsel Paracas](assets/img/blog/paracas5.jpg)
+
 **Kosten:** Für die Tour haben wir **30 PEN** bezahlt. Dazu kamen **17 PEN** Eintritt, der sowohl die Islas Ballestas als auch die Reserva Nacional abgedeckt hat.
+
+![Ein Pinguin auf den Felsen der Islas Ballestas](assets/img/blog/paracas1.jpg)
 
 ### Reserva Nacional de Paracas mit dem Roller
 
 Für die **Reserva Nacional de Paracas** haben wir uns einen Tag lang einen **Roller** geliehen, für **35 PEN pro Person** für den ganzen Tag. Das empfehlen wir dir auf jeden Fall, denn mit dem Roller bist du viel flexibler als mit einer Tour. Du kannst anhalten, wo du willst, und so lange bleiben, wie du möchtest.
 
+![Straße durch die Wüste der Reserva Nacional de Paracas](assets/img/blog/paracas7.jpg)
+
 Die Landschaft in der Reserva ist wirklich unbeschreiblich: Sand, Dünen und Wüste, so weit das Auge reicht, und dahinter der Pazifik. Wir waren an einer **pinken Lagune** und an mehreren wunderschönen **Aussichtspunkten**, die steil über dem Meer liegen.
 
+![Steilküste und roter Strand in der Reserva Nacional de Paracas](assets/img/blog/paracas4.jpg)
+
 Die pinke Lagune hat keinen offiziellen Namen und liegt ziemlich weit im Inneren der Reserva. Frag am besten bei der Agentur, bei der du den Roller ausleihst, danach. Dort zeigt man dir, wo sie liegt.
+
+![Die pinke Lagune mit Salzkruste in der Reserva Nacional de Paracas](assets/img/blog/paracas6.jpg)
 
 Pack für den Tag genug Wasser, Snacks und Sonnenschutz ein, denn in der Wüste gibt es kaum Schatten.
 
@@ -101,6 +115,9 @@ Pack für den Tag genug Wasser, Snacks und Sonnenschutz ein, denn in der Wüste 
 Ja! Der Ort selbst ist zwar klein, touristisch und nicht besonders schön, aber die Islas Ballestas und die Reserva Nacional machen das mehr als wett.
 
 Vor allem die Wüstenlandschaft in der Reserva, die direkt ins Meer übergeht, hat uns beeindruckt.
+
+![Sandsteinklippen über dem Pazifik in der Reserva Nacional de Paracas](assets/img/blog/paracas8.jpg)
+
 Wenn du ohnehin von Lima in den Süden Perus reist, liegt Paracas perfekt auf dem Weg und ist ein Stopp, den du nicht auslassen solltest.
 
 ---
