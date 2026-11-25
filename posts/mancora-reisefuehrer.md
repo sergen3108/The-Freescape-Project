@@ -6,6 +6,7 @@ typ: guide
 lesezeit: 8 min
 autor: Julia
 teaser: Eine Woche Strand, Pool und richtig gutes Essen, Máncora ist kein Ort für Sightseeing, sondern zum Runterfahren. Wir zeigen dir, was dich erwartet und für wen sich der Stopp lohnt.
+bild: assets/img/blog/mancora2.jpg
 bildEmoji: 🏄
 bildGradient: linear-gradient(135deg,#e8431a,#f6b93b)
 tags:
@@ -20,6 +21,8 @@ Máncora liegt an der Nordküste Perus, nur wenige Stunden hinter der Grenze zu 
 Wir haben eine ganze Woche in Máncora verbracht und ehrlich gesagt die meiste Zeit einfach nur entspannt. Und genau dafür ist der Ort gemacht: Es gibt hier keine lange Liste an Sehenswürdigkeiten, sondern Strand, Pool, gutes Essen und viel Zeit zum Nichtstun. Wer nur den Ort und die Umgebung sehen möchte, kommt auch mit ein paar Tagen gut aus.
 
 Im Ort gibt es eigentlich nur eine richtige Hauptstraße, auf der auch die Busse fahren. Abseits davon ist fast alles sandig, normale Straßen sucht man vergeblich. Überall sieht man Surfer, und abends gibt es einige Orte, an denen gefeiert wird.
+
+![Kleiner Platz mit Ständen und Läden im Ortszentrum von Máncora](assets/img/blog/mancora5.jpg)
 
 Ehrlich gesagt waren wir am Anfang ein bisschen erschrocken, wie heruntergekommen vieles aussah. Für uns hat Máncora den Eindruck gemacht, als wäre der Ort für Touristen gedacht, aber noch nicht ganz fertig ausgebaut. Sobald man aber am Strand liegt, rückt das schnell in den Hintergrund.
 
@@ -55,9 +58,13 @@ Wir haben in einem **Airbnb direkt am Strand** gewohnt. Das Airbnb bestand zwar 
 
 Dadurch konnten wir den Pool vom The Point nutzen, und das haben wir auch ausgiebig getan. Wir waren eigentlich jeden Tag dort am Pool und im Restaurant. Abends gibt es im The Point fast jeden Tag Partys, bei denen wir aber selbst nicht mitgefeiert haben.
 
+![Innenhof mit Palmen und Hängematten in einer Unterkunft in Máncora](assets/img/blog/mancora1.jpg)
+
 Den Pool und den Restaurantbereich fanden wir sehr schön. Als Unterkunft würden wir das The Point aber nur Backpackern empfehlen, die wirklich Party machen wollen. Von anderen Reisenden haben wir gehört, dass es nachts sehr laut war und generell auch nicht ganz sauber.
 
 Wer es ruhiger mag, ist mit einem Airbnb oder einer kleineren Unterkunft am Strand besser beraten. Wenn du dabei, so wie wir, trotzdem den Pool eines Hostels nutzen kannst, hast du das Beste aus beiden Welten.
+
+![Unterkunft mit Pool direkt am Strand von Máncora](assets/img/blog/mancora4.jpg)
 
 ---
 
@@ -68,6 +75,8 @@ Máncora ist kein Ort, an dem man ein großes Programm abarbeitet. Bei uns sah f
 Der **Strand** ist sehr, sehr lang und eignet sich super für lange Spaziergänge, zum Sonnen oder um den Surfern zuzuschauen. Türkises Karibikwasser darf man allerdings nicht erwarten, das Meer ist hier eher rau und wellig.
 
 Genau deshalb ist Máncora bei **Surfern** so beliebt. Zu unserem Airbnb gehörten Bodyboards, die wir benutzen konnten, und das haben wir natürlich auch gemacht. Für die Wellen hier ist das ein riesiger Spaß, auch ohne Surferfahrung.
+
+![Mit dem Bodyboard in die Wellen von Máncora](assets/img/blog/mancora3.jpg)
 
 Wer gern richtig surfen lernen möchte, findet entlang des Strandes Surfschulen und Brettverleihe.
 
