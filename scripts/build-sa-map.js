@@ -35,7 +35,22 @@ const REISE = vm.runInContext(fs.readFileSync(path.join(ROOT, 'reise-config.js')
 const isoSet = new Set(REISE.suedamerika.map(l => l.iso));
 
 const world = JSON.parse(fs.readFileSync(path.join(ROOT, 'assets', 'vendor', 'countries-110m.json'), 'utf8'));
-const features = topojson.feature(world, world.objects.countries).features.filter(f => isoSet.has(+f.id));
+const allFeatures = topojson.feature(world, world.objects.countries).features;
+const features = allFeatures.filter(f => isoSet.has(+f.id));
+
+// Franz. Guayana (254) hat in Natural Earth keinen eigenen Eintrag,
+// sondern steckt als Teilflaeche in Frankreich (250). Die Teilflaeche
+// westlich von 30° W herausloesen und als eigenes Land fuehren.
+if (isoSet.has(254) && !features.some(f => +f.id === 254)) {
+  const france = allFeatures.find(f => +f.id === 250);
+  if (france && france.geometry.type === 'MultiPolygon') {
+    const polys = france.geometry.coordinates.filter(poly => poly[0].every(([lon]) => lon < -30));
+    if (polys.length) {
+      features.push({ type: 'Feature', id: '254', properties: { name: 'French Guiana' },
+        geometry: { type: 'MultiPolygon', coordinates: polys } });
+    }
+  }
+}
 
 const proj = d3.geoMercator().fitSize([WIDTH, HEIGHT], { type: 'FeatureCollection', features });
 const pathGen = d3.geoPath().projection(proj).digits(1);

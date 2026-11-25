@@ -623,6 +623,10 @@ document.addEventListener('DOMContentLoaded', function() {
     return node;
   };
   const LABEL_COUNTRIES = new Set(['Peru','Brasilien','Argentinien','Chile','Bolivien','Kolumbien','Venezuela','Ecuador','Paraguay','Uruguay']);
+  // Zu kleine Laender: Name rechts daneben, Linie fuehrt zum Land
+  const CALLOUTS = { 'Guyana': { x: 192, y: 20 }, 'Suriname': { x: 192, y: 31 }, 'Franz. Guayana': { x: 192, y: 42 } };
+  const labelFill = status => status === 'current' ? 'rgba(255,255,255,0.95)' : status === 'visited' ? 'rgba(255,255,255,0.75)' : 'rgba(255,255,255,0.45)';
+  const callouts = [];
   let current = null;
   shapes.forEach(shape => {
     const info = SA[shape.iso];
@@ -643,8 +647,23 @@ document.addEventListener('DOMContentLoaded', function() {
       label.textContent = info.name;
       link.appendChild(label);
     }
+    if (CALLOUTS[info.name]) callouts.push({ shape, info, pos: CALLOUTS[info.name] });
     svg.appendChild(link);
     if (info.status === 'current') current = shape;
+  });
+  // Callouts nach allen Laendern zeichnen, damit die Linien obenauf liegen
+  callouts.forEach(({ shape, info, pos }) => {
+    const fill = labelFill(info.status);
+    const g = el('g', { 'pointer-events': 'none' });
+    g.appendChild(el('polyline', {
+      points: `${shape.cx},${shape.cy} ${pos.x - 12},${pos.y} ${pos.x - 2},${pos.y}`,
+      fill: 'none', stroke: fill, 'stroke-width': '0.6'
+    }));
+    g.appendChild(el('circle', { cx: shape.cx, cy: shape.cy, r: 1.2, fill }));
+    const t = el('text', { x: pos.x, y: pos.y, 'dominant-baseline': 'central', 'font-size': '6', fill });
+    t.textContent = info.name;
+    g.appendChild(t);
+    svg.appendChild(g);
   });
   if (current) {
     svg.appendChild(el('circle', { cx: current.cx, cy: current.cy, r: 14, fill: 'rgba(232,67,26,0.2)' }));
