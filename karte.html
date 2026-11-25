@@ -355,7 +355,7 @@
         <!-- Nächste Station -->
         <div style="margin-top:1.25rem;background:var(--terra-100);border:1.5px solid var(--terra-300);border-radius:var(--r-lg);padding:1.25rem 1.5rem;">
           <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--terra-700);margin-bottom:0.5rem;">📍 Aktuell</p>
-          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Seit dem 23.11. sind wir in Colonia del Sacramento, unserem siebten Land Uruguay. Am 24.11. geht es mit dem Bus weiter nach Montevideo 🙌</p>
+          <p style="font-size:0.9rem;color:var(--terra-700);line-height:1.6;" id="naechste-woche-text">Seit dem 24.11. sind wir in Montevideo. Als Nächstes geht es weiter nach Maldonado 🙌</p>
         </div>
 
       </div>
@@ -541,11 +541,12 @@ const pins = [
   { lat: -41.1335, lng: -71.3103, status: "visited", name: "Bariloche", desc: "Vom 15. bis 19.11. am Lago Nahuel Huapi im Norden Patagoniens, per Flug aus El Calafate und per Flug weiter nach Buenos Aires.", link: "", linkText: "" },
   { lat: -34.6037, lng: -58.3816, status: "visited", name: "Buenos Aires", desc: "Vom 19. bis 23.11. in der Hauptstadt am Río de la Plata, per Flug aus Bariloche und mit der Fähre weiter nach Colonia del Sacramento in Uruguay.", link: "", linkText: "" },
   // ── URUGUAY ────────────────────────────────────────────
-  { lat: -34.4626, lng: -57.8400, status: "current", name: "Colonia del Sacramento ← wir sind hier", desc: "Seit dem 23.11. in der kolonialen Altstadt am Río de la Plata, unsere erste Station in Uruguay. Am 24.11. geht es mit dem Bus weiter nach Montevideo.", link: "", linkText: "" },
+  { lat: -34.4626, lng: -57.8400, status: "visited", name: "Colonia del Sacramento", desc: "Vom 23. bis 24.11. in der kolonialen Altstadt am Río de la Plata, mit der Fähre aus Buenos Aires und mit dem Bus weiter nach Montevideo.", link: "", linkText: "" },
+  { lat: -34.9011, lng: -56.1645, status: "current", name: "Montevideo ← wir sind hier", desc: "Seit dem 24.11. in der Hauptstadt Uruguays am Río de la Plata. Als Nächstes geht es weiter nach Maldonado.", link: "", linkText: "" },
   // ── JULIA (15. bis 22.10. separat) ─────────────────────
   { lat: -27.1127, lng: -109.3497, status: "visited", person: "julia", name: "Hanga Roa, Osterinsel", desc: "Julia war vom 15. bis 22.10. auf der Osterinsel (Rapa Nui), Sergen hat in Santiago auf sie gewartet.", link: "", linkText: "" },
   // ── GEPLANT ────────────────────────────────────────────
-  { lat: -34.9011, lng: -56.1645, status: "planned", name: "Montevideo", desc: "Geplant: am 24.11. mit dem Bus aus Colonia del Sacramento.", link: "", linkText: "" },
+  { lat: -34.9088, lng: -54.9580, status: "planned", name: "Maldonado", desc: "Geplant: unsere nächste Station nach Montevideo.", link: "", linkText: "" },
 ];
 
 const MAP_CENTER = [-10, -68];
@@ -599,6 +600,7 @@ const ROUTE = [
   { type: "flight", coords: [[-50.3380,-72.2650],[-41.1335,-71.3103]] },
   { type: "flight", coords: [[-41.1335,-71.3103],[-34.6037,-58.3816]] },
   { type: "land",   coords: [[-34.6037,-58.3816],[-34.4626,-57.8400]] },
+  { type: "land",   coords: [[-34.4626,-57.8400],[-34.9011,-56.1645]] },
 ];
 
 const ROUTE_STYLES = {

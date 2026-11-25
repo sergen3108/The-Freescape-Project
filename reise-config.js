@@ -10,11 +10,11 @@ const REISE = {
 // ── Reise-Zahlen ───────────────────────────────────────────────
   kmZurueckgelegt:      24250,
   // ── Orte besucht (Pins auf karte.html, Status visited + current) ─
-  orteBesucht:          67,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
+  orteBesucht:          68,  // ✏️ hier anpassen, wenn neue Orte/Pins dazukommen
   // ── Nächste Woche / Aktueller Ausblick ─────────────────────────
-  naechsteWoche: 'Seit dem 23.11. sind wir in Colonia del Sacramento, unserem siebten Land Uruguay. Am 24.11. geht es mit dem Bus weiter nach Montevideo 🙌',  // ✏️ hier anpassen
+  naechsteWoche: 'Seit dem 24.11. sind wir in Montevideo. Als Nächstes geht es weiter nach Maldonado 🙌',  // ✏️ hier anpassen
   // ── Aktueller Standort (Stadt-Ebene, fuer die Live-Reisestatus-Box) ─
-  standort: 'Colonia del Sacramento, Uruguay',  // ✏️ hier anpassen
+  standort: 'Montevideo, Uruguay',  // ✏️ hier anpassen
   // ── Südamerika-Reise: Status pro Land ──────────────────────────
   suedamerika: [
     { name: 'Kolumbien',      iso: 170, status: 'visited', href: 'kolumbien.html'         },
