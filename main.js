@@ -208,11 +208,75 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(tick);
   }
 
-  /* ── Dropdown "Länder": Klick auf Button → laender.html ─── */
-  document.querySelectorAll('.nav__dropdown-toggle[data-href]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      if (btn.dataset.href) window.location.href = btn.dataset.href;
+  /* ── Desktop-Dropdowns (Reiseziele, Reiseplanung) ────────
+     Maus: Menue oeffnet per Hover (CSS), Klick auf "Reiseziele"
+     fuehrt zu laender.html.
+     Touch: erstes Tippen oeffnet das Menue, zweites Tippen auf
+     "Reiseziele" fuehrt zur Seite. Tippen daneben schliesst.
+     Tastatur: Enter/Leertaste auf "Reiseplanung" oder Pfeil runter
+     oeffnet und springt in das Menue, Escape schliesst. */
+  const dropdowns = [...document.querySelectorAll('.nav__dropdown')];
+  let lastPointer = 'mouse';
+  document.addEventListener('pointerdown', e => { lastPointer = e.pointerType || 'mouse'; }, true);
+
+  const setDropdown = (dd, open) => {
+    dd.classList.toggle('nav__dropdown--open', open);
+    dd.querySelector('.nav__dropdown-toggle')?.setAttribute('aria-expanded', String(open));
+  };
+  const isOpen = dd => dd.classList.contains('nav__dropdown--open');
+  const closeDropdowns = except => dropdowns.forEach(dd => { if (dd !== except && isOpen(dd)) setDropdown(dd, false); });
+  const firstMenuLink = dd => dd.querySelector('.nav__dropdown-menu a');
+
+  dropdowns.forEach(dd => {
+    const toggle = dd.querySelector('.nav__dropdown-toggle');
+    if (!toggle) return;
+    const isLink = toggle.tagName === 'A';
+
+    toggle.addEventListener('click', e => {
+      const keyboard = e.detail === 0;
+      const mouse = !keyboard && lastPointer === 'mouse';
+      if (isLink) {
+        // Maus, Tastatur oder Menue schon offen: normal zur Seite
+        if (mouse || keyboard || isOpen(dd)) return;
+        e.preventDefault();
+        closeDropdowns(dd);
+        setDropdown(dd, true);
+        return;
+      }
+      if (mouse) return; // Hover zeigt das Menue schon
+      const open = !isOpen(dd);
+      closeDropdowns(dd);
+      setDropdown(dd, open);
+      if (open && keyboard) firstMenuLink(dd)?.focus();
     });
+
+    toggle.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowDown') return;
+      e.preventDefault();
+      closeDropdowns(dd);
+      setDropdown(dd, true);
+      firstMenuLink(dd)?.focus();
+    });
+
+    // Fokus verlaesst das Dropdown (Tab weiter) oder Maus verlaesst es
+    dd.addEventListener('focusout', e => {
+      if (!dd.contains(e.relatedTarget)) setDropdown(dd, false);
+    });
+    dd.addEventListener('mouseleave', () => {
+      if (lastPointer === 'mouse') setDropdown(dd, false);
+    });
+  });
+
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.nav__dropdown')) closeDropdowns();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    const dd = dropdowns.find(isOpen);
+    if (!dd) return;
+    const hadFocus = dd.contains(document.activeElement);
+    setDropdown(dd, false);
+    if (hadFocus) dd.querySelector('.nav__dropdown-toggle')?.focus();
   });
 
   /* ── Smooth Scroll for anchor links ─────────────────── */

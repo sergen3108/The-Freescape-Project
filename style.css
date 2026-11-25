@@ -297,8 +297,13 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
 .nav__dropdown { position: relative; }
 .nav__dropdown-toggle { display: flex; align-items: center; gap: 4px; }
 .nav__dropdown-toggle svg { width: 14px; height: 14px; transition: transform var(--t-fast); }
-.nav__dropdown:hover .nav__dropdown-toggle svg,
-.nav__dropdown:focus-within .nav__dropdown-toggle svg { transform: rotate(180deg); }
+/* Offen per Hover (nur Geraete mit Maus) oder per Klasse aus main.js
+   (Touch, Tastatur). Kein :focus-within, sonst bleibt das Menue nach
+   einem Mausklick offen. */
+.nav__dropdown--open .nav__dropdown-toggle svg { transform: rotate(180deg); }
+@media (hover: hover) {
+  .nav__dropdown:hover .nav__dropdown-toggle svg { transform: rotate(180deg); }
+}
 .nav__dropdown-menu {
   position: absolute;
   top: calc(100% + 8px);
@@ -311,14 +316,33 @@ h4 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
-  transition: all var(--t-base);
+  /* visibility springt beim Oeffnen sofort um (sonst kann der Fokus
+     nicht direkt ins Menue) und erst nach dem Ausblenden zurueck */
+  transition: opacity var(--t-base), transform var(--t-base), visibility 0s linear 250ms;
   box-shadow: var(--shadow-lg);
 }
-.nav__dropdown:hover .nav__dropdown-menu,
-.nav__dropdown:focus-within .nav__dropdown-menu {
+.nav__dropdown--open .nav__dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+  transition-delay: 0s;
+}
+@media (hover: hover) {
+  .nav__dropdown:hover .nav__dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition-delay: 0s;
+  }
+}
+/* Unsichtbare Bruecke ueber die 8px Luecke zum Button, damit das
+   Menue beim langsamen Runterfahren mit der Maus nicht zuklappt */
+.nav__dropdown-menu::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: -12px;
+  height: 12px;
 }
 .nav__dropdown-link {
   display: block;
