@@ -77,11 +77,19 @@ Ganz in der Nähe liegt **Larcomar**, ein Einkaufszentrum, das direkt in die Kli
 
 In **Barranco** haben wir uns die vielen Wandbilder und die Street Art angeschaut. Der Stadtteil eignet sich perfekt, um einfach durch die Straßen zu schlendern und zwischendurch in einem der Cafés anzuhalten.
 
+### Circuito Mágico del Agua
+
+Einen Abend waren wir im **Circuito Mágico del Agua** im Parque de la Reserva, um uns die **Lichtershow** anzuschauen. Der Park ist bekannt für seine vielen Wasserfontänen, die abends in allen Farben beleuchtet werden.
+
+Plane den Besuch am besten für den Abend ein, denn erst im Dunkeln kommen die Farben und die Show richtig zur Geltung.
+
+![Bunt beleuchtete Wasserfontänen im Circuito Mágico del Agua](assets/img/blog/lima3.jpg)
+
 ### Walking Tour durch die Altstadt
 
 Für einen Mittag waren wir in der **Altstadt** und haben dort eine **Walking Tour** gemacht. Das war ein guter Weg, um in kurzer Zeit viel über die Geschichte der Stadt zu erfahren.
 
-![Platz mit Reiterstatue in der Altstadt von Lima](assets/img/blog/lima2.jpg)
+![Die Reiterstatue von Francisco Pizarro in der Altstadt von Lima](assets/img/blog/lima2.jpg)
 
 Danach sind wir in **Chinatown** essen gegangen. Lima hat eine große chinesische Gemeinschaft, und daraus ist eine ganz eigene peruanisch-chinesische Küche entstanden, die man in Peru Chifa nennt. Genau die haben wir dort probiert, und das solltest du in Lima auf jeden Fall auch machen.
 
@@ -134,8 +142,6 @@ Auf jeden Fall! Lima ist für uns viel mehr als nur ein Zwischenstopp auf dem We
 Die Promenade in Miraflores, die bunten Straßen in Barranco und vor allem das Essen machen die Stadt zu einem der spannendsten Orte in Peru. Wir haben uns hier so wohlgefühlt, dass wir uns sogar vorstellen konnten, eine Zeit lang hier zu leben.
 
 Wenn du gern isst, Städte mit hoher Lebensqualität magst oder einfach ein paar entspannte Tage mit Meerblick verbringen willst, solltest du Lima auf keinen Fall auslassen.
-
-![Bunt beleuchtete Wasserfontänen im Circuito Mágico del Agua in Lima](assets/img/blog/lima3.jpg)
 
 ---
 
