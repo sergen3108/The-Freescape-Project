@@ -60,7 +60,7 @@ Gebucht haben wir die Tour ganz einfach vor Ort: Wir haben bei den Agenturen dir
 
 Beim **Sandboarding** standen wir nicht auf dem Board, denn wir können beide nicht snowboarden. Stattdessen haben wir uns einfach auf den Bauch gelegt und sind die Dünen quasi wie beim Bodyboarding hinuntergerutscht. Für spezielle Boards zum Stehen hätte man außerdem extra zahlen müssen. Für uns hat das Liegen völlig gereicht, und es war eine coole und lustige Erfahrung.
 
-![Mit dem Sandboard auf den Dünen bei Sonnenuntergang](assets/img/blog/huacachina1.jpg)
+![Sergen mit dem Sandboard auf den Dünen bei Sonnenuntergang](assets/img/blog/huacachina1.jpg)
 
 **Das solltest du mitnehmen:**
 
