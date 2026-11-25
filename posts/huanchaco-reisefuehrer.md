@@ -6,6 +6,7 @@ typ: guide
 lesezeit: 8 min
 autor: Julia
 teaser: Vier Nächte zwischen Strandpromenade, alten Lehmstädten und Pfannkuchen zum Frühstück, Huanchaco hat uns noch besser gefallen als Máncora. Hier erfährst du alles, was du für deinen Besuch wissen musst.
+bild: assets/img/blog/huanchaco5.jpg
 bildEmoji: 🌅
 bildGradient: linear-gradient(135deg,#e8431a,#f6b93b)
 tags:
@@ -64,23 +65,35 @@ Alle Ausflüge, die wir rund um Huanchaco gemacht haben, fanden wir sehr lohnens
 
 Unser liebstes Ritual: Jeden Abend haben wir uns den **Sonnenuntergang an der Strandpromenade** angeschaut. Die Sonne geht direkt über dem Pazifik unter. Das solltest du dir auf keinen Fall entgehen lassen.
 
+![Surfer im Abendlicht vor der Küste von Huanchaco, links der Pier](assets/img/blog/huanchaco4.jpg)
+
 Typisch für Huanchaco sind außerdem die **Caballitos de Totora**, traditionelle Boote aus Schilf, die die Fischer hier seit Jahrhunderten benutzen. Man sieht sie am Strand stehen, sie gehören einfach zum Ortsbild.
 
 ### Chan Chan
 
 Mit dem Bus sind wir nach **Chan Chan** gefahren, der Hauptstadt des alten Chimú-Reichs. Chan Chan gilt als größte Lehmziegelstadt Amerikas und gehört zum UNESCO-Welterbe. Für uns hat sich der Besuch auf jeden Fall gelohnt.
 
+![Terrassierte Lehmpyramide bei Trujillo](assets/img/blog/huanchaco6.jpg)
+
 ### Huacas del Sol y de la Luna
 
 Ebenfalls mit dem Bus ging es zu den **Huacas del Sol y de la Luna**, zwei Tempelanlagen der Moche-Kultur, die noch älter ist als die Chimú. Auch diesen Ausflug können wir sehr empfehlen, vor allem wenn du dich für die Geschichte Perus vor den Inka interessierst.
 
+![Reliefs der Moche an der Fassade der Huaca de la Luna](assets/img/blog/huanchaco2.jpg)
+
 **Wichtig:** Informiere dich bei den einzelnen Sehenswürdigkeiten vorher, wann es Führungen auf Englisch gibt. Die meisten Touren finden auf Spanisch statt, englische Führungen gibt es seltener.
+
+![Farbiges Relief mit dem Gesicht einer Moche-Gottheit in der Huaca de la Luna](assets/img/blog/huanchaco1.jpg)
 
 ### Ein Tag in Trujillo
 
 Einen Tag haben wir in **Trujillo** verbracht. Die Stadt ist von Huanchaco aus schnell erreichbar und ein guter Kontrast zum ruhigen Strandort.
 
+![Fußgängerzone im historischen Zentrum von Trujillo](assets/img/blog/huanchaco7.jpg)
+
 Wir haben uns das historische Stadtzentrum angeschaut. Mittelpunkt ist die **Plaza de Armas**, der Hauptplatz mit seinem großen Monument in der Mitte. Direkt am Platz liegt die **Basilika**, die Kathedrale von Trujillo, und auch die **Casa Urquiaga**, ein altes Kolonialhaus, das man besichtigen kann. Beides haben wir uns angeschaut, und es lohnt sich, dafür ein bisschen Zeit einzuplanen.
+
+![Plaza de Armas in Trujillo mit dem Freiheitsdenkmal und der Kathedrale](assets/img/blog/huanchaco3.jpg)
 
 Gegessen haben wir im **Vital Food Centro Histórico**, wo es leckere Gerichte gibt, darunter auch viele vegetarische Optionen.
 
