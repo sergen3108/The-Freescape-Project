@@ -73,7 +73,7 @@ Typisch für Huanchaco sind außerdem die **Caballitos de Totora**, traditionell
 
 Mit dem Bus sind wir nach **Chan Chan** gefahren, der Hauptstadt des alten Chimú-Reichs. Chan Chan gilt als größte Lehmziegelstadt Amerikas und gehört zum UNESCO-Welterbe. Für uns hat sich der Besuch auf jeden Fall gelohnt.
 
-![Terrassierte Lehmpyramide bei Trujillo](assets/img/blog/huanchaco6.jpg)
+![Terrassierte Lehmpyramide in Chan Chan](assets/img/blog/huanchaco6.jpg)
 
 ### Huacas del Sol y de la Luna
 
