@@ -175,7 +175,7 @@ window.LAENDER = [
     gradient: 'linear-gradient(135deg,#2d5a7d,#7db9d4)',
     heroImage: 'assets/img/ColoniaDelSacramento.jpeg',
     ogImage: 'https://thefreescapeproject.com/assets/img/ColoniaDelSacramento.jpeg',
-    vlogKeywords: ['uruguay', 'montevideo', 'punta del este', 'colonia del sacramento']
+    vlogKeywords: ['uruguay', 'montevideo', 'punta del este', 'colonia del sacramento', 'maldonado', 'la paloma', 'cabo polonio']
   },
   {
     slug: 'paraguay',
